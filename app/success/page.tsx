@@ -94,7 +94,7 @@ function SuccessContent() {
           </button>
 
           
-            href={`/timeline?dpa=${dpa}`}
+            href={"/timeline?dpa=" + dpa}
             className="w-full block font-semibold py-4 rounded-2xl transition-all text-sm text-center mb-3"
             style={{background:'#f0e8dc', color:'#6b5c4e'}}
           >
