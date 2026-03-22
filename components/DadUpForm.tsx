@@ -26,6 +26,28 @@ export default function DadUpForm() {
     return Object.keys(newErrors).length === 0;
   };
 
+  const getSemaines = () => {
+    if (!formData.dpa) return null;
+    const today = new Date();
+    const dpa = new Date(formData.dpa);
+    const conception = new Date(dpa.getTime() - 40 * 7 * 24 * 60 * 60 * 1000);
+    const diff = today.getTime() - conception.getTime();
+    return Math.max(1, Math.min(42, Math.floor(diff / (7 * 24 * 60 * 60 * 1000))));
+  };
+
+  const getFruit = (sa: number) => {
+    if (sa <= 8) return { nom: 'myrtille', emoji: '🫐' };
+    if (sa <= 10) return { nom: 'fraise', emoji: '🍓' };
+    if (sa <= 12) return { nom: 'citron', emoji: '🍋' };
+    if (sa <= 16) return { nom: 'avocat', emoji: '🥑' };
+    if (sa <= 20) return { nom: 'banane', emoji: '🍌' };
+    if (sa <= 24) return { nom: 'épi de maïs', emoji: '🌽' };
+    if (sa <= 28) return { nom: 'aubergine', emoji: '🍆' };
+    if (sa <= 32) return { nom: 'mangue', emoji: '🥭' };
+    if (sa <= 36) return { nom: 'melon', emoji: '🍈' };
+    return { nom: 'pastèque', emoji: '🍉' };
+  };
+
   const handleSubmit = async () => {
     if (!validate()) return;
     setLoading(true);
@@ -44,37 +66,44 @@ export default function DadUpForm() {
     }
   };
 
+  const sa = getSemaines();
+  const fruit = sa ? getFruit(sa) : null;
+
   return (
-    <div className="bg-[#111827]/80 border border-[#1E293B] rounded-2xl p-8 backdrop-blur-sm">
+    <div className="bg-white rounded-3xl p-6 border border-[#e8ddd4] shadow-sm">
 
-      {/* Prix */}
-      <div className="flex items-center justify-between mb-8">
-        <h2 className="text-[#F8FAFC] text-xl font-bold">Génère ton PDF</h2>
-        <div className="flex items-baseline gap-1">
-          <span className="text-3xl font-black text-[#F8FAFC]">9,99€</span>
-          <span className="text-[#475569] text-sm">une fois</span>
+      {/* Preview bébé si DPA remplie */}
+      {sa && fruit && (
+        <div className="bg-[#f8f5f0] rounded-2xl p-4 mb-6 flex items-center gap-4">
+          <span className="text-4xl">{fruit.emoji}</span>
+          <div>
+            <p className="text-[#3a3028] font-semibold text-sm">Semaine {sa} — bébé a la taille d'une {fruit.nom}</p>
+            <p className="text-[#b0988a] text-xs mt-0.5">
+              {40 - sa > 0 ? `Il reste ${40 - sa} semaines avant le grand jour` : '🎉 C\'est le moment !'}
+            </p>
+          </div>
         </div>
-      </div>
+      )}
 
-      <div className="space-y-6">
+      <div className="space-y-5">
 
         {/* DPA */}
         <div>
-          <label className="block text-[#94A3B8] text-sm font-medium mb-2">
+          <label className="block text-[#6b5c4e] text-sm font-semibold mb-2">
             📅 Date prévue d'accouchement
           </label>
           <input
             type="date"
             value={formData.dpa}
             onChange={(e) => setFormData({ ...formData, dpa: e.target.value })}
-            className="w-full bg-[#0A0F1E] border border-[#1E293B] rounded-xl px-4 py-3 text-[#F8FAFC] focus:outline-none focus:border-[#3B82F6] transition-colors"
+            className="w-full bg-[#f8f5f0] border border-[#e8ddd4] rounded-2xl px-4 py-3 text-[#3a3028] focus:outline-none focus:border-[#c8a882] transition-colors text-sm"
           />
           {errors.dpa && <p className="text-red-400 text-xs mt-1">{errors.dpa}</p>}
         </div>
 
         {/* Ville */}
         <div>
-          <label className="block text-[#94A3B8] text-sm font-medium mb-2">
+          <label className="block text-[#6b5c4e] text-sm font-semibold mb-2">
             📍 Ta ville
           </label>
           <input
@@ -82,14 +111,14 @@ export default function DadUpForm() {
             placeholder="Paris, Lyon, Marseille..."
             value={formData.ville}
             onChange={(e) => setFormData({ ...formData, ville: e.target.value })}
-            className="w-full bg-[#0A0F1E] border border-[#1E293B] rounded-xl px-4 py-3 text-[#F8FAFC] placeholder-[#374151] focus:outline-none focus:border-[#3B82F6] transition-colors"
+            className="w-full bg-[#f8f5f0] border border-[#e8ddd4] rounded-2xl px-4 py-3 text-[#3a3028] placeholder-[#c8b8a8] focus:outline-none focus:border-[#c8a882] transition-colors text-sm"
           />
           {errors.ville && <p className="text-red-400 text-xs mt-1">{errors.ville}</p>}
         </div>
 
         {/* Premier enfant */}
         <div>
-          <label className="block text-[#94A3B8] text-sm font-medium mb-3">
+          <label className="block text-[#6b5c4e] text-sm font-semibold mb-2">
             👶 C'est ton premier enfant ?
           </label>
           <div className="grid grid-cols-2 gap-3">
@@ -100,10 +129,10 @@ export default function DadUpForm() {
               <button
                 key={String(option.value)}
                 onClick={() => setFormData({ ...formData, premierEnfant: option.value })}
-                className={`p-3 rounded-xl border text-sm font-medium transition-all ${
+                className={`p-3 rounded-2xl border text-sm font-medium transition-all ${
                   formData.premierEnfant === option.value
-                    ? 'bg-[#1E3A8A] border-[#3B82F6] text-[#F8FAFC]'
-                    : 'bg-[#0A0F1E] border-[#1E293B] text-[#64748B] hover:border-[#1E3A8A]'
+                    ? 'bg-[#c8a882] border-[#c8a882] text-white'
+                    : 'bg-[#f8f5f0] border-[#e8ddd4] text-[#9a8470] hover:border-[#c8a882]'
                 }`}
               >
                 {option.label}
@@ -117,24 +146,23 @@ export default function DadUpForm() {
         <button
           onClick={handleSubmit}
           disabled={loading}
-          className="w-full bg-gradient-to-r from-[#1E3A8A] to-[#3B82F6] hover:from-[#1e40af] hover:to-[#2563eb] text-white font-bold py-4 rounded-xl transition-all transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed text-lg"
+          className="w-full bg-[#3a3028] hover:bg-[#6b5c4e] text-[#f0e0cc] font-bold py-4 rounded-2xl transition-all transform hover:scale-[1.02] disabled:opacity-50 text-sm tracking-wide"
         >
           {loading ? (
             <span className="flex items-center justify-center gap-2">
-              <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24" fill="none">
+              <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24" fill="none">
                 <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                 <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z" />
               </svg>
-              Redirection paiement...
+              Chargement...
             </span>
           ) : (
-            '🚀 Générer mon PDF — 9,99€'
+            '🚀 Voir mon guide personnalisé — 9,99€'
           )}
         </button>
 
-        {/* Sécurité */}
-        <p className="text-center text-[#334155] text-xs">
-          🔒 Paiement sécurisé par Stripe · PDF téléchargeable immédiatement
+        <p className="text-center text-[#c8b8a8] text-xs">
+          🔒 Paiement sécurisé par Stripe
         </p>
 
       </div>
