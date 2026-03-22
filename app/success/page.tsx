@@ -35,6 +35,9 @@ function SuccessContent() {
     }
   };
 
+  const dateStr = dpa ? new Date(dpa).toLocaleDateString('fr-FR') : '-';
+  const timelineHref = '/timeline?dpa=' + dpa;
+
   return (
     <main className="min-h-screen bg-[#f8f5f0] flex items-center justify-center px-4">
       <div className="max-w-md w-full">
@@ -58,60 +61,39 @@ function SuccessContent() {
             </svg>
           </div>
 
-          <h1 className="text-2xl font-bold text-[#3a3028] mb-2">
-            Paiement ok ! 🎉
-          </h1>
-          <p className="text-[#9a8470] text-sm mb-6">
-            {downloaded ? 'Ton PDF est en cours de telechargement.' : 'Ton guide personnalise est pret.'}
-          </p>
+          <h1 className="text-2xl font-bold text-[#3a3028] mb-2">Paiement ok !</h1>
+          <p className="text-[#9a8470] text-sm mb-6">{downloaded ? 'Telechargement en cours.' : 'Ton guide est pret.'}</p>
 
           <div className="bg-[#f8f5f0] rounded-2xl p-4 text-left space-y-2 mb-6">
             <div className="flex justify-between">
-              <span className="text-sm" style={{color:'#9a8470'}}>Ville</span>
-              <span className="text-sm font-semibold" style={{color:'#3a3028'}}>{ville}</span>
+              <span style={{color:'#9a8470', fontSize:'14px'}}>Ville</span>
+              <span style={{color:'#3a3028', fontSize:'14px', fontWeight:'600'}}>{ville}</span>
             </div>
             <div className="flex justify-between">
-              <span className="text-sm" style={{color:'#9a8470'}}>Date prevue</span>
-              <span className="text-sm font-semibold" style={{color:'#3a3028'}}>
-                {dpa ? new Date(dpa).toLocaleDateString('fr-FR') : '-'}
-              </span>
+              <span style={{color:'#9a8470', fontSize:'14px'}}>Date prevue</span>
+              <span style={{color:'#3a3028', fontSize:'14px', fontWeight:'600'}}>{dateStr}</span>
             </div>
             <div className="flex justify-between">
-              <span className="text-sm" style={{color:'#9a8470'}}>Premier enfant</span>
-              <span className="text-sm font-semibold" style={{color:'#3a3028'}}>
-                {premier === 'true' ? 'Oui' : 'Non'}
-              </span>
+              <span style={{color:'#9a8470', fontSize:'14px'}}>Premier enfant</span>
+              <span style={{color:'#3a3028', fontSize:'14px', fontWeight:'600'}}>{premier === 'true' ? 'Oui' : 'Non'}</span>
             </div>
           </div>
 
-          <button
-            onClick={downloadPDF}
-            disabled={loading}
-            className="w-full font-bold py-4 rounded-2xl transition-all text-sm mb-3 disabled:opacity-50"
-            style={{background:'#3a3028', color:'#f0e0cc'}}
-          >
+          <button onClick={downloadPDF} disabled={loading} style={{background:'#3a3028', color:'#f0e0cc', width:'100%', padding:'16px', borderRadius:'16px', fontWeight:'700', fontSize:'14px', marginBottom:'12px', opacity: loading ? 0.5 : 1}}>
             {loading ? 'Generation...' : 'Telecharger mon guide PDF'}
           </button>
 
-          
-            href={"/timeline?dpa=" + dpa}
-            className="w-full block font-semibold py-4 rounded-2xl transition-all text-sm text-center mb-3"
-            style={{background:'#f0e8dc', color:'#6b5c4e'}}
-          >
+          <button onClick={() => window.location.href = timelineHref} style={{background:'#f0e8dc', color:'#6b5c4e', width:'100%', padding:'16px', borderRadius:'16px', fontWeight:'600', fontSize:'14px', marginBottom:'12px'}}>
             Voir ma timeline de grossesse
-          </a>
+          </button>
 
-          <button
-            onClick={() => window.location.href = '/'}
-            className="w-full text-sm transition-colors"
-            style={{color:'#b0988a'}}
-          >
+          <button onClick={() => window.location.href = '/'} style={{color:'#b0988a', fontSize:'14px', width:'100%', padding:'8px'}}>
             Retour accueil
           </button>
 
         </div>
 
-        <p className="text-center text-xs mt-6" style={{color:'#c8b8a8'}}>
+        <p style={{textAlign:'center', color:'#c8b8a8', fontSize:'12px', marginTop:'24px'}}>
           Document informatif uniquement. Consultez votre medecin.
         </p>
 
