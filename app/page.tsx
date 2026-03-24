@@ -1,10 +1,15 @@
 'use client';
 
-import { useState } from 'react';
-import DadUpForm from '@/components/DadUpForm';
-
 export default function Home() {
-  const [showForm, setShowForm] = useState(false);
+  const goToStripe = async () => {
+    const res = await fetch('/api/checkout', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ dpa: '', ville: '', premierEnfant: true }),
+    });
+    const data = await res.json();
+    if (data.url) window.location.href = data.url;
+  };
 
   return (
     <main className="min-h-screen bg-[#f8f5f0]">
@@ -21,19 +26,19 @@ export default function Home() {
           </svg>
           <span className="font-bold text-[#3a3028] text-lg" style={{fontFamily:'Georgia,serif'}}>DadUp</span>
         </div>
-        <button onClick={() => setShowForm(true)} className="bg-[#3a3028] text-[#f0e0cc] text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-[#6b5c4e] transition-all">Commencer — 29,99€/an</button>
+        <button onClick={goToStripe} className="bg-[#3a3028] text-[#f0e0cc] text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-[#6b5c4e] transition-all">Commencer — 29,99€/an</button>
       </header>
 
       <section className="max-w-2xl mx-auto px-6 pt-16 pb-12">
         <div className="flex flex-col md:flex-row gap-10 items-stretch">
           <div className="flex-1 flex flex-col justify-center">
-            <p className="text-[#c8a882] text-xs uppercase tracking-[4px] font-medium mb-6">Le guide du papa</p>
+            <p className="text-[#c8a882] text-xs uppercase tracking-[4px] font-medium mb-6">Le guide du père</p>
             <h1 className="text-5xl font-bold text-[#3a3028] leading-tight mb-6" style={{fontFamily:'Georgia,serif'}}>
               Tout ce qu'on<br />ne t'a pas<br /><span className="text-[#c8a882]">appris.</span>
             </h1>
             <p className="text-[#6b5c4e] text-lg leading-relaxed mb-4 font-medium" style={{fontFamily:'Georgia,serif'}}>Papa, dès le premier jour.</p>
             <p className="text-[#9a8470] text-base leading-relaxed mb-10">De la première échographie au post-partum. Sois le meilleur soutien pour ta partenaire, sache ce qui est bon pour elle, et sois là au maximum.</p>
-            <button onClick={() => setShowForm(true)} className="bg-[#3a3028] text-[#f0e0cc] font-bold px-8 py-4 rounded-full hover:bg-[#6b5c4e] transition-all text-sm tracking-wide w-fit">Accès annuel — 29,99€/an</button>
+            <button onClick={goToStripe} className="bg-[#3a3028] text-[#f0e0cc] font-bold px-8 py-4 rounded-full hover:bg-[#6b5c4e] transition-all text-sm tracking-wide w-fit">Accès annuel — 29,99€/an</button>
           </div>
           <div className="w-full md:w-80 flex-shrink-0">
             <img src="/main.jpg" alt="Couple enceinte" className="w-full h-full min-h-[500px] object-cover rounded-3xl" style={{objectPosition:'center'}}/>
@@ -121,7 +126,6 @@ export default function Home() {
       <section className="bg-[#3a3028]">
         <div className="max-w-2xl mx-auto px-6 py-16 text-center">
           <p className="text-[#c8a882] text-xs uppercase tracking-[4px] font-medium mb-8">L'offre</p>
-
           <div className="bg-[#f0e0cc] rounded-3xl p-8 max-w-sm mx-auto">
             <p className="text-[#6b5c4e] text-xs uppercase tracking-[3px] font-medium mb-3">Accès annuel complet</p>
             <p className="text-5xl font-bold text-[#3a3028] mb-1" style={{fontFamily:'Georgia,serif'}}>29,99€</p>
@@ -142,10 +146,9 @@ export default function Home() {
                 </div>
               ))}
             </div>
-            <button onClick={() => setShowForm(true)} className="w-full bg-[#3a3028] hover:bg-[#6b5c4e] text-[#f0e0cc] font-bold px-8 py-4 rounded-full transition-all text-sm tracking-wide">Accès annuel complet — 29,99€/an</button>
+            <button onClick={goToStripe} className="w-full bg-[#3a3028] hover:bg-[#6b5c4e] text-[#f0e0cc] font-bold px-8 py-4 rounded-full transition-all text-sm tracking-wide">Accès annuel complet — 29,99€/an</button>
             <p className="text-[#9a8470] text-xs mt-4">Paiement sécurisé par Stripe</p>
           </div>
-
         </div>
       </section>
 
@@ -154,18 +157,6 @@ export default function Home() {
           DadUp est un outil d'information et d'accompagnement. Il ne remplace pas l'avis d'un médecin ou d'une sage-femme. Aucune donnée personnelle n'est conservée.
         </p>
       </footer>
-
-      {showForm && (
-        <div className="fixed inset-0 bg-black/50 z-50 flex items-end sm:items-center justify-center p-4">
-          <div className="bg-white rounded-3xl w-full max-w-md p-6">
-            <div className="flex items-center justify-between mb-6">
-              <h3 className="text-lg font-bold text-[#3a3028]" style={{fontFamily:'Georgia,serif'}}>Ton espace DadUp</h3>
-              <button onClick={() => setShowForm(false)} className="text-[#9a8470] hover:text-[#3a3028] text-xl">✕</button>
-            </div>
-            <DadUpForm />
-          </div>
-        </div>
-      )}
 
     </main>
   );
