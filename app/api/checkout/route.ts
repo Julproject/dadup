@@ -11,17 +11,7 @@ export async function POST(req: NextRequest) {
       payment_method_types: ['card'],
       line_items: [
         {
-          price_data: {
-            currency: 'eur',
-            product_data: {
-              name: 'DadUp — Accès annuel complet',
-              description: 'Le guide complet du père — de la grossesse au post-partum',
-            },
-            unit_amount: 2999,
-            recurring: {
-              interval: 'year',
-            },
-          },
+          price: process.env.STRIPE_PRICE_ID!,
           quantity: 1,
         },
       ],
