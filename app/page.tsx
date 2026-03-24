@@ -27,7 +27,7 @@ export default function Home() {
       <section className="max-w-2xl mx-auto px-6 pt-16 pb-12">
         <div className="flex flex-col md:flex-row gap-10 items-stretch">
           <div className="flex-1 flex flex-col justify-center">
-            <p className="text-[#c8a882] text-xs uppercase tracking-[4px] font-medium mb-6">Le guide du père</p>
+            <p className="text-[#c8a882] text-xs uppercase tracking-[4px] font-medium mb-6">Le guide du papa</p>
             <h1 className="text-5xl font-bold text-[#3a3028] leading-tight mb-6" style={{fontFamily:'Georgia,serif'}}>
               Papa,<br />dès le<br /><span className="text-[#c8a882]">premier jour.</span>
             </h1>
