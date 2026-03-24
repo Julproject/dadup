@@ -36,8 +36,8 @@ export default function Home() {
             <button onClick={() => setShowForm(true)} className="bg-[#3a3028] text-[#f0e0cc] font-bold px-8 py-4 rounded-full hover:bg-[#6b5c4e] transition-all text-sm tracking-wide w-fit">Accès annuel — 19,99€/an</button>
             <p className="text-[#b0988a] text-xs mt-4">Premier mois gratuit. Sans engagement.</p>
           </div>
-          <div className="flex-shrink-0 w-full md:w-72">
-            <img src="/main.jpg" alt="Couple enceinte" className="w-full h-full min-h-[420px] object-cover rounded-3xl" style={{objectPosition:'center'}}/>
+          <div className="w-full md:w-[480px] flex-shrink-0">
+            <img src="/main.jpg" alt="Couple enceinte" className="w-full h-full min-h-[500px] object-cover rounded-3xl" style={{objectPosition:'center'}}/>
           </div>
         </div>
       </section>
@@ -60,7 +60,7 @@ export default function Home() {
 
       <section className="max-w-2xl mx-auto px-6 py-16">
         <div className="flex flex-col md:flex-row gap-10 items-stretch">
-          <div className="flex-shrink-0 w-full md:w-64">
+          <div className="w-full md:w-64 flex-shrink-0">
             <img src="/deborde.jpg" alt="Père et bébé" className="w-full h-full min-h-[420px] object-cover rounded-3xl" style={{objectPosition:'center top'}}/>
           </div>
           <div className="flex-1 flex flex-col justify-center">
