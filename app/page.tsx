@@ -21,7 +21,7 @@ export default function Home() {
           </svg>
           <span className="font-bold text-[#3a3028] text-lg" style={{fontFamily:'Georgia,serif'}}>DadUp</span>
         </div>
-        <button onClick={() => setShowForm(true)} className="bg-[#3a3028] text-[#f0e0cc] text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-[#6b5c4e] transition-all">Commencer — 19,99€/an</button>
+        <button onClick={() => setShowForm(true)} className="bg-[#3a3028] text-[#f0e0cc] text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-[#6b5c4e] transition-all">Commencer — 29,99€/an</button>
       </header>
 
       <section className="max-w-2xl mx-auto px-6 pt-16 pb-12">
@@ -29,15 +29,13 @@ export default function Home() {
           <div className="flex-1 flex flex-col justify-center">
             <p className="text-[#c8a882] text-xs uppercase tracking-[4px] font-medium mb-6">Le guide du papa</p>
             <h1 className="text-5xl font-bold text-[#3a3028] leading-tight mb-6" style={{fontFamily:'Georgia,serif'}}>
-              Papa,<br />dès le<br /><span className="text-[#c8a882]">premier jour.</span>
+              Tout ce qu'on<br />ne t'a pas<br /><span className="text-[#c8a882]">appris.</span>
             </h1>
-            <p className="text-[#6b5c4e] text-lg leading-relaxed mb-4 font-medium" style={{fontFamily:'Georgia,serif'}}>Tout ce qu'on ne t'a pas appris.</p>
+            <p className="text-[#6b5c4e] text-lg leading-relaxed mb-4 font-medium" style={{fontFamily:'Georgia,serif'}}>Papa, dès le premier jour.</p>
             <p className="text-[#9a8470] text-base leading-relaxed mb-10">De la première échographie au post-partum. Sois le meilleur soutien pour ta partenaire, sache ce qui est bon pour elle, et sois là au maximum.</p>
-            <button onClick={() => setShowForm(true)} className="bg-[#3a3028] text-[#f0e0cc] font-bold px-8 py-4 rounded-full hover:bg-[#6b5c4e] transition-all text-sm tracking-wide w-fit">Accès annuel — 19,99€/an</button>
-            <p className="text-[#b0988a] text-xs mt-4">Premier mois gratuit. Sans engagement.</p>
+            <button onClick={() => setShowForm(true)} className="bg-[#3a3028] text-[#f0e0cc] font-bold px-8 py-4 rounded-full hover:bg-[#6b5c4e] transition-all text-sm tracking-wide w-fit">Accès annuel — 29,99€/an</button>
           </div>
           <div className="w-full md:w-80 flex-shrink-0">
-
             <img src="/main.jpg" alt="Couple enceinte" className="w-full h-full min-h-[500px] object-cover rounded-3xl" style={{objectPosition:'center'}}/>
           </div>
         </div>
@@ -49,7 +47,7 @@ export default function Home() {
             { chiffre: '41', label: 'semaines' },
             { chiffre: '6', label: 'modules' },
             { chiffre: 'Post', label: 'partum inclus' },
-            { chiffre: '19,99€', label: 'par an' },
+            { chiffre: '29,99€', label: 'par an' },
           ].map((s, i) => (
             <div key={s.label} className={`text-center ${i > 0 ? 'border-l border-[#e8ddd4]' : ''}`}>
               <p className="text-xl font-bold text-[#3a3028]" style={{fontFamily:'Georgia,serif'}}>{s.chiffre}</p>
@@ -88,8 +86,8 @@ export default function Home() {
 
       <section id="contenu" className="bg-white border-t border-[#e8ddd4]">
         <div className="max-w-2xl mx-auto px-6 py-16">
-          <p className="text-[#c8a882] text-xs uppercase tracking-[4px] font-medium mb-4">Ce que tu obtiens</p>
-          <h2 className="text-3xl font-bold text-[#3a3028] mb-10" style={{fontFamily:'Georgia,serif'}}>Tout ce qu'on ne t'a pas appris.</h2>
+          <p className="text-[#c8a882] text-xs uppercase tracking-[4px] font-medium mb-4">Ce qui est inclus</p>
+          <h2 className="text-3xl font-bold text-[#3a3028] mb-10" style={{fontFamily:'Georgia,serif'}}>6 modules pour être vraiment là.</h2>
           <div className="flex flex-col gap-4">
             {[
               { titre: 'Calendrier des rendez-vous', desc: "Chaque consultation expliquée. Ton rôle précis. Personnalisé à ta date d'accouchement.", svg: <svg width="40" height="40" viewBox="0 0 40 40"><rect width="40" height="40" rx="10" fill="#e8ddd4"/><rect x="10" y="8" width="20" height="24" rx="3" fill="none" stroke="#6b5c4e" strokeWidth="1.5"/><line x1="14" y1="14" x2="26" y2="14" stroke="#c8a882" strokeWidth="1.5" strokeLinecap="round"/><line x1="14" y1="18" x2="26" y2="18" stroke="#c8a882" strokeWidth="1" strokeLinecap="round"/><line x1="14" y1="22" x2="22" y2="22" stroke="#c8a882" strokeWidth="1" strokeLinecap="round"/></svg> },
@@ -122,28 +120,32 @@ export default function Home() {
 
       <section className="bg-[#3a3028]">
         <div className="max-w-2xl mx-auto px-6 py-16 text-center">
-          <p className="text-[#c8a882] text-xs uppercase tracking-[4px] font-medium mb-4">L'offre</p>
-          <h2 className="text-3xl font-bold text-[#f0e0cc] mb-2" style={{fontFamily:'Georgia,serif'}}>Accès annuel complet</h2>
-          <p className="text-4xl font-bold text-[#c8a882] mb-1" style={{fontFamily:'Georgia,serif'}}>19,99€<span className="text-lg text-[#6b5c4e]">/an</span></p>
-          <p className="text-[#6b5c4e] text-sm mb-8">Premier mois gratuit. Sans engagement. Résiliable à tout moment.</p>
-          <div className="flex flex-col gap-3 text-left max-w-xs mx-auto mb-10">
-            {[
-              "6 modules complets",
-              "De la grossesse au post-partum",
-              "Idées mensuelles pour ta partenaire",
-              "Personnalisé à ta date d'accouchement",
-              "Accès sur tous tes appareils",
-            ].map((f) => (
-              <div key={f} className="flex items-center gap-3">
-                <div className="w-4 h-4 rounded-full bg-[#c8a882] flex items-center justify-center flex-shrink-0">
-                  <span className="text-[#3a3028] text-xs font-bold">✓</span>
+          <p className="text-[#c8a882] text-xs uppercase tracking-[4px] font-medium mb-8">L'offre</p>
+
+          <div className="bg-[#f0e0cc] rounded-3xl p-8 max-w-sm mx-auto">
+            <p className="text-[#6b5c4e] text-xs uppercase tracking-[3px] font-medium mb-3">Accès annuel complet</p>
+            <p className="text-5xl font-bold text-[#3a3028] mb-1" style={{fontFamily:'Georgia,serif'}}>29,99€</p>
+            <p className="text-[#9a8470] text-sm mb-6">par an · sans engagement</p>
+            <div className="flex flex-col gap-3 text-left mb-8">
+              {[
+                "6 modules complets",
+                "De la grossesse au post-partum",
+                "Idées mensuelles pour ta partenaire",
+                "Personnalisé à ta date d'accouchement",
+                "Accès sur tous tes appareils",
+              ].map((f) => (
+                <div key={f} className="flex items-center gap-3">
+                  <div className="w-4 h-4 rounded-full bg-[#3a3028] flex items-center justify-center flex-shrink-0">
+                    <span className="text-[#f0e0cc] text-xs font-bold">✓</span>
+                  </div>
+                  <p className="text-[#3a3028] text-sm">{f}</p>
                 </div>
-                <p className="text-[#e8d5c4] text-sm">{f}</p>
-              </div>
-            ))}
+              ))}
+            </div>
+            <button onClick={() => setShowForm(true)} className="w-full bg-[#3a3028] hover:bg-[#6b5c4e] text-[#f0e0cc] font-bold px-8 py-4 rounded-full transition-all text-sm tracking-wide">Accès annuel complet — 29,99€/an</button>
+            <p className="text-[#9a8470] text-xs mt-4">Paiement sécurisé par Stripe</p>
           </div>
-          <button onClick={() => setShowForm(true)} className="bg-[#c8a882] hover:bg-[#b89060] text-[#1c1510] font-bold px-10 py-4 rounded-full transition-all text-sm tracking-wide">Commencer maintenant — 19,99€/an</button>
-          <p className="text-[#4a3c30] text-xs mt-4">Paiement sécurisé par Stripe</p>
+
         </div>
       </section>
 
