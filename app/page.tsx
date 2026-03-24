@@ -24,26 +24,24 @@ export default function Home() {
         <button onClick={() => setShowForm(true)} className="bg-[#3a3028] text-[#f0e0cc] text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-[#6b5c4e] transition-all">Commencer — 19,99€/an</button>
       </header>
 
-      {/* HERO avec image */}
       <section className="max-w-2xl mx-auto px-6 pt-16 pb-12">
-        <div className="flex flex-col md:flex-row gap-10 items-center">
-          <div className="flex-1">
+        <div className="flex flex-col md:flex-row gap-10 items-stretch">
+          <div className="flex-1 flex flex-col justify-center">
             <p className="text-[#c8a882] text-xs uppercase tracking-[4px] font-medium mb-6">Le guide du père</p>
             <h1 className="text-5xl font-bold text-[#3a3028] leading-tight mb-6" style={{fontFamily:'Georgia,serif'}}>
               Papa,<br />dès le<br /><span className="text-[#c8a882]">premier jour.</span>
             </h1>
             <p className="text-[#6b5c4e] text-lg leading-relaxed mb-4 font-medium" style={{fontFamily:'Georgia,serif'}}>Tout ce qu'on ne t'a pas appris.</p>
             <p className="text-[#9a8470] text-base leading-relaxed mb-10">De la première échographie au post-partum. Sois le meilleur soutien pour ta partenaire, sache ce qui est bon pour elle, et sois là au maximum.</p>
-            <button onClick={() => setShowForm(true)} className="bg-[#3a3028] text-[#f0e0cc] font-bold px-8 py-4 rounded-full hover:bg-[#6b5c4e] transition-all text-sm tracking-wide">Accès annuel — 19,99€/an</button>
+            <button onClick={() => setShowForm(true)} className="bg-[#3a3028] text-[#f0e0cc] font-bold px-8 py-4 rounded-full hover:bg-[#6b5c4e] transition-all text-sm tracking-wide w-fit">Accès annuel — 19,99€/an</button>
             <p className="text-[#b0988a] text-xs mt-4">Premier mois gratuit. Sans engagement.</p>
           </div>
           <div className="flex-shrink-0 w-full md:w-72">
-            <img src="/main.jpg" alt="Couple enceinte" className="w-full h-80 object-cover rounded-3xl" style={{objectPosition:'center'}}/>
+            <img src="/main.jpg" alt="Couple enceinte" className="w-full h-full min-h-[420px] object-cover rounded-3xl" style={{objectPosition:'center'}}/>
           </div>
         </div>
       </section>
 
-      {/* STATS */}
       <section className="border-t border-b border-[#e8ddd4] bg-white">
         <div className="max-w-2xl mx-auto px-6 py-8 grid grid-cols-4 gap-4">
           {[
@@ -60,13 +58,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CONSTAT avec image */}
       <section className="max-w-2xl mx-auto px-6 py-16">
-        <div className="flex flex-col md:flex-row gap-10 items-start">
+        <div className="flex flex-col md:flex-row gap-10 items-stretch">
           <div className="flex-shrink-0 w-full md:w-64">
-            <img src="/deborde.jpg" alt="Père et bébé" className="w-full h-72 object-cover rounded-3xl" style={{objectPosition:'center top'}}/>
+            <img src="/deborde.jpg" alt="Père et bébé" className="w-full h-full min-h-[420px] object-cover rounded-3xl" style={{objectPosition:'center top'}}/>
           </div>
-          <div className="flex-1">
+          <div className="flex-1 flex flex-col justify-center">
             <p className="text-[#c8a882] text-xs uppercase tracking-[4px] font-medium mb-4">Le constat</p>
             <h2 className="text-3xl font-bold text-[#3a3028] mb-8" style={{fontFamily:'Georgia,serif'}}>
               Tout le monde prépare la maman.<br /><span className="text-[#9a8470]">Et toi ?</span>
@@ -88,7 +85,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* MODULES */}
       <section id="contenu" className="bg-white border-t border-[#e8ddd4]">
         <div className="max-w-2xl mx-auto px-6 py-16">
           <p className="text-[#c8a882] text-xs uppercase tracking-[4px] font-medium mb-4">Ce que tu obtiens</p>
@@ -116,7 +112,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CITATION */}
       <section className="max-w-2xl mx-auto px-6 py-16">
         <div className="border-l-2 border-[#c8a882] pl-6">
           <p className="text-2xl font-bold text-[#3a3028] leading-relaxed mb-3" style={{fontFamily:'Georgia,serif'}}>Papa, dès le premier jour.</p>
@@ -124,38 +119,30 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA avec image oreille */}
       <section className="bg-[#3a3028]">
-        <div className="max-w-2xl mx-auto px-6 py-16">
-          <div className="flex flex-col md:flex-row gap-10 items-center">
-            <div className="flex-1 text-center md:text-left">
-              <p className="text-[#c8a882] text-xs uppercase tracking-[4px] font-medium mb-4">L'offre</p>
-              <h2 className="text-3xl font-bold text-[#f0e0cc] mb-2" style={{fontFamily:'Georgia,serif'}}>Accès annuel complet</h2>
-              <p className="text-4xl font-bold text-[#c8a882] mb-1" style={{fontFamily:'Georgia,serif'}}>19,99€<span className="text-lg text-[#6b5c4e]">/an</span></p>
-              <p className="text-[#6b5c4e] text-sm mb-8">Premier mois gratuit. Sans engagement. Résiliable à tout moment.</p>
-              <div className="flex flex-col gap-3 text-left max-w-xs mx-auto md:mx-0 mb-10">
-                {[
-                  "6 modules complets",
-                  "De la grossesse au post-partum",
-                  "Idées mensuelles pour ta partenaire",
-                  "Personnalisé à ta date d'accouchement",
-                  "Accès sur tous tes appareils",
-                ].map((f) => (
-                  <div key={f} className="flex items-center gap-3">
-                    <div className="w-4 h-4 rounded-full bg-[#c8a882] flex items-center justify-center flex-shrink-0">
-                      <span className="text-[#3a3028] text-xs font-bold">✓</span>
-                    </div>
-                    <p className="text-[#e8d5c4] text-sm">{f}</p>
-                  </div>
-                ))}
+        <div className="max-w-2xl mx-auto px-6 py-16 text-center">
+          <p className="text-[#c8a882] text-xs uppercase tracking-[4px] font-medium mb-4">L'offre</p>
+          <h2 className="text-3xl font-bold text-[#f0e0cc] mb-2" style={{fontFamily:'Georgia,serif'}}>Accès annuel complet</h2>
+          <p className="text-4xl font-bold text-[#c8a882] mb-1" style={{fontFamily:'Georgia,serif'}}>19,99€<span className="text-lg text-[#6b5c4e]">/an</span></p>
+          <p className="text-[#6b5c4e] text-sm mb-8">Premier mois gratuit. Sans engagement. Résiliable à tout moment.</p>
+          <div className="flex flex-col gap-3 text-left max-w-xs mx-auto mb-10">
+            {[
+              "6 modules complets",
+              "De la grossesse au post-partum",
+              "Idées mensuelles pour ta partenaire",
+              "Personnalisé à ta date d'accouchement",
+              "Accès sur tous tes appareils",
+            ].map((f) => (
+              <div key={f} className="flex items-center gap-3">
+                <div className="w-4 h-4 rounded-full bg-[#c8a882] flex items-center justify-center flex-shrink-0">
+                  <span className="text-[#3a3028] text-xs font-bold">✓</span>
+                </div>
+                <p className="text-[#e8d5c4] text-sm">{f}</p>
               </div>
-              <button onClick={() => setShowForm(true)} className="bg-[#c8a882] hover:bg-[#b89060] text-[#1c1510] font-bold px-10 py-4 rounded-full transition-all text-sm tracking-wide">Commencer maintenant — 19,99€/an</button>
-              <p className="text-[#4a3c30] text-xs mt-4">Paiement sécurisé par Stripe</p>
-            </div>
-            <div className="flex-shrink-0 w-full md:w-64">
-              <img src="/oreille.jpg" alt="Bébé" className="w-full h-72 object-cover rounded-3xl opacity-90"/>
-            </div>
+            ))}
           </div>
+          <button onClick={() => setShowForm(true)} className="bg-[#c8a882] hover:bg-[#b89060] text-[#1c1510] font-bold px-10 py-4 rounded-full transition-all text-sm tracking-wide">Commencer maintenant — 19,99€/an</button>
+          <p className="text-[#4a3c30] text-xs mt-4">Paiement sécurisé par Stripe</p>
         </div>
       </section>
 
