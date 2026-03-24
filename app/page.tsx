@@ -36,7 +36,8 @@ export default function Home() {
             <button onClick={() => setShowForm(true)} className="bg-[#3a3028] text-[#f0e0cc] font-bold px-8 py-4 rounded-full hover:bg-[#6b5c4e] transition-all text-sm tracking-wide w-fit">Accès annuel — 19,99€/an</button>
             <p className="text-[#b0988a] text-xs mt-4">Premier mois gratuit. Sans engagement.</p>
           </div>
-          <div className="w-full md:w-[480px] flex-shrink-0">
+          <div className="w-full md:w-80 flex-shrink-0">
+
             <img src="/main.jpg" alt="Couple enceinte" className="w-full h-full min-h-[500px] object-cover rounded-3xl" style={{objectPosition:'center'}}/>
           </div>
         </div>
