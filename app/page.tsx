@@ -2,13 +2,22 @@
 
 export default function Home() {
   const goToStripe = async () => {
+  try {
     const res = await fetch('/api/checkout', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ dpa: '', ville: '', premierEnfant: true }),
     });
     const data = await res.json();
-    if (data.url) window.location.href = data.url;
+    if (data.url) {
+      window.location.href = data.url;
+    } else {
+      alert('Erreur : ' + JSON.stringify(data));
+    }
+  } catch (err) {
+    alert('Erreur connexion : ' + err);
+  }
+};
   };
 
   return (
