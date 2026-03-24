@@ -2,22 +2,21 @@
 
 export default function Home() {
   const goToStripe = async () => {
-  try {
-    const res = await fetch('/api/checkout', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ dpa: '', ville: '', premierEnfant: true }),
-    });
-    const data = await res.json();
-    if (data.url) {
-      window.location.href = data.url;
-    } else {
-      alert('Erreur : ' + JSON.stringify(data));
+    try {
+      const res = await fetch('/api/checkout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ dpa: '', ville: '', premierEnfant: true }),
+      });
+      const data = await res.json();
+      if (data.url) {
+        window.location.href = data.url;
+      } else {
+        alert('Erreur : ' + JSON.stringify(data));
+      }
+    } catch (err) {
+      alert('Erreur connexion : ' + err);
     }
-  } catch (err) {
-    alert('Erreur connexion : ' + err);
-  }
-};
   };
 
   return (
@@ -61,7 +60,7 @@ export default function Home() {
             { chiffre: '41', label: 'semaines' },
             { chiffre: '6', label: 'modules' },
             { chiffre: 'Post', label: 'partum inclus' },
-            { chiffre: '29,99€', label: 'par an' },
+            { chiffre: '29,99', label: 'par an' },
           ].map((s, i) => (
             <div key={s.label} className={`text-center ${i > 0 ? 'border-l border-[#e8ddd4]' : ''}`}>
               <p className="text-xl font-bold text-[#3a3028]" style={{fontFamily:'Georgia,serif'}}>{s.chiffre}</p>
@@ -74,23 +73,23 @@ export default function Home() {
       <section className="max-w-2xl mx-auto px-6 py-16">
         <div className="flex flex-col md:flex-row gap-10 items-stretch">
           <div className="w-full md:w-64 flex-shrink-0">
-            <img src="/deborde.jpg" alt="Père et bébé" className="w-full h-full min-h-[420px] object-cover rounded-3xl" style={{objectPosition:'center top'}}/>
+            <img src="/deborde.jpg" alt="Pere et bebe" className="w-full h-full min-h-[420px] object-cover rounded-3xl" style={{objectPosition:'center top'}}/>
           </div>
           <div className="flex-1 flex flex-col justify-center">
             <p className="text-[#c8a882] text-xs uppercase tracking-[4px] font-medium mb-4">Le constat</p>
             <h2 className="text-3xl font-bold text-[#3a3028] mb-8" style={{fontFamily:'Georgia,serif'}}>
-              Tout le monde prépare la maman.<br /><span className="text-[#9a8470]">Et toi ?</span>
+              Tout le monde prepare la maman.<br /><span className="text-[#9a8470]">Et toi ?</span>
             </h2>
             <div className="flex flex-col gap-4">
               {[
-                { text: "Les livres de grossesse sont écrits pour les mamans.", svg: <svg width="36" height="36" viewBox="0 0 36 36"><circle cx="18" cy="18" r="17" fill="#f0e8dc" stroke="#e8ddd4" strokeWidth="0.5"/><path d="M11 18 Q18 10 25 18" fill="none" stroke="#c8a882" strokeWidth="1.5" strokeLinecap="round"/><circle cx="14" cy="16" r="1.5" fill="#c8a882"/><circle cx="22" cy="16" r="1.5" fill="#c8a882"/></svg> },
-                { text: "Personne ne t'explique ton rôle exact à la maternité.", svg: <svg width="36" height="36" viewBox="0 0 36 36"><circle cx="18" cy="18" r="17" fill="#f0e8dc" stroke="#e8ddd4" strokeWidth="0.5"/><path d="M12 22 L18 12 L24 22" fill="none" stroke="#c8a882" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/><circle cx="18" cy="24" r="1.5" fill="#c8a882"/></svg> },
-                { text: "Le post-partum, personne n'en parle. Pour elle comme pour toi.", svg: <svg width="36" height="36" viewBox="0 0 36 36"><circle cx="18" cy="18" r="17" fill="#f0e8dc" stroke="#e8ddd4" strokeWidth="0.5"/><circle cx="18" cy="16" r="4" fill="none" stroke="#c8a882" strokeWidth="1.5"/><path d="M18 20 L18 25" fill="none" stroke="#c8a882" strokeWidth="1.5" strokeLinecap="round"/></svg> },
-                { text: "Les premières semaines avec bébé arrivent sans mode d'emploi.", svg: <svg width="36" height="36" viewBox="0 0 36 36"><circle cx="18" cy="18" r="17" fill="#f0e8dc" stroke="#e8ddd4" strokeWidth="0.5"/><path d="M13 18 L17 22 L23 14" fill="none" stroke="#c8a882" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg> },
-              ].map((item, i) => (
+                "Les livres de grossesse sont ecrits pour les mamans.",
+                "Personne ne t'explique ton role exact a la maternite.",
+                "Le post-partum, personne n'en parle.",
+                "Les premieres semaines avec bebe arrivent sans mode d'emploi.",
+              ].map((text, i) => (
                 <div key={i} className="flex items-center gap-4">
-                  <div className="flex-shrink-0">{item.svg}</div>
-                  <p className="text-[#6b5c4e] text-sm leading-relaxed">{item.text}</p>
+                  <div className="w-1.5 h-1.5 rounded-full bg-[#c8a882] flex-shrink-0" />
+                  <p className="text-[#6b5c4e] text-sm leading-relaxed">{text}</p>
                 </div>
               ))}
             </div>
@@ -101,20 +100,22 @@ export default function Home() {
       <section id="contenu" className="bg-white border-t border-[#e8ddd4]">
         <div className="max-w-2xl mx-auto px-6 py-16">
           <p className="text-[#c8a882] text-xs uppercase tracking-[4px] font-medium mb-4">Ce qui est inclus</p>
-          <h2 className="text-3xl font-bold text-[#3a3028] mb-10" style={{fontFamily:'Georgia,serif'}}>6 modules pour être vraiment là.</h2>
+          <h2 className="text-3xl font-bold text-[#3a3028] mb-10" style={{fontFamily:'Georgia,serif'}}>6 modules pour etre vraiment la.</h2>
           <div className="flex flex-col gap-4">
             {[
-              { titre: 'Calendrier des rendez-vous', desc: "Chaque consultation expliquée. Ton rôle précis. Personnalisé à ta date d'accouchement.", svg: <svg width="40" height="40" viewBox="0 0 40 40"><rect width="40" height="40" rx="10" fill="#e8ddd4"/><rect x="10" y="8" width="20" height="24" rx="3" fill="none" stroke="#6b5c4e" strokeWidth="1.5"/><line x1="14" y1="14" x2="26" y2="14" stroke="#c8a882" strokeWidth="1.5" strokeLinecap="round"/><line x1="14" y1="18" x2="26" y2="18" stroke="#c8a882" strokeWidth="1" strokeLinecap="round"/><line x1="14" y1="22" x2="22" y2="22" stroke="#c8a882" strokeWidth="1" strokeLinecap="round"/></svg> },
-              { titre: 'Suivi bébé semaine par semaine', desc: "Taille, poids, développement. Tu sais où en est bébé à chaque instant.", svg: <svg width="40" height="40" viewBox="0 0 40 40"><rect width="40" height="40" rx="10" fill="#e8ddd4"/><circle cx="20" cy="18" r="8" fill="none" stroke="#6b5c4e" strokeWidth="1.5"/><circle cx="20" cy="18" r="3" fill="#c8a882"/><path d="M20 10 L20 6 M20 30 L20 34 M10 18 L6 18 M30 18 L34 18" stroke="#c8a882" strokeWidth="1" strokeLinecap="round"/></svg> },
-              { titre: 'Guide accouchement', desc: "Quand partir, ce que tu vas voir, comment soutenir sans être dans le chemin.", svg: <svg width="40" height="40" viewBox="0 0 40 40"><rect width="40" height="40" rx="10" fill="#e8ddd4"/><path d="M14 28 Q14 20 20 16 Q26 20 26 28" fill="none" stroke="#6b5c4e" strokeWidth="1.5" strokeLinecap="round"/><circle cx="20" cy="13" r="3" fill="none" stroke="#c8a882" strokeWidth="1.5"/><line x1="14" y1="28" x2="26" y2="28" stroke="#c8a882" strokeWidth="1.5" strokeLinecap="round"/></svg> },
-              { titre: 'Valise maternité', desc: "Checklist interactive complète. Pour toi, pour elle, pour bébé. Rien n'est oublié.", svg: <svg width="40" height="40" viewBox="0 0 40 40"><rect width="40" height="40" rx="10" fill="#e8ddd4"/><rect x="12" y="14" width="16" height="18" rx="3" fill="none" stroke="#6b5c4e" strokeWidth="1.5"/><path d="M16 14 L16 11 Q20 8 24 11 L24 14" fill="none" stroke="#c8a882" strokeWidth="1.5" strokeLinecap="round"/><line x1="16" y1="20" x2="24" y2="20" stroke="#c8a882" strokeWidth="1" strokeLinecap="round"/></svg> },
-              { titre: 'Post-partum décrypté', desc: "Baby blues, fatigue, couple. Comprendre ce qu'elle vit pour mieux l'accompagner.", svg: <svg width="40" height="40" viewBox="0 0 40 40"><rect width="40" height="40" rx="10" fill="#e8ddd4"/><circle cx="20" cy="20" r="7" fill="none" stroke="#6b5c4e" strokeWidth="1.5"/><circle cx="17" cy="19" r="1" fill="#c8a882"/><circle cx="23" cy="19" r="1" fill="#c8a882"/><path d="M17 23 Q20 26 23 23" fill="none" stroke="#c8a882" strokeWidth="1" strokeLinecap="round"/></svg> },
-              { titre: 'Idées pour ta partenaire', desc: "Une idée chaque mois pour lui faire plaisir. Des attentions simples qui comptent vraiment.", svg: <svg width="40" height="40" viewBox="0 0 40 40"><rect width="40" height="40" rx="10" fill="#e8ddd4"/><path d="M20 30 L12 22 Q9 15 16 13 Q20 12 20 18 Q20 12 24 13 Q31 15 28 22 Z" fill="none" stroke="#c8a882" strokeWidth="1.5" strokeLinejoin="round"/></svg> },
-              { titre: 'Survie premier mois', desc: "Emmaillotage, pleurs, sommeil, biberon. Les techniques qui marchent vraiment.", svg: <svg width="40" height="40" viewBox="0 0 40 40"><rect width="40" height="40" rx="10" fill="#e8ddd4"/><circle cx="20" cy="16" r="5" fill="none" stroke="#6b5c4e" strokeWidth="1.5"/><path d="M14 30 Q14 22 20 22 Q26 22 26 30" fill="none" stroke="#c8a882" strokeWidth="1.5" strokeLinecap="round"/></svg> },
-              { titre: 'Liste achats prioritaires', desc: "Ce qui est vraiment nécessaire, dans quel ordre l'acheter, et pour quel budget.", svg: <svg width="40" height="40" viewBox="0 0 40 40"><rect width="40" height="40" rx="10" fill="#e8ddd4"/><circle cx="14" cy="14" r="2" fill="#c8a882"/><line x1="19" y1="14" x2="30" y2="14" stroke="#6b5c4e" strokeWidth="1.5" strokeLinecap="round"/><circle cx="14" cy="20" r="2" fill="#c8a882"/><line x1="19" y1="20" x2="30" y2="20" stroke="#6b5c4e" strokeWidth="1.5" strokeLinecap="round"/><circle cx="14" cy="26" r="2" fill="#c8a882"/><line x1="19" y1="26" x2="30" y2="26" stroke="#6b5c4e" strokeWidth="1.5" strokeLinecap="round"/></svg> },
+              { titre: 'Calendrier des rendez-vous', desc: "Chaque consultation expliquee. Ton role precis. Personnalise a ta date." },
+              { titre: 'Suivi bebe semaine par semaine', desc: "Taille, poids, developpement. Tu sais ou en est bebe a chaque instant." },
+              { titre: 'Guide accouchement', desc: "Quand partir, ce que tu vas voir, comment soutenir." },
+              { titre: 'Valise maternite', desc: "Checklist interactive complete. Pour toi, pour elle, pour bebe." },
+              { titre: 'Post-partum decrypte', desc: "Baby blues, fatigue, couple. Comprendre ce qu'elle vit." },
+              { titre: 'Idees pour ta partenaire', desc: "Une idee chaque mois pour lui faire plaisir." },
+              { titre: 'Survie premier mois', desc: "Emmaillotage, pleurs, sommeil, biberon." },
+              { titre: 'Liste achats prioritaires', desc: "Ce qui est vraiment necessaire, dans quel ordre, pour quel budget." },
             ].map((m, i) => (
               <div key={i} className="flex items-center gap-4 p-4 rounded-2xl border border-[#e8ddd4] hover:border-[#c8a882] transition-all bg-[#f8f5f0]">
-                <div className="flex-shrink-0">{m.svg}</div>
+                <div className="w-8 h-8 rounded-full bg-[#e8ddd4] flex items-center justify-center flex-shrink-0">
+                  <span className="text-[#6b5c4e] text-sm font-bold">{i + 1}</span>
+                </div>
                 <div>
                   <p className="text-[#3a3028] font-bold text-sm mb-1">{m.titre}</p>
                   <p className="text-[#9a8470] text-sm leading-relaxed">{m.desc}</p>
@@ -127,8 +128,8 @@ export default function Home() {
 
       <section className="max-w-2xl mx-auto px-6 py-16">
         <div className="border-l-2 border-[#c8a882] pl-6">
-          <p className="text-2xl font-bold text-[#3a3028] leading-relaxed mb-3" style={{fontFamily:'Georgia,serif'}}>Papa, dès le premier jour.</p>
-          <p className="text-[#9a8470] text-sm leading-relaxed">Pas après la naissance. Pas quand tu te sens prêt.<br />Maintenant, pendant la grossesse, avec les bons outils.</p>
+          <p className="text-2xl font-bold text-[#3a3028] leading-relaxed mb-3" style={{fontFamily:'Georgia,serif'}}>Papa, des le premier jour.</p>
+          <p className="text-[#9a8470] text-sm leading-relaxed">Pas apres la naissance. Pas quand tu te sens pret. Maintenant, pendant la grossesse, avec les bons outils.</p>
         </div>
       </section>
 
@@ -136,16 +137,16 @@ export default function Home() {
         <div className="max-w-2xl mx-auto px-6 py-16 text-center">
           <p className="text-[#c8a882] text-xs uppercase tracking-[4px] font-medium mb-8">L'offre</p>
           <div className="bg-[#f0e0cc] rounded-3xl p-8 max-w-sm mx-auto">
-            <p className="text-[#6b5c4e] text-xs uppercase tracking-[3px] font-medium mb-3">Accès annuel complet</p>
-            <p className="text-5xl font-bold text-[#3a3028] mb-1" style={{fontFamily:'Georgia,serif'}}>29,99€</p>
+            <p className="text-[#6b5c4e] text-xs uppercase tracking-[3px] font-medium mb-3">Acces annuel complet</p>
+            <p className="text-5xl font-bold text-[#3a3028] mb-1" style={{fontFamily:'Georgia,serif'}}>29,99</p>
             <p className="text-[#9a8470] text-sm mb-6">par an · sans engagement</p>
             <div className="flex flex-col gap-3 text-left mb-8">
               {[
                 "6 modules complets",
                 "De la grossesse au post-partum",
-                "Idées mensuelles pour ta partenaire",
-                "Personnalisé à ta date d'accouchement",
-                "Accès sur tous tes appareils",
+                "Idees mensuelles pour ta partenaire",
+                "Personnalise a ta date d'accouchement",
+                "Acces sur tous tes appareils",
               ].map((f) => (
                 <div key={f} className="flex items-center gap-3">
                   <div className="w-4 h-4 rounded-full bg-[#3a3028] flex items-center justify-center flex-shrink-0">
@@ -155,15 +156,15 @@ export default function Home() {
                 </div>
               ))}
             </div>
-            <button onClick={goToStripe} className="w-full bg-[#3a3028] hover:bg-[#6b5c4e] text-[#f0e0cc] font-bold px-8 py-4 rounded-full transition-all text-sm tracking-wide">Accès annuel complet — 29,99€/an</button>
-            <p className="text-[#9a8470] text-xs mt-4">Paiement sécurisé par Stripe</p>
+            <button onClick={goToStripe} className="w-full bg-[#3a3028] hover:bg-[#6b5c4e] text-[#f0e0cc] font-bold px-8 py-4 rounded-full transition-all text-sm tracking-wide">Acces annuel complet — 29,99/an</button>
+            <p className="text-[#9a8470] text-xs mt-4">Paiement securise par Stripe</p>
           </div>
         </div>
       </section>
 
       <footer className="max-w-2xl mx-auto px-6 py-8 text-center">
         <p className="text-[#c8b8a8] text-xs leading-relaxed">
-          DadUp est un outil d'information et d'accompagnement. Il ne remplace pas l'avis d'un médecin ou d'une sage-femme. Aucune donnée personnelle n'est conservée.
+          DadUp est un outil d'information. Il ne remplace pas l'avis d'un medecin. Aucune donnee personnelle n'est conservee.
         </p>
       </footer>
 
