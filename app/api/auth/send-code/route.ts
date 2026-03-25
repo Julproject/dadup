@@ -1,13 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 
-const supabase = createClient(
-  process.env.SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-);
-
 export async function POST(req: NextRequest) {
   try {
+    const supabase = createClient(
+      process.env.SUPABASE_URL!,
+      process.env.SUPABASE_SERVICE_ROLE_KEY!
+    );
+
     const { email } = await req.json();
     if (!email) return NextResponse.json({ error: 'Email requis' }, { status: 400 });
 
@@ -31,7 +31,7 @@ export async function POST(req: NextRequest) {
           <div style="font-family:Georgia,serif;max-width:480px;margin:0 auto;padding:40px 24px;background:#f8f8f5;">
             <div style="text-align:center;margin-bottom:32px;">
               <h1 style="font-size:28px;color:#1e2820;margin:0;">DadUp</h1>
-              <p style="color:#888;font-size:14px;margin:8px 0 0;">Le guide du père</p>
+              <p style="color:#888;font-size:14px;margin:8px 0 0;">Le guide du pere</p>
             </div>
             <div style="background:#ffffff;border-radius:20px;padding:32px;text-align:center;">
               <p style="color:#1e2820;font-size:16px;margin:0 0 24px;">Ton code de connexion :</p>
@@ -40,7 +40,7 @@ export async function POST(req: NextRequest) {
               </div>
               <p style="color:#888;font-size:13px;margin:24px 0 0;">Ce code expire dans 10 minutes.</p>
             </div>
-            <p style="color:#aaa;font-size:11px;text-align:center;margin-top:24px;">Si tu n'es pas a l'origine de cette demande, ignore cet email.</p>
+            <p style="color:#aaa;font-size:11px;text-align:center;margin-top:24px;">Si tu nes pas a lorigine de cette demande, ignore cet email.</p>
           </div>
         `,
       }),
