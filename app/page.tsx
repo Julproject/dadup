@@ -34,9 +34,11 @@ export default function Home() {
           </svg>
           <span className="font-bold text-[#3a3028] text-lg" style={{fontFamily:'Georgia,serif'}}>DadUp</span>
         </div>
-        <button onClick={goToStripe} className="bg-[#3a3028] text-[#f0e0cc] text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-[#6b5c4e] transition-all">Commencer — 29,99€/an</button>
+<div className="flex items-center gap-3">
+  <a href="/login" className="text-[#9a8470] text-sm font-medium hover:text-[#3a3028] transition-all">Se connecter</a>
+  <button onClick={goToStripe} className="bg-[#3a3028] text-[#f0e0cc] text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-[#6b5c4e] transition-all">Commencer — 29,99€/an</button>
+</div>
       </header>
-
       <section className="max-w-2xl mx-auto px-6 pt-16 pb-12">
         <div className="flex flex-col md:flex-row gap-10 items-stretch">
           <div className="flex-1 flex flex-col justify-center">
