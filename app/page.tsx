@@ -6,7 +6,7 @@ export default function Home() {
       const res = await fetch('/api/checkout', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ dpa: '', ville: '', premierEnfant: true }),
+        body: JSON.stringify({}),
       });
       const data = await res.json();
       if (data.url) {
@@ -20,11 +20,185 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen bg-[#f8f5f0]">
+    <main style={{minHeight:'100vh', background:'#ffffff', fontFamily:'sans-serif'}}>
 
-      <header className="bg-white border-b border-[#e8ddd4] px-6 py-4 flex items-center justify-between sticky top-0 z-50">
-        <div className="flex items-center gap-3">
-          <svg viewBox="0 0 300 300" width="36" height="36">
+      {/* NAV */}
+      <nav style={{background:'#ffffff', borderBottom:'1px solid #e8ddd4', padding:'0 40px', display:'flex', alignItems:'center', justifyContent:'space-between', height:'68px', position:'sticky', top:0, zIndex:50}}>
+        <div style={{display:'flex', alignItems:'center', gap:'48px'}}>
+          <div style={{display:'flex', alignItems:'center', gap:'10px'}}>
+            <svg viewBox="0 0 300 300" width="34" height="34">
+              <circle cx="150" cy="150" r="145" fill="#6b5c4e"/>
+              <circle cx="150" cy="150" r="122" fill="#9a8470"/>
+              <ellipse cx="150" cy="205" rx="58" ry="54" fill="#c8a882"/>
+              <circle cx="150" cy="112" r="40" fill="#c8a882"/>
+              <ellipse cx="150" cy="196" rx="27" ry="31" fill="#f0e0cc"/>
+              <circle cx="150" cy="128" r="26" fill="#f0e0cc"/>
+            </svg>
+            <span style={{fontWeight:800, color:'#3a3028', fontSize:'20px', fontFamily:'Georgia,serif'}}>DadUp</span>
+          </div>
+          <div style={{display:'flex', gap:'4px'}}>
+            <a href="#pourquoi" style={{color:'#6b5c4e', fontSize:'14px', fontWeight:500, padding:'8px 14px', borderRadius:'8px', textDecoration:'none'}}>Pourquoi DadUp</a>
+            <a href="#inclus" style={{color:'#6b5c4e', fontSize:'14px', fontWeight:500, padding:'8px 14px', borderRadius:'8px', textDecoration:'none'}}>Ce qui est inclus</a>
+            <a href="#tarifs" style={{color:'#6b5c4e', fontSize:'14px', fontWeight:500, padding:'8px 14px', borderRadius:'8px', textDecoration:'none'}}>Tarifs</a>
+            <a href="#temoignages" style={{color:'#6b5c4e', fontSize:'14px', fontWeight:500, padding:'8px 14px', borderRadius:'8px', textDecoration:'none'}}>Temoignages</a>
+          </div>
+        </div>
+        <div style={{display:'flex', alignItems:'center', gap:'16px'}}>
+          <a href="/login" style={{color:'#3a3028', fontSize:'14px', fontWeight:600, textDecoration:'none'}}>Se connecter</a>
+          <button onClick={goToStripe} style={{background:'#3a3028', color:'#f0e0cc', border:'none', padding:'11px 22px', borderRadius:'32px', fontSize:'13px', fontWeight:700, cursor:'pointer'}}>Commencer — 29,99€/an</button>
+        </div>
+      </nav>
+
+      {/* HERO */}
+      <section style={{padding:'80px 40px 0', maxWidth:'1200px', margin:'0 auto'}}>
+        <div style={{display:'grid', gridTemplateColumns:'1fr 1fr', gap:'72px', alignItems:'center'}}>
+          <div>
+            <div style={{display:'inline-flex', alignItems:'center', gap:'8px', background:'#f8f2eb', border:'1px solid #e8ddd4', borderRadius:'20px', padding:'6px 14px', marginBottom:'28px'}}>
+              <div style={{width:'7px', height:'7px', borderRadius:'50%', background:'#c8a882'}}></div>
+              <span style={{color:'#9a8470', fontSize:'12px', fontWeight:600, letterSpacing:'1px'}}>Le guide du papa</span>
+            </div>
+            <h1 style={{fontSize:'54px', fontWeight:800, color:'#3a3028', lineHeight:1.05, margin:'0 0 24px', fontFamily:'Georgia,serif'}}>
+              Tout ce qu'on<br/>ne t'a pas<br/><span style={{color:'#c8a882'}}>appris.</span>
+            </h1>
+            <p style={{color:'#6b5c4e', fontSize:'19px', lineHeight:1.5, margin:'0 0 12px', fontFamily:'Georgia,serif', fontWeight:500}}>Papa, des le premier jour.</p>
+            <p style={{color:'#9a8470', fontSize:'15px', lineHeight:1.7, margin:'0 0 40px'}}>De la premiere echographie au post-partum. Sois le meilleur soutien pour ta partenaire, sache ce qui est bon pour elle, et sois la au maximum.</p>
+            <div style={{display:'flex', gap:'16px', alignItems:'center'}}>
+              <button onClick={goToStripe} style={{background:'#3a3028', color:'#f0e0cc', border:'none', padding:'16px 32px', borderRadius:'32px', fontSize:'15px', fontWeight:700, cursor:'pointer'}}>Commencer — 29,99€/an</button>
+              <a href="#inclus" style={{color:'#c8a882', fontSize:'14px', fontWeight:600, textDecoration:'none'}}>Ce qui est inclus →</a>
+            </div>
+            <p style={{color:'#b0988a', fontSize:'12px', margin:'14px 0 0'}}>Sans engagement · Resiliable a tout moment</p>
+          </div>
+          <div style={{position:'relative'}}>
+            <div style={{background:'#f8f2eb', borderRadius:'24px', height:'500px', overflow:'hidden'}}>
+              <img src="/main.jpg" alt="Couple enceinte" style={{width:'100%', height:'100%', objectFit:'cover', objectPosition:'center'}}/>
+            </div>
+            <div style={{position:'absolute', bottom:'24px', left:'-20px', background:'#fff', borderRadius:'16px', padding:'14px 18px', border:'1px solid #e8ddd4', display:'flex', alignItems:'center', gap:'12px'}}>
+              <span style={{fontSize:'28px'}}>🍌</span>
+              <div>
+                <p style={{color:'#3a3028', fontSize:'13px', fontWeight:700, margin:0}}>SA 20 · Bebe = banane</p>
+                <p style={{color:'#9a8470', fontSize:'12px', margin:'2px 0 0'}}>140 jours restants</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* STATS */}
+      <section style={{background:'#3a3028', margin:'72px 0 0', padding:'40px'}}>
+        <div style={{maxWidth:'1200px', margin:'0 auto', display:'grid', gridTemplateColumns:'repeat(4,1fr)', textAlign:'center'}}>
+          {[
+            {chiffre:'41', label:'semaines couvertes'},
+            {chiffre:'8', label:'modules complets'},
+            {chiffre:'100%', label:'personnalise'},
+            {chiffre:'29,99€', label:'par an'},
+          ].map((s, i) => (
+            <div key={s.label} style={{padding:'0 32px', borderLeft: i > 0 ? '1px solid #6b5c4e' : 'none'}}>
+              <p style={{color:'#f0e0cc', fontSize:'40px', fontWeight:800, margin:0, fontFamily:'Georgia,serif'}}>{s.chiffre}</p>
+              <p style={{color:'#9a8470', fontSize:'13px', margin:'6px 0 0'}}>{s.label}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* POURQUOI */}
+      <section id="pourquoi" style={{padding:'80px 40px', maxWidth:'1200px', margin:'0 auto'}}>
+        <div style={{display:'grid', gridTemplateColumns:'1fr 1fr', gap:'72px', alignItems:'center'}}>
+          <div style={{background:'#f8f2eb', borderRadius:'24px', height:'420px', overflow:'hidden'}}>
+            <img src="/deborde.jpg" alt="Papa et bebe" style={{width:'100%', height:'100%', objectFit:'cover', objectPosition:'center top'}}/>
+          </div>
+          <div>
+            <p style={{color:'#c8a882', fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase', margin:'0 0 16px'}}>Pourquoi DadUp</p>
+            <h2 style={{fontSize:'38px', fontWeight:800, color:'#3a3028', margin:'0 0 28px', lineHeight:1.2, fontFamily:'Georgia,serif'}}>
+              Tout le monde prepare la maman.<br/><span style={{color:'#9a8470'}}>Et toi ?</span>
+            </h2>
+            <div style={{display:'flex', flexDirection:'column', gap:'16px'}}>
+              {[
+                "Les livres de grossesse sont ecrits pour les mamans.",
+                "Personne ne t'explique ton role exact a la maternite.",
+                "Le post-partum, personne n'en parle. Pour elle comme pour toi.",
+                "Les premieres semaines avec bebe arrivent sans mode d'emploi.",
+              ].map((text, i) => (
+                <div key={i} style={{display:'flex', gap:'14px', alignItems:'center'}}>
+                  <div style={{width:'8px', height:'8px', borderRadius:'50%', background:'#c8a882', flexShrink:0}}></div>
+                  <p style={{color:'#6b5c4e', fontSize:'15px', margin:0, lineHeight:1.5}}>{text}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* MODULES */}
+      <section id="inclus" style={{background:'#f8f2eb', padding:'80px 40px'}}>
+        <div style={{maxWidth:'1200px', margin:'0 auto'}}>
+          <div style={{textAlign:'center', marginBottom:'48px'}}>
+            <p style={{color:'#c8a882', fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase', margin:'0 0 12px'}}>Ce qui est inclus</p>
+            <h2 style={{fontSize:'38px', fontWeight:800, color:'#3a3028', margin:0, fontFamily:'Georgia,serif'}}>8 modules pour etre vraiment la.</h2>
+          </div>
+          <div style={{display:'grid', gridTemplateColumns:'repeat(4,1fr)', gap:'16px'}}>
+            {[
+              {titre:'Calendrier RDV', desc:"Chaque consultation expliquee. Ton role precis.", dark:false},
+              {titre:'Suivi bebe semaine', desc:"Taille, poids, developpement en temps reel.", dark:false},
+              {titre:'Guide accouchement', desc:"Quand partir, quoi faire, ton role exact.", dark:false},
+              {titre:'Valise maternite', desc:"Checklist interactive complete.", dark:false},
+              {titre:'Post-partum decrypte', desc:"Baby blues, fatigue, couple.", dark:true},
+              {titre:'Idees pour elle', desc:"Une idee par mois pour ta partenaire.", dark:false},
+              {titre:'Survie 1er mois', desc:"Emmaillotage, pleurs, sommeil, biberon.", dark:false},
+              {titre:'Liste achats', desc:"Priorites et budget.", dark:false},
+            ].map((m, i) => (
+              <div key={i} style={{background: m.dark ? '#3a3028' : '#fff', borderRadius:'16px', padding:'22px', border: m.dark ? 'none' : '1px solid #e8ddd4'}}>
+                <div style={{width:'40px', height:'40px', borderRadius:'12px', background: m.dark ? '#6b5c4e' : '#f0e8dc', marginBottom:'14px'}}></div>
+                <p style={{color: m.dark ? '#f0e0cc' : '#3a3028', fontSize:'14px', fontWeight:700, margin:'0 0 6px'}}>{m.titre}</p>
+                <p style={{color:'#9a8470', fontSize:'13px', margin:0, lineHeight:1.4}}>{m.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CITATION */}
+      <section style={{padding:'80px 40px', maxWidth:'1200px', margin:'0 auto'}}>
+        <div style={{borderLeft:'3px solid #c8a882', paddingLeft:'32px', maxWidth:'600px'}}>
+          <p style={{fontSize:'28px', fontWeight:800, color:'#3a3028', margin:'0 0 12px', lineHeight:1.3, fontFamily:'Georgia,serif'}}>Papa, des le premier jour.</p>
+          <p style={{color:'#9a8470', fontSize:'15px', margin:0, lineHeight:1.6}}>Pas apres la naissance. Pas quand tu te sens pret. Maintenant, pendant la grossesse, avec les bons outils.</p>
+        </div>
+      </section>
+
+      {/* TARIFS */}
+      <section id="tarifs" style={{background:'#f8f2eb', padding:'80px 40px'}}>
+        <div style={{maxWidth:'1200px', margin:'0 auto', textAlign:'center'}}>
+          <p style={{color:'#c8a882', fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase', margin:'0 0 12px'}}>Tarifs</p>
+          <h2 style={{fontSize:'38px', fontWeight:800, color:'#3a3028', margin:'0 0 48px', fontFamily:'Georgia,serif'}}>Simple et transparent.</h2>
+          <div style={{maxWidth:'420px', margin:'0 auto', background:'#3a3028', borderRadius:'28px', padding:'44px'}}>
+            <p style={{color:'#c8a882', fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase', margin:'0 0 16px'}}>Acces annuel complet</p>
+            <p style={{color:'#f0e0cc', fontSize:'60px', fontWeight:800, margin:0, fontFamily:'Georgia,serif'}}>29,99€</p>
+            <p style={{color:'#9a8470', fontSize:'14px', margin:'4px 0 32px'}}>par an · sans engagement</p>
+            <div style={{display:'flex', flexDirection:'column', gap:'12px', textAlign:'left', marginBottom:'32px'}}>
+              {[
+                "8 modules complets",
+                "De la grossesse au post-partum",
+                "Idees mensuelles pour ta partenaire",
+                "Personnalise a ta DPA",
+                "Acces sur tous les appareils",
+              ].map((f) => (
+                <div key={f} style={{display:'flex', gap:'10px', alignItems:'center'}}>
+                  <div style={{width:'20px', height:'20px', borderRadius:'50%', background:'#c8a882', display:'flex', alignItems:'center', justifyContent:'center', flexShrink:0}}>
+                    <span style={{color:'#3a3028', fontSize:'11px', fontWeight:700}}>✓</span>
+                  </div>
+                  <p style={{color:'#f0e0cc', fontSize:'14px', margin:0}}>{f}</p>
+                </div>
+              ))}
+            </div>
+            <button onClick={goToStripe} style={{width:'100%', background:'#c8a882', color:'#1c1510', border:'none', padding:'16px', borderRadius:'32px', fontSize:'15px', fontWeight:800, cursor:'pointer'}}>Commencer maintenant — 29,99€/an</button>
+            <p style={{color:'#6b5c4e', fontSize:'12px', margin:'12px 0 0'}}>Paiement securise par Stripe</p>
+          </div>
+        </div>
+      </section>
+
+      {/* FOOTER */}
+      <footer style={{background:'#3a3028', padding:'32px 40px', display:'flex', alignItems:'center', justifyContent:'space-between'}}>
+        <div style={{display:'flex', alignItems:'center', gap:'8px'}}>
+          <svg viewBox="0 0 300 300" width="28" height="28">
             <circle cx="150" cy="150" r="145" fill="#6b5c4e"/>
             <circle cx="150" cy="150" r="122" fill="#9a8470"/>
             <ellipse cx="150" cy="205" rx="58" ry="54" fill="#c8a882"/>
@@ -32,142 +206,9 @@ export default function Home() {
             <ellipse cx="150" cy="196" rx="27" ry="31" fill="#f0e0cc"/>
             <circle cx="150" cy="128" r="26" fill="#f0e0cc"/>
           </svg>
-          <span className="font-bold text-[#3a3028] text-lg" style={{fontFamily:'Georgia,serif'}}>DadUp</span>
+          <span style={{color:'#f0e0cc', fontSize:'16px', fontWeight:700, fontFamily:'Georgia,serif'}}>DadUp</span>
         </div>
-<div className="flex items-center gap-3">
-  <a href="/login" className="text-[#9a8470] text-sm font-medium hover:text-[#3a3028] transition-all">Se connecter</a>
-  <button onClick={goToStripe} className="bg-[#3a3028] text-[#f0e0cc] text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-[#6b5c4e] transition-all">Commencer — 29,99€/an</button>
-</div>
-      </header>
-      <section className="max-w-2xl mx-auto px-6 pt-16 pb-12">
-        <div className="flex flex-col md:flex-row gap-10 items-stretch">
-          <div className="flex-1 flex flex-col justify-center">
-            <p className="text-[#c8a882] text-xs uppercase tracking-[4px] font-medium mb-6">Le guide du père</p>
-            <h1 className="text-5xl font-bold text-[#3a3028] leading-tight mb-6" style={{fontFamily:'Georgia,serif'}}>
-              Tout ce qu'on<br />ne t'a pas<br /><span className="text-[#c8a882]">appris.</span>
-            </h1>
-            <p className="text-[#6b5c4e] text-lg leading-relaxed mb-4 font-medium" style={{fontFamily:'Georgia,serif'}}>Papa, dès le premier jour.</p>
-            <p className="text-[#9a8470] text-base leading-relaxed mb-10">De la première échographie au post-partum. Sois le meilleur soutien pour ta partenaire, sache ce qui est bon pour elle, et sois là au maximum.</p>
-            <button onClick={goToStripe} className="bg-[#3a3028] text-[#f0e0cc] font-bold px-8 py-4 rounded-full hover:bg-[#6b5c4e] transition-all text-sm tracking-wide w-fit">Accès annuel — 29,99€/an</button>
-          </div>
-          <div className="w-full md:w-80 flex-shrink-0">
-            <img src="/main.jpg" alt="Couple enceinte" className="w-full h-full min-h-[500px] object-cover rounded-3xl" style={{objectPosition:'center'}}/>
-          </div>
-        </div>
-      </section>
-
-      <section className="border-t border-b border-[#e8ddd4] bg-white">
-        <div className="max-w-2xl mx-auto px-6 py-8 grid grid-cols-4 gap-4">
-          {[
-            { chiffre: '41', label: 'semaines' },
-            { chiffre: '6', label: 'modules' },
-            { chiffre: 'Post', label: 'partum inclus' },
-            { chiffre: '29,99', label: 'par an' },
-          ].map((s, i) => (
-            <div key={s.label} className={`text-center ${i > 0 ? 'border-l border-[#e8ddd4]' : ''}`}>
-              <p className="text-xl font-bold text-[#3a3028]" style={{fontFamily:'Georgia,serif'}}>{s.chiffre}</p>
-              <p className="text-[#9a8470] text-xs mt-1">{s.label}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="max-w-2xl mx-auto px-6 py-16">
-        <div className="flex flex-col md:flex-row gap-10 items-stretch">
-          <div className="w-full md:w-64 flex-shrink-0">
-            <img src="/deborde.jpg" alt="Pere et bebe" className="w-full h-full min-h-[420px] object-cover rounded-3xl" style={{objectPosition:'center top'}}/>
-          </div>
-          <div className="flex-1 flex flex-col justify-center">
-            <p className="text-[#c8a882] text-xs uppercase tracking-[4px] font-medium mb-4">Le constat</p>
-            <h2 className="text-3xl font-bold text-[#3a3028] mb-8" style={{fontFamily:'Georgia,serif'}}>
-              Tout le monde prepare la maman.<br /><span className="text-[#9a8470]">Et toi ?</span>
-            </h2>
-            <div className="flex flex-col gap-4">
-              {[
-                "Les livres de grossesse sont ecrits pour les mamans.",
-                "Personne ne t'explique ton role exact a la maternite.",
-                "Le post-partum, personne n'en parle.",
-                "Les premieres semaines avec bebe arrivent sans mode d'emploi.",
-              ].map((text, i) => (
-                <div key={i} className="flex items-center gap-4">
-                  <div className="w-1.5 h-1.5 rounded-full bg-[#c8a882] flex-shrink-0" />
-                  <p className="text-[#6b5c4e] text-sm leading-relaxed">{text}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="contenu" className="bg-white border-t border-[#e8ddd4]">
-        <div className="max-w-2xl mx-auto px-6 py-16">
-          <p className="text-[#c8a882] text-xs uppercase tracking-[4px] font-medium mb-4">Ce qui est inclus</p>
-          <h2 className="text-3xl font-bold text-[#3a3028] mb-10" style={{fontFamily:'Georgia,serif'}}>6 modules pour etre vraiment la.</h2>
-          <div className="flex flex-col gap-4">
-            {[
-              { titre: 'Calendrier des rendez-vous', desc: "Chaque consultation expliquee. Ton role precis. Personnalise a ta date." },
-              { titre: 'Suivi bebe semaine par semaine', desc: "Taille, poids, developpement. Tu sais ou en est bebe a chaque instant." },
-              { titre: 'Guide accouchement', desc: "Quand partir, ce que tu vas voir, comment soutenir." },
-              { titre: 'Valise maternite', desc: "Checklist interactive complete. Pour toi, pour elle, pour bebe." },
-              { titre: 'Post-partum decrypte', desc: "Baby blues, fatigue, couple. Comprendre ce qu'elle vit." },
-              { titre: 'Idees pour ta partenaire', desc: "Une idee chaque mois pour lui faire plaisir." },
-              { titre: 'Survie premier mois', desc: "Emmaillotage, pleurs, sommeil, biberon." },
-              { titre: 'Liste achats prioritaires', desc: "Ce qui est vraiment necessaire, dans quel ordre, pour quel budget." },
-            ].map((m, i) => (
-              <div key={i} className="flex items-center gap-4 p-4 rounded-2xl border border-[#e8ddd4] hover:border-[#c8a882] transition-all bg-[#f8f5f0]">
-                <div className="w-8 h-8 rounded-full bg-[#e8ddd4] flex items-center justify-center flex-shrink-0">
-                  <span className="text-[#6b5c4e] text-sm font-bold">{i + 1}</span>
-                </div>
-                <div>
-                  <p className="text-[#3a3028] font-bold text-sm mb-1">{m.titre}</p>
-                  <p className="text-[#9a8470] text-sm leading-relaxed">{m.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="max-w-2xl mx-auto px-6 py-16">
-        <div className="border-l-2 border-[#c8a882] pl-6">
-          <p className="text-2xl font-bold text-[#3a3028] leading-relaxed mb-3" style={{fontFamily:'Georgia,serif'}}>Papa, des le premier jour.</p>
-          <p className="text-[#9a8470] text-sm leading-relaxed">Pas apres la naissance. Pas quand tu te sens pret. Maintenant, pendant la grossesse, avec les bons outils.</p>
-        </div>
-      </section>
-
-      <section className="bg-[#3a3028]">
-        <div className="max-w-2xl mx-auto px-6 py-16 text-center">
-          <p className="text-[#c8a882] text-xs uppercase tracking-[4px] font-medium mb-8">L'offre</p>
-          <div className="bg-[#f0e0cc] rounded-3xl p-8 max-w-sm mx-auto">
-            <p className="text-[#6b5c4e] text-xs uppercase tracking-[3px] font-medium mb-3">Acces annuel complet</p>
-            <p className="text-5xl font-bold text-[#3a3028] mb-1" style={{fontFamily:'Georgia,serif'}}>29,99</p>
-            <p className="text-[#9a8470] text-sm mb-6">par an · sans engagement</p>
-            <div className="flex flex-col gap-3 text-left mb-8">
-              {[
-                "6 modules complets",
-                "De la grossesse au post-partum",
-                "Idees mensuelles pour ta partenaire",
-                "Personnalise a ta date d'accouchement",
-                "Acces sur tous tes appareils",
-              ].map((f) => (
-                <div key={f} className="flex items-center gap-3">
-                  <div className="w-4 h-4 rounded-full bg-[#3a3028] flex items-center justify-center flex-shrink-0">
-                    <span className="text-[#f0e0cc] text-xs font-bold">✓</span>
-                  </div>
-                  <p className="text-[#3a3028] text-sm">{f}</p>
-                </div>
-              ))}
-            </div>
-            <button onClick={goToStripe} className="w-full bg-[#3a3028] hover:bg-[#6b5c4e] text-[#f0e0cc] font-bold px-8 py-4 rounded-full transition-all text-sm tracking-wide">Acces annuel complet — 29,99/an</button>
-            <p className="text-[#9a8470] text-xs mt-4">Paiement securise par Stripe</p>
-          </div>
-        </div>
-      </section>
-
-      <footer className="max-w-2xl mx-auto px-6 py-8 text-center">
-        <p className="text-[#c8b8a8] text-xs leading-relaxed">
-          DadUp est un outil d'information. Il ne remplace pas l'avis d'un medecin. Aucune donnee personnelle n'est conservee.
-        </p>
+        <p style={{color:'#6b5c4e', fontSize:'12px', margin:0}}>DadUp est un outil d'information. Il ne remplace pas l'avis d'un medecin.</p>
       </footer>
 
     </main>
