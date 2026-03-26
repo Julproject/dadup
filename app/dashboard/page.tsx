@@ -339,8 +339,7 @@ function DashboardContent() {
               <h2 style={{color:C.dark, fontSize:'22px', fontWeight:800, margin:0, fontFamily:'Georgia,serif'}}>
                 {avance ? 'Dans 4 semaines' : 'Semaine ' + saReelle}
               </h2>
-              <button onClick={() => setAvance(!avance)} style={{fontSize:'11px', padding:'7px 14px', borderRadius:'20px', cursor:'pointer', fontWeight:700, border:'none', background: avance ? C.dark : C.white, color: avance ? C.gold : C.text, border: avance ? 'none' : `1px solid ${C.border}`}}>
-                {avance ? '← Revenir' : "S'avancer +4 SA"}
+<button onClick={() => setAvance(!avance)} style={{fontSize:'11px', padding:'7px 14px', borderRadius:'20px', cursor:'pointer', fontWeight:700, background: avance ? C.dark : C.white, color: avance ? C.gold : C.text, border: avance ? 'none' : `1px solid ${C.border}`}}>                {avance ? '← Revenir' : "S'avancer +4 SA"}
               </button>
             </div>
 
