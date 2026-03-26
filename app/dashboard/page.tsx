@@ -11,7 +11,6 @@ const C = {
   border: '#e8e0d0',
   text: '#4a5568',
   textLight: '#9aa0a8',
-  darkHover: '#2e3848',
 };
 
 const SEMAINES_DATA: Record<number, {fruit:string;emoji:string;taille:string;poids:string;developpement:string;maman:string;conseil:string;}> = {
@@ -172,12 +171,13 @@ function DashboardContent() {
   if (showOnboarding) return <Onboarding onSave={saveOnboarding}/>;
 
   return (
-    <div style={{minHeight:'100vh', background:C.cream, paddingBottom:'24px', fontFamily:'sans-serif'}}>
+    <div style={{minHeight:'100vh', background:'#f8f7f4', paddingBottom:'24px', fontFamily:'-apple-system, BlinkMacSystemFont, sans-serif'}}>
 
-      <div style={{background:C.dark, position:'sticky', top:0, zIndex:40}}>
-        <div style={{display:'flex', alignItems:'center', justifyContent:'space-between', padding:'12px 20px', borderBottom:'1px solid #2e3848'}}>
-          <a href="/" style={{display:'flex', alignItems:'center', gap:'10px', textDecoration:'none'}}>
-            <svg viewBox="0 0 300 300" width="30" height="30">
+      {/* HEADER B — Crème, tabs en pills */}
+      <div style={{background:C.cream, position:'sticky', top:0, zIndex:40, borderBottom:`1px solid ${C.border}`}}>
+        <div style={{display:'flex', alignItems:'center', justifyContent:'space-between', padding:'14px 20px'}}>
+          <a href="/dashboard" style={{display:'flex', alignItems:'center', gap:'12px', textDecoration:'none'}}>
+            <svg viewBox="0 0 300 300" width="40" height="40">
               <circle cx="150" cy="150" r="145" fill="#3a4f6e"/>
               <circle cx="150" cy="150" r="122" fill="#4a6080"/>
               <ellipse cx="150" cy="205" rx="58" ry="54" fill="#c8a060"/>
@@ -186,163 +186,197 @@ function DashboardContent() {
               <circle cx="150" cy="128" r="26" fill="#faf6f0"/>
             </svg>
             <div>
-              <p style={{color:C.white, fontSize:'14px', fontWeight:700, margin:0, fontFamily:'Georgia,serif'}}>
+              <p style={{color:C.dark, fontSize:'17px', fontWeight:800, margin:0, fontFamily:'Georgia,serif'}}>
                 {prenom ? 'Bonjour ' + prenom : 'DadUp'}
               </p>
-              <p style={{color:C.gold, fontSize:'10px', margin:0}}>← Retour accueil</p>
+              <p style={{color:C.gold, fontSize:'11px', margin:0, fontWeight:500}}>
+                {isPostPartum ? 'Post-partum' : saReelle ? 'Semaine ' + saReelle + ' · ' + trimestre : 'Mon espace'}
+              </p>
             </div>
           </a>
-          <div style={{display:'flex', gap:'8px', alignItems:'center'}}>
-            {isPostPartum ? (
-              <span style={{background:C.gold, color:C.dark, fontSize:'11px', fontWeight:700, padding:'4px 12px', borderRadius:'20px'}}>Post-partum</span>
-            ) : saReelle && (
-              <>
-                <span style={{background:C.gold, color:C.dark, fontSize:'11px', fontWeight:700, padding:'4px 10px', borderRadius:'20px'}}>SA {saReelle}</span>
-                <span style={{background:'#2e3848', color:C.textLight, fontSize:'11px', fontWeight:600, padding:'4px 10px', borderRadius:'20px'}}>{trimestre}</span>
-              </>
-            )}
-          </div>
+          {saReelle && (
+            <span style={{background:C.dark, color:C.gold, fontSize:'12px', fontWeight:700, padding:'7px 16px', borderRadius:'20px'}}>
+              SA {saReelle}
+            </span>
+          )}
         </div>
-        <div style={{display:'flex', overflowX:'auto', padding:'0 8px'}}>
+        <div style={{padding:'0 16px 12px', display:'flex', gap:'6px', overflowX:'auto'}}>
           {tabs.map(t => (
             <button key={t.id} onClick={() => setActiveTab(t.id)} style={{
-              flexShrink:0, padding:'10px 16px', fontSize:'12px', fontWeight: activeTab === t.id ? 700 : 400,
-              color: activeTab === t.id ? C.gold : '#6a7585',
-              background:'none', border:'none', borderBottom: activeTab === t.id ? `2px solid ${C.gold}` : '2px solid transparent',
-              cursor:'pointer',
+              padding:'8px 16px', fontSize:'12px',
+              fontWeight: activeTab === t.id ? 700 : 400,
+              color: activeTab === t.id ? C.gold : C.textLight,
+              background: activeTab === t.id ? C.dark : C.white,
+              border: activeTab === t.id ? 'none' : `1px solid ${C.border}`,
+              borderRadius:'20px', cursor:'pointer',
+              whiteSpace:'nowrap' as const, flexShrink:0,
+              transition:'all 0.15s',
             }}>{t.label}</button>
           ))}
         </div>
       </div>
 
-      <div style={{padding:'16px', maxWidth:'800px', margin:'0 auto'}}>
+      <div style={{padding:'16px', maxWidth:'640px', margin:'0 auto'}}>
 
+        {/* ========== ACCUEIL ========== */}
         {activeTab === 'home' && (
           <div style={{display:'flex', flexDirection:'column', gap:'12px'}}>
 
             {isPostPartum ? (
-              <div style={{background:C.dark, borderRadius:'20px', padding:'24px', textAlign:'center'}}>
+              <div style={{background:C.dark, borderRadius:'20px', padding:'32px', textAlign:'center'}}>
                 <p style={{fontSize:'48px', margin:'0 0 8px'}}>👶</p>
-                <p style={{color:C.white, fontSize:'22px', fontWeight:700, margin:0, fontFamily:'Georgia,serif'}}>Bebe est la !</p>
+                <p style={{color:C.white, fontSize:'24px', fontWeight:800, margin:0, fontFamily:'Georgia,serif'}}>Bebe est la !</p>
                 <p style={{color:C.gold, fontSize:'13px', margin:'4px 0 0'}}>Mode post-partum active</p>
               </div>
             ) : data && saReelle && (
-              <div style={{background:C.dark, borderRadius:'20px', padding:'20px'}}>
-                <div style={{display:'flex', alignItems:'center', gap:'16px', marginBottom:'16px'}}>
-                  <span style={{fontSize:'52px', lineHeight:1}}>{data.emoji}</span>
-                  <div style={{flex:1}}>
-                    <p style={{color:C.gold, fontSize:'10px', letterSpacing:'2px', textTransform:'uppercase', margin:'0 0 4px'}}>Semaine {saReelle} · {trimestre}</p>
-                    <p style={{color:C.white, fontSize:'18px', fontWeight:700, margin:'0 0 2px', fontFamily:'Georgia,serif'}}>Bebe = une {data.fruit}</p>
-                    <p style={{color:'#4a6080', fontSize:'12px', margin:0}}>{data.taille} · {data.poids}{joursRestants && joursRestants > 0 ? ' · ' + joursRestants + 'j restants' : ''}</p>
+              <div style={{background:C.dark, borderRadius:'20px', padding:'24px', position:'relative', overflow:'hidden'}}>
+                <div style={{position:'absolute', top:'-20px', right:'-20px', width:'140px', height:'140px', borderRadius:'50%', background:'rgba(200,160,96,0.06)'}}/>
+                <div style={{position:'absolute', top:'16px', right:'20px', fontSize:'64px', lineHeight:1, opacity:0.9}}>{data.emoji}</div>
+                <div style={{position:'relative'}}>
+                  <p style={{color:'rgba(200,160,96,0.7)', fontSize:'10px', letterSpacing:'3px', textTransform:'uppercase', margin:'0 0 8px', fontWeight:600}}>Semaine {saReelle} · {trimestre}</p>
+                  <p style={{color:C.white, fontSize:'24px', fontWeight:800, margin:'0 0 4px', fontFamily:'Georgia,serif', lineHeight:1.2}}>
+                    Bebe = une {data.fruit}
+                  </p>
+                  <p style={{color:'rgba(255,255,255,0.35)', fontSize:'13px', margin:'0 0 20px'}}>{data.taille} · {data.poids}{joursRestants && joursRestants > 0 ? ' · ' + joursRestants + 'j restants' : ''}</p>
+                  <div style={{background:'rgba(255,255,255,0.1)', borderRadius:'6px', height:'4px', marginBottom:'10px'}}>
+                    <div style={{background:C.gold, height:'4px', borderRadius:'6px', width:progression+'%'}}/>
                   </div>
-                </div>
-                <div style={{background:'#2e3848', borderRadius:'8px', height:'8px', marginBottom:'8px'}}>
-                  <div style={{background:C.gold, height:'8px', borderRadius:'8px', width:progression+'%', transition:'width 0.5s'}}/>
-                </div>
-                <div style={{display:'flex', justifyContent:'space-between'}}>
-                  {['T1','T2','T3'].map((t, i) => {
-                    const actif = (saReelle||0) > (i === 0 ? 0 : [12,27][i-1]);
-                    return <span key={t} style={{background: actif ? C.gold : '#2e3848', color: actif ? C.dark : '#4a6080', fontSize:'10px', fontWeight:700, padding:'3px 10px', borderRadius:'20px'}}>{t}{actif && i < 2 ? ' ✓' : ''}</span>;
-                  })}
+                  <div style={{display:'flex', justifyContent:'space-between', alignItems:'center'}}>
+                    <div style={{display:'flex', gap:'6px'}}>
+                      {['T1','T2','T3'].map((t, i) => {
+                        const actif = (saReelle||0) > (i === 0 ? 0 : [14,27][i-1]);
+                        const enCours = trimestre === t;
+                        return (
+                          <span key={t} style={{
+                            background: actif && !enCours ? C.gold : enCours ? 'rgba(200,160,96,0.2)' : 'rgba(255,255,255,0.08)',
+                            color: actif && !enCours ? C.dark : enCours ? C.gold : 'rgba(255,255,255,0.3)',
+                            fontSize:'10px', fontWeight:700, padding:'3px 10px', borderRadius:'20px'
+                          }}>{t}{actif && !enCours ? ' ✓' : enCours ? ' →' : ''}</span>
+                        );
+                      })}
+                    </div>
+                    <span style={{color:'rgba(255,255,255,0.3)', fontSize:'12px'}}>{progression}%</span>
+                  </div>
                 </div>
               </div>
             )}
 
             <div style={{display:'grid', gridTemplateColumns:'1fr 1fr', gap:'12px'}}>
               {data && (
-                <div style={{background:C.dark, borderRadius:'16px', padding:'16px'}}>
-                  <p style={{color:C.gold, fontSize:'9px', letterSpacing:'2px', textTransform:'uppercase', margin:'0 0 8px'}}>Conseil</p>
-                  <p style={{color:C.white, fontSize:'13px', lineHeight:1.5, margin:0}}>{data.conseil}</p>
+                <div style={{background:C.white, borderRadius:'16px', padding:'18px', border:`1px solid ${C.border}`}}>
+                  <div style={{width:'32px', height:'32px', borderRadius:'10px', background:'#f8f7f4', display:'flex', alignItems:'center', justifyContent:'center', marginBottom:'12px', fontSize:'16px'}}>💡</div>
+                  <p style={{color:C.textLight, fontSize:'10px', fontWeight:600, letterSpacing:'2px', textTransform:'uppercase', margin:'0 0 6px'}}>Conseil</p>
+                  <p style={{color:C.dark, fontSize:'13px', lineHeight:1.5, margin:0, fontWeight:500}}>{data.conseil}</p>
                 </div>
               )}
-              <div style={{background:C.gold, borderRadius:'16px', padding:'16px'}}>
-                <p style={{color:'#a07830', fontSize:'9px', letterSpacing:'2px', textTransform:'uppercase', margin:'0 0 8px'}}>Idee du mois</p>
+              <div style={{background:C.gold, borderRadius:'16px', padding:'18px'}}>
+                <div style={{width:'32px', height:'32px', borderRadius:'10px', background:'rgba(255,255,255,0.2)', display:'flex', alignItems:'center', justifyContent:'center', marginBottom:'12px', fontSize:'16px'}}>🎁</div>
+                <p style={{color:'rgba(30,37,53,0.55)', fontSize:'10px', fontWeight:600, letterSpacing:'2px', textTransform:'uppercase', margin:'0 0 6px'}}>Idee du mois</p>
                 <p style={{color:C.dark, fontSize:'13px', lineHeight:1.5, margin:0, fontWeight:600}}>{ideesMois}</p>
               </div>
             </div>
 
             {RDV_LIST.filter(r => saReelle && r.sa >= saReelle).slice(0,1).map((r, i) => (
-              <div key={i} style={{background:C.white, borderRadius:'16px', padding:'16px', borderLeft:`4px solid ${C.gold}`, border:`1px solid ${C.border}`, borderLeftWidth:'4px', borderLeftColor:C.gold}}>
-                <p style={{color:C.gold, fontSize:'9px', letterSpacing:'2px', textTransform:'uppercase', margin:'0 0 10px'}}>Prochain RDV</p>
-                <div style={{display:'flex', alignItems:'center', gap:'12px'}}>
-                  <div style={{background:C.cream, width:'44px', height:'44px', borderRadius:'12px', display:'flex', alignItems:'center', justifyContent:'center', fontSize:'20px', flexShrink:0}}>{r.emoji}</div>
+              <div key={i} style={{background:C.white, borderRadius:'16px', padding:'18px', border:`1px solid ${C.border}`}}>
+                <div style={{display:'flex', alignItems:'center', justifyContent:'space-between', marginBottom:'14px'}}>
+                  <p style={{color:C.textLight, fontSize:'10px', fontWeight:600, letterSpacing:'2px', textTransform:'uppercase', margin:0}}>Prochain RDV</p>
+                  {joursRestants !== null && (
+                    <span style={{background:'#f8f7f4', color:C.gold, fontSize:'11px', fontWeight:700, padding:'3px 10px', borderRadius:'20px', border:`1px solid ${C.border}`}}>
+                      {Math.max(0, Math.round((new Date(dpa).getTime() - (40 - r.sa) * 7 * 24 * 60 * 60 * 1000 - new Date().getTime()) / (1000 * 60 * 60 * 24)))}j
+                    </span>
+                  )}
+                </div>
+                <div style={{display:'flex', alignItems:'center', gap:'14px'}}>
+                  <div style={{width:'48px', height:'48px', borderRadius:'14px', background:'#f8f7f4', display:'flex', alignItems:'center', justifyContent:'center', fontSize:'22px', flexShrink:0}}>{r.emoji}</div>
                   <div style={{flex:1}}>
-                    <p style={{color:C.dark, fontSize:'14px', fontWeight:700, margin:0}}>{r.titre}</p>
+                    <p style={{color:C.dark, fontSize:'15px', fontWeight:700, margin:'0 0 2px'}}>{r.titre}</p>
                     <p style={{color:C.textLight, fontSize:'12px', margin:0}}>SA {r.sa}{dpa ? ' · ' + new Date(new Date(dpa).getTime() - (40 - r.sa) * 7 * 24 * 60 * 60 * 1000).toLocaleDateString('fr-FR', {day:'numeric', month:'long'}) : ''}</p>
                   </div>
+                  <div style={{width:'32px', height:'32px', borderRadius:'50%', background:C.dark, display:'flex', alignItems:'center', justifyContent:'center', flexShrink:0, color:C.gold, fontSize:'14px'}}>→</div>
                 </div>
               </div>
             ))}
 
             {data && (
               <div style={{display:'grid', gridTemplateColumns:'1fr 1fr', gap:'12px'}}>
-                <div style={{background:C.white, borderRadius:'16px', padding:'16px', border:`1px solid ${C.border}`}}>
-                  <p style={{color:C.gold, fontSize:'9px', letterSpacing:'2px', textTransform:'uppercase', margin:'0 0 8px'}}>Developpement</p>
-                  <p style={{color:C.dark, fontSize:'12px', lineHeight:1.5, margin:0}}>{data.developpement}</p>
+                <div style={{background:C.white, borderRadius:'16px', padding:'18px', border:`1px solid ${C.border}`}}>
+                  <p style={{color:C.textLight, fontSize:'10px', fontWeight:600, letterSpacing:'2px', textTransform:'uppercase', margin:'0 0 10px'}}>Developpement</p>
+                  <p style={{color:C.dark, fontSize:'13px', lineHeight:1.5, margin:0}}>{data.developpement}</p>
                 </div>
-                <div style={{background:C.white, borderRadius:'16px', padding:'16px', border:`1px solid ${C.border}`}}>
-                  <p style={{color:C.gold, fontSize:'9px', letterSpacing:'2px', textTransform:'uppercase', margin:'0 0 8px'}}>Ce que vit maman</p>
-                  <p style={{color:C.dark, fontSize:'12px', lineHeight:1.5, margin:0}}>{data.maman}</p>
+                <div style={{background:C.white, borderRadius:'16px', padding:'18px', border:`1px solid ${C.border}`}}>
+                  <p style={{color:C.textLight, fontSize:'10px', fontWeight:600, letterSpacing:'2px', textTransform:'uppercase', margin:'0 0 10px'}}>Ce que vit maman</p>
+                  <p style={{color:C.dark, fontSize:'13px', lineHeight:1.5, margin:0}}>{data.maman}</p>
                 </div>
               </div>
             )}
 
             <div style={{display:'grid', gridTemplateColumns:'1fr 1fr', gap:'12px'}}>
               {[
-                {id:'bebe',label:'Suivi bebe',sub:'SA ' + saReelle + ' en detail'},
-                {id:'rdv',label:'Mes RDV',sub:'Calendrier complet'},
-                {id:'pratique',label:'Pratique',sub:'Valise & achats'},
-                {id:'cadeaux',label:'Cadeaux',sub:'Bons plans partenaires'},
-              ].map(m => (
-                <button key={m.id} onClick={() => setActiveTab(m.id)} style={{background:C.white, borderRadius:'16px', padding:'16px', border:`1px solid ${C.border}`, cursor:'pointer', textAlign:'left'}}>
-                  <p style={{color:C.dark, fontSize:'13px', fontWeight:700, margin:'0 0 4px'}}>{m.label}</p>
-                  <p style={{color:C.textLight, fontSize:'11px', margin:0}}>{m.sub}</p>
+                {id:'bebe', label:'Suivi bebe', sub:'SA '+(saReelle||'')+' en detail', emoji:'👶'},
+                {id:'rdv', label:'Mes RDV', sub:'Calendrier complet', emoji:'📅'},
+                {id:'pratique', label:'Pratique', sub:'Valise & achats', emoji:'🧳'},
+                {id:'cadeaux', label:'Cadeaux', sub:'Bons plans', emoji:'🎁', dark:true},
+              ].map((m, i) => (
+                <button key={m.id} onClick={() => setActiveTab(m.id)} style={{
+                  background: m.dark ? C.dark : C.white,
+                  borderRadius:'16px', padding:'18px',
+                  border: m.dark ? 'none' : `1px solid ${C.border}`,
+                  cursor:'pointer', textAlign:'left',
+                }}>
+                  <div style={{width:'36px', height:'36px', borderRadius:'10px', background: m.dark ? 'rgba(200,160,96,0.15)' : '#f8f7f4', display:'flex', alignItems:'center', justifyContent:'center', marginBottom:'10px', fontSize:'18px'}}>{m.emoji}</div>
+                  <p style={{color: m.dark ? C.white : C.dark, fontSize:'13px', fontWeight:700, margin:'0 0 2px'}}>{m.label}</p>
+                  <p style={{color: m.dark ? C.gold : C.textLight, fontSize:'11px', margin:0}}>{m.sub}</p>
                 </button>
               ))}
             </div>
           </div>
         )}
 
+        {/* ========== BEBE ========== */}
         {activeTab === 'bebe' && data && sa && (
           <div style={{display:'flex', flexDirection:'column', gap:'12px'}}>
             <div style={{display:'flex', alignItems:'center', justifyContent:'space-between'}}>
-              <h2 style={{color:C.dark, fontSize:'22px', fontWeight:700, margin:0, fontFamily:'Georgia,serif'}}>
+              <h2 style={{color:C.dark, fontSize:'22px', fontWeight:800, margin:0, fontFamily:'Georgia,serif'}}>
                 {avance ? 'Dans 4 semaines' : 'Semaine ' + saReelle}
               </h2>
-              <button onClick={() => setAvance(!avance)} style={{fontSize:'11px', padding:'6px 14px', borderRadius:'20px', cursor:'pointer', fontWeight:700, border:'none', background: avance ? C.dark : C.cream, color: avance ? C.gold : C.text}}>
-                {avance ? 'Revenir' : "S'avancer +4 SA"}
+              <button onClick={() => setAvance(!avance)} style={{fontSize:'11px', padding:'7px 14px', borderRadius:'20px', cursor:'pointer', fontWeight:700, border:'none', background: avance ? C.dark : C.white, color: avance ? C.gold : C.text, border: avance ? 'none' : `1px solid ${C.border}`}}>
+                {avance ? '← Revenir' : "S'avancer +4 SA"}
               </button>
             </div>
-            <div style={{background:C.dark, borderRadius:'20px', padding:'20px', display:'flex', alignItems:'center', gap:'16px'}}>
-              <span style={{fontSize:'56px', lineHeight:1}}>{data.emoji}</span>
-              <div>
-                <p style={{color:C.gold, fontSize:'10px', letterSpacing:'2px', margin:'0 0 4px'}}>TAILLE DE BEBE</p>
-                <p style={{color:C.white, fontSize:'20px', fontWeight:700, margin:'0 0 2px', fontFamily:'Georgia,serif'}}>{data.fruit}</p>
-                <p style={{color:'#4a6080', fontSize:'13px', margin:0}}>{data.taille} · {data.poids}</p>
+
+            <div style={{background:C.dark, borderRadius:'20px', padding:'24px', position:'relative', overflow:'hidden'}}>
+              <div style={{position:'absolute', top:'16px', right:'20px', fontSize:'72px', lineHeight:1, opacity:0.9}}>{data.emoji}</div>
+              <div style={{position:'relative'}}>
+                <p style={{color:'rgba(200,160,96,0.7)', fontSize:'10px', letterSpacing:'3px', textTransform:'uppercase', margin:'0 0 8px', fontWeight:600}}>Taille de bebe</p>
+                <p style={{color:C.white, fontSize:'28px', fontWeight:800, margin:'0 0 4px', fontFamily:'Georgia,serif'}}>{data.fruit}</p>
+                <p style={{color:'rgba(255,255,255,0.4)', fontSize:'14px', margin:0}}>{data.taille} · {data.poids}</p>
               </div>
             </div>
+
+            <div style={{background:C.white, borderRadius:'16px', padding:'18px', border:`1px solid ${C.border}`}}>
+              <p style={{color:C.textLight, fontSize:'10px', fontWeight:600, letterSpacing:'2px', textTransform:'uppercase', margin:'0 0 10px'}}>Developpement</p>
+              <p style={{color:C.dark, fontSize:'14px', lineHeight:1.6, margin:0}}>{data.developpement}</p>
+            </div>
+
             <div style={{display:'grid', gridTemplateColumns:'1fr 1fr', gap:'12px'}}>
-              <div style={{background:C.white, borderRadius:'16px', padding:'16px', border:`1px solid ${C.border}`, gridColumn:'span 2'}}>
-                <p style={{color:C.gold, fontSize:'9px', letterSpacing:'2px', textTransform:'uppercase', margin:'0 0 8px'}}>Developpement</p>
-                <p style={{color:C.dark, fontSize:'13px', lineHeight:1.6, margin:0}}>{data.developpement}</p>
+              <div style={{background:C.white, borderRadius:'16px', padding:'18px', border:`1px solid ${C.border}`}}>
+                <p style={{color:C.textLight, fontSize:'10px', fontWeight:600, letterSpacing:'2px', textTransform:'uppercase', margin:'0 0 10px'}}>Ce que vit maman</p>
+                <p style={{color:C.dark, fontSize:'13px', lineHeight:1.5, margin:0}}>{data.maman}</p>
               </div>
-              <div style={{background:C.cream, borderRadius:'16px', padding:'16px', border:`1px solid ${C.border}`}}>
-                <p style={{color:C.gold, fontSize:'9px', letterSpacing:'2px', textTransform:'uppercase', margin:'0 0 8px'}}>Ce que vit maman</p>
-                <p style={{color:C.dark, fontSize:'12px', lineHeight:1.5, margin:0}}>{data.maman}</p>
-              </div>
-              <div style={{background:C.dark, borderRadius:'16px', padding:'16px'}}>
-                <p style={{color:C.gold, fontSize:'9px', letterSpacing:'2px', textTransform:'uppercase', margin:'0 0 8px'}}>Ton role</p>
-                <p style={{color:C.white, fontSize:'12px', lineHeight:1.5, margin:0, fontWeight:600}}>{data.conseil}</p>
+              <div style={{background:C.gold, borderRadius:'16px', padding:'18px'}}>
+                <p style={{color:'rgba(30,37,53,0.55)', fontSize:'10px', fontWeight:600, letterSpacing:'2px', textTransform:'uppercase', margin:'0 0 10px'}}>Ton role</p>
+                <p style={{color:C.dark, fontSize:'13px', lineHeight:1.5, margin:0, fontWeight:600}}>{data.conseil}</p>
               </div>
             </div>
-            <div style={{background:C.white, borderRadius:'16px', padding:'16px', border:`1px solid ${C.border}`}}>
-              <p style={{color:C.dark, fontSize:'13px', fontWeight:700, margin:'0 0 12px'}}>Journal</p>
-              <textarea value={noteText} onChange={e => setNoteText(e.target.value)} placeholder="Ce que j'ai ressenti cette semaine..." style={{width:'100%', background:C.cream, border:`1px solid ${C.border}`, borderRadius:'12px', padding:'12px', fontSize:'13px', color:C.dark, resize:'none', boxSizing:'border-box' as const, fontFamily:'sans-serif'}} rows={3}/>
+
+            <div style={{background:C.white, borderRadius:'16px', padding:'18px', border:`1px solid ${C.border}`}}>
+              <p style={{color:C.dark, fontSize:'14px', fontWeight:700, margin:'0 0 12px'}}>Journal</p>
+              <textarea value={noteText} onChange={e => setNoteText(e.target.value)} placeholder="Ce que j'ai ressenti cette semaine..." style={{width:'100%', background:'#f8f7f4', border:`1px solid ${C.border}`, borderRadius:'12px', padding:'12px', fontSize:'13px', color:C.dark, resize:'none', boxSizing:'border-box' as const, fontFamily:'sans-serif', outline:'none'}} rows={3}/>
               <button onClick={saveNote} style={{marginTop:'8px', background:C.dark, color:C.gold, fontSize:'12px', fontWeight:700, padding:'8px 20px', borderRadius:'20px', border:'none', cursor:'pointer'}}>Enregistrer</button>
               {notes.length > 0 && (
                 <div style={{marginTop:'12px', display:'flex', flexDirection:'column', gap:'8px'}}>
                   {notes.slice(-3).reverse().map((n, i) => (
-                    <p key={i} style={{color:C.textLight, fontSize:'12px', background:C.cream, borderRadius:'10px', padding:'10px', margin:0, lineHeight:1.5}}>{n}</p>
+                    <p key={i} style={{color:C.textLight, fontSize:'12px', background:'#f8f7f4', borderRadius:'10px', padding:'10px', margin:0, lineHeight:1.5}}>{n}</p>
                   ))}
                 </div>
               )}
@@ -350,10 +384,13 @@ function DashboardContent() {
           </div>
         )}
 
+        {/* ========== RDV ========== */}
         {activeTab === 'rdv' && (
           <div style={{display:'flex', flexDirection:'column', gap:'12px'}}>
-            <h2 style={{color:C.dark, fontSize:'22px', fontWeight:700, margin:0, fontFamily:'Georgia,serif'}}>Calendrier RDV</h2>
-            {dpa && <p style={{color:C.textLight, fontSize:'13px', margin:0}}>DPA : {new Date(dpa).toLocaleDateString('fr-FR', {day:'numeric', month:'long', year:'numeric'})}</p>}
+            <div style={{display:'flex', alignItems:'center', justifyContent:'space-between'}}>
+              <h2 style={{color:C.dark, fontSize:'22px', fontWeight:800, margin:0, fontFamily:'Georgia,serif'}}>Calendrier RDV</h2>
+              {dpa && <p style={{color:C.textLight, fontSize:'12px', margin:0}}>DPA : {new Date(dpa).toLocaleDateString('fr-FR', {day:'numeric', month:'long'})}</p>}
+            </div>
             <div style={{position:'relative'}}>
               <div style={{position:'absolute', left:'20px', top:0, bottom:0, width:'2px', background:C.border}}/>
               <div style={{display:'flex', flexDirection:'column', gap:'10px'}}>
@@ -361,24 +398,24 @@ function DashboardContent() {
                   const statut = !saReelle ? 'futur' : r.sa < saReelle ? 'passe' : r.sa <= saReelle + 2 ? 'prochain' : 'futur';
                   return (
                     <div key={i} style={{position:'relative', paddingLeft:'52px'}}>
-                      <div style={{position:'absolute', left:'12px', top:'16px', width:'18px', height:'18px', borderRadius:'50%', border:`2px solid ${statut === 'passe' ? C.gold : statut === 'prochain' ? C.gold : C.border}`, background: statut === 'passe' ? C.gold : statut === 'prochain' ? C.gold : C.white, display:'flex', alignItems:'center', justifyContent:'center', transform: statut === 'prochain' ? 'scale(1.2)' : 'scale(1)'}}>
-                        {statut === 'passe' && <span style={{color:C.dark, fontSize:'10px'}}>✓</span>}
+                      <div style={{position:'absolute', left:'12px', top:'18px', width:'18px', height:'18px', borderRadius:'50%', border:`2px solid ${statut === 'passe' ? C.gold : statut === 'prochain' ? C.gold : C.border}`, background: statut === 'passe' ? C.gold : statut === 'prochain' ? C.gold : C.white, display:'flex', alignItems:'center', justifyContent:'center', transform: statut === 'prochain' ? 'scale(1.2)' : 'scale(1)'}}>
+                        {statut === 'passe' && <span style={{color:C.dark, fontSize:'10px', fontWeight:700}}>✓</span>}
                       </div>
-                      <button onClick={() => setRdvOuvert(rdvOuvert === i ? null : i)} style={{width:'100%', textAlign:'left', borderRadius:'16px', padding:'14px 16px', border:'none', cursor:'pointer', background: statut === 'prochain' ? C.dark : C.white, borderLeft: statut === 'prochain' ? `3px solid ${C.gold}` : `1px solid ${C.border}`, opacity: statut === 'passe' ? 0.6 : 1}}>
+                      <button onClick={() => setRdvOuvert(rdvOuvert === i ? null : i)} style={{width:'100%', textAlign:'left', borderRadius:'16px', padding:'14px 16px', border:'none', cursor:'pointer', background: statut === 'prochain' ? C.dark : C.white, outline:'none', opacity: statut === 'passe' ? 0.55 : 1, borderLeft: statut === 'prochain' ? `3px solid ${C.gold}` : `1px solid ${C.border}`}}>
                         <div style={{display:'flex', alignItems:'center', justifyContent:'space-between'}}>
                           <div style={{display:'flex', alignItems:'center', gap:'10px'}}>
                             <span style={{fontSize:'18px'}}>{r.emoji}</span>
                             <div>
                               <div style={{display:'flex', alignItems:'center', gap:'8px'}}>
                                 <p style={{color: statut === 'prochain' ? C.white : C.dark, fontSize:'13px', fontWeight:700, margin:0}}>{r.titre}</p>
-                                {r.oblig && <span style={{background: statut === 'prochain' ? C.gold : C.cream, color:C.dark, fontSize:'9px', fontWeight:700, padding:'2px 6px', borderRadius:'10px'}}>obligatoire</span>}
+                                {r.oblig && <span style={{background: statut === 'prochain' ? 'rgba(200,160,96,0.2)' : '#f8f7f4', color:C.gold, fontSize:'9px', fontWeight:700, padding:'2px 6px', borderRadius:'10px'}}>obligatoire</span>}
                               </div>
-                              <p style={{color: statut === 'prochain' ? C.textLight : C.textLight, fontSize:'11px', margin:0}}>SA {r.sa}{dpa ? ' · ' + new Date(new Date(dpa).getTime() - (40 - r.sa) * 7 * 24 * 60 * 60 * 1000).toLocaleDateString('fr-FR', {day:'numeric', month:'short'}) : ''}</p>
+                              <p style={{color:C.textLight, fontSize:'11px', margin:0}}>SA {r.sa}{dpa ? ' · ' + new Date(new Date(dpa).getTime() - (40 - r.sa) * 7 * 24 * 60 * 60 * 1000).toLocaleDateString('fr-FR', {day:'numeric', month:'short'}) : ''}</p>
                             </div>
                           </div>
-                          <span style={{color: statut === 'prochain' ? C.gold : C.textLight, fontSize:'11px'}}>{rdvOuvert === i ? '▲' : '▼'}</span>
+                          <span style={{color:C.textLight, fontSize:'11px'}}>{rdvOuvert === i ? '▲' : '▼'}</span>
                         </div>
-                        {rdvOuvert === i && <p style={{color: statut === 'prochain' ? C.textLight : C.text, fontSize:'12px', lineHeight:1.5, margin:'10px 0 0', paddingTop:'10px', borderTop:`1px solid ${statut === 'prochain' ? '#2e3848' : C.border}`}}>{r.desc}</p>}
+                        {rdvOuvert === i && <p style={{color: statut === 'prochain' ? 'rgba(255,255,255,0.6)' : C.text, fontSize:'12px', lineHeight:1.5, margin:'10px 0 0', paddingTop:'10px', borderTop:`1px solid ${statut === 'prochain' ? 'rgba(255,255,255,0.1)' : C.border}`}}>{r.desc}</p>}
                       </button>
                     </div>
                   );
@@ -388,16 +425,18 @@ function DashboardContent() {
           </div>
         )}
 
+        {/* ========== PRATIQUE ========== */}
         {activeTab === 'pratique' && (
           <div style={{display:'flex', flexDirection:'column', gap:'12px'}}>
-            <h2 style={{color:C.dark, fontSize:'22px', fontWeight:700, margin:0, fontFamily:'Georgia,serif'}}>Pratique</h2>
-            <div style={{background:C.white, borderRadius:'16px', padding:'16px', border:`1px solid ${C.border}`}}>
+            <h2 style={{color:C.dark, fontSize:'22px', fontWeight:800, margin:0, fontFamily:'Georgia,serif'}}>Pratique</h2>
+
+            <div style={{background:C.white, borderRadius:'16px', padding:'18px', border:`1px solid ${C.border}`}}>
               <div style={{display:'flex', alignItems:'center', justifyContent:'space-between', marginBottom:'12px'}}>
                 <p style={{color:C.dark, fontSize:'14px', fontWeight:700, margin:0}}>Valise maternite</p>
-                <span style={{background:C.gold, color:C.dark, fontSize:'11px', fontWeight:700, padding:'3px 10px', borderRadius:'20px'}}>{Object.values(valiseChecked).filter(Boolean).length}/21</span>
+                <span style={{background:C.dark, color:C.gold, fontSize:'11px', fontWeight:700, padding:'3px 12px', borderRadius:'20px'}}>{Object.values(valiseChecked).filter(Boolean).length}/21</span>
               </div>
-              <div style={{background:C.cream, borderRadius:'8px', height:'6px', marginBottom:'16px'}}>
-                <div style={{background:C.gold, height:'6px', borderRadius:'8px', width:(Object.values(valiseChecked).filter(Boolean).length/21*100)+'%'}}/>
+              <div style={{background:'#f8f7f4', borderRadius:'6px', height:'4px', marginBottom:'16px'}}>
+                <div style={{background:C.gold, height:'4px', borderRadius:'6px', width:(Object.values(valiseChecked).filter(Boolean).length/21*100)+'%', transition:'width 0.3s'}}/>
               </div>
               {[
                 {titre:'Pour toi', items:[{id:'v1',label:'Chargeur + batterie externe'},{id:'v2',label:'Vetements confort (2 jours)'},{id:'v3',label:'Snacks & eau'},{id:'v4',label:'Ecouteurs'},{id:'v5',label:'Documents hospitaliers'},{id:'v6',label:'Appareil photo charge'}]},
@@ -406,35 +445,36 @@ function DashboardContent() {
                 {titre:'Documents', items:[{id:'v18',label:'Carte vitale + mutuelle'},{id:'v19',label:'Carnet de maternite'},{id:'v20',label:'Pieces didentite'},{id:'v21',label:'Plan acces maternite'}]},
               ].map(s => (
                 <div key={s.titre} style={{marginBottom:'16px'}}>
-                  <p style={{color:C.textLight, fontSize:'10px', fontWeight:700, textTransform:'uppercase', letterSpacing:'2px', margin:'0 0 8px'}}>{s.titre}</p>
+                  <p style={{color:C.textLight, fontSize:'10px', fontWeight:700, textTransform:'uppercase', letterSpacing:'2px', margin:'0 0 10px'}}>{s.titre}</p>
                   <div style={{display:'flex', flexDirection:'column', gap:'8px'}}>
                     {s.items.map(item => (
-                      <button key={item.id} onClick={() => toggleValise(item.id)} style={{display:'flex', alignItems:'center', gap:'10px', background:'none', border:'none', cursor:'pointer', textAlign:'left', padding:0}}>
-                        <div style={{width:'20px', height:'20px', borderRadius:'6px', border:`2px solid ${valiseChecked[item.id] ? C.gold : C.border}`, background: valiseChecked[item.id] ? C.gold : 'transparent', display:'flex', alignItems:'center', justifyContent:'center', flexShrink:0}}>
-                          {valiseChecked[item.id] && <span style={{color:C.dark, fontSize:'11px'}}>✓</span>}
+                      <button key={item.id} onClick={() => toggleValise(item.id)} style={{display:'flex', alignItems:'center', gap:'12px', background:'none', border:'none', cursor:'pointer', textAlign:'left', padding:'4px 0'}}>
+                        <div style={{width:'22px', height:'22px', borderRadius:'6px', border:`2px solid ${valiseChecked[item.id] ? C.gold : C.border}`, background: valiseChecked[item.id] ? C.gold : 'transparent', display:'flex', alignItems:'center', justifyContent:'center', flexShrink:0, transition:'all 0.15s'}}>
+                          {valiseChecked[item.id] && <span style={{color:C.dark, fontSize:'12px', fontWeight:700}}>✓</span>}
                         </div>
-                        <span style={{fontSize:'13px', color: valiseChecked[item.id] ? C.textLight : C.dark, textDecoration: valiseChecked[item.id] ? 'line-through' : 'none'}}>{item.label}</span>
+                        <span style={{fontSize:'13px', color: valiseChecked[item.id] ? C.textLight : C.dark, textDecoration: valiseChecked[item.id] ? 'line-through' : 'none', transition:'all 0.15s'}}>{item.label}</span>
                       </button>
                     ))}
                   </div>
                 </div>
               ))}
             </div>
-            <div style={{background:C.white, borderRadius:'16px', padding:'16px', border:`1px solid ${C.border}`}}>
-              <p style={{color:C.dark, fontSize:'14px', fontWeight:700, margin:'0 0 14px'}}>Liste achats prioritaires</p>
-              <div style={{display:'flex', flexDirection:'column', gap:'12px'}}>
+
+            <div style={{background:C.white, borderRadius:'16px', padding:'18px', border:`1px solid ${C.border}`}}>
+              <p style={{color:C.dark, fontSize:'14px', fontWeight:700, margin:'0 0 16px'}}>Liste achats prioritaires</p>
+              <div style={{display:'flex', flexDirection:'column', gap:'14px'}}>
                 {[
-                  {label:'Siege auto groupe 0+',priorite:'urgent',prix:'80-300€'},
-                  {label:'Babyphone video',priorite:'urgent',prix:'40-150€'},
-                  {label:'Lit cododo / berceau',priorite:'urgent',prix:'60-400€'},
-                  {label:'Poussette combinee',priorite:'avant naissance',prix:'200-1200€'},
-                  {label:'Tire-lait electrique',priorite:'si allaitement',prix:'30-200€'},
-                  {label:'Thermometre rectal',priorite:'urgent',prix:'15-40€'},
-                  {label:'Humidificateur',priorite:'utile',prix:'30-80€'},
+                  {label:'Siege auto groupe 0+', priorite:'urgent', prix:'80-300€'},
+                  {label:'Babyphone video', priorite:'urgent', prix:'40-150€'},
+                  {label:'Lit cododo / berceau', priorite:'urgent', prix:'60-400€'},
+                  {label:'Poussette combinee', priorite:'avant naissance', prix:'200-1200€'},
+                  {label:'Tire-lait electrique', priorite:'si allaitement', prix:'30-200€'},
+                  {label:'Thermometre rectal', priorite:'urgent', prix:'15-40€'},
+                  {label:'Humidificateur', priorite:'utile', prix:'30-80€'},
                 ].map((a, i) => (
-                  <div key={i} style={{display:'flex', alignItems:'center', justifyContent:'space-between'}}>
+                  <div key={i} style={{display:'flex', alignItems:'center', justifyContent:'space-between', padding:'12px', background:'#f8f7f4', borderRadius:'12px'}}>
                     <div>
-                      <p style={{color:C.dark, fontSize:'13px', fontWeight:600, margin:'0 0 3px'}}>{a.label}</p>
+                      <p style={{color:C.dark, fontSize:'13px', fontWeight:600, margin:'0 0 4px'}}>{a.label}</p>
                       <span style={{background: a.priorite === 'urgent' ? '#fff0f0' : C.cream, color: a.priorite === 'urgent' ? '#cc4444' : C.textLight, fontSize:'10px', fontWeight:700, padding:'2px 8px', borderRadius:'10px'}}>{a.priorite}</span>
                     </div>
                     <p style={{color:C.gold, fontSize:'13px', fontWeight:700, margin:0}}>{a.prix}</p>
@@ -442,42 +482,45 @@ function DashboardContent() {
                 ))}
               </div>
             </div>
-            <div style={{background:C.white, borderRadius:'16px', padding:'16px', border:`1px solid ${C.border}`}}>
-              <p style={{color:C.dark, fontSize:'14px', fontWeight:700, margin:'0 0 14px'}}>Survie 1er mois</p>
+
+            <div style={{background:C.white, borderRadius:'16px', padding:'18px', border:`1px solid ${C.border}`}}>
+              <p style={{color:C.dark, fontSize:'14px', fontWeight:700, margin:'0 0 16px'}}>Survie 1er mois</p>
               {[
                 {titre:'Emmaillotage', contenu:'Etendre la couverture en losange. Replier le coin superieur. Poser bebe, epaules sur le bord. Ramener les cotes un par un, bien serre mais pas trop.'},
-                {titre:'Bebe pleure — que faire ?', contenu:'1. Faim ? (toutes les 2-3h) 2. Couche sale ? 3. Trop chaud/froid ? (nuque = thermometre) 4. Besoin de contact ? (peau a peau) 5. Coliques ? (velo avec les jambes)'},
+                {titre:'Bebe pleure — que faire ?', contenu:'1. Faim ? (toutes les 2-3h) 2. Couche sale ? 3. Trop chaud/froid ? (nuque = thermometre) 4. Besoin de contact ? 5. Coliques ? (velo avec les jambes)'},
                 {titre:'Sommeil de bebe', contenu:'Nouveau-ne dort 16-18h/24. Sur le dos, dans son propre espace. Pas doreiller. Temperature chambre 18-20 C.'},
               ].map((s, i) => (
-                <div key={i} style={{marginBottom:'12px', paddingBottom:'12px', borderBottom: i < 2 ? `1px solid ${C.border}` : 'none'}}>
-                  <p style={{color:C.gold, fontSize:'12px', fontWeight:700, margin:'0 0 4px'}}>{s.titre}</p>
-                  <p style={{color:C.text, fontSize:'12px', lineHeight:1.5, margin:0}}>{s.contenu}</p>
+                <div key={i} style={{marginBottom: i < 2 ? '16px' : 0, paddingBottom: i < 2 ? '16px' : 0, borderBottom: i < 2 ? `1px solid ${C.border}` : 'none'}}>
+                  <p style={{color:C.gold, fontSize:'12px', fontWeight:700, margin:'0 0 6px'}}>{s.titre}</p>
+                  <p style={{color:C.text, fontSize:'13px', lineHeight:1.6, margin:0}}>{s.contenu}</p>
                 </div>
               ))}
             </div>
           </div>
         )}
 
+        {/* ========== CADEAUX ========== */}
         {activeTab === 'cadeaux' && (
           <div style={{display:'flex', flexDirection:'column', gap:'12px'}}>
-            <h2 style={{color:C.dark, fontSize:'22px', fontWeight:700, margin:0, fontFamily:'Georgia,serif'}}>Cadeaux & Bons plans</h2>
-            <div style={{background:C.gold, borderRadius:'16px', padding:'16px'}}>
-              <p style={{color:'#a07830', fontSize:'9px', letterSpacing:'2px', textTransform:'uppercase', margin:'0 0 6px'}}>Idee du mois</p>
-              <p style={{color:C.dark, fontSize:'13px', fontWeight:600, margin:0, lineHeight:1.5}}>{ideesMois}</p>
+            <h2 style={{color:C.dark, fontSize:'22px', fontWeight:800, margin:0, fontFamily:'Georgia,serif'}}>Cadeaux & Bons plans</h2>
+            <div style={{background:C.gold, borderRadius:'16px', padding:'18px'}}>
+              <div style={{width:'32px', height:'32px', borderRadius:'10px', background:'rgba(255,255,255,0.2)', display:'flex', alignItems:'center', justifyContent:'center', marginBottom:'10px', fontSize:'16px'}}>✨</div>
+              <p style={{color:'rgba(30,37,53,0.55)', fontSize:'10px', fontWeight:600, letterSpacing:'2px', textTransform:'uppercase', margin:'0 0 6px'}}>Idee du mois</p>
+              <p style={{color:C.dark, fontSize:'14px', fontWeight:600, margin:0, lineHeight:1.5}}>{ideesMois}</p>
             </div>
             {PARTENAIRES.map(cat => (
-              <div key={cat.categorie} style={{background:C.white, borderRadius:'16px', padding:'16px', border:`1px solid ${C.border}`}}>
-                <p style={{color:C.gold, fontSize:'10px', letterSpacing:'2px', textTransform:'uppercase', fontWeight:700, margin:'0 0 12px'}}>{cat.categorie}</p>
+              <div key={cat.categorie} style={{background:C.white, borderRadius:'16px', padding:'18px', border:`1px solid ${C.border}`}}>
+                <p style={{color:C.textLight, fontSize:'10px', fontWeight:600, letterSpacing:'2px', textTransform:'uppercase', margin:'0 0 14px'}}>{cat.categorie}</p>
                 <div style={{display:'flex', flexDirection:'column', gap:'10px'}}>
                   {cat.items.map((item, i) => (
-                    <div key={i} style={{display:'flex', alignItems:'center', justifyContent:'space-between', padding:'12px', background:C.cream, borderRadius:'12px'}}>
+                    <div key={i} style={{display:'flex', alignItems:'center', justifyContent:'space-between', padding:'12px', background:'#f8f7f4', borderRadius:'12px'}}>
                       <div>
                         <p style={{color:C.dark, fontSize:'13px', fontWeight:700, margin:'0 0 2px'}}>{item.nom}</p>
                         <p style={{color:C.textLight, fontSize:'11px', margin:0}}>{item.desc}</p>
                       </div>
                       <div style={{display:'flex', alignItems:'center', gap:'8px', flexShrink:0}}>
-                        <span style={{background:C.gold, color:C.dark, fontSize:'11px', fontWeight:700, padding:'4px 8px', borderRadius:'20px'}}>{item.remise}</span>
-                        <a href={item.lien} style={{background:C.dark, color:C.gold, fontSize:'11px', fontWeight:700, padding:'6px 12px', borderRadius:'20px', textDecoration:'none'}}>Voir</a>
+                        <span style={{background:C.gold, color:C.dark, fontSize:'11px', fontWeight:700, padding:'4px 10px', borderRadius:'20px'}}>{item.remise}</span>
+                        <a href={item.lien} style={{background:C.dark, color:C.gold, fontSize:'11px', fontWeight:700, padding:'6px 14px', borderRadius:'20px', textDecoration:'none'}}>Voir</a>
                       </div>
                     </div>
                   ))}
@@ -510,18 +553,18 @@ function Onboarding({onSave}: {onSave: (dpa: string, prenom: string) => void}) {
           </svg>
         </div>
         <div style={{background:C.white, borderRadius:'24px', padding:'32px', border:`1px solid ${C.border}`}}>
-          <h1 style={{fontSize:'24px', fontWeight:700, color:C.dark, margin:'0 0 8px', textAlign:'center', fontFamily:'Georgia,serif'}}>Bienvenue sur DadUp</h1>
+          <h1 style={{fontSize:'24px', fontWeight:800, color:C.dark, margin:'0 0 8px', textAlign:'center', fontFamily:'Georgia,serif'}}>Bienvenue sur DadUp</h1>
           <p style={{color:C.text, fontSize:'14px', textAlign:'center', margin:'0 0 28px'}}>Deux infos pour personnaliser ton espace.</p>
           <div style={{display:'flex', flexDirection:'column', gap:'16px'}}>
             <div>
               <label style={{display:'block', color:C.dark, fontSize:'13px', fontWeight:600, marginBottom:'8px'}}>Ton prenom</label>
               <input type="text" placeholder="Thomas, Julien, Marc..." value={prenom} onChange={e => setPrenom(e.target.value)}
-                style={{width:'100%', background:C.cream, border:`1px solid ${C.border}`, borderRadius:'12px', padding:'12px 16px', fontSize:'14px', color:C.dark, boxSizing:'border-box' as const, fontFamily:'sans-serif'}}/>
+                style={{width:'100%', background:C.cream, border:`1px solid ${C.border}`, borderRadius:'12px', padding:'12px 16px', fontSize:'14px', color:C.dark, boxSizing:'border-box' as const, fontFamily:'sans-serif', outline:'none'}}/>
             </div>
             <div>
               <label style={{display:'block', color:C.dark, fontSize:'13px', fontWeight:600, marginBottom:'8px'}}>Date prevue d'accouchement</label>
               <input type="date" value={dpa} onChange={e => setDpa(e.target.value)}
-                style={{width:'100%', background:C.cream, border:`1px solid ${C.border}`, borderRadius:'12px', padding:'12px 16px', fontSize:'14px', color:C.dark, boxSizing:'border-box' as const, fontFamily:'sans-serif'}}/>
+                style={{width:'100%', background:C.cream, border:`1px solid ${C.border}`, borderRadius:'12px', padding:'12px 16px', fontSize:'14px', color:C.dark, boxSizing:'border-box' as const, fontFamily:'sans-serif', outline:'none'}}/>
             </div>
             <button onClick={() => dpa && onSave(dpa, prenom)} disabled={!dpa} style={{background: dpa ? C.dark : '#ccc', color:C.white, border:'none', borderRadius:'24px', padding:'14px', fontSize:'14px', fontWeight:700, cursor: dpa ? 'pointer' : 'not-allowed', fontFamily:'sans-serif', marginTop:'8px'}}>
               Acceder a mon espace
