@@ -13,58 +13,100 @@ const C = {
   textLight: '#9aa0a8',
 };
 
-const SEMAINES_DATA: Record<number, {fruit:string;emoji:string;taille:string;poids:string;developpement:string;maman:string;conseil:string;}> = {
-  6:{fruit:'grain de riz',emoji:'🌾',taille:'0.6 cm',poids:'< 1g',developpement:'Le coeur commence a battre. Les premieres cellules nerveuses se forment.',maman:'Fatigue intense, nausees matinales possibles.',conseil:'Accompagne-la sans jugement. Les nausees sont reelles et epuisantes.'},
-  7:{fruit:'myrtille',emoji:'🫐',taille:'1 cm',poids:'1g',developpement:'Le visage commence a se former. Les bras et jambes apparaissent.',maman:'Nausees souvent au pic. Hypersensibilite aux odeurs.',conseil:'Prepare des en-cas legers a portee de main.'},
-  8:{fruit:'myrtille',emoji:'🫐',taille:'1.6 cm',poids:'1g',developpement:'Les doigts commencent a se former. Le cerveau se developpe rapidement.',maman:'Fatigue extreme normale.',conseil:'Prends le relais sur les taches menageres sans quelle ait a demander.'},
-  9:{fruit:'olive',emoji:'🫒',taille:'2.3 cm',poids:'2g',developpement:'Bebe bouge mais trop petit pour etre senti.',maman:'Humeurs changeantes dues aux hormones.',conseil:'Sois patient avec les sautes dhumeur. Ce nest pas contre toi.'},
-  10:{fruit:'fraise',emoji:'🍓',taille:'3 cm',poids:'4g',developpement:'Les ongles apparaissent. Bebe peut faire des petits mouvements.',maman:'Nausees commencent souvent a diminuer.',conseil:'Planifiez ensemble la premiere echographie.'},
-  11:{fruit:'citron vert',emoji:'🍋',taille:'4 cm',poids:'7g',developpement:'Les dents de lait se forment sous les gencives.',maman:'Le ventre commence a sarrondir.',conseil:'Accompagne-la chercher ses premiers vetements de grossesse.'},
-  12:{fruit:'citron',emoji:'🍋',taille:'5.4 cm',poids:'14g',developpement:'Fin du 1er trimestre. Risque de fausse couche chute fortement.',maman:'Soulagement emotionnel souvent au passage des 12 SA.',conseil:'Premiere grande echographie. Filme, prends des photos.'},
-  13:{fruit:'peche',emoji:'🍑',taille:'7.4 cm',poids:'23g',developpement:'Bebe peut sucer son pouce.',maman:'Debut du 2e trimestre. Souvent la periode la plus agreable.',conseil:'Cest le bon moment pour annoncer officiellement la grossesse.'},
-  14:{fruit:'peche',emoji:'🍑',taille:'8.7 cm',poids:'43g',developpement:'Bebe fait des grimaces, fronce les sourcils.',maman:'Ventre qui sarrondit. Libido souvent revenue.',conseil:'Proposez un week-end en amoureux avant larrivee de bebe.'},
-  15:{fruit:'pomme',emoji:'🍎',taille:'10 cm',poids:'70g',developpement:'Bebe entend les sons pour la premiere fois.',maman:'Prise de poids visible.',conseil:'Parle a bebe chaque soir. Il reconnaitra ta voix a la naissance.'},
-  16:{fruit:'avocat',emoji:'🥑',taille:'11.6 cm',poids:'100g',developpement:'Le squelette se renforce.',maman:'Les premieres sensations de mouvements possibles.',conseil:'Pense a reserver les cours de preparation a laccouchement.'},
-  17:{fruit:'poire',emoji:'🍐',taille:'13 cm',poids:'140g',developpement:'Une couche de graisse se forme sous la peau.',maman:'Mouvements de bebe parfois perceptibles.',conseil:'Pose ta main sur son ventre le soir.'},
-  18:{fruit:'poivron',emoji:'🫑',taille:'14.2 cm',poids:'190g',developpement:'Les os se solidifient.',maman:'Douleurs ligamentaires possibles.',conseil:'Propose-lui des massages du dos.'},
-  19:{fruit:'mangue',emoji:'🥭',taille:'15.3 cm',poids:'240g',developpement:'Les sens se developpent rapidement.',maman:'Ventre bien visible.',conseil:'Preparez la chambre de bebe ensemble.'},
-  20:{fruit:'banane',emoji:'🍌',taille:'16.4 cm',poids:'300g',developpement:'Mi-grossesse ! Bebe recouvert dun enduit protecteur.',maman:'Grande echographie T2.',conseil:'Prends une demi-journee de conge pour cette echographie.'},
-  21:{fruit:'carotte',emoji:'🥕',taille:'26.7 cm',poids:'360g',developpement:'Bebe dort et se reveille a intervalles reguliers.',maman:'Ventre tres visible.',conseil:'Installe une veilleuse dans la chambre de bebe.'},
-  22:{fruit:'papaye',emoji:'🥭',taille:'27.8 cm',poids:'430g',developpement:'Les yeux sont formes mais encore fermes.',maman:'Vergetures possibles.',conseil:'Masse son ventre avec de lhuile.'},
-  23:{fruit:'pamplemousse',emoji:'🍊',taille:'28.9 cm',poids:'500g',developpement:'Bebe a le hoquet regulierement.',maman:'Essoufflement possible.',conseil:'Prends en charge les corvees physiques.'},
-  24:{fruit:'epi de mais',emoji:'🌽',taille:'30 cm',poids:'600g',developpement:'Visage presque forme.',maman:'Diabete gestationnel a tester.',conseil:'Test HGPO cette semaine. Reste avec elle, ca dure 2 heures.'},
-  25:{fruit:'navet',emoji:'🥬',taille:'34.6 cm',poids:'660g',developpement:'Les poumons se developpent activement.',maman:'Jambes lourdes.',conseil:'Propose-lui un bain de pieds le soir.'},
-  26:{fruit:'chou-fleur',emoji:'🥦',taille:'35.6 cm',poids:'760g',developpement:'Les yeux souvrent pour la premiere fois.',maman:'Inconfort croissant.',conseil:'Installe un coussin de grossesse.'},
-  27:{fruit:'laitue',emoji:'🥬',taille:'36.6 cm',poids:'875g',developpement:'Bebe peut rever.',maman:'Fin du 2e trimestre.',conseil:'Planifiez votre plan de naissance ensemble.'},
-  28:{fruit:'aubergine',emoji:'🍆',taille:'37.6 cm',poids:'1 kg',developpement:'Debut du 3e trimestre. Vision fonctionnelle.',maman:'Essoufflement, reflux.',conseil:'Commence a preparer ta valise maternite.'},
-  29:{fruit:'butternut',emoji:'🎃',taille:'38.6 cm',poids:'1.15 kg',developpement:'Muscles et poumons se renforcent.',maman:'Contractions de Braxton Hicks normales.',conseil:'Apprends a reconnaitre les vraies contractions des fausses.'},
-  30:{fruit:'chou',emoji:'🥬',taille:'39.9 cm',poids:'1.3 kg',developpement:'Cerveau en developpement rapide.',maman:'Fatigue intense de retour.',conseil:'Prends un conge paternite bien planifie.'},
-  31:{fruit:'ananas',emoji:'🍍',taille:'41.1 cm',poids:'1.5 kg',developpement:'Tous les sens sont operationnels.',maman:'Difficultes a marcher longtemps.',conseil:'Propose des courtes promenades.'},
-  32:{fruit:'mangue',emoji:'🥭',taille:'42.4 cm',poids:'1.7 kg',developpement:'Bebe se met en position tete en bas.',maman:'Grande echographie T3.',conseil:'Accompagne-la a lecho T3.'},
-  33:{fruit:'ananas',emoji:'🍍',taille:'43.7 cm',poids:'1.9 kg',developpement:'Squelette presque complet.',maman:'Essoufflement maximal.',conseil:'Prends en charge les nuits difficiles.'},
-  34:{fruit:'melon',emoji:'🍈',taille:'45 cm',poids:'2.15 kg',developpement:'Systeme nerveux central mature.',maman:'Descente du bebe dans le bassin.',conseil:'Commence les cours de preparation accouchement.'},
-  35:{fruit:'melon',emoji:'🍈',taille:'46.2 cm',poids:'2.4 kg',developpement:'Reins et foie fonctionnels.',maman:'Envies frequentes duriner.',conseil:'Installe le siege auto maintenant.'},
-  36:{fruit:'laitue romaine',emoji:'🥗',taille:'47.4 cm',poids:'2.6 kg',developpement:'Presque pret ! Poumons presque matures.',maman:'Envie intense de tout preparer.',conseil:'Valise maternite doit etre prete.'},
-  37:{fruit:'bette',emoji:'🌿',taille:'48.6 cm',poids:'2.85 kg',developpement:'Bebe est considere a terme.',maman:'Contractions possibles a tout moment.',conseil:'Mode alerte active. Reste joignable en permanence.'},
-  38:{fruit:'poireau',emoji:'🌿',taille:'49.8 cm',poids:'3.1 kg',developpement:'Bebe est pret.',maman:'Impatience et anxiete melees.',conseil:'Sois present, rassurant.'},
-  39:{fruit:'petite pasteque',emoji:'🍉',taille:'50.7 cm',poids:'3.25 kg',developpement:'Pleinement developpe.',maman:'Chaque jour semble long.',conseil:'Organise une sortie douce.'},
-  40:{fruit:'pasteque',emoji:'🍉',taille:'51.2 cm',poids:'3.4 kg',developpement:'Cest le jour J !',maman:'Stress et excitation maximaux.',conseil:'Contractions toutes les 5min pendant 1h = maternite.'},
-  41:{fruit:'pasteque',emoji:'🍉',taille:'51.5 cm',poids:'3.6 kg',developpement:'Depassement de terme.',maman:'Inconfort majeur.',conseil:'Declenchement possible. Reste positif.'},
+const SEMAINES_DATA: Record<number, {
+  emoji:string;taille:string;poids:string;objet:string;
+  developpement:string;maman:string;conseil:string;savistu:string;
+}> = {
+  6:{emoji:'🌾',taille:'0.6 cm',poids:'< 1g',objet:'un grain de riz',developpement:'Le coeur commence a battre. Les premieres cellules nerveuses se forment.',maman:'Fatigue intense, nausees matinales possibles.',conseil:'Accompagne-la sans jugement. Les nausees sont reelles et epuisantes.',savistu:'Le coeur de bebe bat deja 110 fois par minute a SA 6.'},
+  7:{emoji:'🫐',taille:'1 cm',poids:'1g',objet:'une pile bouton',developpement:'Le visage commence a se former. Les bras et jambes apparaissent.',maman:'Nausees souvent au pic. Hypersensibilite aux odeurs.',conseil:'Prepare des en-cas legers a portee de main.',savistu:'Bebe a deja ses propres empreintes digitales uniques, formees des SA 7.'},
+  8:{emoji:'🫐',taille:'1.6 cm',poids:'1g',objet:'une pile AA',developpement:'Les doigts commencent a se former. Le cerveau se developpe rapidement.',maman:'Fatigue extreme normale.',conseil:'Prends le relais sur les taches menageres sans quelle ait a demander.',savistu:'Le cerveau de bebe produit 100 nouvelles cellules nerveuses par minute a ce stade.'},
+  9:{emoji:'🫒',taille:'2.3 cm',poids:'2g',objet:'un bouchon de liege',developpement:'Bebe bouge mais trop petit pour etre senti.',maman:'Humeurs changeantes dues aux hormones.',conseil:'Sois patient avec les sautes dhumeur. Ce nest pas contre toi.',savistu:'Le coeur de bebe bat deja a 170 battements par minute, deux fois plus vite que le tien.'},
+  10:{emoji:'🍓',taille:'3 cm',poids:'4g',objet:'une balle de ping-pong',developpement:'Les ongles apparaissent. Bebe peut faire des petits mouvements.',maman:'Nausees commencent souvent a diminuer.',conseil:'Planifiez ensemble la premiere echographie.',savistu:'A SA 10, bebe peut deja froncer les sourcils et faire des grimaces.'},
+  11:{emoji:'🍋',taille:'4 cm',poids:'7g',objet:'un bouchon de vin',developpement:'Les dents de lait se forment sous les gencives.',maman:'Le ventre commence a sarrondir.',conseil:'Accompagne-la chercher ses premiers vetements de grossesse.',savistu:'Les dents de lait de bebe sont deja en train de se former, meme si elles ne perceron que dans 6 mois apres la naissance.'},
+  12:{emoji:'🍋',taille:'5.4 cm',poids:'14g',objet:'une balle de golf',developpement:'Fin du 1er trimestre. Risque de fausse couche chute fortement.',maman:'Soulagement emotionnel souvent au passage des 12 SA.',conseil:'Premiere grande echographie. Filme, prends des photos.',savistu:'A SA 12, le risque de fausse couche chute de 80%. C\'est le vrai debut de la grossesse sereine.'},
+  13:{emoji:'🍑',taille:'7.4 cm',poids:'23g',objet:'un marqueur',developpement:'Bebe peut sucer son pouce.',maman:'Debut du 2e trimestre. Souvent la periode la plus agreable.',conseil:'Cest le bon moment pour annoncer officiellement la grossesse.',savistu:'Bebe peut deja sucer son pouce a SA 13. Le reflexe de succion est entraine bien avant la naissance.'},
+  14:{emoji:'🍑',taille:'8.7 cm',poids:'43g',objet:'un crayon',developpement:'Bebe fait des grimaces, fronce les sourcils.',maman:'Ventre qui sarrondit. Libido souvent revenue.',conseil:'Proposez un week-end en amoureux avant larrivee de bebe.',savistu:'Le visage de bebe peut faire 30 expressions differentes a SA 14.'},
+  15:{emoji:'🍎',taille:'10 cm',poids:'70g',objet:'une balle de squash',developpement:'Bebe entend les sons pour la premiere fois.',maman:'Prise de poids visible.',conseil:'Parle a bebe chaque soir. Il reconnaitra ta voix a la naissance.',savistu:'Bebe peut entendre ta voix depuis le ventre. Les recherches montrent qu\'il la reconnait des la naissance.'},
+  16:{emoji:'🥑',taille:'11.6 cm',poids:'100g',objet:'une telecommande',developpement:'Le squelette se renforce.',maman:'Les premieres sensations de mouvements possibles.',conseil:'Pense a reserver les cours de preparation a laccouchement.',savistu:'Le squelette de bebe passe du cartilage a l\'os a partir de SA 16.'},
+  17:{emoji:'🍐',taille:'13 cm',poids:'140g',objet:'un iPhone',developpement:'Une couche de graisse se forme sous la peau.',maman:'Mouvements de bebe parfois perceptibles.',conseil:'Pose ta main sur son ventre le soir.',savistu:'Les empreintes de la paume de bebe se forment a SA 17, uniques comme les tiennes.'},
+  18:{emoji:'🫑',taille:'14.2 cm',poids:'190g',objet:'un stylo bille',developpement:'Les os se solidifient.',maman:'Douleurs ligamentaires possibles.',conseil:'Propose-lui des massages du dos.',savistu:'Bebe peut maintenant entendre la musique et les voix de l\'exterieur. Il reagi aux sons forts.'},
+  19:{emoji:'🥭',taille:'15.3 cm',poids:'240g',objet:'une canette de soda',developpement:'Les sens se developpent rapidement.',maman:'Ventre bien visible.',conseil:'Preparez la chambre de bebe ensemble.',savistu:'Les cellules cerebrales de bebe se developpent a un rythme de 250 000 par minute a ce stade.'},
+  20:{emoji:'🍌',taille:'16.4 cm',poids:'300g',objet:'un livre de poche',developpement:'Mi-grossesse ! Bebe recouvert dun enduit protecteur.',maman:'Grande echographie T2.',conseil:'Prends une demi-journee de conge pour cette echographie.',savistu:'C\'est la mi-grossesse. Bebe a deja parcouru la moitie du chemin.'},
+  21:{emoji:'🥕',taille:'26.7 cm',poids:'360g',objet:'une bouteille de soda 33cl',developpement:'Bebe dort et se reveille a intervalles reguliers.',maman:'Ventre tres visible.',conseil:'Installe une veilleuse dans la chambre de bebe.',savistu:'Bebe a maintenant un cycle sommeil-eveil distinct. Il dort environ 12 heures par jour dans le ventre.'},
+  22:{emoji:'🥭',taille:'27.8 cm',poids:'430g',objet:'un ballon de handball',developpement:'Les yeux sont formes mais encore fermes.',maman:'Vergetures possibles.',conseil:'Masse son ventre avec de lhuile.',savistu:'Les sourcils et les cils de bebe sont maintenant completement formes a SA 22.'},
+  23:{emoji:'🍊',taille:'28.9 cm',poids:'500g',objet:'une bouteille d\'eau 50cl',developpement:'Bebe a le hoquet regulierement.',maman:'Essoufflement possible.',conseil:'Prends en charge les corvees physiques.',savistu:'Bebe pese maintenant exactement 500g — soit autant qu\'un grand steak.'},
+  24:{emoji:'🌽',taille:'30 cm',poids:'600g',objet:'une regle 30cm',developpement:'Visage presque forme.',maman:'Diabete gestationnel a tester.',conseil:'Test HGPO cette semaine. Reste avec elle, ca dure 2 heures.',savistu:'Les poumons de bebe commencent a produire du surfactant, indispensable pour respirer apres la naissance.'},
+  25:{emoji:'🥬',taille:'34.6 cm',poids:'660g',objet:'un rouleau de papier',developpement:'Les poumons se developpent activement.',maman:'Jambes lourdes.',conseil:'Propose-lui un bain de pieds le soir.',savistu:'Bebe commence a accumuler de la graisse sous la peau pour se preparer au monde exterieur.'},
+  26:{emoji:'🥦',taille:'35.6 cm',poids:'760g',objet:'une raquette de ping-pong',developpement:'Les yeux souvrent pour la premiere fois.',maman:'Inconfort croissant.',conseil:'Installe un coussin de grossesse.',savistu:'Bebe ouvre les yeux pour la premiere fois a SA 26. Ils sont bleus pour tous les bebes, quelle que soit leur origine.'},
+  27:{emoji:'🥬',taille:'36.6 cm',poids:'875g',objet:'une bouteille de vin',developpement:'Bebe peut rever.',maman:'Fin du 2e trimestre.',conseil:'Planifiez votre plan de naissance ensemble.',savistu:'Les recherches montrent que bebe peut rever a partir de SA 27. Son cerveau est actif meme pendant le sommeil.'},
+  28:{emoji:'🍆',taille:'37.6 cm',poids:'1 kg',objet:'un kilo de farine',developpement:'Debut du 3e trimestre. Vision fonctionnelle.',maman:'Essoufflement, reflux.',conseil:'Commence a preparer ta valise maternite.',savistu:'A SA 28, bebe peut voir la lumiere qui filtre a travers la paroi de l\'uterus.'},
+  29:{emoji:'🎃',taille:'38.6 cm',poids:'1.15 kg',objet:'un casque audio',developpement:'Muscles et poumons se renforcent.',maman:'Contractions de Braxton Hicks normales.',conseil:'Apprends a reconnaitre les vraies contractions des fausses.',savistu:'Les mouvements de bebe sont maintenant si forts qu\'ils peuvent etre visibles de l\'exterieur du ventre.'},
+  30:{emoji:'🥬',taille:'39.9 cm',poids:'1.3 kg',objet:'un livre de 300 pages',developpement:'Cerveau en developpement rapide.',maman:'Fatigue intense de retour.',conseil:'Prends un conge paternite bien planifie.',savistu:'Le cerveau de bebe se plisse pour creer plus de surface. C\'est ce qui le rend si intelligent.'},
+  31:{emoji:'🍍',taille:'41.1 cm',poids:'1.5 kg',objet:'un fer a repasser',developpement:'Tous les sens sont operationnels.',maman:'Difficultes a marcher longtemps.',conseil:'Propose des courtes promenades.',savistu:'Bebe peut maintenant distinguer le gout sucre du gout amer dans le liquide amniotique.'},
+  32:{emoji:'🥭',taille:'42.4 cm',poids:'1.7 kg',objet:'un ballon de foot taille 1',developpement:'Bebe se met en position tete en bas.',maman:'Grande echographie T3.',conseil:'Accompagne-la a lecho T3.',savistu:'A SA 32, bebe peut reconnaitre la voix de ses deux parents. Il reagit differemment a chacune.'},
+  33:{emoji:'🍍',taille:'43.7 cm',poids:'1.9 kg',objet:'un sac a dos petit format',developpement:'Squelette presque complet.',maman:'Essoufflement maximal.',conseil:'Prends en charge les nuits difficiles.',savistu:'Les ongles de bebe sont maintenant si longs qu\'il peut se griffer en bougeant dans le ventre.'},
+  34:{emoji:'🍈',taille:'45 cm',poids:'2.15 kg',objet:'un club de golf',developpement:'Systeme nerveux central mature.',maman:'Descente du bebe dans le bassin.',conseil:'Commence les cours de preparation accouchement.',savistu:'A SA 34, les poumons de bebe sont presque matures. Un bebe ne a cet age a 99% de chances de survie.'},
+  35:{emoji:'🍈',taille:'46.2 cm',poids:'2.4 kg',objet:'une raquette de badminton',developpement:'Reins et foie fonctionnels.',maman:'Envies frequentes duriner.',conseil:'Installe le siege auto maintenant.',savistu:'Bebe prend maintenant 250g par semaine. Il grossit plus vite que jamais.'},
+  36:{emoji:'🥗',taille:'47.4 cm',poids:'2.6 kg',objet:'un ballon de basket junior',developpement:'Presque pret ! Poumons presque matures.',maman:'Envie intense de tout preparer.',conseil:'Valise maternite doit etre prete.',savistu:'L\'instinct de "nidification" que ressent maman est reel et documenté. C\'est un signal biologique.'},
+  37:{emoji:'🌿',taille:'48.6 cm',poids:'2.85 kg',objet:'une batte de baseball',developpement:'Bebe est considere a terme.',maman:'Contractions possibles a tout moment.',conseil:'Mode alerte active. Reste joignable en permanence.',savistu:'Bebe est maintenant considere a terme. Il pourrait naitre a tout moment sans risque majeur.'},
+  38:{emoji:'🌿',taille:'49.8 cm',poids:'3.1 kg',objet:'un haltere 3kg',developpement:'Bebe est pret.',maman:'Impatience et anxiete melees.',conseil:'Sois present, rassurant.',savistu:'La tete de bebe est maintenant engagee dans le bassin. Le corps se prepare activement a la naissance.'},
+  39:{emoji:'🍉',taille:'50.7 cm',poids:'3.25 kg',objet:'un ballon de foot taille 3',developpement:'Pleinement developpe.',maman:'Chaque jour semble long.',conseil:'Organise une sortie douce.',savistu:'Bebe produit maintenant ses propres hormones de stress pour se preparer a l\'accouchement.'},
+  40:{emoji:'🍉',taille:'51.2 cm',poids:'3.4 kg',objet:'un ballon de foot taille 4',developpement:'Cest le jour J !',maman:'Stress et excitation maximaux.',conseil:'Contractions toutes les 5min pendant 1h = maternite.',savistu:'Le jour J est arrive ! Bebe a attendu 280 jours pour te rencontrer.'},
+  41:{emoji:'🍉',taille:'51.5 cm',poids:'3.6 kg',objet:'un ballon de foot taille 5',developpement:'Depassement de terme.',maman:'Inconfort majeur.',conseil:'Declenchement possible. Reste positif.',savistu:'Seulement 5% des bebes naissent exactement a la DPA. Le depassement est tres courant.'},
+};
+
+const MISSIONS: Record<number, string[]> = {
+  6:['Dire a ta partenaire que tu es la pour elle','Faire les courses sans quelle demande','Chercher un gynecologue ou sage-femme si pas encore fait'],
+  7:['Preparer des en-cas anti-nausees','Eviter les odeurs fortes a la maison','Commencer a lire sur la grossesse'],
+  8:['Prendre le relais sur les taches menageres','Accompagner ta partenaire a sa consultation','Informer ton employeur discreetement si besoin'],
+  9:['Etre patient avec les sautes dhumeur','Proposer un massage des pieds ou du dos','Reduire le stress de la maison'],
+  10:['Planifier la premiere echographie ensemble','Lire le guide accouchement du module','Preparer une liste de questions pour le medecin'],
+  11:['Accompagner acheter des vetements de grossesse','Commencer a penser aux finances bebe','Declarer la grossesse a la mutuelle'],
+  12:['Etre present pour lecho T1 — ne pas manquer ca','Filmer et prendre des photos de lechographie','Annoncer la grossesse a la famille si vous le souhaitez'],
+  13:['Annoncer officiellement la grossesse','Commencer a penser au prenom','Lire le module post-partum pour anticiper'],
+  14:['Planifier un week-end en amoureux','Commencer a regarder les poussettes','Verifier les aides financieres auxquelles vous avez droit'],
+  15:['Parler a bebe chaque soir','Reserver les cours de preparation accouchement','Faire un album photo de la grossesse'],
+  16:['Reserver les cours de preparation accouchement','Commencer la liste des achats prioritaires','Penser a la chambre de bebe'],
+  17:['Poser ta main sur son ventre le soir','Commander le coussin de grossesse','Commencer le module valise maternite'],
+  18:['Proposer des massages du dos','Preparer la chambre de bebe ensemble','Regarder les contrats de creche de ta ville'],
+  19:['Preparer la chambre de bebe','Faire une liste des cadeaux de naissance','Commencer les conges paternite avec ton RH'],
+  20:['Prendre demi-journee pour echo T2','Preparer les questions pour lechographe','Celebrer la mi-grossesse'],
+  21:['Installer la veilleuse','Commencer a assembler les meubles bebe','Choisir la maternite si pas encore fait'],
+  22:['Masser son ventre avec de lhuile','Visiter la maternite','Preparer le plan de naissance'],
+  23:['Prendre en charge les corvees physiques','Preparer le sac de maternite','Lire le guide accouchement en entier'],
+  24:['Laccompagner au test HGPO — ca dure 2h','Commencer la valise maternite','Installer le siege auto'],
+  25:['Bain de pieds le soir','Finaliser la chambre de bebe','Verifier ton conge paternite'],
+  26:['Commander le coussin de grossesse','Finaliser le plan de naissance','Preparer une playlist pour la salle de naissance'],
+  27:['Rediger le plan de naissance ensemble','Preparer les docs administratifs maternite','Tester le chemin vers la maternite'],
+  28:['Commencer la valise maintenant','Preparer les numeros utiles sur ton tel','Lire le module accouchement'],
+  29:['Apprendre a reconnaitre les vraies contractions','Avoir le numero de la maternite en favori','Rester joignable en permanence'],
+  30:['Planifier ton conge paternite avec ton employeur','Finaliser la valise','Preparer la maison pour le retour'],
+  31:['Valise presque prete — verifier la liste','Preparer les repas a lavance congelables','Installer le berceau ou lit cododo'],
+  32:['Accompagner a lecho T3','Verifier position bebe avec le medecin','Finaliser les achats prioritaires'],
+  33:['Prendre en charge les nuits difficiles','Preparer un plan B si accouchement rapide','Confirmer les conges paternite'],
+  34:['Commencer la preparation accouchement','Tester 2 fois le chemin maternite','Avoir la valise dans le coffre'],
+  35:['Installer le siege auto — verifier installation','Finaliser tous les achats','Preparer la maison'],
+  36:['Valise dans la voiture maintenant','Telephone charge 24h/24','Rester joignable en permanence'],
+  37:['Mode alerte maximum — rester joignable','Relire le guide accouchement','Verifier que la valise est complete'],
+  38:['Etre present et rassurant','Preparer les repas pour les premiers jours','Prevenir famille et amis proches'],
+  39:['Organiser une sortie douce','Etre present emotionnellement','Garder son calme — le moment approche'],
+  40:['Contractions 5min/1h = maternite','Garder son calme — tu es pret','Appeler la maternite si le moindre doute'],
+  41:['Rester positif et patient','Soutien emotionnel maximum','Suivre les instructions de la maternite'],
 };
 
 const RDV_LIST = [
-  {sa:8,emoji:'🏥',titre:'1ere consultation',desc:'Confirmation grossesse, prise de sang, calcul DPA.',oblig:true},
-  {sa:12,emoji:'🔬',titre:'Echo T1 + trisomie',desc:'Premier visage de bebe. Mesure clarte nucale.',oblig:true},
-  {sa:16,emoji:'📋',titre:'Consultation mensuelle',desc:'Suivi tension, poids.',oblig:false},
-  {sa:20,emoji:'📝',titre:'Declaration grossesse CPAM',desc:'A faire avant 15 SA.',oblig:true},
-  {sa:22,emoji:'👶',titre:'Echo T2 morphologique',desc:'La plus importante. Organes, membres, visage. 45min.',oblig:true},
-  {sa:24,emoji:'🩸',titre:'Test diabete gestationnel',desc:'Test HGPO — 3 prises de sang en 2h.',oblig:false},
-  {sa:28,emoji:'💉',titre:'Debut T3 + vaccin',desc:'Vaccin coqueluche recommande pour le papa aussi.',oblig:false},
-  {sa:32,emoji:'📏',titre:'Echo T3 croissance',desc:'Verification position bebe, poids estime.',oblig:true},
-  {sa:34,emoji:'🎓',titre:'Preparation accouchement',desc:'3 a 8 seances remboursees.',oblig:false},
-  {sa:36,emoji:'💬',titre:'Entretien prenatal',desc:'Bilan global, projet de naissance.',oblig:true},
-  {sa:38,emoji:'🧳',titre:'Valise prete ?',desc:'Preparez la valise maintenant.',oblig:false},
-  {sa:40,emoji:'🎉',titre:'Jour J',desc:'Contractions toutes les 5min pendant 1h = maternite !',oblig:true},
+  {sa:8,emoji:'🏥',titre:'1ere consultation',desc:'Confirmation grossesse, prise de sang, calcul DPA. Sois la, prends des notes.',oblig:true},
+  {sa:12,emoji:'🔬',titre:'Echo T1 + trisomie',desc:'Premier visage de bebe ! Mesure clarte nucale. Apporte ton telephone.',oblig:true},
+  {sa:16,emoji:'📋',titre:'Consultation mensuelle',desc:'Suivi tension, poids. Bonne occasion de poser vos questions.',oblig:false},
+  {sa:20,emoji:'📝',titre:'Declaration grossesse CPAM',desc:'A faire avant 15 SA. Declarer a la caisse et a l\'employeur.',oblig:true},
+  {sa:22,emoji:'👶',titre:'Echo T2 morphologique',desc:'La plus importante. Organes, membres, visage. Duree 45min.',oblig:true},
+  {sa:24,emoji:'🩸',titre:'Test diabete gestationnel',desc:'Test HGPO — 3 prises de sang en 2h. Accompagne-la.',oblig:false},
+  {sa:28,emoji:'💉',titre:'Debut T3 + vaccin coqueluche',desc:'Vaccin recommande pour le papa aussi. Parler du projet de naissance.',oblig:false},
+  {sa:32,emoji:'📏',titre:'Echo T3 croissance',desc:'Verification position bebe, poids estime. Si siege, on en parle.',oblig:true},
+  {sa:34,emoji:'🎓',titre:'Preparation accouchement',desc:'3 a 8 seances remboursees. Les cours pour papas existent !',oblig:false},
+  {sa:36,emoji:'💬',titre:'Entretien prenatal',desc:'Bilan global, projet de naissance. Viens absolument.',oblig:true},
+  {sa:38,emoji:'🧳',titre:'Valise prete ?',desc:'Preparez la valise maintenant. Documents, vetements, chargeurs.',oblig:false},
+  {sa:40,emoji:'🎉',titre:'Jour J',desc:'Contractions toutes les 5min pendant 1h = direction maternite !',oblig:true},
 ];
 
 const PARTENAIRES = [
@@ -105,6 +147,7 @@ function DashboardContent() {
   const [showOnboarding, setShowOnboarding] = useState(false);
   const [rdvOuvert, setRdvOuvert] = useState<number|null>(null);
   const [valiseChecked, setValiseChecked] = useState<Record<string,boolean>>({});
+  const [missionsChecked, setMissionsChecked] = useState<Record<string,boolean>>({});
   const [avance, setAvance] = useState(false);
   const [noteText, setNoteText] = useState('');
   const [notes, setNotes] = useState<string[]>([]);
@@ -114,10 +157,12 @@ function DashboardContent() {
     const p = localStorage.getItem('dadup_prenom') || '';
     const n = JSON.parse(localStorage.getItem('dadup_notes') || '[]');
     const v = JSON.parse(localStorage.getItem('dadup_valise') || '{}');
+    const m = JSON.parse(localStorage.getItem('dadup_missions') || '{}');
     if (!d) { setShowOnboarding(true); } else { setDpa(d); }
     setPrenom(p);
     setNotes(n);
     setValiseChecked(v);
+    setMissionsChecked(m);
   }, []);
 
   const getSA = (offset = 0) => {
@@ -130,13 +175,15 @@ function DashboardContent() {
   const sa = getSA(avance ? 4 : 0);
   const saReelle = getSA();
   const data = sa ? (SEMAINES_DATA[sa] || SEMAINES_DATA[40]) : null;
+  const dataReelle = saReelle ? (SEMAINES_DATA[saReelle] || SEMAINES_DATA[40]) : null;
   const dpaDate = dpa ? new Date(dpa) : null;
   const joursRestants = dpaDate ? Math.ceil((dpaDate.getTime() - new Date().getTime()) / (1000 * 60 * 60 * 24)) : null;
-  const moisGrossesse = sa ? Math.ceil(sa / 4.3) : 1;
+  const moisGrossesse = saReelle ? Math.ceil(saReelle / 4.3) : 1;
   const ideesMois = IDEES_MOIS[Math.min(moisGrossesse, 9)] || IDEES_MOIS[9];
   const isPostPartum = joursRestants !== null && joursRestants < 0;
   const progression = Math.min(100, Math.round(((saReelle || 0) / 40) * 100));
   const trimestre = (saReelle || 0) <= 14 ? 'T1' : (saReelle || 0) <= 27 ? 'T2' : 'T3';
+  const missions = saReelle ? (MISSIONS[saReelle] || MISSIONS[40]) : [];
 
   const saveNote = () => {
     if (!noteText.trim()) return;
@@ -152,6 +199,12 @@ function DashboardContent() {
     localStorage.setItem('dadup_valise', JSON.stringify(updated));
   };
 
+  const toggleMission = (id: string) => {
+    const updated = {...missionsChecked, [id]: !missionsChecked[id]};
+    setMissionsChecked(updated);
+    localStorage.setItem('dadup_missions', JSON.stringify(updated));
+  };
+
   const saveOnboarding = (d: string, p: string) => {
     localStorage.setItem('dadup_dpa', d);
     localStorage.setItem('dadup_prenom', p);
@@ -161,22 +214,22 @@ function DashboardContent() {
   };
 
   const tabs = [
-    {id:'home',label:'Accueil'},
-    {id:'bebe',label:'Bebe'},
-    {id:'rdv',label:'RDV'},
-    {id:'pratique',label:'Pratique'},
-    {id:'cadeaux',label:'Cadeaux'},
+    {id:'home', label:'Accueil'},
+    {id:'bebe', label:'Bebe'},
+    {id:'rdv', label:'RDV'},
+    {id:'pratique', label:'Pratique'},
+    {id:'cadeaux', label:'Cadeaux'},
   ];
 
   if (showOnboarding) return <Onboarding onSave={saveOnboarding}/>;
 
   return (
-    <div style={{minHeight:'100vh', background:'#f8f7f4', paddingBottom:'24px', fontFamily:'-apple-system, BlinkMacSystemFont, sans-serif'}}>
+    <div style={{minHeight:'100vh', background:'#f8f7f4', paddingBottom:'32px', fontFamily:'-apple-system, BlinkMacSystemFont, sans-serif'}}>
 
-      {/* HEADER B — Crème, tabs en pills */}
+      {/* HEADER */}
       <div style={{background:C.cream, position:'sticky', top:0, zIndex:40, borderBottom:`1px solid ${C.border}`}}>
         <div style={{display:'flex', alignItems:'center', justifyContent:'space-between', padding:'14px 20px'}}>
-          <a href="/dashboard" style={{display:'flex', alignItems:'center', gap:'12px', textDecoration:'none'}}>
+          <a href="/dashboard" onClick={() => setActiveTab('home')} style={{textDecoration:'none'}}>
             <svg viewBox="0 0 300 300" width="40" height="40">
               <circle cx="150" cy="150" r="145" fill="#3a4f6e"/>
               <circle cx="150" cy="150" r="122" fill="#4a6080"/>
@@ -185,20 +238,22 @@ function DashboardContent() {
               <ellipse cx="150" cy="196" rx="27" ry="31" fill="#faf6f0"/>
               <circle cx="150" cy="128" r="26" fill="#faf6f0"/>
             </svg>
-            <div>
+          </a>
+          <a href="/dashboard" onClick={() => setActiveTab('home')} style={{display:'flex', alignItems:'center', gap:'10px', textDecoration:'none'}}>
+            <div style={{textAlign:'right'}}>
               <p style={{color:C.dark, fontSize:'17px', fontWeight:800, margin:0, fontFamily:'Georgia,serif'}}>
-                {prenom ? 'Bonjour ' + prenom : 'DadUp'}
+                {prenom || 'DadUp'}
               </p>
               <p style={{color:C.gold, fontSize:'11px', margin:0, fontWeight:500}}>
                 {isPostPartum ? 'Post-partum' : saReelle ? 'Semaine ' + saReelle + ' · ' + trimestre : 'Mon espace'}
               </p>
             </div>
+            {saReelle && (
+              <span style={{background:C.dark, color:C.gold, fontSize:'12px', fontWeight:700, padding:'7px 14px', borderRadius:'20px', flexShrink:0}}>
+                SA {saReelle}
+              </span>
+            )}
           </a>
-          {saReelle && (
-            <span style={{background:C.dark, color:C.gold, fontSize:'12px', fontWeight:700, padding:'7px 16px', borderRadius:'20px'}}>
-              SA {saReelle}
-            </span>
-          )}
         </div>
         <div style={{padding:'0 16px 12px', display:'flex', gap:'6px', overflowX:'auto'}}>
           {tabs.map(t => (
@@ -216,11 +271,11 @@ function DashboardContent() {
         </div>
       </div>
 
-      <div style={{padding:'16px', maxWidth:'640px', margin:'0 auto'}}>
+      <div style={{padding:'16px 20px', maxWidth:'100%'}}>
 
         {/* ========== ACCUEIL ========== */}
         {activeTab === 'home' && (
-          <div style={{display:'flex', flexDirection:'column', gap:'12px'}}>
+          <div style={{display:'flex', flexDirection:'column', gap:'14px'}}>
 
             {isPostPartum ? (
               <div style={{background:C.dark, borderRadius:'20px', padding:'32px', textAlign:'center'}}>
@@ -228,59 +283,84 @@ function DashboardContent() {
                 <p style={{color:C.white, fontSize:'24px', fontWeight:800, margin:0, fontFamily:'Georgia,serif'}}>Bebe est la !</p>
                 <p style={{color:C.gold, fontSize:'13px', margin:'4px 0 0'}}>Mode post-partum active</p>
               </div>
-            ) : data && saReelle && (
-              <div style={{background:C.dark, borderRadius:'20px', padding:'24px', position:'relative', overflow:'hidden'}}>
-                <div style={{position:'absolute', top:'-20px', right:'-20px', width:'140px', height:'140px', borderRadius:'50%', background:'rgba(200,160,96,0.06)'}}/>
-                <div style={{position:'absolute', top:'16px', right:'20px', fontSize:'64px', lineHeight:1, opacity:0.9}}>{data.emoji}</div>
-                <div style={{position:'relative'}}>
-                  <p style={{color:'rgba(200,160,96,0.7)', fontSize:'10px', letterSpacing:'3px', textTransform:'uppercase', margin:'0 0 8px', fontWeight:600}}>Semaine {saReelle} · {trimestre}</p>
+            ) : dataReelle && saReelle && (
+              <div style={{background:C.dark, borderRadius:'20px', padding:'24px', display:'flex', alignItems:'center', gap:'20px'}}>
+                <div style={{flex:1}}>
+                  <p style={{color:'rgba(200,160,96,0.7)', fontSize:'10px', letterSpacing:'3px', textTransform:'uppercase', margin:'0 0 8px', fontWeight:600}}>SA {saReelle} · {trimestre}</p>
                   <p style={{color:C.white, fontSize:'24px', fontWeight:800, margin:'0 0 4px', fontFamily:'Georgia,serif', lineHeight:1.2}}>
-                    Bebe = une {data.fruit}
+                    Bebe fait {dataReelle.taille}<br/>et pese {dataReelle.poids}
                   </p>
-                  <p style={{color:'rgba(255,255,255,0.35)', fontSize:'13px', margin:'0 0 20px'}}>{data.taille} · {data.poids}{joursRestants && joursRestants > 0 ? ' · ' + joursRestants + 'j restants' : ''}</p>
-                  <div style={{background:'rgba(255,255,255,0.1)', borderRadius:'6px', height:'4px', marginBottom:'10px'}}>
+                  <p style={{color:'rgba(255,255,255,0.35)', fontSize:'13px', margin:'0 0 20px'}}>
+                    {joursRestants && joursRestants > 0 ? joursRestants + ' jours avant le grand jour' : 'Le grand jour approche !'}
+                  </p>
+                  <div style={{background:'rgba(255,255,255,0.1)', borderRadius:'6px', height:'4px', marginBottom:'8px'}}>
                     <div style={{background:C.gold, height:'4px', borderRadius:'6px', width:progression+'%'}}/>
                   </div>
-                  <div style={{display:'flex', justifyContent:'space-between', alignItems:'center'}}>
-                    <div style={{display:'flex', gap:'6px'}}>
-                      {['T1','T2','T3'].map((t, i) => {
-                        const actif = (saReelle||0) > (i === 0 ? 0 : [14,27][i-1]);
-                        const enCours = trimestre === t;
-                        return (
-                          <span key={t} style={{
-                            background: actif && !enCours ? C.gold : enCours ? 'rgba(200,160,96,0.2)' : 'rgba(255,255,255,0.08)',
-                            color: actif && !enCours ? C.dark : enCours ? C.gold : 'rgba(255,255,255,0.3)',
-                            fontSize:'10px', fontWeight:700, padding:'3px 10px', borderRadius:'20px'
-                          }}>{t}{actif && !enCours ? ' ✓' : enCours ? ' →' : ''}</span>
-                        );
-                      })}
-                    </div>
-                    <span style={{color:'rgba(255,255,255,0.3)', fontSize:'12px'}}>{progression}%</span>
+                  <div style={{display:'flex', gap:'6px'}}>
+                    {['T1','T2','T3'].map((t, i) => {
+                      const seuils = [14, 27, 40];
+                      const actif = (saReelle||0) > (i === 0 ? 0 : seuils[i-1]);
+                      const enCours = trimestre === t;
+                      return (
+                        <span key={t} style={{
+                          background: enCours ? 'rgba(200,160,96,0.2)' : actif ? C.gold : 'rgba(255,255,255,0.06)',
+                          color: enCours ? C.gold : actif ? C.dark : 'rgba(255,255,255,0.25)',
+                          fontSize:'10px', fontWeight:700, padding:'3px 10px', borderRadius:'20px'
+                        }}>{t}{actif && !enCours ? ' ✓' : enCours ? ' →' : ''}</span>
+                      );
+                    })}
+                    <span style={{color:'rgba(255,255,255,0.3)', fontSize:'12px', marginLeft:'auto', alignSelf:'center'}}>{progression}%</span>
                   </div>
                 </div>
+                <div style={{fontSize:'64px', lineHeight:1, flexShrink:0}}>{dataReelle.emoji}</div>
               </div>
             )}
 
             <div style={{display:'grid', gridTemplateColumns:'1fr 1fr', gap:'12px'}}>
-              {data && (
+              {dataReelle && (
                 <div style={{background:C.white, borderRadius:'16px', padding:'18px', border:`1px solid ${C.border}`}}>
-                  <div style={{width:'32px', height:'32px', borderRadius:'10px', background:'#f8f7f4', display:'flex', alignItems:'center', justifyContent:'center', marginBottom:'12px', fontSize:'16px'}}>💡</div>
+                  <div style={{fontSize:'18px', marginBottom:'10px'}}>💡</div>
                   <p style={{color:C.textLight, fontSize:'10px', fontWeight:600, letterSpacing:'2px', textTransform:'uppercase', margin:'0 0 6px'}}>Conseil</p>
-                  <p style={{color:C.dark, fontSize:'13px', lineHeight:1.5, margin:0, fontWeight:500}}>{data.conseil}</p>
+                  <p style={{color:C.dark, fontSize:'13px', lineHeight:1.5, margin:0, fontWeight:500}}>{dataReelle.conseil}</p>
                 </div>
               )}
               <div style={{background:C.gold, borderRadius:'16px', padding:'18px'}}>
-                <div style={{width:'32px', height:'32px', borderRadius:'10px', background:'rgba(255,255,255,0.2)', display:'flex', alignItems:'center', justifyContent:'center', marginBottom:'12px', fontSize:'16px'}}>🎁</div>
+                <div style={{fontSize:'18px', marginBottom:'10px'}}>🎁</div>
                 <p style={{color:'rgba(30,37,53,0.55)', fontSize:'10px', fontWeight:600, letterSpacing:'2px', textTransform:'uppercase', margin:'0 0 6px'}}>Idee du mois</p>
                 <p style={{color:C.dark, fontSize:'13px', lineHeight:1.5, margin:0, fontWeight:600}}>{ideesMois}</p>
               </div>
             </div>
 
+            {/* MISSION DE LA SEMAINE */}
+            {missions.length > 0 && (
+              <div style={{background:C.white, borderRadius:'16px', padding:'20px', border:`1px solid ${C.border}`}}>
+                <div style={{display:'flex', alignItems:'center', gap:'10px', marginBottom:'16px'}}>
+                  <div style={{width:'32px', height:'32px', borderRadius:'10px', background:'#f8f7f4', display:'flex', alignItems:'center', justifyContent:'center', fontSize:'16px'}}>🎯</div>
+                  <p style={{color:C.dark, fontSize:'14px', fontWeight:700, margin:0}}>Ta mission cette semaine</p>
+                </div>
+                <div style={{display:'flex', flexDirection:'column', gap:'10px'}}>
+                  {missions.map((m, i) => {
+                    const id = 'mission_' + saReelle + '_' + i;
+                    const done = missionsChecked[id];
+                    return (
+                      <button key={id} onClick={() => toggleMission(id)} style={{display:'flex', gap:'12px', alignItems:'flex-start', background:'none', border:'none', cursor:'pointer', textAlign:'left', padding:'4px 0'}}>
+                        <div style={{width:'22px', height:'22px', borderRadius:'6px', border:`2px solid ${done ? C.gold : C.border}`, background: done ? C.gold : 'transparent', display:'flex', alignItems:'center', justifyContent:'center', flexShrink:0, marginTop:'1px', transition:'all 0.15s'}}>
+                          {done && <span style={{color:C.dark, fontSize:'12px', fontWeight:700}}>✓</span>}
+                        </div>
+                        <p style={{color: done ? C.textLight : C.dark, fontSize:'13px', margin:0, lineHeight:1.5, textDecoration: done ? 'line-through' : 'none'}}>{m}</p>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+
+            {/* PROCHAIN RDV */}
             {RDV_LIST.filter(r => saReelle && r.sa >= saReelle).slice(0,1).map((r, i) => (
-              <div key={i} style={{background:C.white, borderRadius:'16px', padding:'18px', border:`1px solid ${C.border}`}}>
+              <div key={i} style={{background:C.white, borderRadius:'16px', padding:'20px', border:`1px solid ${C.border}`}}>
                 <div style={{display:'flex', alignItems:'center', justifyContent:'space-between', marginBottom:'14px'}}>
                   <p style={{color:C.textLight, fontSize:'10px', fontWeight:600, letterSpacing:'2px', textTransform:'uppercase', margin:0}}>Prochain RDV</p>
-                  {joursRestants !== null && (
+                  {dpa && (
                     <span style={{background:'#f8f7f4', color:C.gold, fontSize:'11px', fontWeight:700, padding:'3px 10px', borderRadius:'20px', border:`1px solid ${C.border}`}}>
                       {Math.max(0, Math.round((new Date(dpa).getTime() - (40 - r.sa) * 7 * 24 * 60 * 60 * 1000 - new Date().getTime()) / (1000 * 60 * 60 * 24)))}j
                     </span>
@@ -292,63 +372,63 @@ function DashboardContent() {
                     <p style={{color:C.dark, fontSize:'15px', fontWeight:700, margin:'0 0 2px'}}>{r.titre}</p>
                     <p style={{color:C.textLight, fontSize:'12px', margin:0}}>SA {r.sa}{dpa ? ' · ' + new Date(new Date(dpa).getTime() - (40 - r.sa) * 7 * 24 * 60 * 60 * 1000).toLocaleDateString('fr-FR', {day:'numeric', month:'long'}) : ''}</p>
                   </div>
-                  <div style={{width:'32px', height:'32px', borderRadius:'50%', background:C.dark, display:'flex', alignItems:'center', justifyContent:'center', flexShrink:0, color:C.gold, fontSize:'14px'}}>→</div>
+                  <button onClick={() => setActiveTab('rdv')} style={{width:'32px', height:'32px', borderRadius:'50%', background:C.dark, border:'none', cursor:'pointer', color:C.gold, fontSize:'14px', flexShrink:0, display:'flex', alignItems:'center', justifyContent:'center'}}>→</button>
                 </div>
               </div>
             ))}
 
-            {data && (
-              <div style={{display:'grid', gridTemplateColumns:'1fr 1fr', gap:'12px'}}>
-                <div style={{background:C.white, borderRadius:'16px', padding:'18px', border:`1px solid ${C.border}`}}>
-                  <p style={{color:C.textLight, fontSize:'10px', fontWeight:600, letterSpacing:'2px', textTransform:'uppercase', margin:'0 0 10px'}}>Developpement</p>
-                  <p style={{color:C.dark, fontSize:'13px', lineHeight:1.5, margin:0}}>{data.developpement}</p>
-                </div>
-                <div style={{background:C.white, borderRadius:'16px', padding:'18px', border:`1px solid ${C.border}`}}>
-                  <p style={{color:C.textLight, fontSize:'10px', fontWeight:600, letterSpacing:'2px', textTransform:'uppercase', margin:'0 0 10px'}}>Ce que vit maman</p>
-                  <p style={{color:C.dark, fontSize:'13px', lineHeight:1.5, margin:0}}>{data.maman}</p>
+            {/* LE SAVAIS-TU */}
+            {dataReelle && (
+              <div style={{background:C.dark, borderRadius:'16px', padding:'20px'}}>
+                <div style={{display:'flex', gap:'12px', alignItems:'flex-start'}}>
+                  <div style={{width:'36px', height:'36px', borderRadius:'10px', background:'rgba(200,160,96,0.15)', display:'flex', alignItems:'center', justifyContent:'center', fontSize:'18px', flexShrink:0}}>🧠</div>
+                  <div>
+                    <p style={{color:C.gold, fontSize:'10px', fontWeight:600, letterSpacing:'2px', textTransform:'uppercase', margin:'0 0 6px'}}>Le savais-tu ?</p>
+                    <p style={{color:C.white, fontSize:'14px', lineHeight:1.6, margin:0, fontWeight:500}}>{dataReelle.savistu}</p>
+                  </div>
                 </div>
               </div>
             )}
 
-            <div style={{display:'grid', gridTemplateColumns:'1fr 1fr', gap:'12px'}}>
-              {[
-                {id:'bebe', label:'Suivi bebe', sub:'SA '+(saReelle||'')+' en detail', emoji:'👶'},
-                {id:'rdv', label:'Mes RDV', sub:'Calendrier complet', emoji:'📅'},
-                {id:'pratique', label:'Pratique', sub:'Valise & achats', emoji:'🧳'},
-                {id:'cadeaux', label:'Cadeaux', sub:'Bons plans', emoji:'🎁', dark:true},
-              ].map((m, i) => (
-                <button key={m.id} onClick={() => setActiveTab(m.id)} style={{
-                  background: m.dark ? C.dark : C.white,
-                  borderRadius:'16px', padding:'18px',
-                  border: m.dark ? 'none' : `1px solid ${C.border}`,
-                  cursor:'pointer', textAlign:'left',
-                }}>
-                  <div style={{width:'36px', height:'36px', borderRadius:'10px', background: m.dark ? 'rgba(200,160,96,0.15)' : '#f8f7f4', display:'flex', alignItems:'center', justifyContent:'center', marginBottom:'10px', fontSize:'18px'}}>{m.emoji}</div>
-                  <p style={{color: m.dark ? C.white : C.dark, fontSize:'13px', fontWeight:700, margin:'0 0 2px'}}>{m.label}</p>
-                  <p style={{color: m.dark ? C.gold : C.textLight, fontSize:'11px', margin:0}}>{m.sub}</p>
-                </button>
-              ))}
-            </div>
+            {/* BEBE CE MOIS + MAMAN */}
+            {dataReelle && (
+              <div style={{display:'grid', gridTemplateColumns:'1fr 1fr', gap:'12px'}}>
+                <div style={{background:C.white, borderRadius:'16px', padding:'18px', border:`1px solid ${C.border}`}}>
+                  <p style={{color:C.textLight, fontSize:'10px', fontWeight:600, letterSpacing:'2px', textTransform:'uppercase', margin:'0 0 10px'}}>Bebe ce mois</p>
+                  <p style={{color:C.dark, fontSize:'13px', lineHeight:1.5, margin:0}}>{dataReelle.developpement}</p>
+                </div>
+                <div style={{background:C.white, borderRadius:'16px', padding:'18px', border:`1px solid ${C.border}`}}>
+                  <p style={{color:C.textLight, fontSize:'10px', fontWeight:600, letterSpacing:'2px', textTransform:'uppercase', margin:'0 0 10px'}}>Ce que vit maman</p>
+                  <p style={{color:C.dark, fontSize:'13px', lineHeight:1.5, margin:0}}>{dataReelle.maman}</p>
+                </div>
+              </div>
+            )}
+
           </div>
         )}
 
         {/* ========== BEBE ========== */}
         {activeTab === 'bebe' && data && sa && (
-          <div style={{display:'flex', flexDirection:'column', gap:'12px'}}>
+          <div style={{display:'flex', flexDirection:'column', gap:'14px'}}>
             <div style={{display:'flex', alignItems:'center', justifyContent:'space-between'}}>
               <h2 style={{color:C.dark, fontSize:'22px', fontWeight:800, margin:0, fontFamily:'Georgia,serif'}}>
                 {avance ? 'Dans 4 semaines' : 'Semaine ' + saReelle}
               </h2>
-<button onClick={() => setAvance(!avance)} style={{fontSize:'11px', padding:'7px 14px', borderRadius:'20px', cursor:'pointer', fontWeight:700, background: avance ? C.dark : C.white, color: avance ? C.gold : C.text, border: avance ? 'none' : `1px solid ${C.border}`}}>                {avance ? '← Revenir' : "S'avancer +4 SA"}
+              <button onClick={() => setAvance(!avance)} style={{fontSize:'11px', padding:'7px 14px', borderRadius:'20px', cursor:'pointer', fontWeight:700, background: avance ? C.dark : C.white, color: avance ? C.gold : C.text, border: avance ? 'none' : `1px solid ${C.border}`}}>
+                {avance ? '← Revenir' : "S'avancer +4 SA"}
               </button>
             </div>
 
             <div style={{background:C.dark, borderRadius:'20px', padding:'24px', position:'relative', overflow:'hidden'}}>
-              <div style={{position:'absolute', top:'16px', right:'20px', fontSize:'72px', lineHeight:1, opacity:0.9}}>{data.emoji}</div>
+              <div style={{position:'absolute', top:'16px', right:'20px', fontSize:'80px', lineHeight:1, opacity:0.9}}>{data.emoji}</div>
               <div style={{position:'relative'}}>
-                <p style={{color:'rgba(200,160,96,0.7)', fontSize:'10px', letterSpacing:'3px', textTransform:'uppercase', margin:'0 0 8px', fontWeight:600}}>Taille de bebe</p>
-                <p style={{color:C.white, fontSize:'28px', fontWeight:800, margin:'0 0 4px', fontFamily:'Georgia,serif'}}>{data.fruit}</p>
-                <p style={{color:'rgba(255,255,255,0.4)', fontSize:'14px', margin:0}}>{data.taille} · {data.poids}</p>
+                <p style={{color:'rgba(200,160,96,0.7)', fontSize:'10px', letterSpacing:'3px', textTransform:'uppercase', margin:'0 0 8px', fontWeight:600}}>SA {sa}</p>
+                <p style={{color:C.white, fontSize:'28px', fontWeight:800, margin:'0 0 4px', fontFamily:'Georgia,serif', lineHeight:1.1}}>
+                  {data.taille} · {data.poids}
+                </p>
+                <p style={{color:'rgba(255,255,255,0.5)', fontSize:'14px', margin:'0 0 8px'}}>
+                  Comme {data.objet}
+                </p>
               </div>
             </div>
 
@@ -365,6 +445,16 @@ function DashboardContent() {
               <div style={{background:C.gold, borderRadius:'16px', padding:'18px'}}>
                 <p style={{color:'rgba(30,37,53,0.55)', fontSize:'10px', fontWeight:600, letterSpacing:'2px', textTransform:'uppercase', margin:'0 0 10px'}}>Ton role</p>
                 <p style={{color:C.dark, fontSize:'13px', lineHeight:1.5, margin:0, fontWeight:600}}>{data.conseil}</p>
+              </div>
+            </div>
+
+            <div style={{background:C.dark, borderRadius:'16px', padding:'20px'}}>
+              <div style={{display:'flex', gap:'12px', alignItems:'flex-start'}}>
+                <div style={{width:'36px', height:'36px', borderRadius:'10px', background:'rgba(200,160,96,0.15)', display:'flex', alignItems:'center', justifyContent:'center', fontSize:'18px', flexShrink:0}}>🧠</div>
+                <div>
+                  <p style={{color:C.gold, fontSize:'10px', fontWeight:600, letterSpacing:'2px', textTransform:'uppercase', margin:'0 0 6px'}}>Le savais-tu ?</p>
+                  <p style={{color:C.white, fontSize:'14px', lineHeight:1.6, margin:0}}>{data.savistu}</p>
+                </div>
               </div>
             </div>
 
@@ -451,7 +541,7 @@ function DashboardContent() {
                         <div style={{width:'22px', height:'22px', borderRadius:'6px', border:`2px solid ${valiseChecked[item.id] ? C.gold : C.border}`, background: valiseChecked[item.id] ? C.gold : 'transparent', display:'flex', alignItems:'center', justifyContent:'center', flexShrink:0, transition:'all 0.15s'}}>
                           {valiseChecked[item.id] && <span style={{color:C.dark, fontSize:'12px', fontWeight:700}}>✓</span>}
                         </div>
-                        <span style={{fontSize:'13px', color: valiseChecked[item.id] ? C.textLight : C.dark, textDecoration: valiseChecked[item.id] ? 'line-through' : 'none', transition:'all 0.15s'}}>{item.label}</span>
+                        <span style={{fontSize:'13px', color: valiseChecked[item.id] ? C.textLight : C.dark, textDecoration: valiseChecked[item.id] ? 'line-through' : 'none'}}>{item.label}</span>
                       </button>
                     ))}
                   </div>
@@ -461,7 +551,7 @@ function DashboardContent() {
 
             <div style={{background:C.white, borderRadius:'16px', padding:'18px', border:`1px solid ${C.border}`}}>
               <p style={{color:C.dark, fontSize:'14px', fontWeight:700, margin:'0 0 16px'}}>Liste achats prioritaires</p>
-              <div style={{display:'flex', flexDirection:'column', gap:'14px'}}>
+              <div style={{display:'flex', flexDirection:'column', gap:'12px'}}>
                 {[
                   {label:'Siege auto groupe 0+', priorite:'urgent', prix:'80-300€'},
                   {label:'Babyphone video', priorite:'urgent', prix:'40-150€'},
@@ -503,7 +593,7 @@ function DashboardContent() {
           <div style={{display:'flex', flexDirection:'column', gap:'12px'}}>
             <h2 style={{color:C.dark, fontSize:'22px', fontWeight:800, margin:0, fontFamily:'Georgia,serif'}}>Cadeaux & Bons plans</h2>
             <div style={{background:C.gold, borderRadius:'16px', padding:'18px'}}>
-              <div style={{width:'32px', height:'32px', borderRadius:'10px', background:'rgba(255,255,255,0.2)', display:'flex', alignItems:'center', justifyContent:'center', marginBottom:'10px', fontSize:'16px'}}>✨</div>
+              <div style={{fontSize:'18px', marginBottom:'10px'}}>✨</div>
               <p style={{color:'rgba(30,37,53,0.55)', fontSize:'10px', fontWeight:600, letterSpacing:'2px', textTransform:'uppercase', margin:'0 0 6px'}}>Idee du mois</p>
               <p style={{color:C.dark, fontSize:'14px', fontWeight:600, margin:0, lineHeight:1.5}}>{ideesMois}</p>
             </div>
