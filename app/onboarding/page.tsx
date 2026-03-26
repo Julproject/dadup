@@ -3,6 +3,16 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
+const C = {
+  dark: '#1e2535',
+  gold: '#c8a060',
+  cream: '#faf6f0',
+  white: '#ffffff',
+  border: '#e8e0d0',
+  text: '#4a5568',
+  textLight: '#9aa0a8',
+};
+
 export default function OnboardingPage() {
   const router = useRouter();
   const [dpa, setDpa] = useState('');
@@ -19,9 +29,7 @@ export default function OnboardingPage() {
         body: JSON.stringify({ dpa, prenom }),
       });
       const data = await res.json();
-      if (data.success) {
-        router.push('/dashboard');
-      }
+      if (data.success) router.push('/dashboard');
     } catch (err) {
       console.error(err);
     } finally {
@@ -30,55 +38,69 @@ export default function OnboardingPage() {
   };
 
   return (
-    <main style={{minHeight:'100vh', background:'#f8f8f5', display:'flex', alignItems:'center', justifyContent:'center', padding:'16px', fontFamily:'sans-serif'}}>
-      <div style={{maxWidth:'420px', width:'100%'}}>
+    <main style={{minHeight:'100vh', background:C.cream, display:'flex', alignItems:'center', justifyContent:'center', padding:'16px', fontFamily:'sans-serif'}}>
+      <div style={{maxWidth:'480px', width:'100%'}}>
+
         <div style={{textAlign:'center', marginBottom:'32px'}}>
-          <svg viewBox="0 0 300 300" width="64" height="64" style={{margin:'0 auto 16px'}}>
-            <circle cx="150" cy="150" r="145" fill="#1e2820"/>
-            <circle cx="150" cy="150" r="122" fill="#2d3d2f"/>
-            <ellipse cx="150" cy="205" rx="58" ry="54" fill="#4a8c6f"/>
-            <circle cx="150" cy="112" r="40" fill="#4a8c6f"/>
-            <ellipse cx="150" cy="196" rx="27" ry="31" fill="#a8d4bc"/>
-            <circle cx="150" cy="128" r="26" fill="#a8d4bc"/>
+          <svg viewBox="0 0 300 300" width="64" height="64" style={{margin:'0 auto 20px', display:'block'}}>
+            <circle cx="150" cy="150" r="145" fill="#3a4f6e"/>
+            <circle cx="150" cy="150" r="122" fill="#4a6080"/>
+            <ellipse cx="150" cy="205" rx="58" ry="54" fill="#c8a060"/>
+            <circle cx="150" cy="112" r="40" fill="#c8a060"/>
+            <ellipse cx="150" cy="196" rx="27" ry="31" fill="#faf6f0"/>
+            <circle cx="150" cy="128" r="26" fill="#faf6f0"/>
           </svg>
-          <h1 style={{fontSize:'26px', fontWeight:700, color:'#1e2820', margin:'0 0 8px', fontFamily:'Georgia,serif'}}>Bienvenue sur DadUp</h1>
-          <p style={{color:'#888', fontSize:'14px', margin:0}}>Deux infos pour personnaliser ton espace.</p>
+          <h1 style={{fontSize:'28px', fontWeight:800, color:C.dark, margin:'0 0 8px', fontFamily:'Georgia,serif'}}>Bienvenue sur DadUp</h1>
+          <p style={{color:C.text, fontSize:'15px', margin:0, lineHeight:1.6}}>Deux infos pour personnaliser<br/>ton espace du papa.</p>
         </div>
 
-        <div style={{background:'#fff', borderRadius:'24px', padding:'32px', border:'1px solid #eee'}}>
-          <div style={{display:'flex', flexDirection:'column', gap:'16px'}}>
+        <div style={{background:C.white, borderRadius:'24px', padding:'36px', border:`1px solid ${C.border}`}}>
+
+          <div style={{display:'flex', flexDirection:'column', gap:'20px'}}>
+
             <div>
-              <label style={{display:'block', color:'#1e2820', fontSize:'13px', fontWeight:600, marginBottom:'8px'}}>Ton prenom</label>
+              <label style={{display:'block', color:C.dark, fontSize:'13px', fontWeight:700, marginBottom:'8px'}}>Ton prenom</label>
               <input
                 type="text"
                 placeholder="Thomas, Julien, Marc..."
                 value={prenom}
                 onChange={e => setPrenom(e.target.value)}
-                style={{width:'100%', background:'#f8f8f5', border:'1px solid #eee', borderRadius:'12px', padding:'12px 16px', fontSize:'14px', color:'#1e2820', boxSizing:'border-box'}}
+                style={{width:'100%', background:C.cream, border:`1px solid ${C.border}`, borderRadius:'12px', padding:'14px 16px', fontSize:'15px', color:C.dark, boxSizing:'border-box' as const, fontFamily:'sans-serif', outline:'none'}}
               />
             </div>
+
             <div>
-              <label style={{display:'block', color:'#1e2820', fontSize:'13px', fontWeight:600, marginBottom:'8px'}}>Date prevue d'accouchement</label>
+              <label style={{display:'block', color:C.dark, fontSize:'13px', fontWeight:700, marginBottom:'8px'}}>Date prevue d'accouchement (DPA)</label>
               <input
                 type="date"
                 value={dpa}
                 onChange={e => setDpa(e.target.value)}
-                style={{width:'100%', background:'#f8f8f5', border:'1px solid #eee', borderRadius:'12px', padding:'12px 16px', fontSize:'14px', color:'#1e2820', boxSizing:'border-box'}}
+                style={{width:'100%', background:C.cream, border:`1px solid ${C.border}`, borderRadius:'12px', padding:'14px 16px', fontSize:'15px', color:C.dark, boxSizing:'border-box' as const, fontFamily:'sans-serif', outline:'none'}}
               />
+              <p style={{color:C.textLight, fontSize:'12px', margin:'6px 0 0'}}>Cette date personalise tout ton espace — calendrier RDV, suivi bebe, compte a rebours.</p>
             </div>
+
             <button
               onClick={save}
               disabled={!dpa || loading}
-              style={{background: dpa ? '#1e2820' : '#ccc', color: dpa ? '#f5c842' : '#fff', border:'none', borderRadius:'24px', padding:'14px', fontSize:'14px', fontWeight:700, cursor: dpa ? 'pointer' : 'not-allowed', marginTop:'8px'}}
+              style={{background: dpa ? C.dark : '#ccc', color: dpa ? C.white : C.white, border:'none', borderRadius:'24px', padding:'16px', fontSize:'15px', fontWeight:700, cursor: dpa ? 'pointer' : 'not-allowed', fontFamily:'sans-serif', marginTop:'8px', transition:'background 0.2s'}}
             >
-              {loading ? 'Enregistrement...' : 'Acceder a mon espace'}
+              {loading ? 'Enregistrement...' : 'Acceder a mon espace →'}
             </button>
+
           </div>
+
         </div>
 
-        <p style={{textAlign:'center', color:'#aaa', fontSize:'11px', marginTop:'16px'}}>
-          Aucune donnee personnelle stockee sans ton consentement.
+        <div style={{marginTop:'24px', background:C.white, borderRadius:'16px', padding:'20px', border:`1px solid ${C.border}`, display:'flex', gap:'12px', alignItems:'flex-start'}}>
+          <span style={{fontSize:'20px', flexShrink:0}}>🔒</span>
+          <p style={{color:C.text, fontSize:'13px', margin:0, lineHeight:1.5}}>Tes donnees restent privees. On stocke uniquement ton prenom et ta DPA pour personnaliser ton experience. Aucune revente, aucun spam.</p>
+        </div>
+
+        <p style={{textAlign:'center', color:C.textLight, fontSize:'11px', marginTop:'16px'}}>
+          Tu pourras modifier ces informations depuis ton espace.
         </p>
+
       </div>
     </main>
   );
