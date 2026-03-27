@@ -653,8 +653,7 @@ function DashboardContent() {
                   <p style={{color:C.dark, fontSize:'13px', fontWeight:800, margin:0}}>Ce que vit maman</p>
                 </div>
                 <p style={{color:C.text, fontSize:'13px', lineHeight:1.7, margin:'0 0 12px'}}>{dataReelle.maman}</p>
-                <div style={{background:'#f8f7f4', borderRadius:'10px', padding:'12px', borderLeft:`3px solid ${C.gold}`, borderRadius:'0 10px 10px 0'}}>
-                  <p style={{color:C.dark, fontSize:'12px', fontWeight:700, margin:'0 0 4px'}}>⚠️ Quand appeler la maternité ?</p>
+                <div style={{background:'#f8f7f4', borderRadius:'0 10px 10px 0', padding:'12px', borderLeft:`3px solid ${C.gold}`}}>                  <p style={{color:C.dark, fontSize:'12px', fontWeight:700, margin:'0 0 4px'}}>⚠️ Quand appeler la maternité ?</p>
                   <p style={{color:C.text, fontSize:'12px', lineHeight:1.5, margin:0}}>Contractions régulières et rapprochées, perte de liquide amniotique, saignements, absence de mouvements fœtaux sur plusieurs heures. En cas de doute, appelez toujours.</p>
                 </div>
               </div>
