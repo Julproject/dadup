@@ -552,10 +552,10 @@ function DashboardContent() {
   ];
 
   return (
-    <div style={{minHeight:'100vh',background:C.white,fontFamily:"'Nunito','Helvetica Neue',sans-serif"}}>
+    <div style={{minHeight:'100vh',background:C.white,fontFamily:"-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"}}>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700;1,800&display=swap');
-        *{font-family:'Nunito','Helvetica Neue',sans-serif!important;}
+        
+        body,*{-webkit-font-smoothing:antialiased;}
         .dd-c{max-width:1080px;margin:0 auto;padding:32px 36px;display:grid;gap:20px;}
         .dd-row3{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:16px;}
         .dd-row33{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;}
@@ -569,7 +569,7 @@ function DashboardContent() {
       `}</style>
 
       {/* ── TOPBAR ── */}
-      <div style={{background:C.white,borderBottom:`1.5px solid ${C.border}`,position:'sticky',top:0,zIndex:40}}>
+      <div style={{background:C.white,borderBottom:'2px solid #e8e4de',position:'sticky',top:0,zIndex:40}}>
         <div style={{display:'flex',alignItems:'center',justifyContent:'space-between',padding:'0 32px',height:'64px',maxWidth:'1180px',margin:'0 auto'}}>
           <div style={{display:'flex',alignItems:'center',gap:'10px'}}>
             <svg viewBox="0 0 300 300" width="36" height="36">
@@ -599,11 +599,19 @@ function DashboardContent() {
           </div>
         </div>
         <div style={{display:'flex',gap:'6px',padding:'0 28px 14px',overflowX:'auto' as const,maxWidth:'1180px',margin:'0 auto'}}>
-          {navTabs.map(n=>(
-            <button key={n.id} onClick={()=>setActiveTab(n.id)} style={{padding:'9px 22px',fontSize:'13px',fontWeight:800,border:'none',borderRadius:'24px',cursor:'pointer',whiteSpace:'nowrap' as const,flexShrink:0,fontFamily:"'Nunito',sans-serif",background:activeTab===n.id?C.dark:"#f7f5f0",color:activeTab===n.id?C.white:C.dark}}>
+          {navTabs.map((n,idx)=>{
+            const tc=[
+              {bg:'#FFF0E6',c:'#C04A1A'},
+              {bg:'#E4F5EC',c:'#0D6B40'},
+              {bg:'#E6F0FA',c:'#1A4A7A'},
+              {bg:'#FFF7E0',c:'#8A6010'},
+              {bg:'#FDECEA',c:'#A03030'},
+            ][idx]||{bg:'#f7f5f0',c:'#1e2535'};
+            const on=activeTab===n.id;
+            return (<button key={n.id} onClick={()=>setActiveTab(n.id)} style={{padding:'9px 22px',fontSize:'13px',fontWeight:800,border:'none',borderRadius:'24px',cursor:'pointer',whiteSpace:'nowrap' as const,flexShrink:0,transition:'all 0.15s',background:on?C.dark:tc.bg,color:on?C.white:tc.c}}>
               {n.label}
-            </button>
-          ))}
+            </button>);
+          })}
         </div>
       </div>
 
@@ -698,6 +706,7 @@ function DashboardContent() {
                 <p style={{color:'#fff',fontSize:'17px',fontWeight:700,lineHeight:1.55,margin:0,fontStyle:'italic'}}>&#34;{dataR.savistu}&#34;</p>
               </div>
             )}
+
             {/* À SAVOIR */}
             {dataR&&(
               <div style={{marginBottom:'0',background:'#E0F5F0',borderRadius:'22px',padding:'24px 26px'}}>
