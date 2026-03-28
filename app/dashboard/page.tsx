@@ -455,7 +455,8 @@ const RDV_LIST = [
   {sa:36,emoji:'💬',titre:'Entretien prénatal tardif',desc:'Bilan global, finalisation du projet de naissance. Présence du père fortement recommandée.',oblig:true},
   {sa:38,emoji:'🧳',titre:'Consultation pré-terme',desc:'Vérification du col et position de bébé. Moment pour finaliser les dernières questions pratiques.',oblig:false},
   {sa:40,emoji:'🎉',titre:'Jour J — DPA',desc:'Contractions toutes les 5 minutes pendant 1 heure = appeler la maternité avant de partir.',oblig:true},
-];
+  ];
+
 const PARTENAIRES = [
   {categorie:'Pour elle',items:[
     {nom:'Mothercare',desc:'Vêtements grossesse & allaitement',remise:'-15%',lien:'#'},
@@ -911,7 +912,7 @@ function DashboardContent() {
                   <p style={{color:C.textLight,fontSize:'11px',fontWeight:600,margin:'0 0 8px'}}>Ma date de RDV :</p>
                   <input type="date" value={nextRdvDate} onChange={e=>saveRdv(e.target.value)} style={{background:C.white,border:`1px solid ${C.border}`,borderRadius:'10px',padding:'10px 14px',fontSize:'13px',color:C.dark,width:'100%',boxSizing:'border-box' as const}}/>
                   {nextRdvDate&&<p style={{color:C.gold,fontSize:'12px',margin:'6px 0 0',fontWeight:600}}>RDV le {new Date(nextRdvDate).toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long'})}</p>}
-                </div>
+                    </div>
               </div>
             )}
 
@@ -1196,7 +1197,6 @@ function DashboardContent() {
               </div>
             </div>
 
-            </div>
           </div>
         )}
 
