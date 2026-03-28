@@ -330,7 +330,7 @@ const SD: Record<number, SAData> = {
     maman: 'L\'échographie T2 est souvent vécue avec une anxiété mêlée d\'excitation. C\'est le rendez-vous médical le plus attendu de la grossesse. Elle peut durer de 45 à 90 minutes selon la coopération de bébé.',
     maman_aide: 'Prends une demi-journée de congé. Préparez vos questions en amont. Filmez si possible.',
     maman_signe: 'L\'écho T2 examine plus de 100 critères anatomiques. C\'est l\'examen le plus complet de la grossesse.',
-        alerte: 'Si le médecin souhaite revoir un point ou refaire une échographie, c\'est souvent par précaution — ne pas paniquer avant d\'avoir les explications.',
+    alerte: 'Si le médecin souhaite revoir un point ou refaire une échographie, c\'est souvent par précaution — ne pas paniquer avant d\'avoir les explications.',
     doc_titre: 'Ce que l\'écho T2 regarde',
     doc: 'L\'échographie morphologique T2 examine : le cerveau, le cœur (4 cavités + valves), les reins, l\'estomac, les membres, le visage (lèvres palatines), la colonne vertébrale, la position du placenta. Elle permet aussi généralement de connaître le sexe de bébé. Elle est réalisée par un médecin spécialisé en échographie fœtale. Durée : 45 à 90 minutes.',
     conseil: 'Prends une demi-journée de congé pour cette échographie. Filmez. C\'est un moment à vivre pleinement.',
@@ -348,7 +348,7 @@ const SD: Record<number, SAData> = {
   26: { emoji:'🥦', taille:'35.6 cm', poids:'760 g', titre:'Les yeux s\'ouvrent', intro:'À 26 SA, bébé mesure 35,6 cm. Ses yeux s\'ouvrent pour la première fois. Il peut voir la lumière qui filtre.', developpement:'Les yeux s\'ouvrent pour la première fois. Bébé peut voir la lumière qui filtre. Le cerveau atteint une complexité suffisante pour rêver.', organes:['👁️ Paupières s\'ouvrent','💭 Activité REM : bébé rêve','🏃 Relaxine : ligaments très souples','🫁 Poumons : liquide inspiré activement'], savistu:'Bébé ouvre les yeux pour la première fois à 26 SA. La couleur des yeux à la naissance est presque toujours bleue ou grise — la mélanine se développe dans les semaines suivantes.', faq:[{q:'Le reflux nocturne — comment le gérer ?',r:'Repas fractionnés, éviter les aliments acides le soir, surélever légèrement la tête du lit. Certains antiacides sont autorisés pendant la grossesse — demander au médecin.'},{q:'La diastasis abdominale — comment la prévenir ?',r:'Éviter les crunchs classiques et les exercices abdos creux. Préférer le gainage doux (planche), les exercices en crochet. La kiné pelvienne prénatale aide à la gérer.'}], maman_titre:'Le sommeil devient difficile', maman:'Le sommeil est difficile — trouver une position confortable est un défi croissant. La position dorsale gauche est recommandée. Des reflux nocturnes peuvent aussi interrompre le sommeil.', maman_aide:'Un coussin de grossesse change radicalement la qualité du sommeil. Surélever légèrement la tête du lit aide pour les reflux.', maman_signe:'Le sommeil sur le côté gauche favorise le retour veineux et améliore la circulation placentaire.', alerte:'La diastasis des muscles grands droits touche 60% des femmes au 3e trimestre. La kiné pelvienne aide à la prévenir.', doc_titre:'La diastasis abdominale', doc:'La diastasis des muscles grands droits est l\'écartement des deux colonnes musculaires abdominales pour laisser place à l\'utérus. Elle touche 60% des femmes au 3e trimestre. La kiné pelvienne prénatale aide à la gérer. Éviter les crunchs classiques pendant la grossesse — préférer le gainage doux.', conseil:'Commander le coussin de grossesse maintenant — ça change tout pour le sommeil.',
   },
   27: { emoji:'🥬', taille:'36.6 cm', poids:'875 g', titre:'Bébé peut rêver', intro:'À 27 SA, bébé pèse 875 grammes. Il peut rêver — son activité cérébrale pendant le sommeil est similaire à celle d\'un adulte en phase REM.', developpement:'Bébé peut rêver. Fin du 2e trimestre. Mouvements coordonnés complexes.', organes:['💭 Activité REM documentée','🛡️ Anticorps maternels transmis','🧠 Discrimination des voix','👶 Peau moins ridée (graisse)'], savistu:'Les anticorps maternels traversent le placenta à partir de 27 SA pour immuniser bébé avant la naissance. La vaccination de la mère protège aussi le nouveau-né les premiers mois.', faq:[{q:'Le plan de naissance — comment le rédiger ?',r:'Souhaits sur la péridurale, les positions, la présence du père, la musique, la gestion du cordon, le peau-à-peau, l\'allaitement. 1 page maximum. Le remettre à la maternité à 32-36 SA.'},{q:'La vaccination coqueluche — pourquoi importante ?',r:'La coqueluche est grave pour les nourrissons de moins de 3 mois — trop jeunes pour être vaccinés. La vaccination de la mère (et du père) pendant la grossesse transfère des anticorps à bébé pour le protéger les premiers mois.'}], maman_titre:'Fin du trimestre le plus confortable', maman:'C\'est souvent la fin de la période la plus agréable de la grossesse. La fatigue revient progressivement. L\'anxiété autour de l\'accouchement peut commencer à se manifester.', maman_aide:'Parler de vos angoisses respectives sur l\'accouchement — ça libère et ça rapproche.', maman_signe:'L\'anxiété pré-accouchement est normale et adaptative — elle pousse à se préparer.', alerte:'Se faire vacciner contre la coqueluche pendant la grossesse — protège bébé dès la naissance.', doc_titre:'La vaccination coqueluche', doc:'La coqueluche est une maladie respiratoire grave pour les nourrissons de moins de 3 mois. La vaccination de la mère (et du père) permet de transférer des anticorps à bébé avant la naissance. C\'est la principale protection disponible pour les premiers mois, avant que bébé puisse être lui-même vacciné.', conseil:'Planifiez votre plan de naissance ensemble ce mois-ci.',
-  },
+       },
   28: { emoji:'🍆', taille:'37.6 cm', poids:'1 kg', titre:'Début du 3e trimestre', intro:'À 28 SA, bébé pèse 1 kilogramme. C\'est le début du 3e trimestre. Le cerveau entre dans une phase de développement accéléré.', developpement:'Début du 3e trimestre. Cerveau en développement accéléré. Vision fonctionnelle. Mouvements très perceptibles.', organes:['🧠 Sillons corticaux en multiplication','👁️ Vision : acuité 20/400','🫘 Reins : 500 ml urine/jour','🫁 Poumons : 80% matures'], savistu:'Le liquide amniotique atteint son volume maximum à 28 SA (~800 ml) puis diminue progressivement jusqu\'au terme.', faq:[{q:'Contractions de Braxton Hicks — fausses ou vraies ?',r:'Fausses (Braxton Hicks) : irrégulières, disparaissent en changeant de position, non douloureuses. Vraies contractions : régulières, s\'intensifient, ne disparaissent pas en changeant de position. Règle 5-1-1 : toutes les 5 min, 1 min, depuis 1h = maternité.'},{q:'Le monitoring — c\'est quoi ?',r:'C\'est l\'enregistrement simultané du rythme cardiaque de bébé et des contractions utérines. Il évalue le bien-être fœtal. Il devient systématique lors des consultations à partir de SA 28-32 dans certaines maternités.'}], maman_titre:'Les contractions de Braxton Hicks', maman:'Les contractions de Braxton Hicks (fausses contractions) peuvent apparaître — l\'utérus se contracte par intermittence. L\'essoufflement et les reflux sont fréquents. Le dos et le bassin supportent un poids croissant.', maman_aide:'Commence à préparer la valise maternité maintenant — pas dans 4 semaines.', maman_signe:'Contractions de Braxton Hicks : irrégulières, disparaissent en changeant de position. Vraies contractions : règle 5-1-1.', alerte:'Règle 5-1-1 : contractions toutes les 5 minutes, pendant 1 minute, depuis 1 heure = appeler la maternité.', doc_titre:'Distinguer vraies et fausses contractions', doc:'Les contractions de Braxton Hicks (fausses) : irrégulières, disparaissent en changeant de position, non douloureuses. Les vraies contractions : régulières (toutes les 5-10 minutes), s\'intensifient progressivement, ne s\'arrêtent pas en changeant de position. La règle 5-1-1 pour un 1er enfant : contractions toutes les 5 minutes, durant 1 minute, depuis au moins 1 heure = appeler la maternité.', conseil:'Commence la valise maternité maintenant — pas dans 4 semaines.',
   },
   29: { emoji:'🎃', taille:'38.6 cm', poids:'1.15 kg', titre:'Mouvements visibles de l\'extérieur', intro:'À 29 SA, les mouvements de bébé sont désormais visibles de l\'extérieur du ventre. Les muscles et poumons se renforcent.', developpement:'Mouvements visibles de l\'extérieur. Système immunitaire en développement. Muscles et poumons se renforcent.', organes:['💪 Masse musculaire +50%','🛡️ Anticorps IgG en transfert actif','🫁 Poumons : survie ex-utéro possible','🧈 Graisse : 3.5% du poids'], savistu:'Un bébé né à 29 SA avec prise en charge néonatale intensive a 90% de chances de survie sans séquelles majeures. Chaque semaine supplémentaire in utero réduit la durée d\'hospitalisation néonatale.', faq:[{q:'L\'haptonomie — c\'est quoi ?',r:'C\'est une méthode de préparation qui inclut le père dès le début. Tu apprends à entrer en contact avec bébé via des pressions douces sur le ventre. Des études montrent que les bébés répondent à ces contacts spécifiques.'},{q:'La sophrologie pour l\'accouchement — est-ce efficace ?',r:'Des études montrent que la sophrologie réduit l\'anxiété pré-accouchement et la perception de la douleur pendant le travail. Elle est remboursée dans le cadre de la préparation à l\'accouchement (8 séances).'}], maman_titre:'L\'insomnie s\'installe', maman:'L\'insomnie s\'installe souvent — difficultés à trouver une position, réveils fréquents. Les contractions de Braxton Hicks peuvent être fréquentes.', maman_aide:'Être réveillé avec elle la nuit fait une vraie différence. La solitude nocturne est particulièrement difficile en fin de grossesse.', maman_signe:'Un bébé né à 29 SA a 90% de chances de survie. Chaque semaine supplémentaire compte.', alerte:'Apprends la règle 5-1-1 des contractions. Enregistre le numéro direct des urgences obstétricales.', doc_titre:'Préparation à l\'accouchement pour les pères', doc:'Des séances de préparation spécifiques pour les pères existent dans de nombreuses maternités. Elles couvrent : le déroulement du travail, les signes de début d\'accouchement, comment soutenir sans stresser, les techniques de respiration, la péridurale, et le rôle concret du père en salle de naissance.', conseil:'Apprends la règle 5-1-1 et enregistre le numéro de la maternité dans ton téléphone.',
@@ -521,39 +521,89 @@ function DashboardContent() {
 
   if (showOnboarding) return <Onboarding onSave={saveOnb}/>;
 
-  return (
-    <div style={{minHeight:'100vh', background:C.bg, paddingBottom:'48px', fontFamily:'-apple-system, BlinkMacSystemFont, sans-serif'}}>
 
-      {/* HEADER */}
-      <div style={{background:C.cream, position:'sticky', top:0, zIndex:40, borderBottom:`1px solid ${C.border}`}}>
-        <div style={{maxWidth:'640px', margin:'0 auto', display:'flex', alignItems:'center', justifyContent:'space-between', padding:'12px 20px'}}>
-          <a href="/dashboard" onClick={()=>setActiveTab('home')} style={{textDecoration:'none'}}>
-            <svg viewBox="0 0 300 300" width="36" height="36">
-              <circle cx="150" cy="150" r="145" fill="#3a4f6e"/>
-              <circle cx="150" cy="150" r="122" fill="#4a6080"/>
-              <ellipse cx="150" cy="205" rx="58" ry="54" fill="#c8a060"/>
-              <circle cx="150" cy="112" r="40" fill="#c8a060"/>
-              <ellipse cx="150" cy="196" rx="27" ry="31" fill="#faf6f0"/>
-              <circle cx="150" cy="128" r="26" fill="#faf6f0"/>
-            </svg>
-          </a>
-          <a href="/dashboard" onClick={()=>setActiveTab('home')} style={{display:'flex',alignItems:'center',gap:'10px',textDecoration:'none',background:C.white,border:`1px solid ${C.border}`,borderRadius:'14px',padding:'7px 12px'}}>
-            <p style={{color:C.dark,fontSize:'15px',fontWeight:800,margin:0,fontFamily:'Georgia,serif'}}>{prenom||'DadUp'}</p>
-            {saReelle&&<div style={{background:C.dark,borderRadius:'10px',padding:'5px 10px',textAlign:'center'}}>
-              <p style={{color:C.gold,fontSize:'13px',fontWeight:800,margin:0,lineHeight:1}}>{saReelle} SA</p>
-              <p style={{color:'rgba(200,160,96,0.6)',fontSize:'9px',fontWeight:600,margin:0,letterSpacing:'1px'}}>{tri}</p>
-            </div>}
-          </a>
+const Logo = () => (
+  <svg viewBox="0 0 300 300" width="36" height="36">
+    <circle cx="150" cy="150" r="145" fill="#3a4f6e"/>
+    <circle cx="150" cy="150" r="122" fill="#4a6080"/>
+    <ellipse cx="150" cy="205" rx="58" ry="54" fill="#c8a060"/>
+    <circle cx="150" cy="112" r="40" fill="#c8a060"/>
+    <ellipse cx="150" cy="196" rx="27" ry="31" fill="#faf6f0"/>
+    <circle cx="150" cy="128" r="26" fill="#faf6f0"/>
+  </svg>
+);
+const IcoHome = () => <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>;
+const IcoBaby = () => <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>;
+const IcoCal = () => <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>;
+const IcoList = () => <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>;
+const IcoGift = () => <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>;
+
+
+
+  const navItems = [
+    {id:'home',label:'Accueil',icon:<IcoHome/>},
+    {id:'bebe',label:'Bébé',icon:<IcoBaby/>},
+    {id:'rdv',label:'RDV',icon:<IcoCal/>},
+    {id:'pratique',label:'Pratique',icon:<IcoList/>},
+    {id:'bonsplans',label:'Bons plans',icon:<IcoGift/>},
+  ];
+
+  return (
+    <>
+    <style>{`
+      *{box-sizing:border-box;}
+      @media(max-width:900px){.dadup-sb{display:none!important;}.dadup-tb{display:flex!important;}.dadup-mob{display:flex!important;}.dadup-c{padding:20px 16px!important;}}
+    `}</style>
+    <div style={{minHeight:"100vh",background:C.bg,display:"flex",fontFamily:"-apple-system,BlinkMacSystemFont,sans-serif"}}>
+
+      {/* SIDEBAR */}
+      <aside className="dadup-sb" style={{width:"240px",flexShrink:0,background:C.dark,display:"flex",flexDirection:"column",padding:"24px 18px",position:"sticky",top:0,height:"100vh",overflowY:"auto"}}>
+        <div style={{display:"flex",alignItems:"center",gap:"10px",marginBottom:"22px"}}>
+          <Logo/>
+          <div>
+            <p style={{color:"#fff",fontSize:"16px",fontWeight:800,fontFamily:"Georgia,serif",lineHeight:1,margin:0}}>DadUp</p>
+            <small style={{color:"rgba(200,160,96,0.5)",fontSize:"9px",letterSpacing:"1.5px",display:"block",marginTop:"3px"}}>GUIDE DU FUTUR PAPA</small>
+          </div>
         </div>
-        <div style={{maxWidth:'640px',margin:'0 auto',padding:'0 16px 10px',display:'flex',gap:'6px',overflowX:'auto'}}>
-          {tabs.map(t=>(
-            <button key={t.id} onClick={()=>setActiveTab(t.id)} style={{padding:'7px 14px',fontSize:'12px',fontWeight:activeTab===t.id?700:400,color:activeTab===t.id?C.gold:C.textLight,background:activeTab===t.id?C.dark:C.white,border:activeTab===t.id?'none':`1px solid ${C.border}`,borderRadius:'20px',cursor:'pointer',whiteSpace:'nowrap' as const,flexShrink:0}}>{t.label}</button>
-          ))}
+        <div style={{background:"rgba(255,255,255,0.06)",border:"1px solid rgba(255,255,255,0.09)",borderRadius:"12px",padding:"8px 12px",display:"flex",alignItems:"center",justifyContent:"space-between",gap:"8px",marginBottom:"26px"}}>
+          <div>
+            <p style={{color:'#fff',fontSize:'13px',fontWeight:800,fontFamily:'Georgia,serif',lineHeight:1,margin:0}}>{prenom||'DadUp'}</p>
+            <p style={{color:'rgba(255,255,255,0.3)',fontSize:'10px',margin:'2px 0 0'}}>{tri} · {jours&&jours>0?jours+'j restants':'Bientôt !'}</p>
+          </div>
+          {saR&&<div style={{background:C.gold,borderRadius:'8px',padding:'5px 9px',textAlign:'center',flexShrink:0}}>
+            <span style={{color:C.dark,fontSize:'12px',fontWeight:800,lineHeight:1,display:'block'}}>{saR} SA</span>
+            <span style={{color:'rgba(30,37,53,0.55)',fontSize:'8px',fontWeight:700,letterSpacing:'1px',display:'block'}}>{tri}</span>
+          </div>}
+        </div>
+        {navItems.map(n=>(<button key={n.id} onClick={()=>setActiveTab(n.id)} style={{display:'flex',alignItems:'center',gap:'10px',padding:'10px 12px',borderRadius:'10px',cursor:'pointer',marginBottom:'2px',color:activeTab===n.id?C.gold:'rgba(255,255,255,0.38)',fontSize:'13px',fontWeight:activeTab===n.id?700:500,border:'none',background:activeTab===n.id?'rgba(200,160,96,0.12)':'none',width:'100%',textAlign:'left'}}>{n.icon}{n.label}</button>))}
+        <div style={{marginTop:"auto",paddingTop:"18px",borderTop:"1px solid rgba(255,255,255,0.06)"}}>
+          <div style={{background:"rgba(255,255,255,0.07)",borderRadius:"3px",height:"3px",marginBottom:"6px"}}>
+            <div style={{background:C.gold,height:'3px',borderRadius:'3px',width:prog+'%'}}/>
+          </div>
+          <div style={{display:"flex",justifyContent:"space-between"}}>
+            <span style={{color:'rgba(255,255,255,0.25)',fontSize:'10px'}}>{saR||0} SA</span>
+            <strong style={{color:'rgba(200,160,96,0.6)',fontSize:'10px'}}>{prog}%</strong>
+          </div>
+        </div>
+      </aside>
+
+      {/* TOPBAR MOBILE */}
+      <div className="dadup-tb" style={{display:"none",position:"sticky",top:0,zIndex:40,background:C.cream,borderBottom:`1px solid ${C.border}`,padding:"12px 16px",alignItems:"center",justifyContent:"space-between"}}>
+        <Logo/>
+        <div style={{display:"flex",alignItems:"center",gap:"8px",background:C.white,border:`1px solid ${C.border}`,borderRadius:"12px",padding:"6px 10px"}}>
+          <span style={{color:C.dark,fontSize:'14px',fontWeight:800,fontFamily:'Georgia,serif'}}>{prenom||'DadUp'}</span>
+          {saR&&<div style={{background:C.dark,borderRadius:'8px',padding:'4px 8px'}}><span style={{color:C.gold,fontSize:'11px',fontWeight:800}}>{saR} SA</span></div>}
         </div>
       </div>
 
+      {/* MAIN */}
+      <main style={{flex:1,minWidth:0,display:"flex",flexDirection:"column"}}>
+        <div className="dadup-mob" style={{display:"none",gap:"6px",overflowX:"auto",padding:"10px 16px",background:C.cream,borderBottom:`1px solid ${C.border}`}}>
+          {navItems.map(n=>(<button key={n.id} onClick={()=>setActiveTab(n.id)} style={{padding:'7px 14px',fontSize:'12px',fontWeight:activeTab===n.id?700:400,color:activeTab===n.id?C.gold:C.muted,background:activeTab===n.id?C.dark:C.white,border:activeTab===n.id?'none':`1px solid ${C.border}`,borderRadius:'20px',cursor:'pointer',whiteSpace:'nowrap',flexShrink:0}}>{n.label}</button>))}
+        </div>
+
       {/* CONTENU centré */}
-      <div style={{maxWidth:'600px', margin:'0 auto', padding:'32px 28px'}}>
+        <div className="dadup-c" style={{padding:'32px 40px',flex:1}}>
 
         {/* ========== ACCUEIL ========== */}
         {activeTab==='home' && (
@@ -945,6 +995,11 @@ function DashboardContent() {
     </div>
   );
 }
+        </div>{/* dadup-c */}
+      </main>
+    </div>
+    </>
+  );
 
 function Onboarding({onSave}:{onSave:(d:string,p:string)=>void}) {
   const [dpa,setDpa]=useState('');
