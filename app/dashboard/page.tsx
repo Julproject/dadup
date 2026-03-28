@@ -522,50 +522,50 @@ function DashboardContent() {
   if (showOnboarding) return <Onboarding onSave={saveOnb}/>;
 
 
-const Logo = () => (
-  <svg viewBox="0 0 300 300" width="36" height="36">
-    <circle cx="150" cy="150" r="145" fill="#3a4f6e"/>
-    <circle cx="150" cy="150" r="122" fill="#4a6080"/>
-    <ellipse cx="150" cy="205" rx="58" ry="54" fill="#c8a060"/>
-    <circle cx="150" cy="112" r="40" fill="#c8a060"/>
-    <ellipse cx="150" cy="196" rx="27" ry="31" fill="#faf6f0"/>
-    <circle cx="150" cy="128" r="26" fill="#faf6f0"/>
-  </svg>
-);
-const IcoHome = () => <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>;
-const IcoBaby = () => <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>;
-const IcoCal = () => <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>;
-const IcoList = () => <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>;
-const IcoGift = () => <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>;
-
-
-
-  const navItems = [
-    {id:'home',label:'Accueil',icon:<IcoHome/>},
-    {id:'bebe',label:'Bébé',icon:<IcoBaby/>},
-    {id:'rdv',label:'RDV',icon:<IcoCal/>},
-    {id:'pratique',label:'Pratique',icon:<IcoList/>},
-    {id:'bonsplans',label:'Bons plans',icon:<IcoGift/>},
+  const navTabs = [
+    {id:'home', label:'Accueil'},
+    {id:'bebe', label:'Bébé'},
+    {id:'rdv', label:'RDV'},
+    {id:'pratique', label:'Pratique'},
+    {id:'bonsplans', label:'Bons plans'},
   ];
 
-  return (
-    <>
-    <style>{`
-      *{box-sizing:border-box;}
-      @media(max-width:900px){.dadup-sb{display:none!important;}.dadup-tb{display:flex!important;}.dadup-mob{display:flex!important;}.dadup-c{padding:20px 16px!important;}}
-    `}</style>
-    <div style={{minHeight:"100vh",background:C.bg,display:"flex",fontFamily:"-apple-system,BlinkMacSystemFont,sans-serif"}}>
+  const NavIcon = ({id}: {id: string}) => {
+    if (id === 'home') return <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>;
+    if (id === 'bebe') return <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>;
+    if (id === 'rdv') return <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>;
+    if (id === 'pratique') return <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>;
+    return <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>;
+  };
 
-      {/* SIDEBAR */}
-      <aside className="dadup-sb" style={{width:"240px",flexShrink:0,background:C.dark,display:"flex",flexDirection:"column",padding:"24px 18px",position:"sticky",top:0,height:"100vh",overflowY:"auto"}}>
-        <div style={{display:"flex",alignItems:"center",gap:"10px",marginBottom:"22px"}}>
-          <Logo/>
+  return (
+    <div style={{minHeight:'100vh',background:C.bg,display:'flex',fontFamily:'-apple-system,BlinkMacSystemFont,sans-serif'}}>
+      <style>{`
+        @media(max-width:900px){
+          .dsb{display:none!important;}
+          .dtb{display:flex!important;}
+          .dmt{display:flex!important;}
+          .dmc{padding:20px 16px!important;}
+        }
+      `}</style>
+
+      {/* SIDEBAR DESKTOP */}
+      <aside className="dsb" style={{width:'240px',flexShrink:0,background:C.dark,display:'flex',flexDirection:'column',padding:'24px 18px',position:'sticky',top:0,height:'100vh',overflowY:'auto'}}>
+        <div style={{display:'flex',alignItems:'center',gap:'10px',marginBottom:'22px'}}>
+          <svg viewBox="0 0 300 300" width="36" height="36">
+            <circle cx="150" cy="150" r="145" fill="#3a4f6e"/>
+            <circle cx="150" cy="150" r="122" fill="#4a6080"/>
+            <ellipse cx="150" cy="205" rx="58" ry="54" fill="#c8a060"/>
+            <circle cx="150" cy="112" r="40" fill="#c8a060"/>
+            <ellipse cx="150" cy="196" rx="27" ry="31" fill="#faf6f0"/>
+            <circle cx="150" cy="128" r="26" fill="#faf6f0"/>
+          </svg>
           <div>
-            <p style={{color:"#fff",fontSize:"16px",fontWeight:800,fontFamily:"Georgia,serif",lineHeight:1,margin:0}}>DadUp</p>
-            <small style={{color:"rgba(200,160,96,0.5)",fontSize:"9px",letterSpacing:"1.5px",display:"block",marginTop:"3px"}}>GUIDE DU FUTUR PAPA</small>
+            <p style={{color:'#fff',fontSize:'16px',fontWeight:800,fontFamily:'Georgia,serif',lineHeight:1,margin:0}}>DadUp</p>
+            <small style={{color:'rgba(200,160,96,0.5)',fontSize:'9px',letterSpacing:'1.5px',display:'block',marginTop:'3px'}}>GUIDE DU FUTUR PAPA</small>
           </div>
         </div>
-        <div style={{background:"rgba(255,255,255,0.06)",border:"1px solid rgba(255,255,255,0.09)",borderRadius:"12px",padding:"8px 12px",display:"flex",alignItems:"center",justifyContent:"space-between",gap:"8px",marginBottom:"26px"}}>
+        <div style={{background:'rgba(255,255,255,0.06)',border:'1px solid rgba(255,255,255,0.09)',borderRadius:'12px',padding:'8px 12px',display:'flex',alignItems:'center',justifyContent:'space-between',gap:'8px',marginBottom:'26px'}}>
           <div>
             <p style={{color:'#fff',fontSize:'13px',fontWeight:800,fontFamily:'Georgia,serif',lineHeight:1,margin:0}}>{prenom||'DadUp'}</p>
             <p style={{color:'rgba(255,255,255,0.3)',fontSize:'10px',margin:'2px 0 0'}}>{tri} · {jours&&jours>0?jours+'j restants':'Bientôt !'}</p>
@@ -575,35 +575,49 @@ const IcoGift = () => <svg width="15" height="15" viewBox="0 0 24 24" fill="none
             <span style={{color:'rgba(30,37,53,0.55)',fontSize:'8px',fontWeight:700,letterSpacing:'1px',display:'block'}}>{tri}</span>
           </div>}
         </div>
-        {navItems.map(n=>(<button key={n.id} onClick={()=>setActiveTab(n.id)} style={{display:'flex',alignItems:'center',gap:'10px',padding:'10px 12px',borderRadius:'10px',cursor:'pointer',marginBottom:'2px',color:activeTab===n.id?C.gold:'rgba(255,255,255,0.38)',fontSize:'13px',fontWeight:activeTab===n.id?700:500,border:'none',background:activeTab===n.id?'rgba(200,160,96,0.12)':'none',width:'100%',textAlign:'left'}}>{n.icon}{n.label}</button>))}
-        <div style={{marginTop:"auto",paddingTop:"18px",borderTop:"1px solid rgba(255,255,255,0.06)"}}>
-          <div style={{background:"rgba(255,255,255,0.07)",borderRadius:"3px",height:"3px",marginBottom:"6px"}}>
+        {navTabs.map(n=>(
+          <button key={n.id} onClick={()=>setActiveTab(n.id)} style={{display:'flex',alignItems:'center',gap:'10px',padding:'10px 12px',borderRadius:'10px',cursor:'pointer',marginBottom:'2px',color:activeTab===n.id?C.gold:'rgba(255,255,255,0.38)',fontSize:'13px',fontWeight:activeTab===n.id?700:500,border:'none',background:activeTab===n.id?'rgba(200,160,96,0.12)':'none',width:'100%',textAlign:'left' as const}}>
+            <NavIcon id={n.id}/>{n.label}
+          </button>
+        ))}
+        <div style={{marginTop:'auto',paddingTop:'18px',borderTop:'1px solid rgba(255,255,255,0.06)'}}>
+          <div style={{background:'rgba(255,255,255,0.07)',borderRadius:'3px',height:'3px',marginBottom:'6px'}}>
             <div style={{background:C.gold,height:'3px',borderRadius:'3px',width:prog+'%'}}/>
           </div>
-          <div style={{display:"flex",justifyContent:"space-between"}}>
+          <div style={{display:'flex',justifyContent:'space-between'}}>
             <span style={{color:'rgba(255,255,255,0.25)',fontSize:'10px'}}>{saR||0} SA</span>
             <strong style={{color:'rgba(200,160,96,0.6)',fontSize:'10px'}}>{prog}%</strong>
           </div>
         </div>
       </aside>
 
-      {/* TOPBAR MOBILE */}
-      <div className="dadup-tb" style={{display:"none",position:"sticky",top:0,zIndex:40,background:C.cream,borderBottom:`1px solid ${C.border}`,padding:"12px 16px",alignItems:"center",justifyContent:"space-between"}}>
-        <Logo/>
-        <div style={{display:"flex",alignItems:"center",gap:"8px",background:C.white,border:`1px solid ${C.border}`,borderRadius:"12px",padding:"6px 10px"}}>
-          <span style={{color:C.dark,fontSize:'14px',fontWeight:800,fontFamily:'Georgia,serif'}}>{prenom||'DadUp'}</span>
-          {saR&&<div style={{background:C.dark,borderRadius:'8px',padding:'4px 8px'}}><span style={{color:C.gold,fontSize:'11px',fontWeight:800}}>{saR} SA</span></div>}
-        </div>
-      </div>
-
       {/* MAIN */}
-      <main style={{flex:1,minWidth:0,display:"flex",flexDirection:"column"}}>
-        <div className="dadup-mob" style={{display:"none",gap:"6px",overflowX:"auto",padding:"10px 16px",background:C.cream,borderBottom:`1px solid ${C.border}`}}>
-          {navItems.map(n=>(<button key={n.id} onClick={()=>setActiveTab(n.id)} style={{padding:'7px 14px',fontSize:'12px',fontWeight:activeTab===n.id?700:400,color:activeTab===n.id?C.gold:C.muted,background:activeTab===n.id?C.dark:C.white,border:activeTab===n.id?'none':`1px solid ${C.border}`,borderRadius:'20px',cursor:'pointer',whiteSpace:'nowrap',flexShrink:0}}>{n.label}</button>))}
+      <main style={{flex:1,minWidth:0,display:'flex',flexDirection:'column',overflowY:'auto'}}>
+
+        {/* TOPBAR MOBILE */}
+        <div className="dtb" style={{display:'none',position:'sticky',top:0,zIndex:40,background:C.cream,borderBottom:`1px solid ${C.border}`,padding:'12px 16px',alignItems:'center',justifyContent:'space-between'}}>
+          <svg viewBox="0 0 300 300" width="32" height="32">
+            <circle cx="150" cy="150" r="145" fill="#3a4f6e"/>
+            <circle cx="150" cy="150" r="122" fill="#4a6080"/>
+            <ellipse cx="150" cy="205" rx="58" ry="54" fill="#c8a060"/>
+            <circle cx="150" cy="112" r="40" fill="#c8a060"/>
+            <ellipse cx="150" cy="196" rx="27" ry="31" fill="#faf6f0"/>
+            <circle cx="150" cy="128" r="26" fill="#faf6f0"/>
+          </svg>
+          <div style={{display:'flex',alignItems:'center',gap:'8px',background:C.white,border:`1px solid ${C.border}`,borderRadius:'12px',padding:'6px 10px'}}>
+            <span style={{color:C.dark,fontSize:'14px',fontWeight:800,fontFamily:'Georgia,serif'}}>{prenom||'DadUp'}</span>
+            {saR&&<div style={{background:C.dark,borderRadius:'8px',padding:'4px 8px'}}><span style={{color:C.gold,fontSize:'11px',fontWeight:800}}>{saR} SA</span></div>}
+          </div>
+        </div>
+        <div className="dmt" style={{display:'none',gap:'6px',overflowX:'auto',padding:'10px 16px',background:C.cream,borderBottom:`1px solid ${C.border}`}}>
+          {navTabs.map(n=>(
+            <button key={n.id} onClick={()=>setActiveTab(n.id)} style={{padding:'7px 14px',fontSize:'12px',fontWeight:activeTab===n.id?700:400,color:activeTab===n.id?C.gold:C.textLight,background:activeTab===n.id?C.dark:C.white,border:activeTab===n.id?'none':`1px solid ${C.border}`,borderRadius:'20px',cursor:'pointer',whiteSpace:'nowrap' as const,flexShrink:0}}>{n.label}</button>
+          ))}
         </div>
 
-      {/* CONTENU centré */}
-        <div className="dadup-c" style={{padding:'32px 40px',flex:1}}>
+        {/* CONTENU */}
+        <div className="dmc" style={{padding:'32px 40px',flex:1}}>
+
 
         {/* ========== ACCUEIL ========== */}
         {activeTab==='home' && (
@@ -991,14 +1005,12 @@ const IcoGift = () => <svg width="15" height="15" viewBox="0 0 24 24" fill="none
           </div>
         )}
 
-      </div>
-    </div>
-        </div>{/* dadup-c */}
+        </div>
       </main>
     </div>
-    </>
   );
 }
+
 
 function Onboarding({onSave}:{onSave:(d:string,p:string)=>void}) {
   const [dpa,setDpa]=useState('');
