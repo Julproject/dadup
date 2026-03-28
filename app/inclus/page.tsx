@@ -1,3 +1,5 @@
+'use client';
+
 const C = {
   dark: '#1e2535',
   gold: '#c8a060',
@@ -6,6 +8,9 @@ const C = {
   border: '#e8e0d0',
   text: '#4a5568',
   textLight: '#9aa0a8',
+  blue: '#2E5F8A',
+  bluePale: '#E6F0FA',
+  blueDark: '#1A3D5C',
 };
 
 function Nav() {
@@ -21,7 +26,7 @@ function Nav() {
             <ellipse cx="150" cy="196" rx="27" ry="31" fill="#faf6f0"/>
             <circle cx="150" cy="128" r="26" fill="#faf6f0"/>
           </svg>
-          <span style={{fontWeight:800, color:C.dark, fontSize:'20px', fontFamily:'Georgia,serif'}}>DadUp</span>
+          <span style={{fontWeight:800, color:C.dark, fontSize:'20px'}}>DadUp</span>
         </a>
         <div style={{display:'flex', gap:'4px'}}>
           <a href="/pourquoi" style={{color:C.text, fontSize:'14px', fontWeight:500, padding:'8px 14px', borderRadius:'8px', textDecoration:'none'}}>Pourquoi DadUp</a>
@@ -50,7 +55,7 @@ function Footer() {
           <ellipse cx="150" cy="196" rx="27" ry="31" fill="#faf6f0"/>
           <circle cx="150" cy="128" r="26" fill="#faf6f0"/>
         </svg>
-        <span style={{color:C.white, fontSize:'16px', fontWeight:700, fontFamily:'Georgia,serif'}}>DadUp</span>
+        <span style={{color:C.white, fontSize:'16px', fontWeight:700}}>DadUp</span>
       </div>
       <p style={{color:'#6a7585', fontSize:'12px', margin:0}}>DadUp est un outil d'information. Il ne remplace pas l'avis d'un medecin.</p>
     </footer>
@@ -59,13 +64,13 @@ function Footer() {
 
 export default function InclusPage() {
   return (
-    <main style={{minHeight:'100vh', background:C.white, fontFamily:'sans-serif'}}>
+    <main style={{minHeight:'100vh', background:C.white, fontFamily:"-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"}}>
       <Nav/>
 
       <section style={{background:C.dark, padding:'80px 40px'}}>
         <div style={{maxWidth:'800px', margin:'0 auto', textAlign:'center'}}>
-          <p style={{color:C.gold, fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase', margin:'0 0 16px'}}>Ce qui est inclus</p>
-          <h1 style={{color:C.white, fontSize:'52px', fontWeight:800, margin:'0 0 24px', lineHeight:1.1, fontFamily:'Georgia,serif'}}>
+          <p style={{color:C.blue, fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase', margin:'0 0 16px'}}>Ce qui est inclus</p>
+          <h1 style={{color:C.white, fontSize:'52px', fontWeight:800, margin:'0 0 24px', lineHeight:1.1}}>
             8 modules pour etre<br/><span style={{color:C.gold}}>vraiment la.</span>
           </h1>
           <p style={{color:'#6a7585', fontSize:'18px', lineHeight:1.7, margin:0}}>De la premiere echographie au premier mois de vie. Tout ce dont tu as besoin, au bon moment.</p>
@@ -87,20 +92,20 @@ export default function InclusPage() {
             <div key={i} style={{display:'grid', gridTemplateColumns:'1fr 1fr', gap:'64px', alignItems:'center', direction: i % 2 === 1 ? 'rtl' : 'ltr'}}>
               <div style={{direction:'ltr'}}>
                 <div style={{display:'flex', alignItems:'center', gap:'16px', marginBottom:'20px'}}>
-                  <span style={{color:C.border, fontSize:'48px', fontWeight:800, fontFamily:'Georgia,serif', lineHeight:1}}>{m.num}</span>
-                  <h2 style={{color:C.dark, fontSize:'26px', fontWeight:800, margin:0, fontFamily:'Georgia,serif'}}>{m.titre}</h2>
+                  <span style={{color:C.border, fontSize:'48px', fontWeight:800, lineHeight:1}}>{m.num}</span>
+                  <h2 style={{color:C.dark, fontSize:'26px', fontWeight:800, margin:0}}>{m.titre}</h2>
                 </div>
                 <p style={{color:C.text, fontSize:'15px', lineHeight:1.7, margin:'0 0 24px'}}>{m.desc}</p>
                 <div style={{display:'flex', flexDirection:'column', gap:'10px'}}>
                   {m.details.map((d, j) => (
                     <div key={j} style={{display:'flex', gap:'10px', alignItems:'center'}}>
-                      <div style={{width:'6px', height:'6px', borderRadius:'50%', background:C.gold, flexShrink:0}}></div>
-                      <p style={{color:'#3a4f6e', fontSize:'14px', margin:0}}>{d}</p>
+                      <div style={{width:'6px', height:'6px', borderRadius:'50%', background:C.blue, flexShrink:0}}></div>
+                      <p style={{color:C.blueDark, fontSize:'14px', margin:0}}>{d}</p>
                     </div>
                   ))}
                 </div>
               </div>
-              <div style={{direction:'ltr', background: m.dark ? C.dark : C.cream, borderRadius:'24px', height:'300px', display:'flex', alignItems:'center', justifyContent:'center', border: m.dark ? 'none' : `1px solid ${C.border}`}}>
+              <div style={{direction:'ltr', background: m.dark ? C.blueDark : C.cream, borderRadius:'24px', height:'300px', display:'flex', alignItems:'center', justifyContent:'center', border: m.dark ? 'none' : `1px solid ${C.border}`}}>
                 <div style={{textAlign:'center'}}>
                   <p style={{fontSize:'56px', margin:'0 0 8px'}}>{m.emoji}</p>
                   <p style={{color: m.dark ? C.gold : C.textLight, fontSize:'13px', margin:0, fontWeight:600}}>{m.titre}</p>
@@ -111,8 +116,8 @@ export default function InclusPage() {
         </div>
       </section>
 
-      <section style={{background:C.dark, padding:'80px 40px', textAlign:'center'}}>
-        <h2 style={{color:C.white, fontSize:'38px', fontWeight:800, margin:'0 0 12px', fontFamily:'Georgia,serif'}}>Tout ca pour 29,99€/an.</h2>
+      <section style={{background:C.dark, padding:'80px 40px', textAlign:'center' as const}}>
+        <h2 style={{color:C.white, fontSize:'38px', fontWeight:800, margin:'0 0 12px'}}>Tout ca pour 29,99€/an.</h2>
         <p style={{color:'#6a7585', fontSize:'16px', margin:'0 0 32px'}}>Sans engagement. Resiliable a tout moment.</p>
         <a href="/tarifs" style={{background:C.gold, color:'#1c1510', padding:'16px 40px', borderRadius:'32px', fontSize:'15px', fontWeight:800, textDecoration:'none', display:'inline-block'}}>Commencer maintenant</a>
       </section>
