@@ -877,8 +877,8 @@ function DashboardContent() {
                   </div>
                   <div style={{position:'relative'}}>
                     <p style={{color:'rgba(200,160,96,0.6)',fontSize:'10px',letterSpacing:'3px',textTransform:'uppercase',margin:'0 0 10px',fontWeight:600}}>{saReelle} semaines · {tri}</p>
-                    <p style={{color:C.white,fontSize:'32px',fontWeight:800,margin:0,,lineHeight:1.1}}>Bébé fait</p>
-                    <p style={{color:C.gold,fontSize:'48px',fontWeight:800,margin:0,,lineHeight:1}}>{dataR.taille}</p>
+                    <p style={{color:C.white,fontSize:'32px',fontWeight:800,margin:0,lineHeight:1.1}}>Bébé fait</p>
+                    <p style={{color:C.gold,fontSize:'48px',fontWeight:800,margin:0,lineHeight:1}}>{dataR.taille}</p>
                     <p style={{color:'rgba(255,255,255,0.4)',fontSize:'15px',margin:'6px 0 0'}}>et pèse environ {dataR.poids}</p>
                     {joursRestants&&joursRestants>0&&<p style={{color:'rgba(255,255,255,0.25)',fontSize:'13px',margin:'4px 0 0'}}>{joursRestants} jours avant le grand jour</p>}
                   </div>
@@ -1015,7 +1015,7 @@ function DashboardContent() {
                 <div style={{position:'relative'}}>
                   <p style={{color:'rgba(200,160,96,0.6)',fontSize:'10px',letterSpacing:'2px',textTransform:'uppercase',margin:'0 0 8px',fontWeight:600}}>{sa} SA · {tri}</p>
                   <p style={{color:C.white,fontSize:'15px',margin:'0 0 4px',opacity:0.65}}>{data.titre}</p>
-                  <p style={{color:C.gold,fontSize:'46px',fontWeight:800,margin:0,,lineHeight:1}}>{data.taille}</p>
+                  <p style={{color:C.gold,fontSize:'46px',fontWeight:800,margin:0,lineHeight:1}}>{data.taille}</p>
                   <p style={{color:'rgba(255,255,255,0.35)',fontSize:'16px',margin:'6px 0 0'}}>{data.poids}</p>
                 </div>
               </div>
