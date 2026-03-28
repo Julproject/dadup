@@ -84,7 +84,7 @@ export default function Home() {
                 <ellipse cx="150" cy="196" rx="27" ry="31" fill="#faf6f0"/>
                 <circle cx="150" cy="128" r="26" fill="#faf6f0"/>
               </svg>
-              <span style={{fontWeight:800, color:C.dark, fontSize:'20px', fontFamily:'Georgia,serif'}}>DadUp</span>
+              <span style={{fontWeight:800, color:C.dark, fontSize:'20px', fontFamily:"-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"}}>DadUp</span>
             </a>
             <div className="nav-links">
               <a href="/pourquoi" style={{color:C.text, fontSize:'14px', fontWeight:500, padding:'8px 14px', borderRadius:'8px', textDecoration:'none'}}>Pourquoi DadUp</a>
@@ -125,10 +125,10 @@ export default function Home() {
             <div style={{width:'7px', height:'7px', borderRadius:'50%', background:C.blue}}></div>
             <span style={{color:C.blue, fontSize:'12px', fontWeight:700, letterSpacing:'1px'}}>Le guide du papa</span>
           </div>
-          <h1 style={{fontSize:'54px', fontWeight:800, color:C.dark, lineHeight:1.05, margin:'0 0 24px', fontFamily:'Georgia,serif'}}>
+          <h1 style={{fontSize:'54px', fontWeight:800, color:C.dark, lineHeight:1.05, margin:'0 0 24px', fontFamily:"-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"}}>
             Tout ce qu'on<br/>ne t'a pas<br/><span style={{color:C.gold}}>appris.</span>
           </h1>
-          <p style={{color:C.blueDark, fontSize:'19px', lineHeight:1.5, margin:'0 0 12px', fontFamily:'Georgia,serif', fontWeight:500}}>Papa, des le premier jour.</p>
+          <p style={{color:C.blueDark, fontSize:'19px', lineHeight:1.5, margin:'0 0 12px', fontFamily:"-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif", fontWeight:500}}>Papa, des le premier jour.</p>
           <p style={{color:C.text, fontSize:'15px', lineHeight:1.7, margin:'0 0 40px'}}>De la premiere echographie au post-partum. Sois le meilleur soutien pour ta partenaire, sache ce qui est bon pour elle, et sois la au maximum.</p>
           <div style={{display:'flex', gap:'16px', alignItems:'center', flexWrap:'wrap' as const}}>
             <button onClick={goToStripe} style={{background:C.dark, color:C.white, border:'none', padding:'16px 32px', borderRadius:'32px', fontSize:'15px', fontWeight:700, cursor:'pointer'}}>Commencer — 29,99€/an</button>
@@ -160,7 +160,7 @@ export default function Home() {
             {chiffre:'29,99€', label:'par an'},
           ].map((s, i) => (
             <div key={s.label} className="stats-item" style={{padding:'0 32px', borderLeft: i > 0 ? `1px solid #2e3848` : 'none'}}>
-              <p style={{color: i >= 2 ? C.gold : C.white, fontSize:'40px', fontWeight:800, margin:0, fontFamily:'Georgia,serif'}}>{s.chiffre}</p>
+              <p style={{color: i >= 2 ? C.gold : C.white, fontSize:'40px', fontWeight:800, margin:0, fontFamily:"-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"}}>{s.chiffre}</p>
               <p style={{color:'#6a7585', fontSize:'13px', margin:'6px 0 0'}}>{s.label}</p>
             </div>
           ))}
@@ -170,7 +170,7 @@ export default function Home() {
       {/* QUOTE + MODULES */}
       <section className="section-pad quote-grid" style={{padding:'80px 40px', maxWidth:'1200px', margin:'0 auto'}}>
         <div style={{borderLeft:`3px solid ${C.gold}`, paddingLeft:'32px'}}>
-          <p style={{fontSize:'34px', fontWeight:800, color:C.dark, margin:'0 0 16px', lineHeight:1.2, fontFamily:'Georgia,serif'}}>
+          <p style={{fontSize:'34px', fontWeight:800, color:C.dark, margin:'0 0 16px', lineHeight:1.2, fontFamily:"-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"}}>
             Papa, des le premier jour.
           </p>
           <p style={{color:C.text, fontSize:'16px', margin:'0 0 32px', lineHeight:1.7}}>
@@ -199,8 +199,8 @@ export default function Home() {
       {/* CTA FINAL */}
       <section className="cta-section" style={{background:C.dark, padding:'80px 40px', textAlign:'center' as const}}>
         <p style={{color:C.gold, fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase' as const, margin:'0 0 16px'}}>L'offre</p>
-        <h2 style={{color:C.white, fontSize:'42px', fontWeight:800, margin:'0 0 8px', fontFamily:'Georgia,serif'}}>Acces annuel complet</h2>
-        <p style={{color:C.white, fontSize:'60px', fontWeight:800, margin:'0 0 4px', fontFamily:'Georgia,serif'}}>29,99€</p>
+        <h2 style={{color:C.white, fontSize:'42px', fontWeight:800, margin:'0 0 8px', fontFamily:"-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"}}>Acces annuel complet</h2>
+        <p style={{color:C.white, fontSize:'60px', fontWeight:800, margin:'0 0 4px', fontFamily:"-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"}}>29,99€</p>
         <p style={{color:'#6a7585', fontSize:'15px', margin:'0 0 40px'}}>par an · sans engagement · acces immediat</p>
         <button onClick={goToStripe} style={{background:C.gold, color:'#1c1510', border:'none', padding:'18px 48px', borderRadius:'32px', fontSize:'16px', fontWeight:800, cursor:'pointer', width:'100%', maxWidth:'400px'}}>Commencer maintenant — 29,99€/an</button>
         <p style={{color:'#3d5070', fontSize:'12px', margin:'12px 0 0'}}>Paiement securise par Stripe</p>
@@ -218,7 +218,7 @@ export default function Home() {
               <ellipse cx="150" cy="196" rx="27" ry="31" fill="#faf6f0"/>
               <circle cx="150" cy="128" r="26" fill="#faf6f0"/>
             </svg>
-            <span style={{color:C.white, fontSize:'16px', fontWeight:700, fontFamily:'Georgia,serif'}}>DadUp</span>
+            <span style={{color:C.white, fontSize:'16px', fontWeight:700, fontFamily:"-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"}}>DadUp</span>
           </div>
           <div className="footer-links">
             <a href="/pourquoi" style={{color:'#6a7585', fontSize:'13px', textDecoration:'none'}}>Pourquoi DadUp</a>
