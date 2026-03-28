@@ -28,10 +28,13 @@ export default function Home() {
     border: '#e8e0d0',
     text: '#4a5568',
     textLight: '#9aa0a8',
+    blue: '#2E5F8A',
+    bluePale: '#E6F0FA',
+    blueDark: '#1A3D5C',
   };
 
   return (
-    <main style={{minHeight:'100vh', background:C.white, fontFamily:'sans-serif'}}>
+    <main style={{minHeight:'100vh', background:C.white, fontFamily:"-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"}}>
 
       <style>{`
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -118,18 +121,18 @@ export default function Home() {
       {/* HERO */}
       <section className="hero-grid" style={{padding:'80px 40px 0', maxWidth:'1200px', margin:'0 auto'}}>
         <div>
-          <div style={{display:'inline-flex', alignItems:'center', gap:'8px', background:C.cream, border:`1px solid ${C.border}`, borderRadius:'20px', padding:'6px 14px', marginBottom:'28px'}}>
-            <div style={{width:'7px', height:'7px', borderRadius:'50%', background:C.gold}}></div>
-            <span style={{color:'#987040', fontSize:'12px', fontWeight:600, letterSpacing:'1px'}}>Le guide du papa</span>
+          <div style={{display:'inline-flex', alignItems:'center', gap:'8px', background:C.bluePale, border:`1px solid rgba(46,95,138,0.2)`, borderRadius:'20px', padding:'6px 14px', marginBottom:'28px'}}>
+            <div style={{width:'7px', height:'7px', borderRadius:'50%', background:C.blue}}></div>
+            <span style={{color:C.blue, fontSize:'12px', fontWeight:700, letterSpacing:'1px'}}>Le guide du papa</span>
           </div>
           <h1 style={{fontSize:'54px', fontWeight:800, color:C.dark, lineHeight:1.05, margin:'0 0 24px', fontFamily:'Georgia,serif'}}>
             Tout ce qu'on<br/>ne t'a pas<br/><span style={{color:C.gold}}>appris.</span>
           </h1>
-          <p style={{color:'#3a4f6e', fontSize:'19px', lineHeight:1.5, margin:'0 0 12px', fontFamily:'Georgia,serif', fontWeight:500}}>Papa, des le premier jour.</p>
+          <p style={{color:C.blueDark, fontSize:'19px', lineHeight:1.5, margin:'0 0 12px', fontFamily:'Georgia,serif', fontWeight:500}}>Papa, des le premier jour.</p>
           <p style={{color:C.text, fontSize:'15px', lineHeight:1.7, margin:'0 0 40px'}}>De la premiere echographie au post-partum. Sois le meilleur soutien pour ta partenaire, sache ce qui est bon pour elle, et sois la au maximum.</p>
-          <div style={{display:'flex', gap:'16px', alignItems:'center', flexWrap:'wrap'}}>
+          <div style={{display:'flex', gap:'16px', alignItems:'center', flexWrap:'wrap' as const}}>
             <button onClick={goToStripe} style={{background:C.dark, color:C.white, border:'none', padding:'16px 32px', borderRadius:'32px', fontSize:'15px', fontWeight:700, cursor:'pointer'}}>Commencer — 29,99€/an</button>
-            <a href="/inclus" style={{color:C.gold, fontSize:'14px', fontWeight:600, textDecoration:'none'}}>Ce qui est inclus →</a>
+            <a href="/inclus" style={{color:C.blue, fontSize:'14px', fontWeight:700, textDecoration:'none'}}>Ce qui est inclus →</a>
           </div>
           <p style={{color:C.textLight, fontSize:'12px', margin:'14px 0 0'}}>Sans engagement · Resiliable a tout moment</p>
         </div>
@@ -137,11 +140,11 @@ export default function Home() {
           <div className="hero-img-wrap" style={{background:C.cream, borderRadius:'24px', height:'500px', overflow:'hidden', border:`1px solid ${C.border}`}}>
             <img src="/main.jpg" alt="Couple enceinte" style={{width:'100%', height:'100%', objectFit:'cover', objectPosition:'center'}}/>
           </div>
-          <div style={{position:'absolute', bottom:'24px', left:'-20px', background:C.white, borderRadius:'16px', padding:'14px 18px', border:`1px solid ${C.border}`, display:'flex', alignItems:'center', gap:'12px'}}>
+          <div style={{position:'absolute', bottom:'24px', left:'-20px', background:C.bluePale, borderRadius:'16px', padding:'14px 18px', border:`1px solid rgba(46,95,138,0.15)`, display:'flex', alignItems:'center', gap:'12px'}}>
             <span style={{fontSize:'28px'}}>🍌</span>
             <div>
-              <p style={{color:C.dark, fontSize:'13px', fontWeight:700, margin:0}}>SA 20 · Bebe = banane</p>
-              <p style={{color:C.textLight, fontSize:'12px', margin:'2px 0 0'}}>140 jours restants</p>
+              <p style={{color:C.blueDark, fontSize:'13px', fontWeight:700, margin:0}}>SA 20 · Bebe = banane</p>
+              <p style={{color:C.blue, fontSize:'12px', margin:'2px 0 0'}}>140 jours restants</p>
             </div>
           </div>
         </div>
@@ -173,29 +176,29 @@ export default function Home() {
           <p style={{color:C.text, fontSize:'16px', margin:'0 0 32px', lineHeight:1.7}}>
             Pas apres la naissance. Pas quand tu te sens pret. Maintenant, pendant la grossesse, avec les bons outils.
           </p>
-          <div style={{display:'flex', gap:'16px', flexWrap:'wrap'}}>
+          <div style={{display:'flex', gap:'16px', flexWrap:'wrap' as const}}>
             <a href="/pourquoi" style={{color:C.dark, fontSize:'14px', fontWeight:600, textDecoration:'none'}}>Pourquoi DadUp →</a>
             <a href="/temoignages" style={{color:C.dark, fontSize:'14px', fontWeight:600, textDecoration:'none'}}>Ils temoignent →</a>
           </div>
         </div>
         <div className="modules-grid">
           {[
-            {emoji:'📅', titre:'Calendrier RDV'},
-            {emoji:'👶', titre:'Suivi bebe SA'},
-            {emoji:'🏥', titre:'Guide accouchement'},
-            {emoji:'💙', titre:'Post-partum'},
+            {emoji:'📅', titre:'Calendrier RDV',       bg:'#E6F0FA', border:'rgba(46,95,138,0.15)',   color:'#1A3D5C'},
+            {emoji:'👶', titre:'Suivi bebe SA',         bg:'#E4F5EC', border:'rgba(13,107,64,0.15)',   color:'#0A2E1A'},
+            {emoji:'🏥', titre:'Guide accouchement',    bg:'#FFF0E6', border:'rgba(192,74,26,0.15)',   color:'#3D1A0A'},
+            {emoji:'💙', titre:'Post-partum',           bg:'#FFF7E0', border:'rgba(138,96,16,0.15)',   color:'#3A2800'},
           ].map((m, i) => (
-            <a key={i} href="/inclus" style={{background:C.cream, borderRadius:'16px', padding:'20px', border:`1px solid ${C.border}`, textDecoration:'none', display:'block'}}>
+            <a key={i} href="/inclus" style={{background:m.bg, borderRadius:'16px', padding:'20px', border:`1px solid ${m.border}`, textDecoration:'none', display:'block'}}>
               <span style={{fontSize:'28px', display:'block', marginBottom:'8px'}}>{m.emoji}</span>
-              <p style={{color:C.dark, fontSize:'13px', fontWeight:700, margin:0}}>{m.titre}</p>
+              <p style={{color:m.color, fontSize:'13px', fontWeight:700, margin:0}}>{m.titre}</p>
             </a>
           ))}
         </div>
       </section>
 
       {/* CTA FINAL */}
-      <section className="cta-section" style={{background:C.dark, padding:'80px 40px', textAlign:'center'}}>
-        <p style={{color:C.gold, fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase', margin:'0 0 16px'}}>L'offre</p>
+      <section className="cta-section" style={{background:C.dark, padding:'80px 40px', textAlign:'center' as const}}>
+        <p style={{color:C.gold, fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase' as const, margin:'0 0 16px'}}>L'offre</p>
         <h2 style={{color:C.white, fontSize:'42px', fontWeight:800, margin:'0 0 8px', fontFamily:'Georgia,serif'}}>Acces annuel complet</h2>
         <p style={{color:C.white, fontSize:'60px', fontWeight:800, margin:'0 0 4px', fontFamily:'Georgia,serif'}}>29,99€</p>
         <p style={{color:'#6a7585', fontSize:'15px', margin:'0 0 40px'}}>par an · sans engagement · acces immediat</p>
