@@ -914,6 +914,7 @@ function DashboardContent() {
                 </div>
               </div>
             )}
+
             {/* CE QUE VIT MAMAN */}
             {dataR&&(
               <div style={{marginBottom:'0',background:'#FFF0E6',borderRadius:'22px',padding:'24px 26px'}}>
@@ -1195,9 +1196,6 @@ function DashboardContent() {
               </div>
             </div>
 
-            <div style={{height:'1px',background:C.border,marginBottom:'32px'}}/>
-
-              ))}
             </div>
           </div>
         )}
