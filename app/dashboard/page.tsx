@@ -1,22 +1,27 @@
 'use client';
+// @ts-ignore
+import { Nunito } from 'next/font/google';
+const nunito = Nunito({ subsets: ['latin'], weight: ['400','600','700','800','900'] });
 
 import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 
 const C = {
-  dark: '#534AB7',
-  darkDeep: '#3C3489',
-  gold: '#FAC775',
-  cream: '#EEEDFE',
+  dark: '#2E5F8A',
+  darkDeep: '#1A3D5C',
+  gold: '#c8a060',
   white: '#ffffff',
-  border: 'rgba(127,119,221,0.13)',
-  text: '#26215C',
-  textLight: '#7F77DD',
-  bg: '#F5F3FF',
-  green: '#1D9E75',
-  greenLight: '#E1F5EE',
-  sandLight: '#FAEEDA',
-  purpleLight: '#EEEDFE',
+  border: 'rgba(46,95,138,0.12)',
+  text: '#1e2535',
+  textLight: '#6B8FA8',
+  bg: '#F7FAFC',
+  cream: '#EEF4FA',
+  orange: '#FFF0E6',
+  orangeText: '#C04A1A',
+  green: '#E8F5EE',
+  greenText: '#0D6B40',
+  goldLight: '#FFF8E6',
+  goldText: '#8A6010',
 };
 
 interface SAData {
@@ -339,7 +344,7 @@ const SD: Record<number, SAData> = {
     doc_titre: 'Ce que l\'écho T2 regarde',
     doc: 'L\'échographie morphologique T2 examine : le cerveau, le cœur (4 cavités + valves), les reins, l\'estomac, les membres, le visage (lèvres palatines), la colonne vertébrale, la position du placenta. Elle permet aussi généralement de connaître le sexe de bébé. Elle est réalisée par un médecin spécialisé en échographie fœtale. Durée : 45 à 90 minutes.',
     conseil: 'Prends une demi-journée de congé pour cette échographie. Filmez. C\'est un moment à vivre pleinement.',
-    },
+  },
   21: { emoji:'🥕', taille:'26.7 cm', poids:'360 g', titre:'Bébé a son propre rythme', intro:'À 21 SA, bébé mesure 26,7 cm. Il a maintenant un cycle veille-sommeil distinct — il dort environ 12 à 14 heures par jour.', developpement:'Bébé a un cycle veille-sommeil distinct. Les mouvements sont de plus en plus coordonnés. Le système digestif s\'entraîne en absorbant le liquide amniotique.', organes:['😴 Cycle veille/sommeil 20-30 min','💩 Méconium s\'accumule','🦱 Lanugo couvre le corps','👁️ Mouvements REM actifs'], savistu:'Bébé est souvent le plus actif quand sa mère est au repos — les mouvements de la marche l\'endorment comme un bercement.', faq:[{q:'Le lanugo — c\'est quoi ?',r:'C\'est un duvet fin qui couvre le corps de bébé à 21 SA. Vestige évolutif qui servait d\'isolant thermique. Il disparaît avant ou peu après la naissance.'},{q:'À partir de quand compter les mouvements ?',r:'À partir de 28 SA, 10 mouvements en 2 heures en période active est le seuil rassurant. En dessous, appeler la maternité.'}], maman_titre:'Le ventre est bien là', maman:'Le ventre est très visible. Des reflux peuvent apparaître — l\'utérus comprime l\'estomac. La posture change, ce qui peut provoquer des douleurs dorsales.', maman_aide:'Des repas plus petits et plus fréquents aident avec les reflux. Surélever légèrement la tête du lit peut aussi aider.', maman_signe:'Le reflux de grossesse est causé par la compression de l\'estomac et le relâchement hormonal du sphincter œsophagien.', alerte:'Le lanugo visible à l\'échographie est normal et disparaît avant ou peu après la naissance.', doc_titre:'La liste de naissance — comment bien la faire', doc:'Conseil : inclure des articles à différents prix, prioriser l\'essentiel (siège auto, lit, poussette), éviter la surenchère. Les groupes de parents locaux et les sites de revente permettent d\'acquérir certains articles en très bon état pour beaucoup moins cher.', conseil:'Installe une veilleuse dans la chambre de bébé — premier geste concret pour l\'espace.',
   },
   22: { emoji:'🥭', taille:'27.8 cm', poids:'430 g', titre:'Les yeux sont formés', intro:'À 22 SA, bébé mesure 27,8 cm. Les yeux sont formés mais encore fermés. Les sourcils et cils sont visibles.', developpement:'Les yeux sont formés mais encore fermés. Les sourcils et cils sont visibles. Le sens du toucher est très développé. Les poumons produisent du liquide — entraînement à la respiration.', organes:['👁️ Paupières distinctes','👀 Cils implantés','🏋️ Relaxine : ligaments souples','🫁 Poumons : liquide inspiré'], savistu:'La relaxine assouplit TOUS les ligaments du corps, pas seulement le bassin. Les chevilles sont plus fragiles pendant la grossesse — attention aux sols inégaux.', faq:[{q:'La douleur de la symphyse pubienne (SPD) ?',r:'La relaxine assouplit les ligaments du bassin, parfois trop — douleur au pubis irradiant les cuisses, boiterie. Touche 1 femme sur 5. Traitement : kiné pelvienne, ceinture de grossesse, béquilles si sévère.'},{q:'Le plan de naissance — qu\'est-ce que c\'est ?',r:'Un document qui résume vos souhaits pour l\'accouchement : péridurale, positions, présence du père, musique. Ce n\'est pas contraignant pour l\'équipe médicale — mais il aide à communiquer vos souhaits et réduit l\'anxiété.'}], maman_titre:'Vergetures et crampes nocturnes', maman:'Des vergetures peuvent apparaître — génétiquement déterminées, non prévenables. Des crampes nocturnes sont fréquentes. La relaxine assouplit tous les ligaments du corps.', maman_aide:'Masse son ventre avec de l\'huile chaque soir — pas pour prévenir les vergetures, mais pour le confort et le lien.', maman_signe:'Les vergetures sont génétiquement déterminées. Aucune crème ne peut les prévenir totalement — l\'hydratation limite l\'inconfort.', alerte:'La relaxine rend les chevilles plus fragiles. Chaussures stables recommandées.', doc_titre:'Le plan de naissance — préparer maintenant', doc:'Le plan de naissance résume les souhaits des parents : péridurale, positions, présence du père, musique, soins après la naissance. Ce n\'est pas un contrat — l\'équipe médicale l\'adaptera si nécessaire. Mais il aide à communiquer vos souhaits et à réduire l\'anxiété du jour J.', conseil:'Massage du ventre avec de l\'huile chaque soir — rituel simple et efficace.',
@@ -533,53 +538,54 @@ function DashboardContent() {
   ];
 
   return (
-    <div style={{minHeight:'100vh',background:C.bg,fontFamily:'-apple-system,BlinkMacSystemFont,sans-serif'}}>
+    <div style={{minHeight:'100vh',background:C.bg,fontFamily:"'Nunito','Helvetica Neue',sans-serif"}}>
       <style>{`
-        @media(max-width:860px){.dd-content{padding:20px 16px!important;}}
-        @media(min-width:861px){.dd-content{padding:32px 48px!important;}}
+        @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap');
+        * { font-family: 'Nunito', 'Helvetica Neue', sans-serif !important; }
+        @media(max-width:860px){.dd-c{padding:20px 16px!important;}}
       `}</style>
 
-      {/* ── TOPBAR ── */}
-      <div style={{background:C.white,borderBottom:`1px solid ${C.border}`,position:'sticky',top:0,zIndex:40,boxShadow:'0 1px 12px rgba(83,74,183,0.06)'}}>
-        <div style={{display:'flex',alignItems:'center',justifyContent:'space-between',padding:'12px 28px'}}>
+      {/* TOPBAR */}
+      <div style={{background:C.white,borderBottom:`1px solid ${C.border}`,position:'sticky',top:0,zIndex:40,boxShadow:'0 1px 16px rgba(46,95,138,0.07)'}}>
+        <div style={{display:'flex',alignItems:'center',justifyContent:'space-between',padding:'12px 28px',maxWidth:'1200px',margin:'0 auto'}}>
           <div style={{display:'flex',alignItems:'center',gap:'10px'}}>
             <svg viewBox="0 0 300 300" width="34" height="34">
-              <circle cx="150" cy="150" r="145" fill="#3C3489"/>
-              <circle cx="150" cy="150" r="122" fill="#534AB7"/>
-              <ellipse cx="150" cy="205" rx="58" ry="54" fill="#FAC775"/>
-              <circle cx="150" cy="112" r="40" fill="#FAC775"/>
-              <ellipse cx="150" cy="196" rx="27" ry="31" fill="#EEEDFE"/>
-              <circle cx="150" cy="128" r="26" fill="#EEEDFE"/>
+              <circle cx="150" cy="150" r="145" fill="#1A3D5C"/>
+              <circle cx="150" cy="150" r="122" fill="#2E5F8A"/>
+              <ellipse cx="150" cy="205" rx="58" ry="54" fill="#c8a060"/>
+              <circle cx="150" cy="112" r="40" fill="#c8a060"/>
+              <ellipse cx="150" cy="196" rx="27" ry="31" fill="#F7FAFC"/>
+              <circle cx="150" cy="128" r="26" fill="#F7FAFC"/>
             </svg>
-            <span style={{fontSize:'18px',fontWeight:800,color:C.darkDeep,letterSpacing:'-0.3px'}}>DadUp</span>
+            <span style={{fontSize:'20px',fontWeight:900,color:C.darkDeep,letterSpacing:'-0.3px'}}>DadUp</span>
           </div>
           <div style={{display:'flex',flexDirection:'column',alignItems:'flex-end',gap:'5px'}}>
-            <div style={{display:'flex',alignItems:'center',gap:'8px',background:C.purpleLight,borderRadius:'24px',padding:'6px 8px 6px 14px'}}>
-              <span style={{fontSize:'14px',fontWeight:700,color:C.darkDeep}}>{prenom||'DadUp'}</span>
+            <div style={{display:'flex',alignItems:'center',gap:'8px',background:C.cream,borderRadius:'24px',padding:'6px 8px 6px 14px'}}>
+              <span style={{fontSize:'14px',fontWeight:800,color:C.darkDeep}}>{prenom||'DadUp'}</span>
               <div style={{background:C.dark,color:C.white,fontSize:'11px',fontWeight:800,padding:'5px 10px',borderRadius:'14px',textAlign:'center' as const,lineHeight:1.2}}>
                 <span style={{display:'block'}}>{saReelle} SA</span>
-                <small style={{display:'block',fontSize:'8px',color:'rgba(238,237,254,0.7)',fontWeight:600,letterSpacing:'0.5px'}}>{tri}</small>
+                <small style={{display:'block',fontSize:'8px',color:'rgba(238,244,250,0.7)',fontWeight:700,letterSpacing:'0.5px'}}>{tri}</small>
               </div>
             </div>
             <div style={{display:'flex',alignItems:'center',gap:'6px'}}>
-              <div style={{width:'72px',height:'4px',background:C.purpleLight,borderRadius:'4px',overflow:'hidden'}}>
-                <div style={{height:'4px',background:C.green,borderRadius:'4px',width:prog+'%'}}/>
+              <div style={{width:'72px',height:'4px',background:C.cream,borderRadius:'4px',overflow:'hidden'}}>
+                <div style={{height:'4px',background:C.gold,borderRadius:'4px',width:prog+'%'}}/>
               </div>
-              <span style={{fontSize:'11px',fontWeight:700,color:C.green}}>{prog}%</span>
+              <span style={{fontSize:'11px',fontWeight:700,color:C.gold}}>{prog}%</span>
             </div>
           </div>
         </div>
-        <div style={{display:'flex',gap:'6px',padding:'0 24px 12px',overflowX:'auto' as const}}>
+        <div style={{display:'flex',gap:'6px',padding:'0 24px 12px',overflowX:'auto' as const,maxWidth:'1200px',margin:'0 auto'}}>
           {navTabs.map(n=>(
-            <button key={n.id} onClick={()=>setActiveTab(n.id)} style={{padding:'8px 20px',fontSize:'13px',fontWeight:700,border:'none',borderRadius:'24px',cursor:'pointer',whiteSpace:'nowrap' as const,flexShrink:0,transition:'all 0.15s',background:activeTab===n.id?C.dark:C.purpleLight,color:activeTab===n.id?C.white:C.dark}}>
+            <button key={n.id} onClick={()=>setActiveTab(n.id)} style={{padding:'8px 20px',fontSize:'13px',fontWeight:800,border:'none',borderRadius:'24px',cursor:'pointer',whiteSpace:'nowrap' as const,flexShrink:0,transition:'all 0.15s',background:activeTab===n.id?C.dark:C.cream,color:activeTab===n.id?C.white:C.dark}}>
               {n.label}
             </button>
           ))}
         </div>
       </div>
 
-      {/* ── CONTENU ── */}
-      <div className="dd-content" style={{maxWidth:'1100px',margin:'0 auto',padding:'32px 48px'}}>
+      {/* CONTENU */}
+      <div className="dd-c" style={{maxWidth:'1100px',margin:'0 auto',padding:'32px 40px'}}>
 
 
         {/* ========== ACCUEIL ========== */}
@@ -599,7 +605,7 @@ function DashboardContent() {
                     <div style={{fontSize:'140px',lineHeight:1}}>{dataR.emoji}</div>
                   </div>
                   <div style={{position:'relative'}}>
-                    <p style={{color:'rgba(250,199,117,0.6)',fontSize:'10px',letterSpacing:'3px',textTransform:'uppercase',margin:'0 0 10px',fontWeight:600}}>{saReelle} semaines · {tri}</p>
+                    <p style={{color:'rgba(200,160,96,0.6)',fontSize:'10px',letterSpacing:'3px',textTransform:'uppercase',margin:'0 0 10px',fontWeight:600}}>{saReelle} semaines · {tri}</p>
                     <p style={{color:C.white,fontSize:'32px',fontWeight:800,margin:0,fontFamily:'Georgia,serif',lineHeight:1.1}}>Bébé fait</p>
                     <p style={{color:C.gold,fontSize:'48px',fontWeight:800,margin:0,fontFamily:'Georgia,serif',lineHeight:1}}>{dataR.taille}</p>
                     <p style={{color:'rgba(255,255,255,0.4)',fontSize:'15px',margin:'6px 0 0'}}>et pèse environ {dataR.poids}</p>
@@ -627,7 +633,7 @@ function DashboardContent() {
                     <p style={{color:C.dark,fontSize:'17px',fontWeight:800,margin:'0 0 2px',fontFamily:'Georgia,serif'}}>{nextRdv.titre}</p>
                     <p style={{color:C.textLight,fontSize:'13px',margin:0}}>{nextRdv.sa} SA{dpa?' · '+new Date(new Date(dpa).getTime()-(40-nextRdv.sa)*7*24*60*60*1000).toLocaleDateString('fr-FR',{day:'numeric',month:'long'}):''}</p>
                   </div>
-                  {dpa&&<div style={{background:'rgba(250,199,117,0.12)',borderRadius:'12px',padding:'8px 12px',textAlign:'center',flexShrink:0}}>
+                  {dpa&&<div style={{background:'rgba(200,160,96,0.12)',borderRadius:'12px',padding:'8px 12px',textAlign:'center',flexShrink:0}}>
                     <p style={{color:C.gold,fontSize:'20px',fontWeight:800,margin:0,lineHeight:1}}>{Math.max(0,Math.round((new Date(dpa).getTime()-(40-nextRdv.sa)*7*24*60*60*1000-new Date().getTime())/(1000*60*60*24)))}j</p>
                   </div>}
                 </div>
@@ -646,7 +652,7 @@ function DashboardContent() {
                 <p style={{color:C.dark,fontSize:'18px',fontWeight:800,margin:'0 0 12px',fontFamily:'Georgia,serif',lineHeight:1.3}}>{dataR.maman_titre}</p>
                 <p style={{color:C.text,fontSize:'14px',lineHeight:1.8,margin:'0 0 20px'}}>{dataR.maman}</p>
                 <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'12px',marginBottom:'20px'}}>
-                  <div style={{background:C.white,borderRadius:'14px',padding:'16px',border:`1px solid ${C.border}`}}>
+                  <div style={{background:C.orange,borderRadius:'14px',padding:'16px',border:'none'}}>
                     <p style={{color:C.textLight,fontSize:'10px',fontWeight:700,letterSpacing:'1px',textTransform:'uppercase',margin:'0 0 8px'}}>Tu peux aider</p>
                     <p style={{color:C.dark,fontSize:'13px',lineHeight:1.6,margin:0}}>{dataR.maman_aide}</p>
                   </div>
@@ -665,7 +671,7 @@ function DashboardContent() {
             {/* LE SAVAIS-TU */}
             {dataR&&(
               <div style={{background:C.dark,borderRadius:'24px',padding:'28px',marginBottom:'32px'}}>
-                <p style={{color:'rgba(250,199,117,0.6)',fontSize:'10px',letterSpacing:'2px',textTransform:'uppercase',margin:'0 0 14px',fontWeight:600}}>Le savais-tu ?</p>
+                <p style={{color:'rgba(200,160,96,0.6)',fontSize:'10px',letterSpacing:'2px',textTransform:'uppercase',margin:'0 0 14px',fontWeight:600}}>Le savais-tu ?</p>
                 <p style={{color:C.white,fontSize:'18px',fontWeight:600,lineHeight:1.55,margin:0,fontFamily:'Georgia,serif'}}>"{dataR.savistu}"</p>
               </div>
             )}
@@ -678,7 +684,6 @@ function DashboardContent() {
                 <p style={{color:C.text,fontSize:'14px',lineHeight:1.8,margin:0}}>{dataR.doc}</p>
               </div>
             )}
-
             {/* CONSEIL + IDÉE */}
             <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'14px',marginBottom:'32px'}}>
               {dataR&&(
@@ -705,7 +710,7 @@ function DashboardContent() {
                     const done=missionsChecked[id];
                     return(
                       <button key={id} onClick={()=>toggleM(id)} style={{display:'flex',gap:'14px',alignItems:'center',background:C.white,border:`1px solid ${C.border}`,cursor:'pointer',textAlign:'left',padding:'16px 18px',borderRadius:'14px'}}>
-                        <div style={{width:'22px',height:'22px',borderRadius:'6px',border:`2px solid ${done?C.green:C.border}`,background:done?C.green:'transparent',display:'flex',alignItems:'center',justifyContent:'center',flexShrink:0}}>
+                        <div style={{width:'22px',height:'22px',borderRadius:'6px',border:`2px solid ${done?C.greenText:C.border}`,background:done?C.greenText:'transparent',display:'flex',alignItems:'center',justifyContent:'center',flexShrink:0}}>
                           {done&&<span style={{color:C.dark,fontSize:'12px',fontWeight:700}}>✓</span>}
                         </div>
                         <p style={{color:done?C.textLight:C.dark,fontSize:'13px',margin:0,lineHeight:1.4,textDecoration:done?'line-through':'none'}}>{m}</p>
@@ -738,7 +743,7 @@ function DashboardContent() {
                   <div style={{fontSize:'130px',lineHeight:1}}>{data.emoji}</div>
                 </div>
                 <div style={{position:'relative'}}>
-                  <p style={{color:'rgba(250,199,117,0.6)',fontSize:'10px',letterSpacing:'2px',textTransform:'uppercase',margin:'0 0 8px',fontWeight:600}}>{sa} SA · {tri}</p>
+                  <p style={{color:'rgba(200,160,96,0.6)',fontSize:'10px',letterSpacing:'2px',textTransform:'uppercase',margin:'0 0 8px',fontWeight:600}}>{sa} SA · {tri}</p>
                   <p style={{color:C.white,fontSize:'15px',margin:'0 0 4px',opacity:0.65}}>{data.titre}</p>
                   <p style={{color:C.gold,fontSize:'46px',fontWeight:800,margin:0,fontFamily:'Georgia,serif',lineHeight:1}}>{data.taille}</p>
                   <p style={{color:'rgba(255,255,255,0.35)',fontSize:'16px',margin:'6px 0 0'}}>{data.poids}</p>
@@ -784,7 +789,7 @@ function DashboardContent() {
 
             {/* ANECDOTE — citation */}
             <div style={{background:C.dark,borderRadius:'24px',padding:'28px',marginBottom:'28px'}}>
-              <p style={{color:'rgba(250,199,117,0.6)',fontSize:'10px',letterSpacing:'2px',textTransform:'uppercase',margin:'0 0 14px',fontWeight:600}}>Anecdote scientifique</p>
+              <p style={{color:'rgba(200,160,96,0.6)',fontSize:'10px',letterSpacing:'2px',textTransform:'uppercase',margin:'0 0 14px',fontWeight:600}}>Anecdote scientifique</p>
               <p style={{color:C.white,fontSize:'17px',fontWeight:600,lineHeight:1.6,margin:0,fontFamily:'Georgia,serif'}}>"{data.savistu}"</p>
             </div>
 
@@ -831,7 +836,7 @@ function DashboardContent() {
                             <div>
                               <div style={{display:'flex',alignItems:'center',gap:'6px'}}>
                                 <p style={{color:s==='prochain'?C.white:C.dark,fontSize:'13px',fontWeight:700,margin:0}}>{r.titre}</p>
-                                {r.oblig&&<span style={{background:s==='prochain'?'rgba(250,199,117,0.2)':'#f8f7f4',color:C.gold,fontSize:'9px',fontWeight:700,padding:'2px 6px',borderRadius:'8px'}}>obligatoire</span>}
+                                {r.oblig&&<span style={{background:s==='prochain'?'rgba(200,160,96,0.2)':'#f8f7f4',color:C.gold,fontSize:'9px',fontWeight:700,padding:'2px 6px',borderRadius:'8px'}}>obligatoire</span>}
                               </div>
                               <p style={{color:C.textLight,fontSize:'11px',margin:0}}>{r.sa} SA{dpa?' · '+rd:''}</p>
                             </div>
@@ -841,7 +846,7 @@ function DashboardContent() {
                         {rdvOuvert===i&&(
                           <div style={{marginTop:'12px',paddingTop:'12px',borderTop:`1px solid ${s==='prochain'?'rgba(255,255,255,0.1)':C.border}`}}>
                             <p style={{color:s==='prochain'?'rgba(255,255,255,0.65)':C.text,fontSize:'13px',lineHeight:1.6,margin:'0 0 12px'}}>{r.desc}</p>
-                            <a href="https://www.doctolib.fr" target="_blank" rel="noopener noreferrer" style={{display:'inline-flex',alignItems:'center',gap:'6px',background:s==='prochain'?'rgba(250,199,117,0.15)':C.cream,color:s==='prochain'?C.gold:C.dark,fontSize:'12px',fontWeight:700,padding:'8px 14px',borderRadius:'20px',textDecoration:'none',border:s==='prochain'?'none':`1px solid ${C.border}`}}>
+                            <a href="https://www.doctolib.fr" target="_blank" rel="noopener noreferrer" style={{display:'inline-flex',alignItems:'center',gap:'6px',background:s==='prochain'?'rgba(200,160,96,0.15)':C.cream,color:s==='prochain'?C.gold:C.dark,fontSize:'12px',fontWeight:700,padding:'8px 14px',borderRadius:'20px',textDecoration:'none',border:s==='prochain'?'none':`1px solid ${C.border}`}}>
                               📅 Prendre RDV sur Doctolib
                             </a>
                             <div style={{marginTop:'12px'}}>
@@ -982,12 +987,12 @@ function Onboarding({onSave}:{onSave:(d:string,p:string)=>void}) {
       <div style={{maxWidth:'420px',width:'100%'}}>
         <div style={{display:'flex',justifyContent:'center',marginBottom:'28px'}}>
           <svg viewBox="0 0 300 300" width="64" height="64">
-            <circle cx="150" cy="150" r="145" fill="#3C3489"/>
-            <circle cx="150" cy="150" r="122" fill="#534AB7"/>
-            <ellipse cx="150" cy="205" rx="58" ry="54" fill="#FAC775"/>
-            <circle cx="150" cy="112" r="40" fill="#FAC775"/>
-            <ellipse cx="150" cy="196" rx="27" ry="31" fill="#EEEDFE"/>
-            <circle cx="150" cy="128" r="26" fill="#EEEDFE"/>
+            <circle cx="150" cy="150" r="145" fill="#1A3D5C"/>
+            <circle cx="150" cy="150" r="122" fill="#2E5F8A"/>
+            <ellipse cx="150" cy="205" rx="58" ry="54" fill="#c8a060"/>
+            <circle cx="150" cy="112" r="40" fill="#c8a060"/>
+            <ellipse cx="150" cy="196" rx="27" ry="31" fill="#F7FAFC"/>
+            <circle cx="150" cy="128" r="26" fill="#F7FAFC"/>
           </svg>
         </div>
         <div style={{background:C.white,borderRadius:'24px',padding:'28px',border:`1px solid ${C.border}`}}>
