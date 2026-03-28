@@ -568,10 +568,10 @@ function DashboardContent() {
         <div style={{background:'rgba(255,255,255,0.06)',border:'1px solid rgba(255,255,255,0.09)',borderRadius:'12px',padding:'8px 12px',display:'flex',alignItems:'center',justifyContent:'space-between',gap:'8px',marginBottom:'26px'}}>
           <div>
             <p style={{color:'#fff',fontSize:'13px',fontWeight:800,fontFamily:'Georgia,serif',lineHeight:1,margin:0}}>{prenom||'DadUp'}</p>
-            <p style={{color:'rgba(255,255,255,0.3)',fontSize:'10px',margin:'2px 0 0'}}>{tri} · {jours&&jours>0?jours+'j restants':'Bientôt !'}</p>
+            <p style={{color:'rgba(255,255,255,0.3)',fontSize:'10px',margin:'2px 0 0'}}>{tri} · {joursRestants&&joursRestants>0?joursRestants+'j restants':'Bientôt !'}</p>
           </div>
-          {saR&&<div style={{background:C.gold,borderRadius:'8px',padding:'5px 9px',textAlign:'center',flexShrink:0}}>
-            <span style={{color:C.dark,fontSize:'12px',fontWeight:800,lineHeight:1,display:'block'}}>{saR} SA</span>
+          {saReelle&&<div style={{background:C.gold,borderRadius:'8px',padding:'5px 9px',textAlign:'center',flexShrink:0}}>
+            <span style={{color:C.dark,fontSize:'12px',fontWeight:800,lineHeight:1,display:'block'}}>{saReelle} SA</span>
             <span style={{color:'rgba(30,37,53,0.55)',fontSize:'8px',fontWeight:700,letterSpacing:'1px',display:'block'}}>{tri}</span>
           </div>}
         </div>
@@ -585,7 +585,7 @@ function DashboardContent() {
             <div style={{background:C.gold,height:'3px',borderRadius:'3px',width:prog+'%'}}/>
           </div>
           <div style={{display:'flex',justifyContent:'space-between'}}>
-            <span style={{color:'rgba(255,255,255,0.25)',fontSize:'10px'}}>{saR||0} SA</span>
+            <span style={{color:'rgba(255,255,255,0.25)',fontSize:'10px'}}>{saReelle||0} SA</span>
             <strong style={{color:'rgba(200,160,96,0.6)',fontSize:'10px'}}>{prog}%</strong>
           </div>
         </div>
@@ -606,7 +606,7 @@ function DashboardContent() {
           </svg>
           <div style={{display:'flex',alignItems:'center',gap:'8px',background:C.white,border:`1px solid ${C.border}`,borderRadius:'12px',padding:'6px 10px'}}>
             <span style={{color:C.dark,fontSize:'14px',fontWeight:800,fontFamily:'Georgia,serif'}}>{prenom||'DadUp'}</span>
-            {saR&&<div style={{background:C.dark,borderRadius:'8px',padding:'4px 8px'}}><span style={{color:C.gold,fontSize:'11px',fontWeight:800}}>{saR} SA</span></div>}
+            {saReelle&&<div style={{background:C.dark,borderRadius:'8px',padding:'4px 8px'}}><span style={{color:C.gold,fontSize:'11px',fontWeight:800}}>{saReelle} SA</span></div>}
           </div>
         </div>
         <div className="dmt" style={{display:'none',gap:'6px',overflowX:'auto',padding:'10px 16px',background:C.cream,borderBottom:`1px solid ${C.border}`}}>
