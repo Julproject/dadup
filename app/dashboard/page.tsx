@@ -1,27 +1,41 @@
 'use client';
-// @ts-ignore
-import { Nunito } from 'next/font/google';
-const nunito = Nunito({ subsets: ['latin'], weight: ['400','600','700','800','900'] });
 
 import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 
 const C = {
-  dark: '#2E5F8A',
-  darkDeep: '#1A3D5C',
-  gold: '#c8a060',
-  white: '#ffffff',
-  border: 'rgba(46,95,138,0.12)',
-  text: '#1e2535',
-  textLight: '#6B8FA8',
-  bg: '#F7FAFC',
-  cream: '#EEF4FA',
-  orange: '#FFF0E6',
-  orangeText: '#C04A1A',
-  green: '#E8F5EE',
-  greenText: '#0D6B40',
-  goldLight: '#FFF8E6',
-  goldText: '#8A6010',
+  dark:       '#1e2535',
+  blue:       '#2E5F8A',
+  blueDark:   '#1A3D5C',
+  gold:       '#c8a060',
+  white:      '#ffffff',
+  bg:         '#ffffff',
+  border:     '#f0ede8',
+  text:       '#1e2535',
+  textLight:  '#6B8FA8',
+  muted:      '#9aa0a8',
+  orange:     '#FFF0E6',
+  orangeText: '#7A3010',
+  orangeHead: '#3D1A0A',
+  orangeEye:  '#C04A1A',
+  green:      '#E4F5EC',
+  greenText:  '#0A4A28',
+  greenHead:  '#0A2E1A',
+  greenEye:   '#0D6B40',
+  amber:      '#FFF7E0',
+  amberText:  '#6A4A08',
+  amberHead:  '#3A2800',
+  amberEye:   '#8A6010',
+  teal:       '#E0F5F0',
+  tealText:   '#0A4A3C',
+  tealHead:   '#0A2A24',
+  tealEye:    '#0A6050',
+  coral:      '#FDECEA',
+  coralText:  '#7A2020',
+  coralHead:  '#3D0A0A',
+  coralEye:   '#A03030',
+  blueLight:  '#E6F0FA',
+  blueLightText: '#1A3A6A',
 };
 
 interface SAData {
@@ -538,18 +552,27 @@ function DashboardContent() {
   ];
 
   return (
-    <div style={{minHeight:'100vh',background:C.bg,fontFamily:"'Nunito','Helvetica Neue',sans-serif"}}>
+    <div style={{minHeight:'100vh',background:C.white,fontFamily:"'Nunito','Helvetica Neue',sans-serif"}}>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap');
-        * { font-family: 'Nunito', 'Helvetica Neue', sans-serif !important; }
-        @media(max-width:860px){.dd-c{padding:20px 16px!important;}}
+        @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700;1,800&display=swap');
+        *{font-family:'Nunito','Helvetica Neue',sans-serif!important;}
+        .dd-c{max-width:1080px;margin:0 auto;padding:32px 36px;display:grid;gap:20px;}
+        .dd-row3{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:16px;}
+        .dd-row33{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;}
+        .dd-row2{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:16px;}
+        .dd-mg{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+        @media(max-width:860px){
+          .dd-c{padding:16px!important;}
+          .dd-row3,.dd-row33,.dd-row2{grid-template-columns:1fr!important;}
+          .dd-mg{grid-template-columns:1fr!important;}
+        }
       `}</style>
 
-      {/* TOPBAR */}
-      <div style={{background:C.white,borderBottom:`1px solid ${C.border}`,position:'sticky',top:0,zIndex:40,boxShadow:'0 1px 16px rgba(46,95,138,0.07)'}}>
-        <div style={{display:'flex',alignItems:'center',justifyContent:'space-between',padding:'12px 28px',maxWidth:'1200px',margin:'0 auto'}}>
+      {/* ── TOPBAR ── */}
+      <div style={{background:C.white,borderBottom:`1.5px solid ${C.border}`,position:'sticky',top:0,zIndex:40}}>
+        <div style={{display:'flex',alignItems:'center',justifyContent:'space-between',padding:'0 32px',height:'64px',maxWidth:'1180px',margin:'0 auto'}}>
           <div style={{display:'flex',alignItems:'center',gap:'10px'}}>
-            <svg viewBox="0 0 300 300" width="34" height="34">
+            <svg viewBox="0 0 300 300" width="36" height="36">
               <circle cx="150" cy="150" r="145" fill="#1A3D5C"/>
               <circle cx="150" cy="150" r="122" fill="#2E5F8A"/>
               <ellipse cx="150" cy="205" rx="58" ry="54" fill="#c8a060"/>
@@ -557,40 +580,40 @@ function DashboardContent() {
               <ellipse cx="150" cy="196" rx="27" ry="31" fill="#F7FAFC"/>
               <circle cx="150" cy="128" r="26" fill="#F7FAFC"/>
             </svg>
-            <span style={{fontSize:'20px',fontWeight:900,color:C.darkDeep,letterSpacing:'-0.3px'}}>DadUp</span>
+            <span style={{fontSize:'22px',fontWeight:900,color:C.dark,letterSpacing:'-0.5px'}}>DadUp</span>
           </div>
-          <div style={{display:'flex',flexDirection:'column',alignItems:'flex-end',gap:'5px'}}>
-            <div style={{display:'flex',alignItems:'center',gap:'8px',background:C.cream,borderRadius:'24px',padding:'6px 8px 6px 14px'}}>
-              <span style={{fontSize:'14px',fontWeight:800,color:C.darkDeep}}>{prenom||'DadUp'}</span>
-              <div style={{background:C.dark,color:C.white,fontSize:'11px',fontWeight:800,padding:'5px 10px',borderRadius:'14px',textAlign:'center' as const,lineHeight:1.2}}>
-                <span style={{display:'block'}}>{saReelle} SA</span>
-                <small style={{display:'block',fontSize:'8px',color:'rgba(238,244,250,0.7)',fontWeight:700,letterSpacing:'0.5px'}}>{tri}</small>
-              </div>
-            </div>
-            <div style={{display:'flex',alignItems:'center',gap:'6px'}}>
-              <div style={{width:'72px',height:'4px',background:C.cream,borderRadius:'4px',overflow:'hidden'}}>
+          <div style={{display:'flex',alignItems:'center',gap:'20px'}}>
+            {saReelle&&<div style={{display:'flex',alignItems:'center',gap:'8px'}}>
+              <div style={{width:'80px',height:'4px',background:'#f0ede8',borderRadius:'4px',overflow:'hidden'}}>
                 <div style={{height:'4px',background:C.gold,borderRadius:'4px',width:prog+'%'}}/>
               </div>
-              <span style={{fontSize:'11px',fontWeight:700,color:C.gold}}>{prog}%</span>
+              <span style={{fontSize:'12px',fontWeight:800,color:C.gold}}>{prog}%</span>
+            </div>}
+            <div style={{display:'flex',alignItems:'center',gap:'10px',background:'#f7f5f0',borderRadius:'28px',padding:'6px 8px 6px 16px'}}>
+              <span style={{fontSize:'15px',fontWeight:800,color:C.dark}}>{prenom||'DadUp'}</span>
+              {saReelle&&<div style={{background:C.dark,color:C.white,borderRadius:'16px',padding:'5px 12px',textAlign:'center' as const}}>
+                <span style={{fontSize:'12px',fontWeight:900,display:'block',lineHeight:1}}>{saReelle} SA</span>
+                <small style={{fontSize:'8px',fontWeight:700,color:'rgba(255,255,255,0.5)',letterSpacing:'1px',display:'block'}}>{tri}</small>
+              </div>}
             </div>
           </div>
         </div>
-        <div style={{display:'flex',gap:'6px',padding:'0 24px 12px',overflowX:'auto' as const,maxWidth:'1200px',margin:'0 auto'}}>
+        <div style={{display:'flex',gap:'6px',padding:'0 28px 14px',overflowX:'auto' as const,maxWidth:'1180px',margin:'0 auto'}}>
           {navTabs.map(n=>(
-            <button key={n.id} onClick={()=>setActiveTab(n.id)} style={{padding:'8px 20px',fontSize:'13px',fontWeight:800,border:'none',borderRadius:'24px',cursor:'pointer',whiteSpace:'nowrap' as const,flexShrink:0,transition:'all 0.15s',background:activeTab===n.id?C.dark:C.cream,color:activeTab===n.id?C.white:C.dark}}>
+            <button key={n.id} onClick={()=>setActiveTab(n.id)} style={{padding:'9px 22px',fontSize:'13px',fontWeight:800,border:'none',borderRadius:'24px',cursor:'pointer',whiteSpace:'nowrap' as const,flexShrink:0,fontFamily:"'Nunito',sans-serif",background:activeTab===n.id?C.dark:'#f7f5f0',color:activeTab===n.id?C.white:C.dark}}>
               {n.label}
             </button>
           ))}
         </div>
       </div>
 
-      {/* CONTENU */}
-      <div className="dd-c" style={{maxWidth:'1100px',margin:'0 auto',padding:'32px 40px'}}>
+      {/* ── CONTENU ── */}
+      <div className="dd-c">
 
 
         {/* ========== ACCUEIL ========== */}
         {activeTab==='home' && (
-          <div style={{display:'flex',flexDirection:'column',gap:'0'}}>
+          <div style={{display:'flex',flexDirection:'column',gap:'20px'}}>
 
             {/* HERO */}
             {isPost ? (
@@ -599,7 +622,7 @@ function DashboardContent() {
                 <p style={{color:C.white,fontSize:'26px',fontWeight:800,margin:0,fontFamily:'Georgia,serif'}}>Bébé est là !</p>
               </div>
             ) : dataR && saReelle && (
-              <div style={{background:C.dark,borderRadius:'24px',marginBottom:'32px'}}>
+              <div style={{background:C.blue,borderRadius:'24px',marginBottom:'24px'}}>
                 <div style={{padding:'32px 28px 24px',position:'relative'}}>
                   <div style={{position:'absolute',top:0,right:0,bottom:0,width:'40%',display:'flex',alignItems:'center',justifyContent:'center',opacity:0.1,overflow:'hidden',borderRadius:'0 24px 0 0'}}>
                     <div style={{fontSize:'140px',lineHeight:1}}>{dataR.emoji}</div>
@@ -628,7 +651,7 @@ function DashboardContent() {
               <div style={{marginBottom:'32px'}}>
                 <p style={{color:C.textLight,fontSize:'10px',fontWeight:700,letterSpacing:'2px',textTransform:'uppercase',margin:'0 0 16px'}}>Prochain rendez-vous</p>
                 <div style={{display:'flex',alignItems:'center',gap:'16px',paddingBottom:'20px',borderBottom:`1px solid ${C.border}`}}>
-                  <div style={{width:'52px',height:'52px',borderRadius:'16px',background:C.dark,display:'flex',alignItems:'center',justifyContent:'center',fontSize:'22px',flexShrink:0}}>{nextRdv.emoji}</div>
+                  <div style={{width:'52px',height:'52px',borderRadius:'16px',background:'#E6F0FA',display:'flex',alignItems:'center',justifyContent:'center',fontSize:'22px',flexShrink:0}}>{nextRdv.emoji}</div>
                   <div style={{flex:1}}>
                     <p style={{color:C.dark,fontSize:'17px',fontWeight:800,margin:'0 0 2px',fontFamily:'Georgia,serif'}}>{nextRdv.titre}</p>
                     <p style={{color:C.textLight,fontSize:'13px',margin:0}}>{nextRdv.sa} SA{dpa?' · '+new Date(new Date(dpa).getTime()-(40-nextRdv.sa)*7*24*60*60*1000).toLocaleDateString('fr-FR',{day:'numeric',month:'long'}):''}</p>
@@ -647,70 +670,70 @@ function DashboardContent() {
 
             {/* CE QUE VIT MAMAN */}
             {dataR&&(
-              <div style={{marginBottom:'32px'}}>
-                <p style={{color:C.textLight,fontSize:'10px',fontWeight:700,letterSpacing:'2px',textTransform:'uppercase',margin:'0 0 16px'}}>Ce que vit maman</p>
-                <p style={{color:C.dark,fontSize:'18px',fontWeight:800,margin:'0 0 12px',fontFamily:'Georgia,serif',lineHeight:1.3}}>{dataR.maman_titre}</p>
+              <div style={{marginBottom:'0',background:'#FFF0E6',borderRadius:'22px',padding:'24px 26px'}}>
+                <p style={{color:'#C04A1A',fontSize:'10px',fontWeight:700,letterSpacing:'2px',textTransform:'uppercase',margin:'0 0 12px'}}>Ce que vit maman</p>
+                <p style={{color:'#3D1A0A',fontSize:'18px',fontWeight:800,margin:'0 0 12px',lineHeight:1.3}}>{dataR.maman_titre}</p>
                 <p style={{color:C.text,fontSize:'14px',lineHeight:1.8,margin:'0 0 20px'}}>{dataR.maman}</p>
                 <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'12px',marginBottom:'20px'}}>
-                  <div style={{background:C.orange,borderRadius:'14px',padding:'16px',border:'none'}}>
-                    <p style={{color:C.textLight,fontSize:'10px',fontWeight:700,letterSpacing:'1px',textTransform:'uppercase',margin:'0 0 8px'}}>Tu peux aider</p>
-                    <p style={{color:C.dark,fontSize:'13px',lineHeight:1.6,margin:0}}>{dataR.maman_aide}</p>
-                  </div>
+                <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'10px',marginBottom:'18px'}}>
+                  <div style={{background:'rgba(255,255,255,0.6)',borderRadius:'14px',padding:'14px',border:'none'}}>
+                    <p style={{color:'#C04A1A',fontSize:'10px',fontWeight:700,letterSpacing:'1px',textTransform:'uppercase',margin:'0 0 6px'}}>Tu peux aider</p>
+                    <p style={{color:'#7A3010',fontSize:'13px',lineHeight:1.6,margin:0}}>{dataR.maman_aide}</p>
                   <div style={{background:C.white,borderRadius:'14px',padding:'16px',border:`1px solid ${C.border}`}}>
-                    <p style={{color:C.textLight,fontSize:'10px',fontWeight:700,letterSpacing:'1px',textTransform:'uppercase',margin:'0 0 8px'}}>Le savoir</p>
-                    <p style={{color:C.dark,fontSize:'13px',lineHeight:1.6,margin:0}}>{dataR.maman_signe}</p>
-                  </div>
+                  <div style={{background:'rgba(255,255,255,0.6)',borderRadius:'14px',padding:'14px',border:'none'}}>
+                    <p style={{color:'#C04A1A',fontSize:'10px',fontWeight:700,letterSpacing:'1px',textTransform:'uppercase',margin:'0 0 6px'}}>Le savoir</p>
+                    <p style={{color:'#7A3010',fontSize:'13px',lineHeight:1.6,margin:0}}>{dataR.maman_signe}</p>
                 </div>
                 <div style={{borderLeft:`3px solid ${C.gold}`,paddingLeft:'16px'}}>
-                  <p style={{color:C.dark,fontSize:'13px',fontWeight:700,margin:'0 0 5px'}}>Quand appeler ?</p>
-                  <p style={{color:C.text,fontSize:'13px',lineHeight:1.6,margin:0}}>{dataR.alerte}</p>
-                </div>
+                <div style={{borderLeft:'3px solid #C04A1A',paddingLeft:'14px',borderRadius:0}}>
+                  <p style={{color:'#3D1A0A',fontSize:'13px',fontWeight:700,margin:'0 0 5px'}}>Quand appeler ?</p>
+                  <p style={{color:'#7A3010',fontSize:'13px',lineHeight:1.6,margin:0}}>{dataR.alerte}</p>
               </div>
             )}
 
             {/* LE SAVAIS-TU */}
             {dataR&&(
-              <div style={{background:C.dark,borderRadius:'24px',padding:'28px',marginBottom:'32px'}}>
-                <p style={{color:'rgba(200,160,96,0.6)',fontSize:'10px',letterSpacing:'2px',textTransform:'uppercase',margin:'0 0 14px',fontWeight:600}}>Le savais-tu ?</p>
-                <p style={{color:C.white,fontSize:'18px',fontWeight:600,lineHeight:1.55,margin:0,fontFamily:'Georgia,serif'}}>"{dataR.savistu}"</p>
+              <div style={{background:'#1A3D5C',borderRadius:'22px',padding:'26px',marginBottom:'0'}}>
+                <p style={{color:'rgba(200,160,96,0.6)',fontSize:'10px',letterSpacing:'2px',textTransform:'uppercase',margin:'0 0 14px',fontWeight:700}}>Le savais-tu ?</p>
+                <p style={{color:'#fff',fontSize:'17px',fontWeight:700,lineHeight:1.55,margin:0,fontStyle:'italic'}}>&#34;{dataR.savistu}&#34;</p>
+              </div>
+            )}
+                      {/* À SAVOIR */}
+            {dataR&&(
+              <div style={{marginBottom:'0',background:'#E0F5F0',borderRadius:'22px',padding:'24px 26px'}}>
+                <p style={{color:'#0A6050',fontSize:'10px',fontWeight:700,letterSpacing:'2px',textTransform:'uppercase',margin:'0 0 12px'}}>À savoir cette semaine</p>
+                <p style={{color:'#0A2A24',fontSize:'17px',fontWeight:800,margin:'0 0 10px',lineHeight:1.3}}>{dataR.doc_titre}</p>
+                <p style={{color:'#0A4A3C',fontSize:'14px',lineHeight:1.8,margin:0}}>{dataR.doc}</p>
               </div>
             )}
 
-            {/* À SAVOIR */}
-            {dataR&&(
-              <div style={{marginBottom:'32px'}}>
-                <p style={{color:C.textLight,fontSize:'10px',fontWeight:700,letterSpacing:'2px',textTransform:'uppercase',margin:'0 0 16px'}}>À savoir cette semaine</p>
-                <p style={{color:C.dark,fontSize:'18px',fontWeight:800,margin:'0 0 12px',fontFamily:'Georgia,serif',lineHeight:1.3}}>{dataR.doc_titre}</p>
-                <p style={{color:C.text,fontSize:'14px',lineHeight:1.8,margin:0}}>{dataR.doc}</p>
-              </div>
-            )}
             {/* CONSEIL + IDÉE */}
             <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'14px',marginBottom:'32px'}}>
               {dataR&&(
-                <div style={{background:C.white,borderRadius:'18px',padding:'20px',border:`1px solid ${C.border}`}}>
-                  <span style={{fontSize:'22px',display:'block',marginBottom:'12px'}}>💡</span>
-                  <p style={{color:C.dark,fontSize:'13px',fontWeight:700,margin:'0 0 8px'}}>Conseil</p>
-                  <p style={{color:C.text,fontSize:'13px',lineHeight:1.6,margin:0}}>{dataR.conseil}</p>
+              {dataR&&(
+                <div style={{background:'#FDECEA',borderRadius:'22px',padding:'22px',border:'none'}}>
+                  <p style={{color:'#A03030',fontSize:'10px',fontWeight:700,letterSpacing:'2px',textTransform:'uppercase',margin:'0 0 10px'}}>Conseil</p>
+                  <p style={{color:'#7A2020',fontSize:'14px',lineHeight:1.75,margin:0}}>{dataR.conseil}</p>
                 </div>
               )}
-              <div style={{background:C.gold,borderRadius:'18px',padding:'20px'}}>
+              <div style={{background:'#FFF7E0',borderRadius:'22px',padding:'24px 26px'}}>
                 <span style={{fontSize:'22px',display:'block',marginBottom:'12px'}}>🎁</span>
-                <p style={{color:C.dark,fontSize:'13px',fontWeight:700,margin:'0 0 8px'}}>Idée du mois</p>
-                <p style={{color:C.dark,fontSize:'13px',lineHeight:1.6,margin:0,fontWeight:500}}>{idee}</p>
+                <p style={{color:'#8A6010',fontSize:'10px',fontWeight:700,letterSpacing:'2px',textTransform:'uppercase',margin:'0 0 10px'}}>Idée du mois</p>
+                <p style={{color:'#3A2800',fontSize:'15px',fontWeight:800,lineHeight:1.4,margin:0}}>{idee}</p>
               </div>
             </div>
 
             {/* MISSIONS */}
             {missions.length>0&&(
               <div>
-                <p style={{color:C.textLight,fontSize:'10px',fontWeight:700,letterSpacing:'2px',textTransform:'uppercase',margin:'0 0 16px'}}>Ta mission cette semaine</p>
+                <p style={{color:'#9aa0a8',fontSize:'11px',fontWeight:800,letterSpacing:'2px',textTransform:'uppercase',margin:'0 0 14px'}}>Ta mission cette semaine</p>
                 <div style={{display:'flex',flexDirection:'column',gap:'10px'}}>
                   {missions.map((m,i)=>{
                     const id='m_'+saReelle+'_'+i;
                     const done=missionsChecked[id];
                     return(
-                      <button key={id} onClick={()=>toggleM(id)} style={{display:'flex',gap:'14px',alignItems:'center',background:C.white,border:`1px solid ${C.border}`,cursor:'pointer',textAlign:'left',padding:'16px 18px',borderRadius:'14px'}}>
-                        <div style={{width:'22px',height:'22px',borderRadius:'6px',border:`2px solid ${done?C.greenText:C.border}`,background:done?C.greenText:'transparent',display:'flex',alignItems:'center',justifyContent:'center',flexShrink:0}}>
+                      <button key={id} onClick={()=>toggleM(id)} style={{display:'flex',gap:'14px',alignItems:'center',background:C.white,border:`1.5px solid ${C.border}`,cursor:'pointer',textAlign:'left',padding:'14px 18px',borderRadius:'16px'}}>
+                        <div style={{width:'22px',height:'22px',borderRadius:'6px',border:`2px solid ${done?C.greenEye:C.border}`,background:done?C.greenEye:'transparent',display:'flex',alignItems:'center',justifyContent:'center',flexShrink:0}}>
                           {done&&<span style={{color:C.dark,fontSize:'12px',fontWeight:700}}>✓</span>}
                         </div>
                         <p style={{color:done?C.textLight:C.dark,fontSize:'13px',margin:0,lineHeight:1.4,textDecoration:done?'line-through':'none'}}>{m}</p>
@@ -788,7 +811,7 @@ function DashboardContent() {
             </div>
 
             {/* ANECDOTE — citation */}
-            <div style={{background:C.dark,borderRadius:'24px',padding:'28px',marginBottom:'28px'}}>
+            <div style={{background:C.blueDark,borderRadius:'22px',padding:'28px',marginBottom:'0'}}>
               <p style={{color:'rgba(200,160,96,0.6)',fontSize:'10px',letterSpacing:'2px',textTransform:'uppercase',margin:'0 0 14px',fontWeight:600}}>Anecdote scientifique</p>
               <p style={{color:C.white,fontSize:'17px',fontWeight:600,lineHeight:1.6,margin:0,fontFamily:'Georgia,serif'}}>"{data.savistu}"</p>
             </div>
