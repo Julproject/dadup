@@ -1,3 +1,5 @@
+'use client';
+
 const C = {
   dark: '#1e2535',
   gold: '#c8a060',
@@ -6,6 +8,9 @@ const C = {
   border: '#e8e0d0',
   text: '#4a5568',
   textLight: '#9aa0a8',
+  blue: '#2E5F8A',
+  bluePale: '#E6F0FA',
+  blueDark: '#1A3D5C',
 };
 
 function Nav() {
@@ -21,7 +26,7 @@ function Nav() {
             <ellipse cx="150" cy="196" rx="27" ry="31" fill="#faf6f0"/>
             <circle cx="150" cy="128" r="26" fill="#faf6f0"/>
           </svg>
-          <span style={{fontWeight:800, color:C.dark, fontSize:'20px', fontFamily:'Georgia,serif'}}>DadUp</span>
+          <span style={{fontWeight:800, color:C.dark, fontSize:'20px'}}>DadUp</span>
         </a>
         <div style={{display:'flex', gap:'4px'}}>
           <a href="/pourquoi" style={{color:C.text, fontSize:'14px', fontWeight:500, padding:'8px 14px', borderRadius:'8px', textDecoration:'none'}}>Pourquoi DadUp</a>
@@ -50,7 +55,7 @@ function Footer() {
           <ellipse cx="150" cy="196" rx="27" ry="31" fill="#faf6f0"/>
           <circle cx="150" cy="128" r="26" fill="#faf6f0"/>
         </svg>
-        <span style={{color:C.white, fontSize:'16px', fontWeight:700, fontFamily:'Georgia,serif'}}>DadUp</span>
+        <span style={{color:C.white, fontSize:'16px', fontWeight:700}}>DadUp</span>
       </div>
       <p style={{color:'#6a7585', fontSize:'12px', margin:0}}>DadUp est un outil d'information. Il ne remplace pas l'avis d'un medecin.</p>
     </footer>
@@ -68,20 +73,20 @@ export default function TemoignagesPage() {
   ];
 
   return (
-    <main style={{minHeight:'100vh', background:C.white, fontFamily:'sans-serif'}}>
+    <main style={{minHeight:'100vh', background:C.white, fontFamily:"-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"}}>
       <Nav/>
 
       <section style={{background:C.dark, padding:'80px 40px'}}>
         <div style={{maxWidth:'800px', margin:'0 auto', textAlign:'center'}}>
-          <p style={{color:C.gold, fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase', margin:'0 0 16px'}}>Temoignages</p>
-          <h1 style={{color:C.white, fontSize:'52px', fontWeight:800, margin:'0 0 24px', lineHeight:1.1, fontFamily:'Georgia,serif'}}>
+          <p style={{color:C.blue, fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase', margin:'0 0 16px'}}>Temoignages</p>
+          <h1 style={{color:C.white, fontSize:'52px', fontWeight:800, margin:'0 0 24px', lineHeight:1.1}}>
             Des papas qui<br/><span style={{color:C.gold}}>ont ose se preparer.</span>
           </h1>
           <p style={{color:'#6a7585', fontSize:'18px', lineHeight:1.7, margin:0}}>Ce qu'ils ont vecu. Ce que ca a change.</p>
         </div>
       </section>
 
-      <section style={{background:C.cream, padding:'48px 40px', borderBottom:`1px solid ${C.border}`}}>
+      <section style={{background:C.bluePale, padding:'48px 40px', borderBottom:`1px solid rgba(46,95,138,0.12)`}}>
         <div style={{maxWidth:'1200px', margin:'0 auto', display:'grid', gridTemplateColumns:'repeat(4,1fr)', textAlign:'center'}}>
           {[
             {chiffre:'4.9/5', label:'Note moyenne'},
@@ -89,9 +94,9 @@ export default function TemoignagesPage() {
             {chiffre:'94%', label:'Recommandent DadUp'},
             {chiffre:'1er', label:'Guide du papa en France'},
           ].map((s, i) => (
-            <div key={i} style={{padding:'0 32px', borderLeft: i > 0 ? `1px solid ${C.border}` : 'none'}}>
-              <p style={{color:C.dark, fontSize:'36px', fontWeight:800, margin:0, fontFamily:'Georgia,serif'}}>{s.chiffre}</p>
-              <p style={{color:C.text, fontSize:'13px', margin:'6px 0 0'}}>{s.label}</p>
+            <div key={i} style={{padding:'0 32px', borderLeft: i > 0 ? `1px solid rgba(46,95,138,0.2)` : 'none'}}>
+              <p style={{color:C.blue, fontSize:'36px', fontWeight:800, margin:0}}>{s.chiffre}</p>
+              <p style={{color:C.blueDark, fontSize:'13px', margin:'6px 0 0'}}>{s.label}</p>
             </div>
           ))}
         </div>
@@ -112,7 +117,7 @@ export default function TemoignagesPage() {
                   <p style={{color: i === 1 || i === 4 ? C.gold : C.dark, fontSize:'14px', fontWeight:700, margin:0}}>{t.prenom}, {t.age} ans</p>
                   <p style={{color:C.textLight, fontSize:'12px', margin:'2px 0 0'}}>{t.ville}</p>
                 </div>
-                <span style={{background: i === 1 || i === 4 ? '#2e3848' : C.white, color: i === 1 || i === 4 ? C.gold : C.text, fontSize:'11px', fontWeight:600, padding:'4px 10px', borderRadius:'20px', border: i === 1 || i === 4 ? 'none' : `1px solid ${C.border}`}}>{t.semaine}</span>
+                <span style={{background: i === 1 || i === 4 ? '#2e3848' : C.bluePale, color: i === 1 || i === 4 ? C.gold : C.blue, fontSize:'11px', fontWeight:600, padding:'4px 10px', borderRadius:'20px'}}>{t.semaine}</span>
               </div>
             </div>
           ))}
@@ -121,18 +126,18 @@ export default function TemoignagesPage() {
 
       <section style={{background:C.cream, padding:'80px 40px', borderTop:`1px solid ${C.border}`}}>
         <div style={{maxWidth:'800px', margin:'0 auto', textAlign:'center'}}>
-          <p style={{fontSize:'36px', fontWeight:800, color:C.dark, lineHeight:1.3, margin:'0 0 24px', fontFamily:'Georgia,serif'}}>
+          <p style={{fontSize:'36px', fontWeight:800, color:C.dark, lineHeight:1.3, margin:'0 0 24px'}}>
             "Bebe est arrive. J'etais la,<br/>vraiment la, du debut a la fin."
           </p>
           <p style={{color:C.text, fontSize:'15px', margin:'0 0 4px'}}>Nicolas, 30 ans — Toulouse</p>
-          <p style={{color:C.gold, fontSize:'13px', margin:0}}>Papa depuis SA 40</p>
+          <p style={{color:C.blue, fontSize:'13px', margin:0}}>Papa depuis SA 40</p>
         </div>
       </section>
 
       <section style={{padding:'80px 40px', maxWidth:'1200px', margin:'0 auto'}}>
-        <div style={{background:C.dark, borderRadius:'28px', padding:'64px', textAlign:'center'}}>
-          <p style={{color:C.gold, fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase', margin:'0 0 16px'}}>A ton tour</p>
-          <h2 style={{color:C.white, fontSize:'42px', fontWeight:800, margin:'0 0 16px', fontFamily:'Georgia,serif'}}>Rejoins les papas<br/>qui se preparent.</h2>
+        <div style={{background:C.dark, borderRadius:'28px', padding:'64px', textAlign:'center' as const}}>
+          <p style={{color:C.blue, fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase', margin:'0 0 16px'}}>A ton tour</p>
+          <h2 style={{color:C.white, fontSize:'42px', fontWeight:800, margin:'0 0 16px'}}>Rejoins les papas<br/>qui se preparent.</h2>
           <p style={{color:'#6a7585', fontSize:'16px', margin:'0 0 40px'}}>29,99€/an. Sans engagement. Acces immediat.</p>
           <a href="/tarifs" style={{background:C.gold, color:'#1c1510', padding:'18px 48px', borderRadius:'32px', fontSize:'16px', fontWeight:800, textDecoration:'none', display:'inline-block'}}>Commencer maintenant</a>
           <p style={{color:'#3d5070', fontSize:'12px', margin:'16px 0 0'}}>Paiement securise par Stripe</p>
