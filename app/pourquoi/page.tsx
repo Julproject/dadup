@@ -1,3 +1,5 @@
+'use client';
+
 const C = {
   dark: '#1e2535',
   gold: '#c8a060',
@@ -6,6 +8,9 @@ const C = {
   border: '#e8e0d0',
   text: '#4a5568',
   textLight: '#9aa0a8',
+  blue: '#2E5F8A',
+  bluePale: '#E6F0FA',
+  blueDark: '#1A3D5C',
 };
 
 function Nav() {
@@ -21,7 +26,7 @@ function Nav() {
             <ellipse cx="150" cy="196" rx="27" ry="31" fill="#faf6f0"/>
             <circle cx="150" cy="128" r="26" fill="#faf6f0"/>
           </svg>
-          <span style={{fontWeight:800, color:C.dark, fontSize:'20px', fontFamily:'Georgia,serif'}}>DadUp</span>
+          <span style={{fontWeight:800, color:C.dark, fontSize:'20px'}}>DadUp</span>
         </a>
         <div style={{display:'flex', gap:'4px'}}>
           <a href="/pourquoi" style={{color:C.dark, fontSize:'14px', fontWeight:700, padding:'8px 14px', borderRadius:'8px', textDecoration:'none', borderBottom:`2px solid ${C.gold}`}}>Pourquoi DadUp</a>
@@ -50,7 +55,7 @@ function Footer() {
           <ellipse cx="150" cy="196" rx="27" ry="31" fill="#faf6f0"/>
           <circle cx="150" cy="128" r="26" fill="#faf6f0"/>
         </svg>
-        <span style={{color:C.white, fontSize:'16px', fontWeight:700, fontFamily:'Georgia,serif'}}>DadUp</span>
+        <span style={{color:C.white, fontSize:'16px', fontWeight:700}}>DadUp</span>
       </div>
       <p style={{color:'#6a7585', fontSize:'12px', margin:0}}>DadUp est un outil d'information. Il ne remplace pas l'avis d'un medecin.</p>
     </footer>
@@ -59,13 +64,13 @@ function Footer() {
 
 export default function PourquoiPage() {
   return (
-    <main style={{minHeight:'100vh', background:C.white, fontFamily:'sans-serif'}}>
+    <main style={{minHeight:'100vh', background:C.white, fontFamily:"-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"}}>
       <Nav/>
 
       <section style={{background:C.dark, padding:'80px 40px'}}>
         <div style={{maxWidth:'800px', margin:'0 auto', textAlign:'center'}}>
-          <p style={{color:C.gold, fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase', margin:'0 0 16px'}}>Pourquoi DadUp</p>
-          <h1 style={{color:C.white, fontSize:'52px', fontWeight:800, margin:'0 0 24px', lineHeight:1.1, fontFamily:'Georgia,serif'}}>
+          <p style={{color:C.blue, fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase', margin:'0 0 16px'}}>Pourquoi DadUp</p>
+          <h1 style={{color:C.white, fontSize:'52px', fontWeight:800, margin:'0 0 24px', lineHeight:1.1}}>
             On prepare les mamans.<br/><span style={{color:C.gold}}>Pas les papas.</span>
           </h1>
           <p style={{color:'#6a7585', fontSize:'18px', lineHeight:1.7, margin:0}}>Pourtant tu es la, tu veux etre present, tu veux bien faire. Mais personne ne t'a appris comment.</p>
@@ -75,8 +80,8 @@ export default function PourquoiPage() {
       <section style={{padding:'80px 40px', maxWidth:'1200px', margin:'0 auto'}}>
         <div style={{display:'grid', gridTemplateColumns:'1fr 1fr', gap:'72px', alignItems:'center'}}>
           <div>
-            <p style={{color:C.gold, fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase', margin:'0 0 16px'}}>Le constat</p>
-            <h2 style={{fontSize:'38px', fontWeight:800, color:C.dark, margin:'0 0 32px', lineHeight:1.2, fontFamily:'Georgia,serif'}}>Tu veux etre la.<br/>Mais comment ?</h2>
+            <p style={{color:C.blue, fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase', margin:'0 0 16px'}}>Le constat</p>
+            <h2 style={{fontSize:'38px', fontWeight:800, color:C.dark, margin:'0 0 32px', lineHeight:1.2}}>Tu veux etre la.<br/>Mais comment ?</h2>
             <div style={{display:'flex', flexDirection:'column', gap:'20px'}}>
               {[
                 {titre:'Les livres sont ecrits pour les mamans.', desc:"Sur 100 livres sur la grossesse, moins de 5 s'adressent au papa. Le reste ? Ecrit pour elle."},
@@ -85,8 +90,8 @@ export default function PourquoiPage() {
                 {titre:"Les premieres semaines sans mode d'emploi.", desc:"Emmaillotage, pleurs, sommeil — tu decouvres tout sur le tas, souvent la nuit, souvent seul."},
               ].map((item, i) => (
                 <div key={i} style={{display:'flex', gap:'16px', alignItems:'flex-start'}}>
-                  <div style={{width:'32px', height:'32px', borderRadius:'50%', background:C.cream, border:`1px solid ${C.border}`, display:'flex', alignItems:'center', justifyContent:'center', flexShrink:0, marginTop:'2px'}}>
-                    <span style={{color:C.gold, fontSize:'14px', fontWeight:700}}>{i+1}</span>
+                  <div style={{width:'32px', height:'32px', borderRadius:'50%', background:C.bluePale, border:'none', display:'flex', alignItems:'center', justifyContent:'center', flexShrink:0, marginTop:'2px'}}>
+                    <span style={{color:C.blue, fontSize:'14px', fontWeight:700}}>{i+1}</span>
                   </div>
                   <div>
                     <p style={{color:C.dark, fontSize:'15px', fontWeight:700, margin:'0 0 4px'}}>{item.titre}</p>
@@ -104,7 +109,7 @@ export default function PourquoiPage() {
 
       <section style={{background:C.cream, padding:'80px 40px', border:`1px solid ${C.border}`}}>
         <div style={{maxWidth:'800px', margin:'0 auto', textAlign:'center'}}>
-          <p style={{fontSize:'32px', fontWeight:800, color:C.dark, lineHeight:1.3, margin:'0 0 24px', fontFamily:'Georgia,serif'}}>
+          <p style={{fontSize:'32px', fontWeight:800, color:C.dark, lineHeight:1.3, margin:'0 0 24px'}}>
             "Etre un bon papa ca ne s'improvise pas.<br/>Ca se prepare."
           </p>
           <p style={{color:C.text, fontSize:'15px', margin:0}}>DadUp est le premier guide concu exclusivement pour le papa.</p>
@@ -113,8 +118,8 @@ export default function PourquoiPage() {
 
       <section style={{padding:'80px 40px', maxWidth:'1200px', margin:'0 auto'}}>
         <div style={{textAlign:'center', marginBottom:'56px'}}>
-          <p style={{color:C.gold, fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase', margin:'0 0 12px'}}>Ce que DadUp change</p>
-          <h2 style={{fontSize:'38px', fontWeight:800, color:C.dark, margin:0, fontFamily:'Georgia,serif'}}>Avant / Apres DadUp</h2>
+          <p style={{color:C.blue, fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase', margin:'0 0 12px'}}>Ce que DadUp change</p>
+          <h2 style={{fontSize:'38px', fontWeight:800, color:C.dark, margin:0}}>Avant / Apres DadUp</h2>
         </div>
         <div style={{display:'grid', gridTemplateColumns:'1fr 1fr', gap:'24px'}}>
           <div style={{background:C.cream, borderRadius:'20px', padding:'32px', border:`1px solid ${C.border}`}}>
@@ -150,8 +155,8 @@ export default function PourquoiPage() {
         </div>
       </section>
 
-      <section style={{background:C.dark, padding:'80px 40px', textAlign:'center'}}>
-        <h2 style={{color:C.white, fontSize:'38px', fontWeight:800, margin:'0 0 12px', fontFamily:'Georgia,serif'}}>Pret a etre vraiment la ?</h2>
+      <section style={{background:C.dark, padding:'80px 40px', textAlign:'center' as const}}>
+        <h2 style={{color:C.white, fontSize:'38px', fontWeight:800, margin:'0 0 12px'}}>Pret a etre vraiment la ?</h2>
         <p style={{color:'#6a7585', fontSize:'16px', margin:'0 0 32px'}}>Rejoins DadUp et commence des aujourd'hui.</p>
         <a href="/tarifs" style={{background:C.gold, color:'#1c1510', padding:'16px 40px', borderRadius:'32px', fontSize:'15px', fontWeight:800, textDecoration:'none', display:'inline-block'}}>Commencer — 29,99€/an</a>
       </section>
