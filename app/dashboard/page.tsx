@@ -589,7 +589,7 @@ function DashboardContent() {
               </div>
               <span style={{fontSize:'12px',fontWeight:800,color:C.gold}}>{prog}%</span>
             </div>}
-            <div style={{display:'flex',alignItems:'center',gap:'10px',background:'#f7f5f0',borderRadius:'28px',padding:'6px 8px 6px 16px'}}>
+            <div style={{display:'flex',alignItems:'center',gap:'10px',background:"#f7f5f0",borderRadius:'28px',padding:'6px 8px 6px 16px'}}>
               <span style={{fontSize:'15px',fontWeight:800,color:C.dark}}>{prenom||'DadUp'}</span>
               {saReelle&&<div style={{background:C.dark,color:C.white,borderRadius:'16px',padding:'5px 12px',textAlign:'center' as const}}>
                 <span style={{fontSize:'12px',fontWeight:900,display:'block',lineHeight:1}}>{saReelle} SA</span>
@@ -600,7 +600,7 @@ function DashboardContent() {
         </div>
         <div style={{display:'flex',gap:'6px',padding:'0 28px 14px',overflowX:'auto' as const,maxWidth:'1180px',margin:'0 auto'}}>
           {navTabs.map(n=>(
-            <button key={n.id} onClick={()=>setActiveTab(n.id)} style={{padding:'9px 22px',fontSize:'13px',fontWeight:800,border:'none',borderRadius:'24px',cursor:'pointer',whiteSpace:'nowrap' as const,flexShrink:0,fontFamily:"'Nunito',sans-serif",background:activeTab===n.id?C.dark:'#f7f5f0',color:activeTab===n.id?C.white:C.dark}}>
+            <button key={n.id} onClick={()=>setActiveTab(n.id)} style={{padding:'9px 22px',fontSize:'13px',fontWeight:800,border:'none',borderRadius:'24px',cursor:'pointer',whiteSpace:'nowrap' as const,flexShrink:0,fontFamily:"'Nunito',sans-serif",background:activeTab===n.id?C.dark:"#f7f5f0",color:activeTab===n.id?C.white:C.dark}}>
               {n.label}
             </button>
           ))}
@@ -867,7 +867,7 @@ function DashboardContent() {
                         {rdvOuvert===i&&(
                           <div style={{marginTop:'12px',paddingTop:'12px',borderTop:`1px solid ${s==='prochain'?'rgba(255,255,255,0.1)':C.border}`}}>
                             <p style={{color:s==='prochain'?'rgba(255,255,255,0.65)':C.text,fontSize:'13px',lineHeight:1.6,margin:'0 0 12px'}}>{r.desc}</p>
-                            <a href="https://www.doctolib.fr" target="_blank" rel="noopener noreferrer" style={{display:'inline-flex',alignItems:'center',gap:'6px',background:s==='prochain'?'rgba(200,160,96,0.15)':#f7f5f0,color:s==='prochain'?C.gold:C.dark,fontSize:'12px',fontWeight:700,padding:'8px 14px',borderRadius:'20px',textDecoration:'none',border:s==='prochain'?'none':`1px solid ${C.border}`}}>
+                            <a href="https://www.doctolib.fr" target="_blank" rel="noopener noreferrer" style={{display:'inline-flex',alignItems:'center',gap:'6px',background:s==='prochain'?'rgba(200,160,96,0.15)':'#f7f5f0',color:s==='prochain'?C.gold:C.dark,fontSize:'12px',fontWeight:700,padding:'8px 14px',borderRadius:'20px',textDecoration:'none',border:s==='prochain'?'none':`1px solid ${C.border}`}}>
                               📅 Prendre RDV sur Doctolib
                             </a>
                             <div style={{marginTop:'12px'}}>
@@ -940,7 +940,7 @@ function DashboardContent() {
                   <div key={i} style={{display:'flex',alignItems:'center',justifyContent:'space-between',padding:'14px 16px',background:C.white,borderRadius:'12px',border:`1px solid ${C.border}`}}>
                     <div>
                       <p style={{color:C.dark,fontSize:'13px',fontWeight:600,margin:'0 0 4px'}}>{a.label}</p>
-                      <span style={{background:a.p==='urgent'?'#fff0f0':#f7f5f0,color:a.p==='urgent'?'#cc4444':C.textLight,fontSize:'10px',fontWeight:700,padding:'2px 8px',borderRadius:'8px'}}>{a.p}</span>
+                      <span style={{background:a.p==='urgent'?'#fff0f0':'#f7f5f0',color:a.p==='urgent'?'#cc4444':C.textLight,fontSize:'10px',fontWeight:700,padding:'2px 8px',borderRadius:'8px'}}>{a.p}</span>
                     </div>
                     <p style={{color:C.gold,fontSize:'13px',fontWeight:700,margin:0}}>{a.prix}</p>
                   </div>
@@ -1004,7 +1004,7 @@ function Onboarding({onSave}:{onSave:(d:string,p:string)=>void}) {
   const [dpa,setDpa]=useState('');
   const [prenom,setPrenom]=useState('');
   return(
-    <main style={{minHeight:'100vh',background:#f7f5f0,display:'flex',alignItems:'center',justifyContent:'center',padding:'20px',fontFamily:'sans-serif'}}>
+    <main style={{minHeight:'100vh',background:"#f7f5f0",display:'flex',alignItems:'center',justifyContent:'center',padding:'20px',fontFamily:'sans-serif'}}>
       <div style={{maxWidth:'420px',width:'100%'}}>
         <div style={{display:'flex',justifyContent:'center',marginBottom:'28px'}}>
           <svg viewBox="0 0 300 300" width="64" height="64">
@@ -1022,11 +1022,11 @@ function Onboarding({onSave}:{onSave:(d:string,p:string)=>void}) {
           <div style={{display:'flex',flexDirection:'column',gap:'14px'}}>
             <div>
               <label style={{display:'block',color:C.dark,fontSize:'12px',fontWeight:600,marginBottom:'7px'}}>Ton prénom</label>
-              <input type="text" placeholder="Thomas, Julien, Marc..." value={prenom} onChange={e=>setPrenom(e.target.value)} style={{width:'100%',background:#f7f5f0,border:`1px solid ${C.border}`,borderRadius:'10px',padding:'11px 14px',fontSize:'14px',color:C.dark,boxSizing:'border-box' as const,outline:'none'}}/>
+              <input type="text" placeholder="Thomas, Julien, Marc..." value={prenom} onChange={e=>setPrenom(e.target.value)} style={{width:'100%',background:"#f7f5f0",border:`1px solid ${C.border}`,borderRadius:'10px',padding:'11px 14px',fontSize:'14px',color:C.dark,boxSizing:'border-box' as const,outline:'none'}}/>
             </div>
             <div>
               <label style={{display:'block',color:C.dark,fontSize:'12px',fontWeight:600,marginBottom:'7px'}}>Date prévue d'accouchement</label>
-              <input type="date" value={dpa} onChange={e=>setDpa(e.target.value)} style={{width:'100%',background:#f7f5f0,border:`1px solid ${C.border}`,borderRadius:'10px',padding:'11px 14px',fontSize:'14px',color:C.dark,boxSizing:'border-box' as const,outline:'none'}}/>
+              <input type="date" value={dpa} onChange={e=>setDpa(e.target.value)} style={{width:'100%',background:"#f7f5f0",border:`1px solid ${C.border}`,borderRadius:'10px',padding:'11px 14px',fontSize:'14px',color:C.dark,boxSizing:'border-box' as const,outline:'none'}}/>
             </div>
             <button onClick={()=>dpa&&onSave(dpa,prenom)} disabled={!dpa} style={{background:dpa?C.dark:'#ccc',color:C.white,border:'none',borderRadius:'24px',padding:'13px',fontSize:'14px',fontWeight:700,cursor:dpa?'pointer':'not-allowed',marginTop:'6px'}}>
               Accéder à mon espace
@@ -1041,7 +1041,7 @@ function Onboarding({onSave}:{onSave:(d:string,p:string)=>void}) {
 
 export default function DashboardPage() {
   return(
-    <Suspense fallback={<div style={{minHeight:'100vh',background:#f7f5f0,display:'flex',alignItems:'center',justifyContent:'center'}}><p style={{color:C.textLight}}>Chargement...</p></div>}>
+    <Suspense fallback={<div style={{minHeight:'100vh',background:"#f7f5f0",display:'flex',alignItems:'center',justifyContent:'center'}}><p style={{color:C.textLight}}>Chargement...</p></div>}>
       <DashboardContent/>
     </Suspense>
   );
