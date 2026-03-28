@@ -330,7 +330,7 @@ const SD: Record<number, SAData> = {
     maman: 'L\'échographie T2 est souvent vécue avec une anxiété mêlée d\'excitation. C\'est le rendez-vous médical le plus attendu de la grossesse. Elle peut durer de 45 à 90 minutes selon la coopération de bébé.',
     maman_aide: 'Prends une demi-journée de congé. Préparez vos questions en amont. Filmez si possible.',
     maman_signe: 'L\'écho T2 examine plus de 100 critères anatomiques. C\'est l\'examen le plus complet de la grossesse.',
-    alerte: 'Si le médecin souhaite revoir un point ou refaire une échographie, c\'est souvent par précaution — ne pas paniquer avant d\'avoir les explications.',
+        alerte: 'Si le médecin souhaite revoir un point ou refaire une échographie, c\'est souvent par précaution — ne pas paniquer avant d\'avoir les explications.',
     doc_titre: 'Ce que l\'écho T2 regarde',
     doc: 'L\'échographie morphologique T2 examine : le cerveau, le cœur (4 cavités + valves), les reins, l\'estomac, les membres, le visage (lèvres palatines), la colonne vertébrale, la position du placenta. Elle permet aussi généralement de connaître le sexe de bébé. Elle est réalisée par un médecin spécialisé en échographie fœtale. Durée : 45 à 90 minutes.',
     conseil: 'Prends une demi-journée de congé pour cette échographie. Filmez. C\'est un moment à vivre pleinement.',
