@@ -702,7 +702,7 @@ function DashboardContent() {
             {/* LE SAVAIS-TU */}
             {dataR&&(
               <div style={{background:'#1A3D5C',borderRadius:'22px',padding:'26px',marginBottom:'0'}}>
-                <p style={{color:'rgba(200,160,96,0.6)',fontSize:'10px',letterSpacing:'2px',textTransform:'uppercase',margin:'0 0 14px',fontWeight:700}}>Le savais-tu ?</p>
+          <p style={{color:'rgba(200,160,96,0.6)',fontSize:'10px',letterSpacing:'2px',textTransform:'uppercase',margin:'0 0 14px',fontWeight:700}}>Le savais-tu ?</p>
                 <p style={{color:'#fff',fontSize:'17px',fontWeight:700,lineHeight:1.55,margin:0,fontStyle:'italic'}}>&#34;{dataR.savistu}&#34;</p>
               </div>
             )}
@@ -767,7 +767,7 @@ function DashboardContent() {
             </div>
 
             {/* HERO BÉBÉ */}
-            <div style={{background:C.dark,borderRadius:'24px',overflow:'hidden',marginBottom:'28px'}}>
+            <div style={{background:C.blue,borderRadius:'24px',overflow:'hidden',marginBottom:'24px'}}>
               <div style={{padding:'32px 28px 24px',position:'relative'}}>
                 <div style={{position:'absolute',top:0,right:0,bottom:0,width:'38%',display:'flex',alignItems:'center',justifyContent:'center',opacity:0.12,overflow:'hidden'}}>
                   <div style={{fontSize:'130px',lineHeight:1}}>{data.emoji}</div>
@@ -856,7 +856,7 @@ function DashboardContent() {
                   const rd=dpa?new Date(new Date(dpa).getTime()-(40-r.sa)*7*24*60*60*1000).toLocaleDateString('fr-FR',{day:'numeric',month:'short'}):'';
                   return(
                     <div key={i} style={{position:'relative',paddingLeft:'50px'}}>
-                      <div style={{position:'absolute',left:'12px',top:'18px',width:'17px',height:'17px',borderRadius:'50%',border:`2px solid ${s==='passe'?C.gold:s==='prochain'?C.gold:C.border}`,background:s==='passe'?C.gold:s==='prochain'?C.gold:C.bg,display:'flex',alignItems:'center',justifyContent:'center',transform:s==='prochain'?'scale(1.2)':'scale(1)'}}>
+                      <div style={{position:'absolute',left:'12px',top:'18px',width:'17px',height:'17px',borderRadius:'50%',border:`2px solid ${s==='passe'?C.gold:s==='prochain'?C.gold:C.border}`,background:s==='passe'?'#0D6B40':s==='prochain'?C.gold:C.bg,display:'flex',alignItems:'center',justifyContent:'center',transform:s==='prochain'?'scale(1.2)':'scale(1)'}}>
                         {s==='passe'&&<span style={{color:C.dark,fontSize:'9px',fontWeight:700}}>✓</span>}
                       </div>
                       <button onClick={()=>setRdvOuvert(rdvOuvert===i?null:i)} style={{width:'100%',textAlign:'left',borderRadius:'14px',padding:'14px 16px',border:'none',cursor:'pointer',background:s==='prochain'?C.dark:C.white,outline:'none',opacity:s==='passe'?0.5:1,boxSizing:'border-box' as const,borderLeft:s==='prochain'?`3px solid ${C.gold}`:`1px solid ${C.border}`}}>
@@ -876,7 +876,7 @@ function DashboardContent() {
                         {rdvOuvert===i&&(
                           <div style={{marginTop:'12px',paddingTop:'12px',borderTop:`1px solid ${s==='prochain'?'rgba(255,255,255,0.1)':C.border}`}}>
                             <p style={{color:s==='prochain'?'rgba(255,255,255,0.65)':C.text,fontSize:'13px',lineHeight:1.6,margin:'0 0 12px'}}>{r.desc}</p>
-                            <a href="https://www.doctolib.fr" target="_blank" rel="noopener noreferrer" style={{display:'inline-flex',alignItems:'center',gap:'6px',background:s==='prochain'?'rgba(200,160,96,0.15)':'#f7f5f0',color:s==='prochain'?C.gold:C.dark,fontSize:'12px',fontWeight:700,padding:'8px 14px',borderRadius:'20px',textDecoration:'none',border:s==='prochain'?'none':`1px solid ${C.border}`}}>
+                            <a href="https://www.doctolib.fr" target="_blank" rel="noopener noreferrer" style={{display:'inline-flex',alignItems:'center',gap:'6px',background:s==='prochain'?C.blue:'#f7f5f0',color:s==='prochain'?C.white:C.dark,fontSize:'12px',fontWeight:700,padding:'8px 14px',borderRadius:'20px',textDecoration:'none',border:s==='prochain'?'none':`1px solid ${C.border}`}}>
                               📅 Prendre RDV sur Doctolib
                             </a>
                             <div style={{marginTop:'12px'}}>
@@ -904,7 +904,7 @@ function DashboardContent() {
             <div style={{marginBottom:'32px'}}>
               <div style={{display:'flex',alignItems:'center',justifyContent:'space-between',marginBottom:'14px'}}>
                 <p style={{color:C.textLight,fontSize:'10px',fontWeight:700,letterSpacing:'2px',textTransform:'uppercase',margin:0}}>Valise maternité</p>
-                <span style={{background:C.dark,color:C.gold,fontSize:'11px',fontWeight:700,padding:'3px 12px',borderRadius:'20px'}}>{Object.values(valiseChecked).filter(Boolean).length}/21</span>
+                <span style={{background:C.blue,color:C.gold,fontSize:'11px',fontWeight:700,padding:'3px 12px',borderRadius:'20px'}}>{Object.values(valiseChecked).filter(Boolean).length}/21</span>
               </div>
               <div style={{background:C.border,borderRadius:'4px',height:'3px',marginBottom:'20px'}}>
                 <div style={{background:C.gold,height:'3px',borderRadius:'4px',width:(Object.values(valiseChecked).filter(Boolean).length/21*100)+'%'}}/>
@@ -935,7 +935,7 @@ function DashboardContent() {
 
             {/* ACHATS */}
             <div style={{marginBottom:'32px'}}>
-              <p style={{color:C.textLight,fontSize:'10px',fontWeight:700,letterSpacing:'2px',textTransform:'uppercase',margin:'0 0 16px'}}>Achats prioritaires</p>
+              <p style={{color:'#0D6B40',fontSize:'10px',fontWeight:700,letterSpacing:'2px',textTransform:'uppercase',margin:'0 0 16px'}}>Achats prioritaires</p>
               <div style={{display:'flex',flexDirection:'column',gap:'10px'}}>
                 {[
                   {label:'Siège auto groupe 0+',p:'urgent',prix:'80-300€'},
@@ -961,7 +961,7 @@ function DashboardContent() {
 
             {/* SURVIE 1ER MOIS */}
             <div>
-              <p style={{color:C.textLight,fontSize:'10px',fontWeight:700,letterSpacing:'2px',textTransform:'uppercase',margin:'0 0 16px'}}>Survie 1er mois</p>
+              <p style={{color:'#1A4A7A',fontSize:'10px',fontWeight:700,letterSpacing:'2px',textTransform:'uppercase',margin:'0 0 16px'}}>Survie 1er mois</p>
               {[
                 {titre:'Emmaillotage',contenu:'Couverture en losange. Coin supérieur replié à 15cm. Bébé épaules sur le bord. Côté gauche → sous le dos. Bas vers le haut. Côté droit → sous le dos. Test : 2 doigts passent aux hanches.'},
                 {titre:'Bébé pleure — protocole',contenu:'1. Faim ? (toutes les 2-3h)  2. Couche sale ?  3. Température ? (nuque = thermomètre)  4. Besoin de contact ? (peau à peau)  5. Coliques ? (vélo avec les jambes)  6. Surstimulé ? (pièce calme, voix douce)'},
@@ -983,17 +983,17 @@ function DashboardContent() {
             <h2 style={{color:C.dark,fontSize:'24px',fontWeight:800,margin:'0 0 28px',fontFamily:'Georgia,serif'}}>Bons plans</h2>
             {PARTENAIRES.map((cat,ci)=>(
               <div key={cat.categorie} style={{marginBottom:ci<PARTENAIRES.length-1?'28px':0}}>
-                <p style={{color:C.textLight,fontSize:'10px',fontWeight:700,letterSpacing:'2px',textTransform:'uppercase',margin:'0 0 14px'}}>{cat.categorie}</p>
+                <p style={{color:'#1A4A7A',fontSize:'10px',fontWeight:700,letterSpacing:'2px',textTransform:'uppercase',margin:'0 0 14px'}}>{cat.categorie}</p>
                 <div style={{display:'flex',flexDirection:'column',gap:'10px'}}>
                   {cat.items.map((item,i)=>(
-                    <div key={i} style={{display:'flex',alignItems:'center',justifyContent:'space-between',padding:'16px 18px',background:C.white,borderRadius:'14px',border:`1px solid ${C.border}`}}>
+                    <div key={i} style={{display:'flex',alignItems:'center',justifyContent:'space-between',padding:'16px 18px',background:'#E4F5EC',border:'none',borderRadius:'18px'}}>
                       <div>
                         <p style={{color:C.dark,fontSize:'14px',fontWeight:700,margin:'0 0 3px'}}>{item.nom}</p>
                         <p style={{color:C.textLight,fontSize:'12px',margin:0}}>{item.desc}</p>
                       </div>
                       <div style={{display:'flex',alignItems:'center',gap:'8px',flexShrink:0}}>
-                        <span style={{background:C.gold,color:C.dark,fontSize:'11px',fontWeight:700,padding:'4px 10px',borderRadius:'20px'}}>{item.remise}</span>
-                        <a href={item.lien} style={{background:C.dark,color:C.gold,fontSize:'11px',fontWeight:700,padding:'7px 14px',borderRadius:'20px',textDecoration:'none'}}>Voir</a>
+                        <span style={{background:'#FFF7E0',color:'#8A6010',fontSize:'11px',fontWeight:700,padding:'4px 10px',borderRadius:'20px'}}>{item.remise}</span>
+                        <a href={item.lien} style={{background:C.blue,color:'#fff',fontSize:'11px',fontWeight:700,padding:'7px 14px',borderRadius:'20px',textDecoration:'none'}}>Voir</a>
                       </div>
                     </div>
                   ))}
