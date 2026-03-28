@@ -867,7 +867,7 @@ function DashboardContent() {
             {isPost ? (
               <div style={{background:C.dark,borderRadius:'24px',padding:'32px',marginBottom:'32px',textAlign:'center'}}>
                 <p style={{fontSize:'48px',margin:'0 0 8px'}}>👶</p>
-                <p style={{color:C.white,fontSize:'26px',fontWeight:800,margin:0,fontFamily:'Georgia,serif'}}>Bébé est là !</p>
+                <p style={{color:C.white,fontSize:'26px',fontWeight:800,margin:0,}}>Bébé est là !</p>
               </div>
             ) : dataR && saReelle && (
               <div style={{background:C.blue,borderRadius:'24px',marginBottom:'24px'}}>
@@ -877,8 +877,8 @@ function DashboardContent() {
                   </div>
                   <div style={{position:'relative'}}>
                     <p style={{color:'rgba(200,160,96,0.6)',fontSize:'10px',letterSpacing:'3px',textTransform:'uppercase',margin:'0 0 10px',fontWeight:600}}>{saReelle} semaines · {tri}</p>
-                    <p style={{color:C.white,fontSize:'32px',fontWeight:800,margin:0,fontFamily:'Georgia,serif',lineHeight:1.1}}>Bébé fait</p>
-                    <p style={{color:C.gold,fontSize:'48px',fontWeight:800,margin:0,fontFamily:'Georgia,serif',lineHeight:1}}>{dataR.taille}</p>
+                    <p style={{color:C.white,fontSize:'32px',fontWeight:800,margin:0,,lineHeight:1.1}}>Bébé fait</p>
+                    <p style={{color:C.gold,fontSize:'48px',fontWeight:800,margin:0,,lineHeight:1}}>{dataR.taille}</p>
                     <p style={{color:'rgba(255,255,255,0.4)',fontSize:'15px',margin:'6px 0 0'}}>et pèse environ {dataR.poids}</p>
                     {joursRestants&&joursRestants>0&&<p style={{color:'rgba(255,255,255,0.25)',fontSize:'13px',margin:'4px 0 0'}}>{joursRestants} jours avant le grand jour</p>}
                   </div>
@@ -901,7 +901,7 @@ function DashboardContent() {
                 <div style={{display:'flex',alignItems:'center',gap:'16px',paddingBottom:'20px',borderBottom:`1px solid ${C.border}`}}>
                   <div style={{width:'52px',height:'52px',borderRadius:'16px',background:'#E6F0FA',display:'flex',alignItems:'center',justifyContent:'center',fontSize:'22px',flexShrink:0}}>{nextRdv.emoji}</div>
                   <div style={{flex:1}}>
-                    <p style={{color:C.dark,fontSize:'17px',fontWeight:800,margin:'0 0 2px',fontFamily:'Georgia,serif'}}>{nextRdv.titre}</p>
+                    <p style={{color:C.dark,fontSize:'17px',fontWeight:800,margin:'0 0 2px',}}>{nextRdv.titre}</p>
                     <p style={{color:C.textLight,fontSize:'13px',margin:0}}>{nextRdv.sa} SA{dpa?' · '+new Date(new Date(dpa).getTime()-(40-nextRdv.sa)*7*24*60*60*1000).toLocaleDateString('fr-FR',{day:'numeric',month:'long'}):''}</p>
                   </div>
                   {dpa&&<div style={{background:'rgba(200,160,96,0.12)',borderRadius:'12px',padding:'8px 12px',textAlign:'center',flexShrink:0}}>
@@ -912,7 +912,7 @@ function DashboardContent() {
                   <p style={{color:C.textLight,fontSize:'11px',fontWeight:600,margin:'0 0 8px'}}>Ma date de RDV :</p>
                   <input type="date" value={nextRdvDate} onChange={e=>saveRdv(e.target.value)} style={{background:C.white,border:`1px solid ${C.border}`,borderRadius:'10px',padding:'10px 14px',fontSize:'13px',color:C.dark,width:'100%',boxSizing:'border-box' as const}}/>
                   {nextRdvDate&&<p style={{color:C.gold,fontSize:'12px',margin:'6px 0 0',fontWeight:600}}>RDV le {new Date(nextRdvDate).toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long'})}</p>}
-                    </div>
+                  </div>
               </div>
             )}
 
@@ -999,7 +999,7 @@ function DashboardContent() {
             <div style={{display:'flex',alignItems:'center',justifyContent:'space-between',marginBottom:'28px'}}>
               <div>
                 <p style={{color:C.textLight,fontSize:'10px',fontWeight:700,letterSpacing:'2px',textTransform:'uppercase',margin:'0 0 4px'}}>{avance?'Dans 4 semaines':'Cette semaine'}</p>
-                <h2 style={{color:C.dark,fontSize:'26px',fontWeight:800,margin:0,fontFamily:'Georgia,serif'}}>{saReelle} semaines</h2>
+                <h2 style={{color:C.dark,fontSize:'26px',fontWeight:800,margin:0,}}>{saReelle} semaines</h2>
               </div>
               <button onClick={()=>setAvance(!avance)} style={{fontSize:'11px',padding:'8px 16px',borderRadius:'20px',cursor:'pointer',fontWeight:700,background:avance?C.dark:C.white,color:avance?C.gold:C.text,border:avance?'none':`1px solid ${C.border}`}}>
                 {avance?'← Revenir':'+4 semaines →'}
@@ -1015,7 +1015,7 @@ function DashboardContent() {
                 <div style={{position:'relative'}}>
                   <p style={{color:'rgba(200,160,96,0.6)',fontSize:'10px',letterSpacing:'2px',textTransform:'uppercase',margin:'0 0 8px',fontWeight:600}}>{sa} SA · {tri}</p>
                   <p style={{color:C.white,fontSize:'15px',margin:'0 0 4px',opacity:0.65}}>{data.titre}</p>
-                  <p style={{color:C.gold,fontSize:'46px',fontWeight:800,margin:0,fontFamily:'Georgia,serif',lineHeight:1}}>{data.taille}</p>
+                  <p style={{color:C.gold,fontSize:'46px',fontWeight:800,margin:0,,lineHeight:1}}>{data.taille}</p>
                   <p style={{color:'rgba(255,255,255,0.35)',fontSize:'16px',margin:'6px 0 0'}}>{data.poids}</p>
                 </div>
               </div>
@@ -1060,7 +1060,7 @@ function DashboardContent() {
             {/* ANECDOTE — citation */}
             <div style={{background:C.blueDark,borderRadius:'22px',padding:'28px',marginBottom:'0'}}>
               <p style={{color:'rgba(200,160,96,0.6)',fontSize:'10px',letterSpacing:'2px',textTransform:'uppercase',margin:'0 0 14px',fontWeight:600}}>Anecdote scientifique</p>
-              <p style={{color:C.white,fontSize:'17px',fontWeight:600,lineHeight:1.6,margin:0,fontFamily:'Georgia,serif'}}>"{data.savistu}"</p>
+              <p style={{color:C.white,fontSize:'17px',fontWeight:600,lineHeight:1.6,margin:0,}}>"{data.savistu}"</p>
             </div>
 
             {/* FAQ */}
@@ -1085,7 +1085,7 @@ function DashboardContent() {
         {activeTab==='rdv'&&(
           <div style={{display:'flex',flexDirection:'column',gap:'0'}}>
             <div style={{marginBottom:'28px'}}>
-              <h2 style={{color:C.dark,fontSize:'24px',fontWeight:800,margin:'0 0 4px',fontFamily:'Georgia,serif'}}>Calendrier</h2>
+              <h2 style={{color:C.dark,fontSize:'24px',fontWeight:800,margin:'0 0 4px',}}>Calendrier</h2>
               {dpa&&<p style={{color:C.textLight,fontSize:'13px',margin:0}}>DPA : {new Date(dpa).toLocaleDateString('fr-FR',{day:'numeric',month:'long',year:'numeric'})}</p>}
             </div>
             <div style={{position:'relative'}}>
@@ -1138,7 +1138,7 @@ function DashboardContent() {
         {/* ========== PRATIQUE ========== */}
         {activeTab==='pratique'&&(
           <div style={{display:'flex',flexDirection:'column',gap:'0'}}>
-            <h2 style={{color:C.dark,fontSize:'24px',fontWeight:800,margin:'0 0 28px',fontFamily:'Georgia,serif'}}>Pratique</h2>
+            <h2 style={{color:C.dark,fontSize:'24px',fontWeight:800,margin:'0 0 28px',}}>Pratique</h2>
 
             {/* VALISE */}
             <div style={{marginBottom:'32px'}}>
@@ -1203,7 +1203,7 @@ function DashboardContent() {
         {/* ========== BONS PLANS ========== */}
         {activeTab==='bonsplans'&&(
           <div style={{display:'flex',flexDirection:'column',gap:'0'}}>
-            <h2 style={{color:C.dark,fontSize:'24px',fontWeight:800,margin:'0 0 28px',fontFamily:'Georgia,serif'}}>Bons plans</h2>
+            <h2 style={{color:C.dark,fontSize:'24px',fontWeight:800,margin:'0 0 28px',}}>Bons plans</h2>
             {PARTENAIRES.map((cat,ci)=>(
               <div key={cat.categorie} style={{marginBottom:ci<PARTENAIRES.length-1?'28px':0}}>
                 <p style={{color:'#1A4A7A',fontSize:'10px',fontWeight:700,letterSpacing:'2px',textTransform:'uppercase',margin:'0 0 14px'}}>{cat.categorie}</p>
@@ -1341,7 +1341,7 @@ function Onboarding({onSave}:{onSave:(d:string,p:string)=>void}) {
           </svg>
         </div>
         <div style={{background:C.white,borderRadius:'24px',padding:'28px',border:`1px solid ${C.border}`}}>
-          <h1 style={{fontSize:'22px',fontWeight:800,color:C.dark,margin:'0 0 8px',textAlign:'center',fontFamily:'Georgia,serif'}}>Bienvenue sur DadUp</h1>
+          <h1 style={{fontSize:'22px',fontWeight:800,color:C.dark,margin:'0 0 8px',textAlign:'center',}}>Bienvenue sur DadUp</h1>
           <p style={{color:C.text,fontSize:'13px',textAlign:'center',margin:'0 0 24px'}}>Deux infos pour personnaliser ton espace.</p>
           <div style={{display:'flex',flexDirection:'column',gap:'14px'}}>
             <div>
