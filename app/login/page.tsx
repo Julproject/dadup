@@ -4,148 +4,194 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
 const C = {
-  dark: '#1e2535',
-  gold: '#c8a060',
-  cream: '#faf6f0',
-  white: '#ffffff',
-  border: '#e8e0d0',
-  text: '#4a5568',
-  textLight: '#9aa0a8',
+  dark: '#1e2535', blue: '#2E5F8A', gold: '#c8a060',
+  white: '#ffffff', border: '#f0ede8', text: '#4a5568',
+  textLight: '#9aa0a8', cream: '#f7f5f0',
 };
 
 export default function LoginPage() {
   const router = useRouter();
-  const [step, setStep] = useState<'email' | 'code'>('email');
-  const [email, setEmail] = useState('');
-  const [code, setCode] = useState('');
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
+  const [email, setEmail]       = useState('');
+  const [password, setPassword] = useState('');
+  const [loading, setLoading]   = useState(false);
+  const [error, setError]       = useState('');
+  const [showForgot, setShowForgot] = useState(false);
+  const [forgotEmail, setForgotEmail] = useState('');
+  const [forgotSent, setForgotSent]   = useState(false);
+  const [forgotLoading, setForgotLoading] = useState(false);
 
-  const sendCode = async () => {
-    if (!email) return;
+  const handleLogin = async (e: React.FormEvent) => {
+    e.preventDefault();
     setLoading(true);
     setError('');
+
     try {
-      const res = await fetch('/api/auth/send-code', {
+      const res = await fetch('/api/auth/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({ email, password }),
       });
       const data = await res.json();
-      if (data.success) {
-        setStep('code');
-      } else {
-        setError(data.error || 'Erreur envoi email');
+
+      if (!res.ok) {
+        setError(data.error || 'Erreur de connexion.');
+        return;
       }
+
+      // Sauvegarder les données en localStorage pour accès rapide
+      const u = data.user;
+      if (u.prenom) localStorage.setItem('dadup_prenom', u.prenom);
+      if (u.dpa)    localStorage.setItem('dadup_dpa', u.dpa);
+      if (u.valise_checked)   localStorage.setItem('dadup_valise',      JSON.stringify(u.valise_checked));
+      if (u.missions_checked) localStorage.setItem('dadup_missions',    JSON.stringify(u.missions_checked));
+      if (u.rdv_dates)        localStorage.setItem('dadup_rdv_dates',   JSON.stringify(u.rdv_dates));
+      if (u.next_rdv)         localStorage.setItem('dadup_next_rdv',    u.next_rdv);
+
+      router.push('/dashboard');
     } catch {
-      setError('Erreur connexion');
+      setError('Erreur de connexion. Réessaie.');
     } finally {
       setLoading(false);
     }
   };
 
-  const verifyCode = async () => {
-    if (!code) return;
-    setLoading(true);
-    setError('');
+  const handleForgot = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setForgotLoading(true);
     try {
-      const res = await fetch('/api/auth/verify-code', {
+      await fetch('/api/auth/forgot-password', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, code }),
+        body: JSON.stringify({ email: forgotEmail }),
       });
-      const data = await res.json();
-      if (data.success) {
-        if (data.user?.dpa) {
-          router.push('/dashboard');
-        } else {
-          router.push('/onboarding');
-        }
-      } else {
-        setError(data.error || 'Code invalide');
-      }
+      setForgotSent(true);
     } catch {
-      setError('Erreur connexion');
+      setForgotSent(true); // Toujours afficher le succès pour ne pas révéler si l'email existe
     } finally {
-      setLoading(false);
+      setForgotLoading(false);
     }
   };
 
   return (
-    <main style={{minHeight:'100vh', background:C.cream, display:'flex', alignItems:'center', justifyContent:'center', padding:'16px', fontFamily:'sans-serif'}}>
-      <div style={{maxWidth:'420px', width:'100%'}}>
+    <main style={{minHeight:'100vh',background:C.cream,display:'flex',alignItems:'center',justifyContent:'center',padding:'20px',fontFamily:"-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"}}>
+      <div style={{maxWidth:'400px',width:'100%'}}>
 
-        <div style={{textAlign:'center', marginBottom:'32px'}}>
-          <a href="/" style={{textDecoration:'none', display:'inline-block', marginBottom:'24px'}}>
-            <svg viewBox="0 0 300 300" width="64" height="64">
-              <circle cx="150" cy="150" r="145" fill="#3a4f6e"/>
-              <circle cx="150" cy="150" r="122" fill="#4a6080"/>
+        {/* Logo */}
+        <div style={{display:'flex',justifyContent:'center',marginBottom:'32px'}}>
+          <a href="/" style={{display:'flex',alignItems:'center',gap:'10px',textDecoration:'none'}}>
+            <svg viewBox="0 0 300 300" width="48" height="48">
+              <circle cx="150" cy="150" r="145" fill="#1A3D5C"/>
+              <circle cx="150" cy="150" r="122" fill="#2E5F8A"/>
               <ellipse cx="150" cy="205" rx="58" ry="54" fill="#c8a060"/>
               <circle cx="150" cy="112" r="40" fill="#c8a060"/>
-              <ellipse cx="150" cy="196" rx="27" ry="31" fill="#faf6f0"/>
-              <circle cx="150" cy="128" r="26" fill="#faf6f0"/>
+              <ellipse cx="150" cy="196" rx="27" ry="31" fill="#F7FAFC"/>
+              <circle cx="150" cy="128" r="26" fill="#F7FAFC"/>
             </svg>
+            <span style={{fontSize:'24px',fontWeight:900,color:C.dark}}>DadUp</span>
           </a>
-          <h1 style={{fontSize:'26px', fontWeight:800, color:C.dark, margin:'0 0 8px', fontFamily:'Georgia,serif'}}>
-            {step === 'email' ? 'Se connecter' : 'Verifie tes emails'}
-          </h1>
-          <p style={{color:C.text, fontSize:'14px', margin:0}}>
-            {step === 'email'
-              ? 'Entre ton email pour recevoir un code de connexion.'
-              : `Code envoye a ${email}. Valable 10 minutes.`}
-          </p>
         </div>
 
-        <div style={{background:C.white, borderRadius:'24px', padding:'32px', border:`1px solid ${C.border}`}}>
-          {step === 'email' ? (
-            <div style={{display:'flex', flexDirection:'column', gap:'16px'}}>
-              <div>
-                <label style={{display:'block', color:C.dark, fontSize:'13px', fontWeight:600, marginBottom:'8px'}}>Ton adresse email</label>
-                <input
-                  type="email"
-                  placeholder="thomas@email.com"
-                  value={email}
-                  onChange={e => setEmail(e.target.value)}
-                  onKeyDown={e => e.key === 'Enter' && sendCode()}
-                  style={{width:'100%', background:C.cream, border:`1px solid ${C.border}`, borderRadius:'12px', padding:'12px 16px', fontSize:'14px', color:C.dark, boxSizing:'border-box' as const, fontFamily:'sans-serif'}}
-                />
+        {/* Carte principale */}
+        <div style={{background:C.white,borderRadius:'24px',padding:'32px',border:`1px solid ${C.border}`,boxShadow:'0 4px 24px rgba(0,0,0,0.06)'}}>
+
+          {!showForgot ? (
+            <>
+              <h1 style={{fontSize:'22px',fontWeight:800,color:C.dark,margin:'0 0 6px',textAlign:'center'}}>Bon retour 👋</h1>
+              <p style={{color:C.textLight,fontSize:'13px',textAlign:'center',margin:'0 0 28px'}}>Connecte-toi à ton espace DadUp</p>
+
+              <form onSubmit={handleLogin} style={{display:'flex',flexDirection:'column',gap:'14px'}}>
+                <div>
+                  <label style={{display:'block',color:C.dark,fontSize:'12px',fontWeight:700,marginBottom:'7px',letterSpacing:'0.3px'}}>Email</label>
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={e=>setEmail(e.target.value)}
+                    placeholder="ton@email.fr"
+                    required
+                    style={{width:'100%',background:C.cream,border:`1.5px solid ${C.border}`,borderRadius:'12px',padding:'12px 16px',fontSize:'15px',color:C.dark,outline:'none',transition:'border 0.15s'}}
+                    onFocus={e=>(e.target.style.borderColor=C.blue)}
+                    onBlur={e=>(e.target.style.borderColor=C.border)}
+                  />
+                </div>
+                <div>
+                  <label style={{display:'block',color:C.dark,fontSize:'12px',fontWeight:700,marginBottom:'7px',letterSpacing:'0.3px'}}>Mot de passe</label>
+                  <input
+                    type="password"
+                    value={password}
+                    onChange={e=>setPassword(e.target.value)}
+                    placeholder="••••••••"
+                    required
+                    style={{width:'100%',background:C.cream,border:`1.5px solid ${C.border}`,borderRadius:'12px',padding:'12px 16px',fontSize:'15px',color:C.dark,outline:'none',transition:'border 0.15s'}}
+                    onFocus={e=>(e.target.style.borderColor=C.blue)}
+                    onBlur={e=>(e.target.style.borderColor=C.border)}
+                  />
+                </div>
+
+                {error && (
+                  <div style={{background:'#FDECEA',borderRadius:'10px',padding:'10px 14px',border:'1px solid rgba(160,48,48,0.2)'}}>
+                    <p style={{color:'#A03030',fontSize:'13px',margin:0,fontWeight:600}}>{error}</p>
+                  </div>
+                )}
+
+                <button
+                  type="submit"
+                  disabled={loading || !email || !password}
+                  style={{background:loading||!email||!password?'#ccc':C.dark,color:C.white,border:'none',padding:'14px',borderRadius:'32px',fontSize:'15px',fontWeight:700,cursor:loading||!email||!password?'not-allowed':'pointer',marginTop:'4px',transition:'background 0.15s'}}
+                >
+                  {loading ? 'Connexion...' : 'Se connecter'}
+                </button>
+              </form>
+
+              <div style={{textAlign:'center',marginTop:'20px'}}>
+                <button onClick={()=>setShowForgot(true)} style={{background:'none',border:'none',color:C.textLight,fontSize:'13px',cursor:'pointer',textDecoration:'underline'}}>
+                  Mot de passe oublié ?
+                </button>
               </div>
-              {error && <p style={{color:'#cc4444', fontSize:'13px', margin:0}}>{error}</p>}
-              <button onClick={sendCode} disabled={loading || !email} style={{background: email ? C.dark : '#ccc', color: email ? C.white : C.white, border:'none', borderRadius:'24px', padding:'14px', fontSize:'14px', fontWeight:700, cursor: email ? 'pointer' : 'not-allowed', fontFamily:'sans-serif'}}>
-                {loading ? 'Envoi en cours...' : 'Recevoir mon code'}
-              </button>
-            </div>
+            </>
           ) : (
-            <div style={{display:'flex', flexDirection:'column', gap:'16px'}}>
-              <div>
-                <label style={{display:'block', color:C.dark, fontSize:'13px', fontWeight:600, marginBottom:'8px'}}>Code a 6 chiffres</label>
-                <input
-                  type="text"
-                  placeholder="123456"
-                  value={code}
-                  onChange={e => setCode(e.target.value.replace(/\D/g, '').slice(0, 6))}
-                  onKeyDown={e => e.key === 'Enter' && verifyCode()}
-                  maxLength={6}
-                  style={{width:'100%', background:C.cream, border:`1px solid ${C.border}`, borderRadius:'12px', padding:'16px', fontSize:'28px', fontWeight:700, color:C.dark, boxSizing:'border-box' as const, textAlign:'center', letterSpacing:'12px', fontFamily:'sans-serif'}}
-                />
-              </div>
-              {error && <p style={{color:'#cc4444', fontSize:'13px', margin:0}}>{error}</p>}
-              <button onClick={verifyCode} disabled={loading || code.length !== 6} style={{background: code.length === 6 ? C.dark : '#ccc', color:C.white, border:'none', borderRadius:'24px', padding:'14px', fontSize:'14px', fontWeight:700, cursor: code.length === 6 ? 'pointer' : 'not-allowed', fontFamily:'sans-serif'}}>
-                {loading ? 'Verification...' : 'Acceder a mon espace'}
+            <>
+              <button onClick={()=>{setShowForgot(false);setForgotSent(false);setForgotEmail('');}} style={{background:'none',border:'none',color:C.textLight,fontSize:'13px',cursor:'pointer',marginBottom:'20px',padding:0,display:'flex',alignItems:'center',gap:'6px'}}>
+                ← Retour
               </button>
-              <button onClick={() => { setStep('email'); setCode(''); setError(''); }} style={{background:'none', border:'none', color:C.textLight, fontSize:'13px', cursor:'pointer', padding:'4px', fontFamily:'sans-serif'}}>
-                Changer d'email
-              </button>
-            </div>
+
+              {!forgotSent ? (
+                <>
+                  <h2 style={{fontSize:'20px',fontWeight:800,color:C.dark,margin:'0 0 8px'}}>Mot de passe oublié</h2>
+                  <p style={{color:C.textLight,fontSize:'13px',margin:'0 0 24px',lineHeight:1.6}}>Entre ton email. Si un compte existe, tu recevras un lien de réinitialisation valable 1 heure.</p>
+                  <form onSubmit={handleForgot} style={{display:'flex',flexDirection:'column',gap:'14px'}}>
+                    <input
+                      type="email"
+                      value={forgotEmail}
+                      onChange={e=>setForgotEmail(e.target.value)}
+                      placeholder="ton@email.fr"
+                      required
+                      style={{width:'100%',background:C.cream,border:`1.5px solid ${C.border}`,borderRadius:'12px',padding:'12px 16px',fontSize:'15px',color:C.dark,outline:'none'}}
+                    />
+                    <button
+                      type="submit"
+                      disabled={forgotLoading || !forgotEmail}
+                      style={{background:forgotLoading||!forgotEmail?'#ccc':C.blue,color:C.white,border:'none',padding:'14px',borderRadius:'32px',fontSize:'15px',fontWeight:700,cursor:forgotLoading||!forgotEmail?'not-allowed':'pointer'}}
+                    >
+                      {forgotLoading ? 'Envoi...' : 'Envoyer le lien'}
+                    </button>
+                  </form>
+                </>
+              ) : (
+                <div style={{textAlign:'center',padding:'16px 0'}}>
+                  <p style={{fontSize:'36px',margin:'0 0 16px'}}>📬</p>
+                  <h2 style={{fontSize:'18px',fontWeight:800,color:C.dark,margin:'0 0 10px'}}>Email envoyé !</h2>
+                  <p style={{color:C.textLight,fontSize:'14px',lineHeight:1.6,margin:0}}>Si un compte existe avec cet email, tu recevras un lien dans quelques minutes. Vérifie tes spams.</p>
+                </div>
+              )}
+            </>
           )}
         </div>
 
-        <p style={{textAlign:'center', color:C.textLight, fontSize:'11px', marginTop:'16px', lineHeight:1.5}}>
-          Aucun mot de passe. Aucune donnee stockee sans ton consentement.
+        {/* Lien vers le site */}
+        <p style={{textAlign:'center',marginTop:'20px',fontSize:'13px',color:C.textLight}}>
+          Pas encore de compte ?{' '}
+          <a href="/tarifs" style={{color:C.blue,fontWeight:700,textDecoration:'none'}}>Commencer — 29,99€/an</a>
         </p>
-        <div style={{textAlign:'center', marginTop:'16px'}}>
-          <a href="/" style={{color:C.gold, fontSize:'13px', textDecoration:'none'}}>← Retour a l'accueil</a>
-        </div>
       </div>
     </main>
   );
