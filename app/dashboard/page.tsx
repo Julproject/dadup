@@ -455,7 +455,7 @@ const RDV_LIST = [
   {sa:36,emoji:'💬',titre:'Entretien prénatal tardif',desc:'Bilan global, finalisation du projet de naissance. Présence du père fortement recommandée.',oblig:true},
   {sa:38,emoji:'🧳',titre:'Consultation pré-terme',desc:'Vérification du col et position de bébé. Moment pour finaliser les dernières questions pratiques.',oblig:false},
   {sa:40,emoji:'🎉',titre:'Jour J — DPA',desc:'Contractions toutes les 5 minutes pendant 1 heure = appeler la maternité avant de partir.',oblig:true},
-  ];
+];
 
 const PARTENAIRES = [
   {categorie:'Pour elle',items:[
@@ -771,6 +771,13 @@ function DashboardContent() {
   const prog = Math.min(100, Math.round(((saReelle||0)/40)*100));
   const tri = (saReelle||0) <= 14 ? 'T1' : (saReelle||0) <= 27 ? 'T2' : 'T3';
   const missions = saReelle ? (MISSIONS[saReelle] || MISSIONS[40]) : [];
+  // Mois bébé post-naissance (0 = mois 1, 1 = mois 2, etc.)
+  const moisBebe = isPost && dpaDate
+    ? Math.min(11, Math.floor(Math.abs(joursRestants!) / 30))
+    : 0;
+  const dataBebe = MOIS_DATA[moisBebe];
+  // Post-naissance : onglet actif par défaut = 'ce-mois'
+
   const nextRdv = RDV_LIST.filter(r => saReelle && r.sa >= saReelle)[0];
 
   const toggleV = (id: string) => { const u={...valiseChecked,[id]:!valiseChecked[id]}; setValiseChecked(u); localStorage.setItem('dadup_valise',JSON.stringify(u)); };
@@ -781,13 +788,17 @@ function DashboardContent() {
 
   if (showOnboarding) return <Onboarding onSave={saveOnb}/>;
 
-  const navTabs = [
-    {id:'home',label:'Accueil'},
-    {id:'bebe',label:'Bébé'},
-    {id:'rdv',label:'RDV'},
-    {id:'pratique',label:'À préparer'},
-    {id:'bonsplans',label:'Bons plans'},
-    {id:'lasuite',label:'La suite'},
+  const navTabs = isPost ? [
+    {id:'home',     label:'Ce mois-ci',   bg:'#E4F5EC', tc:'#0D6B40'},
+    {id:'bebe',     label:'Mon bébé',     bg:'#E6F0FA', tc:'#2E5F8A'},
+    {id:'rdv',      label:'Santé & RDV',  bg:'#FFF0E6', tc:'#C04A1A'},
+  ] : [
+    {id:'home',     label:'Accueil',      bg:'#FFF0E6', tc:'#C04A1A'},
+    {id:'bebe',     label:'Bébé',         bg:'#E4F5EC', tc:'#0D6B40'},
+    {id:'rdv',      label:'RDV',          bg:'#E6F0FA', tc:'#1A4A7A'},
+    {id:'pratique', label:'À préparer',   bg:'#FFF7E0', tc:'#8A6010'},
+    {id:'bonsplans',label:'Bons plans',   bg:'#FDECEA', tc:'#A03030'},
+    {id:'lasuite',  label:'La suite',     bg:'#F0EEFF', tc:'#5050B0'},
   ];
 
   return (
@@ -912,12 +923,24 @@ function DashboardContent() {
                   <p style={{color:C.textLight,fontSize:'11px',fontWeight:600,margin:'0 0 8px'}}>Ma date de RDV :</p>
                   <input type="date" value={nextRdvDate} onChange={e=>saveRdv(e.target.value)} style={{background:C.white,border:`1px solid ${C.border}`,borderRadius:'10px',padding:'10px 14px',fontSize:'13px',color:C.dark,width:'100%',boxSizing:'border-box' as const}}/>
                   {nextRdvDate&&<p style={{color:C.gold,fontSize:'12px',margin:'6px 0 0',fontWeight:600}}>RDV le {new Date(nextRdvDate).toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long'})}</p>}
-                  </div>
+                </div>
               </div>
             )}
 
-            {/* CE QUE VIT MAMAN */}
-            {dataR&&(
+            {/* CE QUE VIT MAMAN / CE MOIS-CI PAPA */}
+            {isPost ? (
+              dataBebe && (
+                <div style={{display:'flex',flexDirection:'column',gap:'16px'}}>
+                  <p style={{color:'#C04A1A',fontSize:'10px',fontWeight:700,letterSpacing:'2px',textTransform:'uppercase' as const,margin:0}}>Pour toi ce mois-ci</p>
+                  {dataBebe.papa.map((item,i)=>(
+                    <div key={i} style={{background:'#FFF0E6',borderRadius:'18px',padding:'20px 22px'}}>
+                      <p style={{color:'#3D1A0A',fontSize:'15px',fontWeight:800,margin:'0 0 6px'}}>{item.titre}</p>
+                      <p style={{color:'#7A3010',fontSize:'13px',lineHeight:1.75,margin:0}}>{item.contenu}</p>
+                    </div>
+                  ))}
+                </div>
+              )
+            ) : dataR&&(
               <div style={{marginBottom:'0',background:'#FFF0E6',borderRadius:'22px',padding:'24px 26px'}}>
                 <p style={{color:'#C04A1A',fontSize:'10px',fontWeight:700,letterSpacing:'2px',textTransform:'uppercase',margin:'0 0 12px'}}>Ce que vit maman</p>
                 <p style={{color:'#3D1A0A',fontSize:'18px',fontWeight:800,margin:'0 0 12px',lineHeight:1.3}}>{dataR.maman_titre}</p>
@@ -938,9 +961,8 @@ function DashboardContent() {
                 </div>
               </div>
             )}
-
             {/* LE SAVAIS-TU */}
-            {dataR&&(
+            {!isPost&&dataR&&(
               <div style={{background:'#1A3D5C',borderRadius:'22px',padding:'26px',marginBottom:'0'}}>
                 <p style={{color:'rgba(200,160,96,0.6)',fontSize:'10px',letterSpacing:'2px',textTransform:'uppercase',margin:'0 0 14px',fontWeight:700}}>Le savais-tu ?</p>
                 <p style={{color:'#fff',fontSize:'17px',fontWeight:700,lineHeight:1.55,margin:0,fontStyle:'italic'}}>&#34;{dataR.savistu}&#34;</p>
@@ -948,7 +970,7 @@ function DashboardContent() {
             )}
 
             {/* À SAVOIR */}
-            {dataR&&(
+            {!isPost&&dataR&&(
               <div style={{marginBottom:'0',background:'#E0F5F0',borderRadius:'22px',padding:'24px 26px'}}>
                 <p style={{color:'#0A6050',fontSize:'10px',fontWeight:700,letterSpacing:'2px',textTransform:'uppercase',margin:'0 0 12px'}}>À savoir cette semaine</p>
                 <p style={{color:'#0A2A24',fontSize:'17px',fontWeight:800,margin:'0 0 10px',lineHeight:1.3}}>{dataR.doc_titre}</p>
@@ -957,6 +979,7 @@ function DashboardContent() {
             )}
 
             {/* CONSEIL + IDÉE */}
+            {isPost ? null :
             <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'14px',marginBottom:'32px'}}>
               {dataR&&(
                 <div style={{background:'#FDECEA',borderRadius:'22px',padding:'24px 26px'}}>
@@ -970,6 +993,7 @@ function DashboardContent() {
               </div>
             </div>
 
+}
             {/* MISSIONS */}
             {missions.length>0&&(
               <div>
@@ -993,8 +1017,35 @@ function DashboardContent() {
           </div>
         )}
 
-        {/* ========== BÉBÉ ========== */}
-        {activeTab==='bebe' && data && sa && (
+        {/* ========== BÉBÉ / MON BÉBÉ ========== */}
+        {activeTab==='bebe' && (isPost ? (
+          dataBebe && (
+            <div style={{display:'flex',flexDirection:'column',gap:'16px'}}>
+              <div style={{background:C.blue,borderRadius:'22px',padding:'24px 28px'}}>
+                <p style={{color:'rgba(200,220,240,0.65)',fontSize:'10px',fontWeight:700,letterSpacing:'3px',textTransform:'uppercase' as const,margin:'0 0 8px'}}>Mon bébé · {dataBebe.titre}</p>
+                <p style={{color:C.white,fontSize:'22px',fontWeight:800,margin:'0 0 6px'}}>{dataBebe.intro}</p>
+              </div>
+              <p style={{color:'#0D6B40',fontSize:'10px',fontWeight:700,letterSpacing:'2px',textTransform:'uppercase' as const,margin:0}}>Développement</p>
+              {dataBebe.developpement.map((item,i)=>(
+                <div key={i} style={{background:'#E4F5EC',borderRadius:'18px',padding:'20px 22px'}}>
+                  <p style={{color:'#0A2E1A',fontSize:'15px',fontWeight:800,margin:'0 0 6px'}}>{item.titre}</p>
+                  <p style={{color:'#0A4A28',fontSize:'13px',lineHeight:1.75,margin:0}}>{item.contenu}</p>
+                </div>
+              ))}
+              <p style={{color:'#1A4A7A',fontSize:'10px',fontWeight:700,letterSpacing:'2px',textTransform:'uppercase' as const,margin:0}}>Santé & soins</p>
+              {dataBebe.sante.map((item,i)=>(
+                <div key={i} style={{background:'#E6F0FA',borderRadius:'18px',padding:'20px 22px'}}>
+                  <p style={{color:'#0A1E3A',fontSize:'15px',fontWeight:800,margin:'0 0 6px'}}>{item.titre}</p>
+                  <p style={{color:'#1A3A6A',fontSize:'13px',lineHeight:1.75,margin:0}}>{item.contenu}</p>
+                </div>
+              ))}
+              <div style={{background:'#FDECEA',borderRadius:'18px',padding:'18px 22px',borderLeft:'3px solid #A03030'}}>
+                <p style={{color:'#A03030',fontSize:'10px',fontWeight:700,letterSpacing:'2px',textTransform:'uppercase' as const,margin:'0 0 8px'}}>Signes à surveiller</p>
+                <p style={{color:'#3D0A0A',fontSize:'13px',lineHeight:1.7,margin:0}}>{dataBebe.alerte}</p>
+              </div>
+            </div>
+          )
+        ) : data && sa && (
           <div style={{display:'flex',flexDirection:'column',gap:'0'}}>
             <div style={{display:'flex',alignItems:'center',justifyContent:'space-between',marginBottom:'28px'}}>
               <div>
@@ -1079,10 +1130,31 @@ function DashboardContent() {
               </div>
             </div>
           </div>
-        )}
+        ))}
 
-        {/* ========== RDV ========== */}
-        {activeTab==='rdv'&&(
+        {/* ========== RDV / SANTÉ & RDV ========== */}
+        {activeTab==='rdv'&&(isPost ? (
+          dataBebe && (
+            <div style={{display:'flex',flexDirection:'column',gap:'16px'}}>
+              <div style={{background:C.dark,borderRadius:'22px',padding:'24px 28px'}}>
+                <p style={{color:'rgba(200,160,96,0.65)',fontSize:'10px',fontWeight:700,letterSpacing:'3px',textTransform:'uppercase' as const,margin:'0 0 8px'}}>Santé & RDV · {dataBebe.titre}</p>
+                <p style={{color:C.white,fontSize:'22px',fontWeight:800,margin:0}}>Tout ce qu'il faut surveiller ce mois-ci</p>
+              </div>
+              <div style={{background:'#FFF7E0',borderRadius:'18px',padding:'20px 22px'}}>
+                <p style={{color:'#8A6010',fontSize:'10px',fontWeight:700,letterSpacing:'2px',textTransform:'uppercase' as const,margin:'0 0 10px'}}>Rendez-vous médical</p>
+                <p style={{color:'#3A2800',fontSize:'14px',lineHeight:1.7,margin:0}}>{dataBebe.rdv}</p>
+              </div>
+              <div style={{background:'#E4F5EC',borderRadius:'18px',padding:'20px 22px'}}>
+                <p style={{color:'#0D6B40',fontSize:'10px',fontWeight:700,letterSpacing:'2px',textTransform:'uppercase' as const,margin:'0 0 10px'}}>Vaccins</p>
+                <p style={{color:'#0A4A28',fontSize:'14px',lineHeight:1.7,margin:0}}>{dataBebe.vaccins}</p>
+              </div>
+              <div style={{background:'#FDECEA',borderRadius:'18px',padding:'20px 22px',borderLeft:'3px solid #A03030'}}>
+                <p style={{color:'#A03030',fontSize:'10px',fontWeight:700,letterSpacing:'2px',textTransform:'uppercase' as const,margin:'0 0 10px'}}>Signes d'alerte urgents</p>
+                <p style={{color:'#3D0A0A',fontSize:'14px',lineHeight:1.75,margin:0}}>{dataBebe.alerte}</p>
+              </div>
+            </div>
+          )
+        ) : (
           <div style={{display:'flex',flexDirection:'column',gap:'0'}}>
             <div style={{marginBottom:'28px'}}>
               <h2 style={{color:C.dark,fontSize:'24px',fontWeight:800,margin:'0 0 4px',}}>Calendrier</h2>
@@ -1133,10 +1205,10 @@ function DashboardContent() {
               </div>
             </div>
           </div>
-        )}
+        ))}
 
         {/* ========== PRATIQUE ========== */}
-        {activeTab==='pratique'&&(
+        {!isPost&&activeTab==='pratique'&&(
           <div style={{display:'flex',flexDirection:'column',gap:'0'}}>
             <h2 style={{color:C.dark,fontSize:'24px',fontWeight:800,margin:'0 0 28px',}}>Pratique</h2>
 
@@ -1201,7 +1273,7 @@ function DashboardContent() {
         )}
 
         {/* ========== BONS PLANS ========== */}
-        {activeTab==='bonsplans'&&(
+        {!isPost&&activeTab==='bonsplans'&&(
           <div style={{display:'flex',flexDirection:'column',gap:'0'}}>
             <h2 style={{color:C.dark,fontSize:'24px',fontWeight:800,margin:'0 0 28px',}}>Bons plans</h2>
             {PARTENAIRES.map((cat,ci)=>(
@@ -1227,7 +1299,7 @@ function DashboardContent() {
         )}
 
         {/* ========== LA SUITE ========== */}
-        {activeTab==='lasuite'&&(
+        {!isPost&&activeTab==='lasuite'&&(
           <div style={{display:'flex',flexDirection:'column',gap:'20px'}}>
             <div>
               <p style={{color:'#5050B0',fontSize:'10px',fontWeight:700,letterSpacing:'2px',textTransform:'uppercase',margin:'0 0 6px'}}>Après la naissance</p>
