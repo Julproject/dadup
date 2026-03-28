@@ -501,7 +501,14 @@ import PostRDV from './components/PostRDV';
 function DashboardContent() {
   const searchParams = useSearchParams();
 
-  const [activeTab, setActiveTab] = useState('home');
+  const [activeTab, setActiveTabRaw] = useState('home');
+
+  const setActiveTab = (tab: string) => {
+    setActiveTabRaw(tab);
+    const url = new URL(window.location.href);
+    url.searchParams.set('tab', tab);
+    window.history.pushState({}, '', url.toString());
+  };
   const [dpa, setDpa] = useState('');
   const [prenom, setPrenom] = useState('');
   const [showOnboarding, setShowOnboarding] = useState(false);
@@ -522,6 +529,10 @@ function DashboardContent() {
     setDpa(d); setPrenom(p); setValiseChecked(v);
     setMissionsChecked(m); setRdvDates(r); setNextRdvDate(nr);
     if(!d) setShowOnboarding(true);
+    // Lire le tab depuis l'URL
+    const params = new URLSearchParams(window.location.search);
+    const tabFromUrl = params.get('tab');
+    if(tabFromUrl) setActiveTabRaw(tabFromUrl);
   },[]);
 
   const sa = getSA(avance?4:0);
