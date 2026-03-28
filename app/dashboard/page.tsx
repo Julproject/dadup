@@ -673,21 +673,21 @@ function DashboardContent() {
               <div style={{marginBottom:'0',background:'#FFF0E6',borderRadius:'22px',padding:'24px 26px'}}>
                 <p style={{color:'#C04A1A',fontSize:'10px',fontWeight:700,letterSpacing:'2px',textTransform:'uppercase',margin:'0 0 12px'}}>Ce que vit maman</p>
                 <p style={{color:'#3D1A0A',fontSize:'18px',fontWeight:800,margin:'0 0 12px',lineHeight:1.3}}>{dataR.maman_titre}</p>
-                <p style={{color:C.text,fontSize:'14px',lineHeight:1.8,margin:'0 0 20px'}}>{dataR.maman}</p>
-                <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'12px',marginBottom:'20px'}}>
-                <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'10px',marginBottom:'18px'}}>
-                  <div style={{background:'rgba(255,255,255,0.6)',borderRadius:'14px',padding:'14px',border:'none'}}>
+                <p style={{color:'#7A3010',fontSize:'14px',lineHeight:1.8,margin:'0 0 16px'}}>{dataR.maman}</p>
+                <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'10px',marginBottom:'16px'}}>
+                  <div style={{background:'rgba(255,255,255,0.65)',borderRadius:'14px',padding:'14px'}}>
                     <p style={{color:'#C04A1A',fontSize:'10px',fontWeight:700,letterSpacing:'1px',textTransform:'uppercase',margin:'0 0 6px'}}>Tu peux aider</p>
                     <p style={{color:'#7A3010',fontSize:'13px',lineHeight:1.6,margin:0}}>{dataR.maman_aide}</p>
-                  <div style={{background:C.white,borderRadius:'14px',padding:'16px',border:`1px solid ${C.border}`}}>
-                  <div style={{background:'rgba(255,255,255,0.6)',borderRadius:'14px',padding:'14px',border:'none'}}>
+                  </div>
+                  <div style={{background:'rgba(255,255,255,0.65)',borderRadius:'14px',padding:'14px'}}>
                     <p style={{color:'#C04A1A',fontSize:'10px',fontWeight:700,letterSpacing:'1px',textTransform:'uppercase',margin:'0 0 6px'}}>Le savoir</p>
                     <p style={{color:'#7A3010',fontSize:'13px',lineHeight:1.6,margin:0}}>{dataR.maman_signe}</p>
+                  </div>
                 </div>
-                <div style={{borderLeft:`3px solid ${C.gold}`,paddingLeft:'16px'}}>
-                <div style={{borderLeft:'3px solid #C04A1A',paddingLeft:'14px',borderRadius:0}}>
+                <div style={{borderLeft:'3px solid #C04A1A',paddingLeft:'14px'}}>
                   <p style={{color:'#3D1A0A',fontSize:'13px',fontWeight:700,margin:'0 0 5px'}}>Quand appeler ?</p>
                   <p style={{color:'#7A3010',fontSize:'13px',lineHeight:1.6,margin:0}}>{dataR.alerte}</p>
+                </div>
               </div>
             )}
 
@@ -698,7 +698,7 @@ function DashboardContent() {
                 <p style={{color:'#fff',fontSize:'17px',fontWeight:700,lineHeight:1.55,margin:0,fontStyle:'italic'}}>&#34;{dataR.savistu}&#34;</p>
               </div>
             )}
-                      {/* À SAVOIR */}
+            {/* À SAVOIR */}
             {dataR&&(
               <div style={{marginBottom:'0',background:'#E0F5F0',borderRadius:'22px',padding:'24px 26px'}}>
                 <p style={{color:'#0A6050',fontSize:'10px',fontWeight:700,letterSpacing:'2px',textTransform:'uppercase',margin:'0 0 12px'}}>À savoir cette semaine</p>
