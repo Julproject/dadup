@@ -4,14 +4,18 @@ import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 
 const C = {
-  dark: '#1e2535',
-  gold: '#c8a060',
-  cream: '#faf6f0',
+  dark: '#0E6B7A',
+  darkDeep: '#0A5260',
+  gold: '#F4A462',
+  cream: '#F0F8F9',
   white: '#ffffff',
-  border: '#e8e0d0',
-  text: '#4a5568',
-  textLight: '#9aa0a8',
-  bg: '#f8f7f4',
+  border: 'rgba(14,107,122,0.12)',
+  text: '#1A3A42',
+  textLight: '#5A8A95',
+  bg: '#F0F8F9',
+  green: '#2EAE8E',
+  greenLight: '#D6EFF2',
+  sandLight: '#FDE8D8',
 };
 
 interface SAData {
@@ -517,106 +521,79 @@ function DashboardContent() {
   const saveRdvI = (s: number, v: string) => { const u={...rdvDates,[s]:v}; setRdvDates(u); localStorage.setItem('dadup_rdv_dates',JSON.stringify(u)); };
   const saveOnb = (d: string, p: string) => { localStorage.setItem('dadup_dpa',d); localStorage.setItem('dadup_prenom',p); setDpa(d); setPrenom(p); setShowOnboarding(false); };
 
-  const tabs = [{id:'home',label:'Accueil'},{id:'bebe',label:'Bébé'},{id:'rdv',label:'RDV'},{id:'pratique',label:'Pratique'},{id:'bonsplans',label:'Bons plans'}];
-
   if (showOnboarding) return <Onboarding onSave={saveOnb}/>;
 
-
   const navTabs = [
-    {id:'home', label:'Accueil'},
-    {id:'bebe', label:'Bébé'},
-    {id:'rdv', label:'RDV'},
-    {id:'pratique', label:'Pratique'},
-    {id:'bonsplans', label:'Bons plans'},
+    {id:'home',label:'Accueil'},
+    {id:'bebe',label:'Bébé'},
+    {id:'rdv',label:'RDV'},
+    {id:'pratique',label:'Pratique'},
+    {id:'bonsplans',label:'Bons plans'},
   ];
 
-  const NavIcon = ({id}: {id: string}) => {
-    if (id === 'home') return <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>;
-    if (id === 'bebe') return <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>;
-    if (id === 'rdv') return <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>;
-    if (id === 'pratique') return <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>;
-    return <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>;
+  const NavIcon = ({id}:{id:string}) => {
+    if(id==='home') return <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>;
+    if(id==='bebe') return <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>;
+    if(id==='rdv') return <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>;
+    if(id==='pratique') return <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>;
+    return <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>;
   };
 
+
   return (
-    <div style={{minHeight:'100vh',background:C.bg,display:'flex',fontFamily:'-apple-system,BlinkMacSystemFont,sans-serif'}}>
+    <div style={{minHeight:'100vh',background:C.bg,fontFamily:'-apple-system,BlinkMacSystemFont,sans-serif'}}>
       <style>{`
-        @media(max-width:900px){
-          .dsb{display:none!important;}
-          .dtb{display:flex!important;}
-          .dmt{display:flex!important;}
-          .dmc{padding:20px 16px!important;}
+        @media(max-width:860px){
+          .dd-tb{display:flex!important;}
+          .dd-c{padding:20px 16px!important;}
         }
       `}</style>
 
-      {/* SIDEBAR DESKTOP */}
-      <aside className="dsb" style={{width:'240px',flexShrink:0,background:C.dark,display:'flex',flexDirection:'column',padding:'24px 18px',position:'sticky',top:0,height:'100vh',overflowY:'auto'}}>
-        <div style={{display:'flex',alignItems:'center',gap:'10px',marginBottom:'22px'}}>
-          <svg viewBox="0 0 300 300" width="36" height="36">
-            <circle cx="150" cy="150" r="145" fill="#3a4f6e"/>
-            <circle cx="150" cy="150" r="122" fill="#4a6080"/>
-            <ellipse cx="150" cy="205" rx="58" ry="54" fill="#c8a060"/>
-            <circle cx="150" cy="112" r="40" fill="#c8a060"/>
-            <ellipse cx="150" cy="196" rx="27" ry="31" fill="#faf6f0"/>
-            <circle cx="150" cy="128" r="26" fill="#faf6f0"/>
-          </svg>
-          <div>
-            <p style={{color:'#fff',fontSize:'16px',fontWeight:800,fontFamily:'Georgia,serif',lineHeight:1,margin:0}}>DadUp</p>
-            <small style={{color:'rgba(200,160,96,0.5)',fontSize:'9px',letterSpacing:'1.5px',display:'block',marginTop:'3px'}}>GUIDE DU FUTUR PAPA</small>
-          </div>
-        </div>
-        <div style={{background:'rgba(255,255,255,0.06)',border:'1px solid rgba(255,255,255,0.09)',borderRadius:'12px',padding:'8px 12px',display:'flex',alignItems:'center',justifyContent:'space-between',gap:'8px',marginBottom:'26px'}}>
-          <div>
-            <p style={{color:'#fff',fontSize:'13px',fontWeight:800,fontFamily:'Georgia,serif',lineHeight:1,margin:0}}>{prenom||'DadUp'}</p>
-            <p style={{color:'rgba(255,255,255,0.3)',fontSize:'10px',margin:'2px 0 0'}}>{tri} · {joursRestants&&joursRestants>0?joursRestants+'j restants':'Bientôt !'}</p>
-          </div>
-          {saReelle&&<div style={{background:C.gold,borderRadius:'8px',padding:'5px 9px',textAlign:'center',flexShrink:0}}>
-            <span style={{color:C.dark,fontSize:'12px',fontWeight:800,lineHeight:1,display:'block'}}>{saReelle} SA</span>
-            <span style={{color:'rgba(30,37,53,0.55)',fontSize:'8px',fontWeight:700,letterSpacing:'1px',display:'block'}}>{tri}</span>
-          </div>}
-        </div>
-        {navTabs.map(n=>(
-          <button key={n.id} onClick={()=>setActiveTab(n.id)} style={{display:'flex',alignItems:'center',gap:'10px',padding:'10px 12px',borderRadius:'10px',cursor:'pointer',marginBottom:'2px',color:activeTab===n.id?C.gold:'rgba(255,255,255,0.38)',fontSize:'13px',fontWeight:activeTab===n.id?700:500,border:'none',background:activeTab===n.id?'rgba(200,160,96,0.12)':'none',width:'100%',textAlign:'left' as const}}>
-            <NavIcon id={n.id}/>{n.label}
-          </button>
-        ))}
-        <div style={{marginTop:'auto',paddingTop:'18px',borderTop:'1px solid rgba(255,255,255,0.06)'}}>
-          <div style={{background:'rgba(255,255,255,0.07)',borderRadius:'3px',height:'3px',marginBottom:'6px'}}>
-            <div style={{background:C.gold,height:'3px',borderRadius:'3px',width:prog+'%'}}/>
-          </div>
-          <div style={{display:'flex',justifyContent:'space-between'}}>
-            <span style={{color:'rgba(255,255,255,0.25)',fontSize:'10px'}}>{saReelle||0} SA</span>
-            <strong style={{color:'rgba(200,160,96,0.6)',fontSize:'10px'}}>{prog}%</strong>
-          </div>
-        </div>
-      </aside>
+      {/* TOPBAR */}
+      <div style={{background:C.white,borderBottom:`1px solid ${C.border}`,position:'sticky',top:0,zIndex:40}}>
 
-      {/* MAIN */}
-      <main style={{flex:1,minWidth:0,display:'flex',flexDirection:'column',overflowY:'auto'}}>
-
-        {/* TOPBAR MOBILE */}
-        <div className="dtb" style={{display:'none',position:'sticky',top:0,zIndex:40,background:C.cream,borderBottom:`1px solid ${C.border}`,padding:'12px 16px',alignItems:'center',justifyContent:'space-between'}}>
-          <svg viewBox="0 0 300 300" width="32" height="32">
-            <circle cx="150" cy="150" r="145" fill="#3a4f6e"/>
-            <circle cx="150" cy="150" r="122" fill="#4a6080"/>
-            <ellipse cx="150" cy="205" rx="58" ry="54" fill="#c8a060"/>
-            <circle cx="150" cy="112" r="40" fill="#c8a060"/>
-            <ellipse cx="150" cy="196" rx="27" ry="31" fill="#faf6f0"/>
-            <circle cx="150" cy="128" r="26" fill="#faf6f0"/>
-          </svg>
-          <div style={{display:'flex',alignItems:'center',gap:'8px',background:C.white,border:`1px solid ${C.border}`,borderRadius:'12px',padding:'6px 10px'}}>
-            <span style={{color:C.dark,fontSize:'14px',fontWeight:800,fontFamily:'Georgia,serif'}}>{prenom||'DadUp'}</span>
-            {saReelle&&<div style={{background:C.dark,borderRadius:'8px',padding:'4px 8px'}}><span style={{color:C.gold,fontSize:'11px',fontWeight:800}}>{saReelle} SA</span></div>}
+        {/* LIGNE 1 : logo + profil */}
+        <div style={{display:'flex',alignItems:'center',justifyContent:'space-between',padding:'12px 24px'}}>
+          <div style={{display:'flex',alignItems:'center',gap:'10px'}}>
+            <svg viewBox="0 0 300 300" width="34" height="34">
+              <circle cx="150" cy="150" r="145" fill="#0A5260"/>
+              <circle cx="150" cy="150" r="122" fill="#0E6B7A"/>
+              <ellipse cx="150" cy="205" rx="58" ry="54" fill="#F4A462"/>
+              <circle cx="150" cy="112" r="40" fill="#F4A462"/>
+              <ellipse cx="150" cy="196" rx="27" ry="31" fill="#F0F8F9"/>
+              <circle cx="150" cy="128" r="26" fill="#F0F8F9"/>
+            </svg>
+            <span style={{fontSize:'18px',fontWeight:800,color:C.dark,letterSpacing:'-0.3px'}}>DadUp</span>
+          </div>
+          <div style={{display:'flex',flexDirection:'column',alignItems:'flex-end',gap:'5px'}}>
+            <div style={{display:'flex',alignItems:'center',gap:'8px',background:C.greenLight,borderRadius:'22px',padding:'6px 8px 6px 14px'}}>
+              <span style={{fontSize:'14px',fontWeight:700,color:C.dark}}>{prenom||'DadUp'}</span>
+              <div style={{background:C.dark,color:C.white,fontSize:'11px',fontWeight:800,padding:'5px 10px',borderRadius:'14px',textAlign:'center',lineHeight:1.2}}>
+                <span style={{display:'block'}}>{saReelle} SA</span>
+                <small style={{display:'block',fontSize:'8px',color:'rgba(240,248,249,0.65)',fontWeight:600,letterSpacing:'0.5px'}}>{tri}</small>
+              </div>
+            </div>
+            <div style={{display:'flex',alignItems:'center',gap:'6px'}}>
+              <div style={{width:'72px',height:'4px',background:C.greenLight,borderRadius:'4px',overflow:'hidden'}}>
+                <div style={{height:'4px',background:C.green,borderRadius:'4px',width:prog+'%'}}/>
+              </div>
+              <span style={{fontSize:'11px',fontWeight:700,color:C.green}}>{prog}%</span>
+            </div>
           </div>
         </div>
-        <div className="dmt" style={{display:'none',gap:'6px',overflowX:'auto',padding:'10px 16px',background:C.cream,borderBottom:`1px solid ${C.border}`}}>
+
+        {/* LIGNE 2 : onglets navigation */}
+        <div style={{display:'flex',gap:'6px',padding:'0 20px 12px',overflowX:'auto'}}>
           {navTabs.map(n=>(
-            <button key={n.id} onClick={()=>setActiveTab(n.id)} style={{padding:'7px 14px',fontSize:'12px',fontWeight:activeTab===n.id?700:400,color:activeTab===n.id?C.gold:C.textLight,background:activeTab===n.id?C.dark:C.white,border:activeTab===n.id?'none':`1px solid ${C.border}`,borderRadius:'20px',cursor:'pointer',whiteSpace:'nowrap' as const,flexShrink:0}}>{n.label}</button>
+            <button key={n.id} onClick={()=>setActiveTab(n.id)} style={{display:'flex',alignItems:'center',gap:'6px',padding:'8px 18px',fontSize:'13px',fontWeight:700,border:'none',borderRadius:'22px',cursor:'pointer',whiteSpace:'nowrap' as const,flexShrink:0,transition:'all 0.15s',background:activeTab===n.id?C.dark:C.greenLight,color:activeTab===n.id?C.white:C.dark}}>
+              {n.label}
+            </button>
           ))}
         </div>
+      </div>
 
-        {/* CONTENU */}
-        <div className="dmc" style={{padding:'32px 40px',flex:1}}>
+      {/* CONTENU */}
+      <div className="dd-c" style={{maxWidth:'860px',margin:'0 auto',padding:'28px 24px'}}>
 
 
         {/* ========== ACCUEIL ========== */}
@@ -636,7 +613,7 @@ function DashboardContent() {
                     <div style={{fontSize:'140px',lineHeight:1}}>{dataR.emoji}</div>
                   </div>
                   <div style={{position:'relative'}}>
-                    <p style={{color:'rgba(200,160,96,0.6)',fontSize:'10px',letterSpacing:'3px',textTransform:'uppercase',margin:'0 0 10px',fontWeight:600}}>{saReelle} semaines · {tri}</p>
+                    <p style={{color:'rgba(244,164,98,0.6)',fontSize:'10px',letterSpacing:'3px',textTransform:'uppercase',margin:'0 0 10px',fontWeight:600}}>{saReelle} semaines · {tri}</p>
                     <p style={{color:C.white,fontSize:'32px',fontWeight:800,margin:0,fontFamily:'Georgia,serif',lineHeight:1.1}}>Bébé fait</p>
                     <p style={{color:C.gold,fontSize:'48px',fontWeight:800,margin:0,fontFamily:'Georgia,serif',lineHeight:1}}>{dataR.taille}</p>
                     <p style={{color:'rgba(255,255,255,0.4)',fontSize:'15px',margin:'6px 0 0'}}>et pèse environ {dataR.poids}</p>
@@ -647,7 +624,7 @@ function DashboardContent() {
                   {[['Taille',dataR.taille,false],['Poids',dataR.poids,false],['Progression',prog+'%',true]].map(([l,v,g])=>(
                     <div key={String(l)} style={{padding:'16px',textAlign:'center',borderRight:'1px solid rgba(255,255,255,0.08)'}}>
                       <p style={{color:'rgba(255,255,255,0.35)',fontSize:'9px',textTransform:'uppercase',letterSpacing:'1px',margin:'0 0 5px'}}>{String(l)}</p>
-                      <p style={{color:g?C.gold:'#fff',fontSize:'16px',fontWeight:800,margin:0}}>{String(v)}</p>
+                      <p style={{color:g?C.green:'#fff',fontSize:'16px',fontWeight:800,margin:0}}>{String(v)}</p>
                     </div>
                   ))}
                 </div>
@@ -664,7 +641,7 @@ function DashboardContent() {
                     <p style={{color:C.dark,fontSize:'17px',fontWeight:800,margin:'0 0 2px',fontFamily:'Georgia,serif'}}>{nextRdv.titre}</p>
                     <p style={{color:C.textLight,fontSize:'13px',margin:0}}>{nextRdv.sa} SA{dpa?' · '+new Date(new Date(dpa).getTime()-(40-nextRdv.sa)*7*24*60*60*1000).toLocaleDateString('fr-FR',{day:'numeric',month:'long'}):''}</p>
                   </div>
-                  {dpa&&<div style={{background:'rgba(200,160,96,0.12)',borderRadius:'12px',padding:'8px 12px',textAlign:'center',flexShrink:0}}>
+                  {dpa&&<div style={{background:'rgba(244,164,98,0.12)',borderRadius:'12px',padding:'8px 12px',textAlign:'center',flexShrink:0}}>
                     <p style={{color:C.gold,fontSize:'20px',fontWeight:800,margin:0,lineHeight:1}}>{Math.max(0,Math.round((new Date(dpa).getTime()-(40-nextRdv.sa)*7*24*60*60*1000-new Date().getTime())/(1000*60*60*24)))}j</p>
                   </div>}
                 </div>
@@ -702,7 +679,7 @@ function DashboardContent() {
             {/* LE SAVAIS-TU */}
             {dataR&&(
               <div style={{background:C.dark,borderRadius:'24px',padding:'28px',marginBottom:'32px'}}>
-                <p style={{color:'rgba(200,160,96,0.6)',fontSize:'10px',letterSpacing:'2px',textTransform:'uppercase',margin:'0 0 14px',fontWeight:600}}>Le savais-tu ?</p>
+                <p style={{color:'rgba(244,164,98,0.6)',fontSize:'10px',letterSpacing:'2px',textTransform:'uppercase',margin:'0 0 14px',fontWeight:600}}>Le savais-tu ?</p>
                 <p style={{color:C.white,fontSize:'18px',fontWeight:600,lineHeight:1.55,margin:0,fontFamily:'Georgia,serif'}}>"{dataR.savistu}"</p>
               </div>
             )}
@@ -742,7 +719,7 @@ function DashboardContent() {
                     const done=missionsChecked[id];
                     return(
                       <button key={id} onClick={()=>toggleM(id)} style={{display:'flex',gap:'14px',alignItems:'center',background:C.white,border:`1px solid ${C.border}`,cursor:'pointer',textAlign:'left',padding:'16px 18px',borderRadius:'14px'}}>
-                        <div style={{width:'22px',height:'22px',borderRadius:'6px',border:`2px solid ${done?C.gold:C.border}`,background:done?C.gold:'transparent',display:'flex',alignItems:'center',justifyContent:'center',flexShrink:0}}>
+                        <div style={{width:'22px',height:'22px',borderRadius:'6px',border:`2px solid ${done?C.green:C.border}`,background:done?C.green:'transparent',display:'flex',alignItems:'center',justifyContent:'center',flexShrink:0}}>
                           {done&&<span style={{color:C.dark,fontSize:'12px',fontWeight:700}}>✓</span>}
                         </div>
                         <p style={{color:done?C.textLight:C.dark,fontSize:'13px',margin:0,lineHeight:1.4,textDecoration:done?'line-through':'none'}}>{m}</p>
@@ -775,7 +752,7 @@ function DashboardContent() {
                   <div style={{fontSize:'130px',lineHeight:1}}>{data.emoji}</div>
                 </div>
                 <div style={{position:'relative'}}>
-                  <p style={{color:'rgba(200,160,96,0.6)',fontSize:'10px',letterSpacing:'2px',textTransform:'uppercase',margin:'0 0 8px',fontWeight:600}}>{sa} SA · {tri}</p>
+                  <p style={{color:'rgba(244,164,98,0.6)',fontSize:'10px',letterSpacing:'2px',textTransform:'uppercase',margin:'0 0 8px',fontWeight:600}}>{sa} SA · {tri}</p>
                   <p style={{color:C.white,fontSize:'15px',margin:'0 0 4px',opacity:0.65}}>{data.titre}</p>
                   <p style={{color:C.gold,fontSize:'46px',fontWeight:800,margin:0,fontFamily:'Georgia,serif',lineHeight:1}}>{data.taille}</p>
                   <p style={{color:'rgba(255,255,255,0.35)',fontSize:'16px',margin:'6px 0 0'}}>{data.poids}</p>
@@ -821,7 +798,7 @@ function DashboardContent() {
 
             {/* ANECDOTE — citation */}
             <div style={{background:C.dark,borderRadius:'24px',padding:'28px',marginBottom:'28px'}}>
-              <p style={{color:'rgba(200,160,96,0.6)',fontSize:'10px',letterSpacing:'2px',textTransform:'uppercase',margin:'0 0 14px',fontWeight:600}}>Anecdote scientifique</p>
+              <p style={{color:'rgba(244,164,98,0.6)',fontSize:'10px',letterSpacing:'2px',textTransform:'uppercase',margin:'0 0 14px',fontWeight:600}}>Anecdote scientifique</p>
               <p style={{color:C.white,fontSize:'17px',fontWeight:600,lineHeight:1.6,margin:0,fontFamily:'Georgia,serif'}}>"{data.savistu}"</p>
             </div>
 
@@ -868,7 +845,7 @@ function DashboardContent() {
                             <div>
                               <div style={{display:'flex',alignItems:'center',gap:'6px'}}>
                                 <p style={{color:s==='prochain'?C.white:C.dark,fontSize:'13px',fontWeight:700,margin:0}}>{r.titre}</p>
-                                {r.oblig&&<span style={{background:s==='prochain'?'rgba(200,160,96,0.2)':'#f8f7f4',color:C.gold,fontSize:'9px',fontWeight:700,padding:'2px 6px',borderRadius:'8px'}}>obligatoire</span>}
+                                {r.oblig&&<span style={{background:s==='prochain'?'rgba(244,164,98,0.2)':'#f8f7f4',color:C.gold,fontSize:'9px',fontWeight:700,padding:'2px 6px',borderRadius:'8px'}}>obligatoire</span>}
                               </div>
                               <p style={{color:C.textLight,fontSize:'11px',margin:0}}>{r.sa} SA{dpa?' · '+rd:''}</p>
                             </div>
@@ -878,7 +855,7 @@ function DashboardContent() {
                         {rdvOuvert===i&&(
                           <div style={{marginTop:'12px',paddingTop:'12px',borderTop:`1px solid ${s==='prochain'?'rgba(255,255,255,0.1)':C.border}`}}>
                             <p style={{color:s==='prochain'?'rgba(255,255,255,0.65)':C.text,fontSize:'13px',lineHeight:1.6,margin:'0 0 12px'}}>{r.desc}</p>
-                            <a href="https://www.doctolib.fr" target="_blank" rel="noopener noreferrer" style={{display:'inline-flex',alignItems:'center',gap:'6px',background:s==='prochain'?'rgba(200,160,96,0.15)':C.cream,color:s==='prochain'?C.gold:C.dark,fontSize:'12px',fontWeight:700,padding:'8px 14px',borderRadius:'20px',textDecoration:'none',border:s==='prochain'?'none':`1px solid ${C.border}`}}>
+                            <a href="https://www.doctolib.fr" target="_blank" rel="noopener noreferrer" style={{display:'inline-flex',alignItems:'center',gap:'6px',background:s==='prochain'?'rgba(244,164,98,0.15)':C.cream,color:s==='prochain'?C.gold:C.dark,fontSize:'12px',fontWeight:700,padding:'8px 14px',borderRadius:'20px',textDecoration:'none',border:s==='prochain'?'none':`1px solid ${C.border}`}}>
                               📅 Prendre RDV sur Doctolib
                             </a>
                             <div style={{marginTop:'12px'}}>
@@ -1005,8 +982,7 @@ function DashboardContent() {
           </div>
         )}
 
-        </div>
-      </main>
+      </div>
     </div>
   );
 }
@@ -1020,12 +996,12 @@ function Onboarding({onSave}:{onSave:(d:string,p:string)=>void}) {
       <div style={{maxWidth:'420px',width:'100%'}}>
         <div style={{display:'flex',justifyContent:'center',marginBottom:'28px'}}>
           <svg viewBox="0 0 300 300" width="64" height="64">
-            <circle cx="150" cy="150" r="145" fill="#3a4f6e"/>
-            <circle cx="150" cy="150" r="122" fill="#4a6080"/>
-            <ellipse cx="150" cy="205" rx="58" ry="54" fill="#c8a060"/>
-            <circle cx="150" cy="112" r="40" fill="#c8a060"/>
-            <ellipse cx="150" cy="196" rx="27" ry="31" fill="#faf6f0"/>
-            <circle cx="150" cy="128" r="26" fill="#faf6f0"/>
+            <circle cx="150" cy="150" r="145" fill="#0A5260"/>
+            <circle cx="150" cy="150" r="122" fill="#0E6B7A"/>
+            <ellipse cx="150" cy="205" rx="58" ry="54" fill="#F4A462"/>
+            <circle cx="150" cy="112" r="40" fill="#F4A462"/>
+            <ellipse cx="150" cy="196" rx="27" ry="31" fill="#F0F8F9"/>
+            <circle cx="150" cy="128" r="26" fill="#F0F8F9"/>
           </svg>
         </div>
         <div style={{background:C.white,borderRadius:'24px',padding:'28px',border:`1px solid ${C.border}`}}>
