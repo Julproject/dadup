@@ -8,6 +8,9 @@ const C = {
   border: '#e8e0d0',
   text: '#4a5568',
   textLight: '#9aa0a8',
+  blue: '#2E5F8A',
+  bluePale: '#E6F0FA',
+  blueDark: '#1A3D5C',
 };
 
 function Nav() {
@@ -23,7 +26,7 @@ function Nav() {
             <ellipse cx="150" cy="196" rx="27" ry="31" fill="#faf6f0"/>
             <circle cx="150" cy="128" r="26" fill="#faf6f0"/>
           </svg>
-          <span style={{fontWeight:800, color:C.dark, fontSize:'20px', fontFamily:'Georgia,serif'}}>DadUp</span>
+          <span style={{fontWeight:800, color:C.dark, fontSize:'20px'}}>DadUp</span>
         </a>
         <div style={{display:'flex', gap:'4px'}}>
           <a href="/pourquoi" style={{color:C.text, fontSize:'14px', fontWeight:500, padding:'8px 14px', borderRadius:'8px', textDecoration:'none'}}>Pourquoi DadUp</a>
@@ -52,7 +55,7 @@ function Footer() {
           <ellipse cx="150" cy="196" rx="27" ry="31" fill="#faf6f0"/>
           <circle cx="150" cy="128" r="26" fill="#faf6f0"/>
         </svg>
-        <span style={{color:C.white, fontSize:'16px', fontWeight:700, fontFamily:'Georgia,serif'}}>DadUp</span>
+        <span style={{color:C.white, fontSize:'16px', fontWeight:700}}>DadUp</span>
       </div>
       <p style={{color:'#6a7585', fontSize:'12px', margin:0}}>DadUp est un outil d'information. Il ne remplace pas l'avis d'un medecin.</p>
     </footer>
@@ -84,13 +87,13 @@ export default function TarifsPage() {
   ];
 
   return (
-    <main style={{minHeight:'100vh', background:C.white, fontFamily:'sans-serif'}}>
+    <main style={{minHeight:'100vh', background:C.white, fontFamily:"-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"}}>
       <Nav/>
 
       <section style={{background:C.dark, padding:'80px 40px'}}>
         <div style={{maxWidth:'800px', margin:'0 auto', textAlign:'center'}}>
-          <p style={{color:C.gold, fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase', margin:'0 0 16px'}}>Tarifs</p>
-          <h1 style={{color:C.white, fontSize:'52px', fontWeight:800, margin:'0 0 24px', lineHeight:1.1, fontFamily:'Georgia,serif'}}>
+          <p style={{color:C.blue, fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase', margin:'0 0 16px'}}>Tarifs</p>
+          <h1 style={{color:C.white, fontSize:'52px', fontWeight:800, margin:'0 0 24px', lineHeight:1.1}}>
             Simple.<br/><span style={{color:C.gold}}>Transparent.</span>
           </h1>
           <p style={{color:'#6a7585', fontSize:'18px', lineHeight:1.7, margin:0}}>Une offre. Un prix. Tout inclus.</p>
@@ -100,8 +103,8 @@ export default function TarifsPage() {
       <section style={{padding:'80px 40px', maxWidth:'1200px', margin:'0 auto'}}>
         <div style={{display:'grid', gridTemplateColumns:'1fr 1fr', gap:'32px', alignItems:'start'}}>
           <div style={{background:C.dark, borderRadius:'28px', padding:'48px'}}>
-            <p style={{color:C.gold, fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase', margin:'0 0 16px'}}>Acces annuel complet</p>
-            <p style={{color:C.white, fontSize:'72px', fontWeight:800, margin:'0 0 4px', fontFamily:'Georgia,serif', lineHeight:1}}>29,99€</p>
+            <p style={{color:C.blue, fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase', margin:'0 0 16px'}}>Acces annuel complet</p>
+            <p style={{color:C.white, fontSize:'72px', fontWeight:800, margin:'0 0 4px', lineHeight:1}}>29,99€</p>
             <p style={{color:'#6a7585', fontSize:'15px', margin:'0 0 40px'}}>par an · sans engagement</p>
             <div style={{display:'flex', flexDirection:'column', gap:'14px', marginBottom:'40px'}}>
               {[
@@ -129,7 +132,7 @@ export default function TarifsPage() {
 
           <div style={{display:'flex', flexDirection:'column', gap:'20px'}}>
             <div style={{background:C.cream, borderRadius:'20px', padding:'28px', border:`1px solid ${C.border}`}}>
-              <p style={{color:C.gold, fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase', margin:'0 0 16px'}}>Pourquoi 29,99€/an ?</p>
+              <p style={{color:C.blue, fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase', margin:'0 0 16px'}}>Pourquoi 29,99€/an ?</p>
               <div style={{display:'flex', flexDirection:'column', gap:'12px'}}>
                 {[
                   {label:"1 livre de grossesse", prix:"15-25€", note:"pour la maman seulement"},
@@ -137,10 +140,10 @@ export default function TarifsPage() {
                   {label:"1 consultation sage-femme", prix:"50-90€", note:"30 minutes"},
                   {label:"DadUp — toute la grossesse", prix:"29,99€", note:"tout inclus, toute l'annee", highlight:true},
                 ].map((item, i) => (
-                  <div key={i} style={{display:'flex', alignItems:'center', justifyContent:'space-between', padding:'12px 16px', background: item.highlight ? C.dark : C.white, borderRadius:'12px', border: item.highlight ? 'none' : `1px solid ${C.border}`}}>
+                  <div key={i} style={{display:'flex', alignItems:'center', justifyContent:'space-between', padding:'12px 16px', background: item.highlight ? C.blueDark : C.white, borderRadius:'12px', border: item.highlight ? 'none' : `1px solid ${C.border}`}}>
                     <div>
                       <p style={{color: item.highlight ? C.white : C.dark, fontSize:'13px', fontWeight:700, margin:0}}>{item.label}</p>
-                      <p style={{color: item.highlight ? C.gold : C.textLight, fontSize:'11px', margin:'2px 0 0'}}>{item.note}</p>
+                      <p style={{color: item.highlight ? '#95C0D0' : C.textLight, fontSize:'11px', margin:'2px 0 0'}}>{item.note}</p>
                     </div>
                     <p style={{color: item.highlight ? C.gold : C.text, fontSize:'15px', fontWeight:800, margin:0}}>{item.prix}</p>
                   </div>
@@ -148,12 +151,12 @@ export default function TarifsPage() {
               </div>
             </div>
 
-            <div style={{background:C.cream, borderRadius:'20px', padding:'28px', border:`1px solid ${C.border}`}}>
-              <p style={{color:C.dark, fontSize:'16px', fontWeight:800, margin:'0 0 8px', fontFamily:'Georgia,serif'}}>Satisfaction garantie</p>
+            <div style={{background:C.bluePale, borderRadius:'20px', padding:'28px', border:`1px solid rgba(46,95,138,0.15)`}}>
+              <p style={{color:C.dark, fontSize:'16px', fontWeight:800, margin:'0 0 8px'}}>Satisfaction garantie</p>
               <p style={{color:C.text, fontSize:'14px', lineHeight:1.6, margin:'0 0 16px'}}>Si DadUp ne t'apporte pas ce que tu esperais dans les 7 premiers jours, on te rembourse. Sans question.</p>
               <div style={{display:'flex', gap:'8px', alignItems:'center'}}>
                 <span style={{fontSize:'20px'}}>🔒</span>
-                <p style={{color:'#3a4f6e', fontSize:'13px', margin:0, fontWeight:600}}>Paiement securise · Donnees protegees · RGPD</p>
+                <p style={{color:C.blue, fontSize:'13px', margin:0, fontWeight:600}}>Paiement securise · Donnees protegees · RGPD</p>
               </div>
             </div>
           </div>
@@ -163,8 +166,8 @@ export default function TarifsPage() {
       <section style={{background:C.cream, padding:'80px 40px', borderTop:`1px solid ${C.border}`}}>
         <div style={{maxWidth:'800px', margin:'0 auto'}}>
           <div style={{textAlign:'center', marginBottom:'48px'}}>
-            <p style={{color:C.gold, fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase', margin:'0 0 12px'}}>FAQ</p>
-            <h2 style={{fontSize:'38px', fontWeight:800, color:C.dark, margin:0, fontFamily:'Georgia,serif'}}>Questions frequentes</h2>
+            <p style={{color:C.blue, fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase', margin:'0 0 12px'}}>FAQ</p>
+            <h2 style={{fontSize:'38px', fontWeight:800, color:C.dark, margin:0}}>Questions frequentes</h2>
           </div>
           <div style={{display:'flex', flexDirection:'column', gap:'12px'}}>
             {faq.map((item, i) => (
@@ -177,8 +180,8 @@ export default function TarifsPage() {
         </div>
       </section>
 
-      <section style={{background:C.dark, padding:'80px 40px', textAlign:'center'}}>
-        <h2 style={{color:C.white, fontSize:'38px', fontWeight:800, margin:'0 0 12px', fontFamily:'Georgia,serif'}}>Pret a commencer ?</h2>
+      <section style={{background:C.dark, padding:'80px 40px', textAlign:'center' as const}}>
+        <h2 style={{color:C.white, fontSize:'38px', fontWeight:800, margin:'0 0 12px'}}>Pret a commencer ?</h2>
         <p style={{color:'#6a7585', fontSize:'16px', margin:'0 0 32px'}}>Rejoins les papas qui se preparent vraiment.</p>
         <button onClick={goToStripe} style={{background:C.gold, color:'#1c1510', border:'none', padding:'16px 40px', borderRadius:'32px', fontSize:'15px', fontWeight:800, cursor:'pointer'}}>Commencer — 29,99€/an</button>
       </section>
