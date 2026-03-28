@@ -710,14 +710,12 @@ function DashboardContent() {
             {/* CONSEIL + IDÉE */}
             <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'14px',marginBottom:'32px'}}>
               {dataR&&(
-              {dataR&&(
-                <div style={{background:'#FDECEA',borderRadius:'22px',padding:'22px',border:'none'}}>
+                <div style={{background:'#FDECEA',borderRadius:'22px',padding:'24px 26px'}}>
                   <p style={{color:'#A03030',fontSize:'10px',fontWeight:700,letterSpacing:'2px',textTransform:'uppercase',margin:'0 0 10px'}}>Conseil</p>
                   <p style={{color:'#7A2020',fontSize:'14px',lineHeight:1.75,margin:0}}>{dataR.conseil}</p>
                 </div>
               )}
               <div style={{background:'#FFF7E0',borderRadius:'22px',padding:'24px 26px'}}>
-                <span style={{fontSize:'22px',display:'block',marginBottom:'12px'}}>🎁</span>
                 <p style={{color:'#8A6010',fontSize:'10px',fontWeight:700,letterSpacing:'2px',textTransform:'uppercase',margin:'0 0 10px'}}>Idée du mois</p>
                 <p style={{color:'#3A2800',fontSize:'15px',fontWeight:800,lineHeight:1.4,margin:0}}>{idee}</p>
               </div>
