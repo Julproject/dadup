@@ -1,6 +1,6 @@
 'use client';
 
-export default function RDVPage({C,dpa,saReelle,rdvDates,saveRdvI,rdvOuvert,setRdvOuvert,RDV_LIST}:any) {
+export default function RDVPage({C,dpa,saReelle,rdvDates,saveRdvI,rdvOuvert,setRdvOuvert,RDV_LIST,nextRdv,saveRdv}:any) {
   return (
     <div style={{display:'flex',flexDirection:'column',gap:'20px'}}>
 
@@ -47,7 +47,7 @@ export default function RDVPage({C,dpa,saReelle,rdvDates,saveRdvI,rdvOuvert,setR
                       </a>
                       <div style={{marginTop:'4px'}}>
                         <p style={{color:s==='prochain'?'rgba(255,255,255,0.4)':C.muted,fontSize:'11px',fontWeight:600,margin:'0 0 6px'}}>Ma date :</p>
-                        <input type="date" value={rdvDates[r.sa]||''} onChange={e=>saveRdvI(r.sa,e.target.value)} style={{background:s==='prochain'?'rgba(255,255,255,0.1)':'#E6F0FA',border:'none',borderRadius:'8px',padding:'8px 12px',fontSize:'13px',color:s==='prochain'?C.white:C.dark,width:'100%',outline:'none'}}/>
+                        <input type="date" value={rdvDates[r.sa]||''} onChange={e=>{saveRdvI(r.sa,e.target.value);if(nextRdv&&nextRdv.sa===r.sa)saveRdv(e.target.value);}} style={{background:s==='prochain'?'rgba(255,255,255,0.1)':'#E6F0FA',border:'none',borderRadius:'8px',padding:'8px 12px',fontSize:'13px',color:s==='prochain'?C.white:C.dark,width:'100%',outline:'none'}}/>
                         {rdvDates[r.sa]&&<p style={{color:C.gold,fontSize:'11px',margin:'5px 0 0',fontWeight:600}}>Noté le {new Date(rdvDates[r.sa]).toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long'})}</p>}
                       </div>
                     </div>
