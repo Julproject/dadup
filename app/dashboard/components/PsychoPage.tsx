@@ -10,7 +10,6 @@ const THEME_COLORS: Record<string,{bg:string;tc:string;accent:string}> = {
 type Semaine = {
   sa: number;
   theme: 'peur' | 'couple' | 'lien' | 'role';
-  emoji: string;
   titre: string;
   intro: string;
   corps: string;
