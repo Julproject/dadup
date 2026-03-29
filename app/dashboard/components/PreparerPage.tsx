@@ -5,8 +5,7 @@ import { useState } from 'react';
 const VALISE = [
   {
     titre: 'Pour toi',
-    emoji: '🧔',
-    couleur: '#E6F0FA',
+      couleur: '#E6F0FA',
     tc: '#1A4A7A',
     items: [
       { id:'v1',  label:`Chargeur de téléphone + batterie externe` },
@@ -19,8 +18,7 @@ const VALISE = [
   },
   {
     titre: 'Pour elle',
-    emoji: '💛',
-    couleur: '#FFF0E6',
+      couleur: '#FFF0E6',
     tc: '#C04A1A',
     items: [
       { id:'v7',  label:`Robe de chambre et chaussons antidérapants` },
@@ -34,8 +32,7 @@ const VALISE = [
   },
   {
     titre: 'Pour bébé',
-    emoji: '👶',
-    couleur: '#E4F5EC',
+      couleur: '#E4F5EC',
     tc: '#0D6B40',
     items: [
       { id:'v14', label:`Bodies (3 à 5 pièces, taille naissance et 1 mois)` },
@@ -49,8 +46,7 @@ const VALISE = [
   },
   {
     titre: 'Documents',
-    emoji: '📋',
-    couleur: '#FFF7E0',
+      couleur: '#FFF7E0',
     tc: '#8A6010',
     items: [
       { id:'v21', label:`Carnet de maternité` },
@@ -66,8 +62,7 @@ const VALISE = [
 const MAISON = [
   {
     titre: 'Sommeil de bébé',
-    emoji: '🌙',
-    couleur: '#E6F0FA',
+      couleur: '#E6F0FA',
     tc: '#1A4A7A',
     info: `Bébé doit dormir sur le dos, dans son propre espace de sommeil, sans oreiller ni couette (recommandation HAS).`,
     items: [
@@ -79,8 +74,7 @@ const MAISON = [
   },
   {
     titre: 'Change et toilette',
-    emoji: '🚿',
-    couleur: '#E4F5EC',
+      couleur: '#E4F5EC',
     tc: '#0D6B40',
     info: `Tout ce dont tu as besoin pour changer et laver bébé. Prévoir un coin change fixe évite de chercher partout à 3h du matin.`,
     items: [
@@ -96,8 +90,7 @@ const MAISON = [
   },
   {
     titre: 'Alimentation',
-    emoji: '🍼',
-    couleur: '#FFF0E6',
+      couleur: '#FFF0E6',
     tc: '#C04A1A',
     info: `Que vous allaitiez ou non, avoir quelques biberons à la maison est utile. La décision peut évoluer après la naissance.`,
     items: [
@@ -110,8 +103,7 @@ const MAISON = [
   },
   {
     titre: 'Santé et suivi',
-    emoji: '❤️',
-    couleur: '#FDECEA',
+      couleur: '#FDECEA',
     tc: '#A03030',
     info: `Prenez rendez-vous chez le pédiatre maintenant. L'examen J8 (8 jours après la naissance) est obligatoire.`,
     items: [
@@ -124,8 +116,7 @@ const MAISON = [
   },
   {
     titre: 'Organisation à la maison',
-    emoji: '🏠',
-    couleur: '#FFF7E0',
+      couleur: '#FFF7E0',
     tc: '#8A6010',
     info: `Un espace organisé avant l'arrivée de bébé, c'est moins de stress après. Pense à un coin change fixe et une zone pour les affaires de bébé.`,
     items: [
@@ -137,8 +128,7 @@ const MAISON = [
   },
   {
     titre: 'Sorties et transport',
-    emoji: '🚗',
-    couleur: '#E4F5EC',
+      couleur: '#E4F5EC',
     tc: '#0D6B40',
     info: `Le siège auto est obligatoire dès la sortie de maternité. Fais-le vérifier par un professionnel avant la naissance.`,
     items: [
@@ -198,7 +188,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#1
 @media print{body{padding:16px;}}
 </style></head><body>
   <div class="header">
-    <div class="logo">👶 DadUp</div>
+    <div class="logo">DadUp</div>
     <div class="sub">Checklist - Valise & Maison</div>
     <div class="date">Générée le ${new Date().toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long',year:'numeric'})}</div>
   </div>
@@ -206,9 +196,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#1
     <div class="stat"><div class="stat-n">${doneV}/${allValise.length}</div><div class="stat-l">Valise prête</div></div>
     <div class="stat"><div class="stat-n">${doneM}/${allMaison.length}</div><div class="stat-l">Maison prête</div></div>
   </div>
-  <div class="section-title">🧳 Valise maternité</div>
+  <div class="section-title">Valise maternité</div>
   ${VALISE.map(g => renderGroupe(g, valiseChecked)).join('')}
-  <div class="section-title">🏠 À préparer à la maison</div>
+  <div class="section-title">À préparer à la maison</div>
   ${MAISON.map(g => renderGroupe(g, maisonChecked)).join('')}
   <div class="footer">DadUp · dadup.fr</div>
 </body></html>`;
@@ -246,8 +236,8 @@ export default function PreparerPage({C, valiseChecked, toggleV}: any) {
       {/* ONGLETS */}
       <div style={{display:'flex',gap:'8px'}}>
         {([
-          {id:'valise', label:`🧳 Valise maternité`, done:doneV, total:allValise.length},
-          {id:'maison', label:`🏠 À la maison`,      done:doneM, total:allMaison.length},
+          {id:'valise', label:`Valise maternité`, done:doneV, total:allValise.length},
+          {id:'maison', label:`À la maison`,      done:doneM, total:allMaison.length},
         ] as const).map(t => (
           <button key={t.id} onClick={()=>setOnglet(t.id)} style={{
             flex:1, padding:'12px 8px', border:'none', borderRadius:'16px', cursor:'pointer',
@@ -281,8 +271,7 @@ export default function PreparerPage({C, valiseChecked, toggleV}: any) {
               {/* En-tête groupe */}
               <div style={{display:'flex',alignItems:'center',justifyContent:'space-between',marginBottom:'12px'}}>
                 <div style={{display:'flex',alignItems:'center',gap:'8px'}}>
-                  <span style={{fontSize:'18px'}}>{groupe.emoji}</span>
-                  <span style={{fontSize:'15px',fontWeight:800,color:C.dark}}>{groupe.titre}</span>
+<span style={{fontSize:'15px',fontWeight:800,color:C.dark}}>{groupe.titre}</span>
                 </div>
                 <span style={{
                   fontSize:'11px',fontWeight:700,padding:'3px 10px',borderRadius:'20px',
@@ -344,7 +333,7 @@ export default function PreparerPage({C, valiseChecked, toggleV}: any) {
           onClick={() => genererPDF(valiseChecked, maisonChecked)}
           style={{display:'inline-flex',alignItems:'center',gap:'8px',background:C.dark,color:'#fff',border:'none',padding:'13px 26px',borderRadius:'32px',fontSize:'14px',fontWeight:700,cursor:'pointer'}}
         >
-          📄 Partager la checklist avec la maman
+          Partager la checklist avec la maman
         </button>
         <p style={{color:C.muted,fontSize:'12px',marginTop:'8px'}}>Génère un PDF imprimable avec tout ce qui est coché</p>
       </div>
