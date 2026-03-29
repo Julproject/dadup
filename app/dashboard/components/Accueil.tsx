@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 
-export default function Accueil({C,dpa,saReelle,joursRestants,prog,tri,idee,missions,missionsChecked,toggleM,nextRdv,nextRdvDate,saveRdv,saveRdvI,dataR,sa,data,avance,setAvance}:any) {
+export default function Accueil({C,dpa,saReelle,joursRestants,prog,tri,idee,missions,missionsChecked,toggleM,nextRdv,nextRdvDate,saveRdv,saveRdvI,dataR,sa,data}:any) {
   return (
     <div style={{display:'flex',flexDirection:'column',gap:'20px'}}>
 
@@ -118,12 +118,7 @@ export default function Accueil({C,dpa,saReelle,joursRestants,prog,tri,idee,miss
         </div>
       )}
 
-      {/* AVANCE */}
-      <div style={{textAlign:'center' as const,paddingTop:'8px'}}>
-        <button onClick={()=>setAvance(!avance)} style={{fontSize:'12px',color:C.muted,background:'none',border:'none',cursor:'pointer',textDecoration:'underline'}}>
-          {avance?'Revenir à la semaine actuelle':'Aperçu +4 semaines'}
-        </button>
-      </div>
+
     </div>
   );
 }
