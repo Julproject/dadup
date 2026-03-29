@@ -47,7 +47,7 @@ export default function Accueil({C,dpa,saReelle,joursRestants,prog,tri,idee,miss
           </div>
           <div style={{paddingTop:'16px'}}>
             <p style={{color:C.muted,fontSize:'11px',fontWeight:600,margin:'0 0 8px'}}>Ma date de RDV :</p>
-            <input type="date" value={nextRdvDate} onChange={e=>saveRdv(e.target.value)} style={{background:'#E6F0FA',border:'none',borderRadius:'10px',padding:'10px 14px',fontSize:'14px',color:C.dark,width:'100%',outline:'none'}}/>
+            <input type="date" value={nextRdvDate} onChange={e=>{saveRdv(e.target.value);if(nextRdv)saveRdvI(nextRdv.sa,e.target.value);}} style={{background:'#E6F0FA',border:'none',borderRadius:'10px',padding:'10px 14px',fontSize:'14px',color:C.dark,width:'100%',outline:'none'}}/>
             {nextRdvDate&&<p style={{color:C.gold,fontSize:'12px',margin:'6px 0 0',fontWeight:600}}>RDV noté le {new Date(nextRdvDate).toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long'})}</p>}
           </div>
         </div>
