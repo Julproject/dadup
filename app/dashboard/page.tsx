@@ -468,6 +468,7 @@ function Topbar({prenom,saReelle,tri,prog,isPost,moisBebe,activeTab,setActiveTab
             </div>
             <span style={{fontSize:'11px',fontWeight:700,color:C.gold}}>{prog}%</span>
           </div>
+          <button onClick={async()=>{await fetch('/api/auth/logout',{method:'POST'});localStorage.clear();window.location.href='/login';}} style={{background:'none',border:`1px solid ${C.border}`,borderRadius:'20px',padding:'5px 12px',fontSize:'11px',fontWeight:600,color:C.muted,cursor:'pointer'}}>Déconnexion</button>
         </div>
       </div>
       {/* Ligne 2 : onglets */}
@@ -520,26 +521,27 @@ function DashboardContent() {
   const [rdvOuvert, setRdvOuvert] = useState<number|null>(null);
 
   useEffect(()=>{
-    fetch('/api/auth/me')
-  .then(r => r.json())
-  .then(({ user }) => {
-    if (!user) { window.location.href = '/login'; return; }
-    const prenom = user.prenom || '';
-    const dpa    = user.dpa    || '';
-    setPrenom(prenom); setDpa(dpa);
-    setValiseChecked(user.valise_checked   || {});
-    setMissionsChecked(user.missions_checked || {});
-    setRdvDates(user.rdv_dates             || {});
-    setNextRdvDate(user.next_rdv           || '');
-    if(prenom) localStorage.setItem('dadup_prenom', prenom);
-    if(dpa)    localStorage.setItem('dadup_dpa',    dpa);
-    if(!dpa)   setShowOnboarding(true);
-  })
-  .catch(() => { window.location.href = '/login'; });
     // Lire le tab depuis l'URL
     const params = new URLSearchParams(window.location.search);
     const tabFromUrl = params.get('tab');
     if(tabFromUrl) setActiveTabRaw(tabFromUrl);
+    // Charger depuis Supabase
+    fetch('/api/auth/me')
+      .then(r=>r.json())
+      .then(({user})=>{
+        if(!user){window.location.href='/login';return;}
+        const prenom=user.prenom||'';
+        const dpa=user.dpa||'';
+        setPrenom(prenom); setDpa(dpa);
+        setValiseChecked(user.valise_checked||{});
+        setMissionsChecked(user.missions_checked||{});
+        setRdvDates(user.rdv_dates||{});
+        setNextRdvDate(user.next_rdv||'');
+        if(prenom) localStorage.setItem('dadup_prenom',prenom);
+        if(dpa)    localStorage.setItem('dadup_dpa',dpa);
+        if(!dpa)   setShowOnboarding(true);
+      })
+      .catch(()=>{window.location.href='/login';});
   },[]);
 
   const sa = getSA(avance?4:0);
@@ -558,48 +560,13 @@ function DashboardContent() {
   const moisBebe = isPost&&dpaDate?Math.min(11,Math.floor(Math.abs(joursRestants||0)/30)):0;
   const dataBebe = MOIS_DATA[moisBebe];
 
-  const sync = (data: Record<string,any>) => {
-  fetch('/api/auth/save', {
-    method:'POST',
-    headers:{'Content-Type':'application/json'},
-    body:JSON.stringify(data),
-  });
-};
+  const sync=(data:Record<string,any>)=>{fetch('/api/auth/save',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});};
+  const toggleV=(id:string)=>{const u={...valiseChecked,[id]:!valiseChecked[id]};setValiseChecked(u);localStorage.setItem('dadup_valise',JSON.stringify(u));sync({valise_checked:u});};
+  const toggleM=(id:string)=>{const u={...missionsChecked,[id]:!missionsChecked[id]};setMissionsChecked(u);localStorage.setItem('dadup_missions',JSON.stringify(u));sync({missions_checked:u});};
+  const saveRdv=(v:string)=>{setNextRdvDate(v);localStorage.setItem('dadup_next_rdv',v);sync({next_rdv:v});};
+  const saveRdvI=(s:number,v:string)=>{const u={...rdvDates,[s]:v};setRdvDates(u);localStorage.setItem('dadup_rdv_dates',JSON.stringify(u));sync({rdv_dates:u});};
+  const saveOnb=(d:string,p:string)=>{localStorage.setItem('dadup_dpa',d);localStorage.setItem('dadup_prenom',p);setDpa(d);setPrenom(p);setShowOnboarding(false);sync({dpa:d,prenom:p});};
 
-const toggleV=(id:string)=>{
-  const u={...valiseChecked,[id]:!valiseChecked[id]};
-  setValiseChecked(u);
-  localStorage.setItem('dadup_valise',JSON.stringify(u));
-  sync({valise_checked:u});
-};
-
-const toggleM=(id:string)=>{
-  const u={...missionsChecked,[id]:!missionsChecked[id]};
-  setMissionsChecked(u);
-  localStorage.setItem('dadup_missions',JSON.stringify(u));
-  sync({missions_checked:u});
-};
-
-const saveRdv=(v:string)=>{
-  setNextRdvDate(v);
-  localStorage.setItem('dadup_next_rdv',v);
-  sync({next_rdv:v});
-};
-
-const saveRdvI=(s:number,v:string)=>{
-  const u={...rdvDates,[s]:v};
-  setRdvDates(u);
-  localStorage.setItem('dadup_rdv_dates',JSON.stringify(u));
-  sync({rdv_dates:u});
-};
-
-const saveOnb=(d:string,p:string)=>{
-  localStorage.setItem('dadup_dpa',d);
-  localStorage.setItem('dadup_prenom',p);
-  setDpa(d); setPrenom(p);
-  setShowOnboarding(false);
-  sync({dpa:d, prenom:p});
-};
   if(showOnboarding) return <Onboarding onSave={saveOnb}/>;
 
   // Shared props
