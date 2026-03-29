@@ -71,12 +71,3 @@ export default function Topbar({prenom,saReelle,tri,prog,isPost,moisBebe,activeT
   );
 }
 
-// ── Composants onglets ────────────────────────────────────────────────────────
-import Accueil from './components/Accueil';
-import BebePage from './components/BebePage';
-import RDVPage from './components/RDVPage';
-import PreparerPage from './components/PreparerPage';
-import BonsPlansPage from './components/BonsPlansPage';
-import PostAccueil from './components/PostAccueil';
-import PostBebe from './components/PostBebe';
-import PostRDV from './components/PostRDV';
