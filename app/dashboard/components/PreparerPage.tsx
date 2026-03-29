@@ -127,7 +127,7 @@ const MAISON = [
     emoji: '🏠',
     couleur: '#FFF7E0',
     tc: '#8A6010',
-    info: `Un espace organisé avant l'arrivée de bébé, c'est moins de stress après. Pense à un coin change fixe et une zone pour les affaires de bébé.`,',
+    info: `Un espace organisé avant l'arrivée de bébé, c'est moins de stress après. Pense à un coin change fixe et une zone pour les affaires de bébé.`,
     items: [
       { id:'m23', label:`Coin change fixe et organisé` },
       { id:'m24', label:`Espace de rangement dédié aux affaires de bébé` },
@@ -157,15 +157,18 @@ function genererPDF(valiseChecked: Record<string,boolean>, maisonChecked: Record
   const allMaison = MAISON.flatMap(g => g.items);
   const doneM = allMaison.filter(i => maisonChecked[i.id]).length;
 
-  const renderGroupe = (groupe: typeof VALISE[0], checked: Record<string,boolean>) =>
-    `<div class="groupe">
-      <div class="groupe-titre">${groupe.emoji} ${groupe.titre}</div>
-      ${groupe.items.map(i => `
-        <div class="item">
-          <div class="check ${checked[i.id] ? 'ck-done' : 'ck-todo'}">${checked[i.id] ? '✓' : ''}</div>
-          <span class="${checked[i.id] ? 'lbl-done' : 'lbl-todo'}">${i.label}</span>
-        </div>`).join('')}
-    </div>`;
+  const renderGroupe = (groupe: typeof VALISE[0], checked: Record<string,boolean>) => {
+    const itemsHtml = groupe.items.map(i =>
+      '<div class="item">' +
+      '<div class="check ' + (checked[i.id] ? 'ck-done' : 'ck-todo') + '">' + (checked[i.id] ? '✓' : '') + '</div>' +
+      '<span class="' + (checked[i.id] ? 'lbl-done' : 'lbl-todo') + '">' + i.label + '</span>' +
+      '</div>'
+    ).join('');
+    return '<div class="groupe">' +
+      '<div class="groupe-titre">' + groupe.emoji + ' ' + groupe.titre + '</div>' +
+      itemsHtml +
+      '</div>';
+  };
 
   const html = `<!DOCTYPE html>
 <html lang="fr"><head><meta charset="UTF-8"/>
