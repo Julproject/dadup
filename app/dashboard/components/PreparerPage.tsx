@@ -155,7 +155,7 @@ function genererPDF(valiseChecked: Record<string,boolean>, maisonChecked: Record
       '</div>'
     ).join('');
     return '<div class="groupe">' +
-      '<div class="groupe-titre">' + groupe.emoji + ' ' + groupe.titre + '</div>' +
+      '<div class="groupe-titre">' + groupe.titre + '</div>' +
       itemsHtml +
       '</div>';
   };
