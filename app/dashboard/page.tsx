@@ -22,6 +22,7 @@ import BonsPlansPage from './components/BonsPlansPage';
 import PostAccueil   from './components/PostAccueil';
 import PostBebe      from './components/PostBebe';
 import PostRDV       from './components/PostRDV';
+import PsychoPage  from './components/PsychoPage';
 
 // ── Palette ───────────────────────────────────────────────────────────────────
 const C = {
