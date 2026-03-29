@@ -16,6 +16,7 @@ export default function Topbar({prenom,saReelle,tri,prog,isPost,moisBebe,activeT
     {id:'rdv',      label:'RDV',        bg:'#E6F0FA', tc:'#1A4A7A'},
     {id:'pratique', label:'À préparer', bg:'#FFF7E0', tc:'#8A6010'},
     {id:'bonsplans',label:'Bons plans', bg:'#FDECEA', tc:'#A03030'},
+    {id:'psycho',   label:'Psycho',     bg:'#F0EEFF', tc:'#5050B0'},
   ];
   const navPost = [
     {id:'home', label:'Ce mois-ci', bg:'#E4F5EC', tc:'#0D6B40'},
