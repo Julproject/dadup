@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 
-export default function Accueil({C,dpa,saReelle,joursRestants,prog,tri,idee,missions,missionsChecked,toggleM,nextRdv,nextRdvDate,saveRdv,dataR,sa,data,avance,setAvance}:any) {
+export default function Accueil({C,dpa,saReelle,joursRestants,prog,tri,idee,missions,missionsChecked,toggleM,nextRdv,nextRdvDate,saveRdv,saveRdvI,dataR,sa,data,avance,setAvance}:any) {
   return (
     <div style={{display:'flex',flexDirection:'column',gap:'20px'}}>
 
