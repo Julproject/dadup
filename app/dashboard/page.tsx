@@ -148,7 +148,7 @@ function DashboardContent() {
         {activeTab === 'rdv'  && (isPost ? <PostRDV     {...shared}/> : <RDVPage    {...shared}/>)}
         {!isPost && activeTab === 'pratique'  && <PreparerPage  {...shared}/>}
         {!isPost && activeTab === 'bonsplans' && <BonsPlansPage {...shared}/>}
-        {!isPost && activeTab === 'psycho'    && <PsychoPage    C={C}/>}
+        {!isPost && activeTab === 'psycho'    && <PsychoPage    C={C} saReelle={saReelle}/>}
       </div>
     </div>
   );
