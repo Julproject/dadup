@@ -12,7 +12,7 @@ export default function BebePage({C,saReelle,sa,data,dataR,avance,setAvance,dpa}
           <h2 style={{color:C.dark,fontSize:'26px',fontWeight:800,margin:0}}>{sa} semaines</h2>
         </div>
         <button onClick={()=>setAvance(!avance)} style={{fontSize:'11px',padding:'8px 16px',borderRadius:'20px',cursor:'pointer',background:avance?C.dark:'#E6F0FA',color:avance?'#fff':'#1A4A7A',border:'none',fontWeight:700}}>
-          {avance?'Revenir':'Aperçu +4 sem.'}
+          {avance?'← Revenir':'Semaine suivante →'}
         </button>
       </div>
 
