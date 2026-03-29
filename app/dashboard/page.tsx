@@ -520,15 +520,22 @@ function DashboardContent() {
   const [rdvOuvert, setRdvOuvert] = useState<number|null>(null);
 
   useEffect(()=>{
-    const d=localStorage.getItem('dadup_dpa')||'';
-    const p=localStorage.getItem('dadup_prenom')||'';
-    const v=JSON.parse(localStorage.getItem('dadup_valise')||'{}');
-    const m=JSON.parse(localStorage.getItem('dadup_missions')||'{}');
-    const r=JSON.parse(localStorage.getItem('dadup_rdv_dates')||'{}');
-    const nr=localStorage.getItem('dadup_next_rdv')||'';
-    setDpa(d); setPrenom(p); setValiseChecked(v);
-    setMissionsChecked(m); setRdvDates(r); setNextRdvDate(nr);
-    if(!d) setShowOnboarding(true);
+    fetch('/api/auth/me')
+  .then(r => r.json())
+  .then(({ user }) => {
+    if (!user) { window.location.href = '/login'; return; }
+    const prenom = user.prenom || '';
+    const dpa    = user.dpa    || '';
+    setPrenom(prenom); setDpa(dpa);
+    setValiseChecked(user.valise_checked   || {});
+    setMissionsChecked(user.missions_checked || {});
+    setRdvDates(user.rdv_dates             || {});
+    setNextRdvDate(user.next_rdv           || '');
+    if(prenom) localStorage.setItem('dadup_prenom', prenom);
+    if(dpa)    localStorage.setItem('dadup_dpa',    dpa);
+    if(!dpa)   setShowOnboarding(true);
+  })
+  .catch(() => { window.location.href = '/login'; });
     // Lire le tab depuis l'URL
     const params = new URLSearchParams(window.location.search);
     const tabFromUrl = params.get('tab');
