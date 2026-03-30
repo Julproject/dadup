@@ -14,12 +14,13 @@ export async function POST(req: NextRequest) {
     }
 
     const body = await req.json();
-    const { prenom, dpa, valise_checked, missions_checked, rdv_dates, next_rdv } = body;
+    const { prenom, dpa, dpa_originale, valise_checked, missions_checked, rdv_dates, next_rdv } = body;
 
     // Construire l'objet de mise à jour (seulement les champs fournis)
     const update: Record<string, any> = {};
     if (prenom !== undefined) update.prenom = prenom;
     if (dpa !== undefined) update.dpa = dpa || null;
+    if (body.dpa_originale !== undefined) update.dpa_originale = body.dpa_originale || null;
     if (valise_checked !== undefined) update.valise_checked = valise_checked;
     if (missions_checked !== undefined) update.missions_checked = missions_checked;
     if (rdv_dates !== undefined) update.rdv_dates = rdv_dates;
