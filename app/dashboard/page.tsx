@@ -168,7 +168,6 @@ function DashboardContent() {
         {!isPost && activeTab === 'bonsplans' && <BonsPlansPage {...shared}/>}
         {!isPost && activeTab === 'psycho'    && <PsychoPage    C={C} saReelle={saReelle}/>}
       </div>
-    </div>
 
       {/* MODALE CONFIRMATION NAISSANCE */}
       {showConfirmNaissance && (
@@ -184,6 +183,7 @@ function DashboardContent() {
           </div>
         </div>
       )}
+    </div>
   );
 }
 
