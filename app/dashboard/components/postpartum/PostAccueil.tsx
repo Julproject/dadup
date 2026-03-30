@@ -27,11 +27,20 @@ export default function PostAccueil({C,moisBebe,dataBebe,joursRestants}:any) {
         </div>
       </div>
 
-      {/* ALERTE */}
-      {dataBebe.alerte&&(
-        <div style={{background:'#FDECEA',borderRadius:'18px',padding:'16px 20px'}}>
-          <p style={{color:'#8A0000',fontSize:'10px',fontWeight:700,letterSpacing:'2px',textTransform:'uppercase',margin:'0 0 8px'}}>Quand consulter</p>
-          <p style={{color:'#6A0000',fontSize:'13px',lineHeight:1.7,margin:0}}>{dataBebe.alerte}</p>
+
+
+      {/* ACTIVITÉS */}
+      {dataBebe.activites&&dataBebe.activites.length>0&&(
+        <div>
+          <p style={{color:'#2E5F8A',fontSize:'10px',fontWeight:700,letterSpacing:'2px',textTransform:'uppercase',margin:'0 0 14px'}}>Activités à faire avec bébé</p>
+          <div style={{display:'flex',flexDirection:'column',gap:'10px'}}>
+            {dataBebe.activites.map((item:any,i:number)=>(
+              <div key={i} style={{background:'#E6F0FA',borderRadius:'16px',padding:'16px 18px'}}>
+                <p style={{color:'#1A3D5C',fontSize:'14px',fontWeight:800,margin:'0 0 5px'}}>{item.titre}</p>
+                <p style={{color:'#1A4A7A',fontSize:'13px',lineHeight:1.7,margin:0}}>{item.contenu}</p>
+              </div>
+            ))}
+          </div>
         </div>
       )}
 
