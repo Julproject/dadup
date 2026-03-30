@@ -8,8 +8,7 @@ import { SD }                  from './data/semaines';
 import { MISSIONS }            from './data/missions';
 import { RDV_LIST }            from './data/rdv';
 import { PARTENAIRES }         from './data/partenaires';
-import { getIdee }             from './data/mois';
-import { MOIS_DATA }            from './components/postpartum/data/mois';
+import { MOIS_DATA, getIdee }  from './components/postpartum/data/mois';
 import { getSA }               from './data/utils';
 
 // ── Components ────────────────────────────────────────────────────────────────
