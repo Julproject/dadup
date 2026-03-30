@@ -24,6 +24,7 @@ export type MoisData = {
   developpement: { titre: string; contenu: string }[];
   sante: { titre: string; contenu: string }[];
   papa: { titre: string; contenu: string }[];
+  activites: { titre: string; contenu: string }[];
   rdv: string;
   vaccins: string;
   alerte: string;
