@@ -345,7 +345,7 @@ export default function PsychoPage({ C: propC, saReelle }: any) {
       </div>
 
       {/* SOURCE */}
-      <p style={{color:Cs.muted,fontSize:'11px',margin:0,fontStyle:'italic',textAlign:'center' as const}}>Source : {semaine.source}</p>
+
 
       {/* CTA */}
       <div style={{background:Cs.cream,borderRadius:'20px',padding:'22px 24px',textAlign:'center' as const,border:`1px solid ${Cs.border}`}}>
