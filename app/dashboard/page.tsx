@@ -89,11 +89,16 @@ function DashboardContent() {
   const declareNaissance = async () => {
     setShowConfirmNaissance(false);
     if (isPost) {
+      console.log('isPost:', isPost, 'dpaOriginale:', dpaOriginale, 'localStorage originale:', localStorage.getItem('dadup_dpa_originale'), 'backup:', localStorage.getItem('dadup_dpa_backup'));
       const dpaRestore = dpaOriginale
         || localStorage.getItem('dadup_dpa_originale')
         || localStorage.getItem('dadup_dpa_backup')
         || '';
-      if (!dpaRestore) return;
+      if (!dpaRestore) {
+        // Pas de DPA originale trouvée : ouvrir les réglages pour la saisir
+        alert("Saisis ta date d\'accouchement dans les réglages pour revenir en mode grossesse.");
+        return;
+      }
       setDpa(dpaRestore);
       setDpaOriginale('');
       localStorage.setItem('dadup_dpa', dpaRestore);
