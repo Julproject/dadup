@@ -48,6 +48,7 @@ function DashboardContent() {
   const [nextRdvDate,     setNextRdvDate]     = useState('');
   const [rdvOuvert,       setRdvOuvert]       = useState<number|null>(null);
   const [showConfirmNaissance, setShowConfirmNaissance] = useState(false);
+  const [dpaSauvegardee, setDpaSauvegardee] = useState('');
 
   // Routing par URL
   const setActiveTab = (tab: string) => {
@@ -83,17 +84,31 @@ function DashboardContent() {
 
   // Sync Supabase
   const declareNaissance = async () => {
-    // Mettre la DPA à aujourd'hui - 1 jour pour forcer le mode post-partum
-    const hier = new Date();
-    hier.setDate(hier.getDate() - 1);
-    const dpaPostPartum = hier.toISOString().split('T')[0];
-    localStorage.setItem('dadup_dpa', dpaPostPartum);
-    setDpa(dpaPostPartum);
-    await fetch('/api/auth/save', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ dpa: dpaPostPartum }),
-    });
+    if (isPost) {
+      // Retour en mode grossesse : restaurer la DPA sauvegardée
+      const dpaRestore = dpaSauvegardee || localStorage.getItem('dadup_dpa_originale') || dpa;
+      localStorage.setItem('dadup_dpa', dpaRestore);
+      setDpa(dpaRestore);
+      await fetch('/api/auth/save', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ dpa: dpaRestore }),
+      });
+    } else {
+      // Basculer en mode post-partum : sauvegarder la vraie DPA d'abord
+      localStorage.setItem('dadup_dpa_originale', dpa);
+      setDpaSauvegardee(dpa);
+      const hier = new Date();
+      hier.setDate(hier.getDate() - 1);
+      const dpaPostPartum = hier.toISOString().split('T')[0];
+      localStorage.setItem('dadup_dpa', dpaPostPartum);
+      setDpa(dpaPostPartum);
+      await fetch('/api/auth/save', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ dpa: dpaPostPartum }),
+      });
+    }
     setShowConfirmNaissance(false);
   };
 
@@ -175,12 +190,12 @@ function DashboardContent() {
       {showConfirmNaissance && (
         <div style={{position:'fixed',inset:0,background:'rgba(0,0,0,0.5)',zIndex:100,display:'flex',alignItems:'center',justifyContent:'center',padding:'20px'}} onClick={()=>setShowConfirmNaissance(false)}>
           <div style={{background:'#fff',borderRadius:'24px',padding:'32px',width:'100%',maxWidth:'360px',textAlign:'center',boxShadow:'0 8px 40px rgba(0,0,0,0.15)'}} onClick={e=>e.stopPropagation()}>
-            <p style={{fontSize:'48px',margin:'0 0 16px'}}>👶</p>
-            <h3 style={{color:'#1e2535',fontSize:'20px',fontWeight:800,margin:'0 0 10px'}}>Félicitations !</h3>
-            <p style={{color:'#6a7585',fontSize:'14px',lineHeight:1.7,margin:'0 0 24px'}}>En confirmant, ton application bascule en mode post-naissance. Tu pourras suivre le développement de bébé mois par mois.</p>
+            <p style={{fontSize:'48px',margin:'0 0 16px'}}>{isPost ? '🤰' : '👶'}</p>
+            <h3 style={{color:'#1e2535',fontSize:'20px',fontWeight:800,margin:'0 0 10px'}}>{isPost ? 'Retour en mode grossesse ?' : 'Félicitations !'}</h3>
+            <p style={{color:'#6a7585',fontSize:'14px',lineHeight:1.7,margin:'0 0 24px'}}>{isPost ? 'Tu reviendras à la dernière semaine de grossesse enregistrée. Ton suivi post-partum sera conservé.' : 'En confirmant, ton application bascule en mode post-naissance. Tu pourras suivre le développement de bébé mois par mois.'}</p>
             <div style={{display:'flex',gap:'10px'}}>
               <button onClick={()=>setShowConfirmNaissance(false)} style={{flex:1,padding:'13px',background:'#f7f5f0',border:'none',borderRadius:'32px',fontSize:'14px',fontWeight:700,color:'#9aa0a8',cursor:'pointer'}}>Annuler</button>
-              <button onClick={declareNaissance} style={{flex:2,padding:'13px',background:'#1e2535',border:'none',borderRadius:'32px',fontSize:'14px',fontWeight:700,color:'#fff',cursor:'pointer'}}>Bébé est né !</button>
+              <button onClick={declareNaissance} style={{flex:2,padding:'13px',background:'#1e2535',border:'none',borderRadius:'32px',fontSize:'14px',fontWeight:700,color:'#fff',cursor:'pointer'}}>{isPost ? 'Revenir en mode grossesse' : 'Bébé est né !'}</button>
             </div>
           </div>
         </div>
