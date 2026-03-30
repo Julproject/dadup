@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 // ── Données Valise ────────────────────────────────────────────────────────────
 const VALISE = [
@@ -210,7 +210,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#1
 }
 
 // ── Composant ─────────────────────────────────────────────────────────────────
-export default function PreparerPage({C, valiseChecked, toggleV}: any) {
+export default function PreparerPage({C, valiseChecked, toggleV, achatChecked, toggleA}: any) {
   const [onglet, setOnglet] = useState<'valise'|'maison'>('valise');
   const [maisonChecked, setMaisonChecked] = useState<Record<string,boolean>>({});
   const toggleM = (id: string) => setMaisonChecked(u => ({...u, [id]: !u[id]}));
