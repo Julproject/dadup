@@ -89,39 +89,36 @@ function DashboardContent() {
   const declareNaissance = async () => {
     setShowConfirmNaissance(false);
     if (isPost) {
-      // Retour grossesse : chercher dpa_originale dans tous les endroits possibles
       const dpaRestore = dpaOriginale
         || localStorage.getItem('dadup_dpa_originale')
         || localStorage.getItem('dadup_dpa_backup')
         || '';
-      if (!dpaRestore) return; // Rien à restaurer
-      // Sauvegarder en Supabase ET localStorage
-      await fetch('/api/auth/save', {
+      if (!dpaRestore) return;
+      setDpa(dpaRestore);
+      setDpaOriginale('');
+      localStorage.setItem('dadup_dpa', dpaRestore);
+      localStorage.removeItem('dadup_dpa_originale');
+      localStorage.removeItem('dadup_dpa_backup');
+      fetch('/api/auth/save', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ dpa: dpaRestore, dpa_originale: null }),
       });
-      localStorage.setItem('dadup_dpa', dpaRestore);
-      localStorage.removeItem('dadup_dpa_originale');
-      // Recharger pour recalculer la SA
-      window.location.reload();
     } else {
-      // Post-partum : sauvegarder la DPA courante dans 2 endroits
       const dpaCourante = dpa;
+      setDpaOriginale(dpaCourante);
       localStorage.setItem('dadup_dpa_originale', dpaCourante);
       localStorage.setItem('dadup_dpa_backup', dpaCourante);
       const hier = new Date();
       hier.setDate(hier.getDate() - 1);
       const dpaPostPartum = hier.toISOString().split('T')[0];
-      // Sauvegarder en Supabase
-      await fetch('/api/auth/save', {
+      setDpa(dpaPostPartum);
+      localStorage.setItem('dadup_dpa', dpaPostPartum);
+      fetch('/api/auth/save', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ dpa: dpaPostPartum, dpa_originale: dpaCourante }),
       });
-      localStorage.setItem('dadup_dpa', dpaPostPartum);
-      // Recharger pour basculer
-      window.location.reload();
     }
   };
 
