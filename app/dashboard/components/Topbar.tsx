@@ -6,7 +6,7 @@ const C = {
   white:'#ffffff', border:'#f0ede8', muted:'#9aa0a8',
 };
 
-export default function Topbar({prenom,dpa,saReelle,tri,prog,isPost,moisBebe,activeTab,setActiveTab,onUpdateInfos}:{
+export default function Topbar({prenom,dpa,saReelle,tri,prog,isPost,moisBebe,activeTab,setActiveTab,onUpdateInfos,onDeclareNaissance}:{
   prenom:string;dpa:string;saReelle:number|null;tri:string;prog:number;
   isPost:boolean;moisBebe:number;
   activeTab:string;setActiveTab:(t:string)=>void;
