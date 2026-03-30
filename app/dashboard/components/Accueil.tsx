@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 
-export default function Accueil({C,dpa,saReelle,joursRestants,prog,tri,idee,missions,missionsChecked,toggleM,nextRdv,nextRdvDate,saveRdv,saveRdvI,dataR,sa,data}:any) {
+export default function Accueil({C,dpa,saReelle,joursRestants,prog,tri,idee,missions,missionsChecked,toggleM,nextRdv,nextRdvDate,saveRdv,saveRdvI,dataR,sa,data,onDeclareNaissance}:any) {
   return (
     <div style={{display:'flex',flexDirection:'column',gap:'20px'}}>
 
@@ -118,6 +118,21 @@ export default function Accueil({C,dpa,saReelle,joursRestants,prog,tri,idee,miss
         </div>
       )}
 
+
+      {/* DÉCLARER LA NAISSANCE */}
+      <div style={{textAlign:'center' as const, paddingTop:'16px', paddingBottom:'8px'}}>
+        <button
+          onClick={onDeclareNaissance}
+          style={{
+            background:'none', border:'none',
+            color:C.muted, fontSize:'12px', fontWeight:600,
+            cursor:'pointer', textDecoration:'underline', opacity:0.6,
+            fontFamily:'inherit',
+          }}
+        >
+          Bébé est né ? Déclarer la naissance
+        </button>
+      </div>
 
     </div>
   );
