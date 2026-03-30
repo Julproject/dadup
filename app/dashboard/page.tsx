@@ -46,6 +46,7 @@ function DashboardContent() {
   const [avance,          setAvance]          = useState(false);
   const [nextRdvDate,     setNextRdvDate]     = useState('');
   const [rdvOuvert,       setRdvOuvert]       = useState<number|null>(null);
+  const [showConfirmNaissance, setShowConfirmNaissance] = useState(false);
 
   // Routing par URL
   const setActiveTab = (tab: string) => {
@@ -80,6 +81,21 @@ function DashboardContent() {
   }, []);
 
   // Sync Supabase
+  const declareNaissance = async () => {
+    // Mettre la DPA à aujourd'hui - 1 jour pour forcer le mode post-partum
+    const hier = new Date();
+    hier.setDate(hier.getDate() - 1);
+    const dpaPostPartum = hier.toISOString().split('T')[0];
+    localStorage.setItem('dadup_dpa', dpaPostPartum);
+    setDpa(dpaPostPartum);
+    await fetch('/api/auth/save', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ dpa: dpaPostPartum }),
+    });
+    setShowConfirmNaissance(false);
+  };
+
   const sync = (data: Record<string,any>) => {
     fetch('/api/auth/save', {
       method: 'POST',
@@ -120,6 +136,7 @@ function DashboardContent() {
     nextRdv, nextRdvDate, saveRdv, dataR, data, sa, avance, setAvance,
     valiseChecked, toggleV, rdvDates, saveRdvI, rdvOuvert, setRdvOuvert,
     MOIS_DATA, PARTENAIRES, RDV_LIST, SD,
+    onDeclareNaissance: () => setShowConfirmNaissance(true),
   };
 
   return (
@@ -152,6 +169,21 @@ function DashboardContent() {
         {!isPost && activeTab === 'psycho'    && <PsychoPage    C={C} saReelle={saReelle}/>}
       </div>
     </div>
+
+      {/* MODALE CONFIRMATION NAISSANCE */}
+      {showConfirmNaissance && (
+        <div style={{position:'fixed',inset:0,background:'rgba(0,0,0,0.5)',zIndex:100,display:'flex',alignItems:'center',justifyContent:'center',padding:'20px'}} onClick={()=>setShowConfirmNaissance(false)}>
+          <div style={{background:'#fff',borderRadius:'24px',padding:'32px',width:'100%',maxWidth:'360px',textAlign:'center',boxShadow:'0 8px 40px rgba(0,0,0,0.15)'}} onClick={e=>e.stopPropagation()}>
+            <p style={{fontSize:'48px',margin:'0 0 16px'}}>👶</p>
+            <h3 style={{color:'#1e2535',fontSize:'20px',fontWeight:800,margin:'0 0 10px'}}>Félicitations !</h3>
+            <p style={{color:'#6a7585',fontSize:'14px',lineHeight:1.7,margin:'0 0 24px'}}>En confirmant, ton application bascule en mode post-naissance. Tu pourras suivre le développement de bébé mois par mois.</p>
+            <div style={{display:'flex',gap:'10px'}}>
+              <button onClick={()=>setShowConfirmNaissance(false)} style={{flex:1,padding:'13px',background:'#f7f5f0',border:'none',borderRadius:'32px',fontSize:'14px',fontWeight:700,color:'#9aa0a8',cursor:'pointer'}}>Annuler</button>
+              <button onClick={declareNaissance} style={{flex:2,padding:'13px',background:'#1e2535',border:'none',borderRadius:'32px',fontSize:'14px',fontWeight:700,color:'#fff',cursor:'pointer'}}>Bébé est né !</button>
+            </div>
+          </div>
+        </div>
+      )}
   );
 }
 
