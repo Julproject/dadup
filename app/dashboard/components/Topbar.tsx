@@ -38,9 +38,10 @@ export default function Topbar({prenom,dpa,saReelle,tri,prog,isPost,moisBebe,act
     {id:'psycho',   label:'Psycho',     bg:'#F0EEFF', tc:'#5050B0'},
   ];
   const navPost = [
-    {id:'home', label:'Ce mois-ci', bg:'#E4F5EC', tc:'#0D6B40'},
-    {id:'bebe', label:'Mon bébé',   bg:'#E6F0FA', tc:'#2E5F8A'},
-    {id:'rdv',  label:'Santé & RDV',bg:'#FFF0E6', tc:'#C04A1A'},
+    {id:'home',  label:'Ce mois-ci', bg:'#E4F5EC', tc:'#0D6B40'},
+    {id:'bebe',  label:'Mon bébé',   bg:'#E6F0FA', tc:'#2E5F8A'},
+    {id:'rdv',   label:'Santé & RDV',bg:'#FFF0E6', tc:'#C04A1A'},
+    {id:'suivi', label:'Suivi J7',   bg:'#F0EEFF', tc:'#5050B0'},
   ];
   const tabs = isPost ? navPost : navGrossesse;
 
