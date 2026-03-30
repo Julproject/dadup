@@ -47,6 +47,7 @@ function DashboardContent() {
   const [avance,          setAvance]          = useState(false);
   const [nextRdvDate,     setNextRdvDate]     = useState('');
   const [rdvOuvert,       setRdvOuvert]       = useState<number|null>(null);
+  const [achatChecked,    setAchatChecked]    = useState<Record<string,boolean>>({});
   const [showConfirmNaissance, setShowConfirmNaissance] = useState(false);
   const [dpaOriginale, setDpaOriginale] = useState('');
 
@@ -76,6 +77,7 @@ function DashboardContent() {
         setRdvDates(user.rdv_dates             || {});
         setNextRdvDate(user.next_rdv           || '');
         if (user.dpa_originale) setDpaOriginale(user.dpa_originale);
+        if (user.achats_checked) setAchatChecked(user.achats_checked);
         if (p) localStorage.setItem('dadup_prenom', p);
         if (d) localStorage.setItem('dadup_dpa',    d);
         if (!d) setShowOnboarding(true);
@@ -85,38 +87,42 @@ function DashboardContent() {
 
   // Sync Supabase
   const declareNaissance = async () => {
+    setShowConfirmNaissance(false);
     if (isPost) {
-      // Retour en mode grossesse : restaurer dpa_originale depuis Supabase
-      const fromState = dpaOriginale;
-      const fromStorage = localStorage.getItem('dadup_dpa_originale') || '';
-      const dpaRestore = fromState || fromStorage;
-      console.log('Retour grossesse - dpaOriginale state:', fromState, '| localStorage:', fromStorage, '| dpaRestore:', dpaRestore);
-      if (!dpaRestore) { setShowConfirmNaissance(false); return; }
-      setDpa(dpaRestore);
-      localStorage.setItem('dadup_dpa', dpaRestore);
+      // Retour grossesse : chercher dpa_originale dans tous les endroits possibles
+      const dpaRestore = dpaOriginale
+        || localStorage.getItem('dadup_dpa_originale')
+        || localStorage.getItem('dadup_dpa_backup')
+        || '';
+      if (!dpaRestore) return; // Rien à restaurer
+      // Sauvegarder en Supabase ET localStorage
       await fetch('/api/auth/save', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ dpa: dpaRestore, dpa_originale: null }),
       });
-      setDpaOriginale('');
+      localStorage.setItem('dadup_dpa', dpaRestore);
+      localStorage.removeItem('dadup_dpa_originale');
+      // Recharger pour recalculer la SA
+      window.location.reload();
     } else {
-      // Basculer post-partum : sauvegarder la DPA originale dans Supabase
+      // Post-partum : sauvegarder la DPA courante dans 2 endroits
       const dpaCourante = dpa;
-      setDpaOriginale(dpaCourante);
       localStorage.setItem('dadup_dpa_originale', dpaCourante);
+      localStorage.setItem('dadup_dpa_backup', dpaCourante);
       const hier = new Date();
       hier.setDate(hier.getDate() - 1);
       const dpaPostPartum = hier.toISOString().split('T')[0];
-      setDpa(dpaPostPartum);
-      localStorage.setItem('dadup_dpa', dpaPostPartum);
+      // Sauvegarder en Supabase
       await fetch('/api/auth/save', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ dpa: dpaPostPartum, dpa_originale: dpaCourante }),
       });
+      localStorage.setItem('dadup_dpa', dpaPostPartum);
+      // Recharger pour basculer
+      window.location.reload();
     }
-    setShowConfirmNaissance(false);
   };
 
   const sync = (data: Record<string,any>) => {
@@ -127,6 +133,7 @@ function DashboardContent() {
     });
   };
 
+  const toggleA   = (id: string)          => { const u = {...achatChecked,   [id]: !achatChecked[id]};   setAchatChecked(u);   sync({ achats_checked: u }); };
   const toggleV   = (id: string)          => { const u = {...valiseChecked,   [id]: !valiseChecked[id]};   setValiseChecked(u);   localStorage.setItem('dadup_valise',    JSON.stringify(u)); sync({ valise_checked:   u }); };
   const toggleM   = (id: string)          => { const u = {...missionsChecked, [id]: !missionsChecked[id]}; setMissionsChecked(u); localStorage.setItem('dadup_missions',  JSON.stringify(u)); sync({ missions_checked: u }); };
   const saveRdv   = (v: string)           => { setNextRdvDate(v); localStorage.setItem('dadup_next_rdv', v); sync({ next_rdv: v }); };
@@ -157,7 +164,7 @@ function DashboardContent() {
     C, isPost, dpa, prenom, saReelle, joursRestants, prog, tri,
     moisBebe, dataBebe, idee, missions, missionsChecked, toggleM,
     nextRdv, nextRdvDate, saveRdv, dataR, data, sa, avance, setAvance,
-    valiseChecked, toggleV, rdvDates, saveRdvI, rdvOuvert, setRdvOuvert,
+    valiseChecked, toggleV, achatChecked, toggleA, rdvDates, saveRdvI, rdvOuvert, setRdvOuvert,
     MOIS_DATA, PARTENAIRES, RDV_LIST, SD,
   };
 
