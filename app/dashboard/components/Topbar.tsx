@@ -113,8 +113,8 @@ export default function Topbar({prenom,dpa,saReelle,tri,prog,isPost,moisBebe,act
                 <button onClick={handleSave} disabled={saving||!editPrenom||!editDpa} style={{flex:2,padding:'12px',background:saving||!editPrenom||!editDpa?'#ccc':C.dark,border:'none',borderRadius:'32px',fontSize:'14px',fontWeight:700,color:'#fff',cursor:'pointer'}}>{saving?'Sauvegarde...':'Enregistrer'}</button>
               </div>
               <div style={{borderTop:'1px solid #f0ede8',marginTop:'16px',paddingTop:'16px'}}>
-                <button onClick={()=>{setShowEdit(false);onDeclareNaissance();}} style={{width:'100%',padding:'12px',background:'#E4F5EC',border:'none',borderRadius:'32px',fontSize:'14px',fontWeight:700,color:'#0D6B40',cursor:'pointer'}}>
-                  Bébé est né !
+                <button onClick={()=>{setShowEdit(false);onDeclareNaissance();}} style={{width:'100%',padding:'12px',background:isPost?'#E6F0FA':'#E4F5EC',border:'none',borderRadius:'32px',fontSize:'14px',fontWeight:700,color:isPost?'#1A4A7A':'#0D6B40',cursor:'pointer'}}>
+                  {isPost ? 'Retour au mode grossesse' : 'Bébé est né !'}
                 </button>
               </div>
             </div>
