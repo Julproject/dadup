@@ -80,6 +80,11 @@ export const MOIS_DATA: Record<number, MoisData> = {
         contenu: "Bébé indique qu'il a faim avant de pleurer : il tourne la tête, ouvre la bouche, porte ses mains à sa bouche. Répondre à ces signaux précoces évite le cycle pleurs-stress-tétée difficile."
       }
     ],
+    activites: [
+      { titre: "Le peau à peau", contenu: "30 minutes de peau à peau par jour, torse nu contre torse nu. Ça régule sa température, stabilise son rythme cardiaque et renforce votre lien. Tu peux faire ça en regardant un film ou en lisant." },
+      { titre: "Le bain du soir", contenu: "Eau à 37°C, 5 minutes maximum. Parle-lui doucement pendant tout le bain. Pas besoin de savon à chaque fois. Ce rituel quotidien l'apaise et t'appartient." },
+      { titre: "Le massage bébé", contenu: "Après le bain, quelques minutes de massage doux sur ses jambes, son ventre et son dos. Des mouvements lents et réguliers. Il adore la chaleur de tes mains." },
+    ],
     rdv: "Examen J8 obligatoire chez le médecin ou la sage-femme. Examen du 1er mois entre J28 et J32. La sage-femme de ville peut faire les visites à domicile : pense à la contacter avant la sortie de maternité.",
     vaccins: "BCG si indiqué. Pas de vaccin obligatoire avant 2 mois.",
     alerte: "Température supérieure à 38°C avant 3 mois : appelle le pédiatre sans attendre, c'est la règle chez le nourrisson. Pour le reste (refus de manger, teint inhabituel, fontanelle bombée) : fais confiance à ton instinct. Si quelque chose te semble anormal, appelle. Tu ne dérangeras jamais trop."
@@ -138,6 +143,11 @@ export const MOIS_DATA: Record<number, MoisData> = {
         contenu: "Harvey Karp : swaddling (emmailloter), side (sur le côté dans tes bras), shushing (bruit blanc), swinging (bercer), sucking (tétine). Les 5 ensemble. Pas toujours efficace, mais souvent."
       }
     ],
+    activites: [
+      { titre: "Parler face à face", contenu: "Installe-le à 25 cm de ton visage et parle-lui en exagérant tes expressions. Attends qu'il réponde à sa façon. C'est une vraie conversation." },
+      { titre: "Découvrir les sons", contenu: "Fais entendre différents sons : ta voix qui chante, un hochet, de la musique douce. Il tourne la tête vers ce qui l'intéresse. Observe ses préférences." },
+      { titre: "Le tummy time", contenu: "2 à 3 minutes sur le ventre sur ta poitrine ou sur un tapis ferme, plusieurs fois par jour. Ça renforce les muscles de son cou. Toujours sous surveillance." },
+    ],
     rdv: "Examen du 2e mois. Début du carnet de vaccination.",
     vaccins: "DTCaP-Hib-HepB (Hexavalent) 1re dose + Méningocoque B 1re dose + Rotavirus 1re dose (oral).",
     alerte: "Chaque bébé avance à son rythme. Si à 2 mois bébé ne sourit pas encore ou semble peu réactif aux sons, mentionne-le au pédiatre lors du prochain examen. Ce n'est souvent rien, mais c'est toujours utile d'en parler."
@@ -192,6 +202,11 @@ export const MOIS_DATA: Record<number, MoisData> = {
         contenu: "Parler lentement, avec des intonations variées, en répétant. Nomme tout ce que tu fais avec lui. Il enregistre chaque mot même s'il ne les comprend pas encore."
       }
     ],
+    activites: [
+      { titre: "Le jeu du coucou", contenu: "Cache ton visage derrière tes mains puis réapparais en disant coucou. Son rire est une récompense en soi. Répète autant qu'il le souhaite." },
+      { titre: "Les livres à contraste", contenu: "Des livres cartonnés noir et blanc ou à couleurs vives. Pointe les images, nomme-les. Il regarde intensément. C'est le début de la lecture partagée." },
+      { titre: "La musique et la danse", contenu: "Prends-le dans tes bras et danse doucement. Les mouvements rythmés l'apaisent et l'éveillent. Il reconnait les musiques entendues régulièrement." },
+    ],
     rdv: "Pas de rendez-vous obligatoire ce mois. Surveiller le développement.",
     vaccins: "DTCaP-Hib-HepB 2e dose + Méningocoque B 2e dose + Rotavirus 2e dose + Pneumocoque 1re dose.",
     alerte: "Si à 3 mois bébé ne rit pas encore, ne suit pas des yeux ou ne réagit pas aux sons, parles-en à son médecin. Ces signaux méritent une attention, mais beaucoup de bébés prennent simplement leur temps."
@@ -242,6 +257,11 @@ export const MOIS_DATA: Record<number, MoisData> = {
         contenu: "Quatre mois après la naissance, la répartition des tâches peut cristalliser des tensions. La charge mentale (rendez-vous, stocks, tailles suivantes) est souvent invisible. Une conversation directe vaut mieux que du ressentiment."
       }
     ],
+    activites: [
+      { titre: "Explorer les textures", contenu: "Fais-lui toucher des surfaces différentes : tissu doux, bois, plastique, ta barbe, un glaçon dans un tissu. Il enregistre chaque sensation." },
+      { titre: "Le miroir", contenu: "Montre-lui son reflet dans un miroir. Il est fasciné par ce bébé qui l'imite. Fais des grimaces ensemble. C'est l'un de ses jeux préférés ce mois-ci." },
+      { titre: "Les hochets et anneaux", contenu: "Pose des hochets légers dans sa main. Il commence à attraper et à secouer intentionnellement. Chaque objet est une expérience." },
+    ],
     rdv: "Examen du 4e mois obligatoire.",
     vaccins: "Méningocoque B 3e dose.",
     alerte: "Si bébé n'attrape pas encore d'objets, ne gazouille pas ou présente des mouvements asymétriques, mentionne-le au pédiatre. Ce n'est pas forcément inquiétant, mais un regard médical est toujours rassurant."
@@ -287,6 +307,11 @@ export const MOIS_DATA: Record<number, MoisData> = {
         titre: "L'angoisse de séparation",
         contenu: "Normale et signe d'attachement sain. Ne pas forcer les contacts avec des inconnus."
       }
+    ],
+    activites: [
+      { titre: "La position assise aidée", contenu: "Installe-le assis entre tes jambes pour qu'il découvre cette perspective. Il voit le monde autrement. Pas plus de 10 minutes, et toujours avec soutien." },
+      { titre: "Les premières purées en jeu", contenu: "Si la diversification a commencé, laisse-le toucher la purée avec ses doigts. Mettre les mains dans la nourriture est une exploration sensorielle normale." },
+      { titre: "Cacher et retrouver", contenu: "Cache un jouet sous une couverture devant ses yeux. Laisse-le le chercher. C'est l'entraînement de la permanence de l'objet, une étape cognitive majeure." },
     ],
     rdv: "Pas de rendez-vous obligatoire. Surveillance de la diversification.",
     vaccins: "Pas de vaccin ce mois.",
@@ -338,6 +363,11 @@ export const MOIS_DATA: Record<number, MoisData> = {
         contenu: "Préparer les purées en grande quantité et les congeler en petites portions. Une carotte cuite mixée avec un peu de bouillon de légumes maison, c'est tout ce qu'il lui faut. Économique et utile."
       }
     ],
+    activites: [
+      { titre: "La balade quotidienne", contenu: "Une sortie à pied chaque jour, même courte. Nomme tout ce que vous voyez. Les arbres, les voitures, les chiens. Son vocabulaire se construit de chaque mot entendu." },
+      { titre: "L'eau et le bain", contenu: "Laisse-le jouer dans l'eau du bain avec des petits contenants. Remplir, vider, éclabousser. L'eau est son terrain de jeu sensoriel préféré." },
+      { titre: "Les chansons avec gestes", contenu: "Promenons-nous dans les bois, les marionnettes. Les chansons avec gestes coordonnés stimulent la mémoire et la motricité. Il adore te regarder les faire." },
+    ],
     rdv: "Examen du 6e mois obligatoire. Bilan complet.",
     vaccins: "DTCaP-Hib-HepB 3e dose (rappel) + Pneumocoque 2e dose + Méningocoque C.",
     alerte: "Chaque bébé a son calendrier. Si à 6 mois il ne babille pas encore ou ne tient pas assis avec un soutien, c'est un bon sujet à aborder lors de la consultation du 6e mois. Pas d'inquiétude, juste une mention."
@@ -383,6 +413,11 @@ export const MOIS_DATA: Record<number, MoisData> = {
         titre: "Le jeu au sol",
         contenu: "Mets-toi par terre avec lui, à sa hauteur. Le jeu au sol que tu partages avec lui est différent du jeu qu'il fait seul. Tu es le premier autre être humain avec qui il apprend à jouer."
       }
+    ],
+    activites: [
+      { titre: "Le circuit d'exploration", contenu: "Crée un parcours au sol avec des objets aux textures variées. Il rampe, pousse, contourne. Laisse-le explorer sans intervenir sauf danger réel." },
+      { titre: "Les boîtes et contenants", contenu: "Des boîtes qu'on ouvre et ferme, des pots avec des couvercles, des cubes qu'on empile. Ces jeux de cause à effet sont ses préférés en ce moment." },
+      { titre: "Lire chaque soir", contenu: "10 minutes de lecture à voix haute avant de dormir. Il n'a pas besoin de tout comprendre. Le rythme de ta voix et la répétition construisent son langage." },
     ],
     rdv: "Pas de rendez-vous obligatoire.",
     vaccins: "Pas de vaccin ce mois.",
@@ -430,6 +465,11 @@ export const MOIS_DATA: Record<number, MoisData> = {
         contenu: "Bébé comprend la routine et la prévisibilité le rassure. Tes rituels (le bain, la chanson du soir, la promenade du dimanche matin) sont mémorisés et attendus. Ces moments construisent la sécurité affective."
       }
     ],
+    activites: [
+      { titre: "Faire semblant", contenu: "Fais semblant de boire dans sa tasse vide, de téléphoner avec un objet. Il va t'imiter. C'est le début du jeu symbolique, l'une des compétences cognitives les plus avancées." },
+      { titre: "Debout contre le canapé", contenu: "Aide-le à se hisser debout contre un meuble stable et laisse-le explorer cette position. Reste proche mais ne le retiens pas. Les chutes font partie de l'apprentissage." },
+      { titre: "Les jeux d'imitation", contenu: "Tape dans les mains, fais au revoir, pointe du doigt un objet. Attends qu'il reproduise. L'imitation est le moteur principal de son développement ce mois-ci." },
+    ],
     rdv: "Examen du 8e mois conseillé.",
     vaccins: "Grippe si indiqué (prématurés, pathologies chroniques).",
     alerte: "Si à 8 mois bébé ne réagit pas du tout à son prénom ou ne produit aucun son, c'est un point à mentionner au pédiatre. La perte de compétences déjà acquises mérite toujours une consultation."
@@ -476,6 +516,11 @@ export const MOIS_DATA: Record<number, MoisData> = {
         contenu: "Cache un jouet sous une couverture devant lui. Fais-lui découvrir des textures nouvelles : l'herbe, le sable, l'eau, la boue. Ces explorations sensorielles sont fondamentales pour le développement cognitif."
       }
     ],
+    activites: [
+      { titre: "Les escaliers en sécurité", contenu: "Apprends-lui à monter et descendre à reculons en sécurité. Montre-lui le geste en premier. C'est une compétence motrice utile qu'il peut apprendre maintenant." },
+      { titre: "Les premiers gribouillis", contenu: "Des gros crayons de cire sur du papier épais. Il ne dessine pas encore, mais il adore laisser une trace. Valorise chaque gribouilli comme une oeuvre." },
+      { titre: "La récré dehors", contenu: "Herbe, sable, graviers, flaques d'eau. Les textures naturelles sont irremplaçables. Laisse-le salir. L'exploration sensorielle extérieure est fondamentale." },
+    ],
     rdv: "Examen du 9e mois obligatoire. Consultation la plus complète depuis le 1er mois : motricité, langage, vision, audition. Prépare tes questions.",
     vaccins: "Méningocoque B rappel si non fait à 6 mois.",
     alerte: "Si à 9 mois bébé ne pointe pas du doigt, ne produit pas de sons variés ou ne semble pas comprendre son prénom, c'est un bon sujet pour la consultation du 9e mois. Chaque bébé avance à son rythme."
@@ -517,6 +562,11 @@ export const MOIS_DATA: Record<number, MoisData> = {
         titre: "Son premier anniversaire approche",
         contenu: "Le premier anniversaire est pour les adultes, pas pour bébé. Il ne comprend pas l'enjeu. Un petit rassemblement familial simple vaut mieux qu'une fête surchargée qui le fatigue."
       }
+    ],
+    activites: [
+      { titre: "Les cubes à empiler", contenu: "2 ou 3 cubes à empiler jusqu'à ce que ca tombe. Il adore faire tomber ce qu'il a construit. C'est un jeu de cause à effet très satisfaisant pour lui." },
+      { titre: "Nommer en montrant", contenu: "Pointe chaque objet dans un livre ou dans la pièce et nomme-le clairement. Fais-lui pointer à son tour. Ce rituel de 5 minutes par jour accélère le développement du langage." },
+      { titre: "La balle à rouler", contenu: "Assis en face de lui, faites rouler une balle entre vous. Ce jeu d'échange simple apprend l'alternance, base de toute conversation future." },
     ],
     rdv: "Pas de rendez-vous obligatoire.",
     vaccins: "Pas de vaccin ce mois.",
@@ -564,6 +614,11 @@ export const MOIS_DATA: Record<number, MoisData> = {
         contenu: "Le premier anniversaire est autant pour vous que pour bébé. Prendre un moment pour célébrer ce que vous avez traversé ensemble, en couple. La relation de couple est la base de la stabilité de l'enfant."
       }
     ],
+    activites: [
+      { titre: "Les premiers pas encouragés", contenu: "Tends les mains à 50 cm de lui et encourage-le à venir vers toi. Pas trop loin pour ne pas frustrer. Chaque pas est une victoire à célébrer clairement." },
+      { titre: "Tri et classement", contenu: "Des objets de différentes couleurs ou tailles à trier dans des bols. Il ne classe pas encore vraiment, mais il manipule, transvase, explore. C'est suffisant." },
+      { titre: "La lecture participative", contenu: "Pose des questions sur les images. Où est le chien ? Il cherche avec son doigt. Il ne comprend pas tout mais il participe. Cette interaction booste son langage." },
+    ],
     rdv: "Examen du 12e mois obligatoire (peut être fait à 11 mois).",
     vaccins: "ROR (Rougeole-Oreillons-Rubéole) 1re dose + Méningocoque C rappel + Varicelle 1re dose.",
     alerte: "Tous les bébés ne marchent pas à 12 mois, et c'est normal jusqu'à 18 mois. S'il ne dit encore aucun mot et ne pointe pas du doigt à 12 mois, c'est un bon point à aborder avec le pédiatre lors de la consultation obligatoire, sans inquiétude excessive."
@@ -609,6 +664,11 @@ export const MOIS_DATA: Record<number, MoisData> = {
         titre: "Toi, un an après",
         contenu: "Tu es différent. Plus patient que tu ne le pensais. Plus ému par des choses simples. Plus conscient de ce qui compte vraiment. Cette transformation est réelle et permanente."
       }
+    ],
+    activites: [
+      { titre: "Le jardin ou le parc", contenu: "Sol irrégulier, herbe, petites pentes. Pour un marcheur débutant, l'extérieur est le meilleur terrain d'entraînement. La nature stimule tous ses sens en même temps." },
+      { titre: "Les puzzles 2-3 pièces", contenu: "Des encastrements simples avec de grosses pièces. Il ne réussit pas encore seul, mais l'intention compte. Guide sa main sans faire à sa place." },
+      { titre: "Cuisiner ensemble", contenu: "Assis dans sa chaise haute, donne-lui un bol et une cuillère pendant que tu prépares à manger. Il imite, il explore. C'est son premier cours de cuisine." },
     ],
     rdv: "Examen du 12e mois obligatoire. Bilan complet.",
     vaccins: "ROR 1re dose + Méningocoque C + Varicelle.",
