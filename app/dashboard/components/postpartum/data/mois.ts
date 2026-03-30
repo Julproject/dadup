@@ -1,6 +1,22 @@
-import type { MoisData } from '../../data/types';
+import type { MoisData } from '../../../data/types';
 
-export { getIdee } from '../../data/mois';
+export function getIdee(mois: number): string {
+  const idees = [
+    "Crée un album photo des premiers sourires de bébé.",
+    "Enregistre la voix de bébé qui babille.",
+    "Fais une empreinte de sa main ou son pied.",
+    "Commence un carnet de bord avec ses premières fois.",
+    "Filme ses premiers fous rires.",
+    "Documente ses premières positions assises.",
+    "Note ses premiers mots ou sons reconnaissables.",
+    "Prends une photo avec le même doudou chaque mois.",
+    "Enregistre ses premiers pas.",
+    "Commence un livre de recettes de ses purées préférées.",
+    "Fais une sortie spéciale pour ses 10 mois.",
+    "Prépare un cadeau souvenir pour son 1er anniversaire.",
+  ];
+  return idees[Math.min(mois - 1, 11)] || idees[0];
+}
 
 export const MOIS_DATA: Record<number, MoisData> = {
   0: {
