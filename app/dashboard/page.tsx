@@ -8,7 +8,7 @@ import { SD }                  from './data/semaines';
 import { MISSIONS }            from './data/missions';
 import { RDV_LIST }            from './data/rdv';
 import { PARTENAIRES }         from './data/partenaires';
-import { MOIS_DATA, getIdee }  from './data/mois';
+import { MOIS_DATA, getIdee }  from './components/postpartum/data/mois';
 import { getSA }               from './data/utils';
 
 // ── Components ────────────────────────────────────────────────────────────────
@@ -19,10 +19,11 @@ import BebePage      from './components/BebePage';
 import RDVPage       from './components/RDVPage';
 import PreparerPage  from './components/PreparerPage';
 import BonsPlansPage from './components/BonsPlansPage';
-import PostAccueil   from './components/PostAccueil';
-import PostBebe      from './components/PostBebe';
-import PostRDV       from './components/PostRDV';
+import PostAccueil   from './components/postpartum/PostAccueil';
+import PostBebe      from './components/postpartum/PostBebe';
+import PostRDV       from './components/postpartum/PostRDV';
 import PsychoPage  from './components/PsychoPage';
+import SuiviBebe   from './components/postpartum/SuiviBebe';
 
 // ── Palette ───────────────────────────────────────────────────────────────────
 const C = {
@@ -164,6 +165,7 @@ function DashboardContent() {
         {activeTab === 'home' && (isPost ? <PostAccueil {...shared}/> : <Accueil    {...shared}/>)}
         {activeTab === 'bebe' && (isPost ? <PostBebe    {...shared}/> : <BebePage   {...shared}/>)}
         {activeTab === 'rdv'  && (isPost ? <PostRDV     {...shared}/> : <RDVPage    {...shared}/>)}
+        {isPost && activeTab === 'suivi'   && <SuiviBebe    C={C}/>}
         {!isPost && activeTab === 'pratique'  && <PreparerPage  {...shared}/>}
         {!isPost && activeTab === 'bonsplans' && <BonsPlansPage {...shared}/>}
         {!isPost && activeTab === 'psycho'    && <PsychoPage    C={C} saReelle={saReelle}/>}
