@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 type EntreeJour = {
   heure: string;
@@ -46,12 +46,30 @@ function resumeEntree(e: EntreeJour, mode: 'allaitement'|'biberon'): string {
 }
 
 export default function SuiviBebe({C}: any) {
-  const [jours, setJours]           = useState<JourData[]>(Array.from({length:7}, ()=>jourVide()));
+  const [jours, setJours]           = useState<JourData[]>(() => {
+    if (typeof window !== 'undefined') {
+      const saved = localStorage.getItem('dadup_suivi_j7');
+      if (saved) try { return JSON.parse(saved); } catch {}
+    }
+    return Array.from({length:7}, ()=>jourVide());
+  });
   const [jourActif, setJourActif]   = useState(0);
-  const [modeAllaitement, setMode]  = useState<'allaitement'|'biberon'>('allaitement');
+  const [modeAllaitement, setMode]  = useState<'allaitement'|'biberon'>(() => {
+    if (typeof window !== 'undefined') return (localStorage.getItem('dadup_suivi_mode') as any) || 'allaitement';
+    return 'allaitement';
+  });
   const [entreeOuverte, setOuverte] = useState<number|null>(null);
 
   const jour = jours[jourActif];
+
+  // Sauvegarder automatiquement dans localStorage
+  useEffect(() => {
+    localStorage.setItem('dadup_suivi_j7', JSON.stringify(jours));
+  }, [jours]);
+
+  useEffect(() => {
+    localStorage.setItem('dadup_suivi_mode', modeAllaitement);
+  }, [modeAllaitement]);
 
   const updateJour = (fn:(j:JourData)=>JourData) => {
     setJours(prev => {
