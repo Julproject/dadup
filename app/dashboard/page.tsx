@@ -48,7 +48,7 @@ function DashboardContent() {
   const [nextRdvDate,     setNextRdvDate]     = useState('');
   const [rdvOuvert,       setRdvOuvert]       = useState<number|null>(null);
   const [showConfirmNaissance, setShowConfirmNaissance] = useState(false);
-  const [dpaSauvegardee, setDpaSauvegardee] = useState('');
+  const [dpaOriginale, setDpaOriginale] = useState('');
 
   // Routing par URL
   const setActiveTab = (tab: string) => {
@@ -75,6 +75,7 @@ function DashboardContent() {
         setMissionsChecked(user.missions_checked || {});
         setRdvDates(user.rdv_dates             || {});
         setNextRdvDate(user.next_rdv           || '');
+        if (user.dpa_originale) setDpaOriginale(user.dpa_originale);
         if (p) localStorage.setItem('dadup_prenom', p);
         if (d) localStorage.setItem('dadup_dpa',    d);
         if (!d) setShowOnboarding(true);
@@ -85,28 +86,31 @@ function DashboardContent() {
   // Sync Supabase
   const declareNaissance = async () => {
     if (isPost) {
-      // Retour en mode grossesse : restaurer la DPA sauvegardée
-      const dpaRestore = dpaSauvegardee || localStorage.getItem('dadup_dpa_originale') || dpa;
-      localStorage.setItem('dadup_dpa', dpaRestore);
+      // Retour en mode grossesse : restaurer dpa_originale depuis Supabase
+      const dpaRestore = dpaOriginale || localStorage.getItem('dadup_dpa_originale') || '';
+      if (!dpaRestore) { setShowConfirmNaissance(false); return; }
       setDpa(dpaRestore);
+      localStorage.setItem('dadup_dpa', dpaRestore);
       await fetch('/api/auth/save', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ dpa: dpaRestore }),
+        body: JSON.stringify({ dpa: dpaRestore, dpa_originale: null }),
       });
+      setDpaOriginale('');
     } else {
-      // Basculer en mode post-partum : sauvegarder la vraie DPA d'abord
-      localStorage.setItem('dadup_dpa_originale', dpa);
-      setDpaSauvegardee(dpa);
+      // Basculer post-partum : sauvegarder la DPA originale dans Supabase
+      const dpaCourante = dpa;
+      setDpaOriginale(dpaCourante);
+      localStorage.setItem('dadup_dpa_originale', dpaCourante);
       const hier = new Date();
       hier.setDate(hier.getDate() - 1);
       const dpaPostPartum = hier.toISOString().split('T')[0];
-      localStorage.setItem('dadup_dpa', dpaPostPartum);
       setDpa(dpaPostPartum);
+      localStorage.setItem('dadup_dpa', dpaPostPartum);
       await fetch('/api/auth/save', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ dpa: dpaPostPartum }),
+        body: JSON.stringify({ dpa: dpaPostPartum, dpa_originale: dpaCourante }),
       });
     }
     setShowConfirmNaissance(false);
