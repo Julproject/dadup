@@ -87,7 +87,10 @@ function DashboardContent() {
   const declareNaissance = async () => {
     if (isPost) {
       // Retour en mode grossesse : restaurer dpa_originale depuis Supabase
-      const dpaRestore = dpaOriginale || localStorage.getItem('dadup_dpa_originale') || '';
+      const fromState = dpaOriginale;
+      const fromStorage = localStorage.getItem('dadup_dpa_originale') || '';
+      const dpaRestore = fromState || fromStorage;
+      console.log('Retour grossesse - dpaOriginale state:', fromState, '| localStorage:', fromStorage, '| dpaRestore:', dpaRestore);
       if (!dpaRestore) { setShowConfirmNaissance(false); return; }
       setDpa(dpaRestore);
       localStorage.setItem('dadup_dpa', dpaRestore);
