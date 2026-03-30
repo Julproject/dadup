@@ -38,7 +38,7 @@ export default function PostRDV({C,moisBebe,dataBebe}:any) {
 
       {/* ALERTE */}
       <div style={{background:'#FDECEA',borderRadius:'18px',padding:'20px 22px',borderLeft:'3px solid #A03030'}}>
-        <p style={{color:'#A03030',fontSize:'10px',fontWeight:700,letterSpacing:'2px',textTransform:'uppercase' as const,margin:'0 0 12px'}}>Signes d'alerte urgents</p>
+        <p style={{color:'#A03030',fontSize:'10px',fontWeight:700,letterSpacing:'2px',textTransform:'uppercase' as const,margin:'0 0 12px'}}>Quand consulter</p>
         <p style={{color:'#3D0A0A',fontSize:'15px',lineHeight:1.75,margin:0}}>{dataBebe.alerte}</p>
       </div>
     </div>
