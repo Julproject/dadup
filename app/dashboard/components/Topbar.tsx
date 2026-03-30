@@ -11,6 +11,7 @@ export default function Topbar({prenom,dpa,saReelle,tri,prog,isPost,moisBebe,act
   isPost:boolean;moisBebe:number;
   activeTab:string;setActiveTab:(t:string)=>void;
   onUpdateInfos:(prenom:string,dpa:string)=>void;
+  onDeclareNaissance:()=>void;
 }) {
   const [showEdit, setShowEdit] = useState(false);
   const [editPrenom, setEditPrenom] = useState(prenom);
@@ -109,6 +110,11 @@ export default function Topbar({prenom,dpa,saReelle,tri,prog,isPost,moisBebe,act
               <div style={{display:'flex',gap:'10px',marginTop:'4px'}}>
                 <button onClick={()=>setShowEdit(false)} style={{flex:1,padding:'12px',background:'#f7f5f0',border:'none',borderRadius:'32px',fontSize:'14px',fontWeight:700,color:C.muted,cursor:'pointer'}}>Annuler</button>
                 <button onClick={handleSave} disabled={saving||!editPrenom||!editDpa} style={{flex:2,padding:'12px',background:saving||!editPrenom||!editDpa?'#ccc':C.dark,border:'none',borderRadius:'32px',fontSize:'14px',fontWeight:700,color:'#fff',cursor:'pointer'}}>{saving?'Sauvegarde...':'Enregistrer'}</button>
+              </div>
+              <div style={{borderTop:'1px solid #f0ede8',marginTop:'16px',paddingTop:'16px'}}>
+                <button onClick={()=>{setShowEdit(false);onDeclareNaissance();}} style={{width:'100%',padding:'12px',background:'#E4F5EC',border:'none',borderRadius:'32px',fontSize:'14px',fontWeight:700,color:'#0D6B40',cursor:'pointer'}}>
+                  Bébé est né !
+                </button>
               </div>
             </div>
           </div>
