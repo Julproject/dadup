@@ -136,7 +136,6 @@ function DashboardContent() {
     nextRdv, nextRdvDate, saveRdv, dataR, data, sa, avance, setAvance,
     valiseChecked, toggleV, rdvDates, saveRdvI, rdvOuvert, setRdvOuvert,
     MOIS_DATA, PARTENAIRES, RDV_LIST, SD,
-    onDeclareNaissance: () => setShowConfirmNaissance(true),
   };
 
   return (
@@ -158,6 +157,7 @@ function DashboardContent() {
         isPost={isPost} moisBebe={moisBebe}
         activeTab={activeTab} setActiveTab={setActiveTab}
         onUpdateInfos={(p,d)=>{setPrenom(p);setDpa(d);localStorage.setItem('dadup_prenom',p);localStorage.setItem('dadup_dpa',d);}}
+        onDeclareNaissance={()=>setShowConfirmNaissance(true)}
       />
 
       <div className="dd-c">
