@@ -39,10 +39,11 @@ export default function Topbar({ prenom, dpa, saReelle, tri, prog, isPost, moisB
   ];
 
   const navPost = [
-    { id: 'home',    label: 'Ce mois-ci',  bg: '#E4F5EC', tc: '#0D6B40' },
-    { id: 'bebe',    label: 'Mon bébé',    bg: '#E6F0FA', tc: '#2E5F8A' },
-    { id: 'rdv',     label: 'Santé & RDV', bg: '#FFF0E6', tc: '#C04A1A' },
-    { id: 'suivi',   label: 'Suivi J7',    bg: '#F0EEFF', tc: '#5050B0' },
+    { id: 'home',     label: 'Ce mois-ci',  bg: '#E4F5EC', tc: '#0D6B40' },
+    { id: 'bebe',     label: 'Mon bébé',    bg: '#E6F0FA', tc: '#2E5F8A' },
+    { id: 'rdv',      label: 'Santé & RDV', bg: '#FFF0E6', tc: '#C04A1A' },
+    { id: 'suivi',    label: 'Suivi J7',    bg: '#F0EEFF', tc: '#5050B0' },
+    { id: 'atelier',  label: 'Atelier',     bg: '#FFF7E0', tc: '#8A6010' },
   ];
 
   const tabs = isPost ? navPost : navGrossesse;
@@ -50,7 +51,6 @@ export default function Topbar({ prenom, dpa, saReelle, tri, prog, isPost, moisB
   return (
     <>
       <div style={{ background: C.white, borderBottom: `1.5px solid ${C.border}`, position: 'sticky', top: 0, zIndex: 40 }}>
-        {/* Ligne 1 : logo + profil */}
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '10px 28px', maxWidth: '1180px', margin: '0 auto' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
             <svg viewBox="0 0 300 300" width="34" height="34">
@@ -72,14 +72,12 @@ export default function Topbar({ prenom, dpa, saReelle, tri, prog, isPost, moisB
                   <small style={{ display: 'block', fontSize: '8px', color: 'rgba(255,255,255,0.55)', fontWeight: 600, letterSpacing: '0.5px' }}>{isPost ? 'post-partum' : tri}</small>
                 </div>
               )}
-              {/* Bouton réglages */}
-              <button onClick={() => setShowEdit(true)} style={{ background: 'none', border: 'none', cursor: 'pointer', padding: '4px', display: 'flex', alignItems: 'center', color: C.muted }}>
+              <button onClick={() => { setEditPrenom(prenom); setEditDpa(dpa); setShowEdit(true); }} style={{ background: 'none', border: 'none', cursor: 'pointer', padding: '4px', display: 'flex', alignItems: 'center', color: C.muted }}>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <circle cx="12" cy="12" r="3" /><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" />
                 </svg>
               </button>
             </div>
-            {/* Bouton déconnexion */}
             <button onClick={async () => { await fetch('/api/auth/logout', { method: 'POST' }); window.location.href = '/login'; }} style={{ background: 'none', border: 'none', cursor: 'pointer', padding: '6px', display: 'flex', alignItems: 'center', color: C.muted }} title="Déconnexion">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" /><polyline points="16 17 21 12 16 7" /><line x1="21" y1="12" x2="9" y2="12" />
@@ -87,8 +85,6 @@ export default function Topbar({ prenom, dpa, saReelle, tri, prog, isPost, moisB
             </button>
           </div>
         </div>
-
-        {/* Ligne 2 : onglets */}
         <div style={{ display: 'flex', gap: '6px', padding: '0 24px 12px', overflowX: 'auto' as const, maxWidth: '1180px', margin: '0 auto' }}>
           {tabs.map(n => {
             const on = activeTab === n.id;
@@ -103,7 +99,6 @@ export default function Topbar({ prenom, dpa, saReelle, tri, prog, isPost, moisB
         </div>
       </div>
 
-      {/* MODALE MODIFIER INFOS */}
       {showEdit && (
         <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.4)', zIndex: 100, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px' }} onClick={() => setShowEdit(false)}>
           <div style={{ background: '#fff', borderRadius: '24px', padding: '28px', width: '100%', maxWidth: '380px', boxShadow: '0 8px 40px rgba(0,0,0,0.15)' }} onClick={e => e.stopPropagation()}>
@@ -111,11 +106,11 @@ export default function Topbar({ prenom, dpa, saReelle, tri, prog, isPost, moisB
             <p style={{ color: C.muted, fontSize: '13px', margin: '0 0 24px' }}>Modifie ton prénom et ta date prévue d&apos;accouchement.</p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
               <div>
-                <label style={{ display: 'block', color: C.dark, fontSize: '12px', fontWeight: 700, marginBottom: '7px', letterSpacing: '0.3px' }}>Ton prénom</label>
+                <label style={{ display: 'block', color: C.dark, fontSize: '12px', fontWeight: 700, marginBottom: '7px' }}>Ton prénom</label>
                 <input type="text" value={editPrenom} onChange={e => setEditPrenom(e.target.value)} placeholder="Ton prénom" style={{ width: '100%', background: '#f7f5f0', border: '1.5px solid #f0ede8', borderRadius: '12px', padding: '11px 14px', fontSize: '15px', color: C.dark, outline: 'none' }} onFocus={e => e.target.style.borderColor = C.blue} onBlur={e => e.target.style.borderColor = '#f0ede8'} />
               </div>
               <div>
-                <label style={{ display: 'block', color: C.dark, fontSize: '12px', fontWeight: 700, marginBottom: '7px', letterSpacing: '0.3px' }}>Date prévue d&apos;accouchement</label>
+                <label style={{ display: 'block', color: C.dark, fontSize: '12px', fontWeight: 700, marginBottom: '7px' }}>Date prévue d&apos;accouchement</label>
                 <input type="date" value={editDpa} onChange={e => setEditDpa(e.target.value)} style={{ width: '100%', background: '#f7f5f0', border: '1.5px solid #f0ede8', borderRadius: '12px', padding: '11px 14px', fontSize: '15px', color: C.dark, outline: 'none' }} onFocus={e => e.target.style.borderColor = C.blue} onBlur={e => e.target.style.borderColor = '#f0ede8'} />
               </div>
               <div style={{ display: 'flex', gap: '10px', marginTop: '4px' }}>
@@ -124,7 +119,7 @@ export default function Topbar({ prenom, dpa, saReelle, tri, prog, isPost, moisB
               </div>
               <div style={{ borderTop: '1px solid #f0ede8', marginTop: '16px', paddingTop: '16px' }}>
                 <button onClick={() => { setShowEdit(false); onDeclareNaissance(); }} style={{ width: '100%', padding: '12px', background: isPost ? '#E6F0FA' : '#E4F5EC', border: 'none', borderRadius: '32px', fontSize: '14px', fontWeight: 700, color: isPost ? '#1A4A7A' : '#0D6B40', cursor: 'pointer' }}>
-                  {isPost ? 'Retour au mode grossesse' : 'Bébé est né !'}
+                  {isPost ? 'Retour au mode grossesse' : `Bébé est né !`}
                 </button>
               </div>
             </div>
