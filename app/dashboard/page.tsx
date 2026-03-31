@@ -142,10 +142,12 @@ function DashboardContent() {
       localStorage.setItem('dadup_dpa_originale', dpaCourant);
       localStorage.setItem('dadup_dpa_backup', dpaCourant);
       setDpaOriginale(dpaCourant);
-      const today = new Date().toISOString().split('T')[0];
-      setDpa(today);
-      localStorage.setItem('dadup_dpa', today);
-      saveData({ dpa: today, dpa_originale: dpaCourant });
+      const hier = new Date();
+      hier.setDate(hier.getDate() - 1);
+      const dpaPostPartum = hier.toISOString().split('T')[0];
+      setDpa(dpaPostPartum);
+      localStorage.setItem('dadup_dpa', dpaPostPartum);
+      saveData({ dpa: dpaPostPartum, dpa_originale: dpaCourant });
     }
     setActiveTab('home');
   };
