@@ -143,7 +143,7 @@ const ATELIERS: Atelier[] = [
     fond: '#E4F5EC',
     etapes: [
       {
-        titre: 'Les signes d'une bonne prise',
+        titre: `Les signes d'une bonne prise`,
         texte: `Bouche grande ouverte sur l'aréole (pas que le mamelon). Lèvres retroussées. Menton appuyé contre le sein. Tu entends des déglutitions. Si tu as mal au-delà de 30 secondes : mauvaise prise, détacher et recommencer.`,
       },
       {
