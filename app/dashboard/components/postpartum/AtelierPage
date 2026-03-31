@@ -96,7 +96,7 @@ export default function AtelierPage(props) {
   var actif = actifState[0];
   var setActif = actifState[1];
   var found = MODULES.filter(function(m) { return m.id === actif; })[0];
-  var module = found ? found : MODULES[0];
+  var currentModule = found ? found : MODULES[0];
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
@@ -120,17 +120,17 @@ export default function AtelierPage(props) {
         ); })}
       </div>
 
-      <div style={{ background: module.bg, borderRadius: '22px', padding: '24px' }}>
-        <p style={{ color: module.tc, fontSize: '22px', fontWeight: 800, margin: '0 0 4px' }}>{module.emoji} {module.titre}</p>
-        <p style={{ color: module.tc, fontSize: '13px', opacity: 0.65, margin: '0 0 20px', fontWeight: 600 }}>{module.sousTitre}</p>
+      <div style={{ background: currentModule.bg, borderRadius: '22px', padding: '24px' }}>
+        <p style={{ color: currentModule.tc, fontSize: '22px', fontWeight: 800, margin: '0 0 4px' }}>{currentModule.emoji} {currentModule.titre}</p>
+        <p style={{ color: currentModule.tc, fontSize: '13px', opacity: 0.65, margin: '0 0 20px', fontWeight: 600 }}>{currentModule.sousTitre}</p>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-          {module.etapes.map(function(etape, i) { return (
+          {currentModule.etapes.map(function(etape, i) { return (
             <div key={i} style={{ background: 'rgba(255,255,255,0.65)', borderRadius: '16px', padding: '14px 16px', display: 'flex', gap: '14px', alignItems: 'flex-start' }}>
-              <div style={{ width: '32px', height: '32px', minWidth: '32px', borderRadius: '10px', background: module.tc, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <div style={{ width: '32px', height: '32px', minWidth: '32px', borderRadius: '10px', background: currentModule.tc, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <span style={{ color: '#fff', fontSize: '14px', fontWeight: 800 }}>{etape.num}</span>
               </div>
               <div>
-                <p style={{ color: module.tc, fontSize: '14px', fontWeight: 800, margin: '0 0 4px' }}>{etape.titre}</p>
+                <p style={{ color: currentModule.tc, fontSize: '14px', fontWeight: 800, margin: '0 0 4px' }}>{etape.titre}</p>
                 <p style={{ color: '#4a5568', fontSize: '13px', lineHeight: 1.75, margin: 0 }}>{etape.desc}</p>
               </div>
             </div>
@@ -141,7 +141,7 @@ export default function AtelierPage(props) {
       <div style={{ background: '#f7f5f0', borderRadius: '18px', padding: '18px 20px' }}>
         <p style={{ color: C.muted, fontSize: '10px', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase', margin: '0 0 12px' }}>A retenir</p>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-          {module.notes.map(function(note, i) { return (
+          {currentModule.notes.map(function(note, i) { return (
             <div key={i} style={{ display: 'flex', gap: '10px', alignItems: 'flex-start' }}>
               <span style={{ color: C.gold, fontSize: '14px', flexShrink: 0, marginTop: '1px' }}>-&gt;</span>
               <p style={{ color: C.dark, fontSize: '13px', lineHeight: 1.6, margin: 0 }}>{note}</p>
