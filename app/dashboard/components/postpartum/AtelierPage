@@ -1,148 +1,62 @@
 'use client';
 import { useState } from 'react';
 
-const ATELIERS = [
-  { id: 'emmaillotage', label: 'Emmaillotage' },
-  { id: 'secours',      label: 'Premiers secours' },
-  { id: 'portage',      label: 'Le portage' },
-  { id: 'bain',         label: 'Le bain' },
-];
-
-function Emmaillotage() {
-  return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-      {[
-        { n: '1', t: 'Prepare la couverture', d: "Etale une couverture fine en losange. Replie le coin superieur vers le bas d'environ 15 cm." },
-        { n: '2', t: 'Positionne bebe', d: "Place bebe sur le dos, epaules au niveau du bord replie. Bras le long du corps." },
-        { n: '3', t: 'Cote gauche', d: "Prends le coin gauche, passe-le sur le bras droit de bebe et glisse-le sous son dos cote droit." },
-        { n: '4', t: 'Coin inferieur', d: "Rabats le coin inferieur vers le haut sur le ventre de bebe. Les hanches doivent pouvoir se plier librement." },
-        { n: '5', t: 'Cote droit', d: "Prends le coin droit, enroule-le autour de bebe et glisse-le sous son dos cote gauche." },
-        { n: '6', t: 'Verifie', d: "Test des deux doigts entre la couverture et la poitrine de bebe. Il doit y avoir de l'espace. Hanches libres." },
-      ].map(function(e, i) {
-        return (
-          <div key={i} style={{ background: 'rgba(255,255,255,0.65)', borderRadius: '16px', padding: '14px 16px', display: 'flex', gap: '14px' }}>
-            <div style={{ width: '32px', height: '32px', minWidth: '32px', borderRadius: '10px', background: '#1A3D5C', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <span style={{ color: '#fff', fontSize: '14px', fontWeight: 800 }}>{e.n}</span>
-            </div>
-            <div>
-              <p style={{ color: '#1A3D5C', fontSize: '14px', fontWeight: 800, margin: '0 0 4px' }}>{e.t}</p>
-              <p style={{ color: '#4a5568', fontSize: '13px', lineHeight: 1.75, margin: 0 }}>{e.d}</p>
-            </div>
-          </div>
-        );
-      })}
-      <div style={{ background: '#E6F0FA', borderRadius: '16px', padding: '14px 16px' }}>
-        <p style={{ color: '#1A3D5C', fontSize: '12px', fontWeight: 700, margin: '0 0 8px' }}>A retenir</p>
-        {["Sur le dos uniquement", "Arreter des que bebe se retourne (vers 2 mois)", "Hanches libres, position grenouille"].map(function(n, i) {
-          return <p key={i} style={{ color: '#1A4A7A', fontSize: '13px', margin: '0 0 4px' }}>- {n}</p>;
-        })}
-      </div>
-    </div>
-  );
-}
-
-function Secours() {
-  return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-      {[
-        { n: '!', t: 'Evaluer et appeler', d: "Verifie si bebe est conscient. S'il ne reagit pas, compose le 15 (SAMU) ou le 18 (pompiers) immediatement." },
-        { n: '2', t: '5 tapes dans le dos', d: "Bebe sur ton avant-bras, ventre vers le bas, tete plus basse que le corps. 5 tapes fermes entre les omoplates." },
-        { n: '3', t: '5 compressions', d: "Bebe sur le dos sur tes cuisses. 2 doigts sous la ligne des mamelons. 5 compressions vers le bas d'environ 4 cm." },
-        { n: '4', t: 'Alterner', d: "Alterne 5 tapes et 5 compressions jusqu'a expulsion de l'objet ou arrivee des secours." },
-        { n: '5', t: 'RCP nourrisson', d: "Incline la tete en arriere. Insuffle de l'air sur bouche et nez ensemble, 2 fois. Puis 30 compressions. Cycle 30/2." },
-        { n: '6', t: 'Convulsion febrile', d: "Ne retiens pas bebe. Sur le cote, voies respiratoires degagees. Si crise sup. a 5 min, appelle le 15." },
-      ].map(function(e, i) {
-        return (
-          <div key={i} style={{ background: 'rgba(255,255,255,0.65)', borderRadius: '16px', padding: '14px 16px', display: 'flex', gap: '14px' }}>
-            <div style={{ width: '32px', height: '32px', minWidth: '32px', borderRadius: '10px', background: '#A03030', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <span style={{ color: '#fff', fontSize: '14px', fontWeight: 800 }}>{e.n}</span>
-            </div>
-            <div>
-              <p style={{ color: '#A03030', fontSize: '14px', fontWeight: 800, margin: '0 0 4px' }}>{e.t}</p>
-              <p style={{ color: '#4a5568', fontSize: '13px', lineHeight: 1.75, margin: 0 }}>{e.d}</p>
-            </div>
-          </div>
-        );
-      })}
-      <div style={{ background: '#FDECEA', borderRadius: '16px', padding: '14px 16px' }}>
-        <p style={{ color: '#A03030', fontSize: '12px', fontWeight: 700, margin: '0 0 8px' }}>A retenir</p>
-        {["SAMU : 15 | Pompiers : 18 | Europeen : 112", "Ne jamais secouer un bebe", "Forme-toi sur mannequin : formations gratuites chez les pompiers"].map(function(n, i) {
-          return <p key={i} style={{ color: '#A03030', fontSize: '13px', margin: '0 0 4px' }}>- {n}</p>;
-        })}
-      </div>
-    </div>
-  );
-}
-
-function Portage() {
-  return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-      {[
-        { n: '1', t: 'Regle TICKS', d: "Tete visible. In view at all times. Close enough to kiss. Keep chin off chest. Supported back." },
-        { n: '2', t: 'Position physiologique', d: "Genoux plus hauts que les fesses, position grenouille ou en M. Recommandee par les orthopedistes." },
-        { n: '3', t: 'Respiration', d: "Verifie toutes les 5 minutes que les voies respiratoires sont degagees. Menton decolle de la poitrine." },
-        { n: '4', t: 'A eviter', d: "Pas de porte-bebe ventral avant 6 mois. Pas de portage en voiture. Pas pendant des activites a risque." },
-        { n: '5', t: 'Benefices', d: "Reduction des pleurs de 43 pourcent. Favorise l'attachement. Mains libres pour toi." },
-      ].map(function(e, i) {
-        return (
-          <div key={i} style={{ background: 'rgba(255,255,255,0.65)', borderRadius: '16px', padding: '14px 16px', display: 'flex', gap: '14px' }}>
-            <div style={{ width: '32px', height: '32px', minWidth: '32px', borderRadius: '10px', background: '#0D6B40', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <span style={{ color: '#fff', fontSize: '14px', fontWeight: 800 }}>{e.n}</span>
-            </div>
-            <div>
-              <p style={{ color: '#0D6B40', fontSize: '14px', fontWeight: 800, margin: '0 0 4px' }}>{e.t}</p>
-              <p style={{ color: '#4a5568', fontSize: '13px', lineHeight: 1.75, margin: 0 }}>{e.d}</p>
-            </div>
-          </div>
-        );
-      })}
-      <div style={{ background: '#E4F5EC', borderRadius: '16px', padding: '14px 16px' }}>
-        <p style={{ color: '#0D6B40', fontSize: '12px', fontWeight: 700, margin: '0 0 8px' }}>A retenir</p>
-        {["Echarpes ou porte-bebes physiologiques uniquement", "Sessions de 2h max les premieres semaines", "En cas de doute, consulte un referent portage"].map(function(n, i) {
-          return <p key={i} style={{ color: '#0A4A28', fontSize: '13px', margin: '0 0 4px' }}>- {n}</p>;
-        })}
-      </div>
-    </div>
-  );
-}
-
-function Bain() {
-  return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-      {[
-        { n: '1', t: 'Prepare tout', d: "Piece a 22 degres. Eau a 37 degres, teste avec le coude. Serviette, pyjama, couche prets AVANT de deshabiller bebe." },
-        { n: '2', t: 'Prise de securite', d: "Poignet sous la nuque, doigts sur l'epaule opposee. L'autre main soutient les fesses. Entre pieds en premier." },
-        { n: '3', t: 'Ordre de lavage', d: "Visage d'abord, eau claire sans savon. Puis crane, corps, plis. Toujours de l'avant vers l'arriere." },
-        { n: '4', t: 'Duree', d: "5 minutes maximum. Sors-le avec les deux mains, serviette capuchonnee immediatement. Tamponne sans frotter." },
-        { n: '5', t: 'Regle absolue', d: "Jamais seul dans l'eau, meme une seconde. Si le telephone sonne, emmene bebe avec toi." },
-      ].map(function(e, i) {
-        return (
-          <div key={i} style={{ background: 'rgba(255,255,255,0.65)', borderRadius: '16px', padding: '14px 16px', display: 'flex', gap: '14px' }}>
-            <div style={{ width: '32px', height: '32px', minWidth: '32px', borderRadius: '10px', background: '#8A6010', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <span style={{ color: '#fff', fontSize: '14px', fontWeight: 800 }}>{e.n}</span>
-            </div>
-            <div>
-              <p style={{ color: '#8A6010', fontSize: '14px', fontWeight: 800, margin: '0 0 4px' }}>{e.t}</p>
-              <p style={{ color: '#4a5568', fontSize: '13px', lineHeight: 1.75, margin: 0 }}>{e.d}</p>
-            </div>
-          </div>
-        );
-      })}
-      <div style={{ background: '#FFF7E0', borderRadius: '16px', padding: '14px 16px' }}>
-        <p style={{ color: '#8A6010', fontSize: '12px', fontWeight: 700, margin: '0 0 8px' }}>A retenir</p>
-        {["Pas de bain avant la chute du cordon (5-15 jours)", "Pas de savon avant 1 mois", "Le bain du soir cree un rituel pour l'endormissement"].map(function(n, i) {
-          return <p key={i} style={{ color: '#3A2800', fontSize: '13px', margin: '0 0 4px' }}>- {n}</p>;
-        })}
-      </div>
-    </div>
-  );
-}
-
 export default function AtelierPage(props) {
   var C = props.C;
-  var actifState = useState('emmaillotage');
-  var actif = actifState[0];
-  var setActif = actifState[1];
+  var s = useState('emmaillotage');
+  var actif = s[0];
+  var setActif = s[1];
+
+  var tabs = [
+    { id: 'emmaillotage', label: 'Emmaillotage', bg: '#E6F0FA', tc: '#1A3D5C' },
+    { id: 'secours',      label: 'Premiers secours', bg: '#FDECEA', tc: '#A03030' },
+    { id: 'portage',      label: 'Le portage', bg: '#E4F5EC', tc: '#0D6B40' },
+    { id: 'bain',         label: 'Le premier bain', bg: '#FFF7E0', tc: '#8A6010' },
+  ];
+
+  var etapes = {
+    emmaillotage: [
+      { n: '1', t: 'Prepare la couverture', d: "Etale une couverture fine en losange. Replie le coin superieur vers le bas d'environ 15 cm." },
+      { n: '2', t: 'Positionne bebe', d: "Place bebe sur le dos, epaules au niveau du bord replie. Bras le long du corps." },
+      { n: '3', t: 'Cote gauche', d: "Prends le coin gauche, passe-le sur le bras droit de bebe et glisse-le sous son dos cote droit." },
+      { n: '4', t: 'Coin inferieur', d: "Rabats le coin inferieur vers le haut sur le ventre de bebe. Hanches libres de se plier." },
+      { n: '5', t: 'Cote droit', d: "Prends le coin droit, enroule-le autour de bebe et glisse-le sous son dos cote gauche." },
+      { n: '6', t: 'Verifie', d: "Test des deux doigts entre la couverture et la poitrine. Il doit y avoir de l'espace." },
+    ],
+    secours: [
+      { n: '!', t: 'Evaluer et appeler', d: "Bebe ne reagit pas : compose le 15 (SAMU) ou le 18 (pompiers) immediatement." },
+      { n: '2', t: '5 tapes dans le dos', d: "Bebe sur ton avant-bras, ventre vers le bas. 5 tapes fermes entre les omoplates." },
+      { n: '3', t: '5 compressions', d: "Bebe sur le dos sur tes cuisses. 2 doigts sous la ligne des mamelons. 5 compressions." },
+      { n: '4', t: 'Alterner', d: "Alterne 5 tapes et 5 compressions jusqu'a expulsion ou arrivee des secours." },
+      { n: '5', t: 'RCP nourrisson', d: "Bouche et nez ensemble, 2 insufflations. Puis 30 compressions. Cycle 30/2." },
+      { n: '6', t: 'Convulsion febrile', d: "Ne retiens pas bebe. Sur le cote. Si crise sup. a 5 min, appelle le 15." },
+    ],
+    portage: [
+      { n: '1', t: 'Regle TICKS', d: "Tete visible. In view at all times. Close enough to kiss. Chin off chest. Supported back." },
+      { n: '2', t: 'Position physiologique', d: "Genoux plus hauts que les fesses, position grenouille. Recommandee par les orthopedistes." },
+      { n: '3', t: 'Respiration', d: "Toutes les 5 minutes : voies respiratoires degagees, menton decolle de la poitrine." },
+      { n: '4', t: 'A eviter', d: "Pas de porte-bebe ventral avant 6 mois. Pas en voiture. Pas pendant activites a risque." },
+      { n: '5', t: 'Benefices', d: "Reduction des pleurs de 43 pourcent. Favorise l'attachement. Mains libres." },
+    ],
+    bain: [
+      { n: '1', t: 'Prepare tout', d: "Piece a 22 degres. Eau a 37 degres (coude). Serviette, pyjama, couche prets avant de deshabiller." },
+      { n: '2', t: 'Prise de securite', d: "Poignet sous la nuque, doigts sur l'epaule opposee. Autre main sous les fesses. Pieds en premier." },
+      { n: '3', t: 'Ordre de lavage', d: "Visage d'abord sans savon. Puis crane, corps, plis. Toujours de l'avant vers l'arriere." },
+      { n: '4', t: 'Duree', d: "5 minutes maximum. Serviette capuchonnee immediatement. Tamponne sans frotter." },
+      { n: '5', t: 'Regle absolue', d: "Jamais seul dans l'eau une seconde. Si le telephone sonne, emmene bebe avec toi." },
+    ],
+  };
+
+  var notes = {
+    emmaillotage: ["Sur le dos uniquement", "Arreter des que bebe se retourne (vers 2 mois)", "Hanches libres en position grenouille"],
+    secours: ["SAMU 15 | Pompiers 18 | Europeen 112", "Ne jamais secouer un bebe", "Formations gratuites sur mannequin chez les pompiers"],
+    portage: ["Echarpes ou porte-bebes physiologiques uniquement", "2h max les premieres semaines", "En cas de doute, referent portage dans ta ville"],
+    bain: ["Pas de bain avant chute du cordon (5-15 jours)", "Pas de savon avant 1 mois", "Le bain du soir aide l'endormissement"],
+  };
+
+  var tab = tabs.filter(function(t) { return t.id === actif; })[0] || tabs[0];
+  var liste = etapes[actif] || [];
+  var retenir = notes[actif] || [];
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
@@ -154,22 +68,46 @@ export default function AtelierPage(props) {
       </div>
 
       <div style={{ display: 'flex', gap: '8px', overflowX: 'auto', paddingBottom: '4px' }}>
-        {ATELIERS.map(function(a) {
+        {tabs.map(function(t) {
           return (
-            <button key={a.id} onClick={function() { setActif(a.id); }} style={{
+            <button key={t.id} onClick={function() { setActif(t.id); }} style={{
               flexShrink: 0, padding: '10px 16px', border: 'none', borderRadius: '20px', cursor: 'pointer',
-              background: actif === a.id ? C.dark : '#f7f5f0',
-              color: actif === a.id ? '#fff' : C.dark,
+              background: actif === t.id ? C.dark : '#f7f5f0',
+              color: actif === t.id ? '#fff' : C.dark,
               fontSize: '13px', fontWeight: 700,
-            }}>{a.label}</button>
+            }}>{t.label}</button>
           );
         })}
       </div>
 
-      {actif === 'emmaillotage' && <Emmaillotage />}
-      {actif === 'secours'      && <Secours />}
-      {actif === 'portage'      && <Portage />}
-      {actif === 'bain'         && <Bain />}
+      <div style={{ background: tab.bg, borderRadius: '22px', padding: '24px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+        <p style={{ color: tab.tc, fontSize: '18px', fontWeight: 800, margin: '0 0 4px' }}>{tab.label}</p>
+        {liste.map(function(e, i) {
+          return (
+            <div key={i} style={{ background: 'rgba(255,255,255,0.7)', borderRadius: '16px', padding: '14px 16px', display: 'flex', gap: '14px' }}>
+              <div style={{ width: '32px', height: '32px', minWidth: '32px', borderRadius: '10px', background: tab.tc, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <span style={{ color: '#fff', fontSize: '14px', fontWeight: 800 }}>{e.n}</span>
+              </div>
+              <div>
+                <p style={{ color: tab.tc, fontSize: '14px', fontWeight: 800, margin: '0 0 4px' }}>{e.t}</p>
+                <p style={{ color: '#4a5568', fontSize: '13px', lineHeight: 1.75, margin: 0 }}>{e.d}</p>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      <div style={{ background: '#f7f5f0', borderRadius: '18px', padding: '18px 20px' }}>
+        <p style={{ color: '#9aa0a8', fontSize: '10px', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase', margin: '0 0 12px' }}>A retenir</p>
+        {retenir.map(function(n, i) {
+          return (
+            <div key={i} style={{ display: 'flex', gap: '10px', marginBottom: '6px' }}>
+              <span style={{ color: '#c8a060', fontWeight: 700 }}>-</span>
+              <p style={{ color: '#1e2535', fontSize: '13px', lineHeight: 1.6, margin: 0 }}>{n}</p>
+            </div>
+          );
+        })}
+      </div>
 
     </div>
   );
