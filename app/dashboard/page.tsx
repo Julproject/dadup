@@ -22,6 +22,7 @@ import PostAccueil   from './components/postpartum/PostAccueil';
 import PostBebe      from './components/postpartum/PostBebe';
 import PostRDV       from './components/postpartum/PostRDV';
 import PsychoPage    from './components/PsychoPage';
+import PrepaNaissance from './components/PrepaNaissance';
 import SuiviBebe     from './components/postpartum/SuiviBebe';
 import AtelierBebe   from './components/postpartum/AtelierBebe';
 
@@ -174,6 +175,7 @@ function DashboardContent() {
         {activeTab === 'rdv'      && (isPost ? <PostRDV      {...shared}/> : <RDVPage      {...shared}/>)}
         {isPost  && activeTab === 'suivi'     && <SuiviBebe   C={C}/>}
         {isPost  && activeTab === 'atelier'   && <AtelierBebe C={C}/>}
+        {!isPost && activeTab === 'naissance'  && <PrepaNaissance C={C} saReelle={saReelle||37}/>}
         {!isPost && activeTab === 'pratique'  && <PreparerPage  {...shared}/>}
         {!isPost && activeTab === 'bonsplans' && <BonsPlansPage {...shared}/>}
         {!isPost && activeTab === 'psycho'    && <PsychoPage    C={C} saReelle={saReelle}/>}
