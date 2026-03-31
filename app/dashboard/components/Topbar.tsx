@@ -36,6 +36,7 @@ export default function Topbar({ prenom, dpa, saReelle, tri, prog, isPost, moisB
     { id: 'rdv',      label: 'RDV',        bg: '#E6F0FA', tc: '#1A4A7A' },
     { id: 'pratique', label: 'À préparer', bg: '#FFF7E0', tc: '#8A6010' },
     { id: 'psycho',   label: 'Psycho',     bg: '#F0EEFF', tc: '#5050B0' },
+    ...(saReelle && saReelle >= 37 ? [{ id: 'naissance', label: '🍼 Naissance', bg: '#FDECEA', tc: '#C04A1A' }] : []),
   ];
 
   const navPost = [
