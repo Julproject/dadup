@@ -94,7 +94,7 @@ function DashboardContent() {
   const saveRdv  = (date: string) => { setNextRdvDate(date); saveData({ next_rdv: date }); };
   const saveRdvI = (sa: number, date: string) => { const n = {...rdvDates,[sa]:date}; setRdvDates(n); saveData({ rdv_dates: n }); };
 
-  const declareNaissance = async () => {
+  const declareNaissance = () => {
     setShowConfirmNaissance(false);
     if (isPost) {
       const dpaRestore = dpaOriginale
@@ -102,19 +102,22 @@ function DashboardContent() {
         || localStorage.getItem('dadup_dpa_backup')
         || '';
       if (!dpaRestore) { alert("Saisis ta date d'accouchement dans les réglages."); return; }
-      setDpa(dpaRestore); setDpaOriginale('');
+      setDpa(dpaRestore);
+      setDpaOriginale('');
       localStorage.setItem('dadup_dpa', dpaRestore);
       localStorage.removeItem('dadup_dpa_originale');
       localStorage.removeItem('dadup_dpa_backup');
-      await saveData({ dpa: dpaRestore, dpa_originale: null });
+      saveData({ dpa: dpaRestore, dpa_originale: null });
     } else {
-      localStorage.setItem('dadup_dpa_originale', dpa);
-      localStorage.setItem('dadup_dpa_backup', dpa);
-      setDpaOriginale(dpa);
+      if (!dpa) { alert('Ton profil est en cours de chargement. Réessaie dans un instant.'); return; }
+      const dpaCourante = dpa;
+      localStorage.setItem('dadup_dpa_originale', dpaCourante);
+      localStorage.setItem('dadup_dpa_backup', dpaCourante);
+      setDpaOriginale(dpaCourante);
       const today = new Date().toISOString().split('T')[0];
       setDpa(today);
       localStorage.setItem('dadup_dpa', today);
-      await saveData({ dpa: today, dpa_originale: dpa });
+      saveData({ dpa: today, dpa_originale: dpaCourante });
     }
     setActiveTab('home');
   };
