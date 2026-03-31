@@ -97,7 +97,7 @@ const MODULES = [
 export default function AtelierPage({ C }: any) {
   const [actif, setActif] = useState<string>('emmaillotage');
 
-  const module = MODULES.find(m => m.id === actif)!;
+  const module = MODULES.find(m => m.id === actif) ?? MODULES[0];
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
