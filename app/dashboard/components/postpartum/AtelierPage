@@ -1,73 +1,118 @@
 'use client';
 import { useState } from 'react';
 
-export default function AtelierPage(props) {
-  var C = props.C;
-  var s = useState('emmaillotage');
-  var actif = s[0];
-  var setActif = s[1];
+export default function AtelierPage(props: any) {
+  const C = props.C;
+  const [actif, setActif] = useState('couche');
+  const [secIdx, setSecIdx] = useState(0);
 
-  var tabs = [
-    { id: 'emmaillotage', label: 'Emmaillotage', bg: '#E6F0FA', tc: '#1A3D5C' },
+  const tabs = [
+    { id: 'couche',       label: 'Couche',         bg: '#FFF7E0', tc: '#8A6010' },
+    { id: 'emmaillotage', label: 'Emmaillotage',   bg: '#E6F0FA', tc: '#1A3D5C' },
+    { id: 'apaisement',   label: 'Apaiser bebe',   bg: '#E4F5EC', tc: '#0D6B40' },
     { id: 'secours',      label: 'Premiers secours', bg: '#FDECEA', tc: '#A03030' },
-    { id: 'portage',      label: 'Le portage', bg: '#E4F5EC', tc: '#0D6B40' },
-    { id: 'bain',         label: 'Le premier bain', bg: '#FFF7E0', tc: '#8A6010' },
   ];
 
-  var etapes = {
-    emmaillotage: [
-      { n: '1', t: 'Prepare la couverture', d: "Etale une couverture fine en losange. Replie le coin superieur vers le bas d'environ 15 cm." },
-      { n: '2', t: 'Positionne bebe', d: "Place bebe sur le dos, epaules au niveau du bord replie. Bras le long du corps." },
-      { n: '3', t: 'Cote gauche', d: "Prends le coin gauche, passe-le sur le bras droit de bebe et glisse-le sous son dos cote droit." },
-      { n: '4', t: 'Coin inferieur', d: "Rabats le coin inferieur vers le haut sur le ventre de bebe. Hanches libres de se plier." },
-      { n: '5', t: 'Cote droit', d: "Prends le coin droit, enroule-le autour de bebe et glisse-le sous son dos cote gauche." },
-      { n: '6', t: 'Verifie', d: "Test des deux doigts entre la couverture et la poitrine. Il doit y avoir de l'espace." },
-    ],
-    secours: [
-      { n: '!', t: 'Evaluer et appeler', d: "Bebe ne reagit pas : compose le 15 (SAMU) ou le 18 (pompiers) immediatement." },
-      { n: '2', t: '5 tapes dans le dos', d: "Bebe sur ton avant-bras, ventre vers le bas. 5 tapes fermes entre les omoplates." },
-      { n: '3', t: '5 compressions', d: "Bebe sur le dos sur tes cuisses. 2 doigts sous la ligne des mamelons. 5 compressions." },
-      { n: '4', t: 'Alterner', d: "Alterne 5 tapes et 5 compressions jusqu'a expulsion ou arrivee des secours." },
-      { n: '5', t: 'RCP nourrisson', d: "Bouche et nez ensemble, 2 insufflations. Puis 30 compressions. Cycle 30/2." },
-      { n: '6', t: 'Convulsion febrile', d: "Ne retiens pas bebe. Sur le cote. Si crise sup. a 5 min, appelle le 15." },
-    ],
-    portage: [
-      { n: '1', t: 'Regle TICKS', d: "Tete visible. In view at all times. Close enough to kiss. Chin off chest. Supported back." },
-      { n: '2', t: 'Position physiologique', d: "Genoux plus hauts que les fesses, position grenouille. Recommandee par les orthopedistes." },
-      { n: '3', t: 'Respiration', d: "Toutes les 5 minutes : voies respiratoires degagees, menton decolle de la poitrine." },
-      { n: '4', t: 'A eviter', d: "Pas de porte-bebe ventral avant 6 mois. Pas en voiture. Pas pendant activites a risque." },
-      { n: '5', t: 'Benefices', d: "Reduction des pleurs de 43 pourcent. Favorise l'attachement. Mains libres." },
-    ],
-    bain: [
-      { n: '1', t: 'Prepare tout', d: "Piece a 22 degres. Eau a 37 degres (coude). Serviette, pyjama, couche prets avant de deshabiller." },
-      { n: '2', t: 'Prise de securite', d: "Poignet sous la nuque, doigts sur l'epaule opposee. Autre main sous les fesses. Pieds en premier." },
-      { n: '3', t: 'Ordre de lavage', d: "Visage d'abord sans savon. Puis crane, corps, plis. Toujours de l'avant vers l'arriere." },
-      { n: '4', t: 'Duree', d: "5 minutes maximum. Serviette capuchonnee immediatement. Tamponne sans frotter." },
-      { n: '5', t: 'Regle absolue', d: "Jamais seul dans l'eau une seconde. Si le telephone sonne, emmene bebe avec toi." },
-    ],
-  };
+  const COUCHE = [
+    { n: '1', emoji: '🛏', titre: 'Prepare la zone', texte: 'Rassemble tout avant de commencer : couche propre, lingettes, creme si necessaire. Ne laisse jamais bebe seul sur la table a langer, meme une seconde.' },
+    { n: '2', emoji: '🙌', titre: 'Maintiens les jambes', texte: 'Saisis les deux chevilles d'une main, pouce entre les deux. Souleve tres legerement les fesses. Ne tire pas sur les jambes.' },
+    { n: '3', emoji: '🧻', titre: 'Nettoie d'avant en arriere', texte: 'Toujours de l'avant vers l'arriere, surtout pour les filles. Nettoie tous les plis. Une lingette = une passe.' },
+    { n: '4', emoji: '🟡', titre: 'Glisse la couche propre', texte: 'La partie avec les scratchs va sous les fesses. Le nombril sur les premieres semaines : rabats le bord avant pour ne pas irriter.' },
+    { n: '5', emoji: '✅', titre: 'Ferme et verifie', texte: 'Les scratchs symetriques. Tu dois pouvoir glisser deux doigts entre la couche et le ventre. Pas trop serre, pas trop lache.' },
+  ];
 
-  var notes = {
-    emmaillotage: ["Sur le dos uniquement", "Arreter des que bebe se retourne (vers 2 mois)", "Hanches libres en position grenouille"],
-    secours: ["SAMU 15 | Pompiers 18 | Europeen 112", "Ne jamais secouer un bebe", "Formations gratuites sur mannequin chez les pompiers"],
-    portage: ["Echarpes ou porte-bebes physiologiques uniquement", "2h max les premieres semaines", "En cas de doute, referent portage dans ta ville"],
-    bain: ["Pas de bain avant chute du cordon (5-15 jours)", "Pas de savon avant 1 mois", "Le bain du soir aide l'endormissement"],
-  };
+  const COUCHE_NOTES = [
+    'Changer toutes les 2 a 3h ou apres chaque selle',
+    'Rougeurs : crème a l'oxyde de zinc apres chaque change',
+    'Couche mouilee = au moins 6 par jour = bonne hydratation',
+  ];
 
-  var tab = tabs.filter(function(t) { return t.id === actif; })[0] || tabs[0];
-  var liste = etapes[actif] || [];
-  var retenir = notes[actif] || [];
+  const EMMAILLOTAGE = [
+    { n: '1', emoji: '◇', titre: 'Prepare la couverture', texte: 'Etale une couverture fine en losange. Replie le coin superieur vers le bas de 15 cm environ. Couverture legere uniquement.' },
+    { n: '2', emoji: '👶', titre: 'Positionne bebe', texte: 'Bebe sur le dos, epaules au niveau du bord replie. Bras le long du corps, detendus.' },
+    { n: '3', emoji: '←', titre: 'Cote gauche', texte: 'Prends le coin gauche, passe-le sur le bras droit de bebe et glisse-le sous son dos cote droit.' },
+    { n: '4', emoji: '↑', titre: 'Coin inferieur', texte: 'Rabats le coin inferieur vers le haut sur le ventre de bebe. Les hanches doivent rester libres de se plier.' },
+    { n: '5', emoji: '→', titre: 'Cote droit', texte: 'Prends le coin droit, enroule-le autour de bebe et glisse-le sous son dos cote gauche.' },
+    { n: '6', emoji: '✓', titre: 'Verifie', texte: 'Deux doigts doivent passer entre la couverture et la poitrine. Hanches libres en position grenouille.' },
+  ];
+
+  const EMMAILLOTAGE_NOTES = [
+    'Uniquement sur le dos, jamais sur le ventre',
+    'Arreter des que bebe commence a se retourner (vers 2 mois)',
+    'Les hanches libres preventent la dysplasie de la hanche',
+  ];
+
+  const APAISEMENT = [
+    { n: '1', emoji: '🤱', titre: 'Le peau a peau', texte: 'Bebe sur ta poitrine nue, tete sur le cote, voies respiratoires degagees. Ta chaleur, ton rythme cardiaque et ton odeur sont les meilleurs calmants. 20 minutes suffisent.' },
+    { n: '2', emoji: '🌊', titre: 'Le bruit blanc', texte: 'La hotte aspirante, un robinet qui coule, une application bruit blanc. Reproduit le son qu'il entendait in utero. Efficace surtout entre 0 et 3 mois.' },
+    { n: '3', emoji: '🔄', titre: 'Le mouvement', texte: 'Bercement lent et regulier. Marche en le portant contre toi. Le mouvement rythmique rappelle la vie dans le ventre. Evite les gestes brusques.' },
+    { n: '4', emoji: '🤲', titre: 'La succion', texte: 'Propose ton auriculaire (ongles courts !) cote peau vers le haut, ou une tetine. La succion non nutritive calme le systeme nerveux en quelques secondes.' },
+    { n: '5', emoji: '🌯', titre: 'L'emmaillotage', texte: 'Un bebe emmaillote se sent contenu, en securite. Combine avec le bruit blanc et le bercement : la methode des 5S de Harvey Karp, tres efficace sur les coliques.' },
+    { n: '6', emoji: '👀', titre: 'Decoder les pleurs', texte: 'Faim : rythmique, s'intensifie, main a la bouche. Fatigue : geignard, frotte les yeux. Douleur : aigu et soudain. Inconfort : intermittent. Verifie toujours faim puis couche puis chaleur.' },
+  ];
+
+  const APAISEMENT_NOTES = [
+    'Un bebe ne peut pas tenir eveille plus de 60 a 90 min',
+    'Les coliques disparaissent generalement vers 3 mois',
+    'Si inconsolable depuis plus de 2h, consulter',
+  ];
+
+  const SECOURS_ETAPES = [
+    { n: '!', emoji: '📞', titre: 'Evaluer et appeler', texte: 'Bebe ne reagit pas au toucher ou a la voix : compose le 15 (SAMU) ou le 18 (pompiers) immediatement. Ne raccroche pas.' },
+    { n: '2', emoji: '🫳', titre: '5 tapes dans le dos', texte: 'Bebe ventre vers le bas sur ton avant-bras, tete plus basse que le corps. 5 tapes fermes entre les omoplates avec le talon de la main ouverte.' },
+    { n: '3', emoji: '👆', titre: '5 compressions thoraciques', texte: 'Retourne bebe sur le dos sur tes cuisses. 2 doigts sous la ligne des mamelons. 5 compressions de 4 cm vers le bas.' },
+    { n: '4', emoji: '🔁', titre: 'Alterner 5 et 5', texte: 'Alterne tapes et compressions jusqu'a expulsion de l'objet ou arrivee des secours. Ne t'arrete pas.' },
+    { n: '5', emoji: '💨', titre: 'RCP si inconscient', texte: 'Tete legerement inclinee en arriere. 2 insufflations douces sur bouche et nez ensemble. Puis 30 compressions avec 2 doigts. Cycle 30/2 sans arret.' },
+  ];
+
+  const SECOURS_NOTES = [
+    'SAMU 15 | Pompiers 18 | Europeen 112',
+    'Ne jamais secouer un bebe, meme pour le reveiller',
+    'Forme-toi : les pompiers proposent des formations gratuites sur mannequin',
+  ];
+
+  const activeTab = tabs.find(function(t) { return t.id === actif; }) || tabs[0];
+
+  const renderEtapes = (etapes: any[], notes: string[], bg: string, tc: string) => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+      {etapes.map(function(e, i) {
+        return (
+          <div key={i} style={{ background: 'rgba(255,255,255,0.75)', borderRadius: '16px', padding: '14px 16px', display: 'flex', gap: '14px', alignItems: 'flex-start' }}>
+            <div style={{ width: '36px', height: '36px', minWidth: '36px', borderRadius: '12px', background: tc, display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column' as const }}>
+              <span style={{ fontSize: '16px', lineHeight: 1 }}>{e.emoji}</span>
+              <span style={{ color: '#fff', fontSize: '9px', fontWeight: 800, lineHeight: 1, marginTop: '1px' }}>{e.n}</span>
+            </div>
+            <div style={{ flex: 1 }}>
+              <p style={{ color: tc, fontSize: '14px', fontWeight: 800, margin: '0 0 4px' }}>{e.titre}</p>
+              <p style={{ color: '#4a5568', fontSize: '13px', lineHeight: 1.75, margin: 0 }}>{e.texte}</p>
+            </div>
+          </div>
+        );
+      })}
+      <div style={{ background: 'rgba(255,255,255,0.5)', borderRadius: '14px', padding: '14px 16px' }}>
+        <p style={{ color: tc, fontSize: '11px', fontWeight: 700, letterSpacing: '1.5px', textTransform: 'uppercase' as const, margin: '0 0 8px' }}>A retenir</p>
+        {notes.map(function(n, i) {
+          return (
+            <div key={i} style={{ display: 'flex', gap: '8px', marginBottom: '4px' }}>
+              <span style={{ color: tc, fontWeight: 800, flexShrink: 0 }}>-</span>
+              <p style={{ color: '#4a5568', fontSize: '13px', lineHeight: 1.6, margin: 0 }}>{n}</p>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
 
       <div style={{ background: C.dark, borderRadius: '22px', padding: '24px 28px' }}>
-        <p style={{ color: 'rgba(200,160,96,0.65)', fontSize: '10px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase', margin: '0 0 6px' }}>Atelier pratique</p>
-        <p style={{ color: '#fff', fontSize: '20px', fontWeight: 800, margin: '0 0 6px' }}>Les gestes qui changent tout</p>
-        <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '13px', margin: 0 }}>Guides pas a pas pour etre pret a tout moment.</p>
+        <p style={{ color: 'rgba(200,160,96,0.65)', fontSize: '10px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase' as const, margin: '0 0 6px' }}>Atelier pratique</p>
+        <p style={{ color: '#fff', fontSize: '20px', fontWeight: 800, margin: '0 0 4px' }}>Les gestes qui changent tout</p>
+        <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '13px', margin: 0 }}>Guides pas a pas, disponibles a 3h du matin.</p>
       </div>
 
-      <div style={{ display: 'flex', gap: '8px', overflowX: 'auto', paddingBottom: '4px' }}>
+      <div style={{ display: 'flex', gap: '8px', overflowX: 'auto' as const, paddingBottom: '4px' }}>
         {tabs.map(function(t) {
           return (
             <button key={t.id} onClick={function() { setActif(t.id); }} style={{
@@ -80,33 +125,11 @@ export default function AtelierPage(props) {
         })}
       </div>
 
-      <div style={{ background: tab.bg, borderRadius: '22px', padding: '24px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-        <p style={{ color: tab.tc, fontSize: '18px', fontWeight: 800, margin: '0 0 4px' }}>{tab.label}</p>
-        {liste.map(function(e, i) {
-          return (
-            <div key={i} style={{ background: 'rgba(255,255,255,0.7)', borderRadius: '16px', padding: '14px 16px', display: 'flex', gap: '14px' }}>
-              <div style={{ width: '32px', height: '32px', minWidth: '32px', borderRadius: '10px', background: tab.tc, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <span style={{ color: '#fff', fontSize: '14px', fontWeight: 800 }}>{e.n}</span>
-              </div>
-              <div>
-                <p style={{ color: tab.tc, fontSize: '14px', fontWeight: 800, margin: '0 0 4px' }}>{e.t}</p>
-                <p style={{ color: '#4a5568', fontSize: '13px', lineHeight: 1.75, margin: 0 }}>{e.d}</p>
-              </div>
-            </div>
-          );
-        })}
-      </div>
-
-      <div style={{ background: '#f7f5f0', borderRadius: '18px', padding: '18px 20px' }}>
-        <p style={{ color: '#9aa0a8', fontSize: '10px', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase', margin: '0 0 12px' }}>A retenir</p>
-        {retenir.map(function(n, i) {
-          return (
-            <div key={i} style={{ display: 'flex', gap: '10px', marginBottom: '6px' }}>
-              <span style={{ color: '#c8a060', fontWeight: 700 }}>-</span>
-              <p style={{ color: '#1e2535', fontSize: '13px', lineHeight: 1.6, margin: 0 }}>{n}</p>
-            </div>
-          );
-        })}
+      <div style={{ background: activeTab.bg, borderRadius: '22px', padding: '20px' }}>
+        {actif === 'couche'       && renderEtapes(COUCHE,       COUCHE_NOTES,       '#FFF7E0', '#8A6010')}
+        {actif === 'emmaillotage' && renderEtapes(EMMAILLOTAGE, EMMAILLOTAGE_NOTES, '#E6F0FA', '#1A3D5C')}
+        {actif === 'apaisement'   && renderEtapes(APAISEMENT,   APAISEMENT_NOTES,   '#E4F5EC', '#0D6B40')}
+        {actif === 'secours'      && renderEtapes(SECOURS_ETAPES, SECOURS_NOTES,    '#FDECEA', '#A03030')}
       </div>
 
     </div>
