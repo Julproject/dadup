@@ -1,7 +1,8 @@
 'use client';
 import { useState } from 'react';
 
-export default function AtelierPage({C}: any) {
+export default function AtelierPage(props) {
+  var C = props.C;
   const [actif, setActif] = useState('couche');
 
   const tabs = [
@@ -71,12 +72,12 @@ export default function AtelierPage({C}: any) {
 
   const activeTab = tabs.find(function(t) { return t.id === actif; }) || tabs[0];
 
-  const renderEtapes = (etapes: any[], notes: string[], bg: string, tc: string) => (
+  const renderEtapes = (etapes, notes, bg, tc) => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
       {etapes.map(function(e, i) {
         return (
           <div key={i} style={{ background: 'rgba(255,255,255,0.75)', borderRadius: '16px', padding: '14px 16px', display: 'flex', gap: '14px', alignItems: 'flex-start' }}>
-            <div style={{ width: '36px', height: '36px', minWidth: '36px', borderRadius: '12px', background: tc, display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column' as const }}>
+            <div style={{ width: '36px', height: '36px', minWidth: '36px', borderRadius: '12px', background: tc, display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column' }}>
               <span style={{ fontSize: '16px', lineHeight: 1 }}>{e.emoji}</span>
               <span style={{ color: '#fff', fontSize: '9px', fontWeight: 800, lineHeight: 1, marginTop: '1px' }}>{e.n}</span>
             </div>
@@ -88,7 +89,7 @@ export default function AtelierPage({C}: any) {
         );
       })}
       <div style={{ background: 'rgba(255,255,255,0.5)', borderRadius: '14px', padding: '14px 16px' }}>
-        <p style={{ color: tc, fontSize: '11px', fontWeight: 700, letterSpacing: '1.5px', textTransform: 'uppercase' as const, margin: '0 0 8px' }}>A retenir</p>
+        <p style={{ color: tc, fontSize: '11px', fontWeight: 700, letterSpacing: '1.5px', textTransform: 'uppercase', margin: '0 0 8px' }}>A retenir</p>
         {notes.map(function(n, i) {
           return (
             <div key={i} style={{ display: 'flex', gap: '8px', marginBottom: '4px' }}>
@@ -105,12 +106,12 @@ export default function AtelierPage({C}: any) {
     <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
 
       <div style={{ background: C.dark, borderRadius: '22px', padding: '24px 28px' }}>
-        <p style={{ color: 'rgba(200,160,96,0.65)', fontSize: '10px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase' as const, margin: '0 0 6px' }}>Atelier pratique</p>
+        <p style={{ color: 'rgba(200,160,96,0.65)', fontSize: '10px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase', margin: '0 0 6px' }}>Atelier pratique</p>
         <p style={{ color: '#fff', fontSize: '20px', fontWeight: 800, margin: '0 0 4px' }}>Les gestes qui changent tout</p>
         <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '13px', margin: 0 }}>Guides pas a pas, disponibles a 3h du matin.</p>
       </div>
 
-      <div style={{ display: 'flex', gap: '8px', overflowX: 'auto' as const, paddingBottom: '4px' }}>
+      <div style={{ display: 'flex', gap: '8px', overflowX: 'auto', paddingBottom: '4px' }}>
         {tabs.map(function(t) {
           return (
             <button key={t.id} onClick={function() { setActif(t.id); }} style={{
