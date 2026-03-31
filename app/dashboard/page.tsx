@@ -152,8 +152,8 @@ function DashboardContent() {
   };
 
   // Calculs dérivés
-  const sa          = avance ? (getSA(dpa) || 0) + 1 : (getSA(dpa) || 0);
-  const saReelle    = getSA(dpa);
+  const sa          = getSA(avance ? 1 : 0);
+  const saReelle    = getSA();
   const data        = sa       ? (SD[sa]       || SD[20]) : null;
   const dataR       = saReelle ? (SD[saReelle] || SD[20]) : null;
   const dpaDate     = dpa ? new Date(dpa) : null;
