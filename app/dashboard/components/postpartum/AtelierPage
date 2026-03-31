@@ -4,64 +4,64 @@ import { useState } from 'react';
 const MODULES = [
   {
     id: 'emmaillotage',
-    emoji: '\U0001F32F',
+    emoji: '🌯',
     titre: 'Emmaillotage',
     sousTitre: 'La technique pas a pas',
     bg: '#E6F0FA',
     tc: '#1A3D5C',
     etapes: [
-      { num: '1', titre: 'Prepare la couverture', desc: "Etale une couverture fine en losange sur une surface plate. Replie le coin superieur vers le bas d'environ 15 cm. Couverture legere uniquement -- evite la laine epaisse, risque de surchauffe." },
-      { num: '2', titre: 'Positionne bebe', desc: "Place bebe sur le dos, epaules au niveau du bord replie. Bras le long du corps, detendus. Certains bebes preferent les bras flechis sur la poitrine -- les deux fonctionnent." },
-      { num: '3', titre: 'Cote gauche', desc: "Prends le coin gauche. Passe-le sur le bras droit de bebe et glisse-le fermement sous son dos cote droit. Tire doucement pour bien maintenir." },
-      { num: '4', titre: 'Coin inferieur', desc: "Rabats le coin inferieur vers le haut sur le ventre de bebe. Les pieds et les hanches doivent pouvoir se plier librement. Ne comprime jamais les hanches vers le bas." },
-      { num: '5', titre: 'Cote droit', desc: "Prends le coin droit, enroule-le autour de bebe et glisse-le sous son dos cote gauche. Repartis la tension uniformement." },
-      { num: '6', titre: 'Verifie', desc: "Test des deux doigts : place l'index et le majeur entre la couverture et la poitrine de bebe. Il doit y avoir de l'espace. Les hanches doivent rester libres, en position grenouille." },
+      { num: '1', titre: 'Prepare la couverture', desc: "Etale une couverture fine en losange. Replie le coin superieur vers le bas d'environ 15 cm. Couverture legere uniquement, pas de laine epaisse." },
+      { num: '2', titre: 'Positionne bebe', desc: "Place bebe sur le dos, epaules au niveau du bord replie. Bras le long du corps. Certains bebes preferent les bras flechis sur la poitrine, les deux fonctionnent." },
+      { num: '3', titre: 'Cote gauche', desc: "Prends le coin gauche. Passe-le sur le bras droit de bebe et glisse-le fermement sous son dos cote droit." },
+      { num: '4', titre: 'Coin inferieur', desc: "Rabats le coin inferieur vers le haut sur le ventre de bebe. Les pieds et les hanches doivent pouvoir se plier librement." },
+      { num: '5', titre: 'Cote droit', desc: "Prends le coin droit, enroule-le autour de bebe et glisse-le sous son dos cote gauche." },
+      { num: '6', titre: 'Verifie', desc: "Test des deux doigts : place l'index et le majeur entre la couverture et la poitrine de bebe. Il doit y avoir de l'espace. Les hanches restent libres, en position grenouille." },
     ],
     notes: [
-      "Uniquement sur le dos -- jamais emmaillote sur le ventre",
+      "Uniquement sur le dos, jamais emmaillote sur le ventre",
       "Arreter des que bebe commence a se retourner (vers 2 mois)",
-      "Pas de couverture trop epaisse -- risque de surchauffe reel",
+      "Pas de couverture trop epaisse, risque de surchauffe",
       "Les hanches libres prevalent la dysplasie de la hanche",
     ],
   },
   {
     id: 'secours',
-    emoji: '\U0001F198',
+    emoji: '🆘',
     titre: 'Premiers secours',
     sousTitre: 'Nourrisson 0-1 an',
     bg: '#FDECEA',
     tc: '#A03030',
     etapes: [
-      { num: '!', titre: 'Evaluer et appeler', desc: "Verifie si bebe est conscient : parle-lui fort, stimule la plante du pied. S'il ne reagit pas, appelle a l'aide et compose le 15 (SAMU) ou le 18 (pompiers) immediatement. Ne raccroche pas." },
-      { num: '2', titre: 'Etouffement : 5 tapes dans le dos', desc: "Allonge bebe sur ton avant-bras, ventre vers le bas, tete plus basse que le corps. Soutiens sa tete. Donne 5 tapes fermes entre les omoplates avec le talon de la main ouverte." },
-      { num: '3', titre: 'Etouffement : 5 compressions', desc: "Retourne bebe sur le dos sur tes cuisses. Place 2 doigts au centre de la poitrine, sous la ligne des mamelons. Effectue 5 compressions vers le bas d'environ 4 cm." },
-      { num: '4', titre: "Alterner jusqu'a resolution", desc: "Alterne 5 tapes dans le dos et 5 compressions jusqu'a ce que l'objet soit expulse ou que les secours arrivent. Regarde dans la bouche uniquement si tu vois clairement l'objet." },
-      { num: '5', titre: 'RCP nourrisson', desc: "Allonge-le sur le dos. Incline legerement la tete en arriere. Insuffle doucement de l'air en couvrant bouche et nez ensemble, 2 fois. Puis 30 compressions sternales avec 2 doigts. Cycle 30/2 jusqu'aux secours." },
-      { num: '6', titre: 'Convulsion febrile', desc: "Ne retiens pas bebe et ne mets rien dans sa bouche. Allonge-le sur le cote, degage les voies respiratoires, chronometre. Si la crise depasse 5 minutes ou se repete, appelle le 15. Apres la crise il sera somnolent -- c'est normal." },
+      { num: '!', titre: 'Evaluer et appeler', desc: "Verifie si bebe est conscient : parle-lui fort, stimule la plante du pied. S'il ne reagit pas, compose le 15 ou le 18 immediatement. Ne raccroche pas." },
+      { num: '2', titre: '5 tapes dans le dos', desc: "Allonge bebe sur ton avant-bras, ventre vers le bas, tete plus basse que le corps. Donne 5 tapes fermes entre les omoplates avec le talon de la main ouverte." },
+      { num: '3', titre: '5 compressions thoraciques', desc: "Retourne bebe sur le dos sur tes cuisses. Place 2 doigts sous la ligne des mamelons. Effectue 5 compressions vers le bas d'environ 4 cm." },
+      { num: '4', titre: 'Alterner', desc: "Alterne 5 tapes et 5 compressions jusqu'a ce que l'objet soit expulse ou que les secours arrivent." },
+      { num: '5', titre: 'RCP nourrisson', desc: "Incline legerement la tete en arriere. Insuffle de l'air en couvrant bouche et nez ensemble, 2 fois. Puis 30 compressions sternales avec 2 doigts. Cycle 30/2 jusqu'aux secours." },
+      { num: '6', titre: 'Convulsion febrile', desc: "Ne retiens pas bebe. Allonge-le sur le cote, degage les voies respiratoires, chronometre. Si la crise depasse 5 minutes, appelle le 15. Apres la crise il sera somnolent, c'est normal." },
     ],
     notes: [
-      "Forme-toi sur mannequin : les pompiers et MJC proposent des formations gratuites",
+      "Forme-toi sur mannequin : les pompiers proposent des formations gratuites",
       "SAMU : 15 | Pompiers : 18 | Numero europeen : 112",
-      "Ne jamais secouer un bebe -- le syndrome du bebe secoue est irreversible",
-      "En cas de doute appelle le 15 : les medecins te guident en direct",
+      "Ne jamais secouer un bebe, le syndrome du bebe secoue est irreversible",
+      "En cas de doute appelle le 15, les medecins te guident en direct",
     ],
   },
   {
     id: 'portage',
-    emoji: '\U0001F931',
+    emoji: '🤱',
     titre: 'Le portage',
     sousTitre: 'Securite et bienfaits',
     bg: '#E4F5EC',
     tc: '#0D6B40',
     etapes: [
-      { num: '1', titre: 'La regle TICKS', desc: "T -- Tete visible en permanence. I -- In view at all times. C -- Close enough to kiss (assez proche pour l'embrasser). K -- Keep chin off chest (menton decolle de la poitrine). S -- Supported back (dos soutenu)." },
-      { num: '2', titre: 'Position physiologique', desc: "Les genoux de bebe doivent etre plus hauts que ses fesses, en position grenouille ou en M. Recommandee par les orthopedistes pediatriques pour le developpement des hanches." },
-      { num: '3', titre: 'Controler la respiration', desc: "Verifie toutes les 5 minutes que les voies respiratoires sont degagees. Le menton ne doit pas toucher la poitrine. Aucun tissu ne doit obstruer le nez ou la bouche." },
-      { num: '4', titre: "Ce qu'il ne faut pas faire", desc: "Pas de porte-bebe ventral face au monde avant 6 mois. Pas de portage en voiture a la place du siege auto. Pas de portage pendant des activites a risque comme le velo ou la cuisine." },
-      { num: '5', titre: 'Les benefices prouves', desc: "Reduction des pleurs de 43 % en moyenne. Regulation de la temperature et du rythme cardiaque. Favorise l'attachement et le developpement neurologique. Et pour toi : mains libres, lien renforce." },
+      { num: '1', titre: 'La regle TICKS', desc: "T : Tete visible en permanence. I : In view at all times. C : Close enough to kiss. K : Keep chin off chest, menton decolle de la poitrine. S : Supported back, dos soutenu." },
+      { num: '2', titre: 'Position physiologique', desc: "Les genoux de bebe doivent etre plus hauts que ses fesses, en position grenouille ou en M. Recommandee par les orthopedistes pour le developpement des hanches." },
+      { num: '3', titre: 'Controler la respiration', desc: "Verifie toutes les 5 minutes que les voies respiratoires sont degagees. Le menton ne doit pas toucher la poitrine." },
+      { num: '4', titre: 'Ce qu il ne faut pas faire', desc: "Pas de porte-bebe ventral face au monde avant 6 mois. Pas de portage en voiture. Pas de portage pendant des activites a risque." },
+      { num: '5', titre: 'Les benefices prouves', desc: "Reduction des pleurs de 43 pourcent en moyenne. Favorise l'attachement et le developpement neurologique. Et pour toi : mains libres, lien renforce." },
     ],
     notes: [
-      "Prefere les echarpes de portage ou porte-bebes physiologiques a structure rigide",
+      "Prefere les echarpes de portage ou porte-bebes physiologiques",
       "Evite les porte-bebes ou les jambes pendent vers le bas",
       "Sessions de 2 heures maximum les premieres semaines",
       "En cas de doute, consulte un referent portage dans ta ville",
@@ -69,31 +69,34 @@ const MODULES = [
   },
   {
     id: 'bain',
-    emoji: '\U0001F6C1',
+    emoji: '🛁',
     titre: 'Le premier bain',
     sousTitre: 'Technique et securite',
     bg: '#FFF7E0',
     tc: '#8A6010',
     etapes: [
-      { num: '1', titre: "Prepare l'environnement", desc: "Temperature de la piece : 22 degres minimum. Eau a 37 degres, teste avec le coude. Prepare tout AVANT de deshabiller bebe : serviette, pyjama, couche. Une fois bebe nu, tu ne peux plus quitter la piece." },
-      { num: '2', titre: 'La prise de securite', desc: "Main gauche : passe ton poignet sous la nuque, tes doigts saisissent l'epaule opposee. L'autre main soutient les fesses et les cuisses. Entre dans l'eau doucement, pieds en premier, en parlant." },
-      { num: '3', titre: 'Laver dans le bon ordre', desc: "Visage d'abord avec de l'eau claire, sans savon. Puis le crane, le corps, les plis (cou, aisselles, aine). Toujours de l'avant vers l'arriere pour les parties genitales." },
-      { num: '4', titre: 'Duree et sortie', desc: "5 minutes maximum pour un nouveau-ne, il refroidit vite. Sors-le avec les deux mains, enroule-le immediatement dans la serviette capuchonnee. Tamponne sans frotter, en insistant dans les plis." },
-      { num: '5', titre: 'Les regles absolues', desc: "Jamais seul dans l'eau, meme une seconde. Si le telephone sonne, emmene bebe avec toi. 5 cm d'eau suffisent. La noyade survient en silence en moins de 20 secondes." },
+      { num: '1', titre: 'Prepare tout', desc: "Piece a 22 degres minimum. Eau a 37 degres, teste avec le coude. Prepare serviette, pyjama, couche AVANT de deshabiller bebe. Une fois bebe nu, tu ne peux plus quitter la piece." },
+      { num: '2', titre: 'La prise de securite', desc: "Main gauche : poignet sous la nuque, doigts sur l'epaule opposee. L'autre main soutient les fesses. Entre dans l'eau doucement, pieds en premier, en parlant." },
+      { num: '3', titre: 'Laver dans le bon ordre', desc: "Visage d'abord avec de l'eau claire, sans savon. Puis crane, corps, plis (cou, aisselles, aine). Toujours de l'avant vers l'arriere pour les parties genitales." },
+      { num: '4', titre: 'Duree et sortie', desc: "5 minutes maximum, le nouveau-ne refroidit vite. Sors-le avec les deux mains, enroule-le immediatement dans la serviette capuchonnee. Tamponne sans frotter." },
+      { num: '5', titre: 'Regles absolues', desc: "Jamais seul dans l'eau, meme une seconde. Si le telephone sonne, emmene bebe avec toi. 5 cm d'eau suffisent. La noyade survient en silence en moins de 20 secondes." },
     ],
     notes: [
-      "Pas de bain avant la chute du cordon (5 a 15 jours) : toilette a la lingette uniquement",
+      "Pas de bain avant la chute du cordon (5 a 15 jours) : toilette a la lingette",
       "Pas de savon avant 1 mois, ou savon surgras sans parfum",
       "Le bain du soir cree un rituel puissant pour l'endormissement",
-      "La temperature de l'eau baisse vite : commence legerement plus chaud que 37 degres",
+      "L'eau refroidit vite : commence un peu plus chaud que 37 degres",
     ],
   },
 ];
 
-export default function AtelierPage({ C }: any) {
-  const [actif, setActif] = useState('emmaillotage');
-  const found = MODULES.find(function(m) { return m.id === actif; });
-  const module = found ? found : MODULES[0];
+export default function AtelierPage(props) {
+  var C = props.C;
+  var actifState = useState('emmaillotage');
+  var actif = actifState[0];
+  var setActif = actifState[1];
+  var found = MODULES.filter(function(m) { return m.id === actif; })[0];
+  var module = found ? found : MODULES[0];
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
@@ -140,7 +143,7 @@ export default function AtelierPage({ C }: any) {
         <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
           {module.notes.map(function(note, i) { return (
             <div key={i} style={{ display: 'flex', gap: '10px', alignItems: 'flex-start' }}>
-              <span style={{ color: C.gold, fontSize: '14px', flexShrink: 0, marginTop: '1px' }}>&#8594;</span>
+              <span style={{ color: C.gold, fontSize: '14px', flexShrink: 0, marginTop: '1px' }}>-&gt;</span>
               <p style={{ color: C.dark, fontSize: '13px', lineHeight: 1.6, margin: 0 }}>{note}</p>
             </div>
           ); })}
