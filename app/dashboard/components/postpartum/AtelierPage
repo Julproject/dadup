@@ -1,10 +1,8 @@
 'use client';
 import { useState } from 'react';
 
-export default function AtelierPage(props: any) {
-  const C = props.C;
+export default function AtelierPage({C}: any) {
   const [actif, setActif] = useState('couche');
-  const [secIdx, setSecIdx] = useState(0);
 
   const tabs = [
     { id: 'couche',       label: 'Couche',         bg: '#FFF7E0', tc: '#8A6010' },
