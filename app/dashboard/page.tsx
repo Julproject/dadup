@@ -94,6 +94,33 @@ function DashboardContent() {
   const saveRdv  = (date: string) => { setNextRdvDate(date); saveData({ next_rdv: date }); };
   const saveRdvI = (sa: number, date: string) => { const n = {...rdvDates,[sa]:date}; setRdvDates(n); saveData({ rdv_dates: n }); };
 
+
+
+  const sa            = getSA(avance ? 1 : 0);
+  const saReelle      = getSA();
+  const data          = sa       ? (SD[sa]       || SD[20]) : null;
+  const dataR         = saReelle ? (SD[saReelle] || SD[20]) : null;
+  const dpaDate       = dpa ? new Date(dpa) : null;
+  const joursRestants = dpaDate ? Math.ceil((dpaDate.getTime() - new Date().getTime()) / (1000*60*60*24)) : null;
+  const isPost        = joursRestants !== null && joursRestants < 0;
+  const prog          = isPost ? 100 : Math.min(100, Math.round(((saReelle||0)/40)*100));
+  const tri           = (saReelle||0) <= 14 ? 'T1' : (saReelle||0) <= 27 ? 'T2' : 'T3';
+  const moisG         = saReelle ? Math.ceil(saReelle / 4.3) : 1;
+  const idee          = getIdee(moisG);
+  const missions      = saReelle ? (MISSIONS[saReelle] || MISSIONS[20] || []) : [];
+  const nextRdv       = RDV_LIST.filter(r => saReelle && r.sa >= saReelle)[0];
+  const moisBebe      = isPost && dpaDate ? Math.min(11, Math.floor(Math.abs(joursRestants||0) / 30)) : 0;
+  const dataBebe      = MOIS_DATA[moisBebe];
+
+  const shared = {
+    C, isPost, dpa, prenom, saReelle, joursRestants, prog, tri,
+    moisBebe, dataBebe, idee, missions, missionsChecked, toggleM,
+    nextRdv, nextRdvDate, saveRdv, dataR, data, sa, avance, setAvance,
+    valiseChecked, toggleV, achatChecked, toggleA, rdvDates, saveRdvI, rdvOuvert, setRdvOuvert,
+    MOIS_DATA, PARTENAIRES, RDV_LIST, SD,
+  };
+
+
   const declareNaissance = () => {
     setShowConfirmNaissance(false);
     if (isPost) {
@@ -121,31 +148,6 @@ function DashboardContent() {
     }
     setActiveTab('home');
   };
-
-  const sa            = getSA(avance ? 1 : 0);
-  const saReelle      = getSA();
-  const data          = sa       ? (SD[sa]       || SD[20]) : null;
-  const dataR         = saReelle ? (SD[saReelle] || SD[20]) : null;
-  const dpaDate       = dpa ? new Date(dpa) : null;
-  const joursRestants = dpaDate ? Math.ceil((dpaDate.getTime() - new Date().getTime()) / (1000*60*60*24)) : null;
-  const isPost        = joursRestants !== null && joursRestants < 0;
-  const prog          = isPost ? 100 : Math.min(100, Math.round(((saReelle||0)/40)*100));
-  const tri           = (saReelle||0) <= 14 ? 'T1' : (saReelle||0) <= 27 ? 'T2' : 'T3';
-  const moisG         = saReelle ? Math.ceil(saReelle / 4.3) : 1;
-  const idee          = getIdee(moisG);
-  const missions      = saReelle ? (MISSIONS[saReelle] || MISSIONS[20] || []) : [];
-  const nextRdv       = RDV_LIST.filter(r => saReelle && r.sa >= saReelle)[0];
-  const moisBebe      = isPost && dpaDate ? Math.min(11, Math.floor(Math.abs(joursRestants||0) / 30)) : 0;
-  const dataBebe      = MOIS_DATA[moisBebe];
-
-  const shared = {
-    C, isPost, dpa, prenom, saReelle, joursRestants, prog, tri,
-    moisBebe, dataBebe, idee, missions, missionsChecked, toggleM,
-    nextRdv, nextRdvDate, saveRdv, dataR, data, sa, avance, setAvance,
-    valiseChecked, toggleV, achatChecked, toggleA, rdvDates, saveRdvI, rdvOuvert, setRdvOuvert,
-    MOIS_DATA, PARTENAIRES, RDV_LIST, SD,
-  };
-
   if (showOnboarding) {
     return <Onboarding onSave={(d, p) => {
       localStorage.setItem('dadup_dpa', d); localStorage.setItem('dadup_prenom', p);
@@ -192,7 +194,7 @@ function DashboardContent() {
             <p style={{ color:'#6a7585', fontSize:'14px', lineHeight:1.7, margin:'0 0 24px' }}>{isPost ? 'Tu reviendras à la dernière semaine enregistrée. Ton suivi post-partum sera conservé.' : 'En confirmant, ton application bascule en mode post-naissance. Tu pourras suivre le développement de bébé mois par mois.'}</p>
             <div style={{ display:'flex', gap:'10px' }}>
               <button onClick={() => setShowConfirmNaissance(false)} style={{ flex:1, padding:'13px', background:'#f7f5f0', border:'none', borderRadius:'32px', fontSize:'14px', fontWeight:700, color:'#9aa0a8', cursor:'pointer' }}>Annuler</button>
-              <button onClick={declareNaissance} style={{ flex:2, padding:'13px', background:'#1e2535', border:'none', borderRadius:'32px', fontSize:'14px', fontWeight:700, color:'#fff', cursor:'pointer' }}>{isPost ? 'Revenir en mode grossesse' : `Bébé est né !`}</button>
+              <button onClick={() => declareNaissance()} style={{ flex:2, padding:'13px', background:'#1e2535', border:'none', borderRadius:'32px', fontSize:'14px', fontWeight:700, color:'#fff', cursor:'pointer' }}>{isPost ? 'Revenir en mode grossesse' : `Bébé est né !`}</button>
             </div>
           </div>
         </div>
