@@ -122,14 +122,14 @@ const ATELIERS: Atelier[] = [
     fond: '#FDECEA',
     icone: '🚨',
     intro: `Ces gestes peuvent sauver une vie. Lis-les maintenant, pas dans l'urgence. Et pense à faire une vraie formation PSC1 nourrisson si ce n'est pas encore fait.`,
-    alerte: 'En cas de doute : appelle le 15 (SAMU) ou le 18 (pompiers). Ne perds pas de temps à chercher.`,
+    alerte: `En cas de doute : appelle le 15 (SAMU) ou le 18 (pompiers). Ne perds pas de temps à chercher.`,
     etapes: [
       {
-        titre: '1. Bébé s\'étouffe — il tousse',
+        titre: `1. Bébé s'étouffe - il tousse`,
         texte: `S'il tousse fort, il gère. Ne fais rien. Encourage-le à tousser. Ne tape pas dans le dos, ne mets pas les doigts dans sa bouche. La toux est le mécanisme naturel le plus efficace.`,
       },
       {
-        titre: '2. Bébé s\'étouffe — il ne tousse plus',
+        titre: `2. Bébé s'étouffe - il ne tousse plus`,
         texte: `Tête en bas sur ton avant-bras, visage vers le sol. 5 tapes fermes entre les omoplates avec le talon de la main. Si ça ne suffit pas : retourne-le sur le dos, 2 doigts au centre de la poitrine, 5 compressions. Alterner jusqu'à libération ou arrivée des secours.`,
         svg: SVG_HEIMLICH,
       },
@@ -181,7 +181,7 @@ const ATELIERS: Atelier[] = [
         texte: `J1-J3 : méconium noir/vert foncé, normal. Ensuite : jaune moutarde si allaitement, jaune/beige si biberon. Fréquence très variable : de 8 fois par jour à une fois tous les 5 jours chez les bébés allaités. Pas un problème si bébé est bien, mange et prend du poids.`,
       },
     ],
-    conseil: 'Le change est un moment de contact et d\'échange. Parle-lui, nomme ce que tu fais. Même seul dans la salle de bain à 3h du matin, c\'est un moment de connexion.',
+    conseil: `Le change est un moment de contact et d'échange. Parle-lui, nomme ce que tu fais. Même seul dans la salle de bain à 3h du matin, c'est un moment de connexion.`,
   },
   {
     id: 'emmaillotage',
@@ -211,11 +211,11 @@ const ATELIERS: Atelier[] = [
         texte: `Place le bras droit le long du corps. Tire le dernier coin par-dessus l'épaule droite et glisse-le sous le dos. Vérifie : tu dois pouvoir glisser deux doigts entre le tissu et la poitrine. Sa tête doit toujours rester libre.`,
       },
       {
-        titre: 'Quand arrêter l\'emmaillotage',
+        titre: `Quand arrêter l'emmaillotage`,
         texte: `Dès que bébé montre des signes de retournement (généralement vers 2 mois), arrête l'emmaillotage. Un bébé retourné sur le ventre emmailloté ne peut pas se repositionner. Toujours sur le dos pour dormir emmailloté.`,
       },
     ],
-    conseil: 'Certains bébés détestent l\'emmaillotage. Si le tien se débat et s\'énerve encore plus, c\'est qu\'il préfère être libre de ses mouvements. Respecte sa préférence.',
+    conseil: `Certains bébés détestent l'emmaillotage. Si le tien se débat et s'énerve encore plus, c'est qu'il préfère être libre de ses mouvements. Respecte sa préférence.`,
   },
   {
     id: 'apaisement',
@@ -262,7 +262,7 @@ const ATELIERS: Atelier[] = [
     intro: `L'allaitement s'apprend. Ni toi ni bébé ne savez faire ça d'instinct les premiers jours. La bonne prise du sein est la clé de tout : moins de douleur, plus de lait, bébé satisfait.`,
     etapes: [
       {
-        titre: 'Les signes d\'une bonne prise',
+        titre: `Les signes d'une bonne prise`,
         texte: `Bouche grande ouverte (pas juste le mamelon : l'aréole). Lèvres retroussées vers l'extérieur. Menton appuyé contre le sein. Nez dégagé ou légèrement effleurant le sein. Tu entends des déglutitions. Si tu as mal au-delà des 30 premières secondes : mauvaise prise, détacher et recommencer.`,
       },
       {
@@ -278,11 +278,11 @@ const ATELIERS: Atelier[] = [
         texte: `8 à 12 tétées par 24h les premières semaines. Pas de règle stricte de durée : certains bébés tètent 10 minutes, d'autres 40. Laisser bébé finir un sein avant de proposer l'autre. Si doute sur la quantité : peser bébé régulièrement est le seul indicateur fiable.`,
       },
       {
-        titre: 'Ton rôle pendant l\'allaitement',
+        titre: `Ton rôle pendant l'allaitement`,
         texte: `Apporter à boire (elle perd beaucoup de liquide). Créer un environnement calme. Prendre le bébé entre les tétées pour qu'elle dorme. La soutenir sans minimiser les difficultés. L'allaitement peut être douloureux, épuisant, et frustrant les premières semaines. C'est normal. Une consultante en lactation (IBCLC) peut tout changer.`,
       },
     ],
-    conseil: 'La Leche League France propose un soutien gratuit par téléphone et des groupes locaux. Si l\'allaitement se passe mal, ne pas attendre : une consultante en lactation règle souvent les problèmes en une séance.',
+    conseil: `La Leche League France propose un soutien gratuit par téléphone et des groupes locaux. Si l'allaitement se passe mal, ne pas attendre : une consultante en lactation règle souvent les problèmes en une séance.`,
   },
 ];
 
