@@ -178,17 +178,7 @@ function DashboardContent() {
   };
 
   if (showOnboarding) {
-    return (
-      <Onboarding
-        onComplete={async (p: string, d: string) => {
-          setPrenom(p); setDpa(d);
-          localStorage.setItem('dadup_prenom', p);
-          localStorage.setItem('dadup_dpa', d);
-          await saveData({ prenom: p, dpa: d });
-          setShowOnboarding(false);
-        }}
-      />
-    );
+    return <Onboarding onSave={(d, p) => { localStorage.setItem('dadup_dpa', d); localStorage.setItem('dadup_prenom', p); setDpa(d); setPrenom(p); setShowOnboarding(false); saveData({ dpa: d, prenom: p }); }} />;
   }
 
   return (
