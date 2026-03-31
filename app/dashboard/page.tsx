@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, Suspense } from 'react';
+import dynamic from 'next/dynamic';
 import { useSearchParams } from 'next/navigation';
 
 // ── Data ──────────────────────────────────────────────────────────────────────
@@ -25,7 +26,7 @@ import PostBebe      from './components/postpartum/PostBebe';
 import PostRDV       from './components/postpartum/PostRDV';
 import PsychoPage    from './components/PsychoPage';
 import SuiviBebe     from './components/postpartum/SuiviBebe';
-import AtelierPage   from './components/postpartum/AtelierPage';
+const AtelierPage = dynamic(() => import('./components/postpartum/AtelierPage'), { ssr: false });
 
 // ── Palette ───────────────────────────────────────────────────────────────────
 const C = {
