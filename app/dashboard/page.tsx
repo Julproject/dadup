@@ -123,7 +123,9 @@ function DashboardContent() {
 
   const declareNaissance = () => {
     setShowConfirmNaissance(false);
-    if (isPost) {
+    // Lire dpa depuis le state OU localStorage (fallback si state pas encore chargé)
+    const dpaCourant = dpa || localStorage.getItem('dadup_dpa') || '';
+    if (isPost || joursRestants !== null && joursRestants < 0) {
       const dpaRestore = dpaOriginale
         || localStorage.getItem('dadup_dpa_originale')
         || localStorage.getItem('dadup_dpa_backup')
@@ -136,15 +138,14 @@ function DashboardContent() {
       localStorage.removeItem('dadup_dpa_backup');
       saveData({ dpa: dpaRestore, dpa_originale: null });
     } else {
-      if (!dpa) { alert('Ton profil est en cours de chargement. Réessaie dans un instant.'); return; }
-      const dpaCourante = dpa;
-      localStorage.setItem('dadup_dpa_originale', dpaCourante);
-      localStorage.setItem('dadup_dpa_backup', dpaCourante);
-      setDpaOriginale(dpaCourante);
+      if (!dpaCourant) { alert('Profil en cours de chargement, réessaie dans un instant.'); return; }
+      localStorage.setItem('dadup_dpa_originale', dpaCourant);
+      localStorage.setItem('dadup_dpa_backup', dpaCourant);
+      setDpaOriginale(dpaCourant);
       const today = new Date().toISOString().split('T')[0];
       setDpa(today);
       localStorage.setItem('dadup_dpa', today);
-      saveData({ dpa: today, dpa_originale: dpaCourante });
+      saveData({ dpa: today, dpa_originale: dpaCourant });
     }
     setActiveTab('home');
   };
