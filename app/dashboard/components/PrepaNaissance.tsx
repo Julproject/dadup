@@ -149,7 +149,7 @@ export default function PrepaNaissance({ C, saReelle }: { C: any; saReelle: numb
                 desc: `Ne dis pas "courage" ou "c'est bientôt fini" si tu n'en sais rien. Dis : "Tu gères. Je suis là." La pression dans le bas du dos pendant une contraction peut être soulagée par tes mains appliquées fermement.`,
               },
               {
-                phase: 'Avec l'équipe médicale',
+                phase: `Avec l'équipe médicale`,
                 desc: `Parle à l'équipe si elle ne peut pas le faire. "Elle a mal, peut-on réévaluer la péridurale ?" ou "Qu'est-ce qui se passe maintenant ?" Tu es son avocat dans la salle.`,
               },
               {
@@ -179,7 +179,7 @@ export default function PrepaNaissance({ C, saReelle }: { C: any; saReelle: numb
     },
     {
       id: 'cesarienne',
-      titre: 'Césarienne : ce qu'il faut savoir',
+      titre: `Césarienne : ce qu'il faut savoir`,
       contenu: (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
           <p style={{ color: '#3a4a5a', fontSize: '13px', lineHeight: 1.75, margin: 0 }}>
@@ -197,15 +197,15 @@ export default function PrepaNaissance({ C, saReelle }: { C: any; saReelle: numb
                 texte: `Elle peut être décidée rapidement pendant le travail si bébé montre des signes de souffrance ou si le travail ne progresse pas. La vitesse peut être déstabilisante. Reste calme, suis les instructions de l'équipe, reste présent.`,
               },
               {
-                titre: 'Pendant l'intervention',
+                titre: `Pendant l'intervention`,
                 texte: `Tu seras généralement autorisé à rester assis à la tête du lit, derrière le champ opératoire. Elle est consciente (anesthésie péridurale ou rachianesthésie). Parle-lui, tiens sa main. L'intervention dure environ 30 à 45 minutes.`,
               },
               {
-                titre: 'Juste après la naissance',
+                titre: `Juste après la naissance`,
                 texte: `Bébé est souvent sorti rapidement (en quelques minutes après l'incision). Si tout va bien, il peut être posé sur sa poitrine ou dans tes bras pendant que l'équipe suture. Le peau à peau immédiat avec toi est possible et précieux si elle ne peut pas le faire.`,
               },
               {
-                titre: 'Les suites pour elle',
+                titre: `Les suites pour elle`,
                 texte: `La récupération est plus longue qu'après un accouchement voie basse : 3 à 5 jours d'hospitalisation, douleur à la cicatrice pendant 2 à 4 semaines, pas de port de charges. Ton soutien physique et logistique au retour est encore plus important après une césarienne.`,
               },
             ].map((item, i) => (
