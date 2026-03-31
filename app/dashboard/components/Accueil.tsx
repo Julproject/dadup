@@ -1,6 +1,5 @@
 'use client';
 import { useState } from 'react';
-import PrepaNaissance from './PrepaNaissance';
 
 export default function Accueil({C,dpa,saReelle,joursRestants,prog,tri,idee,missions,missionsChecked,toggleM,nextRdv,nextRdvDate,saveRdv,saveRdvI,dataR,sa,data}:any) {
   return (
@@ -119,9 +118,6 @@ export default function Accueil({C,dpa,saReelle,joursRestants,prog,tri,idee,miss
         </div>
       )}
 
-
-      {/* PRÉPARATION À L'ACCOUCHEMENT — SA 37+ */}
-      {(saReelle||0) >= 37 && <PrepaNaissance C={C} saReelle={saReelle||37}/>}
 
 
     </div>
