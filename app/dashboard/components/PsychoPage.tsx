@@ -19,280 +19,308 @@ type Semaine = {
 
 const SEMAINES: Semaine[] = [
   {
-    sa: 3, theme: 'peur',     titre: `L'annonce. Et le choc qui va avec.`,
-    intro: `Tu viens d'apprendre que tu vas être père. Et la première réaction n'est peut-être pas celle que tu attendais.`,
-    corps: `C'est normal. Des études menées sur plusieurs milliers de futurs pères montrent que plus de 80% d'entre eux ressentent un mélange de joie et de peur à l'annonce de la grossesse. Ce n'est pas un manque d'amour. C'est ton cerveau qui réalise que ta vie va changer profondément.\n\nCette ambivalence est une réaction saine. Les pères qui nient toute peur au départ sont souvent ceux qui la ressentent plus fort plus tard, quand l'accouchement approche. Accueillir cette émotion maintenant, c'est mieux la traverser.`,
-    conseil: `Dis-lui ce que tu ressens. Pas pour qu'elle te rassure, mais parce que partager ce moment crée une intimité que vous n'aurez plus jamais de la même façon.`,
-    source: `Genesoni & Tallandini, 2009  -  Human Reproduction Update`
+    sa: 3, theme: 'peur',
+    titre: `L'annonce. Et le choc qui va avec.`,
+    intro: `Tu viens d'apprendre que tu vas etre pere. Et la premiere reaction n'est peut-etre pas celle que tu attendais.`,
+    corps: `C'est normal. Des etudes menees sur plusieurs milliers de futurs peres montrent que plus de 80% d'entre eux ressentent un melange de joie et de peur a l'annonce de la grossesse. Ce n'est pas un manque d'amour. C'est ton cerveau qui realise que ta vie va changer profondement.\n\nCette ambivalence est une reaction saine. Les peres qui nient toute peur au depart sont souvent ceux qui la ressentent plus fort plus tard, quand l'accouchement approche. Accueillir cette emotion maintenant, c'est mieux la traverser.`,
+    conseil: `Dis-lui ce que tu ressens. Pas pour qu'elle te rassure, mais parce que partager ce moment cree une intimite que vous n'aurez plus jamais de la meme facon.`,
+    source: `Genesoni & Tallandini, 2009 - Human Reproduction Update`
   },
   {
-    sa: 4, theme: 'couple',     titre: `Le secret des premières semaines.`,
-    intro: `Avant d'annoncer la grossesse à tout le monde, il y a cette période unique où vous êtes les seuls à savoir.`,
-    corps: `Cette période de secret, souvent quelques semaines, est l'une des plus intimes d'une relation. Les couples qui la vivent consciemment en gardent un souvenir fort. Ce n'est pas juste une question de prudence médicale avant 12 SA. C'est un espace de complicité rare.\n\nLes recherches sur la transition vers la parentalité montrent que les couples qui prennent le temps de "digérer" la nouvelle ensemble avant de la partager avec l'entourage vivent mieux les premières semaines de grossesse. Ils sont plus alignés, moins influencés par les opinions extérieures.`,
-    conseil: `Si vous vivez bien cette période, notez un souvenir de ces premières semaines  -  une photo, une date, un message. Ce n'est pas une obligation. C'est juste une façon de ne pas laisser passer quelque chose d'unique sans le voir.`,
-    source: `Plantin, Olukoya & Ny, 2011  -  Journal of Men's Health`
+    sa: 4, theme: 'couple',
+    titre: `Le secret a deux. Profitez-en.`,
+    intro: `Avant d'annoncer la grossesse a tout le monde, il y a cette periode unique ou vous etes les seuls a savoir.`,
+    corps: `Cette periode de secret, souvent quelques semaines, est l'une des plus intimes d'une relation. Les couples qui la vivent consciemment en gardent un souvenir fort. Ce n'est pas juste une question de prudence medicale avant 12 SA. C'est un espace de complicite rare.\n\nLes recherches sur la transition vers la parentalite montrent que les couples qui prennent le temps de "digerer" la nouvelle ensemble avant de la partager vivent mieux les premieres semaines de grossesse. Ils sont plus alignes, moins influences par les opinions exterieures.`,
+    conseil: `Creez un rituel a deux pour marquer ce moment. Un diner, une sortie, une photo. Quelque chose qui appartient rien qu'a vous.`,
+    source: `Plantin, Olukoya & Ny, 2011 - Journal of Men's Health`
   },
   {
-    sa: 5, theme: 'peur',     titre: `La couvade : quand ton corps réagit aussi.`,
-    intro: `Tu as peut-être des nausées, des maux de dos ou une fatigue inexpliquée. Tu n'es pas malade. Tu fais de la couvade.`,
-    corps: `Le syndrome de couvade est documenté depuis des décennies. Entre 25% et 65% des futurs pères ressentent des symptômes physiques pendant la grossesse de leur partenaire : nausées, prise de poids, douleurs abdominales, fatigue. Ce n'est pas psychosomatique au sens péjoratif du terme. C'est neurologique.\n\nLes recherches suggèrent que ces symptômes sont liés aux fluctuations hormonales des pères pendant la grossesse. Le taux de prolactine (hormone impliquée dans le lien parent-enfant) augmente chez les futurs pères. Ton corps se prépare à son rôle, à sa façon.`,
-    conseil: `Ne te moque pas de tes propres symptômes. Ils signalent que ton système nerveux est engagé dans ce qui se passe. C'est un signe d'implication, pas de fragilité.`,
-    source: `Brennan, Marshall-Lucette, Ayers & Ahmed, 2007  -  Journal of Reproductive and Infant Psychology`
+    sa: 5, theme: 'peur',
+    titre: `La couvade : quand ton corps reagit aussi.`,
+    intro: `Tu as peut-etre des nausees, des maux de dos ou une fatigue inexpliquee. Tu n'es pas malade. Tu fais de la couvade.`,
+    corps: `Le syndrome de couvade est documente depuis des decennies. Entre 25% et 65% des futurs peres ressentent des symptomes physiques pendant la grossesse de leur partenaire : nausees, prise de poids, douleurs abdominales, fatigue. Ce n'est pas psychosomatique au sens pejoratif du terme. C'est neurologique.\n\nLes recherches suggerent que ces symptomes sont lies aux fluctuations hormonales des peres pendant la grossesse. Le taux de prolactine (hormone impliquee dans le lien parent-enfant) augmente chez les futurs peres. Ton corps se prepare a son role, a sa facon.`,
+    conseil: `Ne te moque pas de tes propres symptomes. Ils signalent que ton systeme nerveux est engage dans ce qui se passe. C'est un signe d'implication, pas de fragilite.`,
+    source: `Brennan, Marshall-Lucette, Ayers & Ahmed, 2007 - Journal of Reproductive and Infant Psychology`
   },
   {
-    sa: 6, theme: 'role',     titre: `Prendre le relais en cuisine. Sans attendre.`,
-    intro: `Les nausées de ta partenaire peuvent rendre la cuisine impossible. C'est le moment où ton rôle pratique devient essentiel.`,
-    corps: `Les nausées gravidiques touchent 70 à 85% des femmes enceintes et sont souvent les plus intenses entre 6 et 10 SA. Elles sont causées par la montée brutale de l'hormone hCG. Elles ne sont pas dans la tête, elles ne sont pas exagérées, et elles peuvent être épuisantes.\n\nLes recherches sur le soutien paternel en grossesse montrent que les gestes pratiques et anticipés, ceux que le père fait sans attendre qu'on lui demande, ont un impact direct sur le stress maternel. Ce n'est pas juste de l'aide. C'est un signal fort : "Je suis là, je vois ce que tu traverses."`,
-    conseil: `Fais les courses. Prépare des repas froids ou tièdes (les odeurs chaudes sont souvent les pires). Évite de cuisiner du poisson ou des œufs dans la cuisine. Ces petites adaptations font une différence réelle.`,
-    source: `Santé Publique France, 2021  -  Grossesse et rôle du conjoint`
+    sa: 6, theme: 'role',
+    titre: `Prendre le relais en cuisine. Sans attendre.`,
+    intro: `Les nausees de ta partenaire peuvent rendre la cuisine impossible. C'est le moment ou ton role pratique devient essentiel.`,
+    corps: `Les nausees gravidiques touchent 70 a 85% des femmes enceintes et sont souvent les plus intenses entre 6 et 10 SA. Elles sont causees par la montee brutale de l'hormone hCG. Elles ne sont pas dans la tete, elles ne sont pas exagerees, et elles peuvent etre epuisantes.\n\nLes recherches sur le soutien paternel en grossesse montrent que les gestes pratiques et anticipes, ceux que le pere fait sans attendre qu'on lui demande, ont un impact direct sur le stress maternel. Ce n'est pas juste de l'aide. C'est un signal fort : je suis la, je vois ce que tu traverses.`,
+    conseil: `Fais les courses. Prepare des repas froids ou tieides (les odeurs chaudes sont souvent les pires). Evite de cuisiner du poisson ou des oeufs. Ces petites adaptations font une difference reelle.`,
+    source: `Sante Publique France, 2021 - Grossesse et role du conjoint`
   },
   {
-    sa: 7, theme: 'couple',     titre: `Écouter sans résoudre. Ça s'apprend.`,
-    intro: `Elle parle de ses peurs, de son inconfort, de ses angoisses. Et toi, tu cherches instinctivement à trouver une solution.`,
-    corps: `C'est un réflexe masculin bien documenté. Les hommes tendent à répondre aux problèmes par des solutions. Mais pendant la grossesse, ce que ta partenaire cherche souvent, c'est d'être entendue, pas corrigée.\n\nLes travaux de John Gottman sur les couples montrent que la capacité à "répondre à l'émotionnel par l'émotionnel" est l'un des prédicteurs les plus forts de la satisfaction conjugale après la naissance d'un enfant. Les couples où le père apprend à valider les émotions plutôt qu'à les résoudre traversent mieux la transition vers la parentalité.
-
-La communication pendant la grossesse n'est pas intuitive pour beaucoup d'hommes. Ce qu'elle cherche souvent n'est pas une solution, mais d'être entendue. La question "qu'est-ce dont tu as besoin là ?" est plus utile que n'importe quelle réponse que tu pourrais donner.`,
-    conseil: `La prochaine fois qu'elle partage quelque chose de difficile, dis : "Je t'entends. C'est vraiment dur." Résiste à l'envie d'ajouter un "mais" ou un "tu pourrais...". Fais ça une fois. Regarde ce qui se passe. Retiens une règle simple : avant de proposer une solution, demande-lui si elle veut qu'on réfléchisse ensemble ou si elle a juste besoin d'être écoutée.`,
-    source: `Gottman & Gottman, 2007  -  And Baby Makes Three`
+    sa: 7, theme: 'couple',
+    titre: `Ecouter sans resoudre. Ca s'apprend.`,
+    intro: `Elle parle de ses peurs, de son inconfort, de ses angoisses. Et toi, tu cherches instinctivement a trouver une solution.`,
+    corps: `C'est un reflexe bien documente. Les hommes tendent a repondre aux problemes par des solutions. Mais pendant la grossesse, ce que ta partenaire cherche souvent, c'est d'etre entendue, pas corrigee.\n\nLes travaux de John Gottman sur les couples montrent que la capacite a repondre a l'emotionnel par l'emotionnel est l'un des predicteurs les plus forts de la satisfaction conjugale apres la naissance d'un enfant. Les couples ou le pere repondait d'abord a l'emotion avant de proposer des solutions avaient une meilleure satisfaction conjugale deux ans apres la naissance.`,
+    conseil: `Ce soir, quand elle parle de quelque chose de difficile, commence par dire : je comprends que c'est dur. Pas de solution. Juste ca. Et observe ce qui se passe dans la conversation.`,
+    source: `Gottman & Gottman, 2007 - And Baby Makes Three`
   },
   {
-    sa: 8, theme: 'peur',     titre: `La peur de ne pas être à la hauteur. Elle est universelle.`,
-    intro: `"Est-ce que je vais être un bon père ?" Cette question tourne en boucle pour presque tous les futurs papas.`,
-    corps: `Une étude menée auprès de 622 futurs pères montre que la peur de ne pas être à la hauteur est la préoccupation la plus fréquente au 1er trimestre. Elle est suivie de près par la peur de ne pas savoir quoi faire pratiquement et la peur de l'impact financier.\n\nCe qui est documenté : les pères qui expriment cette peur tôt dans la grossesse tendent à s'impliquer davantage après la naissance. La peur de mal faire peut être un moteur de préparation  -  mais elle peut aussi générer une pression paralysante. Si tu la ressens, la nommer est plus utile que de l'ignorer.`,
-    conseil: `Note trois choses que tu veux faire différemment de ton propre père, et trois choses que tu veux transmettre. Cet exercice, recommandé par les psychologues périnataux, ancre le projet paternel de façon concrète.`,
-    source: `Deave & Johnson, 2008  -  Midwifery`
+    sa: 8, theme: 'lien',
+    titre: `Ton bebe t'entend deja. Vraiment.`,
+    intro: `A 8 SA, l'oreille interne de bebe commence a se former. Dans quelques semaines, il percevra les sons. Ta voix sera l'une des premieres qu'il reconnait.`,
+    corps: `Le systeme auditif fotal est fonctionnel vers 16 a 18 SA. Mais la preparation neurologique commence bien avant. Les voix masculines, plus graves, traversent mieux le liquide amniotique que les voix aigues. C'est pour ca que ta voix est particulierement bien percue par bebe in utero.\n\nUne experience fondatrice de DeCasper et Fifer (1980) a montre que des nouveau-nes de quelques heures preferaient la voix de leur mere a celle d'autres femmes, preuve qu'ils avaient memorise cette voix in utero. Des etudes ulterieures ont etendu ce resultat aux voix paternelles entendues regulierement. Si tu lui parles regulierement d'ici la naissance, il tournera la tete vers ta voix dans les premieres heures de sa vie.`,
+    conseil: `Commence maintenant, meme si c'est tot. Pose ta main sur le ventre le soir et parle-lui 5 minutes. Dis-lui ton prenom, ce que tu fais, ce que tu ressens. La regularite compte plus que le contenu.`,
+    source: `DeCasper & Fifer, 1980 - Science`
   },
   {
-    sa: 9, theme: 'lien',     titre: `Ta voix grave est celle que bébé entend le mieux.`,
-    intro: `À 9 SA, l'oreille interne de bébé commence à se former. Et les fréquences graves traversent mieux le liquide amniotique.`,
-    corps: `Le système auditif fœtal est fonctionnel à partir de 18-20 SA, mais les structures qui le rendront possible commencent à se former dès 9 SA. Les recherches en perception auditive fœtale montrent que les sons graves, comme les voix masculines, traversent plus facilement les parois abdominales et le liquide amniotique que les voix aiguës.\n\nDes études ont montré que les nouveau-nés préfèrent les voix entendues régulièrement in utero à des voix inconnues. Si tu parles à bébé maintenant, plusieurs fois par semaine, il te reconnaîtra dès les premières heures de sa vie.`,
-    conseil: `Ce soir, pose ta main sur son ventre et dis quelques mots à bébé. Ton prénom. Ce que tu ressens. Ce que tu lui souhaites. Tu te sentiras peut-être ridicule. C'est normal. Continue quand même.`,
-    source: `Granier-Deferre, Bassereau, Ribeiro, Jacquet & DeCasper, 2011  -  PLoS ONE`
+    sa: 9, theme: 'peur',
+    titre: `La peur de la fausse couche. Comment la porter.`,
+    intro: `Entre 10 et 20% des grossesses se terminent par une fausse couche au 1er trimestre. Cette statistique est dans la tete de beaucoup de peres, meme s'ils n'en parlent pas.`,
+    corps: `Les peres portent souvent cette peur en silence, pour ne pas inquieter leur partenaire. C'est une forme de protection qui a un cout. Les etudes sur la sante mentale paternelle pendant la grossesse montrent que les peres qui n'ont pas d'espace pour exprimer leurs peurs presentent plus de symptomes anxieux en post-partum.\n\nPorter seul une peur n'est pas une forme de force. C'est une forme d'isolement. Ta partenaire porte probablement la meme peur. En parler ensemble ne l'amplifie pas. Ca la partage. Et ce qui est partage est moins lourd.`,
+    conseil: `Si la peur de la fausse couche est presente pour toi, parles-en a ta partenaire. Pas pour resoudre. Juste pour dire : moi aussi, j'ai peur. Et on traverse ca ensemble.`,
+    source: `Franche & Mikail, 2001 - Health Psychology`
   },
   {
-    sa: 10, theme: 'role',     titre: `L'échographie T1. Le moment où ça devient réel.`,
-    intro: `Voir le cœur battre pour la première fois est souvent le moment où la paternité bascule du concept à la réalité.`,
-    corps: `Des chercheurs ont interviewé des centaines de futurs pères sur leur expérience de la première échographie. La majorité décrit ce moment comme un "tournant émotionnel" : avant, la grossesse était abstraite. Après, elle est réelle. Le cœur qui bat, la silhouette, les mouvements.\n\nPour beaucoup de pères, c'est aussi le moment où l'anxiété diminue. Voir que tout va bien visuellement apporte une réassurance que les mots du médecin ne donnent pas de la même façon. Ta présence à ce rendez-vous n'est pas optionnelle.`,
-    conseil: `Prépare deux ou trois questions pour l'échographiste avant le rendez-vous. Arrive 10 minutes en avance. Éteins ton téléphone. Et si tu sens quelque chose d'inattendu pendant l'examen, ne le cache pas.`,
-    source: `Draper, 2002  -  Sociology of Health & Illness`
+    sa: 10, theme: 'role',
+    titre: `Le premier RDV medical. Ton role n'est pas d'etre spectateur.`,
+    intro: `La premiere consultation medicale approche. Beaucoup de peres y vont sans savoir quoi faire. Voila ce qui change tout.`,
+    corps: `Dans les etudes sur l'experience des peres lors des consultations prenatales, le sentiment d'etre un "tiers" plutot qu'un participant actif est l'un des plus frequemment rapportes. Les peres qui arrivent avec des questions preparees se sentent significativement plus impliques et plus competents dans leur role.\n\nLa sage-femme ou le medecin peut aussi s'adresser principalement a ta partenaire. C'est ton role de poser des questions, de prendre des notes, et de t'assurer de comprendre ce qui se passe. Tu n'es pas la pour porter le manteau.`,
+    conseil: `Avant le RDV, prepare 3 questions que tu veux poser. Ecris-les. Prends des notes pendant la consultation. Ce role actif change completement la facon dont tu vis ces rendez-vous.`,
+    source: `Steen, Downe, Bamford & Edozien, 2012 - European Journal of Obstetrics & Gynecology`
   },
   {
-    sa: 11, theme: 'couple',     titre: `Son corps change. Ton regard compte.`,
-    intro: `Elle commence à voir son corps se transformer. Et elle se demande parfois si tu la trouves toujours attirante.`,
-    corps: `Les recherches sur l'image corporelle pendant la grossesse montrent que les femmes enceintes sont particulièrement sensibles au regard de leur partenaire sur leur corps changeant. Même les femmes qui se disent "à l'aise" avec leur grossesse peuvent traverser des moments de doute.\n\nUn regard bienveillant, un geste de tendresse régulier ont un impact documenté sur le bien-être émotionnel des femmes enceintes. Mais certaines femmes vivent mal leur corps changeant même avec tout le soutien du monde  -  ce n'est pas un échec de ta part. Ce que tu peux faire : être présent, cohérent, et ne jamais commenter son corps sans qu'elle t'y invite.`,
-    conseil: `Ne fais pas de commentaires sur son corps, même positifs du type "tu es belle pour une femme enceinte". Dis simplement "tu es belle". Point. La nuance est importante.`,
-    source: `Darvill, Skirton & Farrand, 2010  -  Midwifery`
+    sa: 11, theme: 'couple',
+    titre: `Son corps change. Ton regard compte enormement.`,
+    intro: `Le ventre commence a s'arrondir. La peau change. Elle observe son corps se transformer et regarde ta reaction.`,
+    corps: `Les femmes enceintes rapportent que le regard de leur partenaire sur leur corps en transformation est l'un des facteurs les plus importants de leur bien-etre emotionnel pendant la grossesse. Une etude de Darvill, Skirton et Farrand (2010) aupres de 100 femmes enceintes montre que le soutien corporel du partenaire (pas seulement verbal mais physique : toucher, regard) est un predicteur independant de l'estime de soi maternelle.\n\nCe n'est pas de la coquetterie. C'est de la psychologie de l'attachement. Ton regard est un miroir. Ce qu'elle voit dans tes yeux quand elle se regarde, c'est ce qu'elle pense d'elle-meme.`,
+    conseil: `Ne fais aucun commentaire sur son corps, meme positif du genre tu es belle pour une femme enceinte. Dis simplement : tu es belle. Point. La nuance est importante.`,
+    source: `Darvill, Skirton & Farrand, 2010 - Midwifery`
   },
   {
-    sa: 12, theme: 'peur',     titre: `Le cap des 12 SA. Souffler un peu.`,
-    intro: `Après 12 semaines, le risque de fausse couche chute à moins de 2%. C'est un cap médical et psychologique majeur.`,
-    corps: `Beaucoup de futurs pères portent silencieusement l'angoisse d'une fausse couche pendant tout le premier trimestre. Ils ne l'expriment pas pour "ne pas inquiéter" leur partenaire. Mais cette angoisse retenue a un coût. Les études sur la santé mentale paternelle pendant la grossesse montrent que les pères qui n'ont pas d'espace pour exprimer leurs peurs présentent plus de symptômes anxieux en post-partum.\n\nPassé 12 SA, la solidité de la grossesse est statistiquement établie. Autoriser le soulagement est sain. Le nier par superstition ne protège personne.
-
-Ce moment est aussi l'occasion d'une conversation franche : comment elle a vécu ces premières semaines ? Ce dont elle a eu besoin et qu'elle n'a pas eu ? Ce qui l'a aidée ? Cette conversation, faite maintenant, pose les bases de comment vous allez traverser le reste de la grossesse ensemble.`,
-    conseil: `Parlez de ce que vous avez traversé ensemble ce premier trimestre. Même si tout s'est bien passé, ces semaines ont probablement été chargées émotionnellement pour vous deux. Nommer ça ensemble, c'est en sortir ensemble.`,
-    source: `Franche & Mikail, 2001  -  Health Psychology`
+    sa: 12, theme: 'peur',
+    titre: `Le cap des 12 SA. Souffler un peu.`,
+    intro: `Apres 12 semaines, le risque de fausse couche chute a moins de 2%. C'est un cap medical et psychologique majeur.`,
+    corps: `Beaucoup de futurs peres portent silencieusement l'angoisse d'une fausse couche pendant tout le premier trimestre. Ils ne l'expriment pas pour ne pas inquieter leur partenaire. Mais cette angoisse retenue a un cout. Les etudes sur la sante mentale paternelle montrent que les peres qui n'ont pas d'espace pour exprimer leurs peurs presentent plus de symptomes anxieux en post-partum.\n\nPasse 12 SA, la solidite de la grossesse est statistiquement etablie. Autoriser le soulagement est sain. Le nier par superstition ne protege personne.`,
+    conseil: `Parlez de ce que vous avez traverse ensemble ce premier trimestre. Meme si tout s'est bien passe, ces semaines ont ete chargees emotionnellement. Nommer ca ensemble, c'est en sortir ensemble.`,
+    source: `Franche & Mikail, 2001 - Health Psychology`
   },
   {
-    sa: 13, theme: 'couple',     titre: `Le 2e trimestre. Ce qui peut changer pour vous deux.`,
-    intro: `Pour beaucoup de femmes, les nausées diminuent et l'énergie revient. Mais pas toutes. Ce qui se passe dans votre couple dépend d'abord de ce qu'elle vit physiquement.`,
-    corps: `Pour beaucoup de femmes, le 2e trimestre apporte un soulagement : les nausées diminuent, l'énergie remonte, le ventre n'est pas encore contraignant. C'est documenté  -  le bien-être maternel est statistiquement meilleur à cette période. Mais "statistiquement meilleur" ne signifie pas "systématiquement mieux". Certaines femmes restent fatiguées, anxieuses, ou continuent à avoir des symptômes intenses tout au long du 2e trimestre.\n\nPour la vie de couple, les données de Paul Ramchandani (Université de Cambridge) montrent que la qualité de la relation pendant la grossesse prédit la qualité du co-parentage après la naissance. Ce n'est pas une injonction à "profiter"  -  c'est un rappel que la relation compte maintenant, pas seulement après bébé.\n\nConcrètement : observe comment elle va cette semaine. Si elle a de l'énergie, proposez quelque chose ensemble. Si elle est encore épuisée, être présent sans attendre de réciprocité est aussi une façon de construire quelque chose de solide.`,
-    conseil: `Demande-lui comment elle se sent vraiment cette semaine. Pas "ça va ?", mais "t'as de l'énergie en ce moment ou t'es encore fatiguée ?" Sa réponse te dira ce dont elle a besoin  -  du mouvement ou du repos. Adapte-toi à ça plutôt qu'à l'idée que ce trimestre est censé être facile.`,
-    source: `Paulson & Bazemore, 2010  -  JAMA`
+    sa: 13, theme: 'couple',
+    titre: `Le 2e trimestre. La fenetre du couple.`,
+    intro: `Les nausees s'estompent souvent. L'energie peut revenir. C'est souvent une meilleure periode pour le couple, mais chaque grossesse est differente.`,
+    corps: `Le 2e trimestre est souvent documente comme la periode de la grossesse ou le bien-etre maternel est generalement meilleur. Les nausees diminuent pour beaucoup, la fatigue s'allege, le ventre n'est pas encore contraignant. Mais pas pour toutes. Certaines femmes restent fatiguees ou inconfortables.\n\nPour les couples, c'est une fenetre potentiellement precieuse. Les recherches de Paul Ramchandani a l'Universite de Cambridge montrent que la qualite de la relation de couple pendant la grossesse predit directement la qualite du co-parentage apres la naissance. Ce que vous construisez maintenant a des effets reels plus tard.`,
+    conseil: `Propose quelque chose cette semaine. Un diner, une sortie, une activite. Demande-lui d'abord comment elle se sent. Si elle en a l'energie, profitez-en. Si elle est encore fatiguee, continue a prendre le relais.`,
+    source: `Ramchandani, Stein, Evans & O'Connor, 2005 - Lancet`
   },
   {
-    sa: 14, theme: 'lien',     titre: `La musique que bébé reconnaîtra à la naissance.`,
-    intro: `Bébé commence à percevoir les sons. Ce que vous écoutez maintenant, il pourra le reconnaître après sa naissance.`,
-    corps: `Une étude publiée dans la revue Infant Behavior and Development a montré que des nouveau-nés exposés régulièrement à une mélodie spécifique in utero (dans les dernières semaines de grossesse) présentaient des réponses comportementales différentes à cette mélodie après la naissance comparé à des mélodies inconnues.\n\nCe n'est pas une mémorisation consciente. C'est une familiarisation neurologique. Les sons entendus régulièrement créent des "traces" dans le système auditif en développement. Ces traces persistent après la naissance et jouent un rôle dans la régulation émotionnelle du nourrisson.`,
-    conseil: `Choisissez une chanson ou une musique que vous aimez tous les deux. Passez-la régulièrement. Après la naissance, si bébé s'agite, essayez cette musique. Elle pourrait l'apaiser.`,
-    source: `Hepper, 1991  -  Infant Behavior and Development`
+    sa: 14, theme: 'lien',
+    titre: `La musique que bebe reconnaitra a la naissance.`,
+    intro: `Bebe commence a percevoir les sons. Ce que vous ecoutez maintenant, il pourra le reconnaitre apres sa naissance.`,
+    corps: `Une etude publiee dans la revue Infant Behavior and Development a montre que des nouveau-nes exposes regulierement a une melodie specifique in utero presentaient des reponses comportementales differentes a cette melodie apres la naissance comparé a des melodies inconnues.\n\nCe n'est pas une memorisation consciente. C'est une familiarisation neurologique. Les sons entendus regulierement creent des traces dans le systeme auditif en developpement. Ces traces persistent apres la naissance et jouent un role dans la regulation emotionnelle du nourrisson.`,
+    conseil: `Choisissez une chanson ou une musique que vous aimez tous les deux. Passez-la regulierement. Apres la naissance, si bebe s'agite, essayez cette musique. Elle pourrait l'apaiser.`,
+    source: `Hepper, 1991 - Infant Behavior and Development`
   },
   {
-    sa: 15, theme: 'role',     titre: `Se former pendant la grossesse change tout après.`,
-    intro: `Les pères qui se préparent activement pendant la grossesse se sentent beaucoup plus confiants et impliqués après la naissance.`,
-    corps: `Une étude longitudinale menée sur 3 ans auprès de 622 couples a comparé les pères qui s'étaient "formés" pendant la grossesse (lectures, cours, discussions avec d'autres pères) à ceux qui avaient attendu la naissance. Résultat : les pères préparés montraient des niveaux d'anxiété post-natale significativement plus bas et une plus grande satisfaction dans leur rôle paternel dès les premières semaines.\n\nSe former ne signifie pas devenir expert. Ça signifie réduire l'inconnu. Et l'inconnu est la principale source d'anxiété paternelle.`,
-    conseil: `Lis un article cette semaine sur le développement du nourrisson dans les 3 premiers mois. Pas pour mémoriser. Juste pour que la première semaine avec bébé ne soit pas totalement terra incognita.`,
-    source: `Deave, Johnson & Ingram, 2008  -  BMC Pregnancy and Childbirth`
+    sa: 15, theme: 'role',
+    titre: `Se former pendant la grossesse change tout apres.`,
+    intro: `Les peres qui se preparent activement pendant la grossesse se sentent beaucoup plus confiants et impliques apres la naissance.`,
+    corps: `Une etude longitudinale menee sur 3 ans aupres de 622 couples a compare les peres qui s'etaient formes pendant la grossesse (lectures, cours, discussions avec d'autres peres) a ceux qui avaient attendu la naissance. Resultat : les peres prepares montraient des niveaux d'anxiete post-natale significativement plus bas et une plus grande satisfaction dans leur role paternel des les premieres semaines.\n\nSe former ne signifie pas devenir expert. Ca signifie reduire l'inconnu. Et l'inconnu est la principale source d'anxiete paternelle.`,
+    conseil: `Lis un article cette semaine sur le developpement du nourrisson dans les 3 premiers mois. Pas pour memoriser. Juste pour que la premiere semaine avec bebe ne soit pas totalement terra incognita.`,
+    source: `Deave, Johnson & Ingram, 2008 - BMC Pregnancy and Childbirth`
   },
   {
-    sa: 16, theme: 'peur',     titre: `L'angoisse financière. Elle touche presque tous les pères.`,
-    intro: `"Est-ce qu'on aura assez d'argent ?" Cette question tourne dans la tête de la grande majorité des futurs pères.`,
-    corps: `Dans les études sur les préoccupations paternelles pendant la grossesse, l'angoisse financière arrive régulièrement dans le top 3, juste après la peur de ne pas être à la hauteur et la peur pour la santé de la mère et du bébé. Elle touche tous les niveaux de revenus.\n\nCe qui est intéressant : l'angoisse financière diminue significativement quand les couples en parlent ensemble et font une estimation concrète de leurs dépenses à venir. La peur de l'inconnu financier est souvent plus grande que la réalité. Et même quand la réalité est difficile, l'avoir nommée ensemble permet d'agir plutôt que de ruminer.`,
-    conseil: `Faites ensemble une liste des dépenses prévues dans les 6 prochains mois. Pas pour avoir la solution parfaite, juste pour sortir les chiffres de vos têtes et les mettre sur papier. L'action réduit l'anxiété.`,
-    source: `Condon, Boyce & Corkindale, 2004  -  Journal of Reproductive and Infant Psychology`
+    sa: 16, theme: 'peur',
+    titre: `L'angoisse financiere. Elle touche presque tous les peres.`,
+    intro: `Est-ce qu'on aura assez d'argent ? Cette question tourne dans la tete de la grande majorite des futurs peres.`,
+    corps: `Dans les etudes sur les preoccupations paternelles pendant la grossesse, l'angoisse financiere arrive regulierement dans le top 3, juste apres la peur de ne pas etre a la hauteur et la peur pour la sante de la mere et du bebe.\n\nCette peur est souvent disproportionnee par rapport a la realite. Les etudes montrent que les peres surestiment systematiquement le cout d'un enfant la premiere annee. Ce qui aggrave l'anxiete : ne pas avoir fait les calculs reels. Ce qui la reduit : faire un budget concret, meme approximatif.`,
+    conseil: `Passe une heure ce week-end a faire un budget reel : couts fixes, aides disponibles (CAF, mutuelle, employeur), conge paternite. Les chiffres concrets sont moins effrayants que les projections floues.`,
+    source: `Chin, Daiches & Hall, 2011 - Qualitative Health Research`
   },
   {
-    sa: 17, theme: 'lien',     titre: `Le contact physique avec le ventre crée un lien réel.`,
-    intro: `Poser ta main sur le ventre de ta partenaire n'est pas un geste symbolique. C'est une façon concrète de construire le lien avec bébé.`,
-    corps: `Des recherches sur l'attachement paternel prénatal montrent que les pères qui ont un contact physique régulier avec le ventre (toucher, parler en s'adressant directement à bébé) développent un sentiment de lien plus fort avant la naissance, ce qui est corrélé avec un engagement paternel plus intense après la naissance.\n\nCe lien prénatal n'est pas automatique chez les pères comme il peut l'être chez les mères. Il se construit activement. Le contact physique est l'un des moyens les plus efficaces pour y parvenir.`,
-    conseil: `Ce soir, installe-toi confortablement avec ta partenaire. Pose ta main sur son ventre. Reste là cinq minutes. Tu n'as pas besoin de parler. L'intention suffit à commencer.`,
-    source: `Brandon, Pitts, Denton, Stringer & Evans, 2009  -  Journal of Midwifery & Women's Health`
+    sa: 17, theme: 'lien',
+    titre: `Le premier mouvement que tu sentiras sous ta main.`,
+    intro: `Vers 17-20 SA, les mouvements de bebe deviennent perceptibles de l'exterieur. C'est souvent le moment ou tout devient reel pour les peres.`,
+    corps: `Pour beaucoup de peres, le moment ou ils sentent bebe bouger sous leur main est le premier moment ou la grossesse devient reelle, concrete, indeniable. Avant, c'est une echo, une prise de sang, un ventre qui s'arrondit. Mais sentir un mouvement sous sa paume, c'est autre chose.\n\nDes recherches sur l'attachement prenatal paternel montrent que ce contact physique est l'un des declencheurs les plus puissants du processus d'attachement chez les peres. Les peres qui ont eu un contact physique regulier avec le ventre de leur partenaire developpent un attachement plus fort apres la naissance. Source : Condon 1993.`,
+    conseil: `Pose ta main sur le ventre ce soir apres le diner, quand bebe est souvent actif. Attends. Si tu ne sens rien, reviens demain. Note dans ton telephone le jour et l'heure ou tu sens le premier mouvement.`,
+    source: `Condon, 1993 - Journal of Reproductive and Infant Psychology`
   },
   {
-    sa: 18, theme: 'couple',     titre: `Le toucher comme langage du couple.`,
-    intro: `La grossesse transforme le corps et parfois la relation physique. Le massage est une façon de maintenir la connexion.`,
-    corps: `Des études sur le massage pendant la grossesse (Tiffany Field, Université de Miami) montrent que les femmes qui reçoivent des massages réguliers de leur partenaire pendant la grossesse présentent des niveaux de cortisol (hormone du stress) plus bas, moins de symptômes dépressifs, et une qualité de sommeil meilleure. Les effets sont mesurables après seulement 5 semaines de massages réguliers.\n\nPour le couple, le massage crée un espace de connexion physique qui ne dépend pas de la libido ou du désir, qui peuvent être variables pendant la grossesse. C'est un geste de soin concret et puissant.`,
-    conseil: `Pas besoin d'être masseur. Quelques minutes de pression douce sur les lombaires et les épaules, le soir. Demande-lui ce qui lui fait du bien. Adapte-toi. Faites-en un rituel.`,
-    source: `Field et al., 1999  -  Journal of Psychosomatic Obstetrics & Gynecology`
+    sa: 18, theme: 'couple',
+    titre: `Le mal de dos. Ce que tu peux faire concretement.`,
+    intro: `Les douleurs lombaires touchent 60 a 70% des femmes enceintes au 2e trimestre. Ce n'est pas une fatalite. Tu peux aider.`,
+    corps: `Le mal de dos pendant la grossesse est cause par le changement de centre de gravite, la relaxine (hormone qui assouplit les ligaments) et le poids croissant de l'uterus. Il s'intensifie en general au 3e trimestre.\n\nLes interventions les plus efficaces documentees : le massage du dos par le partenaire (reduction de la douleur de 30% dans certaines etudes), la natation ou le yoga prenatal, le coussin de grossesse pour la nuit. Ce que tu peux faire : apprendre une technique de massage simple et l'appliquer regulierement. Pas comme un service. Comme un rituel.`,
+    conseil: `Regarde une video de massage du dos prenatal ce soir (10 minutes sur YouTube). Puis applique-la. Ce n'est pas complique. C'est utile, concret, et ca cree de la connexion physique.`,
+    source: `Field et al., 1999 - Journal of Psychosomatic Obstetrics`
   },
   {
-    sa: 19, theme: 'peur',     titre: `Le deuil de la vie d'avant. Il est normal.`,
-    intro: `Un sentiment de perte de liberté peut apparaître. C'est une émotion normale, et même nécessaire.`,
-    corps: `La transition vers la paternité implique ce que les psychologues appellent une "recomposition identitaire". Tu ne perds pas ton identité, mais tu l'enrichis d'un nouveau rôle. Et comme toute transition importante, elle implique de laisser quelque chose derrière soi.\n\nJoanna Draper, chercheuse à l'Université de Keele, a documenté ce que vivent les futurs pères comme un "deuil anticipatoire" de certains aspects de leur vie d'avant. Ce n'est pas de l'égoïsme. C'est une réaction psychologique normale à un changement majeur. Le reconnaître, c'est mieux le traverser.
-
-Ce qui aide dans ce processus : en parler tous les deux, sans comparer vos deuils. Elle vit aussi des transformations profondes  -  physiques, identitaires, sociales. Vos angoisses ne sont pas identiques. Les comprendre séparément est plus utile que de les fusionner dans un "nous" qui efface les différences.`,
-    conseil: `Identifie une ou deux choses de ta vie actuelle que tu veux préserver après la naissance. Pas en opposition à ton rôle de père, mais parce que rester toi-même te rendra un meilleur père. Parles-en avec ta partenaire.`,
-    source: `Draper, 2003  -  Journal of Advanced Nursing`
+    sa: 19, theme: 'peur',
+    titre: `Ne pas savoir si tu seras un bon pere. La peur universelle.`,
+    intro: `Est-ce que je serai a la hauteur ? Cette question, presque tous les futurs peres se la posent. Et presque aucun n'en parle.`,
+    corps: `La peur de ne pas etre a la hauteur comme pere est la preoccupation la plus frequemment rapportee chez les futurs peres, tous pays et toutes cultures confondus. Elle touche aussi bien les premiers papas que les peres de plusieurs enfants.\n\nCe qui est interessant : cette peur est un signe d'implication, pas d'incompetence. Les peres qui ne se posent jamais cette question sont generalement ceux qui s'impliquent le moins. La peur est le signal que ca compte pour toi. Et les etudes montrent que les peres qui se forment et s'impliquent pendant la grossesse deviennent de bien meilleurs peres, independamment de leurs craintes initiales. Source : Deave et al. 2008.`,
+    conseil: `Ecris une liste de 5 choses que tu veux faire differemment de ton propre pere, et 5 choses que tu veux garder. Cet exercice simple clarifie ce que tu veux vraiment comme type de pere.`,
+    source: `Draper, 2003 - Sociology of Health & Illness`
   },
   {
-    sa: 20, theme: 'role',     titre: `L'échographie T2. Prépare tes questions.`,
-    intro: `L'échographie morphologique du 2e trimestre est le rendez-vous médical le plus complet de la grossesse. Sois acteur, pas spectateur.`,
-    corps: `L'échographie T2, réalisée entre 20 et 22 SA, examine plus de 100 critères anatomiques. Elle vérifie le cerveau, le cœur, les reins, la colonne vertébrale, les membres. Elle peut révéler des informations importantes, attendues ou non.\n\nDes études sur l'expérience paternelle lors des échographies montrent que les pères qui ont préparé des questions et qui participent activement à l'échange avec l'échographiste vivent l'expérience de façon plus positive et mémorisent mieux les informations. Ceux qui restent en retrait se sentent souvent exclus d'un moment important.`,
-    conseil: `Note 3 questions avant le rendez-vous. Discutez ensemble si vous souhaitez connaître le sexe. Et si des résultats inattendus apparaissent, ta première réaction sera vue et ressentie par ta partenaire. Reste calme, posez les questions ensemble.`,
-    source: `Ekelin, Crang-Svalenius & Dykes, 2004  -  Midwifery`
+    sa: 20, theme: 'role',
+    titre: `L'echo T2. Le RDV le plus important de la grossesse.`,
+    intro: `L'echographie morphologique du 2e trimestre est la plus complete de la grossesse. Ton role n'est pas d'etre assis dans un coin.`,
+    corps: `L'echo T2 examine plus de 100 criteres anatomiques. C'est la seule echo qui peut detecter la grande majorite des malformations. Elle dure 45 minutes a 1 heure. Pour les peres, c'est souvent le moment ou bebe devient le plus reel : on voit son visage, ses mains, son coeur qui bat.\n\nDes etudes sur l'experience des peres lors de l'echo T2 montrent que ceux qui arrivent avec des questions preparees vivent le rendez-vous de facon significativement plus positive et se sentent plus impliques dans la grossesse dans les semaines suivantes. Source : Ekelin et al. 2004.`,
+    conseil: `Prepare 3 questions avant l'echo. Discutez ensemble si vous souhaitez connaitre le sexe. Si des resultats inattendus apparaissent, ta premiere reaction sera vue et ressentie par ta partenaire. Reste calme.`,
+    source: `Ekelin, Crang-Svalenius & Dykes, 2004 - Midwifery`
   },
   {
-    sa: 21, theme: 'lien',     titre: `Bébé mémorise ta voix. Déjà.`,
-    intro: `Il ne s'agit plus de théorie. Bébé entend, et il enregistre.`,
-    corps: `Une expérience classique de DeCasper et Fifer (1980) a montré que des nouveau-nés de quelques heures préféraient la voix de leur mère à celle d'autres femmes, preuve qu'ils avaient mémorisé cette voix in utero. Des études ultérieures ont étendu ce résultat aux voix paternelles entendues régulièrement.\n\nÀ 21 SA, l'audition fœtale est fonctionnelle. Les sons extérieurs sont perçus avec moins d'intensité qu'après la naissance, mais les fréquences basses (comme les voix masculines) passent particulièrement bien. Si tu parles régulièrement à bébé d'ici la naissance, il tournera la tête vers ta voix dans les premières heures de sa vie.`,
-    conseil: `Fixe un moment chaque soir, même 5 minutes. Parle-lui de ta journée, dis-lui ton prénom, lis quelques lignes à voix haute. La régularité compte plus que le contenu.`,
-    source: `DeCasper & Fifer, 1980  -  Science`
+    sa: 21, theme: 'lien',
+    titre: `Bebe memorise ta voix. Deja.`,
+    intro: `Il ne s'agit plus de theorie. Bebe entend, et il enregistre.`,
+    corps: `A 21 SA, l'audition foetale est fonctionnelle. Les sons exterieurs sont percus avec moins d'intensite qu'apres la naissance, mais les frequences basses (comme les voix masculines) passent particulierement bien. Si tu lui parles regulierement d'ici la naissance, il tournera la tete vers ta voix dans les premieres heures de sa vie.\n\nUne experience classique de DeCasper et Fifer (1980) a montre que des nouveau-nes de quelques heures preferaient la voix de leur mere a celle d'autres femmes. Des etudes ulterieures ont etendu ce resultat aux voix paternelles entendues regulierement in utero.`,
+    conseil: `Fixe un moment chaque soir, meme 5 minutes. Parle-lui de ta journee, dis-lui ton prenom, lis quelques lignes a voix haute. La regularite compte plus que le contenu.`,
+    source: `DeCasper & Fifer, 1980 - Science`
   },
   {
-    sa: 22, theme: 'couple',     titre: `Planifier ensemble réduit le stress à deux.`,
-    intro: `Les conversations sur l'organisation pratique après la naissance ne sont pas romantiques. Mais elles sont protectrices.`,
-    corps: `Une étude menée sur 218 couples suivis pendant et après la grossesse montre que ceux qui avaient eu des conversations explicites sur la répartition des tâches, le congé parental et l'organisation de la vie après la naissance vivaient une transition post-natale significativement moins conflictuelle. La satisfaction conjugale à 6 mois post-partum était meilleure chez ces couples.\n\nCes conversations sont difficiles car elles touchent à des sujets qui peuvent révéler des désaccords. Mais les désaccords non dit maintenant deviennent des conflits à 3h du matin avec un nourrisson qui pleure.
-
-Planifier ensemble nécessite d'abord de s'écouter. Beaucoup de couples découvrent pendant la grossesse qu'ils n'ont pas les mêmes attentes sur l'organisation du congé maternité, du retour au travail, de la garde des nuits. Ces conversations sont inconfortables mais nécessaires. Plus tôt elles ont lieu, mieux vous les traversez.`,
-    conseil: `Planifiez une "réunion de projet bébé" cette semaine. 30 minutes. Congé paternité, organisation des nuits, qui appelle qui quand il y a un problème. C'est moins romantique qu'un dîner. C'est plus utile.`,
-    source: `Fägerskiöld, 2008  -  Scandinavian Journal of Caring Sciences`
+    sa: 22, theme: 'couple',
+    titre: `Planifier ensemble reduit le stress a deux.`,
+    intro: `Les conversations sur l'organisation pratique apres la naissance ne sont pas romantiques. Mais elles sont protectrices.`,
+    corps: `Une etude menee sur 218 couples suivis pendant et apres la grossesse montre que ceux qui avaient eu des conversations explicites sur la repartition des taches, le conge parental et l'organisation de la vie apres la naissance vivaient une transition post-natale significativement moins conflictuelle.\n\nCes conversations sont difficiles car elles touchent a des sujets qui peuvent reveler des desaccords. Mais les desaccords non dits maintenant deviennent des conflits a 3h du matin avec un nourrisson qui pleure.`,
+    conseil: `Planifiez une reunion de projet bebe cette semaine. 30 minutes. Conge paternite, organisation des nuits, qui appelle qui quand il y a un probleme. C'est moins romantique qu'un diner. C'est plus utile.`,
+    source: `Fagerskiold, 2008 - Scandinavian Journal of Caring Sciences`
   },
   {
-    sa: 23, theme: 'peur',     titre: `L'insomnie paternelle. Elle existe vraiment.`,
-    intro: `Tu n'arrives pas à dormir. Tu fais des scénarios catastrophes la nuit. Tu n'es pas seul.`,
-    corps: `L'insomnie prénatale touche aussi les pères. Des études sur la santé mentale des futurs pères montrent que les troubles du sommeil, l'hypervigilance nocturne et les pensées intrusives (et si quelque chose se passait mal ?) sont des symptômes courants au 2e et 3e trimestre, surtout chez les pères très impliqués.\n\nCes insomnies sont une manifestation d'hypervigilance protectrice. Ton cerveau se prépare à surveiller un être vulnérable. C'est un instinct, pas un trouble. Mais il mérite d'être pris au sérieux plutôt qu'ignoré.`,
-    conseil: `Si l'insomnie est régulière, parles-en avec ta partenaire ou ton médecin. Une activité physique en journée, limiter les écrans le soir, et établir une routine de coucher aident significativement. Tu auras besoin de tes ressources dans les prochains mois.`,
-    source: `Condon, Boyce & Corkindale, 2004  -  Journal of Reproductive and Infant Psychology`
+    sa: 23, theme: 'peur',
+    titre: `L'insomnie paternelle. Elle existe vraiment.`,
+    intro: `Tu n'arrives pas a dormir. Tu fais des scenarios catastrophes la nuit. Tu n'es pas seul.`,
+    corps: `L'insomnie prenatale touche aussi les peres. Des etudes sur la sante mentale des futurs peres montrent que les troubles du sommeil, l'hypervigilance nocturne et les pensees intrusives (et si quelque chose se passait mal ?) sont des symptomes courants au 2e et 3e trimestre, surtout chez les peres tres impliques.\n\nCes insomnies sont une manifestation d'hypervigilance protectrice. Ton cerveau se prepare a surveiller un etre vulnerable. C'est un instinct, pas un trouble. Mais il merite d'etre pris au serieux.`,
+    conseil: `Si l'insomnie est reguliere, parles-en avec ta partenaire ou ton medecin. Une activite physique en journee, limiter les ecrans le soir, et une routine de coucher aident significativement.`,
+    source: `Condon, Boyce & Corkindale, 2004 - Journal of Reproductive and Infant Psychology`
   },
   {
-    sa: 24, theme: 'role',     titre: `Connaître la maternité avant le jour J.`,
-    intro: `Visiter la maternité avant l'accouchement réduit l'anxiété des deux parents de façon mesurable.`,
-    corps: `Des études sur la préparation à l'accouchement montrent que les couples qui ont visité leur maternité et qui connaissent les lieux physiquement (accès, urgences obstétricales, parking, chemin vers la salle de naissance) vivent le jour de l'accouchement avec un niveau de stress significativement plus bas.\n\nPour les pères spécifiquement, ce repérage physique joue un rôle important. Quand le travail commence, ta mission est d'être calme et de gérer la logistique. Connaître les lieux te libère la tête pour être présent émotionnellement.`,
-    conseil: `Appelle ta maternité pour organiser une visite guidée. Demande à voir la salle de naissance. Repère l'entrée des urgences obstétricales (souvent différente de l'entrée principale). Teste le trajet aux heures de pointe.`,
-    source: `Santé Publique France, 2021  -  Guide de la naissance`
+    sa: 24, theme: 'role',
+    titre: `Connaitre la maternite avant le jour J.`,
+    intro: `Visiter la maternite avant l'accouchement reduit l'anxiete des deux parents de facon mesurable.`,
+    corps: `Des etudes sur la preparation a l'accouchement montrent que les couples qui ont visite leur maternite et qui connaissent les lieux (acces, urgences obstetricales, parking, chemin vers la salle de naissance) vivent le jour de l'accouchement avec un niveau de stress significativement plus bas.\n\nPour les peres specifiquement, ce reperage physique joue un role important. Quand le travail commence, ta mission est d'etre calme et de gerer la logistique. Connaitre les lieux te libere la tete pour etre present emotionnellement.`,
+    conseil: `Appelle ta maternite pour organiser une visite guidee. Repere l'entree des urgences obstetricales (souvent differente de l'entree principale). Teste le trajet aux heures de pointe.`,
+    source: `Sante Publique France, 2021 - Guide de la naissance`
   },
   {
-    sa: 25, theme: 'couple',     titre: `Les nuits difficiles. Être là sans rien dire.`,
-    intro: `Elle peut se lever à 3h du matin, incapable de dormir. Ce que tu fais dans ces moments compte plus que tu ne le penses.`,
-    corps: `L'insomnie de fin de grossesse touche la majorité des femmes enceintes. Elle est causée par la pression physique de l'utérus, les mouvements de bébé, l'anxiété anticipatoire et les changements hormonaux. Elle n'est pas un signe que quelque chose va mal.\n\nCe qui compte pour ta partenaire dans ces moments, ce n'est pas que tu aies une solution. C'est que tu ne dises pas "rendors-toi" et que tu te retournes de l'autre côté. Les études sur le soutien conjugal nocturne pendant la grossesse montrent que la présence passive, rester éveillé avec elle, a un effet de régulation émotionnelle réel.`,
-    conseil: `La prochaine fois qu'elle se lève la nuit et ne dort pas, lève-toi avec elle. Pas pour résoudre. Juste pour être là. Un verre d'eau, un coussin, s'asseoir côte à côte. C'est suffisant.`,
-    source: `Darvill, Skirton & Farrand, 2010  -  Midwifery`
+    sa: 25, theme: 'couple',
+    titre: `Les nuits difficiles. Etre la sans rien dire.`,
+    intro: `Elle peut se lever a 3h du matin, incapable de dormir. Ce que tu fais dans ces moments compte plus que tu ne le penses.`,
+    corps: `L'insomnie de fin de grossesse touche la majorite des femmes enceintes. Elle est causee par la pression physique de l'uterus, les mouvements de bebe, l'anxiete anticipatoire et les changements hormonaux. Elle n'est pas un signe que quelque chose va mal.\n\nCe qui compte pour ta partenaire dans ces moments, ce n'est pas que tu aies une solution. C'est que tu sois la. Les etudes sur le soutien conjugal prenatal montrent que la simple presence physique du partenaire pendant les episodes d'insomnie reduit les niveaux de cortisol mesures chez la femme enceinte.`,
+    conseil: `Si elle se leve la nuit, leve-toi avec elle. Ne propose rien. Ne cherche pas a resoudre. Juste : tu veux qu'on s'assoie un peu ? Ta presence calme vaut tous les conseils.`,
+    source: `Beydoun & Saftlas, 2008 - Paediatric and Perinatal Epidemiology`
   },
   {
-    sa: 26, theme: 'lien',     titre: `Lire à voix haute à bébé. Un rituel qui paie.`,
-    intro: `Lire à voix haute le soir n'est pas une lubie. C'est une façon efficace d'exposer bébé à ta voix régulièrement.`,
-    corps: `Les recherches sur le développement du langage montrent que les enfants dont les pères leur ont lu des histoires in utero et après la naissance présentent de meilleures compétences langagières à 2 ans. Ce n'est pas magique. C'est de la régularité.\n\nLe fait de lire à voix haute crée aussi un rituel. Les rituels du soir structurent la relation parent-enfant bien avant la naissance. Et après la naissance, avoir l'habitude de lire ensemble facilite la transition vers la lecture partagée, l'une des pratiques parentales les plus efficaces pour le développement cognitif.`,
-    conseil: `Lis n'importe quoi. Un article, un livre, la météo. La voix et la régularité comptent, pas le contenu. 10 minutes le soir, 4 à 5 fois par semaine. Commence maintenant.`,
-    source: `Logan, 2019  -  Early Childhood Education Journal`
+    sa: 26, theme: 'lien',
+    titre: `Bebe reagit a ta voix. Pour de vrai.`,
+    intro: `A 26 SA, bebe ouvre les yeux pour la premiere fois. Ses sens se developpent rapidement. Tu peux etablir un contact reel.`,
+    corps: `Des etudes d'imagerie cerebrale fetale (IRM foetale) montrent que le cerveau de bebe a 26-28 SA presente deja des reponses differenciees aux sons familiers et aux sons inconnus. Sa voix a lui, la tienne, celle de ta partenaire, sont deja des sons "connus" s'il les a entendus regulierement.\n\nUne experience menee par Kisilevsky et al. (2003) a montre que des foetus de 33-34 SA avaient un rythme cardiaque different quand ils entendaient la voix de leur mere versus une voix inconnue. Ce n'est pas de l'imagination. C'est de la neurologie.`,
+    conseil: `Ce soir, pose ta main sur le ventre et parle-lui directement. Dis ton prenom, une chose que tu attends avec impatience. Attends une reponse (un mouvement). Si ca arrive, reponds par une pression douce.`,
+    source: `Kisilevsky et al., 2003 - Psychological Science`
   },
   {
-    sa: 27, theme: 'peur',     titre: `La peur de l'accouchement. Elle concerne aussi les pères.`,
-    intro: `Peur de paniquer, peur de voir ta partenaire souffrir, peur de ne pas savoir quoi faire. Ces peurs sont réelles et documentées.`,
-    corps: `Une étude britannique sur les pères en salle de naissance (Longworth & Kingdon, 2011) montre que 40% des pères présidents lors de l'accouchement décrivent avoir ressenti une peur intense à un moment ou un autre. Les peurs les plus fréquentes : voir leur partenaire souffrir sans pouvoir l'aider, perdre le contrôle émotionnellement, et "rater" quelque chose d'important.\n\nCes peurs ne disparaissent pas d'elles-mêmes. Ce qui les réduit : savoir à l'avance ce qui va se passer, connaître son rôle précis, et avoir répété mentalement les étapes. L'inconnu est la principale source d'anxiété.`,
-    conseil: `Lis le guide de l'accouchement de ta maternité cette semaine. Cherche des vidéos (prévenues) de témoignages de pères en salle de naissance. La connaissance est le meilleur anxiolytique que tu aies.`,
-    source: `Longworth & Kingdon, 2011  -  Midwifery`
+    sa: 27, theme: 'peur',
+    titre: `La peur de l'accouchement. Elle touche aussi les peres.`,
+    intro: `La tokophobie secondaire (peur de l'accouchement chez le partenaire) est documentee et sous-estimee.`,
+    corps: `Une etude britannique sur les peres en salle de naissance montre que 40% des peres presents lors de l'accouchement decrivent avoir ressenti une peur intense a un moment ou un autre. Les peurs les plus frequentes : voir leur partenaire souffrir sans pouvoir aider, perdre le controle emotionnellement, et rater quelque chose d'important.\n\nCes peurs ne disparaissent pas d'elles-memes. Ce qui les reduit : savoir a l'avance ce qui va se passer, connaitre son role precis, et avoir repete mentalement les etapes. L'inconnu est la principale source d'anxiete.`,
+    conseil: `Lis le guide de l'accouchement de ta maternite cette semaine. Cherche des temoignages de peres en salle de naissance. La connaissance est le meilleur outil contre l'anxiete.`,
+    source: `Longworth & Kingdon, 2011 - Midwifery`
   },
   {
-    sa: 28, theme: 'role',     titre: `La valise. Prends l'initiative.`,
-    intro: `Préparer la valise de maternité sans attendre qu'elle te le demande est un signal fort. Et pratique.`,
-    corps: `La valise de maternité est souvent listée comme "à faire" par les femmes enceintes dès le 3e trimestre. Dans les faits, une majorité de pères attend que leur partenaire prenne l'initiative. Pourtant, faire cette démarche spontanément a une valeur symbolique et pratique forte.\n\nSymbolique : cela signale que tu prends la préparation à la naissance aussi au sérieux qu'elle. Pratique : une naissance peut arriver plus tôt que prévu. Avoir la valise prête à 32-33 SA élimine une source de stress potentielle.`,
-    conseil: `Consulte la liste de la section "À préparer" de l'app. Commence à rassembler ce qui est pour toi cette semaine. Montre-lui ce que tu as fait. C'est un geste concret qui vaut tous les discours.`,
-    source: `Fägerskiöld, 2008  -  Scandinavian Journal of Caring Sciences`
+    sa: 28, theme: 'role',
+    titre: `La valise. Prends l'initiative.`,
+    intro: `Preparer la valise de maternite sans attendre qu'elle te le demande est un signal fort. Et pratique.`,
+    corps: `Dans les faits, une majorite de peres attend que leur partenaire prenne l'initiative pour la valise. Pourtant, faire cette demarche spontanement a une valeur symbolique et pratique forte.\n\nSymbolique : cela signale que tu prends la preparation a la naissance aussi au serieux qu'elle. Pratique : une naissance peut arriver plus tot que prevu. Avoir la valise prete a 32-33 SA elimine une source de stress potentielle.`,
+    conseil: `Consulte la liste dans l'app. Commence a rassembler ce qui est pour toi cette semaine. Montre-lui ce que tu as fait. C'est un geste concret qui vaut tous les discours.`,
+    source: `Fagerskiold, 2008 - Scandinavian Journal of Caring Sciences`
   },
   {
-    sa: 29, theme: 'couple',     titre: `Les cours de préparation. Viens vraiment.`,
-    intro: `Les cours de préparation à la naissance ne sont pas réservés aux mères. Ta présence change l'expérience.`,
-    corps: `Une étude suédoise portant sur 1 015 couples montre que les pères qui participent aux cours de préparation à la naissance présentent des niveaux d'anxiété pré-accouchement significativement plus bas et se sentent plus efficaces dans leur rôle pendant le travail. Ces effets sont plus marqués pour les pères que pour les mères, car les mères ont souvent d'autres sources d'information.\n\nDes cours spécifiques aux pères existent dans de nombreuses maternités. Ils abordent des sujets que les cours mixtes n'ont pas le temps de traiter : comment gérer son propre stress, comment soutenir sans être envahissant, que faire si l'on sent qu'on perd pied.`,
-    conseil: `Appelle ta maternité et demande s'il existe des séances spécifiques aux pères. Si non, va aux cours mixtes et pose des questions. Poser des questions n'est pas une faiblesse. C'est ce que font les adultes responsables.`,
-    source: `Svensson, Barclay & Cooke, 2009  -  Journal of Perinatal Education`
+    sa: 29, theme: 'couple',
+    titre: `Les cours de preparation. Viens vraiment.`,
+    intro: `Les cours de preparation a la naissance ne sont pas reserves aux meres. Ta presence change l'experience.`,
+    corps: `Une etude suedoise portant sur 1 015 couples montre que les peres qui participent aux cours de preparation a la naissance presentent des niveaux d'anxiete pre-accouchement significativement plus bas et se sentent plus efficaces dans leur role pendant le travail.\n\nDes cours specifiques aux peres existent dans de nombreuses maternites. Ils abordent des sujets que les cours mixtes n'ont pas le temps de traiter : comment gerer son propre stress, comment soutenir sans etre envahissant.`,
+    conseil: `Appelle ta maternite et demande s'il existe des seances specifiques aux peres. Si non, va aux cours mixtes et pose des questions. Poser des questions n'est pas une faiblesse.`,
+    source: `Svensson, Barclay & Cooke, 2009 - Journal of Perinatal Education`
   },
   {
-    sa: 30, theme: 'peur',     titre: `L'anxiété du 3e trimestre. Son pic, et comment le traverser.`,
-    intro: `Le 3e trimestre est souvent le moment où l'anxiété des pères culmine. C'est documenté. Et ça se travaille.`,
-    corps: `Des études longitudinales suivant les pères tout au long de la grossesse montrent un pic d'anxiété au 3e trimestre, souvent plus intense que celui du 1er trimestre. La raison : le moment devient réel. La date approche. Les préparations pratiques révèlent ce qui n'est pas encore fait.\n\nCe qui aide : l'action. Chaque étape de préparation concrète accomplie réduit measurablement le niveau d'anxiété. Ce n'est pas de la procrastination. C'est de la physiologie. Ton cerveau gère mieux ce qu'il peut contrôler.`,
-    conseil: `Fais une liste de tout ce qui n'est pas encore préparé. Classe par urgence. Accomplis une chose par jour. L'anxiété sans action s'amplifie. L'anxiété avec action se transforme en compétence.`,
-    source: `Condon, Boyce & Corkindale, 2004  -  Journal of Reproductive and Infant Psychology`
+    sa: 30, theme: 'peur',
+    titre: `L'anxiete du 3e trimestre. Son pic, et comment le traverser.`,
+    intro: `Le 3e trimestre est souvent le moment ou l'anxiete des peres culmine. C'est documente. Et ca se travaille.`,
+    corps: `Des etudes longitudinales suivant les peres tout au long de la grossesse montrent un pic d'anxiete au 3e trimestre, souvent plus intense que celui du 1er trimestre. La raison : le moment devient reel. La date approche. Les preparations pratiques revelent ce qui n'est pas encore fait.\n\nCe qui aide : l'action. Chaque etape de preparation concrete accomplie reduit measurablement le niveau d'anxiete. Ton cerveau gere mieux ce qu'il peut controler.`,
+    conseil: `Fais une liste de tout ce qui n'est pas encore prepare. Classe par urgence. Accomplis une chose par jour. L'anxiete sans action s'amplifie. L'anxiete avec action se transforme en competence.`,
+    source: `Condon, Boyce & Corkindale, 2004 - Journal of Reproductive and Infant Psychology`
   },
   {
-    sa: 31, theme: 'lien',     titre: `Te visualiser avec ton bébé. Ça change les choses.`,
-    intro: `Se projeter mentalement dans le rôle de père avant la naissance renforce l'attachement après. Ce n'est pas de la naïveté.`,
-    corps: `Des recherches sur les représentations mentales prénatales des pères (Brandon et al., 2009) montrent que les pères qui se visualisent activement avec leur bébé pendant la grossesse, qui imaginent des scènes concrètes (donner le bain, consoler, jouer), développent un attachement paternel plus fort après la naissance et s'adaptent plus vite au rôle parental.\n\nCette visualisation n'est pas une rêverie passive. C'est une préparation mentale. Les sportifs de haut niveau l'utilisent pour améliorer leurs performances. Ton cerveau ne distingue pas complètement l'imaginé du vécu.`,
-    conseil: `Ferme les yeux 5 minutes ce soir. Visualise-toi tenir ton bébé pour la première fois. Comment tu te sens. Ce que tu lui dis. Comment il sent. Aussi détaillé que possible. Répète cet exercice plusieurs fois avant la naissance.`,
-    source: `Brandon, Pitts, Denton, Stringer & Evans, 2009  -  Journal of Midwifery & Women's Health`
+    sa: 31, theme: 'lien',
+    titre: `Te visualiser avec ton bebe. Ca change les choses.`,
+    intro: `Se projeter mentalement dans le role de pere avant la naissance renforce l'attachement apres. Ce n'est pas de la naivete.`,
+    corps: `Des recherches sur les representations mentales prenatales des peres montrent que les peres qui se visualisent activement avec leur bebe pendant la grossesse (qui imaginent des scenes concretes : donner le bain, consoler, jouer) developpent un attachement paternel plus fort apres la naissance et s'adaptent plus vite au role parental.\n\nCette visualisation n'est pas une reverie passive. C'est une preparation mentale. Ton cerveau ne distingue pas completement l'imagine du vecu.`,
+    conseil: `Ferme les yeux 5 minutes ce soir. Visualise-toi tenir ton bebe pour la premiere fois. Comment tu te sens. Ce que tu lui dis. Comment il sent. Aussi detaille que possible.`,
+    source: `Brandon et al., 2009 - Infant Mental Health Journal`
   },
   {
-    sa: 32, theme: 'couple',     titre: `Le plan de naissance. Rédigez-le ensemble.`,
-    intro: `Le plan de naissance n'est pas un document anodin. Le processus de le rédiger ensemble est aussi important que le document lui-même.`,
-    corps: `Le plan de naissance est un document court (1 page maximum) que vous remettez à l'équipe médicale. Il exprime vos souhaits : péridurale ou pas, musique en salle, peau à peau immédiat, qui coupe le cordon, présence d'autres personnes. L'équipe n'est pas obligée de le suivre intégralement, mais elle le respecte généralement.\n\nCe qui compte pour le couple : rédiger ce document ensemble oblige à avoir des conversations importantes. Quelles sont vos priorités ? Quelles sont vos peurs ? Qu'est-ce qui est négociable et qu'est-ce qui ne l'est pas ? Ces conversations renforcent la cohésion avant un moment intense.
-
-Le plan de naissance est aussi un outil de communication : avec l'équipe médicale, avec vous-mêmes. Il clarifie ce qu'elle souhaite, ce qu'elle craint, ce qu'elle veut que tu fasses. Relisez-le ensemble avant le jour J pour vous assurer que tu peux porter ses demandes si elle ne peut pas s'exprimer.`,
-    conseil: `Cherche en ligne "plan de naissance France modèle" et télécharge un modèle. Remplissez-le ensemble lors d'une soirée calme. Prenez votre temps. Les points de désaccord sont des conversations importantes à avoir maintenant.`,
-    source: `Santé Publique France, 2021  -  Maternité et droits des patients`
+    sa: 32, theme: 'couple',
+    titre: `La fatigue du 3e trimestre. Adapter son soutien.`,
+    intro: `La fatigue du 3e trimestre est differente de celle du 1er. Elle est physique, profonde, et peut etre demoralisante. Ton role change.`,
+    corps: `Au 3e trimestre, la fatigue maternelle est causee par le poids de bebe, les troubles du sommeil, la pression sur les organes et la preparation physiologique a l'accouchement. Les femmes decrivent souvent une fatigue qui ne disparait pas apres une nuit de sommeil.\n\nCe qui ne fonctionne pas : minimiser (ca ira), proposer des solutions (tu devrais te reposer plus), comparer (moi aussi je suis fatigue. Ce qui fonctionne : prendre en charge sans demander.`,
+    conseil: `Cette semaine, prends en charge 100% des taches menageres. Sans en parler, sans attendre un merci. Juste faire. C'est exactement ca, le soutien pratique.`,
+    source: `Stapleton, Schetter, Westling, Rini & Glynn, 2012 - American Journal of Obstetrics and Gynecology`
   },
   {
-    sa: 33, theme: 'role',     titre: `Filtrer l'entourage. C'est ton rôle.`,
-    intro: `En fin de grossesse, l'entourage peut devenir envahissant. Te positionner comme filtre protège ta partenaire.`,
-    corps: `Les semaines précédant la naissance sont souvent marquées par une intensification des sollicitations de l'entourage : questions sur la date, visites non programmées, conseils non demandés. Pour une femme en fin de grossesse, gérer ces sollicitations représente une charge mentale et émotionnelle supplémentaire.\n\nLes recherches sur le soutien paternel montrent que les pères qui prennent en charge activement la gestion de l'entourage (répondre aux messages, coordonner les visites, communiquer sur ce dont vous avez besoin) allègent significativement le charge mentale maternelle dans les dernières semaines.`,
-    conseil: `Propose-lui de prendre en charge les messages de la famille et des amis qui demandent des nouvelles. Préparez ensemble un message type pour informer tout le monde de la naissance dès qu'elle aura lieu, sans avoir à le rédiger dans l'urgence.`,
-    source: `Darvill, Skirton & Farrand, 2010  -  Midwifery`
+    sa: 33, theme: 'peur',
+    titre: `Etre temoins de la douleur. Ce que ca fait aux peres.`,
+    intro: `Un des aspects les plus difficiles de l'accouchement pour les peres : voir souffrir quelqu'un qu'on aime sans pouvoir faire cesser la douleur.`,
+    corps: `Des etudes qualitatives sur l'experience des peres en salle de naissance identifient l'impuissance face a la douleur de leur partenaire comme l'une des emotions les plus difficiles vecues. Cette impuissance peut generer de la culpabilite, de l'anxiete, ou un retrait emotionnel.\n\nCe que les recherches montrent : la presence physique et la stabilite emotionnelle du pere ont un effet reel sur la perception de la douleur par la mere. Ton role n'est pas de faire cesser la douleur. C'est d'etre stable. Et ca, tu peux le faire.`,
+    conseil: `Repete mentalement une phrase : ma stabilite est son soutien. Pas ma solution. Pas mon intervention. Ma stabilite. Quand tu restes calme face a sa douleur, tu l'aides concretement.`,
+    source: `Longworth & Kingdon, 2011 - Midwifery`
   },
   {
-    sa: 34, theme: 'peur',     titre: `Ton rôle le jour J. Il est plus simple que tu ne le crois.`,
-    intro: `Beaucoup de pères s'inquiètent de "ce qu'ils doivent faire" pendant l'accouchement. La réponse est plus simple que tu ne le penses.`,
-    corps: `Une analyse des témoignages de pères présents lors de l'accouchement montre que les pères qui ont vécu l'expérience le mieux ne sont pas ceux qui avaient les connaissances médicales les plus poussées. Ce sont ceux qui avaient compris que leur rôle n'est pas médical.\n\nTon rôle ce jour-là : être présent physiquement, rester calme (ou du moins en donner l'impression), tenir sa main quand elle en a besoin, parler à l'équipe si elle ne peut pas, lui rappeler qu'elle est capable. Une étude de Klaus et Kennell a montré que la présence d'une personne de soutien non médicale réduit la durée du travail et le recours aux analgésiques.`,
-    conseil: `Mémorise une phrase pour le jour J. "Tu es capable. Tu vas y arriver. Je suis là." Tu n'as pas besoin de savoir quoi faire. Tu as besoin de savoir quoi dire.`,
-    source: `Klaus, Kennell & Klaus, 1993  -  Mothering the Mother`
+    sa: 34, theme: 'role',
+    titre: `Le plan de naissance. Pourquoi et comment le faire vraiment.`,
+    intro: `Le plan de naissance n'est pas un document pour controler l'accouchement. C'est un outil de communication avec l'equipe medicale.`,
+    corps: `Des etudes sur les plans de naissance montrent que les couples qui en ont redige un se sentent plus entendus par l'equipe medicale, meme quand le deroulement de l'accouchement s'ecarte du plan. Le plan de naissance n'est pas contractuel. C'est une conversation ouverte.\n\nPour les peres, s'impliquer dans la redaction du plan de naissance a un effet mesurable sur leur sentiment de competence le jour J. Ca reduit l'improvisation et clarifie le role de chacun.`,
+    conseil: `Assieds-toi avec elle cette semaine pour rediger le plan de naissance ensemble. Une page maximum. Vos souhaits sur la peridural, le peau a peau, la cesarienne d'urgence. Poser ces questions maintenant evite de les poser en urgence.`,
+    source: `Byrne, Haase Hewson & Coad, 2014 - International Journal of Childbirth`
   },
   {
-    sa: 35, theme: 'lien',     titre: `Bébé réagit à tes mains. Pour de vrai.`,
-    intro: `À 35 SA, bébé perçoit clairement les pressions sur le ventre. Ce dialogue tactile est réel.`,
-    corps: `Des recherches sur la réactivité fœtale montrent qu'à partir de 28-30 SA, les fœtus réagissent de façon mesurable aux stimulations tactiles externes. Ils peuvent répondre à une pression douce par un mouvement en retour. À 35 SA, ces réactions sont bien établies.\n\nCe dialogue tactile n'est pas métaphorique. Il implique le système nerveux de bébé et contribue à son développement sensoriel. Et pour toi, sentir une réponse physique de bébé sous ta main est souvent l'un des moments les plus forts de la grossesse pour les pères.`,
-    conseil: `Pose ta main sur le ventre ce soir et exerce une pression très douce, régulière. Attends. Bébé peut répondre par un coup. Si c'est le cas, réponds à ton tour par une pression légère. Restez là quelques minutes.`,
-    source: `Kisilevsky et al., 2003  -  Psychological Science`
+    sa: 35, theme: 'lien',
+    titre: `Le dialogue tactile avec bebe.`,
+    intro: `Bebe reagit aux stimulations exterieures depuis plusieurs semaines. Tu peux etablir un contact physique reel avec lui.`,
+    corps: `A 35 SA, le systeme tactile de bebe est pleinement fonctionnel. Des etudes d'observation montrent que les foetus repondent a une pression douce sur le ventre par des mouvements diriges vers la source de stimulation. Ils peuvent repondre a une pression douce par un mouvement en retour.\n\nCe dialogue tactile implique le systeme nerveux de bebe et contribue a son developpement sensoriel. Et pour toi, sentir une reponse physique de bebe sous ta main est souvent l'un des moments les plus forts de la grossesse.`,
+    conseil: `Pose ta main sur le ventre ce soir et exerce une pression tres douce, reguliere. Attends. Bebe peut repondre par un coup. Si c'est le cas, reponds a ton tour par une pression legere.`,
+    source: `Kisilevsky et al., 2003 - Psychological Science`
   },
   {
-    sa: 36, theme: 'couple',     titre: `Marquer la fin de la grossesse. Consciemment.`,
-    intro: `Ces dernières semaines à deux méritent d'être vécues, pas seulement traversées en attendant que ça arrive.`,
-    corps: `Les couples qui marquent consciemment la fin de la grossesse, par un acte délibéré (photo, sortie, dîner, lettre), rapportent des souvenirs plus positifs de cette période et une meilleure transition vers la parentalité. Ce n'est pas de la sentimentalité. C'est de la psychologie positive appliquée.\n\nDans quelques semaines, votre vie sera profondément transformée. Ce sera difficile par moments, et différent de ce que vous imaginez. Marquer cette fin de grossesse  -  si vous en avez l'envie et l'énergie tous les deux  -  peut aider à en garder un souvenir conscient. Mais si elle est épuisée et que rien ne sort de l'ordinaire ces derniers jours, c'est aussi normal.`,
-    conseil: `Organisez quelque chose cette semaine. Juste pour vous deux. Pas pour "profiter avant que tout change". Mais pour dire : on a vécu quelque chose ensemble qui mérite d'être reconnu. Une photo, un dîner, une lettre que vous ouvrirez dans un an.`,
-    source: `Plantin, Olukoya & Ny, 2011  -  Journal of Men's Health`
+    sa: 36, theme: 'couple',
+    titre: `Marquer la fin de la grossesse. Consciemment.`,
+    intro: `Ces dernieres semaines a deux meritent d'etre vecues, pas seulement traversees en attendant que ca arrive.`,
+    corps: `Les couples qui marquent consciemment la fin de la grossesse, par un acte delibere (photo, sortie, diner, lettre), rapportent des souvenirs plus positifs de cette periode et une meilleure transition vers la parentalite.\n\nDans quelques semaines, votre vie sera profondement transformee. Ce ne sera pas moins bien. Ce sera different. Prendre un moment pour honorer ce que vous avez vecu ensemble ces 9 mois est une facon saine de clore ce chapitre avant d'en ouvrir un autre.`,
+    conseil: `Organisez quelque chose cette semaine. Juste pour vous deux. Un diner, une photo, une lettre que vous ouvrirez dans un an. Pour dire : on a vecu quelque chose ensemble, et c'est precieux.`,
+    source: `Plantin, Olukoya & Ny, 2011 - Journal of Men's Health`
   },
   {
-    sa: 37, theme: 'peur',     titre: `L'hypervigilance de fin de grossesse. Ton corps est en mode alerte.`,
-    intro: `Téléphone chargé en permanence, oreille aux aguets la nuit, vérifications répétées. C'est ton instinct de protection qui s'active.`,
-    corps: `Ce comportement d'hypervigilance a été documenté chez les futurs pères dans les 3 à 4 dernières semaines de grossesse. Il s'agit d'une montée en puissance de l'instinct de protection, corrélée à des changements hormonaux chez les futurs pères (augmentation de la prolactine et de l'ocytocine, diminution de la testostérone).\n\nCe n'est pas de l'anxiété pathologique. C'est ton cerveau qui se prépare à surveiller un être vulnérable. La même biologie qui fera que tu te leveras à 3h du matin sans te plaindre quand bébé pleurera.`,
-    conseil: `Programme une alarme quotidienne pour vérifier que ton téléphone est chargé et que le numéro de la maternité est accessible. Ce type de préparation rituelle aide à transformer l'hypervigilance diffuse en préparation concrète.`,
-    source: `Condon, Boyce & Corkindale, 2004  -  Journal of Reproductive and Infant Psychology`
+    sa: 37, theme: 'peur',
+    titre: `L'hypervigilance de fin de grossesse. Ton corps est en mode alerte.`,
+    intro: `Telephone charge en permanence, oreille aux aguets la nuit, verifications repetees. C'est ton instinct de protection qui s'active.`,
+    corps: `Ce comportement d'hypervigilance a ete documente chez les futurs peres dans les 3 a 4 dernieres semaines de grossesse. Il s'agit d'une montee en puissance de l'instinct de protection, correlee a des changements hormonaux chez les futurs peres (augmentation de la prolactine et de l'ocytocine, diminution de la testosterone).\n\nCe n'est pas de l'anxiete pathologique. C'est ton cerveau qui se prepare a surveiller un etre vulnerable. La meme biologie qui fera que tu te leveras a 3h du matin sans te plaindre quand bebe pleurera.`,
+    conseil: `Programme une alarme quotidienne pour verifier que ton telephone est charge et que le numero de la maternite est accessible. Ce type de preparation rituelle transforme l'hypervigilance diffuse en preparation concrete.`,
+    source: `Condon, Boyce & Corkindale, 2004 - Journal of Reproductive and Infant Psychology`
   },
   {
-    sa: 38, theme: 'role',     titre: `Ne pas se sentir prêt. Ce que ça signifie vraiment.`,
-    intro: `Aucun père ne se sent vraiment prêt la veille de la naissance. C'est universel. Et ce n'est pas un problème.`,
-    corps: `Des études longitudinales sur la transition vers la paternité montrent que le sentiment de "ne pas être prêt" juste avant la naissance n'est pas corrélé avec la qualité du parentage après. Les pères qui se sentent prêts ne s'en sortent pas mieux que ceux qui doutent.\n\nCe qui compte, selon les données disponibles : l'implication pendant la grossesse. Le fait d'avoir été présent, d'avoir appris, d'avoir soutenu. Tout ça a déjà changé quelque chose en toi. La paternité ne commence pas à la naissance. Elle a commencé le jour où tu as appris la nouvelle et choisi d'être là.`,
-    conseil: `Ce soir, dis-lui que tu es fier d'elle. Pas pour qu'elle te rassure en retour. Parce que c'est vrai. Ces 9 mois ont été exigeants pour vous deux. Et vous y êtes.`,
-    source: `Deave & Johnson, 2008  -  Midwifery`
+    sa: 38, theme: 'role',
+    titre: `Tu es pret. Meme si tu ne le ressens pas comme ca.`,
+    intro: `Le sentiment de ne pas etre pret est universel chez les futurs peres a quelques semaines de la naissance. Et il est trompeur.`,
+    corps: `Des etudes sur le sentiment de preparation paternelle montrent qu'il n'existe pas de correlation entre le sentiment subjectif d'etre pret et la qualite reelle du parentage dans les premiers mois. Les peres qui se sentent les moins prets ne sont pas les moins bons peres. Ils sont souvent les plus conscients de ce qui les attend.\n\nLa preparation se mesure a ce que tu as fait, pas a ce que tu ressens. Si tu as lu sur la grossesse, accompagne aux RDV, prepare la valise, appris les signes du travail : tu es pret. Le reste viendra avec bebe.`,
+    conseil: `Fais la liste de tout ce que tu as appris et prepare ces 9 mois. Elle sera plus longue que tu ne le penses. Tu es plus pret que tu ne le crois.`,
+    source: `Deave, Johnson & Ingram, 2008 - BMC Pregnancy and Childbirth`
   },
   {
-    sa: 39, theme: 'couple',     titre: `Les derniers jours avant la naissance.`,
-    intro: `L'attente des derniers jours est souvent épuisante  -  pour elle comme pour toi. Il n'y a pas de bonne façon de la traverser.`,
-    corps: `L'attente de la naissance dans les derniers jours est décrite par beaucoup de couples comme une des périodes les plus difficiles psychologiquement. Chaque contraction analysée, chaque nuit sans réveil scrutée. Cette vigilance constante est épuisante.\n\nLes couples qui traversent mieux cette période sont ceux qui ont décidé consciemment de "vivre normalement" plutôt que d'attendre. Sortir, voir des amis, regarder un film, faire une balade. L'action réduit l'hypervigilance. Et dans quelques jours, vous serez trois. Ce moment à deux mérite d'être habité.`,
-    conseil: `Si elle en a l'énergie, propose une sortie simple. Sinon, reste proche sans forcer l'activité. Cette attente est rarement vécue de la même façon par les deux partenaires  -  elle est souvent plus angoissée, physiquement plus inconfortable. Ton rôle est d'absorber l'incertitude sans la transmettre.`,
-    source: `Plantin, Olukoya & Ny, 2011  -  Journal of Men's Health`
+    sa: 39, theme: 'couple',
+    titre: `L'attente. Comment la vivre a deux.`,
+    intro: `50% des accouchements ont lieu apres la DPA. L'attente est une epreuve. Pour elle surtout. Et pour vous deux.`,
+    corps: `L'attente de la naissance dans les dernieres semaines est documentee comme une periode de stress specifique pour les deux parents. Pour les peres, l'anxiete prend souvent la forme de l'hypervigilance et du sentiment d'impuissance face a quelque chose qu'on ne peut pas controler.\n\nCe qui aide : maintenir une vie active, continuer les activites normales, eviter de rester a la maison a surveiller chaque symptome. L'action est le meilleur antidote a l'attente.`,
+    conseil: `Propose une sortie douce chaque jour. Marche, cinema, restaurant. Ne dis pas ca va venir. Propose : on sort ? L'action est le meilleur antidote a l'attente.`,
+    source: `Condon, Boyce & Corkindale, 2004 - Journal of Reproductive and Infant Psychology`
   },
   {
-    sa: 40, theme: 'role',     titre: `Ta présence, c'est tout ce dont elle a besoin.`,
-    intro: `Le jour de l'accouchement, tu n'as pas à tout gérer. Tu as à être là.`,
-    corps: `Les recherches de Marshall Klaus et John Kennell sur le soutien pendant l'accouchement sont parmi les plus citées en périnatalité. Ils ont montré que la présence d'une personne de soutien non médicale, qu'ils appellent "doula" mais qui peut être le père, réduit la durée du travail de 25%, le recours à la péridurale de 60%, et le risque de dépression post-partum de façon significative.\n\nTon rôle n'est pas médical. Il n'est pas logistique non plus. Il est de rester calme, d'être physiquement présent, de regarder ta partenaire dans les yeux quand c'est difficile. Ce regard, cette présence, ont des effets physiologiques mesurables sur sa douleur et son stress.`,
-    conseil: `Répète mentalement cette phrase jusqu'à la naissance : "Mon rôle est d'être là. Pas de tout gérer. Pas de tout savoir. Juste d'être là." C'est suffisant. C'est même beaucoup.`,
-    source: `Klaus, Kennell & Klaus, 1993  -  Mothering the Mother`
+    sa: 40, theme: 'role',
+    titre: `Ta presence, c'est tout ce dont elle a besoin.`,
+    intro: `Le jour de l'accouchement, tu n'as pas a tout gerer. Tu as a etre la.`,
+    corps: `Les recherches de Marshall Klaus et John Kennell sur le soutien pendant l'accouchement sont parmi les plus citees en perinatalite. Ils ont montre que la presence d'une personne de soutien non medicale reduit la duree du travail de 25%, le recours a la peridurale de 60%, et le risque de depression post-partum de facon significative.\n\nTon role n'est pas medical. Il n'est pas logistique non plus. Il est de rester calme, d'etre physiquement present, de regarder ta partenaire dans les yeux quand c'est difficile. Ce regard, cette presence, ont des effets physiologiques mesurables sur sa douleur et son stress.`,
+    conseil: `Repete mentalement cette phrase jusqu'a la naissance : mon role est d'etre la. Pas de tout gerer. Pas de tout savoir. Juste d'etre la. C'est suffisant. C'est meme beaucoup.`,
+    source: `Klaus, Kennell & Klaus, 1993 - Mothering the Mother`
   },
 ];
 
@@ -302,7 +330,6 @@ export default function PsychoPage({ C: propC, saReelle }: any) {
     white:'#ffffff', border:'#f0ede8', muted:'#9aa0a8', cream:'#f7f5f0',
   };
 
-  // Trouver la semaine courante ou la plus proche
   const saActuelle = saReelle || 20;
   const semaine = SEMAINES.find(s => s.sa === saActuelle)
     || SEMAINES.reduce((prev, curr) =>
@@ -311,10 +338,10 @@ export default function PsychoPage({ C: propC, saReelle }: any) {
 
   const tc = THEME_COLORS[semaine.theme];
   const themeLabel: Record<string,string> = {
-    peur:   'Émotions & peurs',
+    peur:   'Emotions & peurs',
     couple: 'Vie de couple',
-    lien:   'Lien avec bébé',
-    role:   'Rôle actif',
+    lien:   'Lien avec bebe',
+    role:   'Role actif',
   };
 
   const paragraphes = semaine.corps.split('\n\n');
@@ -322,45 +349,36 @@ export default function PsychoPage({ C: propC, saReelle }: any) {
   return (
     <div style={{display:'flex',flexDirection:'column',gap:'24px',fontFamily:"-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"}}>
 
-      {/* EN-TÊTE */}
       <div style={{background:Cs.blueDark,borderRadius:'24px',padding:'26px 28px'}}>
         <p style={{color:'rgba(200,220,240,0.55)',fontSize:'10px',fontWeight:700,letterSpacing:'3px',textTransform:'uppercase' as const,margin:'0 0 8px'}}>Psychologie du papa</p>
         <h2 style={{color:Cs.white,fontSize:'20px',fontWeight:800,margin:'0 0 8px',lineHeight:1.3}}>Cette semaine, une info pour toi.</h2>
-        <p style={{color:'rgba(255,255,255,0.5)',fontSize:'13px',margin:0}}>Une info vérifiée par semaine. Pour te guider, te rassurer, t'impliquer.</p>
+        <p style={{color:'rgba(255,255,255,0.5)',fontSize:'13px',margin:0}}>Pour te guider, te rassurer, t'impliquer.</p>
       </div>
 
-      {/* BADGE SA + THÈME */}
       <div style={{display:'flex',alignItems:'center',gap:'10px',flexWrap:'wrap' as const}}>
         <span style={{background:Cs.dark,color:Cs.white,fontSize:'12px',fontWeight:800,padding:'6px 14px',borderRadius:'20px'}}>SA {semaine.sa}</span>
         <span style={{background:tc.bg,color:tc.tc,fontSize:'12px',fontWeight:700,padding:'6px 14px',borderRadius:'20px'}}>{themeLabel[semaine.theme]}</span>
       </div>
 
-      {/* CARTE PRINCIPALE */}
       <div style={{background:tc.bg,borderRadius:'24px',padding:'28px'}}>
         <h3 style={{color:Cs.dark,fontSize:'20px',fontWeight:800,margin:'0 0 14px',lineHeight:1.3}}>{semaine.titre}</h3>
         <p style={{color:tc.tc,fontSize:'14px',fontWeight:600,lineHeight:1.7,margin:0,fontStyle:'italic'}}>{semaine.intro}</p>
       </div>
 
-      {/* CONTENU */}
       <div style={{display:'flex',flexDirection:'column',gap:'16px'}}>
         {paragraphes.map((para, i) => (
           <p key={i} style={{color:Cs.dark,fontSize:'15px',lineHeight:1.8,margin:0}}>{para}</p>
         ))}
       </div>
 
-      {/* CONSEIL */}
       <div style={{background:Cs.dark,borderRadius:'20px',padding:'22px 24px'}}>
         <p style={{color:Cs.gold,fontSize:'10px',fontWeight:700,letterSpacing:'2px',textTransform:'uppercase' as const,margin:'0 0 10px'}}>Cette semaine</p>
         <p style={{color:Cs.white,fontSize:'15px',fontWeight:600,lineHeight:1.7,margin:0}}>{semaine.conseil}</p>
       </div>
 
-      {/* SOURCE */}
-
-
-      {/* CTA */}
       <div style={{background:Cs.cream,borderRadius:'20px',padding:'22px 24px',textAlign:'center' as const,border:`1px solid ${Cs.border}`}}>
         <p style={{color:Cs.dark,fontSize:'15px',fontWeight:700,margin:'0 0 6px'}}>Tu traverses quelque chose de difficile ?</p>
-        <p style={{color:Cs.muted,fontSize:'13px',margin:'0 0 16px',lineHeight:1.6}}>Un psychologue périnatal peut t'aider. C'est fait pour ça.</p>
+        <p style={{color:Cs.muted,fontSize:'13px',margin:'0 0 16px',lineHeight:1.6}}>Un psychologue perinatal peut t'aider. C'est fait pour ca.</p>
         <a
           href="https://www.doctolib.fr/psychologue"
           target="_blank"
