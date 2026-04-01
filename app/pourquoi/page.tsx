@@ -100,10 +100,10 @@ export default function PourquoiPage() {
           <div style={{display:'grid', gridTemplateColumns:'1fr 1fr 1fr', gap:'16px'}}>
             {[
               {bg:'#FFF0E6', tc:'#C04A1A', titre:'Dashboard en temps reel', desc:"Ta semaine en cours, le developpement de bebe, ta mission. Mis a jour automatiquement."},
-              {bg:'#E4F5EC', tc:'#0D6B40', titre:'Suivi des rendez-vous', desc:"Chaque consultation expliquee avant qu'elle arrive. Ton role precis a chaque etape."},
-              {bg:'#E6F0FA', tc:'#1A4A7A', titre:'Preparation a l'accouchement', desc:"Contractions, salle de naissance, cesarienne. Tu sais quoi faire avant que ca arrive."},
+              {bg:'#E4F5EC', tc:'#0D6B40', titre:`Suivi des rendez-vous`, desc:"Chaque consultation expliquee avant qu'elle arrive. Ton role precis a chaque etape."},
+              {bg:'#E6F0FA', tc:'#1A4A7A', titre:`Preparation a l'accouchement`, desc:"Contractions, salle de naissance, cesarienne. Tu sais quoi faire avant que ca arrive."},
               {bg:'#FFF7E0', tc:'#8A6010', titre:'Checklists interactives', desc:"Valise maternite, achats, documents. Tout est coche et sauvegarde dans ton compte."},
-              {bg:'#E0F5F0', tc:'#0D7070', titre:'Mode post-partum', desc:"Apres la naissance, l'app bascule automatiquement. 12 mois de suivi de bebe."},
+              {bg:'#E0F5F0', tc:'#0D7070', titre:`Mode post-partum`, desc:"Apres la naissance, l'app bascule automatiquement. 12 mois de suivi de bebe."},
               {bg:'#FDECEA', tc:'#9A2000', titre:'Ateliers pratiques', desc:"Emmaillotage, premiers secours nourrisson, apaisement. Les gestes concrets, sans jargon."},
             ].map((item,i)=>(
               <div key={i} style={{background:item.bg, borderRadius:'16px', padding:'24px'}}>
