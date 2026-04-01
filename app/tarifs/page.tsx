@@ -18,6 +18,13 @@ export default function TarifsPage() {
     { q:"J'ai deja paye mais je n'arrive pas a me connecter.", r:"Va sur la page de connexion et entre l'email utilise lors du paiement. Tu recevras un lien pour acceder a ton espace." },
   ];
 
+  const comparaison = [
+    { label:"1 livre de grossesse", note:"pour la maman seulement", prix:"15-25 €", dark:false },
+    { label:"1 seance preparation accouchement", note:"souvent pour les deux parents", prix:"80-150 €", dark:false },
+    { label:"1 consultation sage-femme", note:"environ 30 minutes", prix:"50-90 €", dark:false },
+    { label:"DadUp, grossesse + 1er anniversaire", note:"tout inclus, toute l'annee", prix:"59,99 €", dark:true },
+  ];
+
   return (
     <main style={{minHeight:'100vh', background:'#ffffff', fontFamily:"-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"}}>
       <Nav/>
@@ -33,8 +40,8 @@ export default function TarifsPage() {
       </section>
 
       <section style={{padding:'80px 40px', maxWidth:'960px', margin:'0 auto'}}>
-        <div style={{display:'grid', gridTemplateColumns:'1fr 1fr', gap:'24px', marginBottom:'60px'}}>
 
+        <div style={{display:'grid', gridTemplateColumns:'1fr 1fr', gap:'24px', marginBottom:'40px'}}>
           <div style={{border:'1.5px solid #e8e0d8', borderRadius:'24px', padding:'40px', background:'#f7f4ef'}}>
             <p style={{color:'#9a8888', fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase', margin:'0 0 20px'}}>Mensuel</p>
             <p style={{color:'#1c2333', fontSize:'52px', fontWeight:900, margin:'0 0 4px', letterSpacing:'-1px', lineHeight:1}}>6,99 &#8364;</p>
@@ -73,30 +80,31 @@ export default function TarifsPage() {
           </div>
         </div>
 
-        <div style={{background:'#f7f4ef', borderRadius:'20px', padding:'32px', marginBottom:'24px'}}>
+        <div style={{background:'#f7f4ef', borderRadius:'20px', padding:'32px', marginBottom:'20px'}}>
           <p style={{color:'#2E5F8A', fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase', margin:'0 0 20px'}}>Pour remettre en perspective</p>
-          <div style={{display:'flex', flexDirection:'column', gap:'0'}}>
-            {[
-              {label:"1 livre de grossesse", prix:"15-25 €", note:"pour la maman seulement"},
-              {label:"1 seance de preparation a l'accouchement", prix:"80-150 €", note:"souvent pour les deux parents"},
-              {label:"1 consultation sage-femme", prix:"50-90 €", note:"environ 30 minutes"},
-              {label:"DadUp, de la grossesse au 1er anniversaire", prix:"59,99 €", note:"tout inclus, toute l'annee", highlight:true},
-            ].map((item, i) => (
-              <div key={i} style={{display:'flex', justifyContent:'space-between', alignItems:'center', padding:'16px 0', borderBottom: i < 3 ? '1px solid #e8e0d8' : 'none', background: item.highlight ? '#1c2333' : 'transparent', borderRadius: item.highlight ? '12px' : '0', padding: item.highlight ? '16px 20px' : '16px 0', margin: item.highlight ? '8px 0 0' : '0'}}>
-                <div>
-                  <p style={{fontSize:'14px', fontWeight:600, color: item.highlight ? '#f7f4ef' : '#1c2333', margin:'0 0 2px'}}>{item.label}</p>
-                  <p style={{fontSize:'12px', color: item.highlight ? '#c8a060' : '#9a8888', margin:0}}>{item.note}</p>
-                </div>
-                <p style={{fontSize:'16px', fontWeight:800, color: item.highlight ? '#c8a060' : '#1c2333', margin:0, flexShrink:0, marginLeft:'16px'}}>{item.prix}</p>
+          {comparaison.map((item, i) => (
+            <div key={i} style={{
+              display:'flex', justifyContent:'space-between', alignItems:'center',
+              padding: item.dark ? '16px 20px' : '16px 0',
+              borderBottom: !item.dark && i < comparaison.length - 2 ? '1px solid #e8e0d8' : 'none',
+              background: item.dark ? '#1c2333' : 'transparent',
+              borderRadius: item.dark ? '12px' : '0',
+              marginTop: item.dark ? '8px' : '0',
+            }}>
+              <div>
+                <p style={{fontSize:'14px', fontWeight:600, color: item.dark ? '#f7f4ef' : '#1c2333', margin:'0 0 2px'}}>{item.label}</p>
+                <p style={{fontSize:'12px', color: item.dark ? '#c8a060' : '#9a8888', margin:0}}>{item.note}</p>
               </div>
-            ))}
-          </div>
+              <p style={{fontSize:'16px', fontWeight:800, color: item.dark ? '#c8a060' : '#1c2333', margin:0, flexShrink:0, marginLeft:'16px'}}>{item.prix}</p>
+            </div>
+          ))}
         </div>
 
         <div style={{background:'#f7f4ef', borderRadius:'16px', padding:'24px', textAlign:'center', border:'1.5px solid #e8e0d8'}}>
           <p style={{color:'#1c2333', fontSize:'15px', fontWeight:700, margin:'0 0 6px'}}>Satisfait ou rembourse dans les 7 premiers jours</p>
           <p style={{color:'#9a8888', fontSize:'13px', margin:0}}>Si DadUp ne repond pas a tes attentes, on te rembourse. Sans question.</p>
         </div>
+
       </section>
 
       <section style={{background:'#f7f4ef', padding:'80px 40px'}}>
