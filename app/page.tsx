@@ -76,20 +76,22 @@ export default function TarifsPage() {
         <div style={{background:'#f7f4ef', borderRadius:'20px', padding:'32px', marginBottom:'24px'}}>
           <p style={{color:'#2E5F8A', fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase', margin:'0 0 20px'}}>Pour remettre en perspective</p>
           <div style={{display:'flex', flexDirection:'column', gap:'0'}}>
-            {[
-              {label:"1 livre de grossesse", prix:"15-25 €", note:"pour la maman seulement"},
-              {label:"1 seance de preparation a l'accouchement", prix:"80-150 €", note:"souvent pour les deux parents"},
-              {label:"1 consultation sage-femme", prix:"50-90 €", note:"environ 30 minutes"},
-              {label:"DadUp, de la grossesse au 1er anniversaire", prix:"59,99 €", note:"tout inclus, toute l'annee", highlight:true},
-            ].map((item, i) => (
-              <div key={i} style={{display:'flex', justifyContent:'space-between', alignItems:'center', borderBottom: i < 3 ? '1px solid #e8e0d8' : 'none', background: item.highlight ? '#1c2333' : 'transparent', borderRadius: item.highlight ? '12px' : '0', padding: item.highlight ? '16px 20px' : '16px 0', margin: item.highlight ? '8px 0 0' : '0'}}>
-                <div>
-                  <p style={{fontSize:'14px', fontWeight:600, color: item.highlight ? '#f7f4ef' : '#1c2333', margin:'0 0 2px'}}>{item.label}</p>
-                  <p style={{fontSize:'12px', color: item.highlight ? '#c8a060' : '#9a8888', margin:0}}>{item.note}</p>
-                </div>
-                <p style={{fontSize:'16px', fontWeight:800, color: item.highlight ? '#c8a060' : '#1c2333', margin:0, flexShrink:0, marginLeft:'16px'}}>{item.prix}</p>
-              </div>
-            ))}
+            <div style={{display:'flex', justifyContent:'space-between', alignItems:'center', padding:'16px 0', borderBottom:'1px solid #e8e0d8'}}>
+              <div><p style={{fontSize:'14px', fontWeight:600, color:'#1c2333', margin:'0 0 2px'}}>1 livre de grossesse</p><p style={{fontSize:'12px', color:'#9a8888', margin:0}}>pour la maman seulement</p></div>
+              <p style={{fontSize:'16px', fontWeight:800, color:'#1c2333', margin:0, flexShrink:0, marginLeft:'16px'}}>15-25 &#8364;</p>
+            </div>
+            <div style={{display:'flex', justifyContent:'space-between', alignItems:'center', padding:'16px 0', borderBottom:'1px solid #e8e0d8'}}>
+              <div><p style={{fontSize:'14px', fontWeight:600, color:'#1c2333', margin:'0 0 2px'}}>1 seance de preparation a l'accouchement</p><p style={{fontSize:'12px', color:'#9a8888', margin:0}}>souvent pour les deux parents</p></div>
+              <p style={{fontSize:'16px', fontWeight:800, color:'#1c2333', margin:0, flexShrink:0, marginLeft:'16px'}}>80-150 &#8364;</p>
+            </div>
+            <div style={{display:'flex', justifyContent:'space-between', alignItems:'center', padding:'16px 0', borderBottom:'1px solid #e8e0d8'}}>
+              <div><p style={{fontSize:'14px', fontWeight:600, color:'#1c2333', margin:'0 0 2px'}}>1 consultation sage-femme</p><p style={{fontSize:'12px', color:'#9a8888', margin:0}}>environ 30 minutes</p></div>
+              <p style={{fontSize:'16px', fontWeight:800, color:'#1c2333', margin:0, flexShrink:0, marginLeft:'16px'}}>50-90 &#8364;</p>
+            </div>
+            <div style={{display:'flex', justifyContent:'space-between', alignItems:'center', padding:'16px 20px', background:'#1c2333', borderRadius:'12px', margin:'8px 0 0'}}>
+              <div><p style={{fontSize:'14px', fontWeight:600, color:'#f7f4ef', margin:'0 0 2px'}}>DadUp, de la grossesse au 1er anniversaire</p><p style={{fontSize:'12px', color:'#c8a060', margin:0}}>tout inclus, toute l'annee</p></div>
+              <p style={{fontSize:'16px', fontWeight:800, color:'#c8a060', margin:0, flexShrink:0, marginLeft:'16px'}}>59,99 &#8364;</p>
+            </div>
           </div>
         </div>
 
