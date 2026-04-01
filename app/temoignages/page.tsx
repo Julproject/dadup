@@ -36,7 +36,7 @@ export default function TemoignagesPage() {
     {val:'4.9/5', label:'Note moyenne'},
     {val:'97%', label:'Se sentent mieux prepares'},
     {val:'94%', label:'Recommandent DadUp'},
-    {val:'12 mois', label:'D'accompagnement continu'},
+    {val:'12 mois', label:`D'accompagnement continu`},
   ];
 
   return (
