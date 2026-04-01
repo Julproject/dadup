@@ -119,7 +119,7 @@ export default function TarifsPage() {
                   {label:"1 consultation sage-femme", prix:"50-90\u20ac", note:"30 minutes"},
                   {label:"DadUp, de la grossesse au 1er anniversaire", prix:"79\u20ac", note:"tout inclus, toute l'annee", highlight:true},
                 ].map((item, i) => (
-                  <div key={i} style={{display:'flex', justifyContent:'space-between', alignItems:'center', padding:'12px 0', borderBottom: i < 3 ? '1px solid #e8ddd4' : 'none', background: item.highlight ? '#3a3028' : 'transparent', borderRadius: item.highlight ? '12px' : '0', padding: item.highlight ? '14px 16px' : '12px 0'}}>
+                  <div key={i} style={{display:'flex', justifyContent:'space-between', alignItems:'center', padding: item.highlight ? '14px 16px' : '12px 0', borderBottom: i < 3 ? '1px solid #e8ddd4' : 'none', background: item.highlight ? '#3a3028' : 'transparent', borderRadius: item.highlight ? '12px' : '0'}}>
                     <div>
                       <p style={{fontSize:'13px', fontWeight:600, color: item.highlight ? '#f0e0cc' : '#3a3028', margin:'0 0 2px'}}>{item.label}</p>
                       <p style={{fontSize:'12px', color: item.highlight ? '#c8a882' : '#9a8470', margin:0}}>{item.note}</p>
