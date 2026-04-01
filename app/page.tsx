@@ -94,7 +94,7 @@ export default function Home() {
         <div className="nav-cta-group">
           <a href="/login" style={{ color: C.dark, fontSize: '14px', fontWeight: 600, textDecoration: 'none' }}>Se connecter</a>
           <button onClick={goToStripe} style={{ background: C.dark, color: C.white, border: 'none', padding: '11px 22px', borderRadius: '32px', fontSize: '13px', fontWeight: 700, cursor: 'pointer' }}>
-            Commencer — 79{'\u20ac'}/an
+            Commencer - 59,99{'\u20ac'}/an
           </button>
         </div>
         <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)} style={{ background: 'none', border: 'none', cursor: 'pointer', flexDirection: 'column', gap: '5px', padding: '4px' }}>
@@ -108,7 +108,7 @@ export default function Home() {
             <a key={href} href={href} style={{ color: C.dark, fontSize: '15px', fontWeight: 600, padding: '10px 0', textDecoration: 'none', borderBottom: `1px solid ${C.border}` }}>{label}</a>
           ))}
           <button onClick={goToStripe} style={{ background: C.dark, color: C.white, border: 'none', padding: '14px', borderRadius: '32px', fontSize: '15px', fontWeight: 700, cursor: 'pointer', marginTop: '8px' }}>
-            Commencer — 79{'\u20ac'}/an
+            Commencer - 59,99{'\u20ac'}/an
           </button>
         </div>
       )}
@@ -118,7 +118,7 @@ export default function Home() {
         <div>
           <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: '#E4F5EC', borderRadius: '20px', padding: '6px 14px', marginBottom: '28px' }}>
             <div style={{ width: '7px', height: '7px', borderRadius: '50%', background: '#0D6B40' }}/>
-            <span style={{ color: '#0D6B40', fontSize: '12px', fontWeight: 700 }}>Application live — pas un PDF</span>
+            <span style={{ color: '#0D6B40', fontSize: '12px', fontWeight: 700 }}>Une application qui evolue avec toi</span>
           </div>
           <h1 style={{ fontSize: '52px', fontWeight: 900, color: C.dark, margin: '0 0 24px', lineHeight: 1.1, letterSpacing: '-1px' }}>
             Ton dashboard<br/>de papa.<br/><span style={{ color: C.blue }}>Semaine par semaine.</span>
@@ -128,10 +128,10 @@ export default function Home() {
           </p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '24px' }}>
             <button onClick={goToStripe} style={{ background: C.dark, color: C.white, border: 'none', padding: '18px 36px', borderRadius: '32px', fontSize: '16px', fontWeight: 800, cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: '8px', width: 'fit-content' }}>
-              Commencer — 79{'\u20ac'}/an
+              Commencer - 59,99{'\u20ac'}/an
               <span style={{ background: '#c8a060', color: '#1c1c1c', fontSize: '11px', fontWeight: 800, padding: '2px 8px', borderRadius: '10px' }}>-30%</span>
             </button>
-            <span style={{ color: C.muted, fontSize: '13px' }}>ou 9,99{'\u20ac'}/mois · Sans engagement · Acces immediat</span>
+            <span style={{ color: C.muted, fontSize: '13px' }}>ou 6,99{'\u20ac'}/mois · Sans engagement · Acces immediat</span>
           </div>
           <a href="/inclus" style={{ color: C.blue, fontSize: '14px', fontWeight: 600, textDecoration: 'none' }}>Voir ce qui est inclus {'\u2192'}</a>
         </div>
@@ -153,7 +153,7 @@ export default function Home() {
             { chiffre: '38', label: 'semaines de contenu unique' },
             { chiffre: '12', label: 'mois de suivi post-natal' },
             { chiffre: '100%', label: 'personnalise a ta DPA' },
-            { chiffre: '79\u20ac', label: 'par an soit 6,58\u20ac/mois' },
+            { chiffre: '59,99\u20ac', label: 'par an soit 5\u20ac/mois' },
           ].map((s, i) => (
             <div key={i} className="stats-item" style={{ borderLeft: i > 0 ? '1px solid #2e3848' : 'none', padding: '32px 24px' }}>
               <p style={{ color: C.gold, fontSize: '40px', fontWeight: 900, margin: '0 0 6px', letterSpacing: '-1px' }}>{s.chiffre}</p>
@@ -174,7 +174,7 @@ export default function Home() {
             {
               icon: '📊',
               titre: 'Un dashboard qui evolue',
-              desc: 'Chaque semaine, ton contenu se met a jour. Developpement de bebe, etat de maman, ta mission de papa. Un coup d\'oeil suffit — pas besoin de chercher.',
+              desc: 'Chaque semaine, ton contenu se met a jour. Developpement de bebe, etat de maman, ta mission de papa. Un coup d\'oeil suffit - pas besoin de chercher.',
             },
             {
               icon: '✅',
@@ -204,10 +204,10 @@ export default function Home() {
               {'★★★★★'.split('').map((s, i) => <span key={i} style={{ color: C.gold, fontSize: '20px' }}>{s}</span>)}
             </div>
             <p style={{ color: C.white, fontSize: '24px', fontWeight: 700, lineHeight: 1.5, margin: '0 0 24px', fontFamily: 'Georgia,serif', fontStyle: 'italic' }}>
-              "Ce que j'aimais c'est que ca evolue avec moi. Ce n'est pas un PDF qu'on lit une fois. C'est une app que j'ouvrais plusieurs fois par semaine. Le dashboard se mettait a jour, les contenus changeaient. J'etais dans la course toute la grossesse."
+              "Ce que j'aimais c'est que ca evolue avec moi. Ce n'est  qu'on lit une fois. C'est une app que j'ouvrais plusieurs fois par semaine. Le dashboard se mettait a jour, les contenus changeaient. J'etais dans la course toute la grossesse."
             </p>
             <div>
-              <p style={{ color: C.gold, fontWeight: 700, fontSize: '14px', margin: '0 0 4px' }}>Antoine, 35 ans — Bordeaux</p>
+              <p style={{ color: C.gold, fontWeight: 700, fontSize: '14px', margin: '0 0 4px' }}>Antoine, 35 ans - Bordeaux</p>
               <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '13px', margin: 0 }}>Utilisateur DadUp depuis SA 20</p>
             </div>
           </div>
@@ -238,7 +238,7 @@ export default function Home() {
           {/* Mensuel */}
           <div style={{ border: `1.5px solid ${C.border}`, borderRadius: '24px', padding: '36px', background: C.cream }}>
             <p style={{ color: C.muted, fontSize: '12px', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase', margin: '0 0 16px' }}>Mensuel</p>
-            <p style={{ color: C.dark, fontSize: '48px', fontWeight: 900, margin: '0 0 4px', letterSpacing: '-1px', lineHeight: 1 }}>9,99{'\u20ac'}</p>
+            <p style={{ color: C.dark, fontSize: '48px', fontWeight: 900, margin: '0 0 4px', letterSpacing: '-1px', lineHeight: 1 }}>6,99{'\u20ac'}</p>
             <p style={{ color: C.muted, fontSize: '14px', margin: '0 0 28px' }}>par mois · sans engagement</p>
             <button onClick={goToStripe} style={{ width: '100%', background: C.dark, color: C.white, border: 'none', padding: '16px', borderRadius: '32px', fontSize: '15px', fontWeight: 700, cursor: 'pointer' }}>
               Commencer au mois
@@ -248,11 +248,11 @@ export default function Home() {
           <div style={{ background: C.dark, borderRadius: '24px', padding: '36px', position: 'relative', overflow: 'hidden' }}>
             <div style={{ position: 'absolute', top: '16px', right: '16px', background: C.gold, color: '#1c1c1c', fontSize: '10px', fontWeight: 800, padding: '4px 10px', borderRadius: '20px', letterSpacing: '1px' }}>RECOMMANDE</div>
             <p style={{ color: C.gold, fontSize: '12px', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase', margin: '0 0 16px' }}>Annuel</p>
-            <p style={{ color: C.white, fontSize: '48px', fontWeight: 900, margin: '0 0 4px', letterSpacing: '-1px', lineHeight: 1 }}>79{'\u20ac'}</p>
-            <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '14px', margin: '0 0 4px' }}>par an · soit 6,58{'\u20ac'}/mois</p>
+            <p style={{ color: C.white, fontSize: '48px', fontWeight: 900, margin: '0 0 4px', letterSpacing: '-1px', lineHeight: 1 }}>59,99{'\u20ac'}</p>
+            <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '14px', margin: '0 0 4px' }}>par an, soit 5{'\u20ac'}/mois</p>
             <p style={{ color: C.gold, fontSize: '13px', fontWeight: 600, margin: '0 0 28px' }}>Economie de 30% vs mensuel</p>
             <button onClick={goToStripe} style={{ width: '100%', background: C.gold, color: '#1c1510', border: 'none', padding: '18px', borderRadius: '32px', fontSize: '16px', fontWeight: 800, cursor: 'pointer' }}>
-              Commencer — 79{'\u20ac'}/an
+              Commencer - 59,99{'\u20ac'}/an
             </button>
             <p style={{ color: 'rgba(255,255,255,0.3)', fontSize: '11px', margin: '10px 0 0', textAlign: 'center' }}>Paiement securise · Resiliable a tout moment</p>
           </div>
