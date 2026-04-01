@@ -129,8 +129,21 @@ function DashboardContent() {
       const dpaRestore = dpaOriginale
         || localStorage.getItem('dadup_dpa_originale')
         || localStorage.getItem('dadup_dpa_backup')
+        || localStorage.getItem('dadup_dpa_grossesse')
         || '';
-      if (!dpaRestore) { alert("Saisis ta date d'accouchement dans les réglages."); return; }
+      if (!dpaRestore) {
+        // Dernier recours : recharger depuis Supabase
+        fetch('/api/auth/me').then(r=>r.json()).then(({user})=>{
+          if (user?.dpa_originale) {
+            setDpa(user.dpa_originale);
+            localStorage.setItem('dadup_dpa', user.dpa_originale);
+            saveData({ dpa: user.dpa_originale, dpa_originale: null });
+          } else {
+            alert("Va dans les réglages et entre ta date d'accouchement pour revenir en mode grossesse.");
+          }
+        });
+        return;
+      }
       setDpa(dpaRestore);
       setDpaOriginale('');
       localStorage.setItem('dadup_dpa', dpaRestore);
@@ -141,6 +154,7 @@ function DashboardContent() {
       if (!dpaCourant) { alert('Profil en cours de chargement, réessaie dans un instant.'); return; }
       localStorage.setItem('dadup_dpa_originale', dpaCourant);
       localStorage.setItem('dadup_dpa_backup', dpaCourant);
+      localStorage.setItem('dadup_dpa_grossesse', dpaCourant);
       setDpaOriginale(dpaCourant);
       const hier = new Date();
       hier.setDate(hier.getDate() - 1);
