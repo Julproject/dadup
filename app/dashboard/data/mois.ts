@@ -1,27 +1,47 @@
 import type { MoisData } from './types';
 
-export function getIdee(mois: number): string {
-  const idees = [
-    // Mois 1 (SA 1-4) : T1 debut, choc de l'annonce, nausees
-    "Elle traverse les nausées en silence. Prends en charge les courses et les repas cette semaine sans qu'elle ait à demander. Ce geste concret compte plus qu'un discours.",
-    // Mois 2 (SA 5-8) : nausees intenses, fatigue, 1ere consultation
-    "Accompagne-la à sa première consultation médicale. Prends des notes, pose des questions. Ton implication dès le début change tout pour la suite.",
-    // Mois 3 (SA 9-13) : fin T1, echo T1, annonce
-    "L'échographie T1 approche. Filme-la, vis-la pleinement. Puis décidez ensemble comment annoncer la grossesse, à qui et quand. Ce moment ne se répète pas.",
-    // Mois 4 (SA 14-17) : T2 debut, energie variable, ventre visible
-    "Commande le coussin de grossesse maintenant. Les nuits deviennent difficiles. C'est concret, utile, et elle n'a pas à le demander.",
-    // Mois 5 (SA 18-22) : echo T2, mi-grossesse, mouvements
-    "L'échographie T2 est le rendez-vous le plus intense de la grossesse. Prépare 3 questions avec elle. Décidez ensemble si vous voulez connaitre le sexe. Sois pleinement là.",
-    // Mois 6 (SA 23-27) : fin T2, ventre visible, dos douloureux
-    "Visite la maternité avec elle ce mois. Repérez ensemble les accès, les urgences obstétricales, le parking. Ce repérage concret réduit le stress le jour J pour vous deux.",
-    // Mois 7 (SA 28-31) : T3, fatigue, echo T3, valise
-    "Commence la valise maternité cette semaine sans attendre qu'elle te le demande. Consulte la checklist dans l'app. C'est un signal fort : tu es aussi prêt qu'elle.",
-    // Mois 8 (SA 32-35) : accouchement proche, insomnie, prep mentale
-    "Prépare des repas au congélateur. Minimum 10 portions. Pas pour toi : pour les premières semaines après la naissance. C'est l'un des gestes les plus utiles et les moins faits.",
-    // Mois 9 (SA 36-40) : terme, attente, mode alerte
-    "Dis-lui ce soir que tu es fier d'elle. Pas pour la rassurer. Parce que c'est vrai. Ce qu'elle a traversé ces 9 mois est extraordinaire. Et toi, tu as été là.",
-  ];
-  return idees[Math.min(mois - 1, idees.length - 1)] || idees[0];
+export function getIdee(sa: number): string {
+  const idees: Record<number, string> = {
+    3:  "La nouvelle vient de tomber. Ce soir, créez un rituel à deux pour marquer ce moment : un dîner, une photo, quelque chose qui n'appartient qu'à vous avant de l'annoncer.",
+    4:  "Elle ne ressent peut-être rien encore. Toi non plus. C'est normal. Commence à lire sur les premières semaines de grossesse pour ne pas être pris au dépourvu.",
+    5:  "Les nausées peuvent débuter. Prends en charge les courses et la cuisine cette semaine, sans attendre qu'elle demande. C'est le premier geste concret du rôle de père.",
+    6:  "Retire les produits aux odeurs fortes de la maison. Aère. Prépare des repas froids ou tièdes. L'hypersensibilité aux odeurs est neurologique, pas un caprice.",
+    7:  "Réserve la première consultation médicale si ce n'est pas encore fait. Et assure-toi qu'elle prend de l'acide folique jusqu'à 12 SA.",
+    8:  "Accompagne-la à la première consultation. Prends des notes, pose des questions. Tu n'es pas là pour porter le manteau.",
+    9:  "Prépare une liste de questions pour l'échographie T1. Et si tu ne sais pas quoi demander, commence par : comment puis-je aider concrètement ?",
+    10: "L'échographie T1 approche. Pose une demi-journée de congé. Filme. C'est souvent la première fois que bébé devient réel.",
+    11: "Ne fais aucun commentaire sur son corps, même positif. Dis simplement : tu es belle. Point. Ton regard est son miroir.",
+    12: "Le cap des 12 SA. Parlez ensemble de ce que vous avez traversé ce trimestre. Nommer les émotions ensemble, c'est en sortir ensemble.",
+    13: "Demande-lui comment elle se sent vraiment avant de proposer quoi que ce soit. Si elle a de l'énergie, profitez-en. Si elle est fatiguée, continue à prendre le relais.",
+    14: "Commence les recherches sur le siège auto et la poussette. Ne laisse pas cette logistique reposer uniquement sur elle.",
+    15: "Instaure le rituel : parler à bébé 5 minutes chaque soir, ta main sur le ventre. Ta voix grave est la mieux perçue in utero.",
+    16: "Réserve les cours de préparation à la naissance. Des séances spécifiques pour les pères existent, demande-les explicitement à ta maternité.",
+    17: "Note dans ton téléphone la date et l'heure du premier mouvement que tu sens sous ta main. Tu liras cette note dans 10 ans.",
+    18: "Apprends une technique de massage du dos. 10 minutes sur YouTube, puis applique ce soir. C'est utile et ça crée de la connexion.",
+    19: "Lance les démarches pour le congé paternité avec ton employeur. 28 jours, ça se prépare à l'avance.",
+    20: "L'échographie T2 est le rendez-vous le plus important de la grossesse. Prépare 3 questions. Décidez ensemble si vous voulez connaître le sexe.",
+    21: "Crée un album photo partagé. Une photo par semaine. Ces images seront parmi les plus précieuses de votre vie.",
+    22: "Visite la maternité avec elle. Repère les accès, les urgences obstétricales, le parking. Le repérage physique réduit le stress le jour J.",
+    23: "Prends en charge toutes les tâches physiques lourdes cette semaine. Courses, aspirateur, port de charges. Sans discussion.",
+    24: "Accompagne-la au test de diabète gestationnel (HGPO). Deux heures en laboratoire, à jeun. C'est long seul.",
+    25: "Commence la liste de la valise maternité. Fais-le sans qu'elle te le demande. C'est un signal fort que tu es aussi prêt qu'elle.",
+    26: "Rédigez le plan de naissance ensemble. Une page. Vos souhaits sur la péridurale, le peau à peau, la césarienne d'urgence. Mieux vaut y avoir réfléchi avant.",
+    27: "Prépare des repas et mets-les au congélateur. Pas pour maintenant : pour les premières semaines après la naissance.",
+    28: "Fais le vaccin coqueluche ce mois. Il protège bébé avant ses premiers vaccins à 2 mois. Pris en charge à 100%.",
+    29: "La valise doit être prête maintenant. Consulte la checklist dans l'app et rassemble ce qui te concerne.",
+    30: "Visite la maternité si pas encore fait. Teste le trajet aux heures de pointe. Note le numéro direct des urgences obstétricales.",
+    31: "Si elle ne dort pas, lève-toi avec elle. Pas pour résoudre. Juste pour ne pas la laisser seule à 3h du matin avec ses angoisses.",
+    32: "Prends en charge 100% des tâches ménagères cette semaine. Sans en parler, sans attendre un merci. Juste faire.",
+    33: "Finalise tous les achats prioritaires. Siège auto installé et vérifié par un professionnel. Valise dans la voiture.",
+    34: "Programme le numéro direct des urgences obstétricales de ta maternité dans tes favoris. Pas le standard. Le direct.",
+    35: "Installe le siège auto et fais-le vérifier par un professionnel. Puis pratique les gestes : mise en place, sangles, ajustement.",
+    36: "Accompagne-la à la consultation du 9e mois. C'est le dernier rendez-vous médical avant le jour J.",
+    37: "Propose une sortie douce chaque jour. Marche, cinéma, restaurant. L'attente est plus supportable quand on bouge.",
+    38: "Crée un message groupé famille : on vous préviendra dès que bébé est là. Envoie-le toi. C'est ton rôle de protéger cet espace.",
+    39: "Prépare la maison pour le retour : draps propres, frigo rempli, lumières douces dans la chambre. Elle rentrera épuisée.",
+    40: "Dis-lui ce soir que tu es fier d'elle. Pas pour la rassurer. Parce que c'est vrai. Ce qu'elle a traversé ces 9 mois est extraordinaire.",
+  };
+  return idees[sa] || idees[40];
 }
 
 export const MOIS_DATA: Record<number, MoisData> = {
