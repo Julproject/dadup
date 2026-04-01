@@ -26,10 +26,10 @@ const SEMAINES: Semaine[] = [
     source: `Genesoni & Tallandini, 2009  -  Human Reproduction Update`
   },
   {
-    sa: 4, theme: 'couple',     titre: `Le secret à deux. Profitez-en.`,
+    sa: 4, theme: 'couple',     titre: `Le secret des premières semaines.`,
     intro: `Avant d'annoncer la grossesse à tout le monde, il y a cette période unique où vous êtes les seuls à savoir.`,
     corps: `Cette période de secret, souvent quelques semaines, est l'une des plus intimes d'une relation. Les couples qui la vivent consciemment en gardent un souvenir fort. Ce n'est pas juste une question de prudence médicale avant 12 SA. C'est un espace de complicité rare.\n\nLes recherches sur la transition vers la parentalité montrent que les couples qui prennent le temps de "digérer" la nouvelle ensemble avant de la partager avec l'entourage vivent mieux les premières semaines de grossesse. Ils sont plus alignés, moins influencés par les opinions extérieures.`,
-    conseil: `Créez un rituel à deux pour marquer ce moment. Un dîner, une sortie, une photo. Quelque chose qui appartient rien qu'à vous.`,
+    conseil: `Si vous vivez bien cette période, notez un souvenir de ces premières semaines — une photo, une date, un message. Ce n'est pas une obligation. C'est juste une façon de ne pas laisser passer quelque chose d'unique sans le voir.`,
     source: `Plantin, Olukoya & Ny, 2011  -  Journal of Men's Health`
   },
   {
@@ -56,7 +56,7 @@ const SEMAINES: Semaine[] = [
   {
     sa: 8, theme: 'peur',     titre: `La peur de ne pas être à la hauteur. Elle est universelle.`,
     intro: `"Est-ce que je vais être un bon père ?" Cette question tourne en boucle pour presque tous les futurs papas.`,
-    corps: `Une étude menée auprès de 622 futurs pères montre que la peur de ne pas être à la hauteur est la préoccupation la plus fréquente au 1er trimestre. Elle est suivie de près par la peur de ne pas savoir quoi faire pratiquement et la peur de l'impact financier.\n\nLa bonne nouvelle : les pères qui expriment cette peur tôt dans la grossesse sont ceux qui s'impliquent le plus après la naissance. La peur de mal faire est un moteur de préparation. Elle ne prédit pas l'échec. Elle prédit l'effort.`,
+    corps: `Une étude menée auprès de 622 futurs pères montre que la peur de ne pas être à la hauteur est la préoccupation la plus fréquente au 1er trimestre. Elle est suivie de près par la peur de ne pas savoir quoi faire pratiquement et la peur de l'impact financier.\n\nCe qui est documenté : les pères qui expriment cette peur tôt dans la grossesse tendent à s'impliquer davantage après la naissance. La peur de mal faire peut être un moteur de préparation — mais elle peut aussi générer une pression paralysante. Si tu la ressens, la nommer est plus utile que de l'ignorer.`,
     conseil: `Note trois choses que tu veux faire différemment de ton propre père, et trois choses que tu veux transmettre. Cet exercice, recommandé par les psychologues périnataux, ancre le projet paternel de façon concrète.`,
     source: `Deave & Johnson, 2008  -  Midwifery`
   },
@@ -77,7 +77,7 @@ const SEMAINES: Semaine[] = [
   {
     sa: 11, theme: 'couple',     titre: `Son corps change. Ton regard compte.`,
     intro: `Elle commence à voir son corps se transformer. Et elle se demande parfois si tu la trouves toujours attirante.`,
-    corps: `Les recherches sur l'image corporelle pendant la grossesse montrent que les femmes enceintes sont particulièrement sensibles au regard de leur partenaire sur leur corps changeant. Même les femmes qui se disent "à l'aise" avec leur grossesse peuvent traverser des moments de doute.\n\nUn regard bienveillant, un compliment sincère, un geste de tendresse régulier : ces signaux ont un impact documenté sur le bien-être émotionnel des femmes enceintes. Ton rôle de miroir positif est concret et puissant.`,
+    corps: `Les recherches sur l'image corporelle pendant la grossesse montrent que les femmes enceintes sont particulièrement sensibles au regard de leur partenaire sur leur corps changeant. Même les femmes qui se disent "à l'aise" avec leur grossesse peuvent traverser des moments de doute.\n\nUn regard bienveillant, un geste de tendresse régulier ont un impact documenté sur le bien-être émotionnel des femmes enceintes. Mais certaines femmes vivent mal leur corps changeant même avec tout le soutien du monde — ce n'est pas un échec de ta part. Ce que tu peux faire : être présent, cohérent, et ne jamais commenter son corps sans qu'elle t'y invite.`,
     conseil: `Ne fais pas de commentaires sur son corps, même positifs du type "tu es belle pour une femme enceinte". Dis simplement "tu es belle". Point. La nuance est importante.`,
     source: `Darvill, Skirton & Farrand, 2010  -  Midwifery`
   },
@@ -89,10 +89,10 @@ const SEMAINES: Semaine[] = [
     source: `Franche & Mikail, 2001  -  Health Psychology`
   },
   {
-    sa: 13, theme: 'couple',     titre: `Le 2e trimestre. La fenêtre du couple.`,
-    intro: `Les nausées s'estompent. L'énergie revient. C'est souvent la meilleure période de la grossesse pour le couple.`,
-    corps: `Le 2e trimestre est documenté comme la période de la grossesse où le bien-être maternel est généralement le meilleur. Les nausées diminuent, la fatigue s'allège, le ventre n'est pas encore contraignant. Et la libido revient souvent.\n\nPour les couples, c'est une fenêtre précieuse. Les recherches de Paul Ramchandani à l'Université de Cambridge montrent que la qualité de la relation de couple pendant la grossesse prédit directement la qualité du co-parentage après la naissance. Ce que vous construisez maintenant a des effets réels plus tard.`,
-    conseil: `Planifiez quelque chose ensemble cette semaine. Un dîner, un week-end, une activité que vous n'avez jamais faite. Pas parce que c'est "la dernière fois". Mais parce que vous méritez ces moments maintenant.`,
+    sa: 13, theme: 'couple',     titre: `Le 2e trimestre. Ce qui peut changer pour vous deux.`,
+    intro: `Pour beaucoup de femmes, les nausées diminuent et l'énergie revient. Mais pas toutes. Ce qui se passe dans votre couple dépend d'abord de ce qu'elle vit physiquement.`,
+    corps: `Pour beaucoup de femmes, le 2e trimestre apporte un soulagement : les nausées diminuent, l'énergie remonte, le ventre n'est pas encore contraignant. C'est documenté — le bien-être maternel est statistiquement meilleur à cette période. Mais "statistiquement meilleur" ne signifie pas "systématiquement mieux". Certaines femmes restent fatiguées, anxieuses, ou continuent à avoir des symptômes intenses tout au long du 2e trimestre.\n\nPour la vie de couple, les données de Paul Ramchandani (Université de Cambridge) montrent que la qualité de la relation pendant la grossesse prédit la qualité du co-parentage après la naissance. Ce n'est pas une injonction à "profiter" — c'est un rappel que la relation compte maintenant, pas seulement après bébé.\n\nConcrètement : observe comment elle va cette semaine. Si elle a de l'énergie, proposez quelque chose ensemble. Si elle est encore épuisée, être présent sans attendre de réciprocité est aussi une façon de construire quelque chose de solide.`,
+    conseil: `Demande-lui comment elle se sent vraiment cette semaine. Pas "ça va ?", mais "t'as de l'énergie en ce moment ou t'es encore fatiguée ?" Sa réponse te dira ce dont elle a besoin — du mouvement ou du repos. Adapte-toi à ça plutôt qu'à l'idée que ce trimestre est censé être facile.`,
     source: `Paulson & Bazemore, 2010  -  JAMA`
   },
   {
@@ -252,8 +252,8 @@ const SEMAINES: Semaine[] = [
   {
     sa: 36, theme: 'couple',     titre: `Marquer la fin de la grossesse. Consciemment.`,
     intro: `Ces dernières semaines à deux méritent d'être vécues, pas seulement traversées en attendant que ça arrive.`,
-    corps: `Les couples qui marquent consciemment la fin de la grossesse, par un acte délibéré (photo, sortie, dîner, lettre), rapportent des souvenirs plus positifs de cette période et une meilleure transition vers la parentalité. Ce n'est pas de la sentimentalité. C'est de la psychologie positive appliquée.\n\nDans quelques semaines, votre vie sera profondément transformée. Ce ne sera pas moins bien. Ce sera différent. Prendre un moment pour honorer ce que vous avez vécu ensemble ces 9 mois est une façon saine de clore ce chapitre avant d'en ouvrir un autre.`,
-    conseil: `Organisez quelque chose cette semaine. Juste pour vous deux. Pas pour "profiter avant que tout change". Mais pour dire : on a vécu quelque chose ensemble, et c'est précieux. Une photo, un dîner, une lettre que vous ouvrirez dans un an.`,
+    corps: `Les couples qui marquent consciemment la fin de la grossesse, par un acte délibéré (photo, sortie, dîner, lettre), rapportent des souvenirs plus positifs de cette période et une meilleure transition vers la parentalité. Ce n'est pas de la sentimentalité. C'est de la psychologie positive appliquée.\n\nDans quelques semaines, votre vie sera profondément transformée. Ce sera difficile par moments, et différent de ce que vous imaginez. Marquer cette fin de grossesse — si vous en avez l'envie et l'énergie tous les deux — peut aider à en garder un souvenir conscient. Mais si elle est épuisée et que rien ne sort de l'ordinaire ces derniers jours, c'est aussi normal.`,
+    conseil: `Organisez quelque chose cette semaine. Juste pour vous deux. Pas pour "profiter avant que tout change". Mais pour dire : on a vécu quelque chose ensemble qui mérite d'être reconnu. Une photo, un dîner, une lettre que vous ouvrirez dans un an.`,
     source: `Plantin, Olukoya & Ny, 2011  -  Journal of Men's Health`
   },
   {
@@ -264,17 +264,17 @@ const SEMAINES: Semaine[] = [
     source: `Condon, Boyce & Corkindale, 2004  -  Journal of Reproductive and Infant Psychology`
   },
   {
-    sa: 38, theme: 'role',     titre: `Tu es prêt. Même si tu ne le sens pas.`,
+    sa: 38, theme: 'role',     titre: `Ne pas se sentir prêt. Ce que ça signifie vraiment.`,
     intro: `Aucun père ne se sent vraiment prêt la veille de la naissance. C'est universel. Et ce n'est pas un problème.`,
-    corps: `Des études longitudinales sur la transition vers la paternité montrent que le sentiment de "ne pas être prêt" juste avant la naissance n'est pas corrélé avec la qualité du parentage après. Les pères qui se sentent prêts ne s'en sortent pas mieux que ceux qui doutent.\n\nCe qui compte : l'implication pendant la grossesse. Le fait d'avoir été présent, d'avoir appris, d'avoir soutenu. Tout ça a déjà changé quelque chose en toi. La paternité ne commence pas à la naissance. Elle a commencé le jour où tu as appris la nouvelle et choisi d'être là.`,
+    corps: `Des études longitudinales sur la transition vers la paternité montrent que le sentiment de "ne pas être prêt" juste avant la naissance n'est pas corrélé avec la qualité du parentage après. Les pères qui se sentent prêts ne s'en sortent pas mieux que ceux qui doutent.\n\nCe qui compte, selon les données disponibles : l'implication pendant la grossesse. Le fait d'avoir été présent, d'avoir appris, d'avoir soutenu. Tout ça a déjà changé quelque chose en toi. La paternité ne commence pas à la naissance. Elle a commencé le jour où tu as appris la nouvelle et choisi d'être là.`,
     conseil: `Ce soir, dis-lui que tu es fier d'elle. Pas pour qu'elle te rassure en retour. Parce que c'est vrai. Ces 9 mois ont été exigeants pour vous deux. Et vous y êtes.`,
     source: `Deave & Johnson, 2008  -  Midwifery`
   },
   {
-    sa: 39, theme: 'couple',     titre: `Les derniers jours. Vivez-les, ne les attendez pas.`,
-    intro: `L'attente des derniers jours peut être épuisante. Choisissez de la vivre plutôt que de la subir.`,
+    sa: 39, theme: 'couple',     titre: `Les derniers jours avant la naissance.`,
+    intro: `L'attente des derniers jours est souvent épuisante — pour elle comme pour toi. Il n'y a pas de bonne façon de la traverser.`,
     corps: `L'attente de la naissance dans les derniers jours est décrite par beaucoup de couples comme une des périodes les plus difficiles psychologiquement. Chaque contraction analysée, chaque nuit sans réveil scrutée. Cette vigilance constante est épuisante.\n\nLes couples qui traversent mieux cette période sont ceux qui ont décidé consciemment de "vivre normalement" plutôt que d'attendre. Sortir, voir des amis, regarder un film, faire une balade. L'action réduit l'hypervigilance. Et dans quelques jours, vous serez trois. Ce moment à deux mérite d'être habité.`,
-    conseil: `Proposez une sortie aujourd'hui. Rien de compliqué. Une heure dehors. La naissance arrivera quand elle arrivera. D'ici là, vous êtes encore deux, et c'est précieux.`,
+    conseil: `Si elle en a l'énergie, propose une sortie simple. Sinon, reste proche sans forcer l'activité. Cette attente est rarement vécue de la même façon par les deux partenaires — elle est souvent plus angoissée, physiquement plus inconfortable. Ton rôle est d'absorber l'incertitude sans la transmettre.`,
     source: `Plantin, Olukoya & Ny, 2011  -  Journal of Men's Health`
   },
   {
