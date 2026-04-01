@@ -139,8 +139,8 @@ export default function Home() {
         <div className="benefits-grid">
           {[
             {bg:C.orange, tc:C.otc, titre:'Un dashboard qui evolue', desc:"Chaque semaine, ton contenu se met a jour automatiquement. Developpement de bebe, etat de maman, ta mission du moment."},
-            {bg:C.green,  tc:C.gtc, titre:'Rien n'est oublie', desc:"Valise maternite, achats prioritaires, RDV medicaux. Tout est coche, sauvegarde, accessible depuis ton telephone."},
-            {bg:C.blueLight, tc:C.btc, titre:'De la grossesse au 1er anniversaire', desc:"L'app ne s'arrete pas a la naissance. Elle bascule automatiquement. 12 mois de suivi de bebe, vaccins, alertes sante."},
+            {bg:C.green,  tc:C.gtc, titre:`Rien n'est oublie`, desc:"Valise maternite, achats prioritaires, RDV medicaux. Tout est coche, sauvegarde, accessible depuis ton telephone."},
+            {bg:C.blueLight, tc:C.btc, titre:`De la grossesse au 1er anniversaire`, desc:"L'app ne s'arrete pas a la naissance. Elle bascule automatiquement. 12 mois de suivi de bebe, vaccins, alertes sante."},
           ].map((b,i)=>(
             <div key={i} style={{background:b.bg, borderRadius:'20px', padding:'32px'}}>
               <p style={{color:b.tc, fontSize:'16px', fontWeight:800, margin:'0 0 10px'}}>{b.titre}</p>
