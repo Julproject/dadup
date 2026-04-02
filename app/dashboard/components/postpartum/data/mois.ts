@@ -79,7 +79,15 @@ export const MOIS_DATA: Record<number, MoisData> = {
         titre: "Reconnais les signaux de faim",
         contenu: "Bébé indique qu'il a faim avant de pleurer : il tourne la tete, ouvre la bouche, porte ses mains a sa bouche. Répondre a ces signaux précoces évite le cycle pleurs-stress-tétée difficile. Source : AAP 2022."
       }
-    ],
+    ,
+      {
+        titre: "Fais-toi confiance",
+        contenu: "Bébé est là. Tu n'es pas prêt à 100% et personne ne l'est. Ce que tu ressens, l'amour mélangé à la peur, c'est exactement ce que doit ressentir un père qui s'implique. Tu es prêt. Fais-toi confiance."
+      },
+      {
+        titre: "Le rythme des nuits",
+        contenu: "Les premières semaines, bébé se réveille toutes les 2 à 3 heures pour manger. C'est son rythme physiologique normal jusqu'à environ 3 mois. Pas d'inquiétude si les nuits semblent chaotiques : c'est temporaire et attendu."
+      }],
     activites: [
       { titre: "Le peau a peau", contenu: "30 minutes de peau a peau par jour, torse nu contre torse nu. Ca régule sa température, stabilise son rythme cardiaque et renforce votre lien. Tu peux faire ca en regardant un film ou en lisant." },
       { titre: "Le bain du soir", contenu: "Eau a 37°C, 5 minutes maximum. Parle-lui doucement pendant tout le bain. Pas besoin de savon a chaque fois. Ce rituel quotidien l'apaise et t'appartient." },
@@ -350,7 +358,15 @@ export const MOIS_DATA: Record<number, MoisData> = {
         titre: "L'examen du 6e mois",
         contenu: "C'est l'un des examens pédiatriques les plus complets. Viens avec une liste de tes observations : comment il mange, dort, se déplace, réagit. Tu es un parent observateur si tu es présent au quotidien."
       }
-    ],
+    ,
+      {
+        titre: "La diversification alimentaire",
+        contenu: "À 6 mois révolus, bébé peut commencer à manger autre chose que du lait. La diversification menée par l'enfant (DME) consiste à proposer des morceaux adaptés qu'il attrape seul, sous surveillance constante. Purées et morceaux sont tous les deux valides : l'important est de varier les saveurs et les textures progressivement."
+      },
+      {
+        titre: "La langue des signes bébé",
+        contenu: "Dès 6 mois, tu peux apprendre quelques signes simples inspirés de la langue des signes française : manger, lait, encore, dodo. Répète chaque signe avec le mot à voix haute. Bébé commencera à les reproduire vers 8 à 10 mois, avant même de parler. Cela réduit la frustration et renforce la communication."
+      }],
     activites: [
       { titre: "Le bain debout", contenu: "Laisse-le se tenir debout dans le bain (avec toi derriere). Il adore. Ca renforce ses jambes et lui donne confiance." },
       { titre: "Les chansons avec gestes", contenu: "Les chansons avec des gestes (promenons-nous, une souris verte) renforcent la coordination et le langage en meme temps. Répete les memes chansons : la répétition est de l'apprentissage." },
