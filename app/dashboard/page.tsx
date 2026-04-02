@@ -10,7 +10,6 @@ import { RDV_LIST }            from './data/rdv';
 import { PARTENAIRES }         from './data/partenaires';
 import { MOIS_DATA }           from './components/postpartum/data/mois';
 import { getIdee }             from './data/mois';
-import { getSA }               from './data/utils';
 
 // ── Components ────────────────────────────────────────────────────────────────
 import Onboarding    from './components/Onboarding';
@@ -165,14 +164,23 @@ function DashboardContent() {
     }
   };
 
-  // Calculs dérivés
-  const sa          = getSA(avance ? 1 : 0);
-  const saReelle    = getSA();
+  // Calculs dérivés — tout depuis le state `dpa` (source unique, réactif)
+  const dpaDate       = dpa ? new Date(dpa) : null;
+  const joursRestants = dpaDate ? Math.ceil((dpaDate.getTime() - new Date().getTime()) / (1000*60*60*24)) : null;
+  const isPost        = joursRestants !== null && joursRestants < 0;
+
+  // SA calculée depuis dpa directement (pas depuis localStorage via getSA)
+  const saDepuisDpa = (offset = 0): number | null => {
+    if (!dpaDate) return null;
+    const diffJours = Math.ceil((dpaDate.getTime() - new Date().getTime()) / (1000*60*60*24));
+    const sa = Math.round(40 - diffJours / 7) + offset;
+    return Math.max(3, Math.min(42, sa));
+  };
+
+  const saReelle    = isPost ? null : saDepuisDpa();
+  const sa          = isPost ? null : saDepuisDpa(avance ? 1 : 0);
   const data        = sa       ? (SD[sa]       || SD[20]) : null;
   const dataR       = saReelle ? (SD[saReelle] || SD[20]) : null;
-  const dpaDate     = dpa ? new Date(dpa) : null;
-  const joursRestants = dpaDate ? Math.ceil((dpaDate.getTime() - new Date().getTime()) / (1000*60*60*24)) : null;
-  const isPost      = joursRestants !== null && joursRestants < 0;
   const prog        = isPost ? 100 : Math.min(100, Math.round(((saReelle||0)/40)*100));
   const tri         = (saReelle||0) <= 14 ? 'T1' : (saReelle||0) <= 27 ? 'T2' : 'T3';
   const idee        = getIdee(saReelle || 20);
