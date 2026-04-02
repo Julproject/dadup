@@ -52,23 +52,32 @@ function joursAvantDpa(dateStr: string): number {
   return Math.round((dpaLocal.getTime() - aujourdhuiLocal.getTime()) / (1000 * 60 * 60 * 24));
 }
 
+// Lire le localStorage de façon sécurisée (SSR safe)
+function readLS(key: string): string {
+  try { return localStorage.getItem(key) || ''; } catch { return ''; }
+}
+function readLSJson<T>(key: string, fallback: T): T {
+  try { const v = localStorage.getItem(key); return v ? JSON.parse(v) : fallback; } catch { return fallback; }
+}
+
 // ── DashboardContent ──────────────────────────────────────────────────────────
 function DashboardContent() {
   const searchParams = useSearchParams();
 
+  // Initialisation immédiate depuis localStorage → affichage instantané à chaque refresh
   const [activeTab,            setActiveTabRaw]       = useState('home');
-  const [dpa,                  setDpa]                = useState('');
-  const [prenom,               setPrenom]             = useState('');
+  const [dpa,                  setDpa]                = useState(() => readLS('dadup_dpa'));
+  const [prenom,               setPrenom]             = useState(() => readLS('dadup_prenom'));
   const [showOnboarding,       setShowOnboarding]     = useState(false);
-  const [valiseChecked,        setValiseChecked]      = useState<Record<string,boolean>>({});
-  const [missionsChecked,      setMissionsChecked]    = useState<Record<string,boolean>>({});
-  const [rdvDates,             setRdvDates]           = useState<Record<number,string>>({});
+  const [valiseChecked,        setValiseChecked]      = useState<Record<string,boolean>>(() => readLSJson('dadup_valise', {}));
+  const [missionsChecked,      setMissionsChecked]    = useState<Record<string,boolean>>(() => readLSJson('dadup_missions', {}));
+  const [rdvDates,             setRdvDates]           = useState<Record<number,string>>(() => readLSJson('dadup_rdv_dates', {}));
   const [avance,               setAvance]             = useState(false);
-  const [nextRdvDate,          setNextRdvDate]        = useState('');
+  const [nextRdvDate,          setNextRdvDate]        = useState(() => readLS('dadup_next_rdv'));
   const [rdvOuvert,            setRdvOuvert]          = useState<number|null>(null);
-  const [achatChecked,         setAchatChecked]       = useState<Record<string,boolean>>({});
+  const [achatChecked,         setAchatChecked]       = useState<Record<string,boolean>>(() => readLSJson('dadup_achats', {}));
   const [showConfirmNaissance, setShowConfirmNaissance] = useState(false);
-  const [dpaOriginale,         setDpaOriginale]       = useState('');
+  const [dpaOriginale,         setDpaOriginale]       = useState(() => readLS('dadup_dpa_originale'));
 
   // Routing par URL
   const setActiveTab = (tab: string) => {
@@ -78,7 +87,8 @@ function DashboardContent() {
     window.history.pushState({}, '', url.toString());
   };
 
-  // Chargement depuis Supabase
+  // Validation + sync depuis Supabase (source de vérité)
+  // Le localStorage affiche immédiatement, Supabase corrige si besoin
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const tabFromUrl = params.get('tab');
@@ -90,18 +100,48 @@ function DashboardContent() {
         if (!user) { window.location.href = '/login'; return; }
         const p = user.prenom || '';
         const d = user.dpa    || '';
-        setPrenom(p); setDpa(d);
-        setValiseChecked(user.valise_checked    || {});
-        setMissionsChecked(user.missions_checked || {});
-        setRdvDates(user.rdv_dates              || {});
-        setNextRdvDate(user.next_rdv            || '');
-        if (user.dpa_originale) setDpaOriginale(user.dpa_originale);
-        if (user.achats_checked) setAchatChecked(user.achats_checked);
+
+        // Mettre à jour l'état ET le localStorage avec les données Supabase (source de vérité)
+        setPrenom(p);
+        setDpa(d);
         if (p) localStorage.setItem('dadup_prenom', p);
-        if (d) localStorage.setItem('dadup_dpa',    d);
-        if (!d) setShowOnboarding(true);
+        if (d) localStorage.setItem('dadup_dpa', d);
+        else   localStorage.removeItem('dadup_dpa');
+
+        // Données étendues
+        const vc = user.valise_checked    || {};
+        const mc = user.missions_checked  || {};
+        const rd = user.rdv_dates         || {};
+        const nr = user.next_rdv          || '';
+        const ac = user.achats_checked    || {};
+        setValiseChecked(vc);
+        setMissionsChecked(mc);
+        setRdvDates(rd);
+        setNextRdvDate(nr);
+        setAchatChecked(ac);
+        localStorage.setItem('dadup_valise',    JSON.stringify(vc));
+        localStorage.setItem('dadup_missions',  JSON.stringify(mc));
+        localStorage.setItem('dadup_rdv_dates', JSON.stringify(rd));
+        localStorage.setItem('dadup_next_rdv',  nr);
+        localStorage.setItem('dadup_achats',    JSON.stringify(ac));
+
+        if (user.dpa_originale) {
+          setDpaOriginale(user.dpa_originale);
+          localStorage.setItem('dadup_dpa_originale', user.dpa_originale);
+        }
+
+        // Onboarding seulement si vraiment pas de DPA en base ET pas en local
+        if (!d && !readLS('dadup_dpa')) setShowOnboarding(true);
       })
-      .catch(() => { window.location.href = '/login'; });
+      .catch(() => {
+        // Si Supabase échoue mais qu'on a des données en local, on reste connecté
+        const localDpa    = readLS('dadup_dpa');
+        const localPrenom = readLS('dadup_prenom');
+        if (!localDpa && !localPrenom) {
+          window.location.href = '/login';
+        }
+        // Sinon on garde ce qu'on a en local — l'utilisateur voit son contenu
+      });
   }, []);
 
   const saveData = async (patch: Record<string, unknown>) => {
