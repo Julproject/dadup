@@ -97,6 +97,7 @@ export default function Topbar({ prenom, dpa, saReelle, tri, prog, isPost, moisB
             </button>
           </div>
 
+          </div>
         </div>
 
         {/* Ligne 2 : onglets */}
