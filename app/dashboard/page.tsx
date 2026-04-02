@@ -127,28 +127,42 @@ function DashboardContent() {
   const declareNaissance = async () => {
     setShowConfirmNaissance(false);
     if (isPost) {
+      // ── RETOUR EN MODE GROSSESSE ──────────────────────────────────────────
+      // Récupérer la DPA originale (avant la déclaration de naissance)
       const dpaRestore = dpaOriginale
         || localStorage.getItem('dadup_dpa_originale')
         || localStorage.getItem('dadup_dpa_backup')
         || '';
       if (!dpaRestore) {
-        alert('Saisis ta date d\'accouchement dans les réglages pour revenir en mode grossesse.');
+        alert('Impossible de retrouver ta date d\'accouchement. Saisis-la dans les réglages.');
         return;
       }
+      // Restaurer la DPA → retour automatique en mode grossesse
       setDpa(dpaRestore);
+      setDpaOriginale('');
       localStorage.setItem('dadup_dpa', dpaRestore);
-      await saveData({ dpa: dpaRestore });
+      localStorage.removeItem('dadup_dpa_originale');
+      localStorage.removeItem('dadup_dpa_backup');
+      await saveData({ dpa: dpaRestore, dpa_originale: null });
+      // Retour à l'onglet home en mode grossesse
+      setActiveTab('home');
     } else {
-      // Déclarer la naissance : passer en post-partum (DPA = aujourd'hui)
-      localStorage.setItem('dadup_dpa_originale', dpa);
-      localStorage.setItem('dadup_dpa_backup', dpa);
-      const today = new Date().toISOString().split('T')[0];
-      setDpa(today);
-      localStorage.setItem('dadup_dpa', today);
-      await saveData({ dpa: today, dpa_originale: dpa });
-      setDpaOriginale(dpa);
+      // ── DÉCLARER LA NAISSANCE → PASSER EN POST-PARTUM ────────────────────
+      // Sauvegarder la DPA originale
+      const dpaCourante = dpa;
+      setDpaOriginale(dpaCourante);
+      localStorage.setItem('dadup_dpa_originale', dpaCourante);
+      localStorage.setItem('dadup_dpa_backup', dpaCourante);
+      // DPA post-partum = hier → joursRestants = -1 → isPost = true immédiatement
+      const hier = new Date();
+      hier.setDate(hier.getDate() - 1);
+      const dpaPostPartum = hier.toISOString().split('T')[0];
+      setDpa(dpaPostPartum);
+      localStorage.setItem('dadup_dpa', dpaPostPartum);
+      await saveData({ dpa: dpaPostPartum, dpa_originale: dpaCourante });
+      // Aller sur l'accueil post-partum
+      setActiveTab('home');
     }
-    setActiveTab('home');
   };
 
   // Calculs dérivés
