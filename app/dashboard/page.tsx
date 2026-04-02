@@ -33,6 +33,21 @@ const C = {
   teal:'#E0F5F0', coral:'#FDECEA', blueLight:'#E6F0FA', cream:'#f7f5f0',
 };
 
+// Parse une date "YYYY-MM-DD" en heure LOCALE (pas UTC)
+function parseLocalDate(dateStr: string): Date {
+  const [y, m, d] = dateStr.split('-').map(Number);
+  return new Date(y, m - 1, d); // mois 0-indexé, heure locale
+}
+
+// Nombre de jours entre aujourd'hui (minuit local) et la DPA (minuit local)
+function joursAvantDpa(dateStr: string): number {
+  const dpaLocal = parseLocalDate(dateStr);
+  const aujourdhuiLocal = new Date();
+  aujourdhuiLocal.setHours(0, 0, 0, 0);
+  dpaLocal.setHours(0, 0, 0, 0);
+  return Math.round((dpaLocal.getTime() - aujourdhuiLocal.getTime()) / (1000 * 60 * 60 * 24));
+}
+
 // ── DashboardContent ──────────────────────────────────────────────────────────
 function DashboardContent() {
   const searchParams = useSearchParams();
@@ -85,7 +100,6 @@ function DashboardContent() {
       .catch(() => { window.location.href = '/login'; });
   }, []);
 
-  // Sync Supabase
   const saveData = async (patch: Record<string, unknown>) => {
     await fetch('/api/auth/save', {
       method: 'POST',
@@ -125,9 +139,12 @@ function DashboardContent() {
 
   const declareNaissance = async () => {
     setShowConfirmNaissance(false);
-    if (isPost) {
+
+    // On recalcule isPost localement ici pour être sûr
+    const isPostNow = dpa ? joursAvantDpa(dpa) < 0 : false;
+
+    if (isPostNow) {
       // ── RETOUR EN MODE GROSSESSE ──────────────────────────────────────────
-      // Récupérer la DPA originale (avant la déclaration de naissance)
       const dpaRestore = dpaOriginale
         || localStorage.getItem('dadup_dpa_originale')
         || localStorage.getItem('dadup_dpa_backup')
@@ -136,58 +153,53 @@ function DashboardContent() {
         alert('Impossible de retrouver ta date d\'accouchement. Saisis-la dans les réglages.');
         return;
       }
-      // Restaurer la DPA → retour automatique en mode grossesse
       setDpa(dpaRestore);
       setDpaOriginale('');
       localStorage.setItem('dadup_dpa', dpaRestore);
       localStorage.removeItem('dadup_dpa_originale');
       localStorage.removeItem('dadup_dpa_backup');
       await saveData({ dpa: dpaRestore, dpa_originale: null });
-      // Retour à l'onglet home en mode grossesse
       setActiveTab('home');
+
     } else {
-      // ── DÉCLARER LA NAISSANCE → PASSER EN POST-PARTUM ────────────────────
-      // Sauvegarder la DPA originale
+      // ── BASCULE EN POST-PARTUM ────────────────────────────────────────────
       const dpaCourante = dpa;
       setDpaOriginale(dpaCourante);
       localStorage.setItem('dadup_dpa_originale', dpaCourante);
       localStorage.setItem('dadup_dpa_backup', dpaCourante);
-      // DPA post-partum = hier → joursRestants = -1 → isPost = true immédiatement
-      const hier = new Date();
-      hier.setDate(hier.getDate() - 1);
-      const dpaPostPartum = hier.toISOString().split('T')[0];
+
+      // DPA = il y a 2 jours → joursAvantDpa = -2 → isPost = true à coup sûr
+      const ilYa2Jours = new Date();
+      ilYa2Jours.setDate(ilYa2Jours.getDate() - 2);
+      const dpaPostPartum = `${ilYa2Jours.getFullYear()}-${String(ilYa2Jours.getMonth()+1).padStart(2,'0')}-${String(ilYa2Jours.getDate()).padStart(2,'0')}`;
+
       setDpa(dpaPostPartum);
       localStorage.setItem('dadup_dpa', dpaPostPartum);
       await saveData({ dpa: dpaPostPartum, dpa_originale: dpaCourante });
-      // Aller sur l'accueil post-partum
       setActiveTab('home');
     }
   };
 
-  // Calculs dérivés — tout depuis le state `dpa` (source unique, réactif)
-  const dpaDate       = dpa ? new Date(dpa) : null;
-  const joursRestants = dpaDate ? Math.ceil((dpaDate.getTime() - new Date().getTime()) / (1000*60*60*24)) : null;
+  // ── Calculs dérivés — tout depuis le state `dpa` en heure locale ──────────
+  const joursRestants = dpa ? joursAvantDpa(dpa) : null;
   const isPost        = joursRestants !== null && joursRestants < 0;
 
-  // SA calculée depuis dpa directement (pas depuis localStorage via getSA)
-  const saDepuisDpa = (offset = 0): number | null => {
-    if (!dpaDate) return null;
-    const diffJours = Math.ceil((dpaDate.getTime() - new Date().getTime()) / (1000*60*60*24));
-    const sa = Math.round(40 - diffJours / 7) + offset;
-    return Math.max(3, Math.min(42, sa));
-  };
+  const saReelle = !isPost && dpa
+    ? Math.max(3, Math.min(42, Math.round(40 - (joursRestants ?? 0) / 7)))
+    : null;
+  const sa = !isPost && dpa
+    ? Math.max(3, Math.min(42, Math.round(40 - (joursRestants ?? 0) / 7) + (avance ? 1 : 0)))
+    : null;
 
-  const saReelle    = isPost ? null : saDepuisDpa();
-  const sa          = isPost ? null : saDepuisDpa(avance ? 1 : 0);
-  const data        = sa       ? (SD[sa]       || SD[20]) : null;
-  const dataR       = saReelle ? (SD[saReelle] || SD[20]) : null;
-  const prog        = isPost ? 100 : Math.min(100, Math.round(((saReelle||0)/40)*100));
-  const tri         = (saReelle||0) <= 14 ? 'T1' : (saReelle||0) <= 27 ? 'T2' : 'T3';
-  const idee        = getIdee(saReelle || 20);
-  const missions    = saReelle ? (MISSIONS[saReelle] || MISSIONS[20] || []) : [];
-  const nextRdv     = RDV_LIST.filter(r => saReelle && r.sa >= saReelle)[0];
-  const moisBebe    = isPost && dpaDate ? Math.min(11, Math.floor(Math.abs(joursRestants||0) / 30)) : 0;
-  const dataBebe    = MOIS_DATA[moisBebe];
+  const data      = sa       ? (SD[sa]       || SD[20]) : null;
+  const dataR     = saReelle ? (SD[saReelle] || SD[20]) : null;
+  const prog      = isPost ? 100 : Math.min(100, Math.round(((saReelle||0)/40)*100));
+  const tri       = (saReelle||0) <= 14 ? 'T1' : (saReelle||0) <= 27 ? 'T2' : 'T3';
+  const idee      = getIdee(saReelle || 20);
+  const missions  = saReelle ? (MISSIONS[saReelle] || MISSIONS[20] || []) : [];
+  const nextRdv   = RDV_LIST.filter(r => saReelle && r.sa >= saReelle)[0];
+  const moisBebe  = isPost ? Math.min(11, Math.floor(Math.abs(joursRestants||0) / 30)) : 0;
+  const dataBebe  = MOIS_DATA[moisBebe];
 
   // Props partagées entre tous les composants
   const shared = {
@@ -199,7 +211,13 @@ function DashboardContent() {
   };
 
   if (showOnboarding) {
-    return <Onboarding onSave={(d, p) => { localStorage.setItem('dadup_dpa', d); localStorage.setItem('dadup_prenom', p); setDpa(d); setPrenom(p); setShowOnboarding(false); saveData({ dpa: d, prenom: p }); }} />;
+    return <Onboarding onSave={(d, p) => {
+      localStorage.setItem('dadup_dpa', d);
+      localStorage.setItem('dadup_prenom', p);
+      setDpa(d); setPrenom(p);
+      setShowOnboarding(false);
+      saveData({ dpa: d, prenom: p });
+    }} />;
   }
 
   return (
