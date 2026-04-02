@@ -1,208 +1,122 @@
+'use client';
+
+const C = {
+  dark: '#1e2535', gold: '#c8a060', cream: '#faf6f0', white: '#ffffff',
+  border: '#e8e0d0', text: '#4a5568', textLight: '#9aa0a8',
+  blue: '#2E5F8A', bluePale: '#E6F0FA', blueDark: '#1A3D5C',
+  orange: '#FFF0E6', green: '#E4F5EC', amber: '#FFF7E0', teal: '#E0F5F0',
+};
+
+const MODULES = [
+  {num:'01', titre:'Calendrier des rendez-vous', desc:"Chaque consultation médicale expliquée en détail. Ce qui se passe, ce qu'on cherche, les résultats possibles. Ton rôle précis à chaque étape.", details:["8 échographies et consultations détaillées","Dates personnalisées à ta date d'accouchement","Ce que tu dois demander au médecin","Comment soutenir sans stresser"], emoji:'📅', bg:C.bluePale, dark:false},
+  {num:'02', titre:'Suivi bébé semaine par semaine', desc:"Chaque semaine, découvre où en est bébé. Taille, poids, comparaison avec un fruit, développement des organes. Tu sais exactement ce qui se passe.", details:["SA 3 à SA 40 couverts","Comparaison avec un fruit chaque semaine","Développement des organes et des sens","Ce que ressent maman en parallèle"], emoji:'👶', bg:C.green, dark:false},
+  {num:'03', titre:'Guide accouchement complet', desc:"Le moment le plus intense de ta vie arrive. Tu seras prêt. Quand partir, où te mettre, comment soutenir, comment parler aux soignants.", details:["Reconnaître les vraies contractions","Checklist départ maternité","Ton rôle précis en salle de naissance","Césarienne : ce qu'il faut savoir"], emoji:'🏥', bg:C.dark, dark:true},
+  {num:'04', titre:'Valise maternité interactive', desc:"Une checklist complète et interactive. Coche au fur et à mesure. Pour toi, pour elle, pour bébé. Plus de stress le jour J.", details:["Articles essentiels catégorisés","Pour toi, pour elle, pour bébé","Documents administratifs inclus","Suivi en temps réel"], emoji:'🧳', bg:C.orange, dark:false},
+  {num:'05', titre:'Post-partum décrypté', desc:"Le retour à la maison est souvent le moment le plus difficile. Baby blues, manque de sommeil, bouleversement du couple. Tu comprends ce qu'elle vit.", details:["Baby blues et dépression post-partum","Ton rôle les premières semaines","Gérer la fatigue à deux","Reprendre la vie de couple"], emoji:'💙', bg:C.teal, dark:false},
+  {num:'06', titre:'Idées mensuelles pour ta partenaire', desc:"Chaque semaine, une idée concrète pour lui montrer que tu es là. Des attentions simples, accessibles, qui comptent vraiment.", details:["38 idées personnalisées semaine par semaine","Du geste pratique au moment de couple","Idées adaptées à son état du moment","Une idée différente chaque semaine"], emoji:'🎁', bg:C.dark, dark:true},
+  {num:'07', titre:'Psychologie du papa', desc:"Une info scientifique par semaine sur ce que tu traverses toi, le père. Peur, attachement, couple, rôle. Sourcée et honnête.", details:["38 semaines de contenu psycho","Sources scientifiques vérifiées","Peur, anxiété, attachement, couple","Ce que personne ne te dit"], emoji:'🧠', bg:C.amber, dark:false},
+  {num:'08', titre:'1ère année bébé', desc:"De la naissance à 12 mois. Développement, vaccins, diversification, premiers mots, premières chutes. Tout ce que tu dois savoir.", details:["12 mois couverts","Développement mois par mois","Vaccins, RDV médicaux, alertes","Activités à faire avec bébé"], emoji:'🌱', bg:C.bluePale, dark:false},
+];
+
 export default function InclusPage() {
   return (
-    <main style={{minHeight:"100vh",background:"#ffffff",fontFamily:"-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"}}>
-      <Nav/>
+    <main style={{minHeight:'100vh', background:C.white, fontFamily:"-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"}}>
+      <style>{`
+        *{box-sizing:border-box;margin:0;padding:0;}
+        .nl{display:flex;}.nc{display:flex;}
+        .mg{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;}
+        .mod-img{display:block;}
+        @media(max-width:768px){
+          .nl{display:none!important;}.nc{display:none!important;}
+          .mg{grid-template-columns:1fr!important;gap:24px!important;}
+          .mod-img{height:180px!important;}
+          .sp{padding:48px 20px!important;}
+          nav{padding:0 20px!important;}
+          h1{font-size:36px!important;}
+          h2{font-size:24px!important;}
+        }
+      `}</style>
 
-      <section style={{background:"#1e2535",padding:"80px 40px"}}>
-        <div style={{maxWidth:"800px",margin:"0 auto",textAlign:"center"}}>
-          <p style={{color:"#c8a060",fontSize:"11px",fontWeight:700,letterSpacing:"3px",textTransform:"uppercase",margin:"0 0 16px"}}>Ce qui est inclus</p>
-          <h1 style={{color:"#f7f5f0",fontSize:"52px",fontWeight:900,margin:"0 0 24px",lineHeight:1.1,letterSpacing:"-1px"}}>
-            Tout ce dont tu as besoin.<br/><span style={{color:"#c8a060"}}>Au bon moment.</span>
+      <nav style={{background:C.white,borderBottom:`1px solid ${C.border}`,padding:'0 40px',display:'flex',alignItems:'center',justifyContent:'space-between',height:'68px',position:'sticky',top:0,zIndex:50}}>
+        <div style={{display:'flex',alignItems:'center',gap:'48px'}}>
+          <a href="/" style={{display:'flex',alignItems:'center',gap:'10px',textDecoration:'none'}}>
+            <svg viewBox="0 0 300 300" width="34" height="34"><circle cx="150" cy="150" r="145" fill="#3a4f6e"/><circle cx="150" cy="150" r="122" fill="#4a6080"/><ellipse cx="150" cy="205" rx="58" ry="54" fill="#c8a060"/><circle cx="150" cy="112" r="40" fill="#c8a060"/><ellipse cx="150" cy="196" rx="27" ry="31" fill="#faf6f0"/><circle cx="150" cy="128" r="26" fill="#faf6f0"/></svg>
+            <span style={{fontWeight:800,color:C.dark,fontSize:'20px'}}>DadUp</span>
+          </a>
+          <div className="nl" style={{gap:'4px'}}>
+            <a href="/pourquoi" style={{color:C.text,fontSize:'14px',fontWeight:500,padding:'8px 14px',textDecoration:'none'}}>Pourquoi DadUp</a>
+            <a href="/inclus" style={{color:C.dark,fontSize:'14px',fontWeight:700,padding:'8px 14px',borderRadius:'8px',textDecoration:'none',borderBottom:`2px solid ${C.gold}`}}>Ce qui est inclus</a>
+            <a href="/tarifs" style={{color:C.text,fontSize:'14px',fontWeight:500,padding:'8px 14px',textDecoration:'none'}}>Tarifs</a>
+            <a href="/temoignages" style={{color:C.text,fontSize:'14px',fontWeight:500,padding:'8px 14px',textDecoration:'none'}}>Témoignages</a>
+          </div>
+        </div>
+        <div className="nc" style={{alignItems:'center',gap:'16px'}}>
+          <a href="/login" style={{color:C.dark,fontSize:'14px',fontWeight:600,textDecoration:'none'}}>Se connecter</a>
+          <a href="/tarifs" style={{background:C.dark,color:C.white,padding:'11px 22px',borderRadius:'32px',fontSize:'13px',fontWeight:700,textDecoration:'none'}}>Commencer — 35,99€/an 💪</a>
+        </div>
+      </nav>
+
+      {/* HERO */}
+      <section style={{background:C.dark,padding:'80px 40px'}}>
+        <div style={{maxWidth:'800px',margin:'0 auto',textAlign:'center'}}>
+          <div style={{display:'inline-flex',alignItems:'center',gap:'8px',background:'rgba(200,160,96,0.15)',borderRadius:'20px',padding:'6px 16px',marginBottom:'24px'}}>
+            <span style={{fontSize:'16px'}}>💪</span>
+            <span style={{color:C.gold,fontSize:'13px',fontWeight:700}}>Ton coach paternité perso pour moins d'1€/semaine</span>
+          </div>
+          <h1 style={{color:C.white,fontSize:'52px',fontWeight:800,margin:'0 0 24px',lineHeight:1.1}}>
+            Ce qui est<br/><span style={{color:C.gold}}>inclus.</span>
           </h1>
-          <p style={{color:"#9aa0a8",fontSize:"18px",lineHeight:1.7,margin:0}}>Une application qui evolue avec toi, de la premiere echographie au premier anniversaire de bebe.</p>
+          <p style={{color:'#6a7585',fontSize:'18px',lineHeight:1.7,margin:0}}>Tout ce dont tu as besoin, au bon moment.</p>
         </div>
       </section>
 
-      <section style={{padding:"80px 40px",maxWidth:"1200px",margin:"0 auto"}}>
-        <div style={{display:"flex",flexDirection:"column",gap:"56px"}}>
-          <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:"64px",alignItems:"center",direction:"ltr"}}>
-            <div style={{direction:"ltr"}}>
-              <div style={{display:"flex",alignItems:"center",gap:"16px",marginBottom:"16px"}}><span style={{color:"#e8e0d8",fontSize:"44px",fontWeight:900,lineHeight:1}}>01</span><h2 style={{color:"#1e2535",fontSize:"26px",fontWeight:800,margin:0}}>Dashboard personnalise</h2></div>
-              <p style={{color:"#9aa0a8",fontSize:"15px",lineHeight:1.7,margin:"0 0 20px"}}>Ta semaine en cours, le developpement de bebe, ta mission de papa. Mis a jour chaque semaine.</p>
-              <div style={{display:"flex",flexDirection:"column",gap:"8px"}}>
-                    <div style={{display:"flex",gap:"10px",alignItems:"center"}}><div style={{width:"6px",height:"6px",borderRadius:"50%",background:"#c8a060",flexShrink:0}}/><p style={{color:"#2E5F8A",fontSize:"14px",margin:0}}>SA 6 a SA 40 : contenu unique chaque semaine</p></div>
-                    <div style={{display:"flex",gap:"10px",alignItems:"center"}}><div style={{width:"6px",height:"6px",borderRadius:"50%",background:"#c8a060",flexShrink:0}}/><p style={{color:"#2E5F8A",fontSize:"14px",margin:0}}>Taille, poids, developpement des organes</p></div>
-                    <div style={{display:"flex",gap:"10px",alignItems:"center"}}><div style={{width:"6px",height:"6px",borderRadius:"50%",background:"#c8a060",flexShrink:0}}/><p style={{color:"#2E5F8A",fontSize:"14px",margin:0}}>Ce que ressent la maman en parallele</p></div>
-                    <div style={{display:"flex",gap:"10px",alignItems:"center"}}><div style={{width:"6px",height:"6px",borderRadius:"50%",background:"#c8a060",flexShrink:0}}/><p style={{color:"#2E5F8A",fontSize:"14px",margin:0}}>Conseil du papa adapte a la semaine</p></div>
+      {/* MODULES */}
+      <section className="sp" style={{padding:'80px 40px',maxWidth:'1200px',margin:'0 auto'}}>
+        <div style={{display:'flex',flexDirection:'column',gap:'56px'}}>
+          {MODULES.map((m,i)=>(
+            <div key={i} className="mg" style={{direction: i%2===1?'rtl':'ltr'}}>
+              <div style={{direction:'ltr'}}>
+                <div style={{display:'flex',alignItems:'center',gap:'16px',marginBottom:'16px'}}>
+                  <span style={{color:C.border,fontSize:'44px',fontWeight:800,lineHeight:1}}>{m.num}</span>
+                  <h2 style={{color:C.dark,fontSize:'24px',fontWeight:800,margin:0}}>{m.titre}</h2>
+                </div>
+                <p style={{color:C.text,fontSize:'15px',lineHeight:1.7,margin:'0 0 20px'}}>{m.desc}</p>
+                <div style={{display:'flex',flexDirection:'column',gap:'8px'}}>
+                  {m.details.map((d,j)=>(
+                    <div key={j} style={{display:'flex',gap:'10px',alignItems:'flex-start'}}>
+                      <div style={{width:'6px',height:'6px',borderRadius:'50%',background:C.blue,flexShrink:0,marginTop:'6px'}}></div>
+                      <p style={{color:C.blueDark,fontSize:'14px',margin:0,lineHeight:1.5}}>{d}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="mod-img" style={{direction:'ltr',background:m.bg,borderRadius:'24px',height:'280px',display:'flex',alignItems:'center',justifyContent:'center',border:m.dark?'none':`1px solid ${C.border}`}}>
+                <div style={{textAlign:'center'}}>
+                  <p style={{fontSize:'52px',margin:'0 0 8px'}}>{m.emoji}</p>
+                  <p style={{color:m.dark?C.gold:C.textLight,fontSize:'13px',margin:0,fontWeight:600}}>{m.titre}</p>
+                </div>
               </div>
             </div>
-            <div style={{direction:"ltr",background:"#FFF0E6",borderRadius:"24px",height:"260px",display:"flex",alignItems:"center",justifyContent:"center",flexDirection:"column",gap:"12px"}}>
-              <span style={{fontSize:"52px"}}>📊</span>
-              <p style={{color:"#C04A1A",fontSize:"13px",margin:0,fontWeight:600,textAlign:"center",padding:"0 20px"}}>Dashboard personnalise</p>
-            </div>
-          </div>
-          <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:"64px",alignItems:"center",direction:"rtl"}}>
-            <div style={{direction:"ltr"}}>
-              <div style={{display:"flex",alignItems:"center",gap:"16px",marginBottom:"16px"}}><span style={{color:"#e8e0d8",fontSize:"44px",fontWeight:900,lineHeight:1}}>02</span><h2 style={{color:"#1e2535",fontSize:"26px",fontWeight:800,margin:0}}>Suivi des rendez-vous medicaux</h2></div>
-              <p style={{color:"#9aa0a8",fontSize:"15px",lineHeight:1.7,margin:"0 0 20px"}}>Chaque consultation expliquee avant qu'elle arrive. Ton role precis. Tu arrives prepare, pas spectateur.</p>
-              <div style={{display:"flex",flexDirection:"column",gap:"8px"}}>
-                    <div style={{display:"flex",gap:"10px",alignItems:"center"}}><div style={{width:"6px",height:"6px",borderRadius:"50%",background:"#c8a060",flexShrink:0}}/><p style={{color:"#2E5F8A",fontSize:"14px",margin:0}}>Toutes les consultations detaillees</p></div>
-                    <div style={{display:"flex",gap:"10px",alignItems:"center"}}><div style={{width:"6px",height:"6px",borderRadius:"50%",background:"#c8a060",flexShrink:0}}/><p style={{color:"#2E5F8A",fontSize:"14px",margin:0}}>Dates personnalisees a ta DPA</p></div>
-                    <div style={{display:"flex",gap:"10px",alignItems:"center"}}><div style={{width:"6px",height:"6px",borderRadius:"50%",background:"#c8a060",flexShrink:0}}/><p style={{color:"#2E5F8A",fontSize:"14px",margin:0}}>Ce que tu dois demander au medecin</p></div>
-                    <div style={{display:"flex",gap:"10px",alignItems:"center"}}><div style={{width:"6px",height:"6px",borderRadius:"50%",background:"#c8a060",flexShrink:0}}/><p style={{color:"#2E5F8A",fontSize:"14px",margin:0}}>Comprendre les resultats d'examens</p></div>
-              </div>
-            </div>
-            <div style={{direction:"ltr",background:"#1e2535",borderRadius:"24px",height:"260px",display:"flex",alignItems:"center",justifyContent:"center",flexDirection:"column",gap:"12px"}}>
-              <span style={{fontSize:"52px"}}>📅</span>
-              <p style={{color:"#c8a060",fontSize:"13px",margin:0,fontWeight:600,textAlign:"center",padding:"0 20px"}}>Suivi des rendez-vous medicaux</p>
-            </div>
-          </div>
-          <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:"64px",alignItems:"center",direction:"ltr"}}>
-            <div style={{direction:"ltr"}}>
-              <div style={{display:"flex",alignItems:"center",gap:"16px",marginBottom:"16px"}}><span style={{color:"#e8e0d8",fontSize:"44px",fontWeight:900,lineHeight:1}}>03</span><h2 style={{color:"#1e2535",fontSize:"26px",fontWeight:800,margin:0}}>Preparation a l'accouchement</h2></div>
-              <p style={{color:"#9aa0a8",fontSize:"15px",lineHeight:1.7,margin:"0 0 20px"}}>Contractions, poche des eaux, salle de naissance, cesarienne. Tu sais exactement quoi faire avant que ca arrive.</p>
-              <div style={{display:"flex",flexDirection:"column",gap:"8px"}}>
-                    <div style={{display:"flex",gap:"10px",alignItems:"center"}}><div style={{width:"6px",height:"6px",borderRadius:"50%",background:"#c8a060",flexShrink:0}}/><p style={{color:"#2E5F8A",fontSize:"14px",margin:0}}>Reconnaitre les vraies contractions</p></div>
-                    <div style={{display:"flex",gap:"10px",alignItems:"center"}}><div style={{width:"6px",height:"6px",borderRadius:"50%",background:"#c8a060",flexShrink:0}}/><p style={{color:"#2E5F8A",fontSize:"14px",margin:0}}>Checklist depart maternite</p></div>
-                    <div style={{display:"flex",gap:"10px",alignItems:"center"}}><div style={{width:"6px",height:"6px",borderRadius:"50%",background:"#c8a060",flexShrink:0}}/><p style={{color:"#2E5F8A",fontSize:"14px",margin:0}}>Ton role precis en salle de naissance</p></div>
-                    <div style={{display:"flex",gap:"10px",alignItems:"center"}}><div style={{width:"6px",height:"6px",borderRadius:"50%",background:"#c8a060",flexShrink:0}}/><p style={{color:"#2E5F8A",fontSize:"14px",margin:0}}>Cesarienne : deroulement et ton role</p></div>
-              </div>
-            </div>
-            <div style={{direction:"ltr",background:"#E6F0FA",borderRadius:"24px",height:"260px",display:"flex",alignItems:"center",justifyContent:"center",flexDirection:"column",gap:"12px"}}>
-              <span style={{fontSize:"52px"}}>🏥</span>
-              <p style={{color:"#1A4A7A",fontSize:"13px",margin:0,fontWeight:600,textAlign:"center",padding:"0 20px"}}>Preparation a l'accouchement</p>
-            </div>
-          </div>
-          <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:"64px",alignItems:"center",direction:"rtl"}}>
-            <div style={{direction:"ltr"}}>
-              <div style={{display:"flex",alignItems:"center",gap:"16px",marginBottom:"16px"}}><span style={{color:"#e8e0d8",fontSize:"44px",fontWeight:900,lineHeight:1}}>04</span><h2 style={{color:"#1e2535",fontSize:"26px",fontWeight:800,margin:0}}>Checklists interactives</h2></div>
-              <p style={{color:"#9aa0a8",fontSize:"15px",lineHeight:1.7,margin:"0 0 20px"}}>Valise maternite, achats prioritaires, documents. Tout est cochable et sauvegarde dans ton compte.</p>
-              <div style={{display:"flex",flexDirection:"column",gap:"8px"}}>
-                    <div style={{display:"flex",gap:"10px",alignItems:"center"}}><div style={{width:"6px",height:"6px",borderRadius:"50%",background:"#c8a060",flexShrink:0}}/><p style={{color:"#2E5F8A",fontSize:"14px",margin:0}}>Valise : pour toi, pour elle, pour bebe</p></div>
-                    <div style={{display:"flex",gap:"10px",alignItems:"center"}}><div style={{width:"6px",height:"6px",borderRadius:"50%",background:"#c8a060",flexShrink:0}}/><p style={{color:"#2E5F8A",fontSize:"14px",margin:0}}>Liste achats : essentiel vs superflu</p></div>
-                    <div style={{display:"flex",gap:"10px",alignItems:"center"}}><div style={{width:"6px",height:"6px",borderRadius:"50%",background:"#c8a060",flexShrink:0}}/><p style={{color:"#2E5F8A",fontSize:"14px",margin:0}}>Documents administratifs</p></div>
-                    <div style={{display:"flex",gap:"10px",alignItems:"center"}}><div style={{width:"6px",height:"6px",borderRadius:"50%",background:"#c8a060",flexShrink:0}}/><p style={{color:"#2E5F8A",fontSize:"14px",margin:0}}>Sauvegarde automatique</p></div>
-              </div>
-            </div>
-            <div style={{direction:"ltr",background:"#1e2535",borderRadius:"24px",height:"260px",display:"flex",alignItems:"center",justifyContent:"center",flexDirection:"column",gap:"12px"}}>
-              <span style={{fontSize:"52px"}}>🧳</span>
-              <p style={{color:"#c8a060",fontSize:"13px",margin:0,fontWeight:600,textAlign:"center",padding:"0 20px"}}>Checklists interactives</p>
-            </div>
-          </div>
-          <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:"64px",alignItems:"center",direction:"ltr"}}>
-            <div style={{direction:"ltr"}}>
-              <div style={{display:"flex",alignItems:"center",gap:"16px",marginBottom:"16px"}}><span style={{color:"#e8e0d8",fontSize:"44px",fontWeight:900,lineHeight:1}}>05</span><h2 style={{color:"#1e2535",fontSize:"26px",fontWeight:800,margin:0}}>Psychologie et preparation mentale</h2></div>
-              <p style={{color:"#9aa0a8",fontSize:"15px",lineHeight:1.7,margin:"0 0 20px"}}>38 semaines de contenus sur la paternite. Peur, vie de couple, lien avec bebe. Un sujet par semaine, verifie medicalement.</p>
-              <div style={{display:"flex",flexDirection:"column",gap:"8px"}}>
-                    <div style={{display:"flex",gap:"10px",alignItems:"center"}}><div style={{width:"6px",height:"6px",borderRadius:"50%",background:"#c8a060",flexShrink:0}}/><p style={{color:"#2E5F8A",fontSize:"14px",margin:0}}>38 semaines de contenu unique</p></div>
-                    <div style={{display:"flex",gap:"10px",alignItems:"center"}}><div style={{width:"6px",height:"6px",borderRadius:"50%",background:"#c8a060",flexShrink:0}}/><p style={{color:"#2E5F8A",fontSize:"14px",margin:0}}>Informations medicalement verifiees</p></div>
-                    <div style={{display:"flex",gap:"10px",alignItems:"center"}}><div style={{width:"6px",height:"6px",borderRadius:"50%",background:"#c8a060",flexShrink:0}}/><p style={{color:"#2E5F8A",fontSize:"14px",margin:0}}>Lien direct Doctolib si besoin</p></div>
-                    <div style={{display:"flex",gap:"10px",alignItems:"center"}}><div style={{width:"6px",height:"6px",borderRadius:"50%",background:"#c8a060",flexShrink:0}}/><p style={{color:"#2E5F8A",fontSize:"14px",margin:0}}>Aucune repetition entre les semaines</p></div>
-              </div>
-            </div>
-            <div style={{direction:"ltr",background:"#E0F5F0",borderRadius:"24px",height:"260px",display:"flex",alignItems:"center",justifyContent:"center",flexDirection:"column",gap:"12px"}}>
-              <span style={{fontSize:"52px"}}>🧠</span>
-              <p style={{color:"#0D7070",fontSize:"13px",margin:0,fontWeight:600,textAlign:"center",padding:"0 20px"}}>Psychologie et preparation mentale</p>
-            </div>
-          </div>
-          <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:"64px",alignItems:"center",direction:"rtl"}}>
-            <div style={{direction:"ltr"}}>
-              <div style={{display:"flex",alignItems:"center",gap:"16px",marginBottom:"16px"}}><span style={{color:"#e8e0d8",fontSize:"44px",fontWeight:900,lineHeight:1}}>06</span><h2 style={{color:"#1e2535",fontSize:"26px",fontWeight:800,margin:0}}>Mode post-partum : 12 mois</h2></div>
-              <p style={{color:"#9aa0a8",fontSize:"15px",lineHeight:1.7,margin:"0 0 20px"}}>Apres la naissance, l'application bascule automatiquement. Developpement de bebe mois par mois, vaccins, alertes sante.</p>
-              <div style={{display:"flex",flexDirection:"column",gap:"8px"}}>
-                    <div style={{display:"flex",gap:"10px",alignItems:"center"}}><div style={{width:"6px",height:"6px",borderRadius:"50%",background:"#c8a060",flexShrink:0}}/><p style={{color:"#2E5F8A",fontSize:"14px",margin:0}}>12 mois de suivi post-natal</p></div>
-                    <div style={{display:"flex",gap:"10px",alignItems:"center"}}><div style={{width:"6px",height:"6px",borderRadius:"50%",background:"#c8a060",flexShrink:0}}/><p style={{color:"#2E5F8A",fontSize:"14px",margin:0}}>Developpement de bebe mois par mois</p></div>
-                    <div style={{display:"flex",gap:"10px",alignItems:"center"}}><div style={{width:"6px",height:"6px",borderRadius:"50%",background:"#c8a060",flexShrink:0}}/><p style={{color:"#2E5F8A",fontSize:"14px",margin:0}}>Baby blues, fatigue, vie de couple</p></div>
-                    <div style={{display:"flex",gap:"10px",alignItems:"center"}}><div style={{width:"6px",height:"6px",borderRadius:"50%",background:"#c8a060",flexShrink:0}}/><p style={{color:"#2E5F8A",fontSize:"14px",margin:0}}>Vaccins, RDV pediatre, alertes</p></div>
-              </div>
-            </div>
-            <div style={{direction:"ltr",background:"#1e2535",borderRadius:"24px",height:"260px",display:"flex",alignItems:"center",justifyContent:"center",flexDirection:"column",gap:"12px"}}>
-              <span style={{fontSize:"52px"}}>👶</span>
-              <p style={{color:"#c8a060",fontSize:"13px",margin:0,fontWeight:600,textAlign:"center",padding:"0 20px"}}>Mode post-partum : 12 mois</p>
-            </div>
-          </div>
-          <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:"64px",alignItems:"center",direction:"ltr"}}>
-            <div style={{direction:"ltr"}}>
-              <div style={{display:"flex",alignItems:"center",gap:"16px",marginBottom:"16px"}}><span style={{color:"#e8e0d8",fontSize:"44px",fontWeight:900,lineHeight:1}}>07</span><h2 style={{color:"#1e2535",fontSize:"26px",fontWeight:800,margin:0}}>Ateliers pratiques</h2></div>
-              <p style={{color:"#9aa0a8",fontSize:"15px",lineHeight:1.7,margin:"0 0 20px"}}>Emmaillotage, premiers secours, apaisement, allaitement. Les gestes que tu fais a 3h du matin, sans jargon.</p>
-              <div style={{display:"flex",flexDirection:"column",gap:"8px"}}>
-                    <div style={{display:"flex",gap:"10px",alignItems:"center"}}><div style={{width:"6px",height:"6px",borderRadius:"50%",background:"#c8a060",flexShrink:0}}/><p style={{color:"#2E5F8A",fontSize:"14px",margin:0}}>Emmaillotage pas a pas</p></div>
-                    <div style={{display:"flex",gap:"10px",alignItems:"center"}}><div style={{width:"6px",height:"6px",borderRadius:"50%",background:"#c8a060",flexShrink:0}}/><p style={{color:"#2E5F8A",fontSize:"14px",margin:0}}>Premiers secours nourrisson</p></div>
-                    <div style={{display:"flex",gap:"10px",alignItems:"center"}}><div style={{width:"6px",height:"6px",borderRadius:"50%",background:"#c8a060",flexShrink:0}}/><p style={{color:"#2E5F8A",fontSize:"14px",margin:0}}>Comprendre et calmer les pleurs</p></div>
-                    <div style={{display:"flex",gap:"10px",alignItems:"center"}}><div style={{width:"6px",height:"6px",borderRadius:"50%",background:"#c8a060",flexShrink:0}}/><p style={{color:"#2E5F8A",fontSize:"14px",margin:0}}>Allaitement : ton role</p></div>
-              </div>
-            </div>
-            <div style={{direction:"ltr",background:"#FFF0E6",borderRadius:"24px",height:"260px",display:"flex",alignItems:"center",justifyContent:"center",flexDirection:"column",gap:"12px"}}>
-              <span style={{fontSize:"52px"}}>🌙</span>
-              <p style={{color:"#C04A1A",fontSize:"13px",margin:0,fontWeight:600,textAlign:"center",padding:"0 20px"}}>Ateliers pratiques</p>
-            </div>
-          </div>
-          <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:"64px",alignItems:"center",direction:"rtl"}}>
-            <div style={{direction:"ltr"}}>
-              <div style={{display:"flex",alignItems:"center",gap:"16px",marginBottom:"16px"}}><span style={{color:"#e8e0d8",fontSize:"44px",fontWeight:900,lineHeight:1}}>08</span><h2 style={{color:"#1e2535",fontSize:"26px",fontWeight:800,margin:0}}>Suivi des 7 premiers jours</h2></div>
-              <p style={{color:"#9aa0a8",fontSize:"15px",lineHeight:1.7,margin:"0 0 20px"}}>Tableau de suivi des tetees, urines et selles. Et une idee mensuelle pour ta partenaire adaptee a son etat.</p>
-              <div style={{display:"flex",flexDirection:"column",gap:"8px"}}>
-                    <div style={{display:"flex",gap:"10px",alignItems:"center"}}><div style={{width:"6px",height:"6px",borderRadius:"50%",background:"#c8a060",flexShrink:0}}/><p style={{color:"#2E5F8A",fontSize:"14px",margin:0}}>Suivi J7 : tetees, selles, urines</p></div>
-                    <div style={{display:"flex",gap:"10px",alignItems:"center"}}><div style={{width:"6px",height:"6px",borderRadius:"50%",background:"#c8a060",flexShrink:0}}/><p style={{color:"#2E5F8A",fontSize:"14px",margin:0}}>Sauvegarde entre sessions</p></div>
-                    <div style={{display:"flex",gap:"10px",alignItems:"center"}}><div style={{width:"6px",height:"6px",borderRadius:"50%",background:"#c8a060",flexShrink:0}}/><p style={{color:"#2E5F8A",fontSize:"14px",margin:0}}>Idee mensuelle pour ta partenaire</p></div>
-                    <div style={{display:"flex",gap:"10px",alignItems:"center"}}><div style={{width:"6px",height:"6px",borderRadius:"50%",background:"#c8a060",flexShrink:0}}/><p style={{color:"#2E5F8A",fontSize:"14px",margin:0}}>Activites adaptees a chaque mois</p></div>
-              </div>
-            </div>
-            <div style={{direction:"ltr",background:"#1e2535",borderRadius:"24px",height:"260px",display:"flex",alignItems:"center",justifyContent:"center",flexDirection:"column",gap:"12px"}}>
-              <span style={{fontSize:"52px"}}>🛒</span>
-              <p style={{color:"#c8a060",fontSize:"13px",margin:0,fontWeight:600,textAlign:"center",padding:"0 20px"}}>Suivi des 7 premiers jours</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section style={{background:"#1e2535",padding:"80px 40px",textAlign:"center"}}>
-        <h2 style={{color:"#f7f5f0",fontSize:"38px",fontWeight:900,margin:"0 0 12px",letterSpacing:"-0.5px"}}>Tout ca a partir de 6,99 &#8364;/mois.</h2>
-        <p style={{color:"#9aa0a8",fontSize:"16px",margin:"0 0 8px"}}>Ou 59,99 &#8364;/an, sans engagement, resiliable a tout moment.</p>
-        <p style={{color:"rgba(255,255,255,0.2)",fontSize:"13px",margin:"0 0 32px"}}>Acces immediat apres inscription.</p>
-        <a href="/tarifs" style={{background:"#c8a060",color:"#1e2535",padding:"16px 40px",borderRadius:"32px",fontSize:"15px",fontWeight:800,textDecoration:"none",display:"inline-block"}}>Voir les tarifs</a>
-      </section>
-
-      <Footer/>
-    </main>
-  );
-}
-
-function Nav() {
-  return (
-    <nav style={{background:'#ffffff', borderBottom:'1px solid #e8e0d8', padding:'0 40px', display:'flex', alignItems:'center', justifyContent:'space-between', height:'68px', position:'sticky', top:0, zIndex:50}}>
-      <div style={{display:'flex', alignItems:'center', gap:'40px'}}>
-        <a href="/" style={{display:'flex', alignItems:'center', gap:'10px', textDecoration:'none'}}>
-          <svg viewBox="0 0 300 300" width="34" height="34">
-            <circle cx="150" cy="150" r="145" fill="#1A3D5C"/>
-            <circle cx="150" cy="150" r="122" fill="#2E5F8A"/>
-            <ellipse cx="150" cy="205" rx="58" ry="54" fill="#c8a060"/>
-            <circle cx="150" cy="112" r="40" fill="#c8a060"/>
-            <ellipse cx="150" cy="196" rx="27" ry="31" fill="#F7FAFC"/>
-            <circle cx="150" cy="128" r="26" fill="#F7FAFC"/>
-          </svg>
-          <span style={{fontWeight:900, color:'#1e2535', fontSize:'20px', letterSpacing:'-0.3px'}}>DadUp</span>
-        </a>
-        <div style={{display:'flex', gap:'4px'}}>
-          {[['Pourquoi DadUp','/pourquoi'],['Ce qui est inclus','/inclus'],['Tarifs','/tarifs'],['Temoignages','/temoignages']].map(([label, href]) => (
-            <a key={href} href={href} style={{color:'#9a8888', fontSize:'14px', fontWeight:500, padding:'8px 14px', borderRadius:'8px', textDecoration:'none'}}>{label}</a>
           ))}
         </div>
-      </div>
-      <div style={{display:'flex', alignItems:'center', gap:'16px'}}>
-        <a href="/login" style={{color:'#1e2535', fontSize:'14px', fontWeight:600, textDecoration:'none'}}>Se connecter</a>
-        <a href="/tarifs" style={{background:'#1e2535', color:'#ffffff', padding:'11px 22px', borderRadius:'32px', fontSize:'13px', fontWeight:700, textDecoration:'none'}}>Commencer</a>
-      </div>
-    </nav>
-  );
-}
-function Footer() {
-  return (
-    <footer style={{background:'#1e2535', padding:'32px 40px'}}>
-      <div style={{maxWidth:'1200px', margin:'0 auto', display:'flex', alignItems:'center', justifyContent:'space-between'}}>
-        <div style={{display:'flex', alignItems:'center', gap:'10px'}}>
-          <svg viewBox="0 0 300 300" width="28" height="28">
-            <circle cx="150" cy="150" r="145" fill="#1A3D5C"/>
-            <circle cx="150" cy="150" r="122" fill="#2E5F8A"/>
-            <ellipse cx="150" cy="205" rx="58" ry="54" fill="#c8a060"/>
-            <circle cx="150" cy="112" r="40" fill="#c8a060"/>
-            <ellipse cx="150" cy="196" rx="27" ry="31" fill="#F7FAFC"/>
-            <circle cx="150" cy="128" r="26" fill="#F7FAFC"/>
-          </svg>
-          <span style={{color:'#f7f4ef', fontSize:'18px', fontWeight:800}}>DadUp</span>
+      </section>
+
+      {/* CTA */}
+      <section style={{background:C.dark,padding:'80px 40px',textAlign:'center' as const}}>
+        <p style={{color:C.gold,fontSize:'11px',fontWeight:700,letterSpacing:'3px',textTransform:'uppercase',margin:'0 0 16px'}}>Prêt à déchirer ?</p>
+        <h2 style={{color:C.white,fontSize:'38px',fontWeight:800,margin:'0 0 12px'}}>Tout ça pour 35,99€/an.</h2>
+        <p style={{color:'#6a7585',fontSize:'16px',margin:'0 0 8px'}}>Sans engagement. Résiliable à tout moment.</p>
+        <p style={{color:'rgba(200,160,96,0.6)',fontSize:'14px',margin:'0 0 32px'}}>Moins cher que Netflix · Paye 1x → serein 365j ✅</p>
+        <a href="/tarifs" style={{background:C.gold,color:'#1c1510',padding:'16px 40px',borderRadius:'32px',fontSize:'15px',fontWeight:800,textDecoration:'none',display:'inline-block'}}>Commencer maintenant — 35,99€/an</a>
+      </section>
+
+      <footer style={{background:C.dark,borderTop:'1px solid #2e3848',padding:'32px 40px',display:'flex',alignItems:'center',justifyContent:'space-between',flexWrap:'wrap' as const,gap:'16px'}}>
+        <div style={{display:'flex',alignItems:'center',gap:'8px'}}>
+          <svg viewBox="0 0 300 300" width="28" height="28"><circle cx="150" cy="150" r="145" fill="#3a4f6e"/><circle cx="150" cy="150" r="122" fill="#4a6080"/><ellipse cx="150" cy="205" rx="58" ry="54" fill="#c8a060"/><circle cx="150" cy="112" r="40" fill="#c8a060"/><ellipse cx="150" cy="196" rx="27" ry="31" fill="#faf6f0"/><circle cx="150" cy="128" r="26" fill="#faf6f0"/></svg>
+          <span style={{color:C.white,fontSize:'16px',fontWeight:700}}>DadUp</span>
         </div>
-        <p style={{color:'rgba(255,255,255,0.25)', fontSize:'12px', margin:0}}>DadUp ne remplace pas l'avis d'un medecin.</p>
-      </div>
-    </footer>
+        <p style={{color:'#6a7585',fontSize:'12px',margin:0}}>DadUp est un outil d'information. Il ne remplace pas l'avis d'un médecin.</p>
+      </footer>
+    </main>
   );
 }
