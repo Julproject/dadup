@@ -34,6 +34,7 @@ export default function ContactPage() {
     setError('');
 
     try {
+      console.log('Contact payload:', { prenom, email, sujet, message });
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
