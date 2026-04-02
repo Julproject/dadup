@@ -95,6 +95,7 @@ export default function Home() {
               <a href="/inclus" style={{color:C.text, fontSize:'14px', fontWeight:500, padding:'8px 14px', borderRadius:'8px', textDecoration:'none'}}>Ce qui est inclus</a>
               <a href="/tarifs" style={{color:C.text, fontSize:'14px', fontWeight:500, padding:'8px 14px', borderRadius:'8px', textDecoration:'none'}}>Tarifs</a>
               <a href="/temoignages" style={{color:C.text, fontSize:'14px', fontWeight:500, padding:'8px 14px', borderRadius:'8px', textDecoration:'none'}}>Témoignages</a>
+              <a href="/contact" style={{color:C.text, fontSize:'14px', fontWeight:500, padding:'8px 14px', borderRadius:'8px', textDecoration:'none'}}>Contactez-nous</a>
             </div>
           </div>
           <div className="nav-cta-group">
@@ -116,6 +117,7 @@ export default function Home() {
             <a href="/inclus" style={{color:C.text, fontSize:'15px', fontWeight:500, padding:'10px 8px', textDecoration:'none', borderBottom:`1px solid ${C.cream}`}}>Ce qui est inclus</a>
             <a href="/tarifs" style={{color:C.text, fontSize:'15px', fontWeight:500, padding:'10px 8px', textDecoration:'none', borderBottom:`1px solid ${C.cream}`}}>Tarifs</a>
             <a href="/temoignages" style={{color:C.text, fontSize:'15px', fontWeight:500, padding:'10px 8px', textDecoration:'none', borderBottom:`1px solid ${C.cream}`}}>Témoignages</a>
+            <a href="/contact" style={{color:C.text, fontSize:'15px', fontWeight:500, padding:'10px 8px', textDecoration:'none', borderBottom:`1px solid ${C.cream}`}}>Contactez-nous</a>
             <a href="/login" style={{color:C.dark, fontSize:'15px', fontWeight:700, padding:'10px 8px', textDecoration:'none', borderBottom:`1px solid ${C.cream}`}}>Se connecter</a>
             <button onClick={goToStripe} style={{background:C.dark, color:C.white, border:'none', padding:'14px', borderRadius:'32px', fontSize:'14px', fontWeight:700, cursor:'pointer', marginTop:'8px', width:'100%'}}>Commencer — 35,99€/an</button>
           </div>
@@ -348,6 +350,7 @@ export default function Home() {
             <a href="/inclus" style={{color:'#6a7585', fontSize:'13px', textDecoration:'none'}}>Ce qui est inclus</a>
             <a href="/tarifs" style={{color:'#6a7585', fontSize:'13px', textDecoration:'none'}}>Tarifs</a>
             <a href="/temoignages" style={{color:'#6a7585', fontSize:'13px', textDecoration:'none'}}>Témoignages</a>
+            <a href="/contact" style={{color:'#6a7585', fontSize:'13px', textDecoration:'none'}}>Contact</a>
           </div>
           <p style={{color:'#6a7585', fontSize:'12px', margin:0}}>Il ne remplace pas l'avis d'un médecin.</p>
         </div>
