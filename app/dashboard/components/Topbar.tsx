@@ -84,7 +84,7 @@ export default function Topbar({ prenom, dpa, saReelle, tri, prog, isPost, moisB
 
           {/* Icônes nues */}
           <div style={{ display: 'flex', gap: '14px', alignItems: 'center' }}>
-            <a href="/contact" title="Nous contacter" style={{ display: 'flex', alignItems: 'center', opacity: 0.4, textDecoration: 'none' }}>
+            <a href="/contact-app" title="Nous contacter" style={{ display: 'flex', alignItems: 'center', opacity: 0.4, textDecoration: 'none' }}>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={C.dark} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <rect x="2" y="4" width="20" height="16" rx="2" /><polyline points="2,4 12,13 22,4" />
               </svg>
