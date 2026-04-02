@@ -65,35 +65,38 @@ export default function Topbar({ prenom, dpa, saReelle, tri, prog, isPost, moisB
             </svg>
             <span style={{ fontSize: '20px', fontWeight: 900, color: C.dark, letterSpacing: '-0.3px' }}>DadUp</span>
           </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-            <a href="/contact" title="Nous contacter" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '36px', height: '36px', borderRadius: '50%', background: '#f7f5f0', textDecoration: 'none', flexShrink: 0 }}>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9aa0a8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <rect x="2" y="4" width="20" height="16" rx="2"/>
-              <polyline points="2,4 12,13 22,4"/>
-            </svg>
-          </a>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', background: '#f7f5f0', borderRadius: '24px', padding: '5px 8px 5px 14px' }}>
-              <span style={{ fontSize: '13px', fontWeight: 800, color: C.dark }}>{prenom || 'DadUp'}</span>
-              {saReelle && (
-                <div style={{ background: C.dark, color: C.white, fontSize: '11px', fontWeight: 800, padding: '4px 10px', borderRadius: '14px', textAlign: 'center' as const, lineHeight: 1.2 }}>
-                  <span style={{ display: 'block' }}>{isPost ? `Mois ${moisBebe + 1}` : `${saReelle} SA`}</span>
-                  <small style={{ display: 'block', fontSize: '8px', color: 'rgba(255,255,255,0.55)', fontWeight: 600, letterSpacing: '0.5px' }}>{isPost ? 'post-partum' : tri}</small>
-                </div>
-              )}
-              {/* Bouton réglages */}
-              <button onClick={() => setShowEdit(true)} style={{ background: 'none', border: 'none', cursor: 'pointer', padding: '4px', display: 'flex', alignItems: 'center', color: C.muted }}>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <circle cx="12" cy="12" r="3" /><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" />
-                </svg>
-              </button>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+
+          {/* Avatar initiale + badge SA */}
+          <div style={{ position: 'relative', display: 'inline-block' }}>
+            <div style={{ width: '34px', height: '34px', borderRadius: '50%', background: '#1A3D5C', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '14px', fontWeight: 700, color: '#c8a060' }}>
+              {prenom ? prenom[0].toUpperCase() : 'D'}
             </div>
-            {/* Bouton déconnexion */}
-            <button onClick={async () => { await fetch('/api/auth/logout', { method: 'POST' }); window.location.href = '/login'; }} style={{ background: 'none', border: 'none', cursor: 'pointer', padding: '6px', display: 'flex', alignItems: 'center', color: C.muted }} title="Déconnexion">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" /><polyline points="16 17 21 12 16 7" /><line x1="21" y1="12" x2="9" y2="12" />
+            {saReelle && (
+              <div style={{ position: 'absolute', bottom: '-4px', right: '-6px', background: '#c8a060', borderRadius: '10px', padding: '1px 5px', fontSize: '9px', fontWeight: 700, color: '#1c1510', border: '1.5px solid #ffffff', whiteSpace: 'nowrap' as const }}>
+                {isPost ? `M${moisBebe + 1}` : `${saReelle}SA`}
+              </div>
+            )}
+          </div>
+
+          {/* Séparateur */}
+          <div style={{ width: '1px', height: '22px', background: '#f0ede8' }} />
+
+          {/* Icônes nues */}
+          <div style={{ display: 'flex', gap: '14px', alignItems: 'center' }}>
+            <a href="/contact" title="Nous contacter" style={{ display: 'flex', alignItems: 'center', opacity: 0.4, textDecoration: 'none' }}>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={C.dark} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="2" y="4" width="20" height="16" rx="2" /><polyline points="2,4 12,13 22,4" />
               </svg>
+            </a>
+            <button onClick={() => { setEditPrenom(prenom); setEditDpa(dpa); setShowEdit(true); }} style={{ background: 'none', border: 'none', padding: 0, cursor: 'pointer', display: 'flex', alignItems: 'center', opacity: 0.4 }} title="Modifier mes infos">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={C.dark} strokeWidth="2.5"><circle cx="12" cy="12" r="3" /><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" /></svg>
+            </button>
+            <button onClick={async () => { await fetch('/api/auth/logout', { method: 'POST' }); localStorage.clear(); window.location.href = '/login'; }} style={{ background: 'none', border: 'none', padding: 0, cursor: 'pointer', display: 'flex', alignItems: 'center', opacity: 0.4 }} title="Se déconnecter">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={C.dark} strokeWidth="2.5" strokeLinecap="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" /><polyline points="16 17 21 12 16 7" /><line x1="21" y1="12" x2="9" y2="12" /></svg>
             </button>
           </div>
+
         </div>
 
         {/* Ligne 2 : onglets */}
