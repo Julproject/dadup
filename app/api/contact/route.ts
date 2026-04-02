@@ -32,7 +32,7 @@ export async function POST(req: NextRequest) {
         sender: { name: 'DadUp Contact', email: 'hello@dadup.fr' },
         to: [{ email: 'hello@dadup.fr', name: 'DadUp' }],
         replyTo: { email, name: prenom || email },
-        subject: `[Contact] ${sujet} — ${expediteur}`,
+        subject: `[Contact] ${sujet} - ${expediteur}`,
         htmlContent: `
           <div style="font-family:-apple-system,sans-serif;max-width:600px;margin:0 auto;padding:32px;background:#f7f5f0;border-radius:16px;">
             <h2 style="color:#1e2535;font-size:20px;margin:0 0 24px;border-bottom:2px solid #e8e0d0;padding-bottom:16px;">
@@ -69,9 +69,10 @@ export async function POST(req: NextRequest) {
     });
 
     if (!emailEquipe.ok) {
-      const err = await emailEquipe.json();
-      console.error('Brevo error (équipe):', err);
-      return NextResponse.json({ error: 'Erreur envoi email.' }, { status: 500 });
+      let errBody = '';
+      try { errBody = JSON.stringify(await emailEquipe.json()); } catch {}
+      console.error('Brevo error (equipe):', emailEquipe.status, errBody);
+      return NextResponse.json({ error: 'Erreur envoi email.', detail: errBody }, { status: 500 });
     }
 
     // ── Email de confirmation à l'utilisateur ───────────────────────────────
@@ -84,7 +85,7 @@ export async function POST(req: NextRequest) {
       body: JSON.stringify({
         sender: { name: 'DadUp', email: 'hello@dadup.fr' },
         to: [{ email, name: prenom || 'Papa' }],
-        subject: 'On a bien reçu ton message — DadUp',
+        subject: 'On a bien recu ton message - DadUp',
         htmlContent: `
           <div style="font-family:-apple-system,sans-serif;max-width:520px;margin:0 auto;padding:40px 32px;background:#f7f5f0;border-radius:20px;">
 
