@@ -4,8 +4,11 @@ export async function POST(req: NextRequest) {
   try {
     const { prenom, email, sujet, message } = await req.json();
 
-    if (!email || !sujet || !message) {
-      return NextResponse.json({ error: 'Champs requis manquants.' }, { status: 400 });
+    // Log pour debug
+    console.log('Contact recu:', { email: email || 'VIDE', sujet: sujet || 'VIDE', messageLen: message?.length || 0 });
+
+    if (!email || !message) {
+      return NextResponse.json({ error: 'Email et message requis.', fields: { email: !email, message: !message } }, { status: 400 });
     }
 
     // Validation email basique
@@ -13,8 +16,11 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Email invalide.' }, { status: 400 });
     }
 
-    // Limite anti-spam : message min 10 caractères
-    if (message.trim().length < 10) {
+    // Sujet vide → fallback
+    const sujetFinal = sujet?.trim() || 'Autre';
+
+    // Limite anti-spam : message min 5 caractères
+    if (message.trim().length < 5) {
       return NextResponse.json({ error: 'Message trop court.' }, { status: 400 });
     }
 
@@ -32,7 +38,7 @@ export async function POST(req: NextRequest) {
         sender: { name: 'DadUp Contact', email: 'hello@dadup.fr' },
         to: [{ email: 'hello@dadup.fr', name: 'DadUp' }],
         replyTo: { email, name: prenom || email },
-        subject: `[Contact] ${sujet} - ${expediteur}`,
+        subject: `[Contact] ${sujetFinal} - ${expediteur}`,
         htmlContent: `
           <div style="font-family:-apple-system,sans-serif;max-width:600px;margin:0 auto;padding:32px;background:#f7f5f0;border-radius:16px;">
             <h2 style="color:#1e2535;font-size:20px;margin:0 0 24px;border-bottom:2px solid #e8e0d0;padding-bottom:16px;">
@@ -46,7 +52,7 @@ export async function POST(req: NextRequest) {
               </tr>
               <tr>
                 <td style="padding:8px 0;color:#9aa0a8;font-size:13px;font-weight:700;">Sujet</td>
-                <td style="padding:8px 0;color:#1e2535;font-size:14px;font-weight:600;">${sujet}</td>
+                <td style="padding:8px 0;color:#1e2535;font-size:14px;font-weight:600;">${sujetFinal}</td>
               </tr>
               <tr>
                 <td style="padding:8px 0;color:#9aa0a8;font-size:13px;font-weight:700;">Date</td>
