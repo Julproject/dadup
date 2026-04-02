@@ -12,18 +12,20 @@ import { MOIS_DATA }           from './components/postpartum/data/mois';
 import { getIdee }             from './data/mois';
 
 // ── Components ────────────────────────────────────────────────────────────────
+import dynamic       from 'next/dynamic';
 import Onboarding    from './components/Onboarding';
 import Topbar        from './components/Topbar';
 import Accueil       from './components/Accueil';
-import BebePage      from './components/BebePage';
-import RDVPage       from './components/RDVPage';
-import PreparerPage  from './components/PreparerPage';
-import BonsPlansPage from './components/BonsPlansPage';
-import PostAccueil   from './components/postpartum/PostAccueil';
-import PostBebe      from './components/postpartum/PostBebe';
-import PostRDV       from './components/postpartum/PostRDV';
-import PsychoPage    from './components/PsychoPage';
-import SuiviBebe     from './components/postpartum/SuiviBebe';
+
+// Chargement différé — réduit le bundle initial et accélère le démarrage
+const BebePage     = dynamic(() => import('./components/BebePage'));
+const RDVPage      = dynamic(() => import('./components/RDVPage'));
+const PreparerPage = dynamic(() => import('./components/PreparerPage'));
+const PsychoPage   = dynamic(() => import('./components/PsychoPage'));
+const PostAccueil  = dynamic(() => import('./components/postpartum/PostAccueil'));
+const PostBebe     = dynamic(() => import('./components/postpartum/PostBebe'));
+const PostRDV      = dynamic(() => import('./components/postpartum/PostRDV'));
+const SuiviBebe    = dynamic(() => import('./components/postpartum/SuiviBebe'));
 
 // ── Palette ───────────────────────────────────────────────────────────────────
 const C = {
@@ -248,7 +250,6 @@ function DashboardContent() {
         {activeTab === 'rdv'     && (isPost ? <PostRDV      {...shared}/> : <RDVPage      {...shared}/>)}
         {isPost  && activeTab === 'suivi'     && <SuiviBebe    C={C}/>}
         {!isPost && activeTab === 'pratique'  && <PreparerPage  {...shared}/>}
-        {!isPost && activeTab === 'bonsplans' && <BonsPlansPage {...shared}/>}
         {!isPost && activeTab === 'psycho'    && <PsychoPage    C={C} saReelle={saReelle}/>}
       </div>
 
