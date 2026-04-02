@@ -66,7 +66,13 @@ export default function Topbar({ prenom, dpa, saReelle, tri, prog, isPost, moisB
             <span style={{ fontSize: '20px', fontWeight: 900, color: C.dark, letterSpacing: '-0.3px' }}>DadUp</span>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', background: '#f7f5f0', borderRadius: '24px', padding: '5px 8px 5px 14px' }}>
+            <a href="/contact" title="Nous contacter" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '36px', height: '36px', borderRadius: '50%', background: '#f7f5f0', textDecoration: 'none', flexShrink: 0 }}>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9aa0a8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <rect x="2" y="4" width="20" height="16" rx="2"/>
+              <polyline points="2,4 12,13 22,4"/>
+            </svg>
+          </a>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', background: '#f7f5f0', borderRadius: '24px', padding: '5px 8px 5px 14px' }}>
               <span style={{ fontSize: '13px', fontWeight: 800, color: C.dark }}>{prenom || 'DadUp'}</span>
               {saReelle && (
                 <div style={{ background: C.dark, color: C.white, fontSize: '11px', fontWeight: 800, padding: '4px 10px', borderRadius: '14px', textAlign: 'center' as const, lineHeight: 1.2 }}>
