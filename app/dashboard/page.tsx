@@ -282,7 +282,6 @@ function DashboardContent() {
         prenom={prenom} dpa={dpa} saReelle={saReelle} tri={tri} prog={prog}
         isPost={isPost} moisBebe={moisBebe}
         activeTab={activeTab} setActiveTab={setActiveTab}
-        onUpdateInfos={(p, d) => { setPrenom(p); setDpa(d); localStorage.setItem('dadup_prenom', p); localStorage.setItem('dadup_dpa', d); }}
         onDeclareNaissance={() => setShowConfirmNaissance(true)}
       />
 
