@@ -16,7 +16,7 @@ export async function POST(req: NextRequest) {
       mode: 'subscription',
       // {CHECKOUT_SESSION_ID} est remplacé automatiquement par Stripe
       success_url: `${process.env.NEXT_PUBLIC_URL}/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url:  `${process.env.NEXT_PUBLIC_URL}/tarifs`,
+      cancel_url:  `${process.env.NEXT_PUBLIC_URL}/paiement-annule`,
       allow_promotion_codes: true,
     });
 
