@@ -211,8 +211,13 @@ export default function ComptePage() {
             <p style={{ color: C.dark, fontSize: '15px', fontWeight: 700, margin: '0 0 16px' }}>Abonnement</p>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '12px 16px', background: C.cream, borderRadius: '12px', marginBottom: '12px' }}>
               <div>
-                <p style={{ color: C.dark, fontSize: '14px', fontWeight: 600, margin: '0 0 2px' }}>DadUp Annuel</p>
-                <p style={{ color: C.textLight, fontSize: '12px', margin: 0 }}>35,99€/an · Accès complet</p>
+                <p style={{ color: C.dark, fontSize: '14px', fontWeight: 600, margin: '0 0 4px' }}>DadUp Annuel</p>
+                <p style={{ color: C.textLight, fontSize: '12px', margin: 0 }}>
+                  {'35,99€/an · Accès complet'}
+                  {user.subscriptionEndDate && (
+                    <> jusqu&apos;au {new Date(user.subscriptionEndDate).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}</>
+                  )}
+                </p>
               </div>
               <span style={{ background: '#E4F5EC', color: C.greenDark, fontSize: '11px', fontWeight: 700, padding: '4px 10px', borderRadius: '20px' }}>Actif</span>
             </div>
