@@ -18,6 +18,7 @@ function parseLocalDate(s: string) {
 export default function ComptePage() {
   const [user, setUser]           = useState<any>(null);
   const [loading, setLoading]     = useState(true);
+  const [endDate, setEndDate]     = useState<string | null>(null);
 
   // Champs éditables
   const [prenom, setPrenom]       = useState('');
@@ -43,6 +44,11 @@ export default function ComptePage() {
         setDpa(user.dpa || '');
         setEmail(user.email || '');
         setLoading(false);
+        // Récupérer la date de fin Stripe séparément
+        fetch('/api/subscription')
+          .then(r => r.json())
+          .then(data => { if (data.endDate) setEndDate(data.endDate); })
+          .catch(() => {});
       })
       .catch(() => { window.location.href = '/login'; });
   }, []);
@@ -214,8 +220,8 @@ export default function ComptePage() {
                 <p style={{ color: C.dark, fontSize: '14px', fontWeight: 600, margin: '0 0 4px' }}>DadUp Annuel</p>
                 <p style={{ color: C.textLight, fontSize: '12px', margin: 0 }}>
                   {'35,99€/an · Accès complet'}
-                  {user.subscriptionEndDate && (
-                    <> jusqu&apos;au {new Date(user.subscriptionEndDate).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}</>
+                  {endDate && (
+                    <> jusqu&apos;au {new Date(endDate).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}</>
                   )}
                 </p>
               </div>
