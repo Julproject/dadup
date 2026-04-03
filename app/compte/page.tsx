@@ -21,6 +21,7 @@ export default function ComptePage() {
 
   // Champs éditables
   const [prenom, setPrenom]       = useState('');
+  const [email,  setEmail]         = useState('');
   const [dpa,    setDpa]          = useState('');
   const [saving, setSaving]       = useState(false);
   const [saved,  setSaved]        = useState(false);
@@ -40,6 +41,7 @@ export default function ComptePage() {
         setUser(user);
         setPrenom(user.prenom || '');
         setDpa(user.dpa || '');
+        setEmail(user.email || '');
         setLoading(false);
       })
       .catch(() => { window.location.href = '/login'; });
@@ -50,7 +52,7 @@ export default function ComptePage() {
     await fetch('/api/auth/save', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ prenom, dpa }),
+      body: JSON.stringify({ prenom, dpa, email }),
     });
     setSaving(false);
     setSaved(true);
@@ -122,41 +124,9 @@ export default function ComptePage() {
 
       <div style={{ maxWidth: '560px', margin: '0 auto', padding: '40px 20px' }}>
 
-        <h1 style={{ color: C.dark, fontSize: '26px', fontWeight: 800, margin: '0 0 8px' }}>Mon compte</h1>
-        <p style={{ color: C.textLight, fontSize: '14px', margin: '0 0 32px' }}>{user.email}</p>
+        <h1 style={{ color: C.dark, fontSize: '26px', fontWeight: 800, margin: '0 0 32px' }}>Mon compte</h1>
 
-        {/* Informations personnelles */}
-        {card(
-          <>
-            <p style={{ color: C.dark, fontSize: '15px', fontWeight: 700, margin: '0 0 20px' }}>Informations personnelles</p>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-              <div>
-                {label('Prénom')}
-                {input(prenom, setPrenom, { placeholder: 'Ton prénom' })}
-              </div>
-              <div>
-                {label('Date prévue d\'accouchement')}
-                {input(dpa, setDpa, { type: 'date' })}
-                {dpa && (
-                  <p style={{ color: C.textLight, fontSize: '12px', margin: '6px 0 0' }}>
-                    {isPost
-                      ? `Mode post-partum · Mois ${Math.min(11, Math.floor(Math.abs(joursRestants ?? 0) / 30)) + 1}`
-                      : `SA ${saReelle} · ${joursRestants} jours restants`}
-                  </p>
-                )}
-              </div>
-              <button
-                onClick={saveInfos}
-                disabled={saving}
-                style={{ background: saved ? C.greenDark : C.dark, color: C.white, border: 'none', padding: '13px', borderRadius: '32px', fontSize: '14px', fontWeight: 700, cursor: 'pointer' }}
-              >
-                {saved ? 'Enregistré !' : saving ? 'Sauvegarde...' : 'Enregistrer'}
-              </button>
-            </div>
-          </>
-        )}
-
-        {/* Mode grossesse/post-partum */}
+        {/* Mode actuel — en premier */}
         {card(
           <>
             <p style={{ color: C.dark, fontSize: '15px', fontWeight: 700, margin: '0 0 8px' }}>Mode actuel</p>
@@ -172,6 +142,34 @@ export default function ComptePage() {
               <a href="/dashboard" style={{ background: isPost ? '#1A4A7A' : C.greenDark, color: C.white, padding: '8px 16px', borderRadius: '20px', fontSize: '12px', fontWeight: 700, textDecoration: 'none' }}>
                 Mon espace
               </a>
+            </div>
+          </>
+        )}
+
+        {/* Informations personnelles */}
+        {card(
+          <>
+            <p style={{ color: C.dark, fontSize: '15px', fontWeight: 700, margin: '0 0 20px' }}>Informations personnelles</p>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+              <div>
+                {label('Prénom')}
+                {input(prenom, setPrenom, { placeholder: 'Ton prénom' })}
+              </div>
+              <div>
+                {label('Date prévue d\'accouchement')}
+                {input(dpa, setDpa, { type: 'date' })}
+              </div>
+              <div>
+                {label('Adresse email')}
+                {input(email, setEmail, { type: 'email', placeholder: 'ton@email.fr' })}
+              </div>
+              <button
+                onClick={saveInfos}
+                disabled={saving}
+                style={{ background: saved ? C.greenDark : C.dark, color: C.white, border: 'none', padding: '13px', borderRadius: '32px', fontSize: '14px', fontWeight: 700, cursor: 'pointer' }}
+              >
+                {saved ? 'Enregistré !' : saving ? 'Sauvegarde...' : 'Enregistrer'}
+              </button>
             </div>
           </>
         )}
