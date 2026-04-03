@@ -139,6 +139,9 @@ export default function Topbar({ prenom, dpa, saReelle, tri, prog, isPost, moisB
                   {isPost ? 'Retour au mode grossesse' : 'Bébé est né !'}
                 </button>
               </div>
+              <div style={{ textAlign: 'center', paddingTop: '4px' }}>
+                <a href="/cancel" style={{ color: '#c8c4bc', fontSize: '11px', textDecoration: 'none' }}>Se désinscrire</a>
+              </div>
             </div>
           </div>
         </div>
