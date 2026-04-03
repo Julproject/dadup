@@ -2,33 +2,27 @@ import { NextRequest, NextResponse } from 'next/server';
 
 export async function POST(req: NextRequest) {
   try {
-    const { prenom, email, sujet, message } = await req.json();
+    const body = await req.json();
+    const { prenom, email, sujet, message } = body;
 
-    // Log pour debug
-    console.log('Contact recu:', { email: email || 'VIDE', sujet: sujet || 'VIDE', messageLen: message?.length || 0 });
+    console.log('Contact recu:', { email, sujet, messageLen: message?.length });
 
     if (!email || !message) {
-      return NextResponse.json({ error: 'Email et message requis.', fields: { email: !email, message: !message } }, { status: 400 });
+      return NextResponse.json({ error: 'Email et message requis.' }, { status: 400 });
     }
-
-    // Validation email basique
-    if (!email.includes('@') || !email.includes('.')) {
+    if (!email.includes('@')) {
       return NextResponse.json({ error: 'Email invalide.' }, { status: 400 });
     }
-
-    // Sujet vide → fallback
-    const sujetFinal = sujet?.trim() || 'Autre';
-
-    // Limite anti-spam : message min 5 caractères
     if (message.trim().length < 5) {
       return NextResponse.json({ error: 'Message trop court.' }, { status: 400 });
     }
 
-    const expediteur = prenom ? `${prenom} (${email})` : email;
+    const sujetFinal = sujet?.trim() || 'Autre';
+    const expediteur = prenom?.trim() ? `${prenom.trim()} (${email})` : email;
     const dateHeure  = new Date().toLocaleString('fr-FR', { timeZone: 'Europe/Paris' });
 
-    // ── Email à l'équipe DadUp ──────────────────────────────────────────────
-    const emailEquipe = await fetch('https://api.brevo.com/v3/smtp/email', {
+    // Email notification vers l'équipe
+    const brevoRes = await fetch('https://api.brevo.com/v3/smtp/email', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -37,51 +31,34 @@ export async function POST(req: NextRequest) {
       body: JSON.stringify({
         sender: { name: 'DadUp Contact', email: 'hello@dadup.fr' },
         to: [{ email: 'hello@dadup.fr', name: 'DadUp' }],
-        replyTo: { email, name: prenom || email },
-        subject: `[Contact] ${sujetFinal} - ${expediteur}`,
+        replyTo: { email: email, name: prenom || email },
+        subject: `[Contact DadUp] ${sujetFinal} - ${expediteur}`,
         htmlContent: `
-          <div style="font-family:-apple-system,sans-serif;max-width:600px;margin:0 auto;padding:32px;background:#f7f5f0;border-radius:16px;">
-            <h2 style="color:#1e2535;font-size:20px;margin:0 0 24px;border-bottom:2px solid #e8e0d0;padding-bottom:16px;">
-              Nouveau message de contact DadUp
-            </h2>
-
-            <table style="width:100%;border-collapse:collapse;margin-bottom:24px;">
-              <tr>
-                <td style="padding:8px 0;color:#9aa0a8;font-size:13px;font-weight:700;width:100px;">De</td>
-                <td style="padding:8px 0;color:#1e2535;font-size:14px;">${expediteur}</td>
-              </tr>
-              <tr>
-                <td style="padding:8px 0;color:#9aa0a8;font-size:13px;font-weight:700;">Sujet</td>
-                <td style="padding:8px 0;color:#1e2535;font-size:14px;font-weight:600;">${sujetFinal}</td>
-              </tr>
-              <tr>
-                <td style="padding:8px 0;color:#9aa0a8;font-size:13px;font-weight:700;">Date</td>
-                <td style="padding:8px 0;color:#1e2535;font-size:14px;">${dateHeure}</td>
-              </tr>
-            </table>
-
-            <div style="background:#ffffff;border-radius:12px;padding:20px 24px;border-left:4px solid #c8a060;">
-              <p style="color:#1e2535;font-size:14px;line-height:1.7;margin:0;white-space:pre-wrap;">${message.trim()}</p>
-            </div>
-
-            <div style="margin-top:24px;padding-top:16px;border-top:1px solid #e8e0d0;">
-              <a href="mailto:${email}" style="display:inline-block;background:#1e2535;color:#fff;padding:12px 24px;border-radius:32px;font-size:14px;font-weight:700;text-decoration:none;">
-                Répondre à ${prenom || email}
-              </a>
-            </div>
-          </div>
-        `,
+<div style="font-family:-apple-system,sans-serif;max-width:600px;margin:0 auto;padding:32px;background:#f7f5f0;">
+  <h2 style="color:#1e2535;font-size:18px;margin:0 0 20px;">Nouveau message DadUp</h2>
+  <table style="width:100%;border-collapse:collapse;margin-bottom:20px;font-size:13px;">
+    <tr><td style="padding:6px 0;color:#9aa0a8;width:80px;">De</td><td style="color:#1e2535;">${expediteur}</td></tr>
+    <tr><td style="padding:6px 0;color:#9aa0a8;">Sujet</td><td style="color:#1e2535;font-weight:700;">${sujetFinal}</td></tr>
+    <tr><td style="padding:6px 0;color:#9aa0a8;">Date</td><td style="color:#1e2535;">${dateHeure}</td></tr>
+  </table>
+  <div style="background:#fff;border-radius:10px;padding:16px 20px;border-left:4px solid #c8a060;">
+    <p style="color:#1e2535;font-size:14px;line-height:1.7;margin:0;white-space:pre-wrap;">${message.trim()}</p>
+  </div>
+  <div style="margin-top:20px;">
+    <a href="mailto:${email}" style="background:#1e2535;color:#fff;padding:10px 22px;border-radius:32px;font-size:13px;font-weight:700;text-decoration:none;">Repondre a ${prenom || email}</a>
+  </div>
+</div>`,
       }),
     });
 
-    if (!emailEquipe.ok) {
-      let errBody = '';
-      try { errBody = JSON.stringify(await emailEquipe.json()); } catch {}
-      console.error('Brevo error (equipe):', emailEquipe.status, errBody);
-      return NextResponse.json({ error: 'Erreur envoi email.', detail: errBody }, { status: 500 });
+    if (!brevoRes.ok) {
+      const brevoErr = await brevoRes.json().catch(() => ({}));
+      console.error('Brevo error:', brevoRes.status, JSON.stringify(brevoErr));
+      // On continue quand meme pour envoyer la confirmation
+      // mais on log l'erreur
     }
 
-    // ── Email de confirmation à l'utilisateur ───────────────────────────────
+    // Email de confirmation a l'utilisateur
     await fetch('https://api.brevo.com/v3/smtp/email', {
       method: 'POST',
       headers: {
@@ -90,45 +67,28 @@ export async function POST(req: NextRequest) {
       },
       body: JSON.stringify({
         sender: { name: 'DadUp', email: 'hello@dadup.fr' },
-        to: [{ email, name: prenom || 'Papa' }],
-        subject: 'On a bien recu ton message - DadUp',
+        to: [{ email: email, name: prenom || 'Papa' }],
+        subject: 'Ton message a bien ete recu - DadUp',
         htmlContent: `
-          <div style="font-family:-apple-system,sans-serif;max-width:520px;margin:0 auto;padding:40px 32px;background:#f7f5f0;border-radius:20px;">
-
-            <div style="text-align:center;margin-bottom:32px;">
-              <div style="width:56px;height:56px;border-radius:50%;background:#E4F5EC;display:inline-flex;align-items:center;justify-content:center;margin-bottom:16px;">
-                <span style="font-size:24px;">✓</span>
-              </div>
-              <h1 style="color:#1e2535;font-size:22px;margin:0;">Message reçu !</h1>
-            </div>
-
-            <p style="color:#4a5568;font-size:15px;line-height:1.7;margin:0 0 20px;">
-              Bonjour ${prenom || 'Papa'},<br/><br/>
-              On a bien reçu ton message concernant <strong>${sujet}</strong>.
-              On te répond en général sous 24h, souvent bien moins.
-            </p>
-
-            <div style="background:#ffffff;border-radius:12px;padding:16px 20px;border-left:4px solid #c8a060;margin-bottom:24px;">
-              <p style="color:#9aa0a8;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin:0 0 8px;">Ton message</p>
-              <p style="color:#1e2535;font-size:14px;line-height:1.6;margin:0;white-space:pre-wrap;">${message.trim()}</p>
-            </div>
-
-            <p style="color:#9aa0a8;font-size:13px;line-height:1.6;margin:0 0 24px;">
-              Si tu as une urgence, tu peux aussi répondre directement à cet email.
-            </p>
-
-            <p style="color:#9aa0a8;font-size:12px;margin:0;text-align:center;">
-              DadUp · hello@dadup.fr · Il ne remplace pas l'avis d'un médecin.
-            </p>
-          </div>
-        `,
+<div style="font-family:-apple-system,sans-serif;max-width:520px;margin:0 auto;padding:40px 32px;background:#f7f5f0;border-radius:20px;">
+  <h1 style="color:#1e2535;font-size:20px;margin:0 0 16px;">Message recu !</h1>
+  <p style="color:#4a5568;font-size:15px;line-height:1.7;margin:0 0 16px;">
+    Bonjour ${prenom || 'Papa'},<br/>
+    On a bien recu ton message. On te repond en general sous 24h.
+  </p>
+  <div style="background:#fff;border-radius:10px;padding:14px 18px;border-left:4px solid #c8a060;margin-bottom:20px;">
+    <p style="color:#9aa0a8;font-size:11px;text-transform:uppercase;letter-spacing:1px;margin:0 0 6px;">Ton message</p>
+    <p style="color:#1e2535;font-size:13px;line-height:1.6;margin:0;white-space:pre-wrap;">${message.trim()}</p>
+  </div>
+  <p style="color:#9aa0a8;font-size:12px;margin:0;">DadUp · hello@dadup.fr</p>
+</div>`,
       }),
     });
 
     return NextResponse.json({ ok: true });
 
   } catch (err) {
-    console.error('Contact error:', err);
+    console.error('Contact route error:', err);
     return NextResponse.json({ error: 'Erreur serveur.' }, { status: 500 });
   }
 }
