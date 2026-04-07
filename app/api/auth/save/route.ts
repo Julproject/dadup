@@ -14,7 +14,11 @@ export async function POST(req: NextRequest) {
     }
 
     const body = await req.json();
-    const { prenom, email, dpa, dpa_originale, valise_checked, missions_checked, rdv_dates, next_rdv, achats_checked } = body;
+    const {
+      prenom, email, dpa, dpa_originale,
+      valise_checked, missions_checked,
+      rdv_dates, next_rdv, achats_checked,
+    } = body;
 
     const update: Record<string, any> = {};
     if (prenom           !== undefined) update.prenom           = prenom;
@@ -27,12 +31,19 @@ export async function POST(req: NextRequest) {
     if (rdv_dates        !== undefined) update.rdv_dates        = rdv_dates;
     if (next_rdv         !== undefined) update.next_rdv         = next_rdv;
 
+    if (Object.keys(update).length === 0) {
+      return NextResponse.json({ ok: true }); // rien à mettre à jour
+    }
+
     const { error } = await supabase
       .from('users')
       .update(update)
       .eq('id', sessionId);
 
-    if (error) throw error;
+    if (error) {
+      console.error('Save error:', JSON.stringify(error));
+      throw error;
+    }
 
     return NextResponse.json({ ok: true });
   } catch (err) {
