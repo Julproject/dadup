@@ -20,18 +20,16 @@ export default function ComptePage() {
   const [loading, setLoading]     = useState(true);
   const [endDate, setEndDate]     = useState<string | null>(null);
 
-  // Champs éditables
   const [prenom, setPrenom]       = useState('');
-  const [email,  setEmail]         = useState('');
+  const [email,  setEmail]        = useState('');
   const [dpa,    setDpa]          = useState('');
   const [saving, setSaving]       = useState(false);
   const [saved,  setSaved]        = useState(false);
 
-  // Mot de passe
-  const [oldPwd,  setOldPwd]      = useState('');
-  const [newPwd,  setNewPwd]      = useState('');
-  const [newPwd2, setNewPwd2]     = useState('');
-  const [pwdMsg,  setPwdMsg]      = useState('');
+  const [oldPwd,     setOldPwd]     = useState('');
+  const [newPwd,     setNewPwd]     = useState('');
+  const [newPwd2,    setNewPwd2]    = useState('');
+  const [pwdMsg,     setPwdMsg]     = useState('');
   const [pwdLoading, setPwdLoading] = useState(false);
 
   useEffect(() => {
@@ -44,7 +42,6 @@ export default function ComptePage() {
         setDpa(user.dpa || '');
         setEmail(user.email || '');
         setLoading(false);
-        // Récupérer la date de fin Stripe séparément
         fetch('/api/subscription')
           .then(r => r.json())
           .then(data => { if (data.endDate) setEndDate(data.endDate); })
@@ -52,6 +49,12 @@ export default function ComptePage() {
       })
       .catch(() => { window.location.href = '/login'; });
   }, []);
+
+  const joursRestants = dpa
+    ? Math.round((parseLocalDate(dpa).setHours(0,0,0,0) - new Date().setHours(0,0,0,0)) / (1000*60*60*24))
+    : null;
+  const isPost    = joursRestants !== null && joursRestants < 0;
+  const saReelle  = !isPost && dpa ? Math.max(3, Math.min(42, Math.round(40 - (joursRestants ?? 0) / 7))) : null;
 
   const basculerMode = async () => {
     if (isPost) {
@@ -69,7 +72,6 @@ export default function ComptePage() {
         body: JSON.stringify({ dpa: dpaOriginale, dpa_originale: null }),
       });
     } else {
-      // Passage en mode post-partum
       const dpaCourante = dpa;
       localStorage.setItem('dadup_dpa_originale', dpaCourante);
       const ilYa2Jours = new Date();
@@ -93,17 +95,14 @@ export default function ComptePage() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ prenom, dpa, email }),
       });
-      if (!res.ok) throw new Error('Erreur serveur');
-
-      // Mettre à jour le localStorage pour que le dashboard reflète immédiatement
+      if (!res.ok) throw new Error('Erreur');
       if (prenom) localStorage.setItem('dadup_prenom', prenom);
       if (dpa)    localStorage.setItem('dadup_dpa', dpa);
       else        localStorage.removeItem('dadup_dpa');
-
       setSaved(true);
       setTimeout(() => setSaved(false), 3000);
     } catch {
-      alert('Erreur lors de la sauvegarde. Réessaie.');
+      alert('Erreur lors de la sauvegarde. Reessaie.');
     } finally {
       setSaving(false);
     }
@@ -111,7 +110,7 @@ export default function ComptePage() {
 
   const changePassword = async () => {
     if (newPwd !== newPwd2) { setPwdMsg('Les mots de passe ne correspondent pas.'); return; }
-    if (newPwd.length < 8)  { setPwdMsg('Minimum 8 caractères.'); return; }
+    if (newPwd.length < 8)  { setPwdMsg('Minimum 8 caracteres.'); return; }
     setPwdLoading(true);
     setPwdMsg('');
     try {
@@ -122,17 +121,12 @@ export default function ComptePage() {
       });
       const data = await res.json();
       if (!res.ok) { setPwdMsg(data.error || 'Erreur.'); }
-      else { setPwdMsg('Mot de passe mis à jour.'); setOldPwd(''); setNewPwd(''); setNewPwd2(''); }
+      else { setPwdMsg('Mot de passe mis a jour.'); setOldPwd(''); setNewPwd(''); setNewPwd2(''); }
     } catch { setPwdMsg('Erreur serveur.'); }
     setPwdLoading(false);
   };
 
-  // Calculs
-  const joursRestants = dpa ? Math.ceil((parseLocalDate(dpa).getTime() - new Date().setHours(0,0,0,0)) / (1000*60*60*24)) : null;
-  const isPost        = joursRestants !== null && joursRestants < 0;
-  const saReelle      = !isPost && dpa ? Math.max(3, Math.min(42, Math.round(40 - (joursRestants ?? 0) / 7))) : null;
-
-  const input = (value: string, onChange: (v: string) => void, props: any = {}) => (
+  const inp = (value: string, onChange: (v: string) => void, props: any = {}) => (
     <input
       value={value}
       onChange={e => onChange(e.target.value)}
@@ -143,7 +137,7 @@ export default function ComptePage() {
     />
   );
 
-  const label = (text: string) => (
+  const lbl = (text: string) => (
     <label style={{ display: 'block', color: C.dark, fontSize: '12px', fontWeight: 700, marginBottom: '7px', letterSpacing: '0.3px' }}>{text}</label>
   );
 
@@ -162,13 +156,12 @@ export default function ComptePage() {
   return (
     <main style={{ minHeight: '100vh', background: C.cream, fontFamily: "-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" }}>
 
-      {/* Nav */}
       <nav style={{ background: C.white, borderBottom: `1px solid ${C.border}`, padding: '0 28px', display: 'flex', alignItems: 'center', height: '60px' }}>
         <a href="/dashboard" style={{ display: 'flex', alignItems: 'center', gap: '8px', textDecoration: 'none', color: C.textLight, fontSize: '14px', fontWeight: 600 }}>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
             <polyline points="15 18 9 12 15 6"/>
           </svg>
-          Retour à mon espace
+          Retour a mon espace
         </a>
       </nav>
 
@@ -176,17 +169,19 @@ export default function ComptePage() {
 
         <h1 style={{ color: C.dark, fontSize: '26px', fontWeight: 800, margin: '0 0 32px' }}>Mon compte</h1>
 
-        {/* Mode actuel — en premier */}
+        {/* Mode actuel */}
         {card(
           <>
             <p style={{ color: C.dark, fontSize: '15px', fontWeight: 700, margin: '0 0 12px' }}>Mode actuel</p>
-            <div style={{ background: isPost ? '#E6F0FA' : '#E4F5EC', borderRadius: '12px', padding: '14px 16px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '12px' }}>
+            <div style={{ background: isPost ? '#E6F0FA' : C.green, borderRadius: '12px', padding: '14px 16px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '12px' }}>
               <div>
                 <p style={{ color: isPost ? '#1A4A7A' : C.greenDark, fontSize: '14px', fontWeight: 700, margin: '0 0 2px' }}>
                   {isPost ? 'Post-partum' : 'Grossesse'}
                 </p>
                 <p style={{ color: isPost ? '#2E5F8A' : '#0A5030', fontSize: '12px', margin: 0 }}>
-                  {isPost ? `Mois ${Math.min(11, Math.floor(Math.abs(joursRestants ?? 0) / 30)) + 1} avec bébé` : `Semaine ${saReelle} · ${joursRestants} jours avant la DPA`}
+                  {isPost
+                    ? `Mois ${Math.min(11, Math.floor(Math.abs(joursRestants ?? 0) / 30)) + 1} avec bebe`
+                    : `Semaine ${saReelle} · ${joursRestants} jours avant la DPA`}
                 </p>
               </div>
               <a href="/dashboard" style={{ background: isPost ? '#1A4A7A' : C.greenDark, color: C.white, padding: '8px 16px', borderRadius: '20px', fontSize: '12px', fontWeight: 700, textDecoration: 'none' }}>
@@ -195,9 +190,9 @@ export default function ComptePage() {
             </div>
             <button
               onClick={basculerMode}
-              style={{ width: '100%', padding: '12px', background: isPost ? '#E4F5EC' : '#E6F0FA', border: 'none', borderRadius: '32px', fontSize: '14px', fontWeight: 700, color: isPost ? C.greenDark : '#1A4A7A', cursor: 'pointer' }}
+              style={{ width: '100%', padding: '12px', background: isPost ? C.green : '#E6F0FA', border: 'none', borderRadius: '32px', fontSize: '14px', fontWeight: 700, color: isPost ? C.greenDark : '#1A4A7A', cursor: 'pointer' }}
             >
-              {isPost ? 'Retour en mode grossesse' : 'Bébé est né !'}
+              {isPost ? 'Retour en mode grossesse' : 'Bebe est ne !'}
             </button>
           </>
         )}
@@ -207,24 +202,15 @@ export default function ComptePage() {
           <>
             <p style={{ color: C.dark, fontSize: '15px', fontWeight: 700, margin: '0 0 20px' }}>Informations personnelles</p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-              <div>
-                {label('Prénom')}
-                {input(prenom, setPrenom, { placeholder: 'Ton prénom' })}
-              </div>
-              <div>
-                {label('Date prévue d\'accouchement')}
-                {input(dpa, setDpa, { type: 'date' })}
-              </div>
-              <div>
-                {label('Adresse email')}
-                {input(email, setEmail, { type: 'email', placeholder: 'ton@email.fr' })}
-              </div>
+              <div>{lbl('Prenom')}{inp(prenom, setPrenom, { placeholder: 'Ton prenom' })}</div>
+              <div>{lbl('Date prevue d\'accouchement')}{inp(dpa, setDpa, { type: 'date' })}</div>
+              <div>{lbl('Adresse email')}{inp(email, setEmail, { type: 'email', placeholder: 'ton@email.fr' })}</div>
               <button
                 onClick={saveInfos}
                 disabled={saving}
                 style={{ background: saved ? C.greenDark : C.dark, color: C.white, border: 'none', padding: '13px', borderRadius: '32px', fontSize: '14px', fontWeight: 700, cursor: 'pointer' }}
               >
-                {saved ? 'Enregistré !' : saving ? 'Sauvegarde...' : 'Enregistrer'}
+                {saved ? 'Enregistre !' : saving ? 'Sauvegarde...' : 'Enregistrer'}
               </button>
             </div>
           </>
@@ -235,18 +221,9 @@ export default function ComptePage() {
           <>
             <p style={{ color: C.dark, fontSize: '15px', fontWeight: 700, margin: '0 0 20px' }}>Mot de passe</p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-              <div>
-                {label('Mot de passe actuel')}
-                {input(oldPwd, setOldPwd, { type: 'password', placeholder: '••••••••' })}
-              </div>
-              <div>
-                {label('Nouveau mot de passe')}
-                {input(newPwd, setNewPwd, { type: 'password', placeholder: 'Minimum 8 caractères' })}
-              </div>
-              <div>
-                {label('Confirmer le nouveau mot de passe')}
-                {input(newPwd2, setNewPwd2, { type: 'password', placeholder: '••••••••' })}
-              </div>
+              <div>{lbl('Mot de passe actuel')}{inp(oldPwd, setOldPwd, { type: 'password', placeholder: '••••••••' })}</div>
+              <div>{lbl('Nouveau mot de passe')}{inp(newPwd, setNewPwd, { type: 'password', placeholder: 'Minimum 8 caracteres' })}</div>
+              <div>{lbl('Confirmer le nouveau mot de passe')}{inp(newPwd2, setNewPwd2, { type: 'password', placeholder: '••••••••' })}</div>
               {pwdMsg && (
                 <p style={{ color: pwdMsg.includes('jour') ? C.greenDark : C.redDark, fontSize: '13px', margin: 0, fontWeight: 600 }}>{pwdMsg}</p>
               )}
@@ -255,7 +232,7 @@ export default function ComptePage() {
                 disabled={pwdLoading || !oldPwd || !newPwd || !newPwd2}
                 style={{ background: pwdLoading || !oldPwd || !newPwd || !newPwd2 ? '#ccc' : C.blue, color: C.white, border: 'none', padding: '13px', borderRadius: '32px', fontSize: '14px', fontWeight: 700, cursor: pwdLoading || !oldPwd || !newPwd || !newPwd2 ? 'not-allowed' : 'pointer' }}
               >
-                {pwdLoading ? 'Mise à jour...' : 'Changer le mot de passe'}
+                {pwdLoading ? 'Mise a jour...' : 'Changer le mot de passe'}
               </button>
             </div>
           </>
@@ -269,318 +246,23 @@ export default function ComptePage() {
               <div>
                 <p style={{ color: C.dark, fontSize: '14px', fontWeight: 600, margin: '0 0 4px' }}>DadUp Annuel</p>
                 <p style={{ color: C.textLight, fontSize: '12px', margin: 0 }}>
-                  {'35,99€/an · Accès complet'}
+                  35,99€/an · Acces complet
                   {endDate && (
                     <> jusqu&apos;au {new Date(endDate).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}</>
                   )}
                 </p>
               </div>
-              <span style={{ background: '#E4F5EC', color: C.greenDark, fontSize: '11px', fontWeight: 700, padding: '4px 10px', borderRadius: '20px' }}>Actif</span>
+              <span style={{ background: C.green, color: C.greenDark, fontSize: '11px', fontWeight: 700, padding: '4px 10px', borderRadius: '20px' }}>Actif</span>
             </div>
-            <a href="/contact-app" style={{ display: 'block', color: C.textLight, fontSize: '13px', textDecoration: 'none', margin: '0 0 8px' }}>
-              Un problème avec ton abonnement ? <span style={{ color: C.blue, fontWeight: 600 }}>Contacte-nous</span>
+            <a href="/contact-app" style={{ display: 'block', color: C.textLight, fontSize: '13px', textDecoration: 'none' }}>
+              Un probleme avec ton abonnement ? <span style={{ color: C.blue, fontWeight: 600 }}>Contacte-nous</span>
             </a>
           </>
         )}
 
         {/* Zone danger */}
         <div style={{ borderTop: `1px solid ${C.border}`, paddingTop: '20px', textAlign: 'center' }}>
-          <a href="/cancel" style={{ color: '#c8c4bc', fontSize: '12px', textDecoration: 'none' }}>Se désinscrire</a>
-        </div>
-
-      </div>
-    </main>
-  );
-        alert('DPA introuvable. Modifie ta date dans Informations personnelles.');
-        return;lient';
-
-import { useState, useEffect } from 'react';
-
-const C = {
-  dark: '#1e2535', gold: '#c8a060', cream: '#faf6f0', white: '#ffffff',
-  border: '#e8e0d0', text: '#4a5568', textLight: '#9aa0a8',
-  blue: '#2E5F8A', blueDark: '#1A3D5C',
-  green: '#E4F5EC', greenDark: '#0D6B40',
-  red: '#FDECEA', redDark: '#A03030',
-};
-
-function parseLocalDate(s: string) {
-  const [y, m, d] = s.split('-').map(Number);
-  return new Date(y, m - 1, d);
-}
-
-export default function ComptePage() {
-  const [user, setUser]           = useState<any>(null);
-  const [loading, setLoading]     = useState(true);
-  const [endDate, setEndDate]     = useState<string | null>(null);
-
-  // Champs éditables
-  const [prenom, setPrenom]       = useState('');
-  const [email,  setEmail]         = useState('');
-  const [dpa,    setDpa]          = useState('');
-  const [saving, setSaving]       = useState(false);
-  const [saved,  setSaved]        = useState(false);
-
-  // Mot de passe
-  const [oldPwd,  setOldPwd]      = useState('');
-  const [newPwd,  setNewPwd]      = useState('');
-  const [newPwd2, setNewPwd2]     = useState('');
-  const [pwdMsg,  setPwdMsg]      = useState('');
-  const [pwdLoading, setPwdLoading] = useState(false);
-
-  useEffect(() => {
-    fetch('/api/auth/me')
-      .then(r => r.json())
-      .then(({ user }) => {
-        if (!user) { window.location.href = '/login'; return; }
-        setUser(user);
-        setPrenom(user.prenom || '');
-        setDpa(user.dpa || '');
-        setEmail(user.email || '');
-        setLoading(false);
-        // Récupérer la date de fin Stripe séparément
-        fetch('/api/subscription')
-          .then(r => r.json())
-          .then(data => { if (data.endDate) setEndDate(data.endDate); })
-          .catch(() => {});
-      })
-      .catch(() => { window.location.href = '/login'; });
-  }, []);
-
-  const basculerMode = async () => {
-    if (isPost) {
-      // Retour en mode grossesse — restaurer la DPA originale
-      const dpaOriginale = localStorage.getItem('dadup_dpa_originale') || '';
-      if (!dpaOriginale) {
-        alert('DPA introuvable. Modifie ta date dans Informations personnelles.');
-        return;
-      }
-      setDpa(dpaOriginale);
-      localStorage.setItem('dadup_dpa', dpaOriginale);
-      localStorage.removeItem('dadup_dpa_originale');
-      await fetch('/api/auth/save', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ dpa: dpaOriginale, dpa_originale: null }),
-      });
-    } else {
-      // Passage en mode post-partum
-      const dpaCourante = dpa;
-      localStorage.setItem('dadup_dpa_originale', dpaCourante);
-      const ilYa2Jours = new Date();
-      ilYa2Jours.setDate(ilYa2Jours.getDate() - 2);
-      const dpaPost = `${ilYa2Jours.getFullYear()}-${String(ilYa2Jours.getMonth()+1).padStart(2,'0')}-${String(ilYa2Jours.getDate()).padStart(2,'0')}`;
-      setDpa(dpaPost);
-      localStorage.setItem('dadup_dpa', dpaPost);
-      await fetch('/api/auth/save', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ dpa: dpaPost, dpa_originale: dpaCourante }),
-      });
-    }
-  };
-
-  const saveInfos = async () => {
-    setSaving(true);
-    try {
-      const res = await fetch('/api/auth/save', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ prenom, dpa, email }),
-      });
-      if (!res.ok) throw new Error('Erreur serveur');
-
-      // Mettre à jour le localStorage pour que le dashboard reflète immédiatement
-      if (prenom) localStorage.setItem('dadup_prenom', prenom);
-      if (dpa)    localStorage.setItem('dadup_dpa', dpa);
-      else        localStorage.removeItem('dadup_dpa');
-
-      setSaved(true);
-      setTimeout(() => setSaved(false), 3000);
-    } catch {
-      alert('Erreur lors de la sauvegarde. Réessaie.');
-    } finally {
-      setSaving(false);
-    }
-  };
-
-  const changePassword = async () => {
-    if (newPwd !== newPwd2) { setPwdMsg('Les mots de passe ne correspondent pas.'); return; }
-    if (newPwd.length < 8)  { setPwdMsg('Minimum 8 caractères.'); return; }
-    setPwdLoading(true);
-    setPwdMsg('');
-    try {
-      const res  = await fetch('/api/auth/change-password', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ oldPassword: oldPwd, newPassword: newPwd }),
-      });
-      const data = await res.json();
-      if (!res.ok) { setPwdMsg(data.error || 'Erreur.'); }
-      else { setPwdMsg('Mot de passe mis à jour.'); setOldPwd(''); setNewPwd(''); setNewPwd2(''); }
-    } catch { setPwdMsg('Erreur serveur.'); }
-    setPwdLoading(false);
-  };
-
-  // Calculs
-  const joursRestants = dpa ? Math.ceil((parseLocalDate(dpa).getTime() - new Date().setHours(0,0,0,0)) / (1000*60*60*24)) : null;
-  const isPost        = joursRestants !== null && joursRestants < 0;
-  const saReelle      = !isPost && dpa ? Math.max(3, Math.min(42, Math.round(40 - (joursRestants ?? 0) / 7))) : null;
-
-  const input = (value: string, onChange: (v: string) => void, props: any = {}) => (
-    <input
-      value={value}
-      onChange={e => onChange(e.target.value)}
-      style={{ width: '100%', background: C.cream, border: `1.5px solid ${C.border}`, borderRadius: '12px', padding: '11px 14px', fontSize: '15px', color: C.dark, outline: 'none', boxSizing: 'border-box' as const }}
-      onFocus={e => (e.target as HTMLInputElement).style.borderColor = C.blue}
-      onBlur={e  => (e.target as HTMLInputElement).style.borderColor = C.border}
-      {...props}
-    />
-  );
-
-  const label = (text: string) => (
-    <label style={{ display: 'block', color: C.dark, fontSize: '12px', fontWeight: 700, marginBottom: '7px', letterSpacing: '0.3px' }}>{text}</label>
-  );
-
-  const card = (children: React.ReactNode) => (
-    <div style={{ background: C.white, borderRadius: '20px', padding: '24px', border: `1px solid ${C.border}`, marginBottom: '16px' }}>
-      {children}
-    </div>
-  );
-
-  if (loading) return (
-    <div style={{ minHeight: '100vh', background: C.cream, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-      <p style={{ color: C.textLight, fontSize: '14px' }}>Chargement...</p>
-    </div>
-  );
-
-  return (
-    <main style={{ minHeight: '100vh', background: C.cream, fontFamily: "-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" }}>
-
-      {/* Nav */}
-      <nav style={{ background: C.white, borderBottom: `1px solid ${C.border}`, padding: '0 28px', display: 'flex', alignItems: 'center', height: '60px' }}>
-        <a href="/dashboard" style={{ display: 'flex', alignItems: 'center', gap: '8px', textDecoration: 'none', color: C.textLight, fontSize: '14px', fontWeight: 600 }}>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-            <polyline points="15 18 9 12 15 6"/>
-          </svg>
-          Retour à mon espace
-        </a>
-      </nav>
-
-      <div style={{ maxWidth: '560px', margin: '0 auto', padding: '40px 20px' }}>
-
-        <h1 style={{ color: C.dark, fontSize: '26px', fontWeight: 800, margin: '0 0 32px' }}>Mon compte</h1>
-
-        {/* Mode actuel — en premier */}
-        {card(
-          <>
-            <p style={{ color: C.dark, fontSize: '15px', fontWeight: 700, margin: '0 0 12px' }}>Mode actuel</p>
-            <div style={{ background: isPost ? '#E6F0FA' : '#E4F5EC', borderRadius: '12px', padding: '14px 16px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '12px' }}>
-              <div>
-                <p style={{ color: isPost ? '#1A4A7A' : C.greenDark, fontSize: '14px', fontWeight: 700, margin: '0 0 2px' }}>
-                  {isPost ? 'Post-partum' : 'Grossesse'}
-                </p>
-                <p style={{ color: isPost ? '#2E5F8A' : '#0A5030', fontSize: '12px', margin: 0 }}>
-                  {isPost ? `Mois ${Math.min(11, Math.floor(Math.abs(joursRestants ?? 0) / 30)) + 1} avec bébé` : `Semaine ${saReelle} · ${joursRestants} jours avant la DPA`}
-                </p>
-              </div>
-              <a href="/dashboard" style={{ background: isPost ? '#1A4A7A' : C.greenDark, color: C.white, padding: '8px 16px', borderRadius: '20px', fontSize: '12px', fontWeight: 700, textDecoration: 'none' }}>
-                Mon espace
-              </a>
-            </div>
-            <button
-              onClick={basculerMode}
-              style={{ width: '100%', padding: '12px', background: isPost ? '#E4F5EC' : '#E6F0FA', border: 'none', borderRadius: '32px', fontSize: '14px', fontWeight: 700, color: isPost ? C.greenDark : '#1A4A7A', cursor: 'pointer' }}
-            >
-              {isPost ? 'Retour en mode grossesse' : 'Bébé est né !'}
-            </button>
-          </>
-        )}
-
-        {/* Informations personnelles */}
-        {card(
-          <>
-            <p style={{ color: C.dark, fontSize: '15px', fontWeight: 700, margin: '0 0 20px' }}>Informations personnelles</p>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-              <div>
-                {label('Prénom')}
-                {input(prenom, setPrenom, { placeholder: 'Ton prénom' })}
-              </div>
-              <div>
-                {label('Date prévue d\'accouchement')}
-                {input(dpa, setDpa, { type: 'date' })}
-              </div>
-              <div>
-                {label('Adresse email')}
-                {input(email, setEmail, { type: 'email', placeholder: 'ton@email.fr' })}
-              </div>
-              <button
-                onClick={saveInfos}
-                disabled={saving}
-                style={{ background: saved ? C.greenDark : C.dark, color: C.white, border: 'none', padding: '13px', borderRadius: '32px', fontSize: '14px', fontWeight: 700, cursor: 'pointer' }}
-              >
-                {saved ? 'Enregistré !' : saving ? 'Sauvegarde...' : 'Enregistrer'}
-              </button>
-            </div>
-          </>
-        )}
-
-        {/* Mot de passe */}
-        {card(
-          <>
-            <p style={{ color: C.dark, fontSize: '15px', fontWeight: 700, margin: '0 0 20px' }}>Mot de passe</p>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-              <div>
-                {label('Mot de passe actuel')}
-                {input(oldPwd, setOldPwd, { type: 'password', placeholder: '••••••••' })}
-              </div>
-              <div>
-                {label('Nouveau mot de passe')}
-                {input(newPwd, setNewPwd, { type: 'password', placeholder: 'Minimum 8 caractères' })}
-              </div>
-              <div>
-                {label('Confirmer le nouveau mot de passe')}
-                {input(newPwd2, setNewPwd2, { type: 'password', placeholder: '••••••••' })}
-              </div>
-              {pwdMsg && (
-                <p style={{ color: pwdMsg.includes('jour') ? C.greenDark : C.redDark, fontSize: '13px', margin: 0, fontWeight: 600 }}>{pwdMsg}</p>
-              )}
-              <button
-                onClick={changePassword}
-                disabled={pwdLoading || !oldPwd || !newPwd || !newPwd2}
-                style={{ background: pwdLoading || !oldPwd || !newPwd || !newPwd2 ? '#ccc' : C.blue, color: C.white, border: 'none', padding: '13px', borderRadius: '32px', fontSize: '14px', fontWeight: 700, cursor: pwdLoading || !oldPwd || !newPwd || !newPwd2 ? 'not-allowed' : 'pointer' }}
-              >
-                {pwdLoading ? 'Mise à jour...' : 'Changer le mot de passe'}
-              </button>
-            </div>
-          </>
-        )}
-
-        {/* Abonnement */}
-        {card(
-          <>
-            <p style={{ color: C.dark, fontSize: '15px', fontWeight: 700, margin: '0 0 16px' }}>Abonnement</p>
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '12px 16px', background: C.cream, borderRadius: '12px', marginBottom: '12px' }}>
-              <div>
-                <p style={{ color: C.dark, fontSize: '14px', fontWeight: 600, margin: '0 0 4px' }}>DadUp Annuel</p>
-                <p style={{ color: C.textLight, fontSize: '12px', margin: 0 }}>
-                  {'35,99€/an · Accès complet'}
-                  {endDate && (
-                    <> jusqu&apos;au {new Date(endDate).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}</>
-                  )}
-                </p>
-              </div>
-              <span style={{ background: '#E4F5EC', color: C.greenDark, fontSize: '11px', fontWeight: 700, padding: '4px 10px', borderRadius: '20px' }}>Actif</span>
-            </div>
-            <a href="/contact-app" style={{ display: 'block', color: C.textLight, fontSize: '13px', textDecoration: 'none', margin: '0 0 8px' }}>
-              Un problème avec ton abonnement ? <span style={{ color: C.blue, fontWeight: 600 }}>Contacte-nous</span>
-            </a>
-          </>
-        )}
-
-        {/* Zone danger */}
-        <div style={{ borderTop: `1px solid ${C.border}`, paddingTop: '20px', textAlign: 'center' }}>
-          <a href="/cancel" style={{ color: '#c8c4bc', fontSize: '12px', textDecoration: 'none' }}>Se désinscrire</a>
+          <a href="/cancel" style={{ color: '#c8c4bc', fontSize: '12px', textDecoration: 'none' }}>Se desinscrire</a>
         </div>
 
       </div>
