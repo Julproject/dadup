@@ -55,14 +55,26 @@ export default function ComptePage() {
 
   const saveInfos = async () => {
     setSaving(true);
-    await fetch('/api/auth/save', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ prenom, dpa, email }),
-    });
-    setSaving(false);
-    setSaved(true);
-    setTimeout(() => setSaved(false), 3000);
+    try {
+      const res = await fetch('/api/auth/save', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ prenom, dpa, email }),
+      });
+      if (!res.ok) throw new Error('Erreur serveur');
+
+      // Mettre à jour le localStorage pour que le dashboard reflète immédiatement
+      if (prenom) localStorage.setItem('dadup_prenom', prenom);
+      if (dpa)    localStorage.setItem('dadup_dpa', dpa);
+      else        localStorage.removeItem('dadup_dpa');
+
+      setSaved(true);
+      setTimeout(() => setSaved(false), 3000);
+    } catch {
+      alert('Erreur lors de la sauvegarde. Réessaie.');
+    } finally {
+      setSaving(false);
+    }
   };
 
   const changePassword = async () => {
