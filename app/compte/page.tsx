@@ -53,6 +53,39 @@ export default function ComptePage() {
       .catch(() => { window.location.href = '/login'; });
   }, []);
 
+  const basculerMode = async () => {
+    if (isPost) {
+      // Retour en mode grossesse — restaurer la DPA originale
+      const dpaOriginale = localStorage.getItem('dadup_dpa_originale') || '';
+      if (!dpaOriginale) {
+        alert('Impossible de retrouver ta date d'accouchement. Modifie-la dans "Informations personnelles".');
+        return;
+      }
+      setDpa(dpaOriginale);
+      localStorage.setItem('dadup_dpa', dpaOriginale);
+      localStorage.removeItem('dadup_dpa_originale');
+      await fetch('/api/auth/save', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ dpa: dpaOriginale, dpa_originale: null }),
+      });
+    } else {
+      // Passage en mode post-partum
+      const dpaCourante = dpa;
+      localStorage.setItem('dadup_dpa_originale', dpaCourante);
+      const ilYa2Jours = new Date();
+      ilYa2Jours.setDate(ilYa2Jours.getDate() - 2);
+      const dpaPost = `${ilYa2Jours.getFullYear()}-${String(ilYa2Jours.getMonth()+1).padStart(2,'0')}-${String(ilYa2Jours.getDate()).padStart(2,'0')}`;
+      setDpa(dpaPost);
+      localStorage.setItem('dadup_dpa', dpaPost);
+      await fetch('/api/auth/save', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ dpa: dpaPost, dpa_originale: dpaCourante }),
+      });
+    }
+  };
+
   const saveInfos = async () => {
     setSaving(true);
     try {
@@ -147,8 +180,8 @@ export default function ComptePage() {
         {/* Mode actuel — en premier */}
         {card(
           <>
-            <p style={{ color: C.dark, fontSize: '15px', fontWeight: 700, margin: '0 0 8px' }}>Mode actuel</p>
-            <div style={{ background: isPost ? '#E6F0FA' : '#E4F5EC', borderRadius: '12px', padding: '14px 16px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+            <p style={{ color: C.dark, fontSize: '15px', fontWeight: 700, margin: '0 0 12px' }}>Mode actuel</p>
+            <div style={{ background: isPost ? '#E6F0FA' : '#E4F5EC', borderRadius: '12px', padding: '14px 16px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '12px' }}>
               <div>
                 <p style={{ color: isPost ? '#1A4A7A' : C.greenDark, fontSize: '14px', fontWeight: 700, margin: '0 0 2px' }}>
                   {isPost ? 'Post-partum' : 'Grossesse'}
@@ -161,6 +194,12 @@ export default function ComptePage() {
                 Mon espace
               </a>
             </div>
+            <button
+              onClick={basculerMode}
+              style={{ width: '100%', padding: '12px', background: isPost ? '#E4F5EC' : '#E6F0FA', border: 'none', borderRadius: '32px', fontSize: '14px', fontWeight: 700, color: isPost ? C.greenDark : '#1A4A7A', cursor: 'pointer' }}
+            >
+              {isPost ? 'Retour en mode grossesse' : 'Bébé est né !'}
+            </button>
           </>
         )}
 
