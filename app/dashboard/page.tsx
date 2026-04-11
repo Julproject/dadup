@@ -29,7 +29,6 @@ const SuiviBebe      = dynamic(() => import('./components/postpartum/SuiviBebe')
 const PrepaNaissance = dynamic(() => import('./components/PrepaNaissance'));
 const AtelierBebe    = dynamic(() => import('./components/postpartum/AtelierBebe'));
 const DicoPapa       = dynamic(() => import('./components/DicoPapa'));
-const DicoPapa       = dynamic(() => import('./components/DicoPapa'));
 
 // ── Palette ───────────────────────────────────────────────────────────────────
 const C = {
