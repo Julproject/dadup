@@ -28,6 +28,8 @@ const PostRDV      = dynamic(() => import('./components/postpartum/PostRDV'));
 const SuiviBebe      = dynamic(() => import('./components/postpartum/SuiviBebe'));
 const PrepaNaissance = dynamic(() => import('./components/PrepaNaissance'));
 const AtelierBebe    = dynamic(() => import('./components/postpartum/AtelierBebe'));
+const DicoPapa       = dynamic(() => import('./components/DicoPapa'));
+const DicoPapa       = dynamic(() => import('./components/DicoPapa'));
 
 // ── Palette ───────────────────────────────────────────────────────────────────
 const C = {
@@ -294,6 +296,8 @@ function DashboardContent() {
         {!isPost && activeTab === 'psycho'    && <PsychoPage    C={C} saReelle={saReelle}/>}
         {!isPost && activeTab === 'jourj'     && <PrepaNaissance C={C} saReelle={saReelle || 40}/>}
         {isPost  && activeTab === 'atelier'   && <AtelierBebe   C={C}/>}
+        {activeTab === 'dico' && <DicoPapa C={C}/>}
+        {activeTab === 'dico' && <DicoPapa C={C} isPost={isPost}/>}
       </div>
 
       {/* MODALE CONFIRMATION NAISSANCE */}
