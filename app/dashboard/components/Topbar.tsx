@@ -20,7 +20,6 @@ export default function Topbar({ prenom, dpa, saReelle, tri, prog, isPost, moisB
     { id: 'psycho',   label: 'Psycho',     bg: '#F0EEFF', tc: '#5050B0' },
     { id: 'jourj',    label: 'Jour J',     bg: '#FDECEA', tc: '#C04A1A' },
     { id: 'dico',     label: 'Dico',       bg: '#E0F5F0', tc: '#0A5040' },
-    { id: 'dico',     label: 'Dico',       bg: '#E0F5F0', tc: '#085041' },
   ];
 
   const navPost = [
@@ -30,7 +29,6 @@ export default function Topbar({ prenom, dpa, saReelle, tri, prog, isPost, moisB
     { id: 'suivi',   label: 'Suivi J7',    bg: '#F0EEFF', tc: '#5050B0' },
     { id: 'atelier', label: 'Atelier',     bg: '#FFF7E0', tc: '#8A6010' },
     { id: 'dico',    label: 'Dico',       bg: '#E0F5F0', tc: '#0A5040' },
-    { id: 'dico',    label: 'Dico',        bg: '#E0F5F0', tc: '#085041' },
   ];
 
   const tabs = isPost ? navPost : navGrossesse;
