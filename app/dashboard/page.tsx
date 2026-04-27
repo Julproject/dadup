@@ -295,7 +295,7 @@ function DashboardContent() {
         {!isPost && activeTab === 'psycho'    && <PsychoPage    C={C} saReelle={saReelle}/>}
         {!isPost && activeTab === 'jourj'     && <PrepaNaissance C={C} saReelle={saReelle || 40}/>}
         {isPost  && activeTab === 'atelier'   && <AtelierBebe   C={C}/>}
-        {activeTab === 'dico' && <DicoPapa C={C}/>}
+        {activeTab === 'dico' && <DicoPapa C={C} isPost={isPost}/>}
       </div>
 
       {/* MODALE CONFIRMATION NAISSANCE */}
