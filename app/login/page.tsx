@@ -38,7 +38,6 @@ export default function LoginPage() {
         return;
       }
 
-      // Sauvegarder les données en localStorage pour accès rapide
       const u = data.user;
       if (u.prenom) localStorage.setItem('dadup_prenom', u.prenom);
       if (u.dpa)    localStorage.setItem('dadup_dpa', u.dpa);
@@ -66,7 +65,7 @@ export default function LoginPage() {
       });
       setForgotSent(true);
     } catch {
-      setForgotSent(true); // Toujours afficher le succès pour ne pas révéler si l'email existe
+      setForgotSent(true);
     } finally {
       setForgotLoading(false);
     }
@@ -76,7 +75,6 @@ export default function LoginPage() {
     <main style={{minHeight:'100vh',background:C.cream,display:'flex',alignItems:'center',justifyContent:'center',padding:'20px',fontFamily:"-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"}}>
       <div style={{maxWidth:'400px',width:'100%'}}>
 
-        {/* Logo */}
         <div style={{display:'flex',justifyContent:'center',marginBottom:'32px'}}>
           <a href="/" style={{display:'flex',alignItems:'center',gap:'10px',textDecoration:'none'}}>
             <svg viewBox="0 0 300 300" width="48" height="48">
@@ -91,7 +89,6 @@ export default function LoginPage() {
           </a>
         </div>
 
-        {/* Carte principale */}
         <div style={{background:C.white,borderRadius:'24px',padding:'32px',border:`1px solid ${C.border}`,boxShadow:'0 4px 24px rgba(0,0,0,0.06)'}}>
 
           {!showForgot ? (
@@ -187,10 +184,9 @@ export default function LoginPage() {
           )}
         </div>
 
-        {/* Lien vers le site */}
         <p style={{textAlign:'center',marginTop:'20px',fontSize:'13px',color:C.textLight}}>
           Pas encore de compte ?{' '}
-          <a href="/tarifs" style={{color:C.blue,fontWeight:700,textDecoration:'none'}}>Commencer — 29,99€/an</a>
+          <a href="/tarifs" style={{color:C.blue,fontWeight:700,textDecoration:'none'}}>Commencer — 35,99€/an</a>
         </p>
       </div>
     </main>
