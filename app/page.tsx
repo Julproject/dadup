@@ -352,6 +352,11 @@ export default function Home() {
             <a href="/temoignages" style={{color:'#6a7585', fontSize:'13px', textDecoration:'none'}}>Témoignages</a>
             <a href="/contact" style={{color:'#6a7585', fontSize:'13px', textDecoration:'none'}}>Contact</a>
           </div>
+          <div style={{display:'flex', gap:'16px', flexWrap:'wrap' as const}}>
+            <a href="/cgv" style={{color:'#6a7585', fontSize:'12px', textDecoration:'none'}}>CGV</a>
+            <a href="/confidentialite" style={{color:'#6a7585', fontSize:'12px', textDecoration:'none'}}>Confidentialité</a>
+            <a href="/mentions-legales" style={{color:'#6a7585', fontSize:'12px', textDecoration:'none'}}>Mentions légales</a>
+          </div>
           <p style={{color:'#6a7585', fontSize:'12px', margin:0}}>Il ne remplace pas l'avis d'un médecin.</p>
         </div>
       </footer>
