@@ -31,7 +31,7 @@ export default function ConfidentialitePage() {
       <div style={s.wrap}>
         <p style={s.label}>Légal</p>
         <h1 style={s.h1}>Politique de Confidentialité</h1>
-        <p style={s.date}>Version en vigueur au 27 avril 2026</p>
+        <p style={s.date}>Version en vigueur au {new Date().toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
 
         <p style={s.p}>DadUp accorde une importance particulière à la protection de vos données personnelles. Cette politique décrit quelles données sont collectées, pourquoi, comment elles sont protégées et quels sont vos droits.</p>
 
@@ -67,15 +67,22 @@ export default function ConfidentialitePage() {
         <h2 style={s.h2}>10. Modifications</h2>
         <p style={s.p}>En cas de modification substantielle, les Utilisateurs actifs en sont informés par email au moins 30 jours avant l'entrée en vigueur. La version en vigueur est toujours accessible sur le Site.</p>
 
-        <div style={s.footer}>
-          <p>DadUp — SIRET 10349796200011 — hello@dadup.fr</p>
-          <div style={{ display: 'flex', gap: '16px', marginTop: '8px' }}>
-            <a href="/cgv" style={s.link}>CGV</a>
-            <a href="/mentions-legales" style={s.link}>Mentions légales</a>
-            <a href="/" style={s.link}>Accueil</a>
+
+        <footer style={{ background: '#1e2535', borderTop: '1px solid #2e3848', padding: '32px 40px', marginTop: '0' }}>
+          <div style={{ maxWidth: '680px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '16px' }}>
+            <div style={{ display: 'flex', gap: '24px', flexWrap: 'wrap' }}>
+              <a href="/pourquoi" style={{ color: '#6a7585', fontSize: '13px', textDecoration: 'none' }}>Pourquoi DadUp</a>
+              <a href="/inclus" style={{ color: '#6a7585', fontSize: '13px', textDecoration: 'none' }}>Ce qui est inclus</a>
+              <a href="/tarifs" style={{ color: '#6a7585', fontSize: '13px', textDecoration: 'none' }}>Tarifs</a>
+              <a href="/temoignages" style={{ color: '#6a7585', fontSize: '13px', textDecoration: 'none' }}>Témoignages</a>
+              <a href="/contact" style={{ color: '#6a7585', fontSize: '13px', textDecoration: 'none' }}>Contactez-nous</a>
+              <a href="/cgv" style={{ color: '#6a7585', fontSize: '13px', textDecoration: 'none' }}>CGV</a>
+              <a href="/confidentialite" style={{ color: '#6a7585', fontSize: '13px', textDecoration: 'none' }}>Confidentialité</a>
+              <a href="/mentions-legales" style={{ color: '#6a7585', fontSize: '13px', textDecoration: 'none' }}>Mentions légales</a>
+            </div>
+            <p style={{ color: '#3d4f6a', fontSize: '12px', margin: 0 }}>DadUp — SIRET 10349796200011 — hello@dadup.fr — Il ne remplace pas l'avis d'un médecin.</p>
           </div>
-        </div>
-      </div>
+        </footer>
     </main>
   );
 }
