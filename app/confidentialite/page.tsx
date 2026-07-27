@@ -1,5 +1,7 @@
 'use client';
 
+const DATE_MAJ = new Date().toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
+
 export default function ConfidentialitePage() {
   const s = {
     main: { minHeight: '100vh', background: '#faf6f0', fontFamily: "-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif", color: '#4a5568' },
@@ -31,7 +33,7 @@ export default function ConfidentialitePage() {
       <div style={s.wrap}>
         <p style={s.label}>Légal</p>
         <h1 style={s.h1}>Politique de Confidentialité</h1>
-        <p style={s.date}>Version en vigueur au {new Date().toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
+        <p style={s.date}>Version en vigueur au {DATE_MAJ}</p>
 
         <p style={s.p}>DadUp accorde une importance particulière à la protection de vos données personnelles. Cette politique décrit quelles données sont collectées, pourquoi, comment elles sont protégées et quels sont vos droits.</p>
 
