@@ -1,6 +1,5 @@
 'use client';
 
-const DATE_MAJ = new Date().toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
 
 export default function ConfidentialitePage() {
   const s = {
@@ -33,7 +32,6 @@ export default function ConfidentialitePage() {
       <div style={s.wrap}>
         <p style={s.label}>Légal</p>
         <h1 style={s.h1}>Politique de Confidentialité</h1>
-        <p style={s.date}>Version en vigueur au {DATE_MAJ}</p>
 
         <p style={s.p}>DadUp accorde une importance particulière à la protection de vos données personnelles. Cette politique décrit quelles données sont collectées, pourquoi, comment elles sont protégées et quels sont vos droits.</p>
 
@@ -70,6 +68,7 @@ export default function ConfidentialitePage() {
         <p style={s.p}>En cas de modification substantielle, les Utilisateurs actifs en sont informés par email au moins 30 jours avant l'entrée en vigueur. La version en vigueur est toujours accessible sur le Site.</p>
 
 
+      </div>
         <footer style={{ background: '#1e2535', borderTop: '1px solid #2e3848', padding: '32px 40px', marginTop: '0' }}>
           <div style={{ maxWidth: '680px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '16px' }}>
             <div style={{ display: 'flex', gap: '24px', flexWrap: 'wrap' }}>
