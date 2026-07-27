@@ -1,6 +1,5 @@
 'use client';
 
-const DATE_MAJ = new Date().toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
 
 export default function CGVPage() {
   const s = {
@@ -33,7 +32,6 @@ export default function CGVPage() {
       <div style={s.wrap}>
         <p style={s.label}>Légal</p>
         <h1 style={s.h1}>Conditions Générales de Vente</h1>
-        <p style={s.date}>Version en vigueur au {DATE_MAJ}</p>
 
         <p style={s.p}><em>Les présentes CGV régissent exclusivement la relation commerciale entre DadUp et ses Utilisateurs. Elles sont distinctes des Mentions Légales et de la Politique de Confidentialité, disponibles séparément sur le Site.</em></p>
 
