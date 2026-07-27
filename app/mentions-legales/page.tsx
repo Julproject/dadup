@@ -1,5 +1,7 @@
 'use client';
 
+const DATE_MAJ = new Date().toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
+
 export default function MentionsLegalesPage() {
   const s = {
     main: { minHeight: '100vh', background: '#faf6f0', fontFamily: "-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif", color: '#4a5568' },
@@ -31,7 +33,7 @@ export default function MentionsLegalesPage() {
       <div style={s.wrap}>
         <p style={s.label}>Légal</p>
         <h1 style={s.h1}>Mentions Légales</h1>
-        <p style={s.date}>Conformément à la loi n°2004-575 du 21 juin 2004 — mise à jour au {new Date().toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
+        <p style={s.date}>Conformément à la loi n°2004-575 du 21 juin 2004 — mise à jour au {DATE_MAJ}</p>
 
         <h2 style={s.h2}>1. Éditeur du site</h2>
         <p style={s.p}>Le site dadup.fr est édité par DadUp, entreprise individuelle (EI), immatriculée sous le numéro SIRET 10349796200011, dont le siège est situé au 19 avenue de la préservation, 33000 Bordeaux, France. Email : hello@dadup.fr.</p>
