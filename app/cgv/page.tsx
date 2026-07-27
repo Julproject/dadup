@@ -90,6 +90,7 @@ export default function CGVPage() {
         <p style={s.p}>Intégralité : les présentes CGV constituent l'intégralité de l'accord. Divisibilité : si une clause est nulle, les autres demeurent en vigueur. Cession : DadUp peut céder le contrat après en avoir informé l'Utilisateur.</p>
 
 
+      </div>
         <footer style={{ background: '#1e2535', borderTop: '1px solid #2e3848', padding: '32px 40px', marginTop: '0' }}>
           <div style={{ maxWidth: '680px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '16px' }}>
             <div style={{ display: 'flex', gap: '24px', flexWrap: 'wrap' }}>
