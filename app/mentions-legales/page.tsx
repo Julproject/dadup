@@ -1,6 +1,5 @@
 'use client';
 
-const DATE_MAJ = new Date().toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
 
 export default function MentionsLegalesPage() {
   const s = {
@@ -33,7 +32,6 @@ export default function MentionsLegalesPage() {
       <div style={s.wrap}>
         <p style={s.label}>Légal</p>
         <h1 style={s.h1}>Mentions Légales</h1>
-        <p style={s.date}>Conformément à la loi n°2004-575 du 21 juin 2004 — mise à jour au {DATE_MAJ}</p>
 
         <h2 style={s.h2}>1. Éditeur du site</h2>
         <p style={s.p}>Le site dadup.fr est édité par DadUp, entreprise individuelle (EI), immatriculée sous le numéro SIRET 10349796200011, dont le siège est situé au 19 avenue de la préservation, 33000 Bordeaux, France. Email : hello@dadup.fr.</p>
@@ -60,6 +58,7 @@ export default function MentionsLegalesPage() {
         <p style={s.p}>En cas de litige non résolu, recours possible auprès du CM2C, 49 rue de Ponthieu, 75008 Paris — 01 89 47 00 14 — www.cm2c.net/declarer-un-litige.php — litiges@cm2c.net.</p>
 
 
+      </div>
         <footer style={{ background: '#1e2535', borderTop: '1px solid #2e3848', padding: '32px 40px', marginTop: '0' }}>
           <div style={{ maxWidth: '680px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '16px' }}>
             <div style={{ display: 'flex', gap: '24px', flexWrap: 'wrap' }}>
