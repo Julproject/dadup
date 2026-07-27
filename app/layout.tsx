@@ -2,8 +2,23 @@ import type { Metadata, Viewport } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'DadUp — Checklist PDF pour futurs papas',
-  description: 'Ta checklist PDF premium personnalisée. 15 pages. Générée en 10 secondes.',
+  title: 'DadUp — L\'app des futurs papas',
+  description: 'Suivi semaine par semaine, guide accouchement, post-partum. Tout ce que personne n\'explique aux papas. Accès immédiat.',
+  keywords: ['futur papa', 'grossesse papa', 'application papa', 'accouchement', 'post-partum', 'paternité', 'congé paternité'],
+  authors: [{ name: 'DadUp' }],
+  openGraph: {
+    title: 'DadUp — L\'app des futurs papas',
+    description: 'Suivi semaine par semaine, guide accouchement, post-partum. Tout ce que personne n\'explique aux papas.',
+    url: 'https://dadup.fr',
+    siteName: 'DadUp',
+    locale: 'fr_FR',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'DadUp — L\'app des futurs papas',
+    description: 'Suivi semaine par semaine, guide accouchement, post-partum.',
+  },
   manifest: '/manifest.json',
   appleWebApp: {
     capable: true,
@@ -16,7 +31,7 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  themeColor: '#0A0F1E',
+  themeColor: '#1A3D5C',
   width: 'device-width',
   initialScale: 1,
   maximumScale: 1,
