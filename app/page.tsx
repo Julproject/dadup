@@ -100,7 +100,7 @@ export default function Home() {
           </div>
           <div className="nav-cta-group">
             <a href="/login" style={{color:C.dark, fontSize:'14px', fontWeight:600, textDecoration:'none'}}>Se connecter</a>
-            <button onClick={goToStripe} style={{background:C.dark, color:C.white, border:'none', padding:'11px 22px', borderRadius:'32px', fontSize:'13px', fontWeight:700, cursor:'pointer'}}>Commencer — 35,99€/an</button>
+            <button onClick={goToStripe} style={{background:C.dark, color:C.white, border:'none', padding:'11px 22px', borderRadius:'32px', fontSize:'13px', fontWeight:700, cursor:'pointer'}}>Commencer</button>
           </div>
           <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)} style={{display:'none', background:'none', border:`1px solid ${C.border}`, padding:'8px 12px', borderRadius:'8px', cursor:'pointer'}}>
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -119,7 +119,7 @@ export default function Home() {
             <a href="/temoignages" style={{color:C.text, fontSize:'15px', fontWeight:500, padding:'10px 8px', textDecoration:'none', borderBottom:`1px solid ${C.cream}`}}>Témoignages</a>
             <a href="/contact" style={{color:C.text, fontSize:'15px', fontWeight:500, padding:'10px 8px', textDecoration:'none', borderBottom:`1px solid ${C.cream}`}}>Contactez-nous</a>
             <a href="/login" style={{color:C.dark, fontSize:'15px', fontWeight:700, padding:'10px 8px', textDecoration:'none', borderBottom:`1px solid ${C.cream}`}}>Se connecter</a>
-            <button onClick={goToStripe} style={{background:C.dark, color:C.white, border:'none', padding:'14px', borderRadius:'32px', fontSize:'14px', fontWeight:700, cursor:'pointer', marginTop:'8px', width:'100%'}}>Commencer — 35,99€/an</button>
+            <button onClick={goToStripe} style={{background:C.dark, color:C.white, border:'none', padding:'14px', borderRadius:'32px', fontSize:'14px', fontWeight:700, cursor:'pointer', marginTop:'8px', width:'100%'}}>Commencer</button>
           </div>
         )}
       </nav>
@@ -130,27 +130,24 @@ export default function Home() {
           {/* Badge FOMO */}
           <div style={{display:'inline-flex', alignItems:'center', gap:'8px', background:'#FFF0E6', border:'1px solid rgba(192,74,26,0.2)', borderRadius:'20px', padding:'6px 14px', marginBottom:'28px'}}>
             <div style={{width:'7px', height:'7px', borderRadius:'50%', background:'#C04A1A'}}></div>
-            <span style={{color:'#C04A1A', fontSize:'12px', fontWeight:700, letterSpacing:'0.5px'}}>97% des papas se sentent mieux préparés. Toi aussi ?</span>
+            <span style={{color:'#C04A1A', fontSize:'12px', fontWeight:700, letterSpacing:'0.5px'}}>Conçu pour les futurs pères. De la grossesse au post-partum.</span>
           </div>
 
           <h1 style={{fontSize:'54px', fontWeight:800, color:C.dark, lineHeight:1.0, margin:'0 0 24px'}}>
-            Sois le papa<br/>qui <span style={{color:C.gold}}>déchire.</span>
+            Être père,<br/><span style={{color:C.gold}}>ça se prépare.</span>
           </h1>
 
-          <p style={{color:C.blueDark, fontSize:'18px', lineHeight:1.6, margin:'0 0 8px', fontWeight:600}}>
-            Ton dashboard papa. Semaine 1 jusqu'à l'anniversaire de bébé.
-          </p>
-          <p style={{color:C.text, fontSize:'15px', lineHeight:1.7, margin:'0 0 36px'}}>
-            Tout ce que tu dois savoir, quand tu en as besoin. Bébé, couple, accouchement, post-partum. Zéro blabla, que du concret.
+          <p style={{color:C.text, fontSize:'16px', lineHeight:1.8, margin:'0 0 36px', maxWidth:'480px'}}>
+            De la première échographie au premier anniversaire. Tout ce que personne ne t&apos;explique sur la grossesse, l&apos;accouchement et les premiers mois avec bébé.
           </p>
 
           <div style={{display:'flex', gap:'12px', alignItems:'center', flexWrap:'wrap' as const}}>
             <button onClick={goToStripe} style={{background:C.dark, color:C.white, border:'none', padding:'16px 32px', borderRadius:'32px', fontSize:'15px', fontWeight:800, cursor:'pointer'}}>
-              Accès immédiat — 35,99€/an
+              Commencer
             </button>
             <a href="/inclus" style={{color:C.blue, fontSize:'14px', fontWeight:700, textDecoration:'none'}}>Voir ce qui est inclus →</a>
           </div>
-          <p style={{color:C.textLight, fontSize:'12px', margin:'12px 0 0'}}>Moins d'1€/semaine · Remboursé sous 7 jours si pas satisfait</p>
+          
         </div>
 
           {/* Photo hero */}
@@ -162,7 +159,7 @@ export default function Home() {
             <div style={{width:'32px', height:'32px', borderRadius:'50%', background:'#E4F5EC', display:'flex', alignItems:'center', justifyContent:'center', fontSize:'16px'}}>💪</div>
             <div>
               <p style={{color:C.dark, fontSize:'12px', fontWeight:800, margin:0}}>Prêt le jour J</p>
-              <p style={{color:C.textLight, fontSize:'11px', margin:'1px 0 0'}}>97% mieux préparés</p>
+              <p style={{color:C.textLight, fontSize:'11px', margin:'1px 0 0'}}>100% mieux préparés</p>
             </div>
           </div>
         </div>
@@ -173,7 +170,7 @@ export default function Home() {
         <div className="stats-grid" style={{maxWidth:'1200px', margin:'0 auto', textAlign:'center'}}>
           {[
             {chiffre:'41',     label:'semaines couvertes'},
-            {chiffre:'97%',    label:'mieux préparés'},
+            {chiffre:'100%',   label:'mieux préparés'},
             {chiffre:'100%',   label:'personnalisé'},
             {chiffre:'35,99€', label:'par an'},
           ].map((s, i) => (
@@ -189,9 +186,9 @@ export default function Home() {
       <section className="section-pad" style={{padding:'80px 40px', background:C.cream}}>
         <div style={{maxWidth:'1200px', margin:'0 auto'}}>
           <div style={{textAlign:'center', marginBottom:'48px'}}>
-            <p style={{color:C.blue, fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase' as const, margin:'0 0 12px'}}>Papa newbie ?</p>
-            <h2 style={{color:C.dark, fontSize:'38px', fontWeight:800, margin:'0 0 16px', lineHeight:1.2}}>Tout ce que personne<br/>ne t'explique.</h2>
-            <p style={{color:C.text, fontSize:'16px', maxWidth:'560px', margin:'0 auto', lineHeight:1.7}}>La grossesse, le médecin en parle à elle. L'accouchement, les amis en font un mythe. Le post-partum, personne n'en parle. DadUp, c'est tout ça — pour toi.</p>
+            <p style={{color:C.blue, fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase' as const, margin:'0 0 16px'}}>Ce que DadUp couvre</p>
+            <h2 style={{color:C.dark, fontSize:'38px', fontWeight:800, margin:'0 0 16px', lineHeight:1.2}}>Tout ce que personne<br/>ne t&apos;explique.</h2>
+            <p style={{color:C.textLight, fontSize:'15px', margin:'0 auto', maxWidth:'480px', lineHeight:1.7}}>6 sujets essentiels. Traités sans détour, au bon moment de la grossesse.</p>
           </div>
           <div className="newbie-grid">
             {[
@@ -205,11 +202,7 @@ export default function Home() {
                 desc: "Checklist interactive. Ce qu'elle emporte, ce que tu prends pour toi, ce que tout le monde oublie. Cochée en 10 minutes.",
                 bg: '#E4F5EC', color: '#0A2E1A',
               },
-              {
-                titre: "Les alertes médicales",
-                desc: "Les signes qui doivent te faire appeler le médecin immédiatement. Pas de panique, juste les bons réflexes au bon moment.",
-                bg: '#FDECEA', color: '#6A0000',
-              },
+
               {
                 titre: "L'accouchement",
                 desc: "La règle 5-1-1. Quand partir. Ce que tu fais en salle de naissance. Péri ou pas. Césarienne. Tout ce qu'on ne te dit pas.",
@@ -228,7 +221,7 @@ export default function Home() {
             ].map((item, i) => (
               <div key={i} style={{background:item.bg, borderRadius:'20px', padding:'24px', border:`1px solid ${C.border}`}}>
                 <p style={{color:item.color, fontSize:'16px', fontWeight:800, margin:'0 0 10px'}}>{item.titre}</p>
-                <p style={{color:item.color, fontSize:'14px', lineHeight:1.65, margin:0, opacity:0.8}}>{item.desc}</p>
+   
               </div>
             ))}
           </div>
@@ -238,12 +231,12 @@ export default function Home() {
       {/* TON SUPER-POUVOIR PAPA */}
       <section className="section-pad quote-grid" style={{padding:'80px 40px', maxWidth:'1200px', margin:'0 auto'}}>
         <div style={{borderLeft:`3px solid ${C.gold}`, paddingLeft:'32px'}}>
-          <p style={{color:C.gold, fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase' as const, margin:'0 0 16px'}}>Ton super-pouvoir papa</p>
+          <p style={{color:C.gold, fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase' as const, margin:'0 0 16px'}}>Ce que tu peux changer</p>
           <p style={{fontSize:'34px', fontWeight:800, color:C.dark, margin:'0 0 16px', lineHeight:1.2}}>
             Savoir ce qui se passe avant qu'on te l'explique.
           </p>
           <p style={{color:C.text, fontSize:'16px', margin:'0 0 32px', lineHeight:1.7}}>
-            Quand tu arrives à l'échographie en sachant ce qu'on cherche, quand tu prépares la valise sans qu'elle demande, quand tu comprends ce qu'elle traverse — ça change tout. Pour elle. Pour vous.
+            Un père qui comprend ce qui se passe prend de meilleures décisions. Il est plus calme le jour J. Il soutient mieux.
           </p>
           <div style={{display:'flex', gap:'16px', flexWrap:'wrap' as const}}>
             <a href="/pourquoi" style={{color:C.dark, fontSize:'14px', fontWeight:700, textDecoration:'none'}}>Pourquoi ça change tout →</a>
@@ -320,13 +313,13 @@ export default function Home() {
       <section className="cta-section" style={{background:C.blueDark, padding:'80px 40px', textAlign:'center' as const}}>
         <p style={{color:C.gold, fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase' as const, margin:'0 0 16px'}}>Accès immédiat</p>
         <h2 style={{color:C.white, fontSize:'44px', fontWeight:800, margin:'0 0 8px', lineHeight:1.1}}>
-          Sois le papa<br/>qui déchire.
+          Être père,<br/>ça se prépare.
         </h2>
-        <p style={{color:'rgba(255,255,255,0.5)', fontSize:'16px', margin:'0 0 8px'}}>Dashboard live · Personnalisé à ta DPA · Semaine 1 à l'anniversaire</p>
+        <p style={{color:'rgba(255,255,255,0.5)', fontSize:'16px', margin:'0 0 8px'}}></p>
         <p style={{color:C.white, fontSize:'52px', fontWeight:800, margin:'16px 0 4px'}}>35,99€</p>
         <p style={{color:'#6a7585', fontSize:'14px', margin:'0 0 40px'}}>par an · paiement unique · sans engagement</p>
         <button onClick={goToStripe} style={{background:C.gold, color:'#1c1510', border:'none', padding:'18px 48px', borderRadius:'32px', fontSize:'16px', fontWeight:800, cursor:'pointer', width:'100%', maxWidth:'400px', display:'block', margin:'0 auto'}}>
-          Commencer maintenant — 35,99€/an
+          Commencer
         </button>
         <p style={{color:'#3d5070', fontSize:'12px', margin:'12px 0 0'}}>Paiement sécurisé · Remboursé sous 7 jours si pas satisfait</p>
       </section>
