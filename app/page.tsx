@@ -219,7 +219,7 @@ export default function Home() {
                 bg: '#FFF7E0', color: '#3A2800',
               },
             ].map((item, i) => (
-              <div key={i} style={{background:item.bg, borderRadius:'20px', padding:'24px', border:`1px solid ${C.border}`}}>
+              <div key={i} style={{background:item.bg, borderRadius:'20px', padding:'24px', border:`1px solid ${C.border}`, textAlign:'center' as const}}>
                 <p style={{color:item.color, fontSize:'16px', fontWeight:800, margin:'0 0 10px'}}>{item.titre}</p>
    
               </div>
