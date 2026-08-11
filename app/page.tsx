@@ -47,7 +47,7 @@ export default function Home() {
         .stats-grid { display: grid; grid-template-columns: repeat(4,1fr); padding: 40px; }
         .modules-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
         .quote-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
-        .newbie-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+        .newbie-grid { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; } .newbie-grid > div { flex: 1 1 calc(33% - 16px); min-width: 240px; max-width: calc(33% - 16px); }
         .temoignages-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
         .footer-inner { display: flex; align-items: center; justify-content: space-between; }
         .footer-links { display: flex; gap: 24px; }
@@ -63,7 +63,7 @@ export default function Home() {
           .stats-item:nth-child(2) { border-left: 1px solid #2e3848 !important; }
           .modules-grid { grid-template-columns: 1fr 1fr; }
           .quote-grid { grid-template-columns: 1fr; gap: 32px; }
-          .newbie-grid { grid-template-columns: 1fr; }
+          .newbie-grid > div { flex: 1 1 100%; max-width: 100%; }
           .temoignages-grid { grid-template-columns: 1fr; }
           .footer-inner { flex-direction: column; gap: 20px; text-align: center; }
           .footer-links { flex-wrap: wrap; justify-content: center; gap: 16px; }
