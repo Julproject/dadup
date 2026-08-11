@@ -40,22 +40,19 @@ export default function PourquoiPage() {
         </div>
         <div className="nc" style={{alignItems:'center',gap:'16px'}}>
           <a href="/login" style={{color:C.dark,fontSize:'14px',fontWeight:600,textDecoration:'none'}}>Se connecter</a>
-          <a href="/tarifs" style={{background:C.dark,color:C.white,padding:'11px 22px',borderRadius:'32px',fontSize:'13px',fontWeight:700,textDecoration:'none'}}>Commencer — 35,99€/an 💪</a>
+          <a href="/tarifs" style={{background:C.dark,color:C.white,padding:'11px 22px',borderRadius:'32px',fontSize:'13px',fontWeight:700,textDecoration:'none'}}>Commencer</a>
         </div>
       </nav>
 
       {/* HERO */}
       <section style={{background:C.dark,padding:'80px 40px'}}>
         <div style={{maxWidth:'800px',margin:'0 auto',textAlign:'center'}}>
-          <div style={{display:'inline-flex',alignItems:'center',gap:'8px',background:'rgba(200,160,96,0.15)',borderRadius:'20px',padding:'6px 16px',marginBottom:'24px'}}>
-            <span style={{fontSize:'16px'}}>💪</span>
-            <span style={{color:C.gold,fontSize:'13px',fontWeight:700}}>Sois un papa qui déchire</span>
-          </div>
+
           <h1 style={{color:C.white,fontSize:'52px',fontWeight:800,margin:'0 0 24px',lineHeight:1.1}}>
             Être père,<br/><span style={{color:C.gold}}>ça se prépare.</span>
           </h1>
           <p style={{color:'#6a7585',fontSize:'18px',lineHeight:1.7,margin:'0 0 16px'}}>DadUp est le premier guide conçu exclusivement pour le papa.</p>
-          <p style={{color:'rgba(200,160,96,0.7)',fontSize:'14px',fontWeight:600}}>Ne réfléchis plus à la place de ta partenaire : tout est dans l'app.</p>
+
         </div>
       </section>
 
@@ -63,10 +60,9 @@ export default function PourquoiPage() {
       <section style={{background:'#f7f9fc',padding:'24px 40px',borderBottom:`1px solid ${C.border}`}}>
         <div style={{maxWidth:'1200px',margin:'0 auto',display:'flex',gap:'12px',justifyContent:'center',flexWrap:'wrap'}}>
           {[
-            {icon:'💪', texte:'Sois un papa qui déchire'},
-            {icon:'🍺', texte:'35,99€ = 12 bières. Facile.'},
-            {icon:'📱', texte:'Centralise tout : bébé, couple, stress'},
-            {icon:'🔓', texte:'Paye 1x → serein 365j'},
+            {icon:'📱', texte:'Tout centralisé, semaine par semaine'},
+            {icon:'🔓', texte:'Paiement unique, accès 12 mois'},
+            {icon:'👶', texte:'De la grossesse au premier anniversaire'},
           ].map((item,i) => (
             <div key={i} style={{display:'flex',alignItems:'center',gap:'8px',background:C.white,border:`1px solid ${C.border}`,borderRadius:'24px',padding:'10px 18px'}}>
               <span style={{fontSize:'16px'}}>{item.icon}</span>
@@ -99,7 +95,7 @@ export default function PourquoiPage() {
             ))}
           </div>
           <div style={{background:C.dark,borderRadius:'20px',padding:'32px'}}>
-            <p style={{color:C.gold,fontSize:'12px',fontWeight:700,letterSpacing:'2px',textTransform:'uppercase',margin:'0 0 20px'}}>Avec DadUp 💪</p>
+            <p style={{color:C.gold,fontSize:'12px',fontWeight:700,letterSpacing:'2px',textTransform:'uppercase',margin:'0 0 20px'}}>Avec DadUp</p>
             {[
               "Tu connais chaque étape avant qu'elle arrive",
               "Tu sais exactement quand et comment réagir",
@@ -118,12 +114,11 @@ export default function PourquoiPage() {
 
       {/* CTA */}
       <section style={{background:C.dark,padding:'80px 40px',textAlign:'center' as const}}>
-        <p style={{color:C.gold,fontSize:'11px',fontWeight:700,letterSpacing:'3px',textTransform:'uppercase',margin:'0 0 16px'}}>Prêt à déchirer ?</p>
-        <h2 style={{color:C.white,fontSize:'38px',fontWeight:800,margin:'0 0 12px'}}>Commencer maintenant</h2>
-        <p style={{color:'#6a7585',fontSize:'16px',margin:'0 0 8px'}}>35,99€/an. Sans engagement. Accès immédiat.</p>
-        <p style={{color:'rgba(200,160,96,0.6)',fontSize:'14px',margin:'0 0 32px'}}>= 12 bières 🍺 · 2 places de match ⚽ · 1 pizza XXL 🍕</p>
-        <a href="/tarifs" style={{background:C.gold,color:'#1c1510',padding:'16px 40px',borderRadius:'32px',fontSize:'15px',fontWeight:800,textDecoration:'none',display:'inline-block'}}>Commencer — 35,99€/an 💪</a>
-        <p style={{color:'#3d5070',fontSize:'12px',margin:'12px 0 0'}}>Moins cher que Netflix · Paye 1x → serein 365j ✅</p>
+        <p style={{color:C.gold,fontSize:'11px',fontWeight:700,letterSpacing:'3px',textTransform:'uppercase',margin:'0 0 16px'}}>Prêt à commencer ?</p>
+        <h2 style={{color:C.white,fontSize:'38px',fontWeight:800,margin:'0 0 12px'}}>35,99€ par an</h2>
+        <p style={{color:'#6a7585',fontSize:'16px',margin:'0 0 8px'}}>Paiement unique. Accès complet pendant 12 mois.</p>
+        <p style={{color:'rgba(200,160,96,0.5)',fontSize:'13px',margin:'0 0 32px'}}>Soit moins qu&apos;un mois de Netflix, qu&apos;une place de match ou qu&apos;une sortie au restaurant.</p>
+        <a href="/tarifs" style={{background:C.gold,color:'#1c1510',padding:'16px 40px',borderRadius:'32px',fontSize:'15px',fontWeight:800,textDecoration:'none',display:'inline-block'}}>Commencer</a>
       </section>
 
       <footer style={{background:C.dark,borderTop:'1px solid #2e3848',padding:'32px 40px'}}>
