@@ -73,7 +73,34 @@ export default function Home() {
           h1 { font-size: 36px !important; }
           h2 { font-size: 26px !important; }
         }
-      `}</style>
+      @media(max-width:768px){
+          .nl{display:none!important;}
+          .nc{display:none!important;}
+          .sp{padding:32px 16px!important;}
+          nav{padding:0 16px!important;}
+          h1{font-size:32px!important;line-height:1.15!important;}
+          h2{font-size:24px!important;}
+          .prix{font-size:48px!important;}
+          .hero-grid{grid-template-columns:1fr!important;gap:24px!important;padding:40px 16px 0!important;}
+          .hero-img-wrap{height:220px!important;}
+          .stats-grid{grid-template-columns:1fr 1fr!important;padding:20px 16px!important;}
+          .stats-item{border-left:none!important;border-top:1px solid #2e3848;padding:14px!important;}
+          .stats-item:nth-child(2){border-left:1px solid #2e3848!important;}
+          .modules-grid{grid-template-columns:1fr!important;}
+          .quote-grid{grid-template-columns:1fr!important;gap:24px!important;}
+          .newbie-grid>div{flex:1 1 100%!important;max-width:100%!important;}
+          .temoignages-grid{grid-template-columns:1fr!important;}
+          .aa{grid-template-columns:1fr!important;}
+          .tg{grid-template-columns:1fr!important;}
+          .mg{grid-template-columns:1fr!important;gap:24px!important;}
+          .footer-inner{flex-direction:column!important;gap:16px!important;text-align:center!important;}
+          .footer-links{flex-wrap:wrap!important;justify-content:center!important;gap:12px!important;}
+          section{padding:48px 16px!important;}
+          .section-pad{padding:48px 16px!important;}
+          .cta-section{padding:48px 16px!important;}
+          .footer-section{padding:24px 16px!important;}
+        }
+        `}</style>
 
       {/* NAV */}
       <nav style={{background:C.white, borderBottom:`1px solid ${C.border}`, position:'sticky', top:0, zIndex:50}}>
@@ -183,7 +210,7 @@ export default function Home() {
       </section>
 
       {/* SECTION "PAPA NEWBIE ?" */}
-      <section className="section-pad" style={{padding:'80px 40px', background:C.cream}}>
+      <section className="section-pad sp" style={{padding:'80px 40px', background:C.cream}}>
         <div style={{maxWidth:'1200px', margin:'0 auto'}}>
           <div style={{textAlign:'center', marginBottom:'48px'}}>
             <p style={{color:C.blue, fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase' as const, margin:'0 0 16px'}}>Ce que DadUp couvre</p>
@@ -258,59 +285,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* TEMOIGNAGES */}
-      <section style={{background:C.dark, padding:'80px 40px'}}>
-        <div style={{maxWidth:'1200px', margin:'0 auto'}}>
-          <p style={{color:C.gold, fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase' as const, margin:'0 0 16px', textAlign:'center'}}>Ils l'ont fait</p>
-          <h2 style={{color:C.white, fontSize:'34px', fontWeight:800, margin:'0 0 40px', textAlign:'center'}}>Des papas qui ont décidé d'être prêts.</h2>
-          <div className="temoignages-grid">
-            {[
-              {prenom:'Thomas', age:31, ville:'Lyon', sa:'SA 28', texte:"J'avais l'impression d'être spectateur pendant toute la grossesse. À l'accouchement j'ai su exactement quoi faire. Ma compagne me dit encore que ça a tout changé."},
-              {prenom:'Maxime', age:28, ville:'Paris', sa:'SA 34', texte:"Le module post-partum m'a sauvé. Personne ne m'avait parlé du baby blues. J'ai compris ce que vivait ma femme et j'ai pu être là pour elle."},
-              {prenom:'Nicolas', age:30, ville:'Toulouse', sa:'SA 40', texte:"Bébé est arrivé. J'étais là, vraiment présent, du début à la fin. C'est le plus beau jour de ma vie. DadUp m'a aidé à être prêt pour ça."},
-            ].map((t,i) => (
-              <div key={i} style={{background:'rgba(255,255,255,0.05)', border:'1px solid rgba(255,255,255,0.08)', borderRadius:'20px', padding:'24px'}}>
-                <div style={{display:'flex', gap:'2px', marginBottom:'16px'}}>
-                  {[...Array(5)].map((_,j)=><span key={j} style={{color:C.gold, fontSize:'14px'}}>★</span>)}
-                </div>
-                <p style={{color:'rgba(255,255,255,0.85)', fontSize:'14px', lineHeight:1.7, margin:'0 0 20px', fontStyle:'italic'}}>"{t.texte}"</p>
-                <div style={{display:'flex', alignItems:'center', justifyContent:'space-between'}}>
-                  <div>
-                    <p style={{color:C.white, fontSize:'13px', fontWeight:700, margin:0}}>{t.prenom}, {t.age} ans</p>
-                    <p style={{color:'#6a7585', fontSize:'11px', margin:'2px 0 0'}}>{t.ville}</p>
-                  </div>
-                  <span style={{background:'rgba(200,160,96,0.15)', color:C.gold, fontSize:'11px', fontWeight:600, padding:'4px 10px', borderRadius:'20px'}}>{t.sa}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* COMPARAISON PRIX */}
-      <section style={{background:C.cream, padding:'60px 40px', borderTop:`1px solid ${C.border}`}}>
-        <div style={{maxWidth:'800px', margin:'0 auto', textAlign:'center'}}>
-          <h2 style={{color:C.dark, fontSize:'32px', fontWeight:800, margin:'0 0 8px'}}>35,99€/an. C'est quoi 35,99€ ?</h2>
-          <p style={{color:C.textLight, fontSize:'15px', margin:'0 0 36px'}}>Moins cher que ce que tu dépenses en une soirée.</p>
-          <div style={{display:'flex', gap:'12px', justifyContent:'center', flexWrap:'wrap'}}>
-            {[
-              {icon:'🍺', label:'12 bières',       prix:'~36€',   hl:false},
-              {icon:'⚽', label:'1 place de match', prix:'~40€',   hl:false},
-              {icon:'🍕', label:'1 pizza livrée',   prix:'~25€',   hl:false},
-              {icon:'👶', label:'DadUp 1 an',       prix:'35,99€', hl:true},
-            ].map(item => (
-              <div key={item.label} style={{background: item.hl ? C.dark : C.white, border: item.hl ? 'none' : `1px solid ${C.border}`, borderRadius:'20px', padding:'20px 24px', textAlign:'center', minWidth:'140px', boxShadow: item.hl ? '0 4px 24px rgba(0,0,0,0.12)' : 'none'}}>
-                <div style={{fontSize:'28px', marginBottom:'8px'}}>{item.icon}</div>
-                <p style={{color: item.hl ? 'rgba(255,255,255,0.6)' : C.textLight, fontSize:'12px', margin:'0 0 4px', fontWeight:600}}>{item.label}</p>
-                <p style={{color: item.hl ? C.gold : C.dark, fontSize:'20px', fontWeight:800, margin:0}}>{item.prix}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* CTA FINAL */}
-      <section className="cta-section" style={{background:C.blueDark, padding:'80px 40px', textAlign:'center' as const}}>
+      <section className="cta-section sp" style={{background:C.blueDark, padding:'80px 40px', textAlign:'center' as const}}>
         <p style={{color:C.gold, fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase' as const, margin:'0 0 16px'}}>Accès immédiat</p>
         <h2 style={{color:C.white, fontSize:'44px', fontWeight:800, margin:'0 0 8px', lineHeight:1.1}}>
           Être père,<br/>ça se prépare.
