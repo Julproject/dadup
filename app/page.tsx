@@ -157,7 +157,7 @@ export default function Home() {
           {/* Badge FOMO */}
           <div style={{display:'inline-flex', alignItems:'center', gap:'8px', background:'#FFF0E6', border:'1px solid rgba(192,74,26,0.2)', borderRadius:'20px', padding:'6px 14px', marginBottom:'28px'}}>
             <div style={{width:'7px', height:'7px', borderRadius:'50%', background:'#C04A1A'}}></div>
-            <span style={{color:'#C04A1A', fontSize:'12px', fontWeight:700, letterSpacing:'0.5px'}}>Conçu pour les futurs pères. De la grossesse au post-partum.</span>
+            <span style={{color:'#C04A1A', fontSize:'12px', fontWeight:700, letterSpacing:'0.5px'}}>Conçu pour les futurs pères. .</span>
           </div>
 
           <h1 style={{fontSize:'54px', fontWeight:800, color:C.dark, lineHeight:1.0, margin:'0 0 24px'}}>
@@ -185,8 +185,8 @@ export default function Home() {
           <div style={{position:'absolute', bottom:'24px', left:'-20px', background:C.white, borderRadius:'16px', padding:'12px 16px', border:`1px solid ${C.border}`, boxShadow:'0 4px 16px rgba(0,0,0,0.1)', display:'flex', alignItems:'center', gap:'10px'}}>
             <div style={{width:'32px', height:'32px', borderRadius:'50%', background:'#E4F5EC', display:'flex', alignItems:'center', justifyContent:'center', fontSize:'16px'}}>💪</div>
             <div>
-              <p style={{color:C.dark, fontSize:'12px', fontWeight:800, margin:0}}>Prêt le jour J</p>
-              <p style={{color:C.textLight, fontSize:'11px', margin:'1px 0 0'}}>100% mieux préparés</p>
+              <p style={{color:C.dark, fontSize:'12px', fontWeight:800, margin:0}}>Toujours prêt</p>
+              <p style={{color:C.textLight, fontSize:'11px', margin:'1px 0 0'}}></p>
             </div>
           </div>
         </div>
