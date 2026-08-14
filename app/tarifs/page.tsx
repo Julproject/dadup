@@ -29,15 +29,14 @@ export default function TarifsPage() {
       <style>{`
         *{box-sizing:border-box;margin:0;padding:0;}
         .nl{display:flex;}.nc{display:flex;}
-        .layout{display:grid;grid-template-columns:1fr 1fr;min-height:calc(100vh - 68px);}
-        .left-col{position:sticky;top:68px;height:calc(100vh - 68px);overflow:hidden;}
-        .right-col{padding:64px 56px;overflow-y:auto;}
+        .grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start;}
         @media(max-width:900px){
           .nl{display:none!important;}.nc{display:none!important;}
-          .layout{grid-template-columns:1fr!important;min-height:auto!important;}
-          .left-col{position:relative!important;top:auto!important;height:auto!important;padding:48px 24px!important;}
-          .right-col{padding:40px 24px!important;}
+          .grid{grid-template-columns:1fr!important;}
           nav{padding:0 20px!important;}
+          h1{font-size:32px!important;}
+          .hero{padding:48px 24px!important;}
+          .main{padding:40px 24px 80px!important;}
         }
       `}</style>
 
@@ -62,83 +61,85 @@ export default function TarifsPage() {
         </div>
       </nav>
 
-      {/* LAYOUT 2 COLONNES */}
-      <div className="layout">
-
-        {/* COLONNE GAUCHE — sticky, fond sombre */}
-        <div className="left-col" style={{ background: C.dark, padding: '64px 56px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-          <p style={{ color: C.gold, fontSize: '11px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase', margin: '0 0 24px' }}>Accès annuel complet</p>
-          
-          <div style={{ marginBottom: '8px' }}>
-            <span style={{ color: C.white, fontSize: '80px', fontWeight: 800, lineHeight: 1 }}>35,99€</span>
-          </div>
-          <p style={{ color: '#6a7585', fontSize: '15px', margin: '0 0 48px' }}>par an · paiement unique</p>
-
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginBottom: '48px' }}>
-            {FEATURES.map(f => (
-              <div key={f} style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
-                <span style={{ color: C.gold, fontSize: '14px', flexShrink: 0, marginTop: '2px' }}>—</span>
-                <p style={{ color: 'rgba(255,255,255,0.8)', fontSize: '14px', margin: 0, lineHeight: 1.6 }}>{f}</p>
-              </div>
-            ))}
-          </div>
-
-          <button onClick={goToStripe} style={{ background: C.gold, color: '#1c1510', border: 'none', padding: '18px', borderRadius: '32px', fontSize: '16px', fontWeight: 800, cursor: 'pointer', width: '100%', marginBottom: '12px' }}>
-            Commencer
-          </button>
-          <p style={{ color: '#3d5070', fontSize: '12px', textAlign: 'center', marginBottom: '40px' }}>Paiement sécurisé par Stripe</p>
-
-          {/* INFOS PRATIQUES */}
-          <div style={{ borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '32px', marginBottom: '24px' }}>
-            {[
-              { label: "Durée", val: "12 mois à compter du paiement" },
-              { label: "Renouvellement", val: "Aucun renouvellement automatique" },
-              { label: "Données", val: "Email et DPA uniquement" },
-            ].map(({ label, val }, i, arr) => (
-              <div key={label} style={{ display: 'flex', gap: '12px', padding: '10px 0', borderBottom: i < arr.length - 1 ? '1px solid rgba(255,255,255,0.07)' : 'none' }}>
-                <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '12px', fontWeight: 700, margin: 0, minWidth: '120px', flexShrink: 0, textTransform: 'uppercase', letterSpacing: '0.5px' }}>{label}</p>
-                <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '13px', margin: 0 }}>{val}</p>
-              </div>
-            ))}
-          </div>
-
-          {/* À SAVOIR */}
-          <div style={{ background: 'rgba(255,255,255,0.05)', borderRadius: '12px', padding: '16px', border: '1px solid rgba(255,255,255,0.08)' }}>
-            <p style={{ color: C.textLight, fontSize: '12px', lineHeight: 1.7, margin: 0 }}>DadUp ne remplace pas ton médecin ni ta sage-femme. C&apos;est un outil de préparation, conçu pour que tu arrives à chaque étape en sachant ce qui t&apos;attend.</p>
-          </div>
+      {/* HERO */}
+      <section className="hero" style={{ background: C.dark, padding: '72px 40px' }}>
+        <div style={{ maxWidth: '760px', margin: '0 auto', textAlign: 'center' }}>
+          <p style={{ color: C.gold, fontSize: '11px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase', margin: '0 0 20px' }}>Tarifs</p>
+          <h1 style={{ color: C.white, fontSize: '48px', fontWeight: 800, margin: '0 0 16px', lineHeight: 1.1 }}>
+            Simple. <span style={{ color: C.gold }}>Transparent.</span>
+          </h1>
+          <p style={{ color: '#6a7585', fontSize: '17px', lineHeight: 1.7, margin: 0 }}>Une offre. Un prix. Tout inclus.</p>
         </div>
+      </section>
 
-        {/* COLONNE DROITE — scrollable, fond crème */}
-        <div className="right-col">
-          
-          {/* TITRE */}
-          <div style={{ marginBottom: '56px' }}>
-            <p style={{ color: C.blue, fontSize: '11px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase', margin: '0 0 16px' }}>Pourquoi DadUp</p>
-            <h1 style={{ color: C.dark, fontSize: '42px', fontWeight: 800, lineHeight: 1.15, margin: '0 0 20px' }}>Simple.<br />Transparent.</h1>
-            <p style={{ color: C.text, fontSize: '16px', lineHeight: 1.8, margin: 0 }}>Une offre. Un prix. Tout inclus. De la première échographie au premier anniversaire de bébé.</p>
-          </div>
+      {/* CONTENU PRINCIPAL */}
+      <div className="main" style={{ maxWidth: '1100px', margin: '0 auto', padding: '64px 40px 80px' }}>
+        <div className="grid">
 
-          {/* CE QUE C'EST */}
-          <div style={{ marginBottom: '48px' }}>
-            <p style={{ color: C.dark, fontSize: '13px', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase', margin: '0 0 20px', borderBottom: `1px solid ${C.border}`, paddingBottom: '12px' }}>Ce que tu obtiens</p>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-              {[
-                { titre: "Suivi semaine par semaine", desc: "De la SA 3 à la SA 40, le développement de bébé et les informations pratiques adaptées à chaque étape." },
-                { titre: "Calendrier personnalisé", desc: "Tous les rendez-vous médicaux expliqués, datés selon ta DPA, avec ton rôle précis à chaque consultation." },
-                { titre: "Guide accouchement", desc: "Quand partir, comment soutenir, ton rôle en salle de naissance. Préparé bien avant le jour J." },
-                { titre: "Post-partum et première année", desc: "Baby blues, sommeil, développement bébé mois par mois. Tout ce que tu dois savoir après la naissance." },
-              ].map((item, i) => (
-                <div key={i} style={{ padding: '20px', background: C.white, borderRadius: '16px', border: `1px solid ${C.border}` }}>
-                  <p style={{ color: C.dark, fontSize: '14px', fontWeight: 700, margin: '0 0 6px' }}>{item.titre}</p>
-                  <p style={{ color: C.text, fontSize: '13px', lineHeight: 1.7, margin: 0 }}>{item.desc}</p>
+          {/* COLONNE GAUCHE — carte prix */}
+          <div style={{ background: C.dark, borderRadius: '24px', padding: '40px', display: 'flex', flexDirection: 'column' }}>
+            <p style={{ color: C.gold, fontSize: '11px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase', margin: '0 0 20px' }}>Accès annuel complet</p>
+            <div style={{ marginBottom: '6px' }}>
+              <span style={{ color: C.white, fontSize: '68px', fontWeight: 800, lineHeight: 1 }}>35,99€</span>
+            </div>
+            <p style={{ color: '#6a7585', fontSize: '14px', margin: '0 0 36px' }}>par an · paiement unique · accès immédiat</p>
+
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '36px' }}>
+              {FEATURES.map(f => (
+                <div key={f} style={{ display: 'flex', gap: '10px', alignItems: 'flex-start' }}>
+                  <span style={{ color: C.gold, fontSize: '13px', flexShrink: 0, marginTop: '3px' }}>—</span>
+                  <p style={{ color: 'rgba(255,255,255,0.75)', fontSize: '14px', margin: 0, lineHeight: 1.55 }}>{f}</p>
                 </div>
               ))}
             </div>
+
+            <button onClick={goToStripe} style={{ background: C.gold, color: '#1c1510', border: 'none', padding: '16px', borderRadius: '32px', fontSize: '15px', fontWeight: 800, cursor: 'pointer', width: '100%', marginBottom: '10px' }}>
+              Commencer
+            </button>
+            <p style={{ color: '#3d5070', fontSize: '12px', textAlign: 'center', margin: 0 }}>Paiement sécurisé par Stripe</p>
           </div>
 
+          {/* COLONNE DROITE — infos */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
 
+            {/* À SAVOIR */}
+            <div style={{ background: C.white, borderRadius: '24px', padding: '36px', border: `1px solid ${C.border}` }}>
+              <p style={{ color: C.blue, fontSize: '11px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase', margin: '0 0 16px' }}>À savoir</p>
+              <p style={{ color: C.dark, fontSize: '16px', fontWeight: 700, margin: '0 0 12px', lineHeight: 1.4 }}>DadUp ne remplace pas ton médecin ni ta sage-femme.</p>
+              <p style={{ color: C.text, fontSize: '14px', lineHeight: 1.75, margin: 0 }}>C&apos;est un outil de préparation et d&apos;information, conçu pour que tu arrives à chaque étape en sachant ce qui t&apos;attend.</p>
+            </div>
+
+            {/* INFOS PRATIQUES */}
+            <div style={{ background: C.white, borderRadius: '24px', padding: '36px', border: `1px solid ${C.border}` }}>
+              <p style={{ color: C.blue, fontSize: '11px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase', margin: '0 0 20px' }}>Informations pratiques</p>
+              <div style={{ display: 'flex', flexDirection: 'column' }}>
+                {[
+                  { label: "Durée", val: "12 mois d'accès à compter du paiement" },
+                  { label: "Renouvellement", val: "Aucun renouvellement automatique" },
+                  { label: "Données", val: "Email et DPA uniquement. Aucune revente." },
+                  { label: "Support", val: "hello@dadup.fr" },
+                ].map(({ label, val }, i, arr) => (
+                  <div key={label} style={{ display: 'flex', gap: '16px', padding: '13px 0', borderBottom: i < arr.length - 1 ? `1px solid ${C.border}` : 'none' }}>
+                    <p style={{ color: C.dark, fontSize: '13px', fontWeight: 700, margin: 0, minWidth: '130px', flexShrink: 0 }}>{label}</p>
+                    <p style={{ color: C.text, fontSize: '13px', margin: 0, lineHeight: 1.5 }}>{val}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+          </div>
         </div>
       </div>
+
+      {/* CTA BAS */}
+      <section style={{ background: C.dark, padding: '72px 40px', textAlign: 'center' as const }}>
+        <p style={{ color: C.gold, fontSize: '11px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase' as const, margin: '0 0 16px' }}>Prêt à commencer ?</p>
+        <h2 style={{ color: C.white, fontSize: '40px', fontWeight: 800, margin: '0 0 8px' }}>35,99€ par an</h2>
+        <p style={{ color: '#6a7585', fontSize: '15px', margin: '0 0 36px' }}>Paiement unique · Accès 12 mois · Sans renouvellement automatique</p>
+        <button onClick={goToStripe} style={{ background: C.gold, color: '#1c1510', border: 'none', padding: '18px 48px', borderRadius: '32px', fontSize: '16px', fontWeight: 800, cursor: 'pointer' }}>
+          Commencer
+        </button>
+      </section>
 
       {/* FOOTER */}
       <footer style={{ background: C.dark, borderTop: '1px solid #2e3848', padding: '32px 40px' }}>
