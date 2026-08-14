@@ -25,38 +25,21 @@ export default function TarifsPage() {
   };
 
   return (
-    <main style={{ minHeight: '100vh', background: C.white, fontFamily: "-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" }}>
+    <main style={{ minHeight: '100vh', background: C.cream, fontFamily: "-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" }}>
       <style>{`
         *{box-sizing:border-box;margin:0;padding:0;}
         .nl{display:flex;}.nc{display:flex;}
-        @media(max-width:768px){
-          .nl{display:none!important;}
-          .nc{display:none!important;}
-          .sp{padding:32px 16px!important;}
-          nav{padding:0 16px!important;}
-          h1{font-size:32px!important;line-height:1.15!important;}
-          h2{font-size:24px!important;}
-          .prix{font-size:48px!important;}
-          .hero-grid{grid-template-columns:1fr!important;gap:24px!important;padding:40px 16px 0!important;}
-          .hero-img-wrap{height:220px!important;}
-          .stats-grid{grid-template-columns:1fr 1fr!important;padding:20px 16px!important;}
-          .stats-item{border-left:none!important;border-top:1px solid #2e3848;padding:14px!important;}
-          .stats-item:nth-child(2){border-left:1px solid #2e3848!important;}
-          .modules-grid{grid-template-columns:1fr!important;}
-          .quote-grid{grid-template-columns:1fr!important;gap:24px!important;}
-          .newbie-grid>div{flex:1 1 100%!important;max-width:100%!important;}
-          .temoignages-grid{grid-template-columns:1fr!important;}
-          .aa{grid-template-columns:1fr!important;}
-          .tg{grid-template-columns:1fr!important;}
-          .mg{grid-template-columns:1fr!important;gap:24px!important;}
-          .footer-inner{flex-direction:column!important;gap:16px!important;text-align:center!important;}
-          .footer-links{flex-wrap:wrap!important;justify-content:center!important;gap:12px!important;}
-          section{padding:48px 16px!important;}
-          .section-pad{padding:48px 16px!important;}
-          .cta-section{padding:48px 16px!important;}
-          .footer-section{padding:24px 16px!important;}
+        .layout{display:grid;grid-template-columns:1fr 1fr;min-height:calc(100vh - 68px);}
+        .left-col{position:sticky;top:68px;height:calc(100vh - 68px);overflow:hidden;}
+        .right-col{padding:64px 56px;overflow-y:auto;}
+        @media(max-width:900px){
+          .nl{display:none!important;}.nc{display:none!important;}
+          .layout{grid-template-columns:1fr!important;min-height:auto!important;}
+          .left-col{position:relative!important;top:auto!important;height:auto!important;padding:48px 24px!important;}
+          .right-col{padding:40px 24px!important;}
+          nav{padding:0 20px!important;}
         }
-        `}</style>
+      `}</style>
 
       {/* NAV */}
       <nav style={{ background: C.white, borderBottom: `1px solid ${C.border}`, padding: '0 40px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '68px', position: 'sticky', top: 0, zIndex: 50 }}>
@@ -79,56 +62,89 @@ export default function TarifsPage() {
         </div>
       </nav>
 
-      {/* HERO */}
-      <section style={{ background: C.dark, padding: '80px 40px' }}>
-        <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
-          <h1 style={{ color: C.white, fontSize: '52px', fontWeight: 800, margin: '0 0 16px', lineHeight: 1.1 }}>
-            Simple.<br /><span style={{ color: C.gold }}>Transparent.</span>
-          </h1>
-          <p style={{ color: '#6a7585', fontSize: '18px', lineHeight: 1.7, margin: 0 }}>Une offre. Un prix. Tout inclus.</p>
-        </div>
-      </section>
+      {/* LAYOUT 2 COLONNES */}
+      <div className="layout">
 
-      {/* CARTE PRIX CENTRÉE */}
-      <section className="sp" style={{ padding: '80px 40px', maxWidth: '560px', margin: '0 auto' }}>
-        <div style={{ background: C.dark, borderRadius: '28px', padding: '48px' }}>
-          <p style={{ color: C.gold, fontSize: '11px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase', margin: '0 0 8px' }}>Accès annuel complet</p>
-          <p className="prix" style={{ color: C.white, fontSize: '72px', fontWeight: 800, margin: '0 0 4px', lineHeight: 1 }}>35,99€</p>
-          <p style={{ color: '#6a7585', fontSize: '15px', margin: '0 0 40px' }}>par an · paiement unique · accès immédiat</p>
+        {/* COLONNE GAUCHE — sticky, fond sombre */}
+        <div className="left-col" style={{ background: C.dark, padding: '64px 56px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+          <p style={{ color: C.gold, fontSize: '11px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase', margin: '0 0 24px' }}>Accès annuel complet</p>
+          
+          <div style={{ marginBottom: '8px' }}>
+            <span style={{ color: C.white, fontSize: '80px', fontWeight: 800, lineHeight: 1 }}>35,99€</span>
+          </div>
+          <p style={{ color: '#6a7585', fontSize: '15px', margin: '0 0 48px' }}>par an · paiement unique</p>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', marginBottom: '40px' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginBottom: '48px' }}>
             {FEATURES.map(f => (
-              <div key={f} style={{ display: 'flex', gap: '10px', alignItems: 'flex-start' }}>
-                <span style={{ color: C.gold, fontSize: '14px', flexShrink: 0 }}>—</span>
-                <p style={{ color: C.white, fontSize: '14px', margin: 0, lineHeight: 1.5 }}>{f}</p>
+              <div key={f} style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
+                <span style={{ color: C.gold, fontSize: '14px', flexShrink: 0, marginTop: '2px' }}>—</span>
+                <p style={{ color: 'rgba(255,255,255,0.8)', fontSize: '14px', margin: 0, lineHeight: 1.6 }}>{f}</p>
               </div>
             ))}
           </div>
 
-          <button onClick={goToStripe} style={{ width: '100%', background: C.gold, color: '#1c1510', border: 'none', padding: '18px', borderRadius: '32px', fontSize: '16px', fontWeight: 800, cursor: 'pointer', marginBottom: '12px' }}>
+          <button onClick={goToStripe} style={{ background: C.gold, color: '#1c1510', border: 'none', padding: '18px', borderRadius: '32px', fontSize: '16px', fontWeight: 800, cursor: 'pointer', width: '100%', marginBottom: '12px' }}>
             Commencer
           </button>
-          <p style={{ color: '#3d5070', fontSize: '12px', margin: 0, textAlign: 'center' }}>Paiement sécurisé par Stripe</p>
+          <p style={{ color: '#3d5070', fontSize: '12px', textAlign: 'center' }}>Paiement sécurisé par Stripe</p>
         </div>
 
-        {/* ENCART À SAVOIR */}
-        <div style={{ background: C.cream, borderRadius: '20px', padding: '28px', border: `1px solid ${C.border}`, marginTop: '20px' }}>
-          <p style={{ color: C.blue, fontSize: '11px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase', margin: '0 0 10px' }}>À savoir</p>
-          <p style={{ color: C.text, fontSize: '14px', lineHeight: 1.7, margin: 0 }}>DadUp ne remplace pas ton médecin ni ta sage-femme. C&apos;est un outil de préparation et d&apos;information, conçu pour que tu arrives à chaque étape en sachant ce qui t&apos;attend.</p>
-        </div>
-      </section>
+        {/* COLONNE DROITE — scrollable, fond crème */}
+        <div className="right-col">
+          
+          {/* TITRE */}
+          <div style={{ marginBottom: '56px' }}>
+            <p style={{ color: C.blue, fontSize: '11px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase', margin: '0 0 16px' }}>Pourquoi DadUp</p>
+            <h1 style={{ color: C.dark, fontSize: '42px', fontWeight: 800, lineHeight: 1.15, margin: '0 0 20px' }}>Simple.<br />Transparent.</h1>
+            <p style={{ color: C.text, fontSize: '16px', lineHeight: 1.8, margin: 0 }}>Une offre. Un prix. Tout inclus. De la première échographie au premier anniversaire de bébé.</p>
+          </div>
 
-      {/* CTA BAS */}
-      <section style={{ background: C.dark, padding: '80px 40px', textAlign: 'center' as const }}>
-        <p style={{ color: C.gold, fontSize: '11px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase' as const, margin: '0 0 16px' }}>Prêt à commencer ?</p>
-        <h2 style={{ color: C.white, fontSize: '42px', fontWeight: 800, margin: '0 0 8px' }}>Accès complet</h2>
-        <p style={{ color: C.white, fontSize: '60px', fontWeight: 800, margin: '0 0 4px' }}>35,99€</p>
-        <p style={{ color: '#6a7585', fontSize: '15px', margin: '0 0 40px' }}>par an · paiement unique · sans renouvellement automatique</p>
-        <button onClick={goToStripe} style={{ background: C.gold, color: '#1c1510', border: 'none', padding: '18px 48px', borderRadius: '32px', fontSize: '16px', fontWeight: 800, cursor: 'pointer', width: '100%', maxWidth: '400px' }}>
-          Commencer
-        </button>
-        <p style={{ color: '#3d5070', fontSize: '12px', margin: '12px 0 0' }}>Paiement sécurisé par Stripe</p>
-      </section>
+          {/* CE QUE C'EST */}
+          <div style={{ marginBottom: '48px' }}>
+            <p style={{ color: C.dark, fontSize: '13px', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase', margin: '0 0 20px', borderBottom: `1px solid ${C.border}`, paddingBottom: '12px' }}>Ce que tu obtiens</p>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+              {[
+                { titre: "Suivi semaine par semaine", desc: "De la SA 3 à la SA 40, le développement de bébé et les informations pratiques adaptées à chaque étape." },
+                { titre: "Calendrier personnalisé", desc: "Tous les rendez-vous médicaux expliqués, datés selon ta DPA, avec ton rôle précis à chaque consultation." },
+                { titre: "Guide accouchement", desc: "Quand partir, comment soutenir, ton rôle en salle de naissance. Préparé bien avant le jour J." },
+                { titre: "Post-partum et première année", desc: "Baby blues, sommeil, développement bébé mois par mois. Tout ce que tu dois savoir après la naissance." },
+              ].map((item, i) => (
+                <div key={i} style={{ padding: '20px', background: C.white, borderRadius: '16px', border: `1px solid ${C.border}` }}>
+                  <p style={{ color: C.dark, fontSize: '14px', fontWeight: 700, margin: '0 0 6px' }}>{item.titre}</p>
+                  <p style={{ color: C.text, fontSize: '13px', lineHeight: 1.7, margin: 0 }}>{item.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* À SAVOIR */}
+          <div style={{ marginBottom: '48px' }}>
+            <p style={{ color: C.dark, fontSize: '13px', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase', margin: '0 0 20px', borderBottom: `1px solid ${C.border}`, paddingBottom: '12px' }}>À savoir</p>
+            <div style={{ background: C.bluePale, borderRadius: '16px', padding: '24px', border: `1px solid rgba(46,95,138,0.12)` }}>
+              <p style={{ color: C.blueDark, fontSize: '14px', lineHeight: 1.75, margin: 0 }}>DadUp ne remplace pas ton médecin ni ta sage-femme. C&apos;est un outil de préparation et d&apos;information, conçu pour que tu arrives à chaque étape en sachant ce qui t&apos;attend.</p>
+            </div>
+          </div>
+
+          {/* INFOS PRATIQUES */}
+          <div>
+            <p style={{ color: C.dark, fontSize: '13px', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase', margin: '0 0 20px', borderBottom: `1px solid ${C.border}`, paddingBottom: '12px' }}>Informations pratiques</p>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0' }}>
+              {[
+                { label: "Durée", val: "12 mois d'accès à compter du paiement" },
+                { label: "Renouvellement", val: "Aucun renouvellement automatique" },
+                { label: "Données", val: "Email et DPA uniquement. Aucune revente." },
+                { label: "Support", val: "hello@dadup.fr" },
+              ].map(({ label, val }, i, arr) => (
+                <div key={label} style={{ display: 'flex', gap: '16px', padding: '14px 0', borderBottom: i < arr.length - 1 ? `1px solid ${C.border}` : 'none' }}>
+                  <p style={{ color: C.dark, fontSize: '13px', fontWeight: 700, margin: 0, minWidth: '140px', flexShrink: 0 }}>{label}</p>
+                  <p style={{ color: C.text, fontSize: '13px', margin: 0, lineHeight: 1.5 }}>{val}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+        </div>
+      </div>
 
       {/* FOOTER */}
       <footer style={{ background: C.dark, borderTop: '1px solid #2e3848', padding: '32px 40px' }}>
