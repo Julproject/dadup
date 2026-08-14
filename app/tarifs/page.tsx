@@ -86,7 +86,26 @@ export default function TarifsPage() {
           <button onClick={goToStripe} style={{ background: C.gold, color: '#1c1510', border: 'none', padding: '18px', borderRadius: '32px', fontSize: '16px', fontWeight: 800, cursor: 'pointer', width: '100%', marginBottom: '12px' }}>
             Commencer
           </button>
-          <p style={{ color: '#3d5070', fontSize: '12px', textAlign: 'center' }}>Paiement sécurisé par Stripe</p>
+          <p style={{ color: '#3d5070', fontSize: '12px', textAlign: 'center', marginBottom: '40px' }}>Paiement sécurisé par Stripe</p>
+
+          {/* INFOS PRATIQUES */}
+          <div style={{ borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '32px', marginBottom: '24px' }}>
+            {[
+              { label: "Durée", val: "12 mois à compter du paiement" },
+              { label: "Renouvellement", val: "Aucun renouvellement automatique" },
+              { label: "Données", val: "Email et DPA uniquement" },
+            ].map(({ label, val }, i, arr) => (
+              <div key={label} style={{ display: 'flex', gap: '12px', padding: '10px 0', borderBottom: i < arr.length - 1 ? '1px solid rgba(255,255,255,0.07)' : 'none' }}>
+                <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '12px', fontWeight: 700, margin: 0, minWidth: '120px', flexShrink: 0, textTransform: 'uppercase', letterSpacing: '0.5px' }}>{label}</p>
+                <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '13px', margin: 0 }}>{val}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* À SAVOIR */}
+          <div style={{ background: 'rgba(255,255,255,0.05)', borderRadius: '12px', padding: '16px', border: '1px solid rgba(255,255,255,0.08)' }}>
+            <p style={{ color: C.textLight, fontSize: '12px', lineHeight: 1.7, margin: 0 }}>DadUp ne remplace pas ton médecin ni ta sage-femme. C&apos;est un outil de préparation, conçu pour que tu arrives à chaque étape en sachant ce qui t&apos;attend.</p>
+          </div>
         </div>
 
         {/* COLONNE DROITE — scrollable, fond crème */}
@@ -117,31 +136,6 @@ export default function TarifsPage() {
             </div>
           </div>
 
-          {/* À SAVOIR */}
-          <div style={{ marginBottom: '48px' }}>
-            <p style={{ color: C.dark, fontSize: '13px', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase', margin: '0 0 20px', borderBottom: `1px solid ${C.border}`, paddingBottom: '12px' }}>À savoir</p>
-            <div style={{ background: C.bluePale, borderRadius: '16px', padding: '24px', border: `1px solid rgba(46,95,138,0.12)` }}>
-              <p style={{ color: C.blueDark, fontSize: '14px', lineHeight: 1.75, margin: 0 }}>DadUp ne remplace pas ton médecin ni ta sage-femme. C&apos;est un outil de préparation et d&apos;information, conçu pour que tu arrives à chaque étape en sachant ce qui t&apos;attend.</p>
-            </div>
-          </div>
-
-          {/* INFOS PRATIQUES */}
-          <div>
-            <p style={{ color: C.dark, fontSize: '13px', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase', margin: '0 0 20px', borderBottom: `1px solid ${C.border}`, paddingBottom: '12px' }}>Informations pratiques</p>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0' }}>
-              {[
-                { label: "Durée", val: "12 mois d'accès à compter du paiement" },
-                { label: "Renouvellement", val: "Aucun renouvellement automatique" },
-                { label: "Données", val: "Email et DPA uniquement. Aucune revente." },
-                { label: "Support", val: "hello@dadup.fr" },
-              ].map(({ label, val }, i, arr) => (
-                <div key={label} style={{ display: 'flex', gap: '16px', padding: '14px 0', borderBottom: i < arr.length - 1 ? `1px solid ${C.border}` : 'none' }}>
-                  <p style={{ color: C.dark, fontSize: '13px', fontWeight: 700, margin: 0, minWidth: '140px', flexShrink: 0 }}>{label}</p>
-                  <p style={{ color: C.text, fontSize: '13px', margin: 0, lineHeight: 1.5 }}>{val}</p>
-                </div>
-              ))}
-            </div>
-          </div>
 
         </div>
       </div>
