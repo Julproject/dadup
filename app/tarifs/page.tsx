@@ -29,7 +29,7 @@ export default function TarifsPage() {
       <style>{`
         *{box-sizing:border-box;margin:0;padding:0;}
         .nl{display:flex;}.nc{display:flex;}
-        .grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start;}
+        .grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:stretch;}
         @media(max-width:900px){
           .nl{display:none!important;}.nc{display:none!important;}
           .grid{grid-template-columns:1fr!important;}
@@ -77,14 +77,14 @@ export default function TarifsPage() {
         <div className="grid">
 
           {/* COLONNE GAUCHE — carte prix */}
-          <div style={{ background: C.dark, borderRadius: '24px', padding: '40px', display: 'flex', flexDirection: 'column' }}>
+          <div style={{ background: C.dark, borderRadius: '24px', padding: '40px', display: 'flex', flexDirection: 'column', height: '100%' }}>
             <p style={{ color: C.gold, fontSize: '11px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase', margin: '0 0 20px' }}>Accès annuel complet</p>
             <div style={{ marginBottom: '6px' }}>
               <span style={{ color: C.white, fontSize: '68px', fontWeight: 800, lineHeight: 1 }}>35,99€</span>
             </div>
             <p style={{ color: '#6a7585', fontSize: '14px', margin: '0 0 36px' }}>par an · paiement unique · accès immédiat</p>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '36px' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '36px', flex: 1 }}>
               {FEATURES.map(f => (
                 <div key={f} style={{ display: 'flex', gap: '10px', alignItems: 'flex-start' }}>
                   <span style={{ color: C.gold, fontSize: '13px', flexShrink: 0, marginTop: '3px' }}>—</span>
@@ -100,7 +100,7 @@ export default function TarifsPage() {
           </div>
 
           {/* COLONNE DROITE — infos */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', justifyContent: 'flex-end' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', height: '100%' }}>
 
             {/* À SAVOIR */}
             <div style={{ background: C.white, borderRadius: '24px', padding: '36px', border: `1px solid ${C.border}` }}>
