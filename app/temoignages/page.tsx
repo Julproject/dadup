@@ -50,7 +50,7 @@ export default function TemoignagesPage() {
             DadUp vient de<br /><span style={{ color: C.gold }}>démarrer.</span>
           </h1>
           <p style={{ color: '#6a7585', fontSize: '17px', lineHeight: 1.75, margin: 0 }}>
-            Les premiers papas utilisent DadUp en ce moment. Les témoignages arrivent bientôt, on préfère te montrer de vrais retours plutôt que des avis inventés.
+            Les premiers papas utilisent DadUp en ce moment. Les témoignages arrivent bientôt.
           </p>
         </div>
       </section>
