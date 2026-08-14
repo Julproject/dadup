@@ -8,14 +8,42 @@ const C = {
 };
 
 const MODULES = [
-  {num:'01', titre:'Calendrier des rendez-vous', desc:"Chaque consultation médicale expliquée en détail. Ce qui se passe, ce qu'on cherche, les résultats possibles. Ton rôle précis à chaque étape.", details:["8 échographies et consultations détaillées","Dates personnalisées à ta date d'accouchement","Ce que tu dois demander au médecin","Comment soutenir sans stresser"], emoji:'📅', bg:C.bluePale, dark:false},
-  {num:'02', titre:'Suivi bébé semaine par semaine', desc:"Chaque semaine, découvre où en est bébé. Taille, poids, comparaison avec un fruit, développement des organes. Tu sais exactement ce qui se passe.", details:["SA 3 à SA 40 couverts","Comparaison avec un fruit chaque semaine","Développement des organes et des sens","Ce que ressent maman en parallèle"], emoji:'👶', bg:C.green, dark:false},
-  {num:'03', titre:'Guide accouchement complet', desc:"Le moment le plus intense de ta vie arrive. Tu seras prêt. Quand partir, où te mettre, comment soutenir, comment parler aux soignants.", details:["Reconnaître les vraies contractions","Checklist départ maternité","Ton rôle précis en salle de naissance","Césarienne : ce qu'il faut savoir"], emoji:'🏥', bg:C.dark, dark:true},
-  {num:'04', titre:'Valise maternité interactive', desc:"Une checklist complète et interactive. Coche au fur et à mesure. Pour toi, pour elle, pour bébé. Plus de stress le jour J.", details:["Articles essentiels catégorisés","Pour toi, pour elle, pour bébé","Documents administratifs inclus","Suivi en temps réel"], emoji:'🧳', bg:C.orange, dark:false},
-  {num:'05', titre:'Post-partum décrypté', desc:"Le retour à la maison est souvent le moment le plus difficile. Baby blues, manque de sommeil, bouleversement du couple. Tu comprends ce qu'elle vit.", details:["Baby blues et dépression post-partum","Ton rôle les premières semaines","Gérer la fatigue à deux","Reprendre la vie de couple"], emoji:'💙', bg:C.teal, dark:false},
-  {num:'06', titre:'Idées mensuelles pour ta partenaire', desc:"Chaque semaine, une idée concrète pour lui montrer que tu es là. Des attentions simples, accessibles, qui comptent vraiment.", details:["38 idées personnalisées semaine par semaine","Du geste pratique au moment de couple","Idées adaptées à son état du moment","Une idée différente chaque semaine"], emoji:'🎁', bg:C.dark, dark:true},
-  {num:'07', titre:'Psychologie du papa', desc:"Une info scientifique par semaine sur ce que tu traverses toi, le père. Peur, attachement, couple, rôle. Sourcée et honnête.", details:["38 semaines de contenu psycho","Sources scientifiques vérifiées","Peur, anxiété, attachement, couple","Ce que personne ne te dit"], emoji:'🧠', bg:C.amber, dark:false},
-  {num:'08', titre:'1ère année bébé', desc:"De la naissance à 12 mois. Développement, vaccins, diversification, premiers mots, premières chutes. Tout ce que tu dois savoir.", details:["12 mois couverts","Développement mois par mois","Vaccins, RDV médicaux, alertes","Activités à faire avec bébé"], emoji:'🌱', bg:C.bluePale, dark:false},
+  {
+    num:'01', titre:'Calendrier des rendez-vous',
+    desc:"Chaque consultation médicale expliquée simplement. Ce qui se passe, ce qu'on cherche, ton rôle précis à chaque étape.",
+    details:["8 échographies et consultations détaillées","Dates personnalisées à ta DPA","Ce que tu dois demander au médecin","Comment soutenir sans stresser"],
+    emoji:'📅', bg:C.bluePale, dark:false
+  },
+  {
+    num:'02', titre:'Suivi bébé semaine par semaine',
+    desc:"Chaque semaine, découvre où en est bébé. Taille, poids, développement des organes et des sens. Tu sais exactement ce qui se passe.",
+    details:["SA 3 à SA 40 couverts","Développement des organes et des sens","Taille et poids semaine par semaine","Ce que ressent maman en parallèle"],
+    emoji:'👶', bg:C.green, dark:false
+  },
+  {
+    num:'03', titre:'Guide accouchement',
+    desc:"Le moment le plus intense de ta vie arrive. Tu seras prêt. Quand partir, où te mettre, comment soutenir.",
+    details:["Reconnaître les vraies contractions","Checklist départ maternité","Ton rôle précis en salle de naissance","Césarienne : ce qu'il faut savoir"],
+    emoji:'🏥', bg:C.dark, dark:true
+  },
+  {
+    num:'04', titre:'Valise maternité',
+    desc:"Une checklist complète. Coche au fur et à mesure. Pour toi, pour elle, pour bébé. Plus de stress le jour J.",
+    details:["Articles essentiels catégorisés","Pour toi, pour elle, pour bébé","Suivi en temps réel"],
+    emoji:'🧳', bg:C.orange, dark:false
+  },
+  {
+    num:'05', titre:'Post-partum décrypté',
+    desc:"Le retour à la maison est souvent le moment le plus difficile. Baby blues, manque de sommeil, bouleversement du couple. Tu comprends ce qu'elle vit.",
+    details:["Baby blues et dépression post-partum","Ton rôle les premières semaines","Gérer la fatigue à deux","Reprendre la vie de couple"],
+    emoji:'💙', bg:C.teal, dark:false
+  },
+  {
+    num:'06', titre:'1ère année bébé',
+    desc:"De la naissance à 12 mois. Développement, vaccins, diversification, premiers mots, premières chutes. Tout ce que tu dois savoir.",
+    details:["12 mois couverts","Développement mois par mois","Vaccins, RDV médicaux, alertes","Activités à faire avec bébé"],
+    emoji:'🌱', bg:C.bluePale, dark:false
+  },
 ];
 
 export default function InclusPage() {
@@ -53,17 +81,13 @@ export default function InclusPage() {
         </div>
         <div className="nc" style={{alignItems:'center',gap:'16px'}}>
           <a href="/login" style={{color:C.dark,fontSize:'14px',fontWeight:600,textDecoration:'none'}}>Se connecter</a>
-          <a href="/tarifs" style={{background:C.dark,color:C.white,padding:'11px 22px',borderRadius:'32px',fontSize:'13px',fontWeight:700,textDecoration:'none'}}>Commencer — 35,99€/an 💪</a>
+          <a href="/tarifs" style={{background:C.dark,color:C.white,padding:'11px 22px',borderRadius:'32px',fontSize:'13px',fontWeight:700,textDecoration:'none'}}>Commencer</a>
         </div>
       </nav>
 
       {/* HERO */}
       <section style={{background:C.dark,padding:'80px 40px'}}>
         <div style={{maxWidth:'800px',margin:'0 auto',textAlign:'center'}}>
-          <div style={{display:'inline-flex',alignItems:'center',gap:'8px',background:'rgba(200,160,96,0.15)',borderRadius:'20px',padding:'6px 16px',marginBottom:'24px'}}>
-            <span style={{fontSize:'16px'}}>💪</span>
-            <span style={{color:C.gold,fontSize:'13px',fontWeight:700}}>Ton coach paternité perso pour moins d'1€/semaine</span>
-          </div>
           <h1 style={{color:C.white,fontSize:'52px',fontWeight:800,margin:'0 0 24px',lineHeight:1.1}}>
             Ce qui est<br/><span style={{color:C.gold}}>inclus.</span>
           </h1>
@@ -104,11 +128,10 @@ export default function InclusPage() {
 
       {/* CTA */}
       <section style={{background:C.dark,padding:'80px 40px',textAlign:'center' as const}}>
-        <p style={{color:C.gold,fontSize:'11px',fontWeight:700,letterSpacing:'3px',textTransform:'uppercase',margin:'0 0 16px'}}>Prêt à déchirer ?</p>
-        <h2 style={{color:C.white,fontSize:'38px',fontWeight:800,margin:'0 0 12px'}}>Tout ça pour 35,99€/an.</h2>
-        <p style={{color:'#6a7585',fontSize:'16px',margin:'0 0 8px'}}>Sans engagement. Résiliable à tout moment.</p>
-        <p style={{color:'rgba(200,160,96,0.6)',fontSize:'14px',margin:'0 0 32px'}}>Moins cher que Netflix · Paye 1x → serein 365j ✅</p>
-        <a href="/tarifs" style={{background:C.gold,color:'#1c1510',padding:'16px 40px',borderRadius:'32px',fontSize:'15px',fontWeight:800,textDecoration:'none',display:'inline-block'}}>Commencer maintenant — 35,99€/an</a>
+        <p style={{color:C.gold,fontSize:'11px',fontWeight:700,letterSpacing:'3px',textTransform:'uppercase' as const,margin:'0 0 16px'}}>Accès complet</p>
+        <h2 style={{color:C.white,fontSize:'38px',fontWeight:800,margin:'0 0 12px'}}>35,99€ par an</h2>
+        <p style={{color:'#6a7585',fontSize:'16px',margin:'0 0 32px'}}>Paiement unique. Accès complet pendant 12 mois.</p>
+        <a href="/tarifs" style={{background:C.gold,color:'#1c1510',padding:'16px 40px',borderRadius:'32px',fontSize:'15px',fontWeight:800,textDecoration:'none',display:'inline-block'}}>Commencer</a>
       </section>
 
       <footer style={{background:C.dark,borderTop:'1px solid #2e3848',padding:'32px 40px'}}>
@@ -132,7 +155,7 @@ export default function InclusPage() {
               <a href="/confidentialite" style={{color:'#3d4f6a',fontSize:'12px',textDecoration:'none'}}>Confidentialité</a>
               <a href="/mentions-legales" style={{color:'#3d4f6a',fontSize:'12px',textDecoration:'none'}}>Mentions légales</a>
             </div>
-            <p style={{color:'#3d4f6a',fontSize:'12px',margin:0}}>Il ne remplace pas l'avis d'un médecin.</p>
+            <p style={{color:'#3d4f6a',fontSize:'12px',margin:0}}>Il ne remplace pas l&apos;avis d&apos;un médecin.</p>
           </div>
         </div>
       </footer>
