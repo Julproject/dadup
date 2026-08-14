@@ -10,7 +10,7 @@ const C = {
 const MODULES = [
   {
     num:'01', titre:'Calendrier des rendez-vous',
-    desc:"Chaque consultation médicale expliquée simplement. Ce qui se passe, ce qu'on cherche, ton rôle précis à chaque étape.",
+    desc:"Chaque rendez-vous expliqué simplement. Ce qui se passe, ce qu'on cherche, ton rôle précis à chaque étape.",
     details:["8 échographies et consultations détaillées","Dates personnalisées à ta DPA","Ce que tu dois demander au médecin","Comment soutenir sans stresser"],
     emoji:'📅', bg:C.bluePale, dark:false
   },
