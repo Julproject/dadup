@@ -100,7 +100,7 @@ export default function TarifsPage() {
           </div>
 
           {/* COLONNE DROITE — infos */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', justifyContent: 'flex-end' }}>
 
             {/* À SAVOIR */}
             <div style={{ background: C.white, borderRadius: '24px', padding: '36px', border: `1px solid ${C.border}` }}>
