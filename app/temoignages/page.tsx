@@ -87,7 +87,7 @@ export default function TemoignagesPage() {
               <div key={i} style={{ background: C.white, borderRadius: '20px', padding: '28px', border: `1px solid ${C.border}` }}>
                 <p style={{ color: C.dark, fontSize: '16px', fontWeight: 700, margin: '0 0 8px' }}>{item.titre}</p>
                 <p style={{ color: C.text, fontSize: '14px', lineHeight: 1.65, margin: '0 0 20px' }}>{item.desc}</p>
-                <a href={item.href} style={{ color: C.blue, fontSize: '13px', fontWeight: 700, textDecoration: 'none' }}>{item.cta} →</a>
+                <a href={item.href} style={{ color: C.blue, fontSize: '13px', fontWeight: 700, textDecoration: 'none' }}>{item.cta} &rarr;</a>
               </div>
             ))}
           </div>
