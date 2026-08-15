@@ -19,7 +19,6 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Le mot de passe doit faire au moins 8 caractères.' }, { status: 400 });
     }
 
-    // Vérifier le token
     const { data: user } = await supabase
       .from('users')
       .select('id, reset_token_expires')
@@ -34,17 +33,26 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Ce lien a expiré. Demande-en un nouveau.' }, { status: 400 });
     }
 
-    // Hasher le nouveau mot de passe
     const password_hash = await bcrypt.hash(password, 12);
 
-    // Mettre à jour et invalider le token
     await supabase.from('users').update({
       password_hash,
       reset_token: null,
       reset_token_expires: null,
+      last_login: new Date().toISOString(),
     }).eq('id', user.id);
 
-    return NextResponse.json({ ok: true });
+    // Connecter directement l'utilisateur en posant le cookie de session
+    const res = NextResponse.json({ ok: true });
+    res.cookies.set('dadup_session', user.id, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'lax',
+      path: '/',
+      maxAge: 60 * 60 * 24 * 365 * 10,
+    });
+
+    return res;
   } catch (err) {
     console.error('Reset password error:', err);
     return NextResponse.json({ error: 'Erreur serveur.' }, { status: 500 });
