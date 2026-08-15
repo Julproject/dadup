@@ -1,24 +1,15 @@
 'use client';
+import CheckoutModal from '@/app/components/CheckoutModal';
+import CheckoutModal from '@/app/components/CheckoutModal';
 
 import { useState } from 'react';
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const goToStripe = async () => {
-    try {
-      const res = await fetch('/api/checkout', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({}),
-      });
-      const data = await res.json();
-      if (data.url) window.location.href = data.url;
-      else alert('Erreur : ' + JSON.stringify(data));
-    } catch (err) {
-      alert('Erreur : ' + err);
-    }
-  };
+  cons
+  const [showModal, setShowModal] = useState(false);
+  const goToStripe = () => setShowModal(true);
 
   const C = {
     dark: '#1e2535',
@@ -330,6 +321,8 @@ export default function Home() {
         </div>
       </footer>
 
+      {showModal && <CheckoutModal onClose={() => setShowModal(false)} />}
+      {showModal && <CheckoutModal onClose={() => setShowModal(false)} />}
     </main>
   );
 }
