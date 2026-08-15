@@ -17,7 +17,7 @@ const MODULES = [
   {
     num:'02', titre:'Suivi bébé semaine par semaine',
     desc:"Chaque semaine, découvre où en est bébé. Taille, poids, développement des organes et des sens. Tu sais exactement ce qui se passe.",
-    details:["SA 3 à SA 40 couverts","Développement des organes et des sens","Taille et poids semaine par semaine","Ce que ressent maman en parallèle"],
+    details:["SA 3 à SA 41 couverts","Développement des organes et des sens","Taille et poids semaine par semaine","Ce que ressent maman en parallèle"],
     emoji:'👶', bg:C.green, dark:false
   },
   {
@@ -55,15 +55,33 @@ export default function InclusPage() {
         .mg{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;}
         .mod-img{display:block;}
         @media(max-width:768px){
-          .nl{display:none!important;}.nc{display:none!important;}
-          .mg{grid-template-columns:1fr!important;gap:24px!important;}
-          .mod-img{height:180px!important;}
-          .sp{padding:48px 20px!important;}
-          nav{padding:0 20px!important;}
-          h1{font-size:36px!important;}
+          .nl{display:none!important;}
+          .nc{display:none!important;}
+          .sp{padding:32px 16px!important;}
+          nav{padding:0 16px!important;}
+          h1{font-size:32px!important;line-height:1.15!important;}
           h2{font-size:24px!important;}
+          .prix{font-size:48px!important;}
+          .hero-grid{grid-template-columns:1fr!important;gap:24px!important;padding:40px 16px 0!important;}
+          .hero-img-wrap{height:220px!important;}
+          .stats-grid{grid-template-columns:1fr 1fr!important;padding:20px 16px!important;}
+          .stats-item{border-left:none!important;border-top:1px solid #2e3848;padding:14px!important;}
+          .stats-item:nth-child(2){border-left:1px solid #2e3848!important;}
+          .modules-grid{grid-template-columns:1fr!important;}
+          .quote-grid{grid-template-columns:1fr!important;gap:24px!important;}
+          .newbie-grid>div{flex:1 1 100%!important;max-width:100%!important;}
+          .temoignages-grid{grid-template-columns:1fr!important;}
+          .aa{grid-template-columns:1fr!important;}
+          .tg{grid-template-columns:1fr!important;}
+          .mg{grid-template-columns:1fr!important;gap:24px!important;}
+          .footer-inner{flex-direction:column!important;gap:16px!important;text-align:center!important;}
+          .footer-links{flex-wrap:wrap!important;justify-content:center!important;gap:12px!important;}
+          section{padding:48px 16px!important;}
+          .section-pad{padding:48px 16px!important;}
+          .cta-section{padding:48px 16px!important;}
+          .footer-section{padding:24px 16px!important;}
         }
-      `}</style>
+        `}</style>
 
       <nav style={{background:C.white,borderBottom:`1px solid ${C.border}`,padding:'0 40px',display:'flex',alignItems:'center',justifyContent:'space-between',height:'68px',position:'sticky',top:0,zIndex:50}}>
         <div style={{display:'flex',alignItems:'center',gap:'48px'}}>
