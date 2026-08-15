@@ -6,7 +6,6 @@ import { useState } from 'react';
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  cons
   const [showModal, setShowModal] = useState(false);
   const goToStripe = () => setShowModal(true);
 
