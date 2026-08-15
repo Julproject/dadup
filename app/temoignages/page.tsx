@@ -1,4 +1,6 @@
 'use client';
+import { useState } from 'react';
+import CheckoutModal from '@/app/components/CheckoutModal';
 
 const C = {
   dark: '#1e2535', gold: '#c8a060', cream: '#faf6f0', white: '#ffffff',
@@ -7,6 +9,7 @@ const C = {
 };
 
 export default function TemoignagesPage() {
+  const [showModal, setShowModal] = useState(false);
   return (
     <main style={{ minHeight: '100vh', background: C.cream, fontFamily: "-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" }}>
       <style>{`
@@ -121,6 +124,7 @@ export default function TemoignagesPage() {
           </div>
         </div>
       </footer>
+      {showModal && <CheckoutModal onClose={() => setShowModal(false)} />}
     </main>
   );
 }
