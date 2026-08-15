@@ -157,7 +157,7 @@ export default function Home() {
           {/* Badge FOMO */}
           <div style={{display:'inline-flex', alignItems:'center', gap:'8px', background:'#FFF0E6', border:'1px solid rgba(192,74,26,0.2)', borderRadius:'20px', padding:'6px 14px', marginBottom:'28px'}}>
             <div style={{width:'7px', height:'7px', borderRadius:'50%', background:'#C04A1A'}}></div>
-            <span style={{color:'#C04A1A', fontSize:'12px', fontWeight:700, letterSpacing:'0.5px'}}>Conçu pour les futurs pères. .</span>
+            <span style={{color:'#C04A1A', fontSize:'12px', fontWeight:700, letterSpacing:'0.5px'}}>Conçu pour les futurs pères</span>
           </div>
 
           <h1 style={{fontSize:'54px', fontWeight:800, color:C.dark, lineHeight:1.0, margin:'0 0 24px'}}>
