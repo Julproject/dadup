@@ -63,7 +63,7 @@ export default function TemoignagesPage() {
           <p style={{ color: C.blue, fontSize: '11px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase', margin: '0 0 20px' }}>Ce qu&apos;on construit</p>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '16px' }}>
             {[
-              { num: '41', label: 'semaines de contenu', desc: 'De la SA 3 à la SA 40, chaque semaine couverte.' },
+              { num: '41', label: 'semaines de contenu', desc: 'De la SA 3 à la SA 41, chaque semaine couverte.' },
               { num: '12', label: 'mois post-partum', desc: 'Le développement de bébé mois par mois.' },
               { num: '100%', label: 'pour les pères', desc: 'Aucun contenu pensé pour la maman uniquement.' },
             ].map((item, i) => (
