@@ -100,24 +100,87 @@ export async function POST(req: NextRequest) {
         to: [{ email }],
         subject: 'Bienvenue sur DadUp : Crée ton mot de passe',
         htmlContent: `
-<div style="font-family:-apple-system,sans-serif;max-width:520px;margin:0 auto;padding:40px 32px;background:#f7f5f0;border-radius:20px;">
-  <div style="text-align:center;margin-bottom:28px;">
-    <h1 style="color:#1e2535;font-size:28px;margin:0;">DadUp</h1>
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>
+<body style="margin:0;padding:0;background:#f0ede8;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;">
+  <div style="max-width:560px;margin:40px auto;padding:0 16px 40px;">
+
+    <!-- HEADER -->
+    <div style="text-align:center;padding:32px 0 24px;">
+      <div style="display:inline-block;background:#1e2535;border-radius:16px;padding:12px 24px;">
+        <span style="color:#c8a060;font-size:22px;font-weight:800;letter-spacing:1px;">DadUp</span>
+      </div>
+    </div>
+
+    <!-- CARTE PRINCIPALE -->
+    <div style="background:#ffffff;border-radius:24px;padding:40px 36px;border:1px solid #e8e0d0;">
+
+      <h1 style="color:#1e2535;font-size:24px;font-weight:800;margin:0 0 8px;line-height:1.3;">
+        Bienvenue sur DadUp.
+      </h1>
+      <p style="color:#9aa0a8;font-size:14px;margin:0 0 28px;">
+        Ton paiement a bien été reçu. Ton espace est prêt.
+      </p>
+
+      <p style="color:#4a5568;font-size:15px;line-height:1.75;margin:0 0 28px;">
+        Pour accéder à ton espace, il te reste une étape : créer ton mot de passe. Clique sur le bouton ci-dessous.
+      </p>
+
+      <div style="text-align:center;margin-bottom:32px;">
+        <a href="${createPasswordUrl}"
+           style="display:inline-block;background:#1e2535;color:#ffffff;padding:16px 40px;border-radius:32px;font-size:16px;font-weight:700;text-decoration:none;letter-spacing:0.3px;">
+          Créer mon mot de passe
+        </a>
+      </div>
+
+      <!-- CE QUI T'ATTEND -->
+      <div style="background:#faf6f0;border-radius:16px;padding:24px;margin-bottom:28px;">
+        <p style="color:#1e2535;font-size:13px;font-weight:700;margin:0 0 14px;text-transform:uppercase;letter-spacing:1.5px;">Ce qui t'attend</p>
+        <table style="width:100%;border-collapse:collapse;">
+          <tr>
+            <td style="padding:6px 0;color:#4a5568;font-size:14px;">Suivi bébé semaine par semaine</td>
+            <td style="padding:6px 0;color:#2E5F8A;font-size:13px;font-weight:600;text-align:right;">SA 3 à SA 41</td>
+          </tr>
+          <tr>
+            <td style="padding:6px 0;color:#4a5568;font-size:14px;border-top:1px solid #e8e0d0;">Calendrier des rendez-vous personnalisé</td>
+            <td style="padding:6px 0;color:#2E5F8A;font-size:13px;font-weight:600;text-align:right;border-top:1px solid #e8e0d0;">8 RDV</td>
+          </tr>
+          <tr>
+            <td style="padding:6px 0;color:#4a5568;font-size:14px;border-top:1px solid #e8e0d0;">Guide accouchement, valise, post-partum</td>
+            <td style="padding:6px 0;color:#2E5F8A;font-size:13px;font-weight:600;text-align:right;border-top:1px solid #e8e0d0;">Inclus</td>
+          </tr>
+          <tr>
+            <td style="padding:6px 0;color:#4a5568;font-size:14px;border-top:1px solid #e8e0d0;">Première année de bébé</td>
+            <td style="padding:6px 0;color:#2E5F8A;font-size:13px;font-weight:600;text-align:right;border-top:1px solid #e8e0d0;">12 mois</td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- INFOS CONNEXION -->
+      <div style="border-top:1px solid #e8e0d0;padding-top:20px;">
+        <p style="color:#9aa0a8;font-size:13px;margin:0 0 6px;">Ton email de connexion :</p>
+        <p style="color:#1e2535;font-size:14px;font-weight:700;margin:0 0 16px;">${email}</p>
+        <p style="color:#9aa0a8;font-size:12px;margin:0;line-height:1.6;">
+          Ce lien est valable 7 jours. Si tu ne l'utilises pas, tu pourras en demander un nouveau depuis la page de connexion.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <div style="text-align:center;padding:24px 0 0;">
+      <p style="color:#9aa0a8;font-size:12px;margin:0 0 6px;">
+        Une question ? Réponds directement à cet email.
+      </p>
+      <p style="color:#c8c0b8;font-size:11px;margin:0;">
+        DadUp · hello@dadup.fr · Il ne remplace pas l'avis d'un médecin.
+      </p>
+    </div>
+
   </div>
-  <h2 style="color:#1e2535;font-size:22px;margin:0 0 16px;">Bienvenue, papa !</h2>
-  <p style="color:#4a5568;font-size:15px;line-height:1.7;margin:0 0 24px;">
-    Ton accès DadUp est prêt. Il ne te reste qu'une étape : créer ton mot de passe pour accéder à ton espace.
-  </p>
-  <div style="text-align:center;margin-bottom:32px;">
-    <a href="${createPasswordUrl}" style="display:inline-block;background:#1e2535;color:#fff;padding:16px 36px;border-radius:32px;font-size:16px;font-weight:700;text-decoration:none;">
-      Créer mon mot de passe
-    </a>
-  </div>
-  <p style="color:#9aa0a8;font-size:13px;line-height:1.6;margin:0 0 8px;">Ce lien est valable 7 jours.</p>
-  <p style="color:#9aa0a8;font-size:12px;margin:0;">Ton email de connexion : <strong style="color:#1e2535;">${email}</strong></p>
-  <hr style="border:none;border-top:1px solid #e8e0d0;margin:24px 0;"/>
-  <p style="color:#9aa0a8;font-size:11px;margin:0;">DadUp · Ce service ne remplace pas l'avis d'un médecin.</p>
-</div>`,
+</body>
+</html>`,
       }),
     });
   }
