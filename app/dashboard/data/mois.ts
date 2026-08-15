@@ -26,7 +26,7 @@ export function getIdee(sa: number): string {
     24: "Accompagne-la au test de diabète gestationnel (HGPO). Deux heures en laboratoire, à jeun. C'est long seul.",
     25: "Commence la liste de la valise maternité. Fais-le sans qu'elle te le demande. C'est un signal fort que tu es aussi prêt qu'elle.",
     26: "Rédigez le plan de naissance ensemble. Une page. Vos souhaits sur la péridurale, le peau à peau, la césarienne d'urgence. Mieux vaut y avoir réfléchi avant.",
-    27: "Elle est probablement fatiguée en fin de journée. Prends le relais du dîner cette semaine — même simple. Ce n'est pas la cuisine qui compte, c'est de ne pas avoir à y penser.",
+    27: "Elle est probablement fatiguée en fin de journée. Prends le relais du dîner cette semaine : même simple. Ce n'est pas la cuisine qui compte, c'est de ne pas avoir à y penser.",
     28: "Fais le vaccin coqueluche ce mois. Il protège bébé avant ses premiers vaccins à 2 mois. Pris en charge à 100%.",
     29: "La valise doit être prête maintenant. Consulte la checklist dans l'app et rassemble ce qui te concerne.",
     30: "Visite la maternité si pas encore fait. Teste le trajet aux heures de pointe. Note le numéro direct des urgences obstétricales.",
