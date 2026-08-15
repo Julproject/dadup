@@ -8,34 +8,39 @@ const C = {
 
 type Terme = { mot: string; def: string; cat: string };
 
-const CATEGORIES = [
+const CATS_GROSSESSE = [
   { id: 'suivi',    label: 'Suivi médical',  bg: '#E6F0FA', tc: '#1A4A7A' },
   { id: 'bebe',     label: 'Bébé',           bg: '#E4F5EC', tc: '#0D6B40' },
   { id: 'sympt',    label: 'Symptômes',      bg: '#FFF7E0', tc: '#8A6010' },
   { id: 'accouche', label: 'Accouchement',   bg: '#FFF0E6', tc: '#C04A1A' },
   { id: 'admin',    label: 'Préparation',    bg: '#F0EEFF', tc: '#5050B0' },
+  { id: 'alerte',   label: 'Alertes',        bg: '#FDECEA', tc: '#8A0000' },
+];
+
+const CATS_POSTPARTUM = [
   { id: 'postpart', label: 'Post-partum',    bg: '#E0F5F0', tc: '#0A5040' },
+  { id: 'bebe',     label: 'Bébé',           bg: '#E4F5EC', tc: '#0D6B40' },
   { id: 'alerte',   label: 'Alertes',        bg: '#FDECEA', tc: '#8A0000' },
 ];
 
 const TERMES: Terme[] = [
   // SUIVI MÉDICAL
-  { cat: 'suivi', mot: 'SA — Semaine d\'Aménorrhée', def: 'Façon de compter la grossesse en France. On compte depuis le 1er jour des dernières règles. La grossesse dure 41 SA. Ton médecin utilise toujours les SA.' },
-  { cat: 'suivi', mot: 'SG — Semaine de Grossesse', def: 'Autre façon de compter, depuis la fécondation. Les SG ont toujours 2 semaines de moins que les SA. Si le médecin dit "22 SA", ça correspond à 20 SG.' },
-  { cat: 'suivi', mot: 'DPA — Date Prévue d\'Accouchement', def: 'La date calculée à 41 SA depuis les dernières règles. C\'est une estimation. Seulement 5% des bébés naissent exactement ce jour-là.' },
+  { cat: 'suivi', mot: 'SA : Semaine d\'Aménorrhée', def: 'Façon de compter la grossesse en France. On compte depuis le 1er jour des dernières règles. La grossesse dure 41 SA. Ton médecin utilise toujours les SA.' },
+  { cat: 'suivi', mot: 'SG : Semaine de Grossesse', def: 'Autre façon de compter, depuis la fécondation. Les SG ont toujours 2 semaines de moins que les SA. Si le médecin dit "22 SA", ça correspond à 20 SG.' },
+  { cat: 'suivi', mot: 'DPA : Date Prévue d\'Accouchement', def: 'La date calculée à 41 SA depuis les dernières règles. C\'est une estimation. Seulement 5% des bébés naissent exactement ce jour-là.' },
   { cat: 'suivi', mot: 'Échographie T1', def: 'Première échographie obligatoire entre 11 et 13 SA. Elle date la grossesse, vérifie que le cœur bat et mesure la clarté nucale. C\'est souvent la première fois que tu vois bébé.' },
   { cat: 'suivi', mot: 'Échographie T2 morphologique', def: 'Deuxième échographie obligatoire vers 22 SA. La plus complète. Elle examine plus de 100 critères anatomiques : cerveau, cœur, reins, membres. Dure environ 45 minutes.' },
   { cat: 'suivi', mot: 'Échographie T3', def: 'Troisième échographie obligatoire vers 32 SA. Elle vérifie la croissance de bébé, sa position, le volume de liquide amniotique et l\'état du placenta.' },
   { cat: 'suivi', mot: 'Clarté nucale', def: 'Mesure d\'une zone derrière la nuque de bébé lors de l\'écho T1. Plus elle est épaisse, plus le risque de trisomie 21 peut être élevé. C\'est une évaluation de risque, pas un diagnostic.' },
   { cat: 'suivi', mot: 'Trisomie 21', def: 'Anomalie chromosomique (un chromosome 21 en trop). Le dépistage combine la clarté nucale et une prise de sang. En cas de risque élevé, un diagnostic peut être proposé.' },
-  { cat: 'suivi', mot: 'DPNI — Dépistage Prénatal Non Invasif', def: 'Prise de sang qui analyse l\'ADN de bébé dans le sang maternel. Très fiable pour détecter la trisomie 21. Non remboursé en première intention.' },
+  { cat: 'suivi', mot: 'DPNI : Dépistage Prénatal Non Invasif', def: 'Prise de sang qui analyse l\'ADN de bébé dans le sang maternel. Très fiable pour détecter la trisomie 21. Non remboursé en première intention.' },
   { cat: 'suivi', mot: 'Amniocentèse', def: 'Prélèvement de liquide amniotique pour analyser les chromosomes de bébé. Seul examen qui donne un diagnostic certain. Proposé si le risque de trisomie est élevé.' },
-  { cat: 'suivi', mot: 'HGPO — Test de diabète gestationnel', def: 'Test entre 24 et 28 SA. Tu bois une solution sucrée, puis 3 prises de sang en 2 heures mesurent comment le corps gère le sucre. Accompagne-la, c\'est long.' },
+  { cat: 'suivi', mot: 'HGPO : Test de diabète gestationnel', def: 'Test entre 24 et 28 SA. Tu bois une solution sucrée, puis 3 prises de sang en 2 heures mesurent comment le corps gère le sucre. Accompagne-la, c\'est long.' },
   { cat: 'suivi', mot: 'Diabète gestationnel', def: 'Glycémie (taux de sucre) élevée pendant la grossesse. Traité par régime alimentaire, parfois insuline. Disparaît généralement après l\'accouchement.' },
   { cat: 'suivi', mot: 'Streptocoque B', def: 'Bactérie naturellement présente chez certaines femmes. Un dépistage est fait vers 36 SA. Si positif, un antibiotique est administré pendant le travail pour protéger bébé.' },
   { cat: 'suivi', mot: 'Toxoplasmose', def: 'Infection parasitaire transmise par la viande crue ou la litière des chats. Interdite pendant la grossesse si elle n\'a pas déjà été contractée. Contrôle sanguin mensuel.' },
   { cat: 'suivi', mot: 'Rubéole', def: 'Maladie virale dangereuse pour le fœtus. Un test sanguin vérifie si elle est immunisée. Si non, vaccin après l\'accouchement (pas pendant la grossesse).' },
-  { cat: 'suivi', mot: 'EPP — Entretien Prénatal Précoce', def: 'Entretien avec une sage-femme au 4e mois. Obligatoire depuis 2020. Il aborde la santé mentale, le soutien, les besoins du couple. Vous pouvez y aller ensemble.' },
+  { cat: 'suivi', mot: 'EPP : Entretien Prénatal Précoce', def: 'Entretien avec une sage-femme au 4e mois. Obligatoire depuis 2020. Il aborde la santé mentale, le soutien, les besoins du couple. Vous pouvez y aller ensemble.' },
   { cat: 'suivi', mot: 'Hauteur utérine', def: 'Mesure de la distance entre le pubis et le sommet de l\'utérus. Permet de vérifier que bébé grandit normalement. En cm, elle correspond approximativement au nombre de SA.' },
   { cat: 'suivi', mot: 'Monitoring fœtal', def: 'Appareil qui enregistre simultanément le rythme cardiaque de bébé et les contractions. Utilisé en fin de grossesse et pendant le travail pour surveiller l\'état de bébé.' },
 
@@ -53,7 +58,7 @@ const TERMES: Terme[] = [
   { cat: 'bebe', mot: 'Présentation en siège', def: 'Bébé est les fesses ou les pieds en bas. Vers 32-34 SA, une version par manœuvres externes peut être tentée. Sinon, une césarienne est souvent proposée.' },
   { cat: 'bebe', mot: 'Viabilité fœtale', def: 'Seuil à partir duquel bébé peut survivre hors de l\'utérus avec assistance médicale. En France, fixé à 22 SA. Avant ce seuil, une naissance prématurée n\'est pas réanimable.' },
   { cat: 'bebe', mot: 'Sac gestationnel', def: 'Première structure visible à l\'échographie, vers 4-5 SA. C\'est la poche qui contient l\'embryon et le liquide amniotique. Son absence peut indiquer une grossesse extra-utérine.' },
-  { cat: 'bebe', mot: 'hCG — Hormone de grossesse', def: 'Hormone produite dès la nidation. C\'est elle que détectent les tests de grossesse. Son taux double tous les 2 jours en début de grossesse. Elle est responsable des nausées.' },
+  { cat: 'bebe', mot: 'hCG, Hormone de grossesse', def: 'Hormone produite dès la nidation. C\'est elle que détectent les tests de grossesse. Son taux double tous les 2 jours en début de grossesse. Elle est responsable des nausées.' },
   { cat: 'bebe', mot: 'Terme', def: 'Une grossesse est dite "à terme" entre 37 et 41 SA. Avant 37 SA = prématuré. Après 41 SA = dépassement de terme, une surveillance renforcée est mise en place.' },
   { cat: 'bebe', mot: 'Prématurité', def: 'Naissance avant 37 SA. Le pronostic dépend du terme : à 34 SA, les risques sont faibles ; avant 28 SA, une réanimation néonatale intensive est nécessaire.' },
 
@@ -92,7 +97,7 @@ const TERMES: Terme[] = [
   { cat: 'accouche', mot: 'Score d\'Apgar', def: 'Évaluation de l\'état de bébé à 1 et 5 minutes après la naissance. Note de 0 à 10 sur 5 critères : couleur, rythme cardiaque, réflexes, tonus, respiration. 7 ou plus = excellent.' },
 
   // PRÉPARATION & ADMIN
-  { cat: 'admin', mot: 'PAN — Préparation à la Naissance', def: '7 séances remboursées par la Sécurité sociale avec une sage-femme. Respiration, gestion de la douleur, allaitement, retour à la maison. Les cours pour pères existent : demande-les.' },
+  { cat: 'admin', mot: 'PAN : Préparation à la Naissance', def: '7 séances remboursées par la Sécurité sociale avec une sage-femme. Respiration, gestion de la douleur, allaitement, retour à la maison. Les cours pour pères existent : demande-les.' },
   { cat: 'admin', mot: 'Haptonomie', def: 'Pratique de contact tactile entre le père et bébé à travers le ventre maternel. Elle permet au père de créer un lien avec bébé avant la naissance. À explorer dès 20 SA.' },
   { cat: 'admin', mot: 'Plan de naissance', def: 'Document écrit (1 page max) qui exprime vos souhaits pour l\'accouchement : péridurale ou pas, musique, peau à peau, qui coupe le cordon. Remis à la maternité.' },
   { cat: 'admin', mot: 'Congé maternité', def: 'Congé légal autour de l\'accouchement. Durée variable selon le nombre d\'enfants. En France : 6 semaines avant et 10 semaines après la naissance pour un premier enfant.' },
@@ -130,18 +135,24 @@ const TERMES: Terme[] = [
   { cat: 'alerte', mot: 'Dépassement de terme', def: 'Grossesse qui dépasse 41 SA. Une surveillance renforcée est mise en place. Un déclenchement artificiel du travail peut être proposé à 41 SA + quelques jours.' },
 ];
 
-export default function DicoPapa({ C: propC }: any) {
+export default function DicoPapa({ C: propC, isPost = false }: { C?: any; isPost?: boolean }) {
   const [search, setSearch]   = useState('');
   const [catActive, setCat]   = useState<string | null>(null);
   const [ouvert, setOuvert]   = useState<string | null>(null);
 
+  const CATEGORIES = isPost ? CATS_POSTPARTUM : CATS_GROSSESSE;
+
+  // Catégories visibles selon le mode
+  const catsIds = CATEGORIES.map(c => c.id);
+
   const filtered = useMemo(() => {
     return TERMES.filter(t => {
+      const matchMode   = catsIds.includes(t.cat);
       const matchCat    = !catActive || t.cat === catActive;
       const matchSearch = !search || t.mot.toLowerCase().includes(search.toLowerCase()) || t.def.toLowerCase().includes(search.toLowerCase());
-      return matchCat && matchSearch;
+      return matchMode && matchCat && matchSearch;
     });
-  }, [search, catActive]);
+  }, [search, catActive, isPost]);
 
   const colors = Object.fromEntries(CATEGORIES.map(c => [c.id, { bg: c.bg, tc: c.tc }]));
 
