@@ -4,7 +4,7 @@ export function getIdee(sa: number): string {
   const idees: Record<number, string> = {
     3:  "La nouvelle vient de tomber. Ce soir, créez un rituel à deux pour marquer ce moment : un dîner, une photo, quelque chose qui n'appartient qu'à vous avant de l'annoncer.",
     4:  "Elle ne ressent peut-être rien encore. Toi non plus. C'est normal. Commence à lire sur les premières semaines de grossesse pour ne pas être pris au dépourvu.",
-    5: "5:  "Les nausées peuvent débuter. Anticiper les repas et les courses sans qu'elle ait à le demander est l'un des gestes les plus utiles que tu puisses faire ces premières semaines.",
+    5:  "Les nausées peuvent débuter. Anticiper les repas et les courses sans qu'elle ait à le demander est l'un des gestes les plus utiles que tu puisses faire ces premières semaines.",
     6:  "Retire les produits aux odeurs fortes de la maison. Aère. Prépare des repas froids ou tièdes. L'hypersensibilité aux odeurs est neurologique, pas un caprice.",
     7:  "Réserve la première consultation médicale si ce n'est pas encore fait. Et assure-toi qu'elle prend de l'acide folique jusqu'à 12 SA.",
     8:  "Accompagne-la à la première consultation. Prends des notes, pose des questions. Tu n'es pas là pour porter le manteau.",
