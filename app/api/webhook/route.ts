@@ -21,11 +21,12 @@ export async function POST(req: NextRequest) {
   // ── Paiement confirmé ────────────────────────────────────────────────────
   if (event.type === 'checkout.session.completed') {
     const session = event.data.object as Stripe.Checkout.Session;
-    const email   = session.customer_email || (session.customer_details?.email ?? '');
+    const email   = session.customer_email || session.customer_details?.email || '';
 
     if (!email) return NextResponse.json({ ok: true });
 
     // Annuler l'abonnement à la fin de la période (= sans reconduction tacite)
+    // Mode payment one-time : pas de subscription, on ignore
     if (session.subscription) {
       try {
         await stripe.subscriptions.update(session.subscription as string, {
@@ -33,6 +34,7 @@ export async function POST(req: NextRequest) {
         });
       } catch (e) {
         console.error('Erreur annulation fin période:', e);
+        // On continue même si ça échoue — ne pas bloquer la création du compte
       }
     }
 
@@ -96,7 +98,7 @@ export async function POST(req: NextRequest) {
       body: JSON.stringify({
         sender: { name: 'DadUp', email: 'hello@dadup.fr' },
         to: [{ email }],
-        subject: 'Bienvenue sur DadUp — Crée ton mot de passe',
+        subject: 'Bienvenue sur DadUp : Crée ton mot de passe',
         htmlContent: `
 <div style="font-family:-apple-system,sans-serif;max-width:520px;margin:0 auto;padding:40px 32px;background:#f7f5f0;border-radius:20px;">
   <div style="text-align:center;margin-bottom:28px;">
