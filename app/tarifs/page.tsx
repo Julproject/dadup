@@ -7,7 +7,7 @@ const C = {
 };
 
 const FEATURES = [
-  "Suivi bébé semaine par semaine, de la SA 3 à la SA 40",
+  "Suivi bébé semaine par semaine, de la SA 3 à la SA 41",
   "Calendrier des rendez-vous personnalisé à ta DPA",
   "Guide accouchement",
   "Valise maternité",
