@@ -1,4 +1,5 @@
 'use client';
+import CheckoutModal from '@/app/components/CheckoutModal';
 
 const C = {
   dark: '#1e2535', gold: '#c8a060', cream: '#faf6f0', white: '#ffffff',
@@ -16,13 +17,8 @@ const FEATURES = [
 ];
 
 export default function TarifsPage() {
-  const goToStripe = async () => {
-    try {
-      const res = await fetch('/api/checkout', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({}) });
-      const data = await res.json();
-      if (data.url) window.location.href = data.url;
-    } catch (err) { alert('Erreur : ' + err); }
-  };
+  const [showModal, setShowModal] = useState(false);
+  const goToStripe = () => setShowModal(true);
 
   return (
     <main style={{ minHeight: '100vh', background: C.cream, fontFamily: "-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" }}>
@@ -167,6 +163,7 @@ export default function TarifsPage() {
           </div>
         </div>
       </footer>
+      {showModal && <CheckoutModal onClose={() => setShowModal(false)} />}
     </main>
   );
 }
