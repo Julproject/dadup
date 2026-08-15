@@ -76,7 +76,7 @@ export default function TarifsPage() {
       <div className="main" style={{ maxWidth: '1100px', margin: '0 auto', padding: '64px 40px 80px' }}>
         <div className="grid">
 
-          {/* COLONNE GAUCHE — carte prix */}
+          {/* COLONNE GAUCHE, carte prix */}
           <div style={{ background: C.dark, borderRadius: '24px', padding: '40px', display: 'flex', flexDirection: 'column', height: '100%' }}>
             <p style={{ color: C.gold, fontSize: '11px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase', margin: '0 0 20px' }}>Accès annuel complet</p>
             <div style={{ marginBottom: '6px' }}>
@@ -87,7 +87,7 @@ export default function TarifsPage() {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '36px', flex: 1 }}>
               {FEATURES.map(f => (
                 <div key={f} style={{ display: 'flex', gap: '10px', alignItems: 'flex-start' }}>
-                  <span style={{ color: C.gold, fontSize: '13px', flexShrink: 0, marginTop: '3px' }}>—</span>
+                  <span style={{ color: C.gold, fontSize: '13px', flexShrink: 0, marginTop: '3px' }}>·</span>
                   <p style={{ color: 'rgba(255,255,255,0.75)', fontSize: '14px', margin: 0, lineHeight: 1.55 }}>{f}</p>
                 </div>
               ))}
@@ -99,7 +99,7 @@ export default function TarifsPage() {
             <p style={{ color: '#3d5070', fontSize: '12px', textAlign: 'center', margin: 0 }}>Paiement sécurisé par Stripe</p>
           </div>
 
-          {/* COLONNE DROITE — infos */}
+          {/* COLONNE DROITE, infos */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', height: '100%', boxSizing: 'border-box' }}>
 
             {/* À SAVOIR */}
