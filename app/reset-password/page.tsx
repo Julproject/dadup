@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, Suspense } from 'react';
+import { useState, Suspense } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 
 const C = {
@@ -13,11 +13,11 @@ function ResetForm() {
   const router = useRouter();
   const token = searchParams.get('token');
 
-  const [password, setPassword]   = useState('');
-  const [confirm, setConfirm]     = useState('');
-  const [loading, setLoading]     = useState(false);
-  const [error, setError]         = useState('');
-  const [success, setSuccess]     = useState(false);
+  const [password, setPassword] = useState('');
+  const [confirm, setConfirm]   = useState('');
+  const [loading, setLoading]   = useState(false);
+  const [error, setError]       = useState('');
+  const [success, setSuccess]   = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -46,8 +46,9 @@ function ResetForm() {
         return;
       }
 
+      // Mot de passe créé + cookie posé côté serveur → aller directement au dashboard
       setSuccess(true);
-      setTimeout(() => router.push('/login'), 3000);
+      setTimeout(() => router.push('/dashboard'), 1500);
     } catch {
       setError('Erreur serveur. Réessaie.');
     } finally {
@@ -70,16 +71,16 @@ function ResetForm() {
       {success ? (
         <div style={{textAlign:'center',padding:'16px 0'}}>
           <p style={{fontSize:'36px',margin:'0 0 16px'}}>✅</p>
-          <h2 style={{fontSize:'20px',fontWeight:800,color:C.dark,margin:'0 0 10px'}}>Mot de passe mis à jour !</h2>
-          <p style={{color:C.textLight,fontSize:'14px',margin:0}}>Redirection vers la connexion...</p>
+          <h2 style={{fontSize:'20px',fontWeight:800,color:C.dark,margin:'0 0 10px'}}>C'est parti !</h2>
+          <p style={{color:C.textLight,fontSize:'14px',margin:0}}>On te prépare ton espace...</p>
         </div>
       ) : (
         <>
-          <h1 style={{fontSize:'22px',fontWeight:800,color:C.dark,margin:'0 0 8px'}}>Nouveau mot de passe</h1>
+          <h1 style={{fontSize:'22px',fontWeight:800,color:C.dark,margin:'0 0 8px'}}>Créer ton mot de passe</h1>
           <p style={{color:C.textLight,fontSize:'13px',margin:'0 0 24px'}}>Choisis un mot de passe d'au moins 8 caractères.</p>
           <form onSubmit={handleSubmit} style={{display:'flex',flexDirection:'column',gap:'14px'}}>
             <div>
-              <label style={{display:'block',color:C.dark,fontSize:'12px',fontWeight:700,marginBottom:'7px'}}>Nouveau mot de passe</label>
+              <label style={{display:'block',color:C.dark,fontSize:'12px',fontWeight:700,marginBottom:'7px'}}>Mot de passe</label>
               <input
                 type="password"
                 value={password}
@@ -111,7 +112,7 @@ function ResetForm() {
               disabled={loading || !password || !confirm}
               style={{background:loading||!password||!confirm?'#ccc':C.dark,color:C.white,border:'none',padding:'14px',borderRadius:'32px',fontSize:'15px',fontWeight:700,cursor:'pointer',marginTop:'4px'}}
             >
-              {loading ? 'Mise à jour...' : 'Mettre à jour le mot de passe'}
+              {loading ? 'Création...' : 'Accéder à mon espace'}
             </button>
           </form>
         </>
