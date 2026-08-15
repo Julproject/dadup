@@ -1,4 +1,5 @@
 'use client';
+import { useState } from 'react';
 import CheckoutModal from '@/app/components/CheckoutModal';
 
 const C = {
