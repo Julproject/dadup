@@ -15,9 +15,10 @@ import { getIdee }             from './data/mois';
 import dynamic       from 'next/dynamic';
 import Onboarding    from './components/Onboarding';
 import Topbar        from './components/Topbar';
+import PWABanner     from './components/PWABanner';
 import Accueil       from './components/Accueil';
 
-// Chargement différé — réduit le bundle initial et accélère le démarrage
+// Chargement différé, réduit le bundle initial et accélère le démarrage
 const BebePage     = dynamic(() => import('./components/BebePage'));
 const RDVPage      = dynamic(() => import('./components/RDVPage'));
 const PreparerPage = dynamic(() => import('./components/PreparerPage'));
@@ -141,7 +142,7 @@ function DashboardContent() {
         if (!localDpa && !localPrenom) {
           window.location.href = '/login';
         }
-        // Sinon on garde ce qu'on a en local — l'utilisateur voit son contenu
+        // Sinon on garde ce qu'on a en local, l'utilisateur voit son contenu
       });
   }, []);
 
@@ -225,7 +226,7 @@ function DashboardContent() {
     }
   };
 
-  // ── Calculs dérivés — tout depuis le state `dpa` en heure locale ──────────
+  // ── Calculs dérivés, tout depuis le state `dpa` en heure locale ──────────
   const joursRestants = dpa ? joursAvantDpa(dpa) : null;
   const isPost        = joursRestants !== null && joursRestants < 0;
 
