@@ -2,12 +2,12 @@ import type { Metadata, Viewport } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'DadUp — L\'app des futurs papas',
+  title: 'DadUp, L\'app des futurs papas',
   description: 'Suivi semaine par semaine, guide accouchement, post-partum. Tout ce que personne n\'explique aux papas. Accès immédiat.',
   keywords: ['futur papa', 'grossesse papa', 'application papa', 'accouchement', 'post-partum', 'paternité', 'congé paternité'],
   authors: [{ name: 'DadUp' }],
   openGraph: {
-    title: 'DadUp — L\'app des futurs papas',
+    title: 'DadUp, L\'app des futurs papas',
     description: 'Suivi semaine par semaine, guide accouchement, post-partum. Tout ce que personne n\'explique aux papas.',
     url: 'https://dadup.fr',
     siteName: 'DadUp',
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'DadUp — L\'app des futurs papas',
+    title: 'DadUp, L\'app des futurs papas',
     description: 'Suivi semaine par semaine, guide accouchement, post-partum.',
   },
   manifest: '/manifest.json',
@@ -47,6 +47,8 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <script async src="https://plausible.io/js/pa-U2q0xAP60M_HinI3KqUL9.js"></script>
+        <script dangerouslySetInnerHTML={{ __html: `window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init()` }} />
       </head>
       <body>{children}</body>
     </html>
