@@ -18,6 +18,7 @@ const FEATURES = [
 ];
 
 export default function TarifsPage() {
+  const [menuOpen, setMenuOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const goToStripe = () => setShowModal(true);
 
@@ -34,6 +35,13 @@ export default function TarifsPage() {
           h1{font-size:32px!important;}
           .hero{padding:48px 24px!important;}
           .main{padding:40px 24px 80px!important;}
+        }
+      
+        .hamburger{display:none;}
+        .mobile-nav{display:none;}
+        @media(max-width:768px){
+          .hamburger{display:flex!important;}
+          .mobile-nav{display:flex!important;}
         }
       `}</style>
 
@@ -56,7 +64,22 @@ export default function TarifsPage() {
           <a href="/login" style={{ color: C.dark, fontSize: '14px', fontWeight: 600, textDecoration: 'none' }}>Se connecter</a>
           <button onClick={goToStripe} style={{ background: C.dark, color: C.white, padding: '11px 22px', borderRadius: '32px', fontSize: '13px', fontWeight: 700, border: 'none', cursor: 'pointer' }}>Commencer</button>
         </div>
+        <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)} style={{ display: 'none', background: 'none', border: `1px solid ${C.border}`, padding: '8px 12px', borderRadius: '8px', cursor: 'pointer' }}>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            {menuOpen ? <path d="M4 4L16 16M16 4L4 16" stroke={C.dark} strokeWidth="2" strokeLinecap="round"/> : <path d="M3 5h14M3 10h14M3 15h14" stroke={C.dark} strokeWidth="2" strokeLinecap="round"/>}
+          </svg>
+        </button>
       </nav>
+      {menuOpen && (
+        <div className="mobile-nav" style={{ flexDirection: 'column', background: C.white, borderBottom: `1px solid ${C.border}`, padding: '16px 20px', gap: '4px', position: 'sticky', top: '68px', zIndex: 49 }}>
+          <a href="/pourquoi" style={{ color: C.text, fontSize: '15px', fontWeight: 500, padding: '10px 8px', textDecoration: 'none', borderBottom: `1px solid ${C.cream}` }}>Pourquoi DadUp</a>
+          <a href="/inclus" style={{ color: C.text, fontSize: '15px', fontWeight: 500, padding: '10px 8px', textDecoration: 'none', borderBottom: `1px solid ${C.cream}` }}>Ce qui est inclus</a>
+          <a href="/tarifs" style={{ color: C.text, fontSize: '15px', fontWeight: 500, padding: '10px 8px', textDecoration: 'none', borderBottom: `1px solid ${C.cream}` }}>Tarifs</a>
+          <a href="/temoignages" style={{ color: C.text, fontSize: '15px', fontWeight: 500, padding: '10px 8px', textDecoration: 'none', borderBottom: `1px solid ${C.cream}` }}>Témoignages</a>
+          <a href="/contact" style={{ color: C.text, fontSize: '15px', fontWeight: 500, padding: '10px 8px', textDecoration: 'none', borderBottom: `1px solid ${C.cream}` }}>Contactez-nous</a>
+          <a href="/login" style={{ color: C.dark, fontSize: '15px', fontWeight: 700, padding: '10px 8px', textDecoration: 'none' }}>Se connecter</a>
+        </div>
+      )}
 
       {/* HERO */}
       <section className="hero" style={{ background: C.dark, padding: '72px 40px' }}>
