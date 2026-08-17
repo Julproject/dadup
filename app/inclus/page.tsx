@@ -49,6 +49,7 @@ const MODULES = [
 ];
 
 export default function InclusPage() {
+  const [menuOpen, setMenuOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);
   return (
     <main style={{minHeight:'100vh', background:C.white, fontFamily:"-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"}}>
@@ -84,7 +85,26 @@ export default function InclusPage() {
           .cta-section{padding:48px 16px!important;}
           .footer-section{padding:24px 16px!important;}
         }
-        `}</style>
+        
+        .hamburger{display:none;}
+        .mobile-nav{display:none;}
+        @media(max-width:768px){
+          .hamburger{display:flex!important;}
+          .mobile-nav{display:flex!important;}
+        }
+      
+        .hamburger{display:none;}
+        .mobile-nav{display:none;}
+        @media(max-width:768px){
+          .hamburger{display:flex!important;}
+          .mobile-nav{display:flex!important;}
+          .mg{grid-template-columns:1fr!important;gap:24px!important;}
+          .mod-img{height:120px!important;}
+          .mod-img p:last-child{display:none;}
+          .mod-desc{display:none;}
+          .mod-bullets{display:none;}
+        }
+      `}</style>
 
       <nav style={{background:C.white,borderBottom:`1px solid ${C.border}`,padding:'0 40px',display:'flex',alignItems:'center',justifyContent:'space-between',height:'68px',position:'sticky',top:0,zIndex:50}}>
         <div style={{display:'flex',alignItems:'center',gap:'48px'}}>
@@ -104,7 +124,22 @@ export default function InclusPage() {
           <a href="/login" style={{color:C.dark,fontSize:'14px',fontWeight:600,textDecoration:'none'}}>Se connecter</a>
           <a href="/tarifs" style={{background:C.dark,color:C.white,padding:'11px 22px',borderRadius:'32px',fontSize:'13px',fontWeight:700,textDecoration:'none'}}>Commencer</a>
         </div>
+        <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)} style={{ display: 'none', background: 'none', border: `1px solid ${C.border}`, padding: '8px 12px', borderRadius: '8px', cursor: 'pointer' }}>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            {menuOpen ? <path d="M4 4L16 16M16 4L4 16" stroke={C.dark} strokeWidth="2" strokeLinecap="round"/> : <path d="M3 5h14M3 10h14M3 15h14" stroke={C.dark} strokeWidth="2" strokeLinecap="round"/>}
+          </svg>
+        </button>
       </nav>
+      {menuOpen && (
+        <div className="mobile-nav" style={{ flexDirection: 'column', background: C.white, borderBottom: `1px solid ${C.border}`, padding: '16px 20px', gap: '4px', position: 'sticky', top: '68px', zIndex: 49 }}>
+          <a href="/pourquoi" style={{ color: C.text, fontSize: '15px', padding: '10px 8px', textDecoration: 'none', borderBottom: `1px solid ${C.cream}` }}>Pourquoi DadUp</a>
+          <a href="/inclus" style={{ color: C.text, fontSize: '15px', padding: '10px 8px', textDecoration: 'none', borderBottom: `1px solid ${C.cream}` }}>Ce qui est inclus</a>
+          <a href="/tarifs" style={{ color: C.text, fontSize: '15px', padding: '10px 8px', textDecoration: 'none', borderBottom: `1px solid ${C.cream}` }}>Tarifs</a>
+          <a href="/temoignages" style={{ color: C.text, fontSize: '15px', padding: '10px 8px', textDecoration: 'none', borderBottom: `1px solid ${C.cream}` }}>Témoignages</a>
+          <a href="/contact" style={{ color: C.text, fontSize: '15px', padding: '10px 8px', textDecoration: 'none', borderBottom: `1px solid ${C.cream}` }}>Contactez-nous</a>
+          <a href="/login" style={{ color: C.dark, fontSize: '15px', fontWeight: 700, padding: '10px 8px', textDecoration: 'none' }}>Se connecter</a>
+        </div>
+      )}
 
       {/* HERO */}
       <section style={{background:C.dark,padding:'80px 40px'}}>
@@ -126,8 +161,8 @@ export default function InclusPage() {
                   <span style={{color:C.border,fontSize:'44px',fontWeight:800,lineHeight:1}}>{m.num}</span>
                   <h2 style={{color:C.dark,fontSize:'24px',fontWeight:800,margin:0}}>{m.titre}</h2>
                 </div>
-                <p style={{color:C.text,fontSize:'15px',lineHeight:1.7,margin:'0 0 20px'}}>{m.desc}</p>
-                <div style={{display:'flex',flexDirection:'column',gap:'8px'}}>
+                <p className='mod-desc' style={{color:C.text,fontSize:'15px',lineHeight:1.7,margin:'0 0 20px'}}>{m.desc}</p>
+                <div className='mod-bullets' style={{display:'flex',flexDirection:'column',gap:'8px'}}>
                   {m.details.map((d,j)=>(
                     <div key={j} style={{display:'flex',gap:'10px',alignItems:'flex-start'}}>
                       <div style={{width:'6px',height:'6px',borderRadius:'50%',background:C.blue,flexShrink:0,marginTop:'6px'}}></div>
