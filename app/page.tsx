@@ -206,7 +206,7 @@ export default function Home() {
           <div style={{textAlign:'center', marginBottom:'48px'}}>
             <p style={{color:C.blue, fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase' as const, margin:'0 0 16px'}}>Ce que DadUp couvre</p>
             <h2 style={{color:C.dark, fontSize:'38px', fontWeight:800, margin:'0 0 16px', lineHeight:1.2}}>Tout ce que personne<br/>ne t&apos;explique.</h2>
-            <p style={{color:C.textLight, fontSize:'15px', margin:'0 auto', maxWidth:'480px', lineHeight:1.7}}>6 sujets essentiels. Traités sans détour, au bon moment de la grossesse.</p>
+            <p style={{color:C.textLight, fontSize:'15px', margin:'0 auto', maxWidth:'480px', lineHeight:1.7}}>Traités sans détour, au bon moment de la grossesse.</p>
           </div>
           <div className="newbie-grid">
             {[
