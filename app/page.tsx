@@ -185,9 +185,9 @@ export default function Home() {
       <section style={{background:C.dark, margin:'72px 0 0'}}>
         <div className="stats-grid" style={{maxWidth:'1200px', margin:'0 auto', textAlign:'center'}}>
           {[
-            {chiffre:'41',     label:'semaines couvertes'},
-            {chiffre:'100%',   label:'pour les pères'},
-            {chiffre:'100%',   label:'conçu pour toi'},
+            {chiffre:'41',     label:'semaines de contenu'},
+            {chiffre:'12',     label:'mois d\'accès'},
+            {chiffre:'100%',   label:'pour les papas'},
             {chiffre:'35,99€', label:'par an'},
           ].map((s, i) => (
             <div key={s.label} className="stats-item" style={{padding:'32px', borderLeft: i > 0 ? '1px solid #2e3848' : 'none'}}>
