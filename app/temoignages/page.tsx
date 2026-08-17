@@ -97,7 +97,7 @@ export default function TemoignagesPage() {
             {[
               { num: '41', label: 'semaines de contenu', desc: 'De la SA 3 à la SA 41, chaque semaine couverte.' },
               { num: '12', label: 'mois post-partum', desc: 'Le développement de bébé mois par mois.' },
-              { num: '100%', label: 'pour les pères', desc: 'Aucun contenu pensé pour la maman uniquement.' },
+              { num: '100%', label: 'pour les pères', desc: 'Du contenu 100% orienté paternité.' },
             ].map((item, i) => (
               <div key={i} style={{ background: C.white, borderRadius: '20px', padding: '28px', border: `1px solid ${C.border}`, textAlign: 'center' }}>
                 <p style={{ color: C.dark, fontSize: '40px', fontWeight: 800, margin: '0 0 4px', lineHeight: 1 }}>{item.num}</p>
