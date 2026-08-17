@@ -93,7 +93,7 @@ export default function Home() {
 
       {/* NAV */}
       <nav style={{background:C.white, borderBottom:`1px solid ${C.border}`, position:'sticky', top:0, zIndex:50}}>
-        <div style={{padding:'0 40px', display:'flex', alignItems:'center', justifyContent:'space-between', height:'68px'}}>
+        <div style={{padding:'0 20px', display:'flex', alignItems:'center', justifyContent:'space-between', height:'68px'}}>
           <div style={{display:'flex', alignItems:'center', gap:'48px'}}>
             <a href="/" style={{display:'flex', alignItems:'center', gap:'10px', textDecoration:'none'}}>
               <svg viewBox="0 0 300 300" width="34" height="34">
@@ -186,8 +186,8 @@ export default function Home() {
         <div className="stats-grid" style={{maxWidth:'1200px', margin:'0 auto', textAlign:'center'}}>
           {[
             {chiffre:'41',     label:'semaines couvertes'},
-            {chiffre:'100%',   label:'mieux préparés'},
-            {chiffre:'100%',   label:'personnalisé'},
+            {chiffre:'100%',   label:'pour les pères'},
+            {chiffre:'100%',   label:'conçu pour toi'},
             {chiffre:'35,99€', label:'par an'},
           ].map((s, i) => (
             <div key={s.label} className="stats-item" style={{padding:'32px', borderLeft: i > 0 ? '1px solid #2e3848' : 'none'}}>
@@ -286,7 +286,7 @@ export default function Home() {
         <button onClick={goToStripe} style={{background:C.gold, color:'#1c1510', border:'none', padding:'18px 48px', borderRadius:'32px', fontSize:'16px', fontWeight:800, cursor:'pointer', width:'100%', maxWidth:'400px', display:'block', margin:'0 auto'}}>
           Commencer
         </button>
-        <p style={{color:'#3d5070', fontSize:'12px', margin:'12px 0 0'}}>Paiement sécurisé · Remboursé sous 7 jours si pas satisfait</p>
+        <p style={{color:'#3d5070', fontSize:'12px', margin:'12px 0 0'}}>Paiement sécurisé · </p>
       </section>
 
       {/* FOOTER */}
