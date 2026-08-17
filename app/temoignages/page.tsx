@@ -9,6 +9,7 @@ const C = {
 };
 
 export default function TemoignagesPage() {
+  const [menuOpen, setMenuOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);
   return (
     <main style={{ minHeight: '100vh', background: C.cream, fontFamily: "-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" }}>
@@ -17,11 +18,24 @@ export default function TemoignagesPage() {
         .nl{display:flex;}.nc{display:flex;}
         @media(max-width:768px){
           .nl{display:none!important;}.nc{display:none!important;}
-          nav{padding:0 20px!important;}
-          h1{font-size:34px!important;}
-          .hero{padding:64px 24px!important;}
-          .main{padding:48px 24px 80px!important;}
+          nav{padding:0 16px!important;}
+          h1{font-size:28px!important;}
+          .hero{padding:48px 20px!important;}
+          .main{padding:32px 16px 60px!important;}
+          .tem-grid{grid-template-columns:1fr!important;}
+          h2{font-size:22px!important;}
         }
+      
+        .hamburger{display:none;}
+        .mobile-nav{display:none;}
+        @media(max-width:768px){
+          .hamburger{display:flex!important;}
+          .mobile-nav{display:flex!important;}
+        }
+      
+        .hamburger{display:none;}
+        .mobile-nav{display:none;}
+        @media(max-width:768px){.hamburger{display:flex!important;}.mobile-nav{display:flex!important;}}
       `}</style>
 
       {/* NAV */}
@@ -43,7 +57,22 @@ export default function TemoignagesPage() {
           <a href="/login" style={{ color: C.dark, fontSize: '14px', fontWeight: 600, textDecoration: 'none' }}>Se connecter</a>
           <a href="/tarifs" style={{ background: C.dark, color: C.white, padding: '11px 22px', borderRadius: '32px', fontSize: '13px', fontWeight: 700, textDecoration: 'none' }}>Commencer</a>
         </div>
+        <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)} style={{ display: 'none', background: 'none', border: `1px solid ${C.border}`, padding: '8px 12px', borderRadius: '8px', cursor: 'pointer' }}>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            {menuOpen ? <path d="M4 4L16 16M16 4L4 16" stroke={C.dark} strokeWidth="2" strokeLinecap="round"/> : <path d="M3 5h14M3 10h14M3 15h14" stroke={C.dark} strokeWidth="2" strokeLinecap="round"/>}
+          </svg>
+        </button>
       </nav>
+      {menuOpen && (
+        <div className="mobile-nav" style={{ flexDirection: 'column', background: C.white, borderBottom: `1px solid ${C.border}`, padding: '16px 20px', gap: '4px', position: 'sticky', top: '68px', zIndex: 49 }}>
+          <a href="/pourquoi" style={{ color: C.text, fontSize: '15px', padding: '10px 8px', textDecoration: 'none', borderBottom: `1px solid ${C.cream}` }}>Pourquoi DadUp</a>
+          <a href="/inclus" style={{ color: C.text, fontSize: '15px', padding: '10px 8px', textDecoration: 'none', borderBottom: `1px solid ${C.cream}` }}>Ce qui est inclus</a>
+          <a href="/tarifs" style={{ color: C.text, fontSize: '15px', padding: '10px 8px', textDecoration: 'none', borderBottom: `1px solid ${C.cream}` }}>Tarifs</a>
+          <a href="/temoignages" style={{ color: C.text, fontSize: '15px', padding: '10px 8px', textDecoration: 'none', borderBottom: `1px solid ${C.cream}` }}>Témoignages</a>
+          <a href="/contact" style={{ color: C.text, fontSize: '15px', padding: '10px 8px', textDecoration: 'none', borderBottom: `1px solid ${C.cream}` }}>Contactez-nous</a>
+          <a href="/login" style={{ color: C.dark, fontSize: '15px', fontWeight: 700, padding: '10px 8px', textDecoration: 'none' }}>Se connecter</a>
+        </div>
+      )}
 
       {/* HERO */}
       <section className="hero" style={{ background: C.dark, padding: '80px 40px' }}>
@@ -64,7 +93,7 @@ export default function TemoignagesPage() {
         {/* CE QU'ON CONSTRUIT */}
         <div style={{ marginBottom: '64px' }}>
           <p style={{ color: C.blue, fontSize: '11px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase', margin: '0 0 20px' }}>Ce qu&apos;on construit</p>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '16px' }}>
+          <div className='tem-grid' style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '16px' }}>
             {[
               { num: '41', label: 'semaines de contenu', desc: 'De la SA 3 à la SA 41, chaque semaine couverte.' },
               { num: '12', label: 'mois post-partum', desc: 'Le développement de bébé mois par mois.' },
