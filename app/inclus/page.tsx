@@ -173,8 +173,7 @@ export default function InclusPage() {
               </div>
               <div className="mod-img" style={{direction:'ltr',background:m.bg,borderRadius:'24px',height:'280px',display:'flex',alignItems:'center',justifyContent:'center',border:m.dark?'none':`1px solid ${C.border}`}}>
                 <div style={{textAlign:'center'}}>
-                  <p style={{fontSize:'52px',margin:'0 0 8px'}}>{m.emoji}</p>
-                  <p style={{color:m.dark?C.gold:C.textLight,fontSize:'13px',margin:0,fontWeight:600}}>{m.titre}</p>
+                  <p style={{fontSize:'52px',margin:0}}>{m.emoji}</p>
                 </div>
               </div>
             </div>
