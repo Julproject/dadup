@@ -254,7 +254,7 @@ export default function Home() {
             Savoir ce qui se passe avant qu'on te l'explique.
           </p>
           <p style={{color:C.text, fontSize:'16px', margin:'0 0 32px', lineHeight:1.7}}>
-            Un père qui comprend ce qui se passe prend de meilleures décisions. Il est plus calme le jour J. Il soutient mieux.
+            Un père qui comprend ce qui se passe prend de meilleures décisions. Il est plus calme le jour J. Il sait quoi faire, et quand le faire.
           </p>
           <div style={{display:'flex', gap:'16px', flexWrap:'wrap' as const}}>
             <a href="/pourquoi" style={{color:C.dark, fontSize:'14px', fontWeight:700, textDecoration:'none'}}>Pourquoi ça change tout →</a>
