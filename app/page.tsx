@@ -49,7 +49,8 @@ export default function Home() {
           .hero-img-wrap { height: 260px !important; }
           .stats-grid { grid-template-columns: 1fr 1fr; padding: 24px 20px !important; gap: 0; }
           .stats-item { border-left: none !important; border-top: 1px solid #2e3848; padding: 16px !important; }
-          .stats-item:nth-child(2) { border-left: 1px solid #2e3848 !important; }
+          .stats-item:nth-child(1) { border-top: none !important; }
+          .stats-item:nth-child(2) { border-top: none !important; border-left: 1px solid #2e3848 !important; }
           .stats-item:nth-child(4) { border-left: 1px solid #2e3848 !important; }
           .modules-grid { grid-template-columns: 1fr 1fr; }
           .quote-grid { grid-template-columns: 1fr; gap: 32px; }
