@@ -99,8 +99,7 @@ export default function InclusPage() {
           .hamburger{display:flex!important;}
           .mobile-nav{display:flex!important;}
           .mg{grid-template-columns:1fr!important;gap:24px!important;}
-          .mod-img{height:120px!important;}
-          .mod-img p:last-child{display:none;}
+          .mod-img{height:80px!important;display:flex;align-items:center;justify-content:center;}
           .mod-desc{display:none;}
           .mod-bullets{display:none;}
         }
