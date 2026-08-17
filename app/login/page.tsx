@@ -72,7 +72,7 @@ export default function LoginPage() {
   };
 
   return (
-    
+    <>
       <style>{`
         *{box-sizing:border-box;margin:0;padding:0;}
         @media(max-width:768px){
@@ -221,5 +221,6 @@ export default function LoginPage() {
         </p>
       </div>
     </main>
+    </>
   );
 }
