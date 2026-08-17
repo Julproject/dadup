@@ -72,7 +72,38 @@ export default function LoginPage() {
   };
 
   return (
-    <main style={{minHeight:'100vh',background:C.cream,display:'flex',alignItems:'center',justifyContent:'center',padding:'20px',fontFamily:"-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"}}>
+    
+      <style>{`
+        *{box-sizing:border-box;margin:0;padding:0;}
+        @media(max-width:768px){
+          .nl{display:none!important;}
+          .nc{display:none!important;}
+          .sp{padding:32px 16px!important;}
+          nav{padding:0 16px!important;}
+          h1{font-size:32px!important;line-height:1.15!important;}
+          h2{font-size:24px!important;}
+          .prix{font-size:48px!important;}
+          .hero-grid{grid-template-columns:1fr!important;gap:24px!important;padding:40px 16px 0!important;}
+          .hero-img-wrap{height:220px!important;}
+          .stats-grid{grid-template-columns:1fr 1fr!important;padding:20px 16px!important;}
+          .stats-item{border-left:none!important;border-top:1px solid #2e3848;padding:14px!important;}
+          .stats-item:nth-child(2){border-left:1px solid #2e3848!important;}
+          .modules-grid{grid-template-columns:1fr!important;}
+          .quote-grid{grid-template-columns:1fr!important;gap:24px!important;}
+          .newbie-grid>div{flex:1 1 100%!important;max-width:100%!important;}
+          .temoignages-grid{grid-template-columns:1fr!important;}
+          .aa{grid-template-columns:1fr!important;}
+          .tg{grid-template-columns:1fr!important;}
+          .mg{grid-template-columns:1fr!important;gap:24px!important;}
+          .footer-inner{flex-direction:column!important;gap:16px!important;text-align:center!important;}
+          .footer-links{flex-wrap:wrap!important;justify-content:center!important;gap:12px!important;}
+          section{padding:48px 16px!important;}
+          .section-pad{padding:48px 16px!important;}
+          .cta-section{padding:48px 16px!important;}
+          .footer-section{padding:24px 16px!important;}
+        }
+      `}</style>
+      <main style={{minHeight:'100vh',background:C.cream,display:'flex',alignItems:'center',justifyContent:'center',padding:'20px',fontFamily:"-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"}}>
       <div style={{maxWidth:'400px',width:'100%'}}>
 
         <div style={{display:'flex',justifyContent:'center',marginBottom:'32px'}}>
@@ -93,7 +124,7 @@ export default function LoginPage() {
 
           {!showForgot ? (
             <>
-              <h1 style={{fontSize:'22px',fontWeight:800,color:C.dark,margin:'0 0 6px',textAlign:'center'}}>Bon retour 👋</h1>
+              <h1 style={{fontSize:'22px',fontWeight:800,color:C.dark,margin:'0 0 6px',textAlign:'center'}}>Content de te revoir.</h1>
               <p style={{color:C.textLight,fontSize:'13px',textAlign:'center',margin:'0 0 28px'}}>Connecte-toi à ton espace DadUp</p>
 
               <form onSubmit={handleLogin} style={{display:'flex',flexDirection:'column',gap:'14px'}}>
@@ -186,7 +217,7 @@ export default function LoginPage() {
 
         <p style={{textAlign:'center',marginTop:'20px',fontSize:'13px',color:C.textLight}}>
           Pas encore de compte ?{' '}
-          <a href="/tarifs" style={{color:C.blue,fontWeight:700,textDecoration:'none'}}>Commencer — 35,99€/an</a>
+          <a href="/tarifs" style={{color:C.blue,fontWeight:700,textDecoration:'none'}}>Commencer</a>
         </p>
       </div>
     </main>
