@@ -134,7 +134,6 @@ export default function TarifsPage() {
               <div style={{ display: 'flex', flexDirection: 'column' }}>
                 {[
                   { label: "Durée", val: "12 mois d'accès à compter du paiement" },
-                  { label: "Renouvellement", val: "Aucun renouvellement automatique" },
                   { label: "Données", val: "Email et DPA uniquement. Aucune revente." },
                   { label: "Support", val: "hello@dadup.fr" },
                 ].map(({ label, val }, i, arr) => (
@@ -154,7 +153,7 @@ export default function TarifsPage() {
       <section style={{ background: C.dark, padding: '72px 40px', textAlign: 'center' as const }}>
         <p style={{ color: C.gold, fontSize: '11px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase' as const, margin: '0 0 16px' }}>Prêt à commencer ?</p>
         <h2 style={{ color: C.white, fontSize: '40px', fontWeight: 800, margin: '0 0 8px' }}>35,99€ par an</h2>
-        <p style={{ color: '#6a7585', fontSize: '15px', margin: '0 0 36px' }}>Paiement unique · Accès 12 mois · Sans renouvellement automatique</p>
+        <p style={{ color: '#6a7585', fontSize: '15px', margin: '0 0 36px' }}>Paiement unique · Accès 12 mois</p>
         <button onClick={goToStripe} style={{ background: C.gold, color: '#1c1510', border: 'none', padding: '18px 48px', borderRadius: '32px', fontSize: '16px', fontWeight: 800, cursor: 'pointer' }}>
           Commencer
         </button>
