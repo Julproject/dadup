@@ -115,6 +115,7 @@ export default function TarifsPage() {
               Commencer
             </button>
             <p style={{ color: '#3d5070', fontSize: '12px', textAlign: 'center', margin: 0 }}>Paiement sécurisé par Stripe</p>
+            <p style={{ color: '#3d5070', fontSize: '12px', margin: '6px 0 0', textAlign: 'center' }}>Satisfait ou remboursé sous 14 jours.</p>
           </div>
 
           {/* COLONNE DROITE, infos */}
