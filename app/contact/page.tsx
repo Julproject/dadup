@@ -51,7 +51,38 @@ export default function ContactPage() {
   };
 
   return (
-    <main style={{minHeight:'100vh', background:C.cream, fontFamily:"-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif", display:'flex', flexDirection:'column'}}>
+    
+      <style>{`
+        *{box-sizing:border-box;margin:0;padding:0;}
+        @media(max-width:768px){
+          .nl{display:none!important;}
+          .nc{display:none!important;}
+          .sp{padding:32px 16px!important;}
+          nav{padding:0 16px!important;}
+          h1{font-size:32px!important;line-height:1.15!important;}
+          h2{font-size:24px!important;}
+          .prix{font-size:48px!important;}
+          .hero-grid{grid-template-columns:1fr!important;gap:24px!important;padding:40px 16px 0!important;}
+          .hero-img-wrap{height:220px!important;}
+          .stats-grid{grid-template-columns:1fr 1fr!important;padding:20px 16px!important;}
+          .stats-item{border-left:none!important;border-top:1px solid #2e3848;padding:14px!important;}
+          .stats-item:nth-child(2){border-left:1px solid #2e3848!important;}
+          .modules-grid{grid-template-columns:1fr!important;}
+          .quote-grid{grid-template-columns:1fr!important;gap:24px!important;}
+          .newbie-grid>div{flex:1 1 100%!important;max-width:100%!important;}
+          .temoignages-grid{grid-template-columns:1fr!important;}
+          .aa{grid-template-columns:1fr!important;}
+          .tg{grid-template-columns:1fr!important;}
+          .mg{grid-template-columns:1fr!important;gap:24px!important;}
+          .footer-inner{flex-direction:column!important;gap:16px!important;text-align:center!important;}
+          .footer-links{flex-wrap:wrap!important;justify-content:center!important;gap:12px!important;}
+          section{padding:48px 16px!important;}
+          .section-pad{padding:48px 16px!important;}
+          .cta-section{padding:48px 16px!important;}
+          .footer-section{padding:24px 16px!important;}
+        }
+      `}</style>
+      <main style={{minHeight:'100vh', background:C.cream, fontFamily:"-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif", display:'flex', flexDirection:'column'}}>
 
       {/* NAV simple */}
       <nav style={{background:C.white, borderBottom:`1px solid ${C.border}`, padding:'0 40px', display:'flex', alignItems:'center', height:'68px'}}>
@@ -212,7 +243,7 @@ export default function ContactPage() {
               <a href="/pourquoi" style={{color:'#6a7585',fontSize:'13px',textDecoration:'none'}}>Pourquoi DadUp</a>
               <a href="/inclus" style={{color:'#6a7585',fontSize:'13px',textDecoration:'none'}}>Ce qui est inclus</a>
               <a href="/tarifs" style={{color:'#6a7585',fontSize:'13px',textDecoration:'none'}}>Tarifs</a>
-              <a href="/temoignages" style={{color:'#6a7585',fontSize:'13px',textDecoration:'none'}}>Témoignages</a>
+              <a href="/methodologie" style={{color:'#6a7585',fontSize:'13px',textDecoration:'none'}}>Méthodologie</a>
               <a href="/contact" style={{color:'#6a7585',fontSize:'13px',textDecoration:'none'}}>Contactez-nous</a>
             </div>
           </div>
