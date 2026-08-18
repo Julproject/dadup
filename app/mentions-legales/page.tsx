@@ -2,7 +2,38 @@
 
 export default function MentionsLegalesPage() {
   return (
-    <main style={{ minHeight: '100vh', background: '#faf6f0', fontFamily: "-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif", color: '#4a5568' }}>
+    
+      <style>{`
+        *{box-sizing:border-box;margin:0;padding:0;}
+        @media(max-width:768px){
+          .nl{display:none!important;}
+          .nc{display:none!important;}
+          .sp{padding:32px 16px!important;}
+          nav{padding:0 16px!important;}
+          h1{font-size:32px!important;line-height:1.15!important;}
+          h2{font-size:24px!important;}
+          .prix{font-size:48px!important;}
+          .hero-grid{grid-template-columns:1fr!important;gap:24px!important;padding:40px 16px 0!important;}
+          .hero-img-wrap{height:220px!important;}
+          .stats-grid{grid-template-columns:1fr 1fr!important;padding:20px 16px!important;}
+          .stats-item{border-left:none!important;border-top:1px solid #2e3848;padding:14px!important;}
+          .stats-item:nth-child(2){border-left:1px solid #2e3848!important;}
+          .modules-grid{grid-template-columns:1fr!important;}
+          .quote-grid{grid-template-columns:1fr!important;gap:24px!important;}
+          .newbie-grid>div{flex:1 1 100%!important;max-width:100%!important;}
+          .temoignages-grid{grid-template-columns:1fr!important;}
+          .aa{grid-template-columns:1fr!important;}
+          .tg{grid-template-columns:1fr!important;}
+          .mg{grid-template-columns:1fr!important;gap:24px!important;}
+          .footer-inner{flex-direction:column!important;gap:16px!important;text-align:center!important;}
+          .footer-links{flex-wrap:wrap!important;justify-content:center!important;gap:12px!important;}
+          section{padding:48px 16px!important;}
+          .section-pad{padding:48px 16px!important;}
+          .cta-section{padding:48px 16px!important;}
+          .footer-section{padding:24px 16px!important;}
+        }
+      `}</style>
+      <main style={{ minHeight: '100vh', background: '#faf6f0', fontFamily: "-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif", color: '#4a5568' }}>
 
       <nav style={{ background: '#ffffff', borderBottom: '1px solid #e8e0d0', padding: '0 40px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '64px' }}>
         <a href="/" style={{ display: 'flex', alignItems: 'center', gap: '8px', textDecoration: 'none' }}>
@@ -33,7 +64,7 @@ export default function MentionsLegalesPage() {
         <p style={{ fontSize: '14px', lineHeight: 1.85, margin: '0 0 14px' }}>Les contenus du Site sont rédigés à titre informatif et ne constituent pas un avis médical. En cas d&apos;urgence médicale : 15 (SAMU), 18 (Pompiers) ou 112.</p>
 
         <h2 style={{ color: '#1A3D5C', fontSize: '15px', fontWeight: 700, margin: '36px 0 8px' }}>5. Données personnelles</h2>
-        <p style={{ fontSize: '14px', lineHeight: 1.85, margin: '0 0 14px' }}>Le traitement des données personnelles est décrit dans la <a href="/confidentialite" style={{ color: '#2E5F8A' }}>Politique de Confidentialité</a>. Responsable du traitement : DadUp — hello@dadup.fr. Réclamation possible auprès de la CNIL (www.cnil.fr).</p>
+        <p style={{ fontSize: '14px', lineHeight: 1.85, margin: '0 0 14px' }}>Le traitement des données personnelles est décrit dans la <a href="/confidentialite" style={{ color: '#2E5F8A' }}>Politique de Confidentialité</a>. Responsable du traitement : DadUp, hello@dadup.fr. Réclamation possible auprès de la CNIL (www.cnil.fr).</p>
 
         <h2 style={{ color: '#1A3D5C', fontSize: '15px', fontWeight: 700, margin: '36px 0 8px' }}>6. Cookies</h2>
         <p style={{ fontSize: '14px', lineHeight: 1.85, margin: '0 0 14px' }}>Le Site utilise uniquement des cookies techniques nécessaires à son fonctionnement. Aucun cookie publicitaire ou analytique n&apos;est utilisé.</p>
@@ -42,7 +73,7 @@ export default function MentionsLegalesPage() {
         <p style={{ fontSize: '14px', lineHeight: 1.85, margin: '0 0 14px' }}>Le présent site est soumis au droit français. En cas de litige, les tribunaux français sont compétents.</p>
 
         <h2 style={{ color: '#1A3D5C', fontSize: '15px', fontWeight: 700, margin: '36px 0 8px' }}>8. Médiation</h2>
-        <p style={{ fontSize: '14px', lineHeight: 1.85, margin: '0 0 14px' }}>En cas de litige non résolu, recours possible auprès du CM2C, 49 rue de Ponthieu, 75008 Paris — 01 89 47 00 14 — www.cm2c.net/declarer-un-litige.php — litiges@cm2c.net.</p>
+        <p style={{ fontSize: '14px', lineHeight: 1.85, margin: '0 0 14px' }}>En cas de litige non résolu, recours possible auprès du CM2C, 49 rue de Ponthieu, 75008 Paris, 01 89 47 00 14, www.cm2c.net/declarer-un-litige.php, litiges@cm2c.net.</p>
       </div>
 
       <footer style={{ background: '#1e2535', borderTop: '1px solid #2e3848', padding: '32px 40px' }}>
@@ -51,12 +82,11 @@ export default function MentionsLegalesPage() {
             <a href="/pourquoi" style={{ color: '#6a7585', fontSize: '13px', textDecoration: 'none' }}>Pourquoi DadUp</a>
             <a href="/inclus" style={{ color: '#6a7585', fontSize: '13px', textDecoration: 'none' }}>Ce qui est inclus</a>
             <a href="/tarifs" style={{ color: '#6a7585', fontSize: '13px', textDecoration: 'none' }}>Tarifs</a>
-            <a href="/temoignages" style={{ color: '#6a7585', fontSize: '13px', textDecoration: 'none' }}>Témoignages</a>
             <a href="/contact" style={{ color: '#6a7585', fontSize: '13px', textDecoration: 'none' }}>Contactez-nous</a>
             <a href="/cgv" style={{ color: '#6a7585', fontSize: '13px', textDecoration: 'none' }}>CGV</a>
             <a href="/confidentialite" style={{ color: '#6a7585', fontSize: '13px', textDecoration: 'none' }}>Confidentialité</a>
           </div>
-          <p style={{ color: '#3d4f6a', fontSize: '12px', margin: '0' }}>DadUp — SIRET 10349796200011 — hello@dadup.fr</p>
+          <p style={{ color: '#3d4f6a', fontSize: '12px', margin: '0' }}>DadUp, SIRET 10349796200011, hello@dadup.fr</p>
         </div>
       </footer>
 
