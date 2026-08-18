@@ -2,7 +2,38 @@
 
 export default function ConfidentialitePage() {
   return (
-    <main style={{ minHeight: '100vh', background: '#faf6f0', fontFamily: "-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif", color: '#4a5568' }}>
+    
+      <style>{`
+        *{box-sizing:border-box;margin:0;padding:0;}
+        @media(max-width:768px){
+          .nl{display:none!important;}
+          .nc{display:none!important;}
+          .sp{padding:32px 16px!important;}
+          nav{padding:0 16px!important;}
+          h1{font-size:32px!important;line-height:1.15!important;}
+          h2{font-size:24px!important;}
+          .prix{font-size:48px!important;}
+          .hero-grid{grid-template-columns:1fr!important;gap:24px!important;padding:40px 16px 0!important;}
+          .hero-img-wrap{height:220px!important;}
+          .stats-grid{grid-template-columns:1fr 1fr!important;padding:20px 16px!important;}
+          .stats-item{border-left:none!important;border-top:1px solid #2e3848;padding:14px!important;}
+          .stats-item:nth-child(2){border-left:1px solid #2e3848!important;}
+          .modules-grid{grid-template-columns:1fr!important;}
+          .quote-grid{grid-template-columns:1fr!important;gap:24px!important;}
+          .newbie-grid>div{flex:1 1 100%!important;max-width:100%!important;}
+          .temoignages-grid{grid-template-columns:1fr!important;}
+          .aa{grid-template-columns:1fr!important;}
+          .tg{grid-template-columns:1fr!important;}
+          .mg{grid-template-columns:1fr!important;gap:24px!important;}
+          .footer-inner{flex-direction:column!important;gap:16px!important;text-align:center!important;}
+          .footer-links{flex-wrap:wrap!important;justify-content:center!important;gap:12px!important;}
+          section{padding:48px 16px!important;}
+          .section-pad{padding:48px 16px!important;}
+          .cta-section{padding:48px 16px!important;}
+          .footer-section{padding:24px 16px!important;}
+        }
+      `}</style>
+      <main style={{ minHeight: '100vh', background: '#faf6f0', fontFamily: "-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif", color: '#4a5568' }}>
 
       <nav style={{ background: '#ffffff', borderBottom: '1px solid #e8e0d0', padding: '0 40px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '64px' }}>
         <a href="/" style={{ display: 'flex', alignItems: 'center', gap: '8px', textDecoration: 'none' }}>
@@ -29,13 +60,13 @@ export default function ConfidentialitePage() {
         <p style={{ fontSize: '14px', lineHeight: 1.85, margin: '0 0 14px' }}>DadUp collecte uniquement les données nécessaires au fonctionnement du Service. Données fournies par l&apos;Utilisateur : adresse email (obligatoire), prénom (facultatif), date prévue d&apos;accouchement (nécessaire au suivi), mot de passe (stocké sous forme hachée via bcrypt). Données automatiques : cookie de session (supprimé à la déconnexion, aucune donnée personnelle stockée), logs serveur (sécurité technique uniquement). Aucune donnée bancaire n&apos;est collectée par DadUp.</p>
 
         <h2 style={{ color: '#1A3D5C', fontSize: '15px', fontWeight: 700, margin: '36px 0 8px' }}>3. Finalités et bases légales</h2>
-        <p style={{ fontSize: '14px', lineHeight: 1.85, margin: '0 0 14px' }}>Gestion du compte et fourniture du Service — exécution du contrat (art. 6.1.b RGPD). Communications transactionnelles — exécution du contrat. Obligations comptables — obligation légale (art. 6.1.c RGPD). Sécurité — intérêt légitime (art. 6.1.f RGPD). DadUp n&apos;utilise pas vos données à des fins publicitaires ou de vente à des tiers.</p>
+        <p style={{ fontSize: '14px', lineHeight: 1.85, margin: '0 0 14px' }}>Gestion du compte et fourniture du Service, exécution du contrat (art. 6.1.b RGPD). Communications transactionnelles, exécution du contrat. Obligations comptables, obligation légale (art. 6.1.c RGPD). Sécurité, intérêt légitime (art. 6.1.f RGPD). DadUp n&apos;utilise pas vos données à des fins publicitaires ou de vente à des tiers.</p>
 
         <h2 style={{ color: '#1A3D5C', fontSize: '15px', fontWeight: 700, margin: '36px 0 8px' }}>4. Durées de conservation</h2>
         <p style={{ fontSize: '14px', lineHeight: 1.85, margin: '0 0 14px' }}>Données du compte : durée de l&apos;abonnement actif + 3 ans après expiration. Données comptables : 10 ans (article L.123-22 du Code de commerce). Échanges support : 3 ans à compter du dernier contact.</p>
 
         <h2 style={{ color: '#1A3D5C', fontSize: '15px', fontWeight: 700, margin: '36px 0 8px' }}>5. Sous-traitants et transferts hors UE</h2>
-        <p style={{ fontSize: '14px', lineHeight: 1.85, margin: '0 0 14px' }}>Vercel Inc. (hébergement) — États-Unis, encadré par les Clauses Contractuelles Types (CCT). Supabase Inc. (base de données) — États-Unis, stockage en région européenne, CCT. Stripe Inc. (paiement) — États-Unis, certifié EU-US Data Privacy Framework (DPF, décision du 10/07/2023). Brevo SAS (emails) — France, données hébergées en Europe.</p>
+        <p style={{ fontSize: '14px', lineHeight: 1.85, margin: '0 0 14px' }}>Vercel Inc. (hébergement), États-Unis, encadré par les Clauses Contractuelles Types (CCT). Supabase Inc. (base de données), États-Unis, stockage en région européenne, CCT. Stripe Inc. (paiement), États-Unis, certifié EU-US Data Privacy Framework (DPF, décision du 10/07/2023). Brevo SAS (emails), France, données hébergées en Europe.</p>
 
         <h2 style={{ color: '#1A3D5C', fontSize: '15px', fontWeight: 700, margin: '36px 0 8px' }}>6. Cookies</h2>
         <p style={{ fontSize: '14px', lineHeight: 1.85, margin: '0 0 14px' }}>Le Site utilise un unique cookie technique (dadup_session) permettant de maintenir la session. Il est supprimé à la déconnexion. Aucune donnée personnelle n&apos;est stockée dans ce cookie. Attributs : HttpOnly, Secure, SameSite=Lax. Aucun consentement requis (article 82 loi Informatique et Libertés). Aucun cookie publicitaire ou analytique n&apos;est déployé.</p>
@@ -59,12 +90,11 @@ export default function ConfidentialitePage() {
             <a href="/pourquoi" style={{ color: '#6a7585', fontSize: '13px', textDecoration: 'none' }}>Pourquoi DadUp</a>
             <a href="/inclus" style={{ color: '#6a7585', fontSize: '13px', textDecoration: 'none' }}>Ce qui est inclus</a>
             <a href="/tarifs" style={{ color: '#6a7585', fontSize: '13px', textDecoration: 'none' }}>Tarifs</a>
-            <a href="/temoignages" style={{ color: '#6a7585', fontSize: '13px', textDecoration: 'none' }}>Témoignages</a>
             <a href="/contact" style={{ color: '#6a7585', fontSize: '13px', textDecoration: 'none' }}>Contactez-nous</a>
             <a href="/cgv" style={{ color: '#6a7585', fontSize: '13px', textDecoration: 'none' }}>CGV</a>
             <a href="/mentions-legales" style={{ color: '#6a7585', fontSize: '13px', textDecoration: 'none' }}>Mentions légales</a>
           </div>
-          <p style={{ color: '#3d4f6a', fontSize: '12px', margin: '0' }}>DadUp — SIRET 10349796200011 — hello@dadup.fr</p>
+          <p style={{ color: '#3d4f6a', fontSize: '12px', margin: '0' }}>DadUp, SIRET 10349796200011, hello@dadup.fr</p>
         </div>
       </footer>
 
