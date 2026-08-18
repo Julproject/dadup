@@ -99,5 +99,6 @@ export default function ConfidentialitePage() {
       </footer>
 
     </main>
+    </>
   );
 }
