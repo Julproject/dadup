@@ -2,7 +2,7 @@
 
 export default function CGVPage() {
   return (
-    
+    <>
       <style>{`
         *{box-sizing:border-box;margin:0;padding:0;}
         @media(max-width:768px){
@@ -116,5 +116,6 @@ export default function CGVPage() {
       </footer>
 
     </main>
+    </>
   );
 }
