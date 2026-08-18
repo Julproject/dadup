@@ -112,8 +112,9 @@ export default function CheckoutModal({ onClose }: { onClose: () => void }) {
         </button>
 
         <p style={{ color: C.textLight, fontSize: '12px', textAlign: 'center', margin: 0 }}>
-          Paiement sécurisé par Stripe · Remboursement 14 jours
+          Paiement sécurisé par Stripe
         </p>
+        <p style={{ color: C.textLight, fontSize: '12px', textAlign: 'center', margin: '4px 0 0' }}>Satisfait ou remboursé sous 14 jours.</p>
       </div>
     </div>
   );
