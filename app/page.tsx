@@ -117,7 +117,6 @@ export default function Home() {
           <div className="nav-cta-group">
             <a href="/login" style={{color:C.dark, fontSize:'14px', fontWeight:600, textDecoration:'none'}}>Se connecter</a>
             <button onClick={goToStripe} style={{background:C.dark, color:C.white, border:'none', padding:'11px 22px', borderRadius:'32px', fontSize:'13px', fontWeight:700, cursor:'pointer'}}>Commencer</button>
-            <p style={{color:'rgba(255,255,255,0.5)',fontSize:'12px',margin:'8px 0 0'}}>Satisfait ou remboursé sous 14 jours.</p>
           </div>
           <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)} style={{display:'none', background:'none', border:`1px solid ${C.border}`, padding:'8px 12px', borderRadius:'8px', cursor:'pointer'}}>
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -127,17 +126,16 @@ export default function Home() {
               }
             </svg>
           </button>
-        {menuOpen && (
-          <div className="mobile-menu" style={{background:C.white, borderBottom:`1px solid ${C.border}`, padding:'16px 20px', gap:'4px'}}>
-            <a href="/pourquoi" style={{color:C.text, fontSize:'15px', fontWeight:500, padding:'10px 8px', textDecoration:'none', borderBottom:`1px solid ${C.cream}`}}>Pourquoi DadUp</a>
-            <a href="/inclus" style={{color:C.text, fontSize:'15px', fontWeight:500, padding:'10px 8px', textDecoration:'none', borderBottom:`1px solid ${C.cream}`}}>Ce qui est inclus</a>
-            <a href="/tarifs" style={{color:C.text, fontSize:'15px', fontWeight:500, padding:'10px 8px', textDecoration:'none', borderBottom:`1px solid ${C.cream}`}}>Tarifs</a>
-            <a href="/contact" style={{color:C.text, fontSize:'15px', fontWeight:500, padding:'10px 8px', textDecoration:'none', borderBottom:`1px solid ${C.cream}`}}>Contactez-nous</a>
-            <a href="/login" style={{color:C.dark, fontSize:'15px', fontWeight:700, padding:'10px 8px', textDecoration:'none', borderBottom:`1px solid ${C.cream}`}}>Se connecter</a>
-            <button onClick={goToStripe} style={{background:C.dark, color:C.white, border:'none', padding:'14px', borderRadius:'32px', fontSize:'14px', fontWeight:700, cursor:'pointer', marginTop:'8px', width:'100%'}}>Commencer</button>
-          </div>
-        )}
       </nav>
+      {menuOpen && (
+        <div className="mobile-menu" style={{display:'flex', flexDirection:'column', background:C.white, borderBottom:`1px solid ${C.border}`, padding:'16px 20px', gap:'4px', position:'sticky', top:'68px', zIndex:49}}>
+          <a href="/pourquoi" style={{color:C.text, fontSize:'15px', padding:'10px 8px', textDecoration:'none', borderBottom:`1px solid ${C.cream}`}}>Pourquoi DadUp</a>
+          <a href="/inclus" style={{color:C.text, fontSize:'15px', padding:'10px 8px', textDecoration:'none', borderBottom:`1px solid ${C.cream}`}}>Ce qui est inclus</a>
+          <a href="/tarifs" style={{color:C.text, fontSize:'15px', padding:'10px 8px', textDecoration:'none', borderBottom:`1px solid ${C.cream}`}}>Tarifs</a>
+          <a href="/contact" style={{color:C.text, fontSize:'15px', padding:'10px 8px', textDecoration:'none', borderBottom:`1px solid ${C.cream}`}}>Contactez-nous</a>
+          <a href="/login" style={{color:C.dark, fontSize:'15px', fontWeight:700, padding:'10px 8px', textDecoration:'none'}}>Se connecter</a>
+        </div>
+      )}
 
       {/* HERO */}
       <section className="hero-grid" style={{padding:'80px 40px 0', maxWidth:'1200px', margin:'0 auto'}}>
