@@ -23,7 +23,7 @@ export default function Home() {
   };
 
   return (
-    <main style={{minHeight:'100vh', background:C.white, fontFamily:"-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"}}>
+    <main style={{minHeight:'100vh', background:C.white, fontFamily:"-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif", overflowX:'hidden'}}>
 
       <style>{`
         * { box-sizing: border-box; margin: 0; padding: 0; }
