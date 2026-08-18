@@ -95,7 +95,7 @@ export default function Home() {
 
       {/* NAV */}
       <nav style={{background:C.white, borderBottom:`1px solid ${C.border}`, position:'sticky', top:0, zIndex:50}}>
-        <div style={{padding:'0 20px', display:'flex', alignItems:'center', justifyContent:'space-between', height:'68px'}}>
+        <div style={{padding:'0 40px', display:'flex', alignItems:'center', justifyContent:'space-between', height:'68px'}}>
           <div style={{display:'flex', alignItems:'center', gap:'48px'}}>
             <a href="/" style={{display:'flex', alignItems:'center', gap:'10px', textDecoration:'none'}}>
               <svg viewBox="0 0 300 300" width="34" height="34">
