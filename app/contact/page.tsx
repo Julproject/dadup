@@ -51,7 +51,7 @@ export default function ContactPage() {
   };
 
   return (
-    
+    <>
       <style>{`
         *{box-sizing:border-box;margin:0;padding:0;}
         @media(max-width:768px){
@@ -258,5 +258,6 @@ export default function ContactPage() {
         </div>
       </footer>
     </main>
+    </>
   );
 }
