@@ -118,6 +118,7 @@ export default function Home() {
           <div className="nav-cta-group">
             <a href="/login" style={{color:C.dark, fontSize:'14px', fontWeight:600, textDecoration:'none'}}>Se connecter</a>
             <button onClick={goToStripe} style={{background:C.dark, color:C.white, border:'none', padding:'11px 22px', borderRadius:'32px', fontSize:'13px', fontWeight:700, cursor:'pointer'}}>Commencer</button>
+            <p style={{color:'rgba(255,255,255,0.5)',fontSize:'12px',margin:'8px 0 0'}}>Satisfait ou remboursé sous 14 jours.</p>
           </div>
           <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)} style={{display:'none', background:'none', border:`1px solid ${C.border}`, padding:'8px 12px', borderRadius:'8px', cursor:'pointer'}}>
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
