@@ -8,50 +8,50 @@ const C = {
 
 const SOURCES = [
   {
-    sigle: 'HAS',
-    nom: 'Haute Autorité de Santé',
-    description: 'Les recommandations de suivi de grossesse, le calendrier des consultations obligatoires et les protocoles d'accouchement sont issus des guides de la HAS.',
-    url: 'https://www.has-sante.fr',
-    couleur: '#003189',
+    sigle: "HAS",
+    nom: "Haute Autorité de Santé",
+    description: "Les recommandations de suivi de grossesse, le calendrier des consultations et les protocoles accouchement sont issus des guides de la HAS.",
+    url: "https://www.has-sante.fr",
+    couleur: "#003189",
   },
   {
-    sigle: 'OMS',
-    nom: 'Organisation Mondiale de la Santé',
-    description: 'Les données sur le développement fœtal, la nutrition périnatale et les recommandations de suivi prénatal s'appuient sur les publications de l'OMS.',
-    url: 'https://www.who.int/fr',
-    couleur: '#009BDE',
+    sigle: "OMS",
+    nom: "Organisation Mondiale de la Santé",
+    description: "Les données sur le développement foetal, la nutrition périnatale et les recommandations de suivi prénatal sont issues des publications de l'OMS.",
+    url: "https://www.who.int/fr",
+    couleur: "#009BDE",
   },
   {
-    sigle: 'ESPGHAN',
-    nom: 'Société Européenne de Gastroentérologie Pédiatrique',
-    description: 'Les recommandations sur l'allaitement, la diversification alimentaire et la nutrition du nourrisson sont tirées des guidelines ESPGHAN.',
-    url: 'https://www.espghan.org',
-    couleur: '#00693E',
+    sigle: "ESPGHAN",
+    nom: "Société Européenne de Gastroentérologie Pédiatrique",
+    description: "Les recommandations sur l'allaitement, la diversification alimentaire et la nutrition du nourrisson sont tirées des guidelines ESPGHAN.",
+    url: "https://www.espghan.org",
+    couleur: "#00693E",
   },
   {
-    sigle: 'Inserm',
-    nom: 'Institut national de la santé et de la recherche médicale',
-    description: 'Les données sur le développement neurologique de bébé, le baby blues, la dépression post-partum et l'attachement père-enfant proviennent des publications de l'Inserm.',
-    url: 'https://www.inserm.fr',
-    couleur: '#C8003A',
+    sigle: "Inserm",
+    nom: "Institut national de la santé et de la recherche médicale",
+    description: "Les données sur le développement neurologique, le baby blues et l'attachement père-enfant proviennent des publications de l'Inserm.",
+    url: "https://www.inserm.fr",
+    couleur: "#C8003A",
   },
 ];
 
 const EXEMPLES = [
   {
-    sujet: 'Baby blues',
-    contenu: 'Le baby blues touche 50 à 80% des femmes dans les jours qui suivent l\'accouchement. Il se distingue de la dépression post-partum par sa durée (moins de 2 semaines) et son intensité.',
-    source: 'Inserm, Dépression du post-partum, 2021',
+    sujet: "Baby blues",
+    contenu: "Le baby blues touche 50 à 80% des femmes dans les jours qui suivent l'accouchement. Il se distingue de la dépression post-partum par sa durée (moins de 2 semaines) et son intensité.",
+    source: "Inserm, Dépression du post-partum, 2021",
   },
   {
-    sujet: 'Congé paternité',
-    contenu: 'Le congé paternité de 28 jours, dont 7 jours obligatoires, a été étendu en juillet 2021. Son impact positif sur l\'implication du père dans les soins à l\'enfant est documenté.',
-    source: 'DREES, Études et résultats n°1242, 2022',
+    sujet: "Congé paternité",
+    contenu: "Le congé paternité de 28 jours, dont 7 jours obligatoires, a été étendu en juillet 2021. Son impact positif sur l'implication du père dans les soins est documenté.",
+    source: "DREES, Études et résultats n°1242, 2022",
   },
   {
-    sujet: 'Suivi prénatal',
-    contenu: 'La HAS recommande un minimum de 7 consultations prénatales et 3 échographies obligatoires. Chaque examen a un objectif précis que le père peut comprendre et anticiper.',
-    source: 'HAS, Suivi et orientation des femmes enceintes, 2016',
+    sujet: "Suivi prénatal",
+    contenu: "La HAS recommande un minimum de 7 consultations prénatales et 3 échographies obligatoires. Chaque examen a un objectif précis que le père peut comprendre et anticiper.",
+    source: "HAS, Suivi et orientation des femmes enceintes, 2016",
   },
 ];
 
@@ -99,7 +99,7 @@ export default function MethodologiePage() {
             Un contenu <span style={{ color: C.gold }}>sourcé et vérifié.</span>
           </h1>
           <p style={{ color: '#6a7585', fontSize: '17px', lineHeight: 1.75, margin: 0 }}>
-            DadUp n'est pas un blog de conseils. Chaque information s'appuie sur des recommandations médicales publiées par des institutions reconnues.
+            DadUp n\'est pas un blog de conseils. Chaque information s'appuie sur des recommandations médicales publiées par des institutions reconnues.
           </p>
         </div>
       </section>
@@ -112,7 +112,7 @@ export default function MethodologiePage() {
           Internet regorge de conseils contradictoires sur la grossesse. Forums, blogs, réseaux sociaux — il est difficile de savoir ce qui est fiable. DadUp fait ce tri pour toi.
         </p>
         <p style={{ color: C.text, fontSize: '16px', lineHeight: 1.85, margin: 0 }}>
-          Chaque semaine de contenu, chaque information sur le développement de bébé, chaque conseil pratique est issu de publications scientifiques ou de recommandations officielles. Si une information ne peut pas être sourcée, elle n'est pas dans DadUp.
+          Chaque semaine de contenu, chaque information sur le développement de bébé, chaque conseil pratique est issu de publications scientifiques ou de recommandations officielles. Si une information ne peut pas être sourcée, elle n\'est pas dans DadUp.
         </p>
       </section>
 
@@ -141,7 +141,7 @@ export default function MethodologiePage() {
       {/* EXEMPLES CONCRETS */}
       <section className="sp" style={{ padding: '72px 40px', maxWidth: '760px', margin: '0 auto' }}>
         <p style={{ color: C.blue, fontSize: '11px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase', margin: '0 0 20px' }}>Exemples concrets</p>
-        <h2 style={{ color: C.dark, fontSize: '28px', fontWeight: 800, margin: '0 0 36px' }}>Ce que ça donne dans l'app</h2>
+        <h2 style={{ color: C.dark, fontSize: '28px', fontWeight: 800, margin: '0 0 36px' }}>Ce que ça donne dans l\'app</h2>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
           {EXEMPLES.map((e, i) => (
             <div key={i} style={{ background: C.white, borderRadius: '16px', padding: '24px', border: `1px solid ${C.border}` }}>
