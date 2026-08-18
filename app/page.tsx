@@ -127,7 +127,6 @@ export default function Home() {
               }
             </svg>
           </button>
-        </div>
         {menuOpen && (
           <div className="mobile-menu" style={{background:C.white, borderBottom:`1px solid ${C.border}`, padding:'16px 20px', gap:'4px'}}>
             <a href="/pourquoi" style={{color:C.text, fontSize:'15px', fontWeight:500, padding:'10px 8px', textDecoration:'none', borderBottom:`1px solid ${C.cream}`}}>Pourquoi DadUp</a>
