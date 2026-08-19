@@ -259,7 +259,7 @@ export default function Home() {
         <div className="modules-grid">
           {[
             {titre:'Calendrier RDV',    desc:'Chaque consultation préparée',  bg:'#E6F0FA', color:'#1A3D5C'},
-            {titre:'Suivi bébé',        desc:'SA 3 à SA 41 expliquées',       bg:'#E4F5EC', color:'#0A2E1A'},
+            {titre:'Suivi bébé',        desc:'Chaque semaine expliquée',       bg:'#E4F5EC', color:'#0A2E1A'},
             {titre:'Guide accouchement',desc:'Ton rôle précis le jour J',     bg:'#FFF0E6', color:'#3D1A0A'},
             {titre:'Post-partum',       desc:'Baby blues, nuits, couple',     bg:'#FFF7E0', color:'#3A2800'},
           ].map((m, i) => (
