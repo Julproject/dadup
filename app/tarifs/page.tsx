@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import CheckoutModal from '@/app/components/CheckoutModal';
 
 const C = {
@@ -16,6 +16,27 @@ const FEATURES = [
   "Mode post-partum",
   "Première année bébé, mois par mois",
 ];
+
+
+function FaqItem({ question, reponse }: { question: string; reponse: string }) {
+  const [open, setOpen] = React.useState(false);
+  return (
+    <div style={{ background: '#ffffff', borderRadius: '16px', border: '1px solid #e8e0d0', overflow: 'hidden' }}>
+      <button
+        onClick={() => setOpen(!open)}
+        style={{ width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '20px 24px', background: 'none', border: 'none', cursor: 'pointer', textAlign: 'left' as const }}
+      >
+        <span style={{ color: '#1e2535', fontSize: '15px', fontWeight: 600, lineHeight: 1.5 }}>{question}</span>
+        <span style={{ color: '#c8a060', fontSize: '20px', flexShrink: 0, marginLeft: '16px', fontWeight: 300 }}>{open ? '−' : '+'}</span>
+      </button>
+      {open && (
+        <div style={{ padding: '0 24px 20px' }}>
+          <p style={{ color: '#4a5568', fontSize: '14px', lineHeight: 1.75, margin: 0 }}>{reponse}</p>
+        </div>
+      )}
+    </div>
+  );
+}
 
 export default function TarifsPage() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -148,6 +169,51 @@ export default function TarifsPage() {
           </div>
         </div>
       </div>
+
+
+      {/* FAQ */}
+      <section style={{ maxWidth: '760px', margin: '0 auto', padding: '72px 40px 80px' }}>
+        <p style={{ color: C.blue, fontSize: '11px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase' as const, margin: '0 0 20px' }}>Questions fréquentes</p>
+        <h2 style={{ color: C.dark, fontSize: '30px', fontWeight: 800, margin: '0 0 40px' }}>Tout ce qu&apos;il faut savoir.</h2>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+          {[
+            {
+              q: "L'accès dure combien de temps ?",
+              r: "12 mois à compter de la date de paiement. Vous avez accès à tout le contenu pendant cette période, sans restriction."
+            },
+            {
+              q: "Que se passe-t-il à la fin des 12 mois ?",
+              r: "L'accès s'arrête simplement. Aucun prélèvement automatique, aucune reconduction tacite. Vous ne devez rien faire."
+            },
+            {
+              q: "Le paiement est-il sécurisé ?",
+              r: "Oui. Le paiement est géré par Stripe, référence mondiale de la sécurité des paiements en ligne. Nous ne stockons aucune donnée bancaire."
+            },
+            {
+              q: "Y a-t-il un renouvellement automatique ?",
+              r: "Non. DadUp est un paiement unique. Vous payez une fois, vous accédez pendant 12 mois. Pas de surprise."
+            },
+            {
+              q: "À quel moment puis-je accéder à DadUp après le paiement ?",
+              r: "Immédiatement. Vous recevez un email avec un lien pour créer votre mot de passe. L'accès est ouvert dès que votre mot de passe est créé."
+            },
+            {
+              q: "Que se passe-t-il si bébé naît avant la DPA que j'ai renseignée ?",
+              r: "Le contenu s'adapte à votre situation réelle. Vous pouvez modifier votre DPA dans les paramètres de votre compte à tout moment."
+            },
+            {
+              q: "Comment fonctionne la garantie 14 jours ?",
+              r: "Si DadUp ne vous convient pas, écrivez-nous à hello@dadup.fr dans les 14 jours suivant votre achat. Nous vous remboursons intégralement, sans condition et sans question."
+            },
+            {
+              q: "Ma partenaire peut-elle accéder à mon compte ?",
+              r: "DadUp est conçu pour le père. Le compte est personnel. Un accès partagé n'est pas prévu à ce stade."
+            },
+          ].map((item, i) => (
+            <FaqItem key={i} question={item.q} reponse={item.r} />
+          ))}
+        </div>
+      </section>
 
       {/* CTA BAS */}
       <section style={{ background: C.dark, padding: '72px 40px', textAlign: 'center' as const }}>
