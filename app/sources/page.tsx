@@ -99,7 +99,7 @@ export default function MethodologiePage() {
             Un contenu <span style={{ color: C.gold }}>sourcé et vérifié.</span>
           </h1>
           <p style={{ color: '#6a7585', fontSize: '17px', lineHeight: 1.75, margin: 0 }}>
-            DadUp n\'est pas un blog de conseils. Chaque information s'appuie sur des recommandations médicales publiées par des institutions reconnues.
+            DadUp n'est pas un blog de conseils. Chaque information s'appuie sur des recommandations médicales publiées par des institutions reconnues.
           </p>
         </div>
       </section>
@@ -109,10 +109,10 @@ export default function MethodologiePage() {
         <p style={{ color: C.blue, fontSize: '11px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase', margin: '0 0 20px' }}>Pourquoi ça compte</p>
         <h2 style={{ color: C.dark, fontSize: '28px', fontWeight: 800, margin: '0 0 20px', lineHeight: 1.3 }}>Un père bien informé prend de meilleures décisions.</h2>
         <p style={{ color: C.text, fontSize: '16px', lineHeight: 1.85, margin: '0 0 16px' }}>
-          Internet regorge de conseils contradictoires sur la grossesse. Forums, blogs, réseaux sociaux — il est difficile de savoir ce qui est fiable. DadUp fait ce tri pour toi.
+          Internet regorge de conseils contradictoires sur la grossesse. Forums, blogs, réseaux sociaux : il est difficile de savoir ce qui est fiable. DadUp fait ce travail de sélection et de vérification.
         </p>
         <p style={{ color: C.text, fontSize: '16px', lineHeight: 1.85, margin: 0 }}>
-          Chaque semaine de contenu, chaque information sur le développement de bébé, chaque conseil pratique est issu de publications scientifiques ou de recommandations officielles. Si une information ne peut pas être sourcée, elle n\'est pas dans DadUp.
+          Chaque semaine de contenu, chaque information sur le développement de bébé, chaque conseil pratique est issu de publications scientifiques ou de recommandations officielles. Si une information ne peut pas être sourcée, elle n'est pas dans DadUp.
         </p>
       </section>
 
@@ -131,7 +131,7 @@ export default function MethodologiePage() {
                   <p style={{ color: C.dark, fontSize: '13px', fontWeight: 700, lineHeight: 1.4 }}>{s.nom}</p>
                 </div>
                 <p style={{ color: C.text, fontSize: '14px', lineHeight: 1.75, margin: '0 0 12px' }}>{s.description}</p>
-                <a href={s.url} target="_blank" rel="noopener noreferrer" style={{ color: C.blue, fontSize: '12px', fontWeight: 600, textDecoration: 'none' }}>{s.url.replace('https://', '')} →</a>
+                <a href={s.url} target="_blank" rel="noopener noreferrer" style={{ color: C.blue, fontSize: '12px', fontWeight: 600, textDecoration: 'none' }}>Visiter le site →</a>
               </div>
             ))}
           </div>
@@ -141,7 +141,7 @@ export default function MethodologiePage() {
       {/* EXEMPLES CONCRETS */}
       <section className="sp" style={{ padding: '72px 40px', maxWidth: '760px', margin: '0 auto' }}>
         <p style={{ color: C.blue, fontSize: '11px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase', margin: '0 0 20px' }}>Exemples concrets</p>
-        <h2 style={{ color: C.dark, fontSize: '28px', fontWeight: 800, margin: '0 0 36px' }}>Ce que ça donne dans l\'app</h2>
+        <h2 style={{ color: C.dark, fontSize: '28px', fontWeight: 800, margin: '0 0 36px' }}>Exemples de contenu sourcé</h2>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
           {EXEMPLES.map((e, i) => (
             <div key={i} style={{ background: C.white, borderRadius: '16px', padding: '24px', border: `1px solid ${C.border}` }}>
@@ -158,7 +158,7 @@ export default function MethodologiePage() {
 
       {/* CTA */}
       <section style={{ background: C.dark, padding: '72px 40px', textAlign: 'center' as const }}>
-        <p style={{ color: C.gold, fontSize: '11px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase' as const, margin: '0 0 16px' }}>Prêt à commencer ?</p>
+        <p style={{ color: C.gold, fontSize: '11px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase' as const, margin: '0 0 16px' }}>Accéder à DadUp</p>
         <h2 style={{ color: C.white, fontSize: '34px', fontWeight: 800, margin: '0 0 12px' }}>Un contenu fiable, pensé pour les pères.</h2>
         <p style={{ color: '#6a7585', fontSize: '16px', margin: '0 0 36px' }}>35,99€ par an · Paiement unique · Accès immédiat</p>
         <a href="/tarifs" style={{ background: C.gold, color: '#1c1510', padding: '18px 48px', borderRadius: '32px', fontSize: '16px', fontWeight: 800, textDecoration: 'none', display: 'inline-block' }}>
