@@ -159,6 +159,33 @@ export default function PourquoiPage() {
         </div>
       </section>
 
+
+      {/* SOURCES */}
+      <section style={{background:C.white, padding:'72px 40px'}}>
+        <div style={{maxWidth:'900px', margin:'0 auto'}}>
+          <p style={{color:C.blue, fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase' as const, margin:'0 0 16px', textAlign:'center'}}>Nos références</p>
+          <h2 style={{color:C.dark, fontSize:'30px', fontWeight:800, margin:'0 0 12px', textAlign:'center'}}>Un contenu sourcé et vérifié.</h2>
+          <p style={{color:C.textLight, fontSize:'15px', margin:'0 0 48px', textAlign:'center', lineHeight:1.7}}>Chaque information s&apos;appuie sur des recommandations médicales publiées par des institutions reconnues.</p>
+          <div style={{display:'grid', gridTemplateColumns:'repeat(4,1fr)', gap:'16px'}}>
+            {[
+              {sigle:"HAS", nom:"Haute Autorité de Santé", couleur:"#003189"},
+              {sigle:"OMS", nom:"Organisation Mondiale de la Santé", couleur:"#009BDE"},
+              {sigle:"ESPGHAN", nom:"Société Européenne de Gastroentérologie Pédiatrique", couleur:"#00693E"},
+              {sigle:"Inserm", nom:"Institut national de la santé et de la recherche médicale", couleur:"#C8003A"},
+            ].map((s,i) => (
+              <div key={i} style={{background:C.cream, borderRadius:'16px', padding:'20px', border:`1px solid ${C.border}`, textAlign:'center' as const}}>
+                <div style={{background:s.couleur, color:'#fff', borderRadius:'10px', padding:'8px 12px', fontSize:'16px', fontWeight:800, display:'inline-block', marginBottom:'10px'}}>
+                  {s.sigle}
+                </div>
+                <p style={{color:C.text, fontSize:'12px', lineHeight:1.5}}>{s.nom}</p>
+              </div>
+            ))}
+          </div>
+          <p style={{textAlign:'center', marginTop:'24px'}}>
+            <a href="/sources" style={{color:C.blue, fontSize:'13px', fontWeight:600, textDecoration:'none'}}>En savoir plus sur notre approche →</a>
+          </p>
+        </div>
+      </section>
       {/* CTA */}
       <section style={{background:C.dark,padding:'80px 40px',textAlign:'center' as const}}>
         <p style={{color:C.gold,fontSize:'11px',fontWeight:700,letterSpacing:'3px',textTransform:'uppercase',margin:'0 0 16px'}}>Prêt à commencer ?</p>
@@ -179,7 +206,7 @@ export default function PourquoiPage() {
               <a href="/pourquoi" style={{color:'#6a7585',fontSize:'13px',textDecoration:'none'}}>Pourquoi DadUp</a>
               <a href="/inclus" style={{color:'#6a7585',fontSize:'13px',textDecoration:'none'}}>Ce qui est inclus</a>
               <a href="/tarifs" style={{color:'#6a7585',fontSize:'13px',textDecoration:'none'}}>Tarifs</a>
-              <a href="/methodologie" style={{color:'#6a7585',fontSize:'13px',textDecoration:'none'}}>Méthodologie</a>
+              <a href="/sources" style={{color:'#6a7585',fontSize:'13px',textDecoration:'none'}}>Sources</a>
               <a href="/contact" style={{color:'#6a7585',fontSize:'13px',textDecoration:'none'}}>Contactez-nous</a>
             </div>
           </div>
