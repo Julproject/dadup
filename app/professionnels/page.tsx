@@ -81,7 +81,7 @@ export default function ProfessionnelsPage() {
                 Un outil pour les pères que vous accompagnez.
               </h1>
               <p style={{ color: '#6a7585', fontSize: '16px', lineHeight: 1.8, margin: 0 }}>
-                Sages-femmes, médecins, maïeuticiennes : vous voyez des futurs pères démunis à chaque consultation. DadUp leur apporte un suivi structuré, semaine par semaine, fondé sur les recommandations HAS et OMS.
+                Vous accompagnez des couples pendant la grossesse ou la naissance, que ce soit en tant que professionnel de santé ou d'accompagnement. DadUp apporte aux futurs pères un suivi structuré, semaine par semaine, fondé sur les recommandations HAS et OMS.
               </p>
             </div>
             <div style={{ background: 'rgba(255,255,255,0.05)', borderRadius: '20px', padding: '32px', border: '1px solid rgba(255,255,255,0.1)' }}>
