@@ -169,7 +169,7 @@ export default function ProfessionnelsPage() {
                 <input
                   type="text"
                   value={form.profession}
-                  placeholder="Sage-femme, médecin, maïeuticien..."
+                  placeholder="Sage-femme, gynécologue, doula, accompagnant à la naissance..."
                   onChange={e => setForm({ ...form, profession: e.target.value })}
                   required
                   style={{ width: '100%', background: C.cream, border: `1px solid ${C.border}`, borderRadius: '12px', padding: '12px 16px', fontSize: '14px', color: C.dark, outline: 'none' }}
