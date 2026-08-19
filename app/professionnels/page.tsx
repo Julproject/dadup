@@ -81,7 +81,7 @@ export default function ProfessionnelsPage() {
                 Un outil pour les pères que vous accompagnez.
               </h1>
               <p style={{ color: '#6a7585', fontSize: '16px', lineHeight: 1.8, margin: 0 }}>
-                Sages-femmes, médecins, maïeuticiennes — vous voyez des futurs pères démunis à chaque consultation. DadUp leur apporte un suivi structuré, semaine par semaine, fondé sur les recommandations HAS et OMS.
+                Sages-femmes, médecins, maïeuticiennes : vous voyez des futurs pères démunis à chaque consultation. DadUp leur apporte un suivi structuré, semaine par semaine, fondé sur les recommandations HAS et OMS.
               </p>
             </div>
             <div style={{ background: 'rgba(255,255,255,0.05)', borderRadius: '20px', padding: '32px', border: '1px solid rgba(255,255,255,0.1)' }}>
@@ -106,7 +106,7 @@ export default function ProfessionnelsPage() {
       {/* POURQUOI RECOMMANDER */}
       <section className="sp" style={{ padding: '72px 40px', maxWidth: '900px', margin: '0 auto' }}>
         <p style={{ color: C.blue, fontSize: '11px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase' as const, margin: '0 0 20px' }}>Pourquoi le recommander</p>
-        <h2 style={{ color: C.dark, fontSize: '30px', fontWeight: 800, margin: '0 0 40px' }}>Le père, souvent le grand oublié du suivi prénatal.</h2>
+        <h2 style={{ color: C.dark, fontSize: '30px', fontWeight: 800, margin: '0 0 40px' }}>Les pères cherchent à s'impliquer. Ils manquent souvent d'information structurée.</h2>
         <div className="atouts-grid">
           {[
             {
