@@ -105,9 +105,9 @@ export default function TarifsPage() {
         <div style={{ maxWidth: '760px', margin: '0 auto', textAlign: 'center' }}>
           <p style={{ color: C.gold, fontSize: '11px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase', margin: '0 0 20px' }}>Tarifs</p>
           <h1 style={{ color: C.white, fontSize: '48px', fontWeight: 800, margin: '0 0 16px', lineHeight: 1.1 }}>
-            Simple. <span style={{ color: C.gold }}>Transparent.</span>
+            Une offre claire, <span style={{ color: C.gold }}>un prix unique.</span>
           </h1>
-          <p style={{ color: '#6a7585', fontSize: '17px', lineHeight: 1.7, margin: 0 }}>Une offre. Un prix. Tout inclus.</p>
+          <p style={{ color: '#6a7585', fontSize: '17px', lineHeight: 1.7, margin: 0 }}>Tout est inclus. Rien de caché.</p>
         </div>
       </section>
 
@@ -199,7 +199,7 @@ export default function TarifsPage() {
             },
             {
               q: "Que se passe-t-il si bébé naît avant la DPA que j'ai renseignée ?",
-              r: "Le contenu s'adapte à votre situation réelle. Vous pouvez modifier votre DPA dans les paramètres de votre compte à tout moment."
+              r: "Le contenu s'adapte à votre situation réelle. Vous pouvez déclarer la naissance à tout moment depuis votre compte."
             },
             {
               q: "Comment fonctionne la garantie 14 jours ?",
