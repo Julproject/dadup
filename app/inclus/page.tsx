@@ -141,14 +141,21 @@ function ModulePreview({ num, dark }: { num: string; dark: boolean }) {
   );
 
   if (num === '05') return (
-    <div style={{width:'100%', display:'flex', flexDirection:'column', gap:'8px'}}>
-      <div style={{background:cardBg, borderRadius:'12px', padding:'12px 14px'}}>
-        <p style={{color:subColor, fontSize:'9px', fontWeight:700, letterSpacing:'1px', margin:'0 0 6px'}}>SEMAINE 1 APRÈS LA NAISSANCE</p>
-        <p style={{color:textColor, fontSize:'11px', fontWeight:600, margin:'0 0 6px'}}>Baby blues</p>
-        <p style={{color:subColor, fontSize:'10px', lineHeight:1.5, margin:'0 0 10px'}}>Touche 50 à 80% des mamans dans les premiers jours. Ce n'est pas de la dépression.</p>
-        <div style={{background:dark ? 'rgba(200,160,96,0.15)' : 'rgba(200,160,96,0.12)', borderRadius:'8px', padding:'8px 10px', borderLeft:`2px solid ${gold}`}}>
-          <p style={{color:dark ? 'rgba(255,255,255,0.7)' : '#4a5568', fontSize:'10px', lineHeight:1.5, margin:0}}>Reste présent. Écoute sans chercher à résoudre.</p>
+    <div style={{width:'100%', display:'flex', flexDirection:'column', gap:'6px'}}>
+      <p style={{color:gold, fontSize:'9px', fontWeight:700, letterSpacing:'1px', margin:'0 0 2px'}}>POST-PARTUM COUVERT</p>
+      {[
+        {label:'Baby blues', desc:'Semaines 1 à 2'},
+        {label:'Manque de sommeil', desc:'Stratégies à deux'},
+        {label:'Reprise de la vie de couple', desc:'Mois 1 à 3'},
+        {label:'Dépression post-partum', desc:'Signes à connaître'},
+      ].map((item, i) => (
+        <div key={i} style={{background:cardBg, borderRadius:'9px', padding:'7px 11px', display:'flex', justifyContent:'space-between', alignItems:'center'}}>
+          <p style={{color:textColor, fontSize:'10px', fontWeight:600, margin:0}}>{item.label}</p>
+          <span style={{color:subColor, fontSize:'9px'}}>{item.desc}</span>
         </div>
+      ))}
+      <div style={{background:dark ? 'rgba(200,160,96,0.15)' : 'rgba(200,160,96,0.12)', borderRadius:'9px', padding:'8px 11px', borderLeft:`2px solid ${gold}`, marginTop:'2px'}}>
+        <p style={{color:dark ? 'rgba(255,255,255,0.7)' : '#4a5568', fontSize:'10px', lineHeight:1.5, margin:0}}>Ton rôle semaine par semaine, du retour à la maison au 3e mois.</p>
       </div>
     </div>
   );
