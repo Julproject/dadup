@@ -270,70 +270,70 @@ export default function InclusPage() {
       {/* ECHANTILLON */}
       <div style={{ position: 'relative' }}>
 
-        {/* Bande crème pour le chevauchement */}
-        <div style={{ background: C.cream, height: '100px' }}></div>
+        {/* Bande crème pour chevauchement */}
+        <div style={{ background: C.cream, height: '80px' }}></div>
 
         {/* Section sombre */}
         <div style={{ background: C.dark, padding: '0 40px 64px' }}>
-          <div style={{ maxWidth: '1000px', margin: '0 auto', display: 'flex', alignItems: 'center', gap: '64px' }}>
+          <div style={{ maxWidth: '960px', margin: '0 auto', display: 'flex', alignItems: 'center', gap: '56px' }}>
 
-            {/* TÉLÉPHONE qui chevauche */}
-            <div style={{
-              background: C.dark, borderRadius: '44px', padding: '12px',
-              width: '280px', flexShrink: 0,
-              transform: 'rotate(-5deg)',
-              marginTop: '-140px',
-              position: 'relative', zIndex: 2,
-            }}>
-              <div style={{ background: C.cream, borderRadius: '34px', overflow: 'hidden' }}>
-                <div style={{ background: C.dark, padding: '10px 20px 6px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                  <span style={{ color: '#fff', fontSize: '9px', fontWeight: 700 }}>9:41</span>
-                  <span style={{ color: '#fff', fontSize: '8px' }}>●●● ■</span>
+            {/* iPhone */}
+            <div style={{ flexShrink: 0, marginTop: '-100px', transform: 'rotate(-5deg)', position: 'relative', zIndex: 2 }}>
+              <div style={{ background: '#1c1c1e', borderRadius: '42px', padding: '8px', width: '175px' }}>
+                <div style={{ background: C.dark, borderRadius: '36px 36px 0 0', padding: '10px 14px 6px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', position: 'relative' }}>
+                  <span style={{ color: '#fff', fontSize: '8px', fontWeight: 700 }}>9:41</span>
+                  <div style={{ background: '#1c1c1e', borderRadius: '20px', padding: '3px 10px', position: 'absolute', left: '50%', transform: 'translateX(-50%)' }}>
+                    <div style={{ width: '6px', height: '6px', background: '#2a2a2c', borderRadius: '50%' }}></div>
+                  </div>
+                  <span style={{ color: '#fff', fontSize: '7px' }}>●●● ■</span>
                 </div>
-                <div style={{ padding: '14px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                <div style={{ background: C.cream, borderRadius: '0 0 34px 34px', overflow: 'hidden' }}>
+                  <div style={{ padding: '10px', display: 'flex', flexDirection: 'column', gap: '6px' }}>
 
-                  <div style={{ background: C.dark, borderRadius: '12px', padding: '11px 14px', display: 'flex', alignItems: 'center', gap: '12px' }}>
-                    <span style={{ fontSize: '28px' }}>🍌</span>
-                    <div>
-                      <p style={{ color: C.gold, fontSize: '8px', fontWeight: 700, letterSpacing: '1.5px', textTransform: 'uppercase' as const, margin: '0 0 2px' }}>Semaine 20</p>
-                      <p style={{ color: '#fff', fontSize: '12px', fontWeight: 700, margin: '0 0 1px' }}>La mi-grossesse</p>
-                      <p style={{ fontSize: '9px', color: '#6a7585', margin: 0 }}>16,4 cm · 300 g · Échographie T2</p>
+                    <div style={{ background: C.dark, borderRadius: '10px', padding: '9px 12px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                      <span style={{ fontSize: '20px' }}>🍌</span>
+                      <div>
+                        <p style={{ color: C.gold, fontSize: '8px', fontWeight: 700, letterSpacing: '1.5px', textTransform: 'uppercase' as const, margin: '0 0 1px' }}>Semaine 20</p>
+                        <p style={{ color: '#fff', fontSize: '10px', fontWeight: 700, margin: '0 0 1px' }}>La mi-grossesse</p>
+                        <p style={{ fontSize: '7px', color: '#6a7585', margin: 0 }}>16,4 cm · 300 g</p>
+                      </div>
                     </div>
-                  </div>
 
-                  <div style={{ background: '#E6F0FA', borderRadius: '12px', padding: '11px 14px' }}>
-                    <p style={{ color: '#2E5F8A', fontSize: '8px', fontWeight: 700, letterSpacing: '1.5px', textTransform: 'uppercase' as const, margin: '0 0 4px' }}>Développement</p>
-                    <p style={{ color: '#1A3D5C', fontSize: '10px', lineHeight: 1.6, margin: 0 }}>L&apos;échographie T2 examine chaque organe et chaque membre</p>
-                  </div>
+                    <div style={{ background: '#E6F0FA', borderRadius: '10px', padding: '9px 12px' }}>
+                      <p style={{ color: '#2E5F8A', fontSize: '8px', fontWeight: 700, letterSpacing: '1.5px', textTransform: 'uppercase' as const, margin: '0 0 3px' }}>Développement</p>
+                      <p style={{ color: '#1A3D5C', fontSize: '9px', lineHeight: 1.6, margin: 0 }}>L&apos;échographie T2 examine chaque organe</p>
+                    </div>
 
-                  <div style={{ background: C.dark, borderRadius: '12px', padding: '11px 14px' }}>
-                    <p style={{ color: C.gold, fontSize: '8px', fontWeight: 700, letterSpacing: '1.5px', textTransform: 'uppercase' as const, margin: '0 0 4px' }}>Le saviez-vous ?</p>
-                    <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: '10px', lineHeight: 1.6, margin: 0 }}>Plus de 100 critères anatomiques examinés</p>
-                  </div>
+                    <div style={{ background: C.dark, borderRadius: '10px', padding: '9px 12px' }}>
+                      <p style={{ color: C.gold, fontSize: '8px', fontWeight: 700, letterSpacing: '1.5px', textTransform: 'uppercase' as const, margin: '0 0 3px' }}>Le saviez-vous ?</p>
+                      <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: '9px', lineHeight: 1.6, margin: 0 }}>Plus de 100 critères anatomiques</p>
+                    </div>
 
-                  <div style={{ background: '#e8f4e8', borderRadius: '12px', padding: '11px 14px' }}>
-                    <p style={{ color: '#3a7a3a', fontSize: '8px', fontWeight: 700, letterSpacing: '1.5px', textTransform: 'uppercase' as const, margin: '0 0 4px' }}>Comment elle vit cette semaine</p>
-                    <p style={{ color: '#1e4a1e', fontSize: '10px', lineHeight: 1.6, margin: 0 }}>Anxiété mêlée d&apos;excitation. Le rendez-vous le plus attendu</p>
-                  </div>
+                    <div style={{ background: '#e8f4e8', borderRadius: '10px', padding: '9px 12px' }}>
+                      <p style={{ color: '#3a7a3a', fontSize: '8px', fontWeight: 700, letterSpacing: '1.5px', textTransform: 'uppercase' as const, margin: '0 0 3px' }}>Comment elle vit cette semaine</p>
+                      <p style={{ color: '#1e4a1e', fontSize: '9px', lineHeight: 1.6, margin: 0 }}>Anxiété mêlée d&apos;excitation</p>
+                    </div>
 
-                  <div style={{ background: '#1A3D5C', borderRadius: '12px', padding: '11px 14px' }}>
-                    <p style={{ color: C.gold, fontSize: '8px', fontWeight: 700, letterSpacing: '1.5px', textTransform: 'uppercase' as const, margin: '0 0 4px' }}>Ton rôle</p>
-                    <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: '10px', lineHeight: 1.6, margin: 0 }}>Prépare 3 questions pour l&apos;échographiste</p>
-                  </div>
 
+
+                    <div style={{ textAlign: 'center', padding: '4px 0 2px' }}>
+                      <div style={{ background: '#6a7585', width: '36px', height: '3px', borderRadius: '3px', display: 'inline-block' }}></div>
+                    </div>
+
+                  </div>
                 </div>
               </div>
             </div>
 
             {/* CTA */}
-            <div style={{ flex: 1, paddingTop: '40px' }}>
-              <p style={{ color: C.gold, fontSize: '11px', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase' as const, margin: '0 0 16px' }}>Un échantillon du contenu qui t&apos;attend</p>
-              <p style={{ color: C.white, fontSize: '32px', fontWeight: 800, margin: '0 0 32px', lineHeight: 1.2 }}>Tout ce dont tu as besoin, au bon moment</p>
+            <div style={{ flex: 1, paddingTop: '20px' }}>
+              <p style={{ color: C.gold, fontSize: '10px', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase' as const, margin: '0 0 14px' }}>Un échantillon du contenu qui t&apos;attend</p>
+              <p style={{ color: C.white, fontSize: '28px', fontWeight: 800, margin: '0 0 28px', lineHeight: 1.25 }}>Tout ce dont tu as besoin, au bon moment</p>
               <div>
-                <button onClick={() => setShowModal(true)} style={{ background: C.gold, color: '#1c1510', border: 'none', padding: '18px 36px', borderRadius: '32px', fontSize: '17px', fontWeight: 800, cursor: 'pointer', display: 'block', marginBottom: '12px', width: '100%' }}>
+                <button onClick={() => setShowModal(true)} style={{ background: C.gold, color: '#1c1510', border: 'none', padding: '16px 32px', borderRadius: '32px', fontSize: '15px', fontWeight: 800, cursor: 'pointer', display: 'block', marginBottom: '10px', width: '100%' }}>
                   Commencer · 35,99€/an
                 </button>
-                <p style={{ color: '#6a7585', fontSize: '13px', margin: 0, textAlign: 'center' as const }}>Satisfait ou remboursé sous 14 jours</p>
+                <p style={{ color: '#6a7585', fontSize: '12px', margin: 0, textAlign: 'center' as const }}>Satisfait ou remboursé sous 14 jours</p>
               </div>
             </div>
 
