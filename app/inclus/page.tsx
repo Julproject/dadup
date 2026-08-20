@@ -308,6 +308,67 @@ export default function InclusPage() {
         </div>
       </section>
 
+
+      {/* PROFONDEUR DU CONTENU */}
+      <section style={{background:C.white, padding:'80px 40px'}}>
+        <div style={{maxWidth:'860px', margin:'0 auto'}}>
+          <p style={{color:C.blue, fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase' as const, margin:'0 0 16px', textAlign:'center'}}>Ce que contient chaque semaine</p>
+          <h2 style={{color:C.dark, fontSize:'30px', fontWeight:800, margin:'0 0 12px', textAlign:'center'}}>Exemple complet : Semaine 20</h2>
+          <p style={{color:C.textLight, fontSize:'15px', margin:'0 0 48px', textAlign:'center', lineHeight:1.7}}>Chaque semaine de grossesse est structurée de la même façon, avec ce niveau de détail.</p>
+
+          <div style={{display:'flex', flexDirection:'column', gap:'12px'}}>
+
+            {/* HEADER */}
+            <div style={{background:C.dark, borderRadius:'20px', padding:'24px 28px', display:'flex', alignItems:'center', gap:'20px'}}>
+              <span style={{fontSize:'40px'}}>🍌</span>
+              <div>
+                <p style={{color:C.gold, fontSize:'10px', fontWeight:700, letterSpacing:'2px', margin:'0 0 4px'}}>SEMAINE 20</p>
+                <p style={{color:C.white, fontSize:'20px', fontWeight:800, margin:'0 0 4px'}}>La mi-grossesse</p>
+                <p style={{color:'#6a7585', fontSize:'13px', margin:0}}>16,4 cm · 300 g · Échographie morphologique T2</p>
+              </div>
+            </div>
+
+            {/* GRILLE 2 COL */}
+            <div style={{display:'grid', gridTemplateColumns:'1fr 1fr', gap:'12px'}}>
+              <div style={{background:C.cream, borderRadius:'16px', padding:'20px 24px', border:`1px solid ${C.border}`}}>
+                <p style={{color:C.blue, fontSize:'10px', fontWeight:700, letterSpacing:'1.5px', textTransform:'uppercase' as const, margin:'0 0 10px'}}>Développement</p>
+                <p style={{color:C.dark, fontSize:'14px', lineHeight:1.7, margin:0}}>L'échographie T2 examine en détail chaque organe et chaque membre. Elle vérifie le cerveau, le cœur, les reins, la colonne vertébrale.</p>
+              </div>
+              <div style={{background:C.dark, borderRadius:'16px', padding:'20px 24px'}}>
+                <p style={{color:C.gold, fontSize:'10px', fontWeight:700, letterSpacing:'1.5px', textTransform:'uppercase' as const, margin:'0 0 10px'}}>Le saviez-vous ?</p>
+                <p style={{color:'rgba(255,255,255,0.75)', fontSize:'14px', lineHeight:1.7, margin:0}}>L'échographie T2 examine plus de 100 critères anatomiques. C'est l'examen médical le plus complet de la grossesse.</p>
+              </div>
+              <div style={{background:C.bluePale, borderRadius:'16px', padding:'20px 24px', border:`1px solid ${C.border}`}}>
+                <p style={{color:C.blue, fontSize:'10px', fontWeight:700, letterSpacing:'1.5px', textTransform:'uppercase' as const, margin:'0 0 10px'}}>Comment elle vit cette semaine</p>
+                <p style={{color:C.dark, fontSize:'14px', lineHeight:1.7, margin:0}}>L'échographie T2 est souvent vécue avec anxiété mêlée d'excitation. C'est le rendez-vous le plus attendu de la grossesse.</p>
+              </div>
+              <div style={{background:C.dark, borderRadius:'16px', padding:'20px 24px', background:'#1A3D5C'}}>
+                <p style={{color:C.gold, fontSize:'10px', fontWeight:700, letterSpacing:'1.5px', textTransform:'uppercase' as const, margin:'0 0 10px'}}>Ton rôle</p>
+                <p style={{color:'rgba(255,255,255,0.75)', fontSize:'14px', lineHeight:1.7, margin:0}}>Prépare 3 questions pour l'échographiste. Discutez ensemble avant si vous souhaitez connaître le sexe.</p>
+              </div>
+            </div>
+
+            {/* DOCUMENT + CONSEIL */}
+            <div style={{background:C.cream, borderRadius:'16px', padding:'20px 24px', border:`1px solid ${C.border}`}}>
+              <p style={{color:C.blue, fontSize:'10px', fontWeight:700, letterSpacing:'1.5px', textTransform:'uppercase' as const, margin:'0 0 8px'}}>À savoir</p>
+              <p style={{color:C.dark, fontSize:'13px', fontWeight:600, margin:'0 0 6px'}}>L'échographie T2 morphologique</p>
+              <p style={{color:C.text, fontSize:'14px', lineHeight:1.7, margin:0}}>Obligatoire vers 20-22 SA. Examine chaque organe, mesure la croissance, vérifie le placenta et le liquide amniotique.</p>
+            </div>
+
+            {/* FOOTER INFO */}
+            <div style={{background:C.dark, borderRadius:'16px', padding:'16px 24px', display:'flex', alignItems:'center', justifyContent:'space-between', flexWrap:'wrap' as const, gap:'12px'}}>
+              <p style={{color:'#6a7585', fontSize:'13px', margin:0}}>Ce contenu existe pour chaque semaine de la SA 3 à la SA 41.</p>
+              <div style={{display:'flex', gap:'16px'}}>
+                {['SA 3', 'SA 12', 'SA 20', 'SA 32', 'SA 41'].map((sa, i) => (
+                  <span key={i} style={{color: sa === 'SA 20' ? C.gold : '#6a7585', fontSize:'12px', fontWeight: sa === 'SA 20' ? 800 : 400}}>{sa}</span>
+                ))}
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section style={{background:C.dark,padding:'80px 40px',textAlign:'center' as const}}>
         <p style={{color:C.gold,fontSize:'11px',fontWeight:700,letterSpacing:'3px',textTransform:'uppercase' as const,margin:'0 0 16px'}}>Accès complet</p>
