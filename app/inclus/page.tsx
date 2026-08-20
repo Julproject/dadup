@@ -332,7 +332,7 @@ export default function InclusPage() {
 
             {/* CTA */}
             <div style={{ marginTop: '32px', background: C.dark, borderRadius: '16px', padding: '24px 28px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap' as const, gap: '16px', width: '100%', maxWidth: '560px' }}>
-              <p style={{ color: '#6a7585', fontSize: '13px', margin: 0 }}>De la SA 3 à la SA 41, puis la première année de bébé</p>
+              <p style={{ color: '#6a7585', fontSize: '13px', margin: 0 }}>Tout ce dont tu as besoin, au bon moment</p>
               <button onClick={() => setShowModal(true)} style={{ background: C.gold, color: '#1c1510', border: 'none', padding: '14px 28px', borderRadius: '32px', fontSize: '14px', fontWeight: 800, cursor: 'pointer', whiteSpace: 'nowrap' as const }}>
                 Commencer
               </button>
