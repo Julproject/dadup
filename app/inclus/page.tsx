@@ -331,11 +331,11 @@ export default function InclusPage() {
             </div>
 
             {/* CTA */}
-            <div style={{ marginTop: '32px', background: C.dark, borderRadius: '16px', padding: '24px 28px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap' as const, gap: '16px', width: '100%', maxWidth: '560px' }}>
-              <p style={{ color: '#6a7585', fontSize: '13px', margin: 0 }}>Tout ce dont tu as besoin, au bon moment</p>
-              <button onClick={() => setShowModal(true)} style={{ background: C.gold, color: '#1c1510', border: 'none', padding: '14px 28px', borderRadius: '32px', fontSize: '14px', fontWeight: 800, cursor: 'pointer', whiteSpace: 'nowrap' as const }}>
-                Commencer
+            <div style={{ marginTop: '32px', textAlign: 'center' as const }}>
+              <button onClick={() => setShowModal(true)} style={{ background: C.gold, color: '#1c1510', border: 'none', padding: '16px 36px', borderRadius: '32px', fontSize: '16px', fontWeight: 800, cursor: 'pointer', marginBottom: '10px', display: 'block', margin: '0 auto 10px' }}>
+                Commencer · 35,99€/an
               </button>
+              <p style={{ color: C.textLight, fontSize: '12px', margin: 0 }}>Satisfait ou remboursé sous 14 jours</p>
             </div>
           </div>
 
