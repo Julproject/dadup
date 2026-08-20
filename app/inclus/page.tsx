@@ -78,25 +78,39 @@ function ModulePreview({ num, dark }: { num: string; dark: boolean }) {
   );
 
   if (num === '02') return (
-    <div style={{width:'100%', display:'flex', flexDirection:'column', gap:'8px'}}>
-      <div style={{background:cardBg, borderRadius:'12px', padding:'12px 14px'}}>
-        <div style={{display:'flex', alignItems:'center', gap:'10px', marginBottom:'8px'}}>
-          <span style={{fontSize:'22px'}}>🍌</span>
+    <div style={{width:'100%', display:'flex', flexDirection:'column', gap:'6px'}}>
+      <p style={{color:gold, fontSize:'9px', fontWeight:700, letterSpacing:'1px', margin:'0 0 2px'}}>EXTRAIT · SA 20</p>
+      <div style={{background:cardBg, borderRadius:'11px', padding:'10px 12px'}}>
+        <div style={{display:'flex', alignItems:'center', gap:'8px', marginBottom:'6px'}}>
+          <span style={{fontSize:'18px'}}>🍌</span>
           <div>
-            <p style={{color:subColor, fontSize:'9px', fontWeight:700, letterSpacing:'1px', margin:0}}>SEMAINE 20</p>
-            <p style={{color:textColor, fontSize:'12px', fontWeight:700, margin:0}}>La mi-grossesse</p>
+            <p style={{color:textColor, fontSize:'11px', fontWeight:700, margin:0}}>La mi-grossesse</p>
+            <p style={{color:subColor, fontSize:'9px', margin:0}}>16,4 cm · 300 g</p>
           </div>
         </div>
-        <p style={{color:subColor, fontSize:'10px', margin:'0 0 6px'}}>16,4 cm · 300 g</p>
-        <p style={{color:dark ? 'rgba(255,255,255,0.6)' : '#4a5568', fontSize:'10px', lineHeight:1.5, margin:0}}>
+        <p style={{color:dark ? 'rgba(255,255,255,0.6)' : '#4a5568', fontSize:'10px', lineHeight:1.5, margin:'0 0 6px'}}>
           L'échographie T2 examine chaque organe. Le sexe est généralement visible.
         </p>
+        <div style={{display:'flex', gap:'4px', flexWrap:'wrap'}}>
+          {['Cerveau', 'Cœur', 'Reins'].map(o => (
+            <span key={o} style={{background:dark ? 'rgba(255,255,255,0.1)' : 'rgba(255,255,255,0.5)', color:textColor, fontSize:'9px', fontWeight:600, padding:'3px 7px', borderRadius:'20px'}}>{o}</span>
+          ))}
+        </div>
       </div>
-      <div style={{display:'flex', gap:'6px'}}>
-        {['Cerveau', 'Cœur', 'Reins'].map(o => (
-          <span key={o} style={{background:dark ? 'rgba(255,255,255,0.1)' : 'rgba(255,255,255,0.5)', color:textColor, fontSize:'9px', fontWeight:600, padding:'4px 8px', borderRadius:'20px'}}>{o}</span>
-        ))}
-      </div>
+      <p style={{color:gold, fontSize:'9px', fontWeight:700, letterSpacing:'1px', margin:'4px 0 2px'}}>39 AUTRES SEMAINES</p>
+      {[
+        {sa:'SA 6', titre:'Le cœur commence à battre', poids:'moins de 1g'},
+        {sa:'SA 12', titre:'Fin du 1er trimestre', poids:'14g'},
+        {sa:'SA 32', titre:'Bébé prend du poids', poids:'1,7 kg'},
+      ].map((s, i) => (
+        <div key={i} style={{background:cardBg, borderRadius:'9px', padding:'6px 10px', display:'flex', justifyContent:'space-between', alignItems:'center'}}>
+          <div>
+            <p style={{color:subColor, fontSize:'9px', margin:0}}>{s.sa}</p>
+            <p style={{color:textColor, fontSize:'10px', fontWeight:600, margin:0}}>{s.titre}</p>
+          </div>
+          <span style={{color:subColor, fontSize:'9px'}}>{s.poids}</span>
+        </div>
+      ))}
     </div>
   );
 
