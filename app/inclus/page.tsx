@@ -269,7 +269,7 @@ export default function InclusPage() {
 
       {/* ECHANTILLON */}
       <section style={{ background: C.white, padding: '64px 40px', borderTop: `1px solid ${C.border}` }}>
-        <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
+        <div style={{ maxWidth: '960px', margin: '0 auto' }}>
           <p style={{ color: C.dark, fontSize: '20px', fontWeight: 800, margin: '0 0 32px' }}>Un échantillon du contenu qui t'attend</p>
 
           {/* Header SA 20 */}
