@@ -268,16 +268,26 @@ export default function InclusPage() {
       </section>
 
       {/* ECHANTILLON */}
-      <section style={{ background: C.white, padding: '64px 40px', borderTop: `1px solid ${C.border}` }}>
-        <div style={{ maxWidth: '960px', margin: '0 auto' }}>
+      <div style={{ position: 'relative' }}>
 
-          {/* Mockup téléphone */}
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-            {/* Téléphone */}
-            <div style={{ background: C.dark, borderRadius: '40px', padding: '12px', width: '260px' }}>
-              <div style={{ background: C.cream, borderRadius: '30px', overflow: 'hidden' }}>
+        {/* Partie haute crème — simule la continuité des 6 cases */}
+        <div style={{ background: C.cream, padding: '0 40px', height: '80px' }}></div>
 
-                {/* Status bar */}
+        {/* Partie sombre */}
+        <div style={{ background: C.dark, padding: '0 40px 64px' }}>
+          <div style={{ maxWidth: '900px', margin: '0 auto', display: 'flex', alignItems: 'flex-end', gap: '48px' }}>
+
+            {/* Téléphone qui chevauche */}
+            <div style={{
+              background: C.dark, borderRadius: '44px', padding: '12px',
+              width: '240px', flexShrink: 0,
+              transform: 'rotate(-5deg)',
+              marginTop: '-80px',
+              position: 'relative', zIndex: 2,
+            }}>
+              <div style={{ background: C.cream, borderRadius: '34px', overflow: 'hidden' }}>
+
+                {/* Status */}
                 <div style={{ background: C.dark, padding: '10px 20px 6px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                   <span style={{ color: '#fff', fontSize: '9px', fontWeight: 700 }}>9:41</span>
                   <span style={{ color: '#fff', fontSize: '8px' }}>●●● ■</span>
@@ -286,61 +296,54 @@ export default function InclusPage() {
                 {/* Contenu */}
                 <div style={{ padding: '14px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
 
-                  {/* Header SA */}
                   <div style={{ background: C.dark, borderRadius: '12px', padding: '11px 14px', display: 'flex', alignItems: 'center', gap: '12px' }}>
                     <span style={{ fontSize: '26px' }}>🍌</span>
                     <div>
                       <p style={{ color: C.gold, fontSize: '8px', fontWeight: 700, letterSpacing: '1.5px', textTransform: 'uppercase' as const, margin: '0 0 2px' }}>Semaine 20</p>
-                      <p style={{ color: '#fff', fontSize: '11px', fontWeight: 700, margin: '0 0 2px' }}>La mi-grossesse</p>
+                      <p style={{ color: '#fff', fontSize: '11px', fontWeight: 700, margin: '0 0 1px' }}>La mi-grossesse</p>
                       <p style={{ fontSize: '8px', color: '#6a7585', margin: 0 }}>16,4 cm · 300 g · Échographie T2</p>
                     </div>
                   </div>
 
-                  {/* Développement */}
                   <div style={{ background: '#E6F0FA', borderRadius: '12px', padding: '11px 14px' }}>
                     <p style={{ color: '#2E5F8A', fontSize: '8px', fontWeight: 700, letterSpacing: '1.5px', textTransform: 'uppercase' as const, margin: '0 0 4px' }}>Développement</p>
-                    <p style={{ color: '#1A3D5C', fontSize: '9px', lineHeight: 1.6, margin: 0 }}>L&apos;échographie T2 examine chaque organe et chaque membre. Elle vérifie le cerveau, le coeur, les reins</p>
+                    <p style={{ color: '#1A3D5C', fontSize: '9px', lineHeight: 1.6, margin: 0 }}>L&apos;échographie T2 examine chaque organe et chaque membre</p>
                   </div>
 
-                  {/* Savistu */}
                   <div style={{ background: C.dark, borderRadius: '12px', padding: '11px 14px' }}>
                     <p style={{ color: C.gold, fontSize: '8px', fontWeight: 700, letterSpacing: '1.5px', textTransform: 'uppercase' as const, margin: '0 0 4px' }}>Le saviez-vous ?</p>
-                    <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: '9px', lineHeight: 1.6, margin: 0 }}>Plus de 100 critères anatomiques examinés. L&apos;examen le plus complet de la grossesse</p>
+                    <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: '9px', lineHeight: 1.6, margin: 0 }}>Plus de 100 critères anatomiques examinés</p>
                   </div>
 
-                  {/* Elle */}
                   <div style={{ background: '#e8f4e8', borderRadius: '12px', padding: '11px 14px' }}>
                     <p style={{ color: '#3a7a3a', fontSize: '8px', fontWeight: 700, letterSpacing: '1.5px', textTransform: 'uppercase' as const, margin: '0 0 4px' }}>Comment elle vit cette semaine</p>
-                    <p style={{ color: '#1e4a1e', fontSize: '9px', lineHeight: 1.6, margin: 0 }}>Anxiété mêlée d&apos;excitation. Le rendez-vous le plus attendu de la grossesse</p>
+                    <p style={{ color: '#1e4a1e', fontSize: '9px', lineHeight: 1.6, margin: 0 }}>Anxiété mêlée d&apos;excitation. Le rendez-vous le plus attendu</p>
                   </div>
 
-                  {/* Rôle */}
                   <div style={{ background: '#1A3D5C', borderRadius: '12px', padding: '11px 14px' }}>
                     <p style={{ color: C.gold, fontSize: '8px', fontWeight: 700, letterSpacing: '1.5px', textTransform: 'uppercase' as const, margin: '0 0 4px' }}>Ton rôle</p>
-                    <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: '9px', lineHeight: 1.6, margin: 0 }}>Prépare 3 questions pour l&apos;échographiste. Discutez du sexe avant le rendez-vous</p>
+                    <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: '9px', lineHeight: 1.6, margin: 0 }}>Prépare 3 questions pour l&apos;échographiste</p>
                   </div>
 
                 </div>
               </div>
             </div>
 
-            {/* Légende */}
-            <div style={{ textAlign: 'center', marginTop: '24px' }}>
-              <p style={{ fontSize: '15px', fontWeight: 700, color: C.dark, margin: '0 0 6px' }}>Un échantillon du contenu qui t&apos;attend</p>
-              <p style={{ fontSize: '13px', color: C.textLight, margin: 0 }}>41 semaines comme celle-ci, de la SA 3 à la SA 41</p>
+            {/* Texte + CTA */}
+            <div style={{ paddingBottom: '20px' }}>
+              <p style={{ color: C.gold, fontSize: '10px', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase' as const, margin: '0 0 12px' }}>Un échantillon du contenu qui t&apos;attend</p>
+              <p style={{ color: '#6a7585', fontSize: '15px', margin: '0 0 32px', lineHeight: 1.7 }}>Tout ce dont tu as besoin, au bon moment</p>
+              <div style={{ display: 'inline-block', textAlign: 'center' as const }}>
+                <button onClick={() => setShowModal(true)} style={{ background: C.gold, color: '#1c1510', border: 'none', padding: '15px 32px', borderRadius: '32px', fontSize: '15px', fontWeight: 800, cursor: 'pointer', display: 'block', marginBottom: '10px' }}>
+                  Commencer · 35,99€/an
+                </button>
+                <p style={{ color: '#6a7585', fontSize: '11px', margin: 0, textAlign: 'center' as const }}>Satisfait ou remboursé sous 14 jours</p>
+              </div>
             </div>
 
-            {/* CTA */}
-            <div style={{ marginTop: '32px', textAlign: 'center' as const }}>
-              <button onClick={() => setShowModal(true)} style={{ background: C.gold, color: '#1c1510', border: 'none', padding: '16px 36px', borderRadius: '32px', fontSize: '16px', fontWeight: 800, cursor: 'pointer', marginBottom: '10px', display: 'block', margin: '0 auto 10px' }}>
-                Commencer · 35,99€/an
-              </button>
-              <p style={{ color: C.textLight, fontSize: '12px', margin: 0 }}>Satisfait ou remboursé sous 14 jours</p>
-            </div>
           </div>
-
         </div>
-      </section>
+      </div>
 
       {/* FOOTER */}
       <footer style={{ background: C.dark, borderTop: '1px solid #2e3848', padding: '32px 40px' }}>
