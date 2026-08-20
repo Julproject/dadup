@@ -78,9 +78,9 @@ function ModulePreview({ num, dark }: { num: string; dark: boolean }) {
   );
 
   if (num === '02') return (
-    <div style={{width:'100%', display:'flex', flexDirection:'column', gap:'6px'}}>
+    <div style={{width:'100%', display:'flex', flexDirection:'column', gap:'8px', padding:'4px'}}>
       <p style={{color:gold, fontSize:'9px', fontWeight:700, letterSpacing:'1px', margin:'0 0 2px'}}>EXTRAIT · SA 20</p>
-      <div style={{background:cardBg, borderRadius:'11px', padding:'10px 12px'}}>
+      <div style={{background:cardBg, borderRadius:'11px', padding:'12px 14px'}}>
         <div style={{display:'flex', alignItems:'center', gap:'8px', marginBottom:'6px'}}>
           <span style={{fontSize:'18px'}}>🍌</span>
           <div>
@@ -103,7 +103,7 @@ function ModulePreview({ num, dark }: { num: string; dark: boolean }) {
         {sa:'SA 12', titre:'Fin du 1er trimestre', poids:'14g'},
         {sa:'SA 32', titre:'Bébé prend du poids', poids:'1,7 kg'},
       ].map((s, i) => (
-        <div key={i} style={{background:cardBg, borderRadius:'9px', padding:'6px 10px', display:'flex', justifyContent:'space-between', alignItems:'center'}}>
+        <div key={i} style={{background:cardBg, borderRadius:'9px', padding:'8px 12px', display:'flex', justifyContent:'space-between', alignItems:'center'}}>
           <div>
             <p style={{color:subColor, fontSize:'9px', margin:0}}>{s.sa}</p>
             <p style={{color:textColor, fontSize:'10px', fontWeight:600, margin:0}}>{s.titre}</p>
