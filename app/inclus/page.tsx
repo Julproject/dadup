@@ -342,7 +342,7 @@ export default function InclusPage() {
                 <p style={{color:C.blue, fontSize:'10px', fontWeight:700, letterSpacing:'1.5px', textTransform:'uppercase' as const, margin:'0 0 10px'}}>Comment elle vit cette semaine</p>
                 <p style={{color:C.dark, fontSize:'14px', lineHeight:1.7, margin:0}}>L'échographie T2 est souvent vécue avec anxiété mêlée d'excitation. C'est le rendez-vous le plus attendu de la grossesse.</p>
               </div>
-              <div style={{background:C.dark, borderRadius:'16px', padding:'20px 24px', background:'#1A3D5C'}}>
+              <div style={{background:'#1A3D5C', borderRadius:'16px', padding:'20px 24px'}}>
                 <p style={{color:C.gold, fontSize:'10px', fontWeight:700, letterSpacing:'1.5px', textTransform:'uppercase' as const, margin:'0 0 10px'}}>Ton rôle</p>
                 <p style={{color:'rgba(255,255,255,0.75)', fontSize:'14px', lineHeight:1.7, margin:0}}>Prépare 3 questions pour l'échographiste. Discutez ensemble avant si vous souhaitez connaître le sexe.</p>
               </div>
