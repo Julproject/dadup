@@ -48,6 +48,132 @@ const MODULES = [
   },
 ];
 
+
+function ModulePreview({ num, dark }: { num: string; dark: boolean }) {
+  const textColor = dark ? 'rgba(255,255,255,0.9)' : '#1e2535';
+  const subColor = dark ? 'rgba(255,255,255,0.5)' : '#9aa0a8';
+  const cardBg = dark ? 'rgba(255,255,255,0.08)' : 'rgba(255,255,255,0.7)';
+  const gold = '#c8a060';
+
+  if (num === '01') return (
+    <div style={{width:'100%', display:'flex', flexDirection:'column', gap:'8px'}}>
+      {[
+        {label:'Échographie T1', sa:'12 SA', checked:true},
+        {label:'Échographie T2', sa:'20 SA', checked:true},
+        {label:'Déclaration grossesse', sa:'15 SA', checked:false},
+        {label:'Entretien prénatal', sa:'4e mois', checked:false},
+        {label:'Cours de préparation', sa:'7e mois', checked:false},
+      ].map((rdv, i) => (
+        <div key={i} style={{background:cardBg, borderRadius:'10px', padding:'8px 12px', display:'flex', alignItems:'center', gap:'10px'}}>
+          <div style={{width:'18px', height:'18px', borderRadius:'50%', background: rdv.checked ? gold : 'transparent', border:`2px solid ${rdv.checked ? gold : subColor}`, flexShrink:0, display:'flex', alignItems:'center', justifyContent:'center'}}>
+            {rdv.checked && <span style={{color:'#1c1510', fontSize:'10px', fontWeight:800}}>✓</span>}
+          </div>
+          <div style={{flex:1}}>
+            <p style={{color:textColor, fontSize:'11px', fontWeight:600, margin:0}}>{rdv.label}</p>
+          </div>
+          <span style={{color:subColor, fontSize:'10px'}}>{rdv.sa}</span>
+        </div>
+      ))}
+    </div>
+  );
+
+  if (num === '02') return (
+    <div style={{width:'100%', display:'flex', flexDirection:'column', gap:'8px'}}>
+      <div style={{background:cardBg, borderRadius:'12px', padding:'12px 14px'}}>
+        <div style={{display:'flex', alignItems:'center', gap:'10px', marginBottom:'8px'}}>
+          <span style={{fontSize:'22px'}}>🍌</span>
+          <div>
+            <p style={{color:subColor, fontSize:'9px', fontWeight:700, letterSpacing:'1px', margin:0}}>SEMAINE 20</p>
+            <p style={{color:textColor, fontSize:'12px', fontWeight:700, margin:0}}>La mi-grossesse</p>
+          </div>
+        </div>
+        <p style={{color:subColor, fontSize:'10px', margin:'0 0 6px'}}>16,4 cm · 300 g</p>
+        <p style={{color:dark ? 'rgba(255,255,255,0.6)' : '#4a5568', fontSize:'10px', lineHeight:1.5, margin:0}}>
+          L'échographie T2 examine chaque organe. Le sexe est généralement visible.
+        </p>
+      </div>
+      <div style={{display:'flex', gap:'6px'}}>
+        {['Cerveau', 'Cœur', 'Reins'].map(o => (
+          <span key={o} style={{background:dark ? 'rgba(255,255,255,0.1)' : 'rgba(255,255,255,0.5)', color:textColor, fontSize:'9px', fontWeight:600, padding:'4px 8px', borderRadius:'20px'}}>{o}</span>
+        ))}
+      </div>
+    </div>
+  );
+
+  if (num === '03') return (
+    <div style={{width:'100%', display:'flex', flexDirection:'column', gap:'8px'}}>
+      <p style={{color:gold, fontSize:'9px', fontWeight:700, letterSpacing:'1px', margin:'0 0 4px'}}>CHECKLIST DÉPART</p>
+      {[
+        {label:'Contractions toutes les 5 min', done:true},
+        {label:'Perte des eaux', done:false},
+        {label:'Valise dans la voiture', done:true},
+        {label:'Documents Sécu', done:true},
+        {label:'Téléphone chargé', done:false},
+      ].map((item, i) => (
+        <div key={i} style={{display:'flex', alignItems:'center', gap:'8px'}}>
+          <div style={{width:'14px', height:'14px', borderRadius:'4px', background: item.done ? gold : 'transparent', border:`1.5px solid ${item.done ? gold : 'rgba(255,255,255,0.3)'}`, flexShrink:0, display:'flex', alignItems:'center', justifyContent:'center'}}>
+            {item.done && <span style={{color:'#1c1510', fontSize:'8px', fontWeight:900}}>✓</span>}
+          </div>
+          <p style={{color: item.done ? 'rgba(255,255,255,0.9)' : 'rgba(255,255,255,0.4)', fontSize:'11px', margin:0, textDecoration: item.done ? 'none' : 'none'}}>{item.label}</p>
+        </div>
+      ))}
+    </div>
+  );
+
+  if (num === '04') return (
+    <div style={{width:'100%', display:'flex', flexDirection:'column', gap:'6px'}}>
+      {[
+        {cat:'Pour elle', items:['Chemise de nuit', 'Coussin allaitement'], color:'#e8d4b8'},
+        {cat:'Pour bébé', items:['Grenouillères x5', 'Bonnet naissance'], color:'#b8d4e8'},
+        {cat:'Pour toi', items:['Vêtements 2 nuits', 'Chargeur'], color:'#b8e8c8'},
+      ].map((cat, i) => (
+        <div key={i} style={{background:cardBg, borderRadius:'10px', padding:'8px 12px'}}>
+          <div style={{display:'flex', alignItems:'center', gap:'6px', marginBottom:'4px'}}>
+            <div style={{width:'8px', height:'8px', borderRadius:'50%', background:cat.color, flexShrink:0}}></div>
+            <p style={{color:textColor, fontSize:'10px', fontWeight:700, margin:0}}>{cat.cat}</p>
+          </div>
+          {cat.items.map(item => (
+            <p key={item} style={{color:subColor, fontSize:'10px', margin:'2px 0 0 14px'}}>✓ {item}</p>
+          ))}
+        </div>
+      ))}
+    </div>
+  );
+
+  if (num === '05') return (
+    <div style={{width:'100%', display:'flex', flexDirection:'column', gap:'8px'}}>
+      <div style={{background:cardBg, borderRadius:'12px', padding:'12px 14px'}}>
+        <p style={{color:subColor, fontSize:'9px', fontWeight:700, letterSpacing:'1px', margin:'0 0 6px'}}>SEMAINE 1 APRÈS LA NAISSANCE</p>
+        <p style={{color:textColor, fontSize:'11px', fontWeight:600, margin:'0 0 6px'}}>Baby blues</p>
+        <p style={{color:subColor, fontSize:'10px', lineHeight:1.5, margin:'0 0 10px'}}>Touche 50 à 80% des mamans dans les premiers jours. Ce n'est pas de la dépression.</p>
+        <div style={{background:dark ? 'rgba(200,160,96,0.15)' : 'rgba(200,160,96,0.12)', borderRadius:'8px', padding:'8px 10px', borderLeft:`2px solid ${gold}`}}>
+          <p style={{color:dark ? 'rgba(255,255,255,0.7)' : '#4a5568', fontSize:'10px', lineHeight:1.5, margin:0}}>Reste présent. Écoute sans chercher à résoudre.</p>
+        </div>
+      </div>
+    </div>
+  );
+
+  if (num === '06') return (
+    <div style={{width:'100%', display:'flex', flexDirection:'column', gap:'6px'}}>
+      <p style={{color:gold, fontSize:'9px', fontWeight:700, letterSpacing:'1px', margin:'0 0 4px'}}>MOIS 3</p>
+      {[
+        {label:'Sourit spontanément', done:true},
+        {label:'Suit des yeux', done:true},
+        {label:'Tient sa tête', done:true},
+        {label:'Gazouillis', done:false},
+        {label:'Premiers rires', done:false},
+      ].map((item, i) => (
+        <div key={i} style={{display:'flex', alignItems:'center', gap:'8px', background:cardBg, borderRadius:'8px', padding:'6px 10px'}}>
+          <div style={{width:'12px', height:'12px', borderRadius:'50%', background: item.done ? gold : 'transparent', border:`1.5px solid ${item.done ? gold : subColor}`, flexShrink:0}}></div>
+          <p style={{color: item.done ? textColor : subColor, fontSize:'11px', margin:0}}>{item.label}</p>
+        </div>
+      ))}
+    </div>
+  );
+
+  return <span style={{fontSize:'36px'}}></span>;
+}
+
 export default function InclusPage() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);
@@ -168,10 +294,8 @@ export default function InclusPage() {
                   ))}
                 </div>
               </div>
-              <div className="mod-img" style={{direction:'ltr',background:m.bg,borderRadius:'24px',height:'280px',display:'flex',alignItems:'center',justifyContent:'center',border:m.dark?'none':`1px solid ${C.border}`}}>
-                <div style={{textAlign:'center'}}>
-                  <p style={{fontSize:'52px',margin:0}}>{m.emoji}</p>
-                </div>
+              <div className="mod-img" style={{direction:'ltr',background:m.bg,borderRadius:'24px',height:'280px',display:'flex',alignItems:'center',justifyContent:'center',border:m.dark?'none':`1px solid ${C.border}`,overflow:'hidden',padding:'20px'}}>
+                <ModulePreview num={m.num} dark={m.dark} />
               </div>
             </div>
           ))}
