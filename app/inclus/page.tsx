@@ -251,11 +251,11 @@ export default function InclusPage() {
       <section className="sp" style={{ padding: '64px 40px', maxWidth: '1100px', margin: '0 auto' }}>
         <div className="grid6">
           {[
-            { titre: 'Calendrier des rendez-vous', desc: '8 consultations expliquées pas à pas. Ce qu'on cherche, ce que tu dois demander, ton rôle précis', bg: '#E6F0FA', titleColor: '#1A3D5C', descColor: '#2E5F8A', dark: false },
-            { titre: 'Suivi bébé semaine par semaine', desc: 'SA 3 à SA 41. Développement des organes, taille, poids, et ce que ressent maman en parallèle', bg: '#e8f4e8', titleColor: '#1e4a1e', descColor: '#3a7a3a', dark: false },
-            { titre: 'Guide accouchement', desc: 'Reconnaître les vraies contractions, quand partir, où se mettre, comment soutenir sans stresser', bg: C.dark, titleColor: C.white, descColor: 'rgba(255,255,255,0.55)', dark: true },
-            { titre: 'Valise maternité', desc: 'Checklist complète pour toi, elle et bébé. À cocher au fur et à mesure', bg: '#fdf0e6', titleColor: '#7a3a10', descColor: '#b06020', dark: false },
-            { titre: 'Post-partum', desc: 'Baby blues, manque de sommeil, couple. Ton rôle semaine par semaine dès le retour à la maison', bg: '#e6f5f2', titleColor: '#1a4a40', descColor: '#2a7a6a', dark: false },
+            { titre: 'Calendrier des rendez-vous', desc: '8 consultations expliquées pas à pas, ce que tu dois demander, ton rôle précis', bg: '#E6F0FA', titleColor: '#1A3D5C', descColor: '#2E5F8A', dark: false },
+            { titre: 'Suivi bébé semaine par semaine', desc: 'SA 3 à SA 41, développement des organes, taille, poids', bg: '#e8f4e8', titleColor: '#1e4a1e', descColor: '#3a7a3a', dark: false },
+            { titre: 'Guide accouchement', desc: 'Contractions, départ maternité, salle de naissance, comment soutenir', bg: C.dark, titleColor: C.white, descColor: 'rgba(255,255,255,0.55)', dark: true },
+            { titre: 'Valise maternité', desc: 'Checklist complète pour toi, elle et bébé', bg: '#fdf0e6', titleColor: '#7a3a10', descColor: '#b06020', dark: false },
+            { titre: 'Post-partum', desc: 'Baby blues, manque de sommeil, couple, ton rôle dès le retour à la maison', bg: '#e6f5f2', titleColor: '#1a4a40', descColor: '#2a7a6a', dark: false },
             { titre: 'Première année de bébé', desc: '12 mois de développement, vaccins, diversification, premiers mots', bg: '#f0ecfa', titleColor: '#3a2a6a', descColor: '#6a4aaa', dark: false },
           ].map((m, i) => (
             <div key={i} style={{ background: m.bg, borderRadius: '16px', padding: '24px', border: m.dark ? 'none' : `1px solid ${C.border}` }}>
