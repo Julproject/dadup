@@ -270,59 +270,75 @@ export default function InclusPage() {
       {/* ECHANTILLON */}
       <section style={{ background: C.white, padding: '64px 40px', borderTop: `1px solid ${C.border}` }}>
         <div style={{ maxWidth: '960px', margin: '0 auto' }}>
-          <p style={{ color: C.dark, fontSize: '20px', fontWeight: 800, margin: '0 0 32px' }}>Un échantillon du contenu qui t'attend</p>
 
-          {/* Header SA 20 */}
-          <div style={{ background: C.dark, borderRadius: '16px', padding: '24px 28px', display: 'flex', alignItems: 'center', gap: '20px', marginBottom: '12px' }}>
-            <span style={{ fontSize: '40px' }}>🍌</span>
-            <div>
-              <p style={{ color: C.gold, fontSize: '10px', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase' as const, margin: '0 0 4px' }}>Semaine 20</p>
-              <p style={{ color: C.white, fontSize: '18px', fontWeight: 700, margin: '0 0 4px' }}>La mi-grossesse</p>
-              <div style={{ display: 'flex', gap: '16px' }}>
-                <span style={{ color: '#6a7585', fontSize: '12px' }}>16,4 cm</span>
-                <span style={{ color: '#6a7585', fontSize: '12px' }}>300 g</span>
-                <span style={{ color: '#6a7585', fontSize: '12px' }}>Échographie T2</span>
+          {/* Mockup téléphone */}
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            {/* Téléphone */}
+            <div style={{ background: C.dark, borderRadius: '40px', padding: '12px', width: '260px' }}>
+              <div style={{ background: C.cream, borderRadius: '30px', overflow: 'hidden' }}>
+
+                {/* Status bar */}
+                <div style={{ background: C.dark, padding: '10px 20px 6px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <span style={{ color: '#fff', fontSize: '9px', fontWeight: 700 }}>9:41</span>
+                  <span style={{ color: '#fff', fontSize: '8px' }}>●●● ■</span>
+                </div>
+
+                {/* Contenu */}
+                <div style={{ padding: '14px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+
+                  {/* Header SA */}
+                  <div style={{ background: C.dark, borderRadius: '12px', padding: '11px 14px', display: 'flex', alignItems: 'center', gap: '12px' }}>
+                    <span style={{ fontSize: '26px' }}>🍌</span>
+                    <div>
+                      <p style={{ color: C.gold, fontSize: '8px', fontWeight: 700, letterSpacing: '1.5px', textTransform: 'uppercase' as const, margin: '0 0 2px' }}>Semaine 20</p>
+                      <p style={{ color: '#fff', fontSize: '11px', fontWeight: 700, margin: '0 0 2px' }}>La mi-grossesse</p>
+                      <p style={{ fontSize: '8px', color: '#6a7585', margin: 0 }}>16,4 cm · 300 g · Échographie T2</p>
+                    </div>
+                  </div>
+
+                  {/* Développement */}
+                  <div style={{ background: '#E6F0FA', borderRadius: '12px', padding: '11px 14px' }}>
+                    <p style={{ color: '#2E5F8A', fontSize: '8px', fontWeight: 700, letterSpacing: '1.5px', textTransform: 'uppercase' as const, margin: '0 0 4px' }}>Développement</p>
+                    <p style={{ color: '#1A3D5C', fontSize: '9px', lineHeight: 1.6, margin: 0 }}>L&apos;échographie T2 examine chaque organe et chaque membre. Elle vérifie le cerveau, le coeur, les reins</p>
+                  </div>
+
+                  {/* Savistu */}
+                  <div style={{ background: C.dark, borderRadius: '12px', padding: '11px 14px' }}>
+                    <p style={{ color: C.gold, fontSize: '8px', fontWeight: 700, letterSpacing: '1.5px', textTransform: 'uppercase' as const, margin: '0 0 4px' }}>Le saviez-vous ?</p>
+                    <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: '9px', lineHeight: 1.6, margin: 0 }}>Plus de 100 critères anatomiques examinés. L&apos;examen le plus complet de la grossesse</p>
+                  </div>
+
+                  {/* Elle */}
+                  <div style={{ background: '#e8f4e8', borderRadius: '12px', padding: '11px 14px' }}>
+                    <p style={{ color: '#3a7a3a', fontSize: '8px', fontWeight: 700, letterSpacing: '1.5px', textTransform: 'uppercase' as const, margin: '0 0 4px' }}>Comment elle vit cette semaine</p>
+                    <p style={{ color: '#1e4a1e', fontSize: '9px', lineHeight: 1.6, margin: 0 }}>Anxiété mêlée d&apos;excitation. Le rendez-vous le plus attendu de la grossesse</p>
+                  </div>
+
+                  {/* Rôle */}
+                  <div style={{ background: '#1A3D5C', borderRadius: '12px', padding: '11px 14px' }}>
+                    <p style={{ color: C.gold, fontSize: '8px', fontWeight: 700, letterSpacing: '1.5px', textTransform: 'uppercase' as const, margin: '0 0 4px' }}>Ton rôle</p>
+                    <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: '9px', lineHeight: 1.6, margin: 0 }}>Prépare 3 questions pour l&apos;échographiste. Discutez du sexe avant le rendez-vous</p>
+                  </div>
+
+                </div>
               </div>
             </div>
-          </div>
 
-          {/* Grille 2 col */}
-          <div className="grid2" style={{ marginBottom: '12px' }}>
-            <div style={{ background: '#E6F0FA', borderRadius: '16px', padding: '20px 24px', border: `1px solid ${C.border}` }}>
-              <p style={{ color: '#2E5F8A', fontSize: '10px', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase' as const, margin: '0 0 10px' }}>Développement</p>
-              <p style={{ color: '#1A3D5C', fontSize: '13px', lineHeight: 1.75, margin: 0 }}>L'échographie T2 examine chaque organe et chaque membre. Elle vérifie le cerveau, le cœur, les reins, la colonne vertébrale</p>
+            {/* Légende */}
+            <div style={{ textAlign: 'center', marginTop: '24px' }}>
+              <p style={{ fontSize: '15px', fontWeight: 700, color: C.dark, margin: '0 0 6px' }}>Un échantillon du contenu qui t&apos;attend</p>
+              <p style={{ fontSize: '13px', color: C.textLight, margin: 0 }}>41 semaines comme celle-ci, de la SA 3 à la SA 41</p>
             </div>
-            <div style={{ background: C.dark, borderRadius: '16px', padding: '20px 24px' }}>
-              <p style={{ color: C.gold, fontSize: '10px', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase' as const, margin: '0 0 10px' }}>Le saviez-vous ?</p>
-              <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: '13px', lineHeight: 1.75, margin: 0 }}>L'échographie T2 examine plus de 100 critères anatomiques. C'est l'examen médical le plus complet de la grossesse</p>
-            </div>
-            <div style={{ background: '#e8f4e8', borderRadius: '16px', padding: '20px 24px', border: `1px solid ${C.border}` }}>
-              <p style={{ color: '#3a7a3a', fontSize: '10px', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase' as const, margin: '0 0 10px' }}>Comment elle vit cette semaine</p>
-              <p style={{ color: '#1e4a1e', fontSize: '13px', lineHeight: 1.75, margin: 0 }}>Souvent vécue avec anxiété mêlée d'excitation. C'est le rendez-vous le plus attendu de la grossesse</p>
-            </div>
-            <div style={{ background: '#1A3D5C', borderRadius: '16px', padding: '20px 24px' }}>
-              <p style={{ color: C.gold, fontSize: '10px', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase' as const, margin: '0 0 10px' }}>Ton rôle</p>
-              <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: '13px', lineHeight: 1.75, margin: 0 }}>Prépare 3 questions pour l'échographiste. Discutez ensemble avant si vous souhaitez connaître le sexe</p>
-            </div>
-          </div>
 
-          {/* Doc */}
-          <div style={{ background: C.cream, borderRadius: '0 16px 16px 0', padding: '20px 24px', marginBottom: '24px', borderLeft: `3px solid ${C.gold}` }}>
-            <p style={{ color: C.textLight, fontSize: '10px', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase' as const, margin: '0 0 6px' }}>À savoir</p>
-            <p style={{ color: C.dark, fontSize: '13px', fontWeight: 700, margin: '0 0 6px' }}>L'échographie T2 morphologique</p>
-            <p style={{ color: C.text, fontSize: '13px', lineHeight: 1.75, margin: 0 }}>Obligatoire vers 20-22 SA. Examine chaque organe, mesure la croissance, vérifie le placenta et le liquide amniotique</p>
-          </div>
-
-          {/* CTA */}
-          <div style={{ background: C.dark, borderRadius: '16px', padding: '24px 28px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap' as const, gap: '16px' }}>
-            <div>
-              <p style={{ color: C.white, fontSize: '15px', fontWeight: 700, margin: '0 0 4px' }}>41 semaines comme celle-ci</p>
+            {/* CTA */}
+            <div style={{ marginTop: '32px', background: C.dark, borderRadius: '16px', padding: '24px 28px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap' as const, gap: '16px', width: '100%', maxWidth: '560px' }}>
               <p style={{ color: '#6a7585', fontSize: '13px', margin: 0 }}>De la SA 3 à la SA 41, puis la première année de bébé</p>
+              <button onClick={() => setShowModal(true)} style={{ background: C.gold, color: '#1c1510', border: 'none', padding: '14px 28px', borderRadius: '32px', fontSize: '14px', fontWeight: 800, cursor: 'pointer', whiteSpace: 'nowrap' as const }}>
+                Commencer
+              </button>
             </div>
-            <button onClick={() => setShowModal(true)} style={{ background: C.gold, color: '#1c1510', border: 'none', padding: '14px 28px', borderRadius: '32px', fontSize: '14px', fontWeight: 800, cursor: 'pointer', whiteSpace: 'nowrap' as const }}>
-              Commencer
-            </button>
           </div>
+
         </div>
       </section>
 
