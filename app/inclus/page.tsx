@@ -277,9 +277,17 @@ export default function InclusPage() {
         <div style={{ background: C.dark, padding: '0 40px 64px' }}>
           <div style={{ maxWidth: '960px', margin: '0 auto', display: 'flex', alignItems: 'center', gap: '56px' }}>
 
-            {/* iPhone */}
+            {/* iPhone avec relief */}
             <div style={{ flexShrink: 0, marginTop: '-100px', transform: 'rotate(-5deg)', position: 'relative', zIndex: 2 }}>
-              <div style={{ background: '#1c1c1e', borderRadius: '42px', padding: '8px', width: '175px' }}>
+              <div style={{
+                background: 'linear-gradient(145deg, #2a2a2e 0%, #0d0d0f 60%, #1a1a1c 100%)',
+                borderRadius: '42px',
+                padding: '8px',
+                width: '175px',
+                boxShadow: '0 30px 60px rgba(0,0,0,0.6), 0 0 0 0.5px rgba(255,255,255,0.08), inset 0 1px 0 rgba(255,255,255,0.12)',
+              }}>
+                {/* Reflet de lumière sur le bord */}
+                <div style={{ position: 'absolute', top: 0, left: '10%', right: '10%', height: '1px', background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent)', borderRadius: '999px' }}></div>
                 <div style={{ background: C.dark, borderRadius: '36px 36px 0 0', padding: '10px 14px 6px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', position: 'relative' }}>
                   <span style={{ color: '#fff', fontSize: '8px', fontWeight: 700 }}>9:41</span>
                   <div style={{ background: '#1c1c1e', borderRadius: '20px', padding: '3px 10px', position: 'absolute', left: '50%', transform: 'translateX(-50%)' }}>
@@ -287,7 +295,9 @@ export default function InclusPage() {
                   </div>
                   <span style={{ color: '#fff', fontSize: '7px' }}>●●● ■</span>
                 </div>
-                <div style={{ background: C.cream, borderRadius: '0 0 34px 34px', overflow: 'hidden' }}>
+                <div style={{ background: C.cream, borderRadius: '0 0 34px 34px', overflow: 'hidden', position: 'relative' }}>
+                  {/* Reflet écran */}
+                  <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '30%', background: 'linear-gradient(180deg, rgba(255,255,255,0.06) 0%, transparent 100%)', zIndex: 1, pointerEvents: 'none' }}></div>
                   <div style={{ padding: '10px', display: 'flex', flexDirection: 'column', gap: '6px' }}>
 
                     <div style={{ background: C.dark, borderRadius: '10px', padding: '9px 12px', display: 'flex', alignItems: 'center', gap: '8px' }}>
