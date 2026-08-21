@@ -81,7 +81,7 @@ function ModulePreview({ num, dark }: { num: string; dark: boolean }) {
     <div style={{width:'100%', display:'flex', flexDirection:'column', gap:'12px', padding:'8px'}}>
       <div style={{background:cardBg, borderRadius:'16px', padding:'16px'}}>
         <div style={{display:'flex', alignItems:'center', gap:'12px', marginBottom:'10px'}}>
-          <span style={{fontSize:'28px'}}>🍌</span>
+          <span style={{fontSize:'28px'}}>🍋</span>
           <div>
             <p style={{color:subColor, fontSize:'9px', fontWeight:700, letterSpacing:'1.5px', textTransform:'uppercase', margin:'0 0 2px'}}>Semaine 20</p>
             <p style={{color:textColor, fontSize:'13px', fontWeight:800, margin:0}}>La mi-grossesse</p>
@@ -301,7 +301,7 @@ export default function InclusPage() {
                   <div style={{ padding: '10px', display: 'flex', flexDirection: 'column', gap: '6px' }}>
 
                     <div style={{ background: C.dark, borderRadius: '10px', padding: '9px 12px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                      <span style={{ fontSize: '20px' }}>🍌</span>
+                      <span style={{ fontSize: '20px' }}>🍋</span>
                       <div>
                         <p style={{ color: C.gold, fontSize: '8px', fontWeight: 700, letterSpacing: '1.5px', textTransform: 'uppercase' as const, margin: '0 0 1px' }}>Semaine 20</p>
                         <p style={{ color: '#fff', fontSize: '10px', fontWeight: 700, margin: '0 0 1px' }}>La mi-grossesse</p>
