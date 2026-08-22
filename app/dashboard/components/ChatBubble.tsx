@@ -63,7 +63,7 @@ export default function ChatBubble() {
               <div style={{ textAlign: 'center', padding: '12px 0' }}>
                 <p style={{ fontSize: '24px', margin: '0 0 8px' }}>✓</p>
                 <p style={{ color: '#1e2535', fontSize: '14px', fontWeight: 700, margin: '0 0 4px' }}>Message reçu</p>
-                <p style={{ color: '#9aa0a8', fontSize: '12px', margin: 0 }}>On te répond sous 48h à hello@dadup.fr</p>
+                <p style={{ color: '#9aa0a8', fontSize: '12px', margin: 0 }}>On te répond sous 48h</p>
               </div>
             )}
           </div>
