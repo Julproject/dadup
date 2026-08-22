@@ -77,7 +77,7 @@ export default function PrepaNaissance({ C, saReelle }: { C: any; saReelle: numb
             </div>
           </div>
 
-          <div style={{ background: '#FDECEA', borderRadius: '12px', padding: '14px 16px' }}>
+          <div style={{ background: '#EDE8FF', borderRadius: '12px', padding: '14px 16px' }}>
             <p style={{ color: '#8A0000', fontSize: '12px', fontWeight: 700, margin: '0 0 6px' }}>Partir immédiatement si</p>
             <ul style={{ color: '#6A0000', fontSize: '13px', lineHeight: 1.7, margin: 0, paddingLeft: '16px' }}>
               <li>La poche des eaux se rompt (liquide clair, rosé ou verdâtre)</li>
@@ -209,7 +209,7 @@ export default function PrepaNaissance({ C, saReelle }: { C: any; saReelle: numb
                 texte: `La récupération est plus longue qu'après un accouchement voie basse : 3 à 5 jours d'hospitalisation, douleur à la cicatrice pendant 2 à 4 semaines, pas de port de charges. Ton soutien physique et logistique au retour est encore plus important après une césarienne.`,
               },
             ].map((item, i) => (
-              <div key={i} style={{ borderLeft: '3px solid #C04A1A', paddingLeft: '14px' }}>
+              <div key={i} style={{ borderLeft: '3px solid #6B4FBB', paddingLeft: '14px' }}>
                 <p style={{ color: '#7A1A00', fontSize: '13px', fontWeight: 700, margin: '0 0 4px' }}>{item.titre}</p>
                 <p style={{ color: '#3a4a5a', fontSize: '13px', lineHeight: 1.65, margin: 0 }}>{item.texte}</p>
               </div>
@@ -217,7 +217,7 @@ export default function PrepaNaissance({ C, saReelle }: { C: any; saReelle: numb
           </div>
 
           <div style={{ background: '#FFF0E6', borderRadius: '12px', padding: '14px 16px' }}>
-            <p style={{ color: '#C04A1A', fontSize: '12px', fontWeight: 700, margin: '0 0 6px' }}>Ce qui ne change pas</p>
+            <p style={{ color: '#6B4FBB', fontSize: '12px', fontWeight: 700, margin: '0 0 6px' }}>Ce qui ne change pas</p>
             <p style={{ color: '#5A2000', fontSize: '13px', lineHeight: 1.7, margin: 0 }}>
               Voie basse ou césarienne, bébé arrive. La façon dont il naît ne définit pas la qualité de votre accueil ni de votre parentalité. Certaines mamans vivent la césarienne comme un deuil de l'accouchement prévu : accueille ce ressenti avec bienveillance, sans minimiser.
             </p>
@@ -271,6 +271,20 @@ export default function PrepaNaissance({ C, saReelle }: { C: any; saReelle: numb
           </div>
         );
       })}
+
+      {/* BOUTON BÉBÉ EST NÉ */}
+      <div style={{ background: '#EDE8FF', borderRadius: '16px', padding: '20px 24px', marginTop: '24px', textAlign: 'center' as const }}>
+        <p style={{ color: '#6B4FBB', fontSize: '13px', margin: '0 0 12px', lineHeight: 1.6 }}>
+          Bébé est là ? Bascule en mode post-partum pour accéder au contenu de la première année.
+        </p>
+        <button
+          onClick={() => window.dispatchEvent(new CustomEvent('dadup:declareNaissance'))}
+          style={{ background: '#6B4FBB', color: '#fff', border: 'none', padding: '12px 28px', borderRadius: '32px', fontSize: '14px', fontWeight: 700, cursor: 'pointer' }}
+        >
+          Bébé est né !
+        </button>
+      </div>
+
     </div>
   );
 }
