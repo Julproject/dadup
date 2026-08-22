@@ -80,6 +80,7 @@ function DashboardContent() {
   const [rdvOuvert,            setRdvOuvert]          = useState<number|null>(null);
   const [achatChecked,         setAchatChecked]       = useState<Record<string,boolean>>(() => readLSJson('dadup_achats', {}));
   const [showConfirmNaissance, setShowConfirmNaissance] = useState(false);
+  const [showCelebration, setShowCelebration] = useState(false);
   const [dpaOriginale,         setDpaOriginale]       = useState(() => readLS('dadup_dpa_originale'));
 
   // Routing par URL
@@ -269,6 +270,7 @@ function DashboardContent() {
   }
 
   return (
+    <>
     <div style={{ minHeight: '100vh', background: C.white, fontFamily: "-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" }}>
       <style>{`
         *{box-sizing:border-box;margin:0;padding:0;}
@@ -316,6 +318,9 @@ function DashboardContent() {
         </div>
       )}
     </div>
+    <ChatBubble />
+    {showCelebration && <CelebrationNaissance prenom={prenom} onClose={() => setShowCelebration(false)} />}
+    </>
   );
 }
 
@@ -329,8 +334,6 @@ export default function DashboardPage() {
     }>
       <DashboardContent />
     </Suspense>
-    <ChatBubble />
-    {showCelebration && <CelebrationNaissance prenom={prenom} onClose={() => setShowCelebration(false)} />}
   </>
   );
 }
