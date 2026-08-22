@@ -48,6 +48,7 @@ export default function ComptePage() {
   const [pwdLoading, setPwdLoading] = useState(false);
 
   const [loading, setLoading] = useState(true);
+  const [isPost, setIsPost] = useState(false);
 
   useEffect(() => {
     fetch('/api/auth/me').then(r => r.json()).then(({ user }) => {
@@ -57,7 +58,8 @@ export default function ComptePage() {
       setDpa(user.dpa || '');
       setDpaOriginale(user.dpa_originale || '');
 
-      const dpaModif = localStorage.getItem('dadup_dpa_modifiee') === '1';
+      const dpaModifCount = parseInt(localStorage.getItem('dadup_dpa_modif_count') || '0');
+      const dpaModif = dpaModifCount >= 3;
       setDpaModifiee(dpaModif);
 
       if (user.dpa) {
@@ -74,6 +76,10 @@ export default function ComptePage() {
       const rdvDates = JSON.parse(localStorage.getItem('dadup_rdv_dates') || '{}');
       setRdvCount(Object.keys(rdvDates).length);
 
+      if (user.dpa) {
+        const jr = Math.round((new Date(user.dpa).getTime() - new Date().setHours(0,0,0,0)) / (1000*60*60*24));
+        setIsPost(jr < 0);
+      }
       setLoading(false);
     }).catch(() => router.push('/login'));
   }, []);
@@ -99,8 +105,9 @@ export default function ComptePage() {
       if (prenom) localStorage.setItem('dadup_prenom', prenom);
       if (!dpaModifiee && dpa) {
         localStorage.setItem('dadup_dpa', dpa);
-        localStorage.setItem('dadup_dpa_modifiee', '1');
-        setDpaModifiee(true);
+        const newCount = parseInt(localStorage.getItem('dadup_dpa_modif_count') || '0') + 1;
+        localStorage.setItem('dadup_dpa_modif_count', String(newCount));
+        if (newCount >= 3) setDpaModifiee(true);
       }
       setSaved(true);
       setTimeout(() => setSaved(false), 3000);
@@ -219,7 +226,7 @@ export default function ComptePage() {
             <div>
               <label style={{ display: 'block', fontSize: '12px', fontWeight: 700, color: C.dark, marginBottom: '6px' }}>
                 Date prévue d'accouchement
-                {dpaModifiee && <span style={{ color: C.textLight, fontWeight: 400, marginLeft: '8px' }}>· déjà modifiée</span>}
+                {dpaModifiee ? <span style={{ color: C.textLight, fontWeight: 400, marginLeft: '8px' }}>· limite atteinte</span> : dpa !== dpaOriginale && <span style={{ color: C.textLight, fontWeight: 400, marginLeft: '8px' }}>· modifiable encore {3 - (parseInt(localStorage.getItem('dadup_dpa_modif_count') || '0'))} fois</span>}
               </label>
               {dpaModifiee ? (
                 <div>
@@ -264,6 +271,20 @@ export default function ComptePage() {
           </button>
         </div>
 
+
+        {/* DÉCLARER LA NAISSANCE */}
+        <div style={{ background: C.white, borderRadius: '20px', padding: '24px', border: `1px solid ${C.border}`, marginBottom: '16px' }}>
+          <p style={{ color: C.textLight, fontSize: '10px', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase' as const, margin: '0 0 12px' }}>Étape importante</p>
+          <p style={{ color: C.dark, fontSize: '14px', margin: '0 0 16px', lineHeight: 1.6 }}>
+            {isPost ? 'Tu es en mode post-partum. Tu peux revenir en mode grossesse si besoin.' : 'Quand bébé arrive, indique-le ici pour accéder au contenu de la première année.'}
+          </p>
+          <button
+            onClick={() => window.dispatchEvent(new CustomEvent('dadup:declareNaissance'))}
+            style={{ background: isPost ? '#E4F5EC' : '#EDE8FF', color: isPost ? '#0D6B40' : '#6B4FBB', border: 'none', padding: '14px', borderRadius: '32px', fontSize: '14px', fontWeight: 700, cursor: 'pointer', width: '100%' }}
+          >
+            {isPost ? 'Revenir en mode grossesse' : 'Bébé est né !'}
+          </button>
+        </div>
         {/* DECONNEXION */}
         <div style={{ textAlign: 'center', padding: '8px 0' }}>
           <button onClick={logout} style={{ background: 'none', border: 'none', color: C.textLight, fontSize: '13px', cursor: 'pointer' }}>
