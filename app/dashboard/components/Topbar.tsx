@@ -49,20 +49,20 @@ export default function Topbar({ prenom, dpa, saReelle, tri, prog, isPost, moisB
             </svg>
             <span style={{ fontSize: '20px', fontWeight: 900, color: C.dark, letterSpacing: '-0.3px' }}>DadUp</span>
           </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-
-          {/* Avatar initiale + badge SA — clic vers /compte */}
-          <a href="/compte" style={{ position: 'relative', display: 'inline-block', textDecoration: 'none', cursor: 'pointer' }}>
-            <div style={{ width: '34px', height: '34px', borderRadius: '50%', background: '#1A3D5C', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '14px', fontWeight: 700, color: '#c8a060' }}>
-              {prenom ? prenom[0].toUpperCase() : 'D'}
-            </div>
-            {saReelle && (
-              <div style={{ position: 'absolute', bottom: '-4px', right: '-6px', background: '#c8a060', borderRadius: '10px', padding: '1px 4px', fontSize: '7px', fontWeight: 700, color: '#1c1510', border: '1.5px solid #ffffff', whiteSpace: 'nowrap' as const }}>
-                {isPost ? `M${moisBebe + 1}` : `${saReelle}SA`}
-              </div>
-            )}
-          </a>
-
+          <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
+            <a href="/compte" style={{ textDecoration: 'none', display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
+              <span style={{ fontSize: '13px', fontWeight: 700, color: C.dark }}>
+                {prenom || 'Mon compte'}
+              </span>
+              {saReelle && (
+                <span style={{ fontSize: '11px', color: C.muted, fontWeight: 500 }}>
+                  {isPost ? `Mois ${moisBebe + 1}` : `SA ${saReelle}`}
+                </span>
+              )}
+            </a>
+            <a href="/contact-app" style={{ fontSize: '13px', fontWeight: 500, color: C.muted, textDecoration: 'none' }}>
+              Contact
+            </a>
           </div>
         </div>
 
