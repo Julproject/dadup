@@ -60,9 +60,7 @@ export default function Topbar({ prenom, dpa, saReelle, tri, prog, isPost, moisB
                 </span>
               )}
             </a>
-            <a href="/contact-app" className="tb-aide" style={{ textDecoration: 'none', border: '1px solid #e0dbd2', padding: '6px 12px', borderRadius: '6px', background: '#faf6f0', fontSize: '13px', fontWeight: 600, color: C.dark }}>
-              Aide
-            </a>
+
           </div>
           <style>{`@media(max-width:640px){.tb-prenom{display:none!important;}.tb-aide{display:none!important;}}`}</style>
         </div>
