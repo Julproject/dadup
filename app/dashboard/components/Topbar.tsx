@@ -51,7 +51,7 @@ export default function Topbar({ prenom, dpa, saReelle, tri, prog, isPost, moisB
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
             <a href="/compte" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px', border: '1px solid #e0dbd2', padding: '6px 12px', borderRadius: '6px', background: '#faf6f0' }}>
-              <span style={{ fontSize: '13px', fontWeight: 500, color: C.dark }}>
+              <span style={{ fontSize: '13px', fontWeight: 700, color: C.dark }}>
                 {prenom || 'Mon compte'}
               </span>
               {saReelle && (
@@ -60,7 +60,7 @@ export default function Topbar({ prenom, dpa, saReelle, tri, prog, isPost, moisB
                 </span>
               )}
             </a>
-            <a href="/contact-app" style={{ textDecoration: 'none', border: '1px solid #e0dbd2', padding: '6px 12px', borderRadius: '6px', background: '#faf6f0', fontSize: '13px', color: C.muted }}>
+            <a href="/contact-app" style={{ textDecoration: 'none', border: '1px solid #e0dbd2', padding: '6px 12px', borderRadius: '6px', background: '#faf6f0', fontSize: '13px', fontWeight: 600, color: C.dark }}>
               Contact
             </a>
           </div>
