@@ -61,9 +61,7 @@ export default function Topbar({ prenom, dpa, saReelle, tri, prog, isPost, moisB
                 {isPost ? `M${moisBebe + 1}` : `${saReelle}SA`}
               </div>
             )}
-          </div>
-
-
+          </a>
 
           </div>
         </div>
