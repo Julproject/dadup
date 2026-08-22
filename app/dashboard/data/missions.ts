@@ -66,7 +66,7 @@ export const MISSIONS: Record<number, string[]> = {
   ],
   16: [
     "Se renseigner sur les cours de préparation spécifiques aux pères",
-    "Lire les règles du congé paternité : 28 jours, 7 obligatoires, à prendre dans les 6 mois",
+    "Lire les règles du congé paternité : 28 jours, 7 obligatoires, à prendre dans les 6 mois. Retrouve le détail complet dans l'onglet À préparer.",
     "Établir la liste des achats prioritaires avec un budget réaliste",
   ],
   17: [
@@ -126,7 +126,7 @@ export const MISSIONS: Record<number, string[]> = {
   ],
   28: [
     "Faire le vaccin coqueluche - protège bébé avant ses premiers vaccins",
-    "Commence les démarches congé paternité : vérifie ta convention collective et les modalités chez ton employeur",
+    "Commence les démarches congé paternité : vérifie ta convention collective et les modalités chez ton employeur. Retrouve le détail complet dans l'onglet À préparer.",
     "Mémoriser la règle 5-1-1 pour l'accouchement",
   ],
   29: [
