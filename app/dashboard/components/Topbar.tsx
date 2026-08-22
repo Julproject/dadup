@@ -57,7 +57,7 @@ export default function Topbar({ prenom, dpa, saReelle, tri, prog, isPost, moisB
               {prenom ? prenom[0].toUpperCase() : 'D'}
             </div>
             {saReelle && (
-              <div style={{ position: 'absolute', bottom: '-4px', right: '-6px', background: '#c8a060', borderRadius: '10px', padding: '1px 5px', fontSize: '9px', fontWeight: 700, color: '#1c1510', border: '1.5px solid #ffffff', whiteSpace: 'nowrap' as const }}>
+              <div style={{ position: 'absolute', bottom: '-4px', right: '-6px', background: '#c8a060', borderRadius: '10px', padding: '1px 4px', fontSize: '7px', fontWeight: 700, color: '#1c1510', border: '1.5px solid #ffffff', whiteSpace: 'nowrap' as const }}>
                 {isPost ? `M${moisBebe + 1}` : `${saReelle}SA`}
               </div>
             )}
