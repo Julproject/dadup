@@ -49,18 +49,18 @@ export default function Topbar({ prenom, dpa, saReelle, tri, prog, isPost, moisB
             </svg>
             <span style={{ fontSize: '20px', fontWeight: 900, color: C.dark, letterSpacing: '-0.3px' }}>DadUp</span>
           </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
-            <a href="/compte" style={{ textDecoration: 'none', display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <a href="/compte" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px', background: '#f0ede8', borderRadius: '32px', padding: '6px 14px' }}>
               <span style={{ fontSize: '13px', fontWeight: 700, color: C.dark }}>
                 {prenom || 'Mon compte'}
               </span>
               {saReelle && (
-                <span style={{ fontSize: '11px', color: C.muted, fontWeight: 500 }}>
+                <span style={{ fontSize: '11px', color: C.muted, fontWeight: 600, background: C.white, borderRadius: '20px', padding: '2px 8px' }}>
                   {isPost ? `Mois ${moisBebe + 1}` : `SA ${saReelle}`}
                 </span>
               )}
             </a>
-            <a href="/contact-app" style={{ fontSize: '13px', fontWeight: 500, color: C.muted, textDecoration: 'none' }}>
+            <a href="/contact-app" style={{ fontSize: '13px', fontWeight: 600, color: C.muted, textDecoration: 'none', background: '#f0ede8', borderRadius: '32px', padding: '6px 14px' }}>
               Contact
             </a>
           </div>
