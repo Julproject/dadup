@@ -223,6 +223,7 @@ function DashboardContent() {
       setDpa(dpaPostPartum);
       localStorage.setItem('dadup_dpa', dpaPostPartum);
       await saveData({ dpa: dpaPostPartum, dpa_originale: dpaCourante });
+      setShowCelebration(true);
       setActiveTab('home');
     }
   };
@@ -320,7 +321,6 @@ function DashboardContent() {
 
 export default function DashboardPage() {
   return (
-    <>
     <Suspense fallback={
       <div style={{ minHeight: '100vh', background: '#f7f5f0', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         <p style={{ color: '#9aa0a8', fontSize: '14px' }}>Chargement...</p>
@@ -329,6 +329,5 @@ export default function DashboardPage() {
       <DashboardContent />
     </Suspense>
     <ChatBubble />
-  </>
   );
 }
