@@ -50,17 +50,17 @@ export default function Topbar({ prenom, dpa, saReelle, tri, prog, isPost, moisB
             <span style={{ fontSize: '20px', fontWeight: 900, color: C.dark, letterSpacing: '-0.3px' }}>DadUp</span>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <a href="/compte" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px', background: '#f0ede8', borderRadius: '32px', padding: '6px 14px' }}>
-              <span style={{ fontSize: '13px', fontWeight: 700, color: C.dark }}>
+            <a href="/compte" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px', border: '1px solid #e0dbd2', padding: '6px 12px', borderRadius: '6px', background: '#faf6f0' }}>
+              <span style={{ fontSize: '13px', fontWeight: 500, color: C.dark }}>
                 {prenom || 'Mon compte'}
               </span>
               {saReelle && (
-                <span style={{ fontSize: '11px', color: C.muted, fontWeight: 600, background: C.white, borderRadius: '20px', padding: '2px 8px' }}>
+                <span style={{ fontSize: '11px', background: '#E6F0FA', color: '#1A4A7A', padding: '1px 6px', borderRadius: '3px', fontWeight: 600 }}>
                   {isPost ? `Mois ${moisBebe + 1}` : `SA ${saReelle}`}
                 </span>
               )}
             </a>
-            <a href="/contact-app" style={{ fontSize: '13px', fontWeight: 600, color: C.muted, textDecoration: 'none', background: '#f0ede8', borderRadius: '32px', padding: '6px 14px' }}>
+            <a href="/contact-app" style={{ textDecoration: 'none', border: '1px solid #e0dbd2', padding: '6px 12px', borderRadius: '6px', background: '#faf6f0', fontSize: '13px', color: C.muted }}>
               Contact
             </a>
           </div>
