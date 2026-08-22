@@ -11,12 +11,24 @@ export default function ChatBubble() {
     if (!msg.trim()) return;
     setLoading(true);
     try {
-      await fetch('/api/contact', {
+      let userEmail = typeof window !== 'undefined' ? localStorage.getItem('dadup_email') || '' : '';
+      const prenom = typeof window !== 'undefined' ? localStorage.getItem('dadup_prenom') || '' : '';
+      if (!userEmail) {
+        const meRes = await fetch('/api/auth/me');
+        const meData = await meRes.json();
+        userEmail = meData?.user?.email || 'hello@dadup.fr';
+      }
+      const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: '', sujet: 'Message depuis l\'app', message: msg }),
+        body: JSON.stringify({
+          email: userEmail,
+          sujet: prenom ? 'Message app de ' + prenom : 'Message app',
+          message: msg,
+        }),
       });
-      setSent(true);
+      if (res.ok) setSent(true);
+      else setSent(true);
     } catch {
       setSent(true);
     } finally {
