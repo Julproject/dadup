@@ -303,8 +303,7 @@ export default function PreparerPage({C, valiseChecked, toggleV, achatChecked, t
 
       {/* PROGRESSION */}
       {onglet !== 'conge' && (
-      {/* PROGRESSION */}
-      <div style={{display:'flex',alignItems:'center',gap:'12px'}}>
+        <div style={{display:'flex',alignItems:'center',gap:'12px'}}>
         <div style={{flex:1,background:'#f0ede8',borderRadius:'4px',height:'5px'}}>
           <div style={{background:pct===100?'#0D6B40':C.gold,height:'5px',borderRadius:'4px',width:pct+'%',transition:'width 0.4s'}}/>
         </div>
@@ -378,8 +377,7 @@ export default function PreparerPage({C, valiseChecked, toggleV, achatChecked, t
       </div>
 
       {onglet !== 'conge' && (
-      {/* PDF */}
-      <div style={{paddingTop:'8px',textAlign:'center' as const}}>
+        <div style={{paddingTop:'8px',textAlign:'center' as const}}>
         <button
           onClick={() => genererPDF(valiseChecked, maisonChecked)}
           style={{display:'inline-flex',alignItems:'center',gap:'8px',background:C.dark,color:'#fff',border:'none',padding:'13px 26px',borderRadius:'32px',fontSize:'14px',fontWeight:700,cursor:'pointer'}}
