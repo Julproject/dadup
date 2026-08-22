@@ -304,11 +304,12 @@ export default function PreparerPage({C, valiseChecked, toggleV, achatChecked, t
       {/* PROGRESSION */}
       {onglet !== 'conge' && (
         <div style={{display:'flex',alignItems:'center',gap:'12px'}}>
-        <div style={{flex:1,background:'#f0ede8',borderRadius:'4px',height:'5px'}}>
-          <div style={{background:pct===100?'#0D6B40':C.gold,height:'5px',borderRadius:'4px',width:pct+'%',transition:'width 0.4s'}}/>
+          <div style={{flex:1,background:'#f0ede8',borderRadius:'4px',height:'5px'}}>
+            <div style={{background:pct===100?'#0D6B40':C.gold,height:'5px',borderRadius:'4px',width:pct+'%',transition:'width 0.4s'}}/>
+          </div>
+          <span style={{fontSize:'12px',fontWeight:800,color:pct===100?'#0D6B40':C.gold,flexShrink:0}}>{done}/{total}</span>
         </div>
-        <span style={{fontSize:'12px',fontWeight:800,color:pct===100?'#0D6B40':C.gold,flexShrink:0}}>{done}/{total}</span>
-      </div>
+      )}
 
       {/* CONTENU */}
       <div style={{display:'flex',flexDirection:'column',gap:'20px'}}>
