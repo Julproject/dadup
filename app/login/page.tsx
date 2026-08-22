@@ -39,6 +39,7 @@ export default function LoginPage() {
       }
 
       const u = data.user;
+      if (u.email)  localStorage.setItem('dadup_email', u.email);
       if (u.prenom) localStorage.setItem('dadup_prenom', u.prenom);
       if (u.dpa)    localStorage.setItem('dadup_dpa', u.dpa);
       if (u.valise_checked)   localStorage.setItem('dadup_valise',      JSON.stringify(u.valise_checked));
