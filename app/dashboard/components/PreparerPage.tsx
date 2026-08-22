@@ -209,9 +209,56 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#1
   if (w) setTimeout(() => w.print(), 600);
 }
 
+// ── Données Congé Paternité ───────────────────────────────────────────────────
+const CONGE = [
+  {
+    titre: 'Ce que dit la loi',
+    couleur: '#E6F0FA', tc: '#1A4A7A',
+    items: [
+      { id:'c1',  label: '28 jours calendaires au total (week-ends et jours fériés inclus)' },
+      { id:'c2',  label: '7 premiers jours obligatoires, consécutifs, à prendre dès la naissance' },
+      { id:'c3',  label: '21 jours restants à prendre dans les 6 mois suivant la naissance' },
+      { id:'c4',  label: 'Les 21 jours peuvent être fractionnés en 2 périodes minimum' },
+      { id:'c5',  label: 'En cas de jumeaux : 35 jours au total' },
+    ],
+  },
+  {
+    titre: "L'indemnisation",
+    couleur: '#E4F5EC', tc: '#0D6B40',
+    items: [
+      { id:'c6',  label: 'Indemnité journalière versée par l'Assurance Maladie' },
+      { id:'c7',  label: '90% du salaire journalier de base, plafonné à environ 56€/jour (2024)' },
+      { id:'c8',  label: 'Conditions : avoir travaillé au moins 150h sur les 3 derniers mois' },
+      { id:'c9',  label: 'Délai de carence : 1 jour non indemnisé' },
+      { id:'c10', label: "L'employeur peut compléter jusqu'à 100% du salaire selon ta convention collective" },
+    ],
+  },
+  {
+    titre: 'Les démarches',
+    couleur: '#FFF7E0', tc: '#8A6010',
+    items: [
+      { id:'c11', label: 'Prévenir ton employeur au moins 15 jours avant la date souhaitée' },
+      { id:'c12', label: "Envoyer un courrier ou email à l'employeur avec les dates exactes" },
+      { id:'c13', label: "Fournir une copie du certificat de naissance à l'Assurance Maladie" },
+      { id:'c14', label: 'La CPAM verse les indemnités directement sur ton compte bancaire' },
+      { id:'c15', label: 'Vérifier ta convention collective : certaines sont plus avantageuses que la loi' },
+    ],
+  },
+  {
+    titre: 'À savoir en plus',
+    couleur: '#FFF0E6', tc: '#C04A1A',
+    items: [
+      { id:'c16', label: "Le congé peut démarrer le jour de la naissance ou dans les jours suivants" },
+      { id:'c17', label: "Si bébé est hospitalisé : le congé peut être reporté jusqu'à sa sortie" },
+      { id:'c18', label: "Ce congé est cumulable avec le congé de naissance de 3 jours" },
+      { id:'c19', label: "Si tu es indépendant : renseigne-toi auprès de ta caisse spécifique" },
+    ],
+  },
+];
+
 // ── Composant ─────────────────────────────────────────────────────────────────
 export default function PreparerPage({C, valiseChecked, toggleV, achatChecked, toggleA}: any) {
-  const [onglet, setOnglet] = useState<'valise'|'maison'>('valise');
+  const [onglet, setOnglet] = useState<'valise'|'maison'|'conge'>('valise');
   const [maisonChecked, setMaisonChecked] = useState<Record<string,boolean>>({});
   const toggleM = (id: string) => setMaisonChecked(u => ({...u, [id]: !u[id]}));
 
@@ -223,12 +270,12 @@ export default function PreparerPage({C, valiseChecked, toggleV, achatChecked, t
   const doneM = allMaison.filter(i => maisonChecked[i.id]).length;
   const pctM  = Math.round((doneM / allMaison.length) * 100);
 
-  const source = onglet === 'valise' ? VALISE : MAISON;
+  const source = onglet === 'valise' ? VALISE : onglet === 'maison' ? MAISON : CONGE;
   const checked = onglet === 'valise' ? valiseChecked : maisonChecked;
   const toggle  = onglet === 'valise' ? toggleV : toggleM;
   const done    = onglet === 'valise' ? doneV : doneM;
-  const total   = onglet === 'valise' ? allValise.length : allMaison.length;
-  const pct     = onglet === 'valise' ? pctV : pctM;
+  const total   = onglet === 'valise' ? allValise.length : onglet === 'maison' ? allMaison.length : 0;
+  const pct     = onglet === 'valise' ? pctV : onglet === 'maison' ? pctM : 0;
 
   return (
     <div style={{display:'flex',flexDirection:'column',gap:'24px'}}>
@@ -238,6 +285,7 @@ export default function PreparerPage({C, valiseChecked, toggleV, achatChecked, t
         {([
           {id:'valise', label:`Valise maternité`, done:doneV, total:allValise.length},
           {id:'maison', label:`À la maison`,      done:doneM, total:allMaison.length},
+          {id:'conge',  label:`Congé paternité`,  done:0,     total:0},
         ] as const).map(t => (
           <button key={t.id} onClick={()=>setOnglet(t.id)} style={{
             flex:1, padding:'12px 8px', border:'none', borderRadius:'16px', cursor:'pointer',
@@ -253,6 +301,8 @@ export default function PreparerPage({C, valiseChecked, toggleV, achatChecked, t
         ))}
       </div>
 
+      {/* PROGRESSION */}
+      {onglet !== 'conge' && (
       {/* PROGRESSION */}
       <div style={{display:'flex',alignItems:'center',gap:'12px'}}>
         <div style={{flex:1,background:'#f0ede8',borderRadius:'4px',height:'5px'}}>
@@ -327,6 +377,7 @@ export default function PreparerPage({C, valiseChecked, toggleV, achatChecked, t
         })}
       </div>
 
+      {onglet !== 'conge' && (
       {/* PDF */}
       <div style={{paddingTop:'8px',textAlign:'center' as const}}>
         <button
@@ -337,7 +388,10 @@ export default function PreparerPage({C, valiseChecked, toggleV, achatChecked, t
         </button>
         <p style={{color:C.muted,fontSize:'12px',marginTop:'8px'}}>Génère un PDF imprimable avec tout ce qui est coché</p>
       </div>
+      )}
+
 
     </div>
   );
-}
+}      )}
+
