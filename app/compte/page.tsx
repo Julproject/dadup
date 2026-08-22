@@ -48,7 +48,6 @@ export default function ComptePage() {
   const [pwdLoading, setPwdLoading] = useState(false);
 
   const [loading, setLoading] = useState(true);
-  const [isPost, setIsPost] = useState(false);
 
   useEffect(() => {
     fetch('/api/auth/me').then(r => r.json()).then(({ user }) => {
