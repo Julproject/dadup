@@ -94,18 +94,19 @@ export default function BebePage({C,saReelle,sa,data,dataR,avance,setAvance,dpa}
       )}
 
       {/* BOUTON BÉBÉ EST NÉ - visible à partir de 35 SA */}
-      {saReelle >= 35 && <div style={{ background: '#EDE8FF', borderRadius: '16px', padding: '20px 24px', marginTop: '24px', textAlign: 'center' as const }}>
-        <p style={{ color: '#6B4FBB', fontSize: '13px', margin: '0 0 12px', lineHeight: 1.6 }}>
-          Bébé est là ? Bascule en mode post-partum pour accéder au contenu de la première année.
-        </p>
-        <button
-          onClick={() => window.dispatchEvent(new CustomEvent('dadup:declareNaissance'))}
-          style={{ background: '#6B4FBB', color: '#fff', border: 'none', padding: '12px 28px', borderRadius: '32px', fontSize: '14px', fontWeight: 700, cursor: 'pointer' }}
-        >
-          Bébé est né !
-        </button>
-      </div>
-
+      {saReelle >= 35 && (
+        <div style={{ background: '#EDE8FF', borderRadius: '16px', padding: '20px 24px', marginTop: '24px', textAlign: 'center' as const }}>
+          <p style={{ color: '#6B4FBB', fontSize: '13px', margin: '0 0 12px', lineHeight: 1.6 }}>
+            Bébé est là ? Bascule en mode post-partum pour accéder au contenu de la première année.
+          </p>
+          <button
+            onClick={() => window.dispatchEvent(new CustomEvent('dadup:declareNaissance'))}
+            style={{ background: '#6B4FBB', color: '#fff', border: 'none', padding: '12px 28px', borderRadius: '32px', fontSize: '14px', fontWeight: 700, cursor: 'pointer' }}
+          >
+            Bébé est né !
+          </button>
+        </div>
+      )}
     </div>
   );
 }
