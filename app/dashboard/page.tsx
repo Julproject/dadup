@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, Suspense } from 'react';
+import ChatBubble from './components/ChatBubble';
 import { useSearchParams } from 'next/navigation';
 
 // ── Data ──────────────────────────────────────────────────────────────────────
@@ -326,5 +327,6 @@ export default function DashboardPage() {
     }>
       <DashboardContent />
     </Suspense>
+    <ChatBubble />
   );
 }
