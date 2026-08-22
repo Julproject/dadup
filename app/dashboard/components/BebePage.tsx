@@ -14,7 +14,7 @@ export default function BebePage({C,saReelle,sa,data,dataR,avance,setAvance,dpa}
         <button onClick={()=>setAvance(!avance)} style={{fontSize:'11px',padding:'8px 16px',borderRadius:'20px',cursor:'pointer',background:avance?C.dark:'#E6F0FA',color:avance?'#fff':'#1A4A7A',border:'none',fontWeight:700}}>
           {avance?'← Revenir':'Semaine suivante →'}
         </button>
-      </div>
+      </div>}
 
       {/* HERO BÉBÉ */}
       <div style={{background:C.blue,borderRadius:'22px',overflow:'hidden'}}>
@@ -93,8 +93,8 @@ export default function BebePage({C,saReelle,sa,data,dataR,avance,setAvance,dpa}
         </div>
       )}
 
-      {/* BOUTON BÉBÉ EST NÉ */}
-      <div style={{ background: '#EDE8FF', borderRadius: '16px', padding: '20px 24px', marginTop: '24px', textAlign: 'center' as const }}>
+      {/* BOUTON BÉBÉ EST NÉ - visible à partir de 35 SA */}
+      {saReelle >= 35 && <div style={{ background: '#EDE8FF', borderRadius: '16px', padding: '20px 24px', marginTop: '24px', textAlign: 'center' as const }}>
         <p style={{ color: '#6B4FBB', fontSize: '13px', margin: '0 0 12px', lineHeight: 1.6 }}>
           Bébé est là ? Bascule en mode post-partum pour accéder au contenu de la première année.
         </p>
