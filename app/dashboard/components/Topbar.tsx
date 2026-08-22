@@ -50,10 +50,7 @@ export default function Topbar({ prenom, dpa, saReelle, tri, prog, isPost, moisB
             <span style={{ fontSize: '20px', fontWeight: 900, color: C.dark, letterSpacing: '-0.3px' }}>DadUp</span>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <button onClick={onDeclareNaissance} style={{ background: isPost ? '#E4F5EC' : '#FDECEA', color: isPost ? '#0D6B40' : '#C04A1A', border: 'none', padding: '6px 12px', borderRadius: '6px', fontSize: '13px', fontWeight: 700, cursor: 'pointer' }}>
-              {isPost ? 'Mode grossesse' : 'Bébé est né !'}
-            </button>
-            <a href="/compte" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px', border: '1px solid #e0dbd2', padding: '6px 12px', borderRadius: '6px', background: '#faf6f0' }}>
+<a href="/compte" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px', border: '1px solid #e0dbd2', padding: '6px 12px', borderRadius: '6px', background: '#faf6f0' }}>
               <span className="tb-prenom" style={{ fontSize: '13px', fontWeight: 700, color: C.dark }}>
                 {prenom || 'Mon compte'}
               </span>
