@@ -68,6 +68,13 @@ function readLSJson<T>(key: string, fallback: T): T {
 function DashboardContent() {
   const searchParams = useSearchParams();
 
+  useEffect(() => {
+    const handler = () => setShowConfirmNaissance(true);
+    window.addEventListener('dadup:declareNaissance', handler);
+    return () => window.removeEventListener('dadup:declareNaissance', handler);
+  }, []);
+
+
   // Initialisation immédiate depuis localStorage → affichage instantané à chaque refresh
   const [activeTab,            setActiveTabRaw]       = useState('home');
   const [dpa,                  setDpa]                = useState(() => readLS('dadup_dpa'));
