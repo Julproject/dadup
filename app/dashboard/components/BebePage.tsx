@@ -14,7 +14,7 @@ export default function BebePage({C,saReelle,sa,data,dataR,avance,setAvance,dpa}
         <button onClick={()=>setAvance(!avance)} style={{fontSize:'11px',padding:'8px 16px',borderRadius:'20px',cursor:'pointer',background:avance?C.dark:'#E6F0FA',color:avance?'#fff':'#1A4A7A',border:'none',fontWeight:700}}>
           {avance?'← Revenir':'Semaine suivante →'}
         </button>
-      </div>}
+      </div>
 
       {/* HERO BÉBÉ */}
       <div style={{background:C.blue,borderRadius:'22px',overflow:'hidden'}}>
