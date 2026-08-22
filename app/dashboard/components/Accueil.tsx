@@ -122,9 +122,9 @@ export default function Accueil({C,dpa,saReelle,joursRestants,prog,tri,idee,miss
 
 
       {/* MENTION MÉDICALE */}
-      <div style={{ background: '#f0ede8', borderRadius: '12px', padding: '12px 16px', display: 'flex', alignItems: 'center', gap: '10px', marginTop: '16px' }}>
+      <div style={{ background: '#FDECEA', borderRadius: '12px', padding: '12px 16px', display: 'flex', alignItems: 'center', gap: '10px', marginTop: '16px' }}>
         <span style={{ fontSize: '16px', flexShrink: 0 }}>⚕️</span>
-        <p style={{ color: '#6a7585', fontSize: '12px', lineHeight: 1.6, margin: 0 }}>
+        <p style={{ color: '#8B1A1A', fontSize: '12px', lineHeight: 1.6, margin: 0 }}>
           DadUp ne remplace pas l&apos;avis d&apos;un médecin. En cas de doute, appelle ta sage-femme ou ton médecin.
         </p>
       </div>
