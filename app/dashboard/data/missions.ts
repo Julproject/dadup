@@ -66,8 +66,8 @@ export const MISSIONS: Record<number, string[]> = {
   ],
   16: [
     "Se renseigner sur les cours de préparation spécifiques aux pères",
+    "Lire les règles du congé paternité : 28 jours, 7 obligatoires, à prendre dans les 6 mois",
     "Établir la liste des achats prioritaires avec un budget réaliste",
-    "Rappel : bilan bucco-dentaire remboursé à 100% ce mois",
   ],
   17: [
     "Instaurer le rituel de la main sur le ventre chaque soir",
@@ -126,8 +126,8 @@ export const MISSIONS: Record<number, string[]> = {
   ],
   28: [
     "Faire le vaccin coqueluche - protège bébé avant ses premiers vaccins",
+    "Commence les démarches congé paternité : vérifie ta convention collective et les modalités chez ton employeur",
     "Mémoriser la règle 5-1-1 pour l'accouchement",
-    "Commencer la valise maternité maintenant si pas encore fait",
   ],
   29: [
     "Finaliser la valise maternité (liste dans l'app)",
@@ -151,8 +151,8 @@ export const MISSIONS: Record<number, string[]> = {
   ],
   33: [
     "Prendre en charge 100% des tâches domestiques - sans exception",
+    "Prévenir ton employeur des dates de congé paternité : la loi impose 15 jours de préavis minimum",
     "Finaliser tous les achats prioritaires",
-    "Préparer la liste des personnes à prévenir le jour J",
   ],
   34: [
     "Vérifier que la valise est prête et dans la voiture",
