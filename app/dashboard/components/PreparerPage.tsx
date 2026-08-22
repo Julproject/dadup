@@ -379,18 +379,18 @@ export default function PreparerPage({C, valiseChecked, toggleV, achatChecked, t
 
       {onglet !== 'conge' && (
         <div style={{paddingTop:'8px',textAlign:'center' as const}}>
-        <button
-          onClick={() => genererPDF(valiseChecked, maisonChecked)}
-          style={{display:'inline-flex',alignItems:'center',gap:'8px',background:C.dark,color:'#fff',border:'none',padding:'13px 26px',borderRadius:'32px',fontSize:'14px',fontWeight:700,cursor:'pointer'}}
-        >
-          Partager la checklist avec la maman
-        </button>
-        <p style={{color:C.muted,fontSize:'12px',marginTop:'8px'}}>Génère un PDF imprimable avec tout ce qui est coché</p>
-      </div>
+          <button
+            onClick={() => genererPDF(valiseChecked, maisonChecked)}
+            style={{display:'inline-flex',alignItems:'center',gap:'8px',background:C.dark,color:'#fff',border:'none',padding:'13px 26px',borderRadius:'32px',fontSize:'14px',fontWeight:700,cursor:'pointer'}}
+          >
+            Partager la checklist avec la maman
+          </button>
+          <p style={{color:C.muted,fontSize:'12px',marginTop:'8px'}}>Génère un PDF imprimable avec tout ce qui est coché</p>
+        </div>
       )}
 
 
     </div>
   );
-}      )}
+}
 
