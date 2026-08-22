@@ -2,6 +2,7 @@
 
 import { useState, useEffect, Suspense } from 'react';
 import ChatBubble from './components/ChatBubble';
+import CelebrationNaissance from './components/CelebrationNaissance';
 import { useSearchParams } from 'next/navigation';
 
 // ── Data ──────────────────────────────────────────────────────────────────────
