@@ -119,7 +119,7 @@ export default function TarifsPage() {
           <div style={{ background: C.dark, borderRadius: '24px', padding: '40px', display: 'flex', flexDirection: 'column', height: '100%' }}>
             <p style={{ color: C.gold, fontSize: '11px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase', margin: '0 0 20px' }}>Accès annuel complet</p>
             <div style={{ marginBottom: '6px' }}>
-              <span style={{ color: C.white, fontSize: '68px', fontWeight: 800, lineHeight: 1 }}>35,99€</span>
+              <span style={{ color: C.white, fontSize: '68px', fontWeight: 800, lineHeight: 1 }}>49,99€</span>
             </div>
             <p style={{ color: '#6a7585', fontSize: '14px', margin: '0 0 36px' }}>par an · paiement unique · accès immédiat</p>
 
@@ -218,7 +218,7 @@ export default function TarifsPage() {
       {/* CTA BAS */}
       <section style={{ background: C.dark, padding: '72px 40px', textAlign: 'center' as const }}>
         <p style={{ color: C.gold, fontSize: '11px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase' as const, margin: '0 0 16px' }}>Prêt à commencer ?</p>
-        <h2 style={{ color: C.white, fontSize: '40px', fontWeight: 800, margin: '0 0 8px' }}>35,99€ par an</h2>
+        <h2 style={{ color: C.white, fontSize: '40px', fontWeight: 800, margin: '0 0 8px' }}>49,99€ par an</h2>
         <p style={{ color: '#6a7585', fontSize: '15px', margin: '0 0 36px' }}>Paiement unique · Accès 12 mois</p>
         <button onClick={goToStripe} style={{ background: C.gold, color: '#1c1510', border: 'none', padding: '18px 48px', borderRadius: '32px', fontSize: '16px', fontWeight: 800, cursor: 'pointer' }}>
           Commencer
