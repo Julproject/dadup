@@ -108,7 +108,7 @@ export default function PourquoiPage() {
         <div style={{maxWidth:'1200px',margin:'0 auto',display:'flex',gap:'12px',justifyContent:'center',flexWrap:'wrap'}}>
           {[
             {icon:'📱', texte:'Tout centralisé, semaine par semaine'},
-            {icon:'🔓', texte:'Paiement unique, accès 12 mois'},
+            {icon:'🔓', texte:'Paiement unique, jusqu'au 1er anniversaire de bébé'},
             {icon:'👶', texte:'De la grossesse au premier anniversaire'},
           ].map((item,i) => (
             <div key={i} style={{display:'flex',alignItems:'center',gap:'8px',background:C.white,border:`1px solid ${C.border}`,borderRadius:'24px',padding:'10px 18px'}}>
@@ -190,7 +190,7 @@ export default function PourquoiPage() {
       <section style={{background:C.dark,padding:'80px 40px',textAlign:'center' as const}}>
         <p style={{color:C.gold,fontSize:'11px',fontWeight:700,letterSpacing:'3px',textTransform:'uppercase',margin:'0 0 16px'}}>Prêt à commencer ?</p>
         <h2 style={{color:C.white,fontSize:'38px',fontWeight:800,margin:'0 0 12px'}}>49,99€ accès complet</h2>
-        <p style={{color:'#6a7585',fontSize:'16px',margin:'0 0 8px'}}>Paiement unique. Accès complet pendant 12 mois.</p>
+        <p style={{color:'#6a7585',fontSize:'16px',margin:'0 0 8px'}}>Paiement unique. Accès jusqu'au 1er anniversaire de bébé.</p>
         <p style={{color:'rgba(200,160,96,0.5)',fontSize:'13px',margin:'0 0 32px'}}></p>
         <a href="/tarifs" style={{background:C.gold,color:'#1c1510',padding:'16px 40px',borderRadius:'32px',fontSize:'15px',fontWeight:800,textDecoration:'none',display:'inline-block'}}>Commencer</a>
       </section>
