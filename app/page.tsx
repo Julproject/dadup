@@ -185,7 +185,7 @@ export default function Home() {
             {chiffre:'41',     label:'semaines de contenu'},
             {chiffre:'12',     label:'mois d\'accès'},
             {chiffre:'100%',   label:'pour les papas'},
-            {chiffre:'49,99€', label:'par an'},
+            {chiffre:'49,99€', label:'accès complet'},
           ].map((s, i) => (
             <div key={s.label} className="stats-item" style={{padding:'32px', borderLeft: i > 0 ? '1px solid #2e3848' : 'none'}}>
               <p style={{color: i >= 2 ? C.gold : C.white, fontSize:'40px', fontWeight:800, margin:0}}>{s.chiffre}</p>
@@ -279,7 +279,7 @@ export default function Home() {
         </h2>
         <p style={{color:'rgba(255,255,255,0.5)', fontSize:'16px', margin:'0 0 8px'}}></p>
         <p style={{color:C.white, fontSize:'52px', fontWeight:800, margin:'16px 0 4px'}}>49,99€</p>
-        <p style={{color:'#6a7585', fontSize:'14px', margin:'0 0 40px'}}>par an · paiement unique · sans engagement</p>
+        <p style={{color:'#6a7585', fontSize:'14px', margin:'0 0 40px'}}>accès complet · paiement unique · sans engagement</p>
         <button onClick={goToStripe} style={{background:C.gold, color:'#1c1510', border:'none', padding:'18px 48px', borderRadius:'32px', fontSize:'16px', fontWeight:800, cursor:'pointer', width:'100%', maxWidth:'400px', display:'block', margin:'0 auto'}}>
           Commencer
         </button>
