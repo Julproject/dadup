@@ -69,6 +69,7 @@ export async function POST(req: NextRequest) {
         actif:                  true,
         stripe_customer_id:     session.customer as string,
         stripe_subscription_id: session.subscription as string,
+        access_until:           null,
       })
       .select('id')
       .single();
