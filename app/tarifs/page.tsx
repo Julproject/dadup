@@ -121,7 +121,7 @@ export default function TarifsPage() {
             <div style={{ marginBottom: '6px' }}>
               <span style={{ color: C.white, fontSize: '68px', fontWeight: 800, lineHeight: 1 }}>49,99€</span>
             </div>
-            <p style={{ color: '#6a7585', fontSize: '14px', margin: '0 0 36px' }}>par an · paiement unique · accès immédiat</p>
+            <p style={{ color: '#6a7585', fontSize: '14px', margin: '0 0 36px' }}>accès complet · paiement unique · accès immédiat</p>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '36px', flex: 1 }}>
               {FEATURES.map(f => (
@@ -154,7 +154,7 @@ export default function TarifsPage() {
               <p style={{ color: C.blue, fontSize: '11px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase', margin: '0 0 20px' }}>Informations pratiques</p>
               <div style={{ display: 'flex', flexDirection: 'column' }}>
                 {[
-                  { label: "Durée", val: "12 mois d'accès à compter du paiement" },
+                  { label: "Durée", val: "Accès jusqu'au 1er anniversaire de bébé à compter du paiement" },
                   { label: "Données", val: "Email et DPA uniquement. Aucune revente." },
                   { label: "Support", val: "hello@dadup.fr" },
                 ].map(({ label, val }, i, arr) => (
@@ -179,10 +179,10 @@ export default function TarifsPage() {
           {[
             {
               q: "L'accès dure combien de temps ?",
-              r: "12 mois à compter de la date de paiement. Vous avez accès à tout le contenu pendant cette période, sans restriction."
+              r: "Jusqu'au 1er anniversaire de bébé, à compter de la DPA. Vous avez accès à tout le contenu pendant cette période, sans restriction."
             },
             {
-              q: "Que se passe-t-il à la fin des 12 mois ?",
+              q: "Que se passe-t-il au 1er anniversaire de bébé ?",
               r: "L'accès s'arrête simplement. Aucun prélèvement automatique, aucune reconduction tacite. Vous ne devez rien faire."
             },
             {
@@ -191,7 +191,7 @@ export default function TarifsPage() {
             },
             {
               q: "Y a-t-il un renouvellement automatique ?",
-              r: "Non. DadUp est un paiement unique. Vous payez une fois, vous accédez pendant 12 mois. Pas de surprise."
+              r: "Non. DadUp est un paiement unique. Vous payez une fois, vous accédez jusqu'au 1er anniversaire de bébé. Pas de surprise."
             },
             {
               q: "À quel moment puis-je accéder à DadUp après le paiement ?",
@@ -218,8 +218,8 @@ export default function TarifsPage() {
       {/* CTA BAS */}
       <section style={{ background: C.dark, padding: '72px 40px', textAlign: 'center' as const }}>
         <p style={{ color: C.gold, fontSize: '11px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase' as const, margin: '0 0 16px' }}>Prêt à commencer ?</p>
-        <h2 style={{ color: C.white, fontSize: '40px', fontWeight: 800, margin: '0 0 8px' }}>49,99€ par an</h2>
-        <p style={{ color: '#6a7585', fontSize: '15px', margin: '0 0 36px' }}>Paiement unique · Accès 12 mois</p>
+        <h2 style={{ color: C.white, fontSize: '40px', fontWeight: 800, margin: '0 0 8px' }}>49,99€ accès complet</h2>
+        <p style={{ color: '#6a7585', fontSize: '15px', margin: '0 0 36px' }}>Paiement unique · Accès jusqu'au 1er anniversaire de bébé</p>
         <button onClick={goToStripe} style={{ background: C.gold, color: '#1c1510', border: 'none', padding: '18px 48px', borderRadius: '32px', fontSize: '16px', fontWeight: 800, cursor: 'pointer' }}>
           Commencer
         </button>
