@@ -142,7 +142,7 @@ export default function MethodologiePage() {
       <section style={{ background: C.dark, padding: '72px 40px', textAlign: 'center' as const }}>
         <p style={{ color: C.gold, fontSize: '11px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase' as const, margin: '0 0 16px' }}>Accéder à DadUp</p>
         
-        <p style={{ color: '#6a7585', fontSize: '16px', margin: '0 0 36px' }}>35,99€ par an · Paiement unique · Accès immédiat</p>
+        <p style={{ color: '#6a7585', fontSize: '16px', margin: '0 0 36px' }}>49,99€ par an · Paiement unique · Accès immédiat</p>
         <a href="/tarifs" style={{ background: C.gold, color: '#1c1510', padding: '18px 48px', borderRadius: '32px', fontSize: '16px', fontWeight: 800, textDecoration: 'none', display: 'inline-block' }}>
           Commencer
         </a>
