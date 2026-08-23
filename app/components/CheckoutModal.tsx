@@ -48,7 +48,7 @@ export default function CheckoutModal({ onClose }: { onClose: () => void }) {
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '28px' }}>
           <div>
             <p style={{ color: C.textLight, fontSize: '12px', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase', margin: '0 0 6px' }}>Accès annuel complet</p>
-            <p style={{ color: C.dark, fontSize: '36px', fontWeight: 800, margin: 0, lineHeight: 1 }}>35,99€</p>
+            <p style={{ color: C.dark, fontSize: '36px', fontWeight: 800, margin: 0, lineHeight: 1 }}>49,99€</p>
             <p style={{ color: C.textLight, fontSize: '13px', margin: '4px 0 0' }}>par an · paiement unique</p>
           </div>
           <button
@@ -108,7 +108,7 @@ export default function CheckoutModal({ onClose }: { onClose: () => void }) {
             transition: 'all 0.2s', marginBottom: '12px',
           }}
         >
-          {loading ? 'Redirection...' : 'Payer 35,99€'}
+          {loading ? 'Redirection...' : 'Payer 49,99€'}
         </button>
 
         <p style={{ color: C.textLight, fontSize: '12px', textAlign: 'center', margin: 0 }}>
