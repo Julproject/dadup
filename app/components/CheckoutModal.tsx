@@ -49,7 +49,7 @@ export default function CheckoutModal({ onClose }: { onClose: () => void }) {
           <div>
             <p style={{ color: C.textLight, fontSize: '12px', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase', margin: '0 0 6px' }}>Accès annuel complet</p>
             <p style={{ color: C.dark, fontSize: '36px', fontWeight: 800, margin: 0, lineHeight: 1 }}>49,99€</p>
-            <p style={{ color: C.textLight, fontSize: '13px', margin: '4px 0 0' }}>par an · paiement unique</p>
+            <p style={{ color: C.textLight, fontSize: '13px', margin: '4px 0 0' }}>accès complet · paiement unique</p>
           </div>
           <button
             onClick={onClose}
@@ -92,7 +92,7 @@ export default function CheckoutModal({ onClose }: { onClose: () => void }) {
             <a href="/cgv" target="_blank" style={{ color: C.blue, fontWeight: 600, textDecoration: 'none' }}>
               Conditions Générales de Vente
             </a>
-            . Je comprends que l&apos;accès est valable 12 mois sans renouvellement automatique.
+            . Je comprends que l&apos;accès court jusqu&apos;au 1er anniversaire de bébé, sans renouvellement automatique.
           </span>
         </label>
 
