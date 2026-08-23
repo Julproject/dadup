@@ -42,8 +42,8 @@ const MODULES = [
   },
   {
     num:'06', titre:'1ère année bébé',
-    desc:"De la naissance à 12 mois. Développement, vaccins, diversification, premiers mots, premières chutes. Tout ce que tu dois savoir.",
-    details:["12 mois couverts","Développement mois par mois","Vaccins, RDV médicaux, alertes","Activités à faire avec bébé"],
+    desc:"De la naissance à la première année de bébé. Développement, vaccins, diversification, premiers mots, premières chutes. Tout ce que tu dois savoir.",
+    details:["12 mois de la première année","Développement mois par mois","Vaccins, RDV médicaux, alertes","Activités à faire avec bébé"],
     emoji:'🌱', bg:C.bluePale, dark:false
   },
 ];
@@ -256,7 +256,7 @@ export default function InclusPage() {
             { titre: 'Guide accouchement', desc: 'Contractions, départ maternité, salle de naissance, comment soutenir', bg: C.dark, titleColor: C.white, descColor: 'rgba(255,255,255,0.55)', dark: true },
             { titre: 'Valise maternité', desc: 'Checklist complète pour toi, elle et bébé', bg: '#fdf0e6', titleColor: '#7a3a10', descColor: '#b06020', dark: false },
             { titre: 'Post-partum', desc: 'Baby blues, manque de sommeil, couple, ton rôle dès le retour à la maison', bg: '#e6f5f2', titleColor: '#1a4a40', descColor: '#2a7a6a', dark: false },
-            { titre: 'Première année de bébé', desc: '12 mois de développement, vaccins, diversification, premiers mots', bg: '#f0ecfa', titleColor: '#3a2a6a', descColor: '#6a4aaa', dark: false },
+            { titre: 'Première année de bébé', desc: '12 mois de la première année de bébé, diversification, premiers mots', bg: '#f0ecfa', titleColor: '#3a2a6a', descColor: '#6a4aaa', dark: false },
           ].map((m, i) => (
             <div key={i} style={{ background: m.bg, borderRadius: '16px', padding: '24px', border: m.dark ? 'none' : `1px solid ${C.border}` }}>
               <div style={{ width: '28px', height: '3px', borderRadius: '2px', background: C.gold, marginBottom: '12px' }}></div>
@@ -341,7 +341,7 @@ export default function InclusPage() {
               <p style={{ color: C.white, fontSize: '28px', fontWeight: 800, margin: '0 0 28px', lineHeight: 1.25 }}>Tout ce dont tu as besoin, au bon moment</p>
               <div>
                 <button onClick={() => setShowModal(true)} style={{ background: C.gold, color: '#1c1510', border: 'none', padding: '16px 32px', borderRadius: '32px', fontSize: '15px', fontWeight: 800, cursor: 'pointer', display: 'block', marginBottom: '10px', width: '100%' }}>
-                  Commencer · 49,99€/an
+                  Commencer · 49,99€
                 </button>
                 <p style={{ color: '#6a7585', fontSize: '12px', margin: 0, textAlign: 'center' as const }}>Satisfait ou remboursé sous 14 jours</p>
               </div>
