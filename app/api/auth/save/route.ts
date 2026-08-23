@@ -23,7 +23,15 @@ export async function POST(req: NextRequest) {
     const update: Record<string, any> = {};
     if (prenom           !== undefined) update.prenom           = prenom;
     if (email            !== undefined) update.email            = email.toLowerCase().trim();
-    if (dpa              !== undefined) update.dpa              = dpa || null;
+    if (dpa              !== undefined) {
+      update.dpa = dpa || null;
+      // Calculer access_until = DPA + 12 mois
+      if (dpa) {
+        const dpaDate = new Date(dpa);
+        dpaDate.setFullYear(dpaDate.getFullYear() + 1);
+        update.access_until = dpaDate.toISOString().split('T')[0];
+      }
+    }
     if (dpa_originale    !== undefined) update.dpa_originale    = dpa_originale || null;
     if (achats_checked   !== undefined) update.achats_checked   = achats_checked;
     if (valise_checked   !== undefined) update.valise_checked   = valise_checked;
