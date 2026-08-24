@@ -34,7 +34,6 @@ export default function ComptePage() {
   const [saReelle, setSaReelle]   = useState<number | null>(null);
   const [joursRestants, setJoursRestants] = useState<number | null>(null);
   const [isPost, setIsPost]   = useState(() => typeof window !== 'undefined' ? localStorage.getItem('dadup_is_post') === '1' : false);
-  const [retourCount] = useState(() => typeof window !== 'undefined' ? parseInt(localStorage.getItem('dadup_retour_count') || '0') : 0);
   const [missionsCount, setMissionsCount] = useState(0);
   const [rdvCount, setRdvCount] = useState(0);
 
@@ -133,8 +132,6 @@ export default function ComptePage() {
   };
 
   const declareNaissance = async () => {
-    if (isPost && retourCount >= 2) return;
-
     if (!isPost) {
       // Bascule en post-partum
       const accessUntil = new Date();
@@ -157,8 +154,6 @@ export default function ComptePage() {
       setIsPost(true);
     } else {
       // Retour en mode grossesse
-      const newCount = retourCount + 1;
-      localStorage.setItem('dadup_retour_count', String(newCount));
       localStorage.removeItem('dadup_is_post');
       const dpaOri = localStorage.getItem('dadup_dpa_originale') || dpa;
       if (dpaOri) localStorage.setItem('dadup_dpa', dpaOri);
@@ -315,7 +310,7 @@ export default function ComptePage() {
             onClick={declareNaissance}
             style={{ background: isPost ? '#E4F5EC' : '#EDE8FF', color: isPost ? '#0D6B40' : '#6B4FBB', border: 'none', padding: '14px', borderRadius: '32px', fontSize: '14px', fontWeight: 700, cursor: 'pointer', width: '100%' }}
           >
-            {isPost ? (retourCount < 2 ? 'Revenir en mode grossesse' : 'Accès post-partum actif') : 'Bébé est né !'}
+            {isPost ? 'Revenir en mode grossesse' : 'Bébé est né !'}
           </button>
         </div>
         {/* DECONNEXION */}
