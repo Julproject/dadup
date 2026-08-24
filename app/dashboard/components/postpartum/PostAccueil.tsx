@@ -16,7 +16,6 @@ export default function PostAccueil({C, moisBebe, dataBebe, joursRestants}: any)
         </p>
         <p style={{color:'#fff', fontSize:'22px', fontWeight:800, margin:'0 0 4px'}}>{dataBebe.titre}</p>
         <p style={{color:'rgba(255,255,255,0.45)', fontSize:'13px', margin:'0 0 14px'}}>{jours} jours de vie</p>
-        <p style={{color:'rgba(255,255,255,0.65)', fontSize:'14px', lineHeight:1.7, margin:0}}>{dataBebe.intro}</p>
       </div>
 
       {/* POUR TOI */}
