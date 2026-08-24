@@ -11,9 +11,10 @@ export default function BebePage({C,saReelle,sa,data,dataR,avance,setAvance,dpa}
           <p style={{color:C.muted,fontSize:'10px',fontWeight:700,letterSpacing:'2px',textTransform:'uppercase' as const,margin:'0 0 4px'}}>Cette semaine</p>
           <h2 style={{color:C.dark,fontSize:'26px',fontWeight:800,margin:0}}>{sa} semaines</h2>
         </div>
-        <button onClick={()=>setAvance(!avance)} style={{fontSize:'11px',padding:'8px 16px',borderRadius:'20px',cursor:'pointer',background:avance?C.dark:'#E6F0FA',color:avance?'#fff':'#1A4A7A',border:'none',fontWeight:700}}>
-          {avance?'← Revenir':'Semaine suivante →'}
-        </button>
+        <div style={{display:'flex',gap:'8px'}}>
+          <button onClick={()=>setAvance((a:number)=>Math.max(-1,a-1))} disabled={avance<=-1} style={{fontSize:'11px',padding:'8px 14px',borderRadius:'20px',cursor:'pointer',background:'#E6F0FA',color:'#1A4A7A',border:'none',fontWeight:700,opacity:avance<=-1?0.4:1}}>← Précédente</button>
+          <button onClick={()=>setAvance((a:number)=>Math.min(1,a+1))} disabled={avance>=1} style={{fontSize:'11px',padding:'8px 14px',borderRadius:'20px',cursor:'pointer',background:'#E6F0FA',color:'#1A4A7A',border:'none',fontWeight:700,opacity:avance>=1?0.4:1}}>Suivante →</button>
+        </div>
       </div>
 
       {/* HERO BÉBÉ */}
