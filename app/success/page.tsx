@@ -6,6 +6,8 @@ import { useSearchParams } from 'next/navigation';
 function SuccessContent() {
   const searchParams = useSearchParams();
   const [status, setStatus]   = useState<'loading' | 'sent' | 'pending' | 'error'>('loading');
+  const [resent, setResent] = useState(false);
+  const [resending, setResending] = useState(false);
   const [attempts, setAttempts] = useState(0);
 
   useEffect(() => {
@@ -41,6 +43,23 @@ function SuccessContent() {
 
     tryResend(0);
   }, [searchParams]);
+
+  const resendEmail = async () => {
+    setResending(true);
+    try {
+      const sessionId = searchParams.get('session_id');
+      await fetch('/api/resend-welcome', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ sessionId }),
+      });
+      setResent(true);
+    } catch {
+      setResent(true);
+    } finally {
+      setResending(false);
+    }
+  };
 
   return (
     <main style={{
