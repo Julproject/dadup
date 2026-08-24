@@ -212,6 +212,8 @@ function DashboardContent() {
       setDpa(dpaRestore);
       setDpaOriginale('');
       localStorage.setItem('dadup_dpa', dpaRestore);
+      localStorage.removeItem('dadup_is_post');
+      setIsPostFlag(false);
       localStorage.removeItem('dadup_dpa_originale');
       localStorage.removeItem('dadup_dpa_backup');
       await saveData({ dpa: dpaRestore, dpa_originale: null });
@@ -231,6 +233,8 @@ function DashboardContent() {
 
       setDpa(dpaPostPartum);
       localStorage.setItem('dadup_dpa', dpaPostPartum);
+      localStorage.setItem('dadup_is_post', '1');
+      setIsPostFlag(true);
       // Calculer access_until = aujourd'hui + 12 mois
       const accessUntil = new Date();
       accessUntil.setFullYear(accessUntil.getFullYear() + 1);
@@ -243,7 +247,8 @@ function DashboardContent() {
 
   // ── Calculs dérivés, tout depuis le state `dpa` en heure locale ──────────
   const joursRestants = dpa ? joursAvantDpa(dpa) : null;
-  const isPost        = joursRestants !== null && joursRestants < 0;
+  const [isPostFlag, setIsPostFlag] = useState(() => readLS('dadup_is_post') === '1');
+  const isPost = isPostFlag;
 
   const saReelle = !isPost && dpa
     ? Math.max(3, Math.min(42, Math.round(40 - (joursRestants ?? 0) / 7)))
