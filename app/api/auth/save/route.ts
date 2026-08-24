@@ -15,7 +15,7 @@ export async function POST(req: NextRequest) {
 
     const body = await req.json();
     const {
-      prenom, email, dpa, dpa_originale, access_until,
+      prenom, email, dpa, dpa_originale, access_until, naissance_count_increment,
       valise_checked, missions_checked,
       rdv_dates, next_rdv, achats_checked,
     } = body;
@@ -25,6 +25,40 @@ export async function POST(req: NextRequest) {
     if (email            !== undefined) update.email            = email.toLowerCase().trim();
     if (dpa              !== undefined) update.dpa = dpa || null;
     if (access_until     !== undefined) update.access_until = access_until || null;
+
+    // Incrémenter naissance_count si demandé
+    if (naissance_count_increment) {
+      // Récupérer le count actuel
+      const { data: userData } = await supabase
+        .from('users')
+        .select('naissance_count, email, prenom')
+        .eq('id', sessionId)
+        .single();
+
+      const currentCount = (userData?.naissance_count || 0) + 1;
+      update.naissance_count = currentCount;
+
+      // Envoyer email si >= 3
+      if (currentCount >= 3 && process.env.BREVO_API_KEY) {
+        try {
+          await fetch('https://api.brevo.com/v3/smtp/email', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'api-key': process.env.BREVO_API_KEY,
+            },
+            body: JSON.stringify({
+              sender: { name: 'DadUp', email: 'hello@dadup.fr' },
+              to: [{ email: 'hello@dadup.fr' }],
+              subject: `⚠️ DadUp - ${userData?.prenom || 'Un père'} a cliqué ${currentCount} fois sur "Bébé est né"`,
+              htmlContent: `<p>L'utilisateur <strong>${userData?.prenom || ''}</strong> (${userData?.email || ''}) a cliqué <strong>${currentCount} fois</strong> sur "Bébé est né !".</p><p>Contacte-le pour vérifier que tout va bien.</p>`,
+            }),
+          });
+        } catch (e) {
+          console.error('Email alerte naissance:', e);
+        }
+      }
+    }
     if (dpa_originale    !== undefined) update.dpa_originale    = dpa_originale || null;
     if (achats_checked   !== undefined) update.achats_checked   = achats_checked;
     if (valise_checked   !== undefined) update.valise_checked   = valise_checked;
