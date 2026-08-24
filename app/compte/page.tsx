@@ -132,6 +132,42 @@ export default function ComptePage() {
     finally { setPwdLoading(false); }
   };
 
+  const declareNaissance = async () => {
+    if (isPost && retourCount >= 2) return;
+
+    if (!isPost) {
+      // Bascule en post-partum
+      const accessUntil = new Date();
+      accessUntil.setFullYear(accessUntil.getFullYear() + 1);
+      const accessUntilStr = accessUntil.toISOString().split('T')[0];
+
+      // DPA post-partum = aujourd'hui - 2 jours
+      const dpaPost = new Date();
+      dpaPost.setDate(dpaPost.getDate() - 2);
+      const dpaPostStr = dpaPost.toISOString().split('T')[0];
+
+      localStorage.setItem('dadup_is_post', '1');
+      localStorage.setItem('dadup_dpa', dpaPostStr);
+
+      await fetch('/api/auth/save', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ dpa: dpaPostStr, dpa_originale: dpa || '', access_until: accessUntilStr }),
+      });
+      setIsPost(true);
+    } else {
+      // Retour en mode grossesse
+      const newCount = retourCount + 1;
+      localStorage.setItem('dadup_retour_count', String(newCount));
+      localStorage.removeItem('dadup_is_post');
+      const dpaOri = localStorage.getItem('dadup_dpa_originale') || dpa;
+      if (dpaOri) localStorage.setItem('dadup_dpa', dpaOri);
+      setIsPost(false);
+    }
+
+    window.location.href = '/dashboard';
+  };
+
   const logout = async () => {
     await fetch('/api/auth/logout', { method: 'POST' });
     localStorage.clear();
@@ -276,7 +312,7 @@ export default function ComptePage() {
             {isPost ? 'Tu es en mode post-partum. Tu peux revenir en mode grossesse si besoin.' : 'Quand bébé arrive, indique-le ici pour accéder au contenu de la première année.'}
           </p>
           <button
-            onClick={() => { if (!(isPost && retourCount >= 2)) window.dispatchEvent(new CustomEvent('dadup:declareNaissance')); }}
+            onClick={declareNaissance}
             style={{ background: isPost ? '#E4F5EC' : '#EDE8FF', color: isPost ? '#0D6B40' : '#6B4FBB', border: 'none', padding: '14px', borderRadius: '32px', fontSize: '14px', fontWeight: 700, cursor: 'pointer', width: '100%' }}
           >
             {isPost ? (retourCount < 2 ? 'Revenir en mode grossesse' : 'Accès post-partum actif') : 'Bébé est né !'}
