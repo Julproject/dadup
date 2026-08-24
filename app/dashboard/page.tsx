@@ -231,7 +231,11 @@ function DashboardContent() {
 
       setDpa(dpaPostPartum);
       localStorage.setItem('dadup_dpa', dpaPostPartum);
-      await saveData({ dpa: dpaPostPartum, dpa_originale: dpaCourante });
+      // Calculer access_until = aujourd'hui + 12 mois
+      const accessUntil = new Date();
+      accessUntil.setFullYear(accessUntil.getFullYear() + 1);
+      const accessUntilStr = accessUntil.toISOString().split('T')[0];
+      await saveData({ dpa: dpaPostPartum, dpa_originale: dpaCourante, access_until: accessUntilStr });
       setShowCelebration(true);
       setActiveTab('home');
     }
