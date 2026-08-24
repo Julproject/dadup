@@ -83,7 +83,7 @@ function DashboardContent() {
   const [valiseChecked,        setValiseChecked]      = useState<Record<string,boolean>>(() => readLSJson('dadup_valise', {}));
   const [missionsChecked,      setMissionsChecked]    = useState<Record<string,boolean>>(() => readLSJson('dadup_missions', {}));
   const [rdvDates,             setRdvDates]           = useState<Record<number,string>>(() => readLSJson('dadup_rdv_dates', {}));
-  const [avance,               setAvance]             = useState(false);
+  const [avance,               setAvance]             = useState(0);
   const [nextRdvDate,          setNextRdvDate]        = useState(() => readLS('dadup_next_rdv'));
   const [rdvOuvert,            setRdvOuvert]          = useState<number|null>(null);
   const [achatChecked,         setAchatChecked]       = useState<Record<string,boolean>>(() => readLSJson('dadup_achats', {}));
@@ -254,7 +254,7 @@ function DashboardContent() {
     ? Math.max(3, Math.min(42, Math.round(40 - (joursRestants ?? 0) / 7)))
     : null;
   const sa = !isPost && dpa
-    ? Math.max(3, Math.min(42, Math.round(40 - (joursRestants ?? 0) / 7) + (avance ? 1 : 0)))
+    ? Math.max(3, Math.min(42, Math.round(40 - (joursRestants ?? 0) / 7) + avance))
     : null;
 
   const data      = sa       ? (SD[sa]       || SD[20]) : null;
