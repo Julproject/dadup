@@ -15,7 +15,7 @@ export async function GET(req: NextRequest) {
 
     const { data: user, error } = await supabase
       .from('users')
-      .select('id, email, prenom, dpa, dpa_originale, actif, access_until, valise_checked, missions_checked, achats_checked, rdv_dates, next_rdv')
+      .select('id, email, prenom, dpa, dpa_originale, actif, valise_checked, missions_checked, achats_checked, rdv_dates, next_rdv')
       .eq('id', sessionId)
       .single();
 
@@ -28,14 +28,6 @@ export async function GET(req: NextRequest) {
       return NextResponse.json({ user: null }, { status: 401 });
     }
 
-    // Vérifier l'expiration si access_until est défini
-    if (user.access_until) {
-      const now = new Date();
-      const until = new Date(user.access_until);
-      if (now > until) {
-        return NextResponse.json({ user: null, expired: true }, { status: 403 });
-      }
-    }
 
     return NextResponse.json({ user });
 
