@@ -212,6 +212,9 @@ function DashboardContent() {
       setDpa(dpaRestore);
       setDpaOriginale('');
       localStorage.setItem('dadup_dpa', dpaRestore);
+      const newCount = retourCount + 1;
+      localStorage.setItem('dadup_retour_count', String(newCount));
+      setRetourCount(newCount);
       localStorage.removeItem('dadup_is_post');
       setIsPostFlag(false);
       localStorage.removeItem('dadup_dpa_originale');
@@ -235,11 +238,10 @@ function DashboardContent() {
       localStorage.setItem('dadup_dpa', dpaPostPartum);
       localStorage.setItem('dadup_is_post', '1');
       setIsPostFlag(true);
-      // Calculer access_until = aujourd'hui + 12 mois
+      // Calculer access_until = aujourd'hui + 12 mois (basé sur le dernier clic)
       const accessUntil = new Date();
       accessUntil.setFullYear(accessUntil.getFullYear() + 1);
-      const accessUntilStr = accessUntil.toISOString().split('T')[0];
-      await saveData({ dpa: dpaPostPartum, dpa_originale: dpaCourante, access_until: accessUntilStr });
+      await saveData({ dpa: dpaPostPartum, dpa_originale: dpaCourante, access_until: accessUntil.toISOString().split('T')[0] });
       setShowCelebration(true);
       setActiveTab('home');
     }
@@ -248,6 +250,7 @@ function DashboardContent() {
   // ── Calculs dérivés, tout depuis le state `dpa` en heure locale ──────────
   const joursRestants = dpa ? joursAvantDpa(dpa) : null;
   const [isPostFlag, setIsPostFlag] = useState(() => readLS('dadup_is_post') === '1');
+  const [retourCount, setRetourCount] = useState(() => parseInt(readLS('dadup_retour_count') || '0'));
   const isPost = isPostFlag;
 
   const saReelle = !isPost && dpa
