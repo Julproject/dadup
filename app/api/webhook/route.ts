@@ -145,7 +145,7 @@ export async function POST(req: NextRequest) {
           </tr>
           <tr>
             <td style="padding:6px 0;color:#4a5568;font-size:14px;border-top:1px solid #e8e0d0;">Calendrier des rendez-vous personnalisé</td>
-            <td style="padding:6px 0;color:#2E5F8A;font-size:13px;font-weight:600;text-align:right;border-top:1px solid #e8e0d0;">8 RDV</td>
+            <td style="padding:6px 0;color:#2E5F8A;font-size:13px;font-weight:600;text-align:right;border-top:1px solid #e8e0d0;"></td>
           </tr>
           <tr>
             <td style="padding:6px 0;color:#4a5568;font-size:14px;border-top:1px solid #e8e0d0;">Guide accouchement, valise, post-partum</td>
