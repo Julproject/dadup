@@ -33,7 +33,8 @@ export default function ComptePage() {
   const [dpaModifiee, setDpaModifiee]   = useState(false);
   const [saReelle, setSaReelle]   = useState<number | null>(null);
   const [joursRestants, setJoursRestants] = useState<number | null>(null);
-  const [isPost, setIsPost]   = useState(false);
+  const [isPost, setIsPost]   = useState(() => typeof window !== 'undefined' ? localStorage.getItem('dadup_is_post') === '1' : false);
+  const [retourCount] = useState(() => typeof window !== 'undefined' ? parseInt(localStorage.getItem('dadup_retour_count') || '0') : 0);
   const [missionsCount, setMissionsCount] = useState(0);
   const [rdvCount, setRdvCount] = useState(0);
 
@@ -75,10 +76,7 @@ export default function ComptePage() {
       const rdvDates = JSON.parse(localStorage.getItem('dadup_rdv_dates') || '{}');
       setRdvCount(Object.keys(rdvDates).length);
 
-      if (user.dpa) {
-        const jr = Math.round((new Date(user.dpa).getTime() - new Date().setHours(0,0,0,0)) / (1000*60*60*24));
-        setIsPost(jr < 0);
-      }
+      // isPost basé sur flag localStorage, pas sur la DPA
       setLoading(false);
     }).catch(() => router.push('/login'));
   }, []);
@@ -278,10 +276,10 @@ export default function ComptePage() {
             {isPost ? 'Tu es en mode post-partum. Tu peux revenir en mode grossesse si besoin.' : 'Quand bébé arrive, indique-le ici pour accéder au contenu de la première année.'}
           </p>
           <button
-            onClick={() => window.dispatchEvent(new CustomEvent('dadup:declareNaissance'))}
+            onClick={() => { if (!(isPost && retourCount >= 2)) window.dispatchEvent(new CustomEvent('dadup:declareNaissance')); }}
             style={{ background: isPost ? '#E4F5EC' : '#EDE8FF', color: isPost ? '#0D6B40' : '#6B4FBB', border: 'none', padding: '14px', borderRadius: '32px', fontSize: '14px', fontWeight: 700, cursor: 'pointer', width: '100%' }}
           >
-            {isPost ? 'Revenir en mode grossesse' : 'Bébé est né !'}
+            {isPost ? (retourCount < 2 ? 'Revenir en mode grossesse' : 'Accès post-partum actif') : 'Bébé est né !'}
           </button>
         </div>
         {/* DECONNEXION */}
