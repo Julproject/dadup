@@ -20,9 +20,7 @@ export default function BebePage({C,saReelle,sa,data,dataR,avance,setAvance,dpa}
       {/* HERO BÉBÉ */}
       <div style={{background:C.blue,borderRadius:'22px',overflow:'hidden'}}>
         <div style={{padding:'28px',position:'relative'}}>
-          <div style={{position:'absolute',top:0,right:0,bottom:0,width:'38%',display:'flex',alignItems:'center',justifyContent:'center',opacity:0.2}}>
-            <div style={{fontSize:'120px',lineHeight:1}}>{data.emoji}</div>
-          </div>
+
           <div style={{position:'relative'}}>
             <p style={{color:'rgba(200,160,96,0.7)',fontSize:'10px',letterSpacing:'3px',textTransform:'uppercase' as const,margin:'0 0 8px',fontWeight:700}}>{sa} SA</p>
             <p style={{color:C.white,fontSize:'18px',fontWeight:700,margin:'0 0 6px'}}>{data.titre}</p>
