@@ -9,8 +9,7 @@ export default function Accueil({C,dpa,saReelle,joursRestants,prog,tri,idee,miss
       {dataR && saReelle && (
         <div style={{background:C.blue,borderRadius:'24px'}}>
           <div style={{padding:'32px 28px 24px',position:'relative'}}>
-            <div style={{position:'absolute',top:0,right:0,bottom:0,width:'40%',display:'flex',alignItems:'center',justifyContent:'center',opacity:0.15}}>
-              <div style={{fontSize:'140px',lineHeight:1}}>{dataR.emoji}</div>
+            
             </div>
             <div style={{position:'relative'}}>
               <p style={{color:'rgba(200,160,96,0.7)',fontSize:'10px',letterSpacing:'3px',textTransform:'uppercase' as const,margin:'0 0 10px',fontWeight:700}}>{saReelle} SA · {tri}</p>
