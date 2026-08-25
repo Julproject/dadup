@@ -1,27 +1,46 @@
 {
-  "name": "DadUp — Checklist Futurs Papas",
+  "name": "DadUp — L'app des futurs papas",
   "short_name": "DadUp",
-  "description": "Ta checklist PDF premium personnalisée pour futurs papas",
-  "start_url": "/",
+  "description": "Suivi de grossesse et première année de bébé, conçu pour les pères.",
+  "start_url": "/dashboard",
   "display": "standalone",
-  "background_color": "#0A0F1E",
-  "theme_color": "#1E3A8A",
+  "background_color": "#faf6f0",
+  "theme_color": "#1e2535",
   "orientation": "portrait",
+  "lang": "fr",
+  "dir": "ltr",
+  "categories": ["lifestyle", "health"],
   "icons": [
     {
       "src": "/icons/icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-192-maskable.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
     },
     {
       "src": "/icons/icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ],
-  "categories": ["lifestyle", "utilities"],
-  "lang": "fr",
-  "dir": "ltr"
+  "shortcuts": [
+    {
+      "name": "Mon tableau de bord",
+      "url": "/dashboard",
+      "description": "Accéder à mon espace DadUp"
+    }
+  ]
 }
