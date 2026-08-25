@@ -28,7 +28,7 @@ export default function BebePage({C,saReelle,sa,data,dataR,avance,setAvance,dpa}
             <p style={{color:'rgba(255,255,255,0.45)',fontSize:'14px',margin:'6px 0 0'}}>environ {data.poids}</p>
           </div>
         </div>
-        <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',borderTop:'1px solid rgba(255,255,255,0.08)'}}>
+        <div className="dd-g2col" style={{borderTop:'1px solid rgba(255,255,255,0.08)'}}>
           {[['Taille',data.taille],['Poids',data.poids]].map(([l,v])=>(
             <div key={String(l)} style={{padding:'14px',textAlign:'center' as const,borderRight:'1px solid rgba(255,255,255,0.08)'}}>
               <p style={{color:'rgba(255,255,255,0.35)',fontSize:'9px',textTransform:'uppercase' as const,letterSpacing:'2px',margin:'0 0 4px',fontWeight:700}}>{String(l)}</p>
