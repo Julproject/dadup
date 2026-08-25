@@ -2,6 +2,9 @@ import type { Metadata, Viewport } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
+  verification: {
+    google: 'UYNGp5GswFiXJc6l-VEwhnLifvDt-60HZMmU7mv_Nns',
+  },
   title: 'DadUp, L\'app des futurs papas',
   description: 'Suivi semaine par semaine, guide accouchement, post-partum. Tout ce que personne n\'explique aux papas. Accès immédiat.',
   keywords: ['futur papa', 'grossesse papa', 'application papa', 'accouchement', 'post-partum', 'paternité', 'congé paternité'],
