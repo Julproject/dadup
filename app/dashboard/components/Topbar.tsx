@@ -79,9 +79,11 @@ export default function Topbar({ prenom, dpa, saReelle, tri, prog, isPost, moisB
               }}>{n.label}</button>
             );
           })}
+          </div>
+          {/* Fondu bord droit */}
+          <div style={{ position: 'absolute', top: 0, right: 0, bottom: '12px', width: '48px', background: 'linear-gradient(to right, transparent, #ffffff)', pointerEvents: 'none' }} />
         </div>
-      </div>
 
-    </>
+      </nav>
   );
 }
