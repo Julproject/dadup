@@ -64,8 +64,7 @@ export default function ComptePage() {
       if (user.dpa) {
         const jr = Math.round((parseLocalDate(user.dpa).setHours(0,0,0,0) - new Date().setHours(0,0,0,0)) / (1000*60*60*24));
         setJoursRestants(jr);
-        const post = jr < 0;
-        setIsPost(post);
+        const post = localStorage.getItem('dadup_is_post') === '1';
         if (!post) setSaReelle(Math.max(3, Math.min(42, Math.round(40 - jr / 7))));
       }
 
@@ -157,7 +156,14 @@ export default function ComptePage() {
       localStorage.removeItem('dadup_is_post');
       const dpaOri = localStorage.getItem('dadup_dpa_originale') || dpa;
       if (dpaOri) localStorage.setItem('dadup_dpa', dpaOri);
+      localStorage.removeItem('dadup_dpa_originale');
       setIsPost(false);
+      // Sauvegarder en Supabase
+      await fetch('/api/auth/save', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ dpa: dpaOri, dpa_originale: null }),
+      });
     }
 
     window.location.href = '/dashboard';
