@@ -37,7 +37,7 @@ export default function Topbar({ prenom, dpa, saReelle, tri, prog, isPost, moisB
     <>
       <div style={{ background: C.white, borderBottom: `1.5px solid ${C.border}`, position: 'sticky', top: 0, zIndex: 40 }}>
         {/* Ligne 1 : logo + profil */}
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '10px 28px', maxWidth: '1180px', margin: '0 auto' }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '14px 20px', maxWidth: '1180px', margin: '0 auto' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
             <svg viewBox="0 0 300 300" width="34" height="34">
               <circle cx="150" cy="150" r="145" fill="#1A3D5C" />
@@ -68,7 +68,7 @@ export default function Topbar({ prenom, dpa, saReelle, tri, prog, isPost, moisB
         {/* Ligne 2 : onglets */}
         <div style={{ position: 'relative' }}>
           <style>{`.dd-tabs::-webkit-scrollbar{display:none;}`}</style>
-          <div className="dd-tabs" style={{ display: 'flex', gap: '6px', padding: '0 24px 12px', overflowX: 'auto' as const, maxWidth: '1180px', margin: '0 auto', scrollbarWidth: 'none' as const, msOverflowStyle: 'none' as const, WebkitOverflowScrolling: 'touch' as any }}>
+          <div className="dd-tabs" style={{ display: 'flex', gap: '6px', padding: '4px 20px 14px', overflowX: 'auto' as const, maxWidth: '1180px', margin: '0 auto', scrollbarWidth: 'none' as const, msOverflowStyle: 'none' as const, WebkitOverflowScrolling: 'touch' as any }}>
           {tabs.map(n => {
             const on = activeTab === n.id;
             return (
