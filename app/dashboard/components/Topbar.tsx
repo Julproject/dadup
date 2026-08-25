@@ -66,7 +66,9 @@ export default function Topbar({ prenom, dpa, saReelle, tri, prog, isPost, moisB
         </div>
 
         {/* Ligne 2 : onglets */}
-        <div style={{ display: 'flex', gap: '6px', padding: '0 24px 12px', overflowX: 'auto' as const, maxWidth: '1180px', margin: '0 auto' }}>
+        <div style={{ position: 'relative' }}>
+          <style>{`.dd-tabs::-webkit-scrollbar{display:none;}`}</style>
+          <div className="dd-tabs" style={{ display: 'flex', gap: '6px', padding: '0 24px 12px', overflowX: 'auto' as const, maxWidth: '1180px', margin: '0 auto', scrollbarWidth: 'none' as const, msOverflowStyle: 'none' as const, WebkitOverflowScrolling: 'touch' as any }}>
           {tabs.map(n => {
             const on = activeTab === n.id;
             return (
