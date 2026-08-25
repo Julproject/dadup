@@ -53,7 +53,7 @@ export default function PrepaNaissance({ C, saReelle }: { C: any; saReelle: numb
 
           <div>
             <p style={{ color: '#1e2535', fontSize: '13px', fontWeight: 700, margin: '0 0 8px' }}>Vraies contractions vs fausses (Braxton-Hicks)</p>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '10px' }}>
               <div style={{ background: '#E4F5EC', borderRadius: '10px', padding: '12px' }}>
                 <p style={{ color: '#0D6B40', fontSize: '12px', fontWeight: 700, margin: '0 0 6px' }}>Vraies contractions</p>
                 <ul style={{ color: '#0A3020', fontSize: '12px', lineHeight: 1.7, margin: 0, paddingLeft: '14px' }}>
