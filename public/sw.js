@@ -1,7 +1,11 @@
-const CACHE_NAME = 'dadup-v1';
+const CACHE_NAME = 'dadup-v2';
 const STATIC_ASSETS = [
   '/',
+  '/dashboard',
   '/manifest.json',
+  '/icon-192.png',
+  '/icon-512.png',
+  '/apple-touch-icon.png',
 ];
 
 // Installation — mise en cache des assets statiques
@@ -30,16 +34,20 @@ self.addEventListener('activate', (event) => {
 
 // Fetch — stratégie Network First
 self.addEventListener('fetch', (event) => {
-  // Ne pas intercepter les appels API
+  // Ne pas intercepter les appels API ni les requêtes POST
   if (event.request.url.includes('/api/')) return;
+  if (event.request.method !== 'GET') return;
 
   event.respondWith(
     fetch(event.request)
       .then((response) => {
-        const clone = response.clone();
-        caches.open(CACHE_NAME).then((cache) => {
-          cache.put(event.request, clone);
-        });
+        // Ne mettre en cache que les réponses valides
+        if (response && response.status === 200) {
+          const clone = response.clone();
+          caches.open(CACHE_NAME).then((cache) => {
+            cache.put(event.request, clone);
+          });
+        }
         return response;
       })
       .catch(() => {
