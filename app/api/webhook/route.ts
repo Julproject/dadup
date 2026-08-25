@@ -34,7 +34,7 @@ export async function POST(req: NextRequest) {
         });
       } catch (e) {
         console.error('Erreur annulation fin période:', e);
-        // On continue même si ça échoue — ne pas bloquer la création du compte
+        // On continue même si ça échoue, ne pas bloquer la création du compte
       }
     }
 
