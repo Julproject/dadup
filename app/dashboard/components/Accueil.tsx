@@ -17,7 +17,7 @@ export default function Accueil({C,dpa,saReelle,joursRestants,prog,tri,idee,miss
               {joursRestants&&joursRestants>0&&<p style={{color:'rgba(255,255,255,0.25)',fontSize:'13px',margin:'8px 0 0'}}>{joursRestants} jours avant le grand jour</p>}
             </div>
           </div>
-          <div className="dd-g3col" style={{borderTop:'1px solid rgba(255,255,255,0.08)'}}>
+          <div className="dd-stats" style={{borderTop:'1px solid rgba(255,255,255,0.08)'}}>
             {[['Taille',dataR.taille,false],['Poids',dataR.poids,false],['Progression',prog+'%',true]].map(([l,v,g])=>(
               <div key={String(l)} style={{padding:'16px',textAlign:'center' as const,borderRight:'1px solid rgba(255,255,255,0.08)'}}>
                 <p style={{color:'rgba(255,255,255,0.35)',fontSize:'9px',textTransform:'uppercase' as const,letterSpacing:'2px',margin:'0 0 4px',fontWeight:700}}>{String(l)}</p>
