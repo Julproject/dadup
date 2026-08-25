@@ -295,7 +295,10 @@ function DashboardContent() {
         .dd-c{max-width:1080px;margin:0 auto;padding:32px 36px;}
         .dd-g2col{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
         .dd-mg{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+        .dd-g3col{display:grid;grid-template-columns:1fr 1fr 1fr;}
         @media(max-width:860px){
+          .dd-g2col,.dd-mg{grid-template-columns:1fr!important;}
+          .dd-g3col{grid-template-columns:1fr 1fr!important;}
           .dd-c{padding:16px!important;}
           .dd-g2col,.dd-mg{grid-template-columns:1fr!important;}
         }
