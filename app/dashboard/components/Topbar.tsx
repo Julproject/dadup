@@ -84,6 +84,7 @@ export default function Topbar({ prenom, dpa, saReelle, tri, prog, isPost, moisB
           <div style={{ position: 'absolute', top: 0, right: 0, bottom: '12px', width: '48px', background: 'linear-gradient(to right, transparent, #ffffff)', pointerEvents: 'none' }} />
         </div>
 
-      </nav>
+      </div>
+    </>
   );
 }
