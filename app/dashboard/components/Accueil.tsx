@@ -9,8 +9,6 @@ export default function Accueil({C,dpa,saReelle,joursRestants,prog,tri,idee,miss
       {dataR && saReelle && (
         <div style={{background:C.blue,borderRadius:'24px'}}>
           <div style={{padding:'32px 28px 24px',position:'relative'}}>
-            
-            </div>
             <div style={{position:'relative'}}>
               <p style={{color:'rgba(200,160,96,0.7)',fontSize:'10px',letterSpacing:'3px',textTransform:'uppercase' as const,margin:'0 0 10px',fontWeight:700}}>{saReelle} SA · {tri}</p>
               <p style={{color:'rgba(255,255,255,0.8)',fontSize:'16px',fontWeight:600,margin:'0 0 4px'}}>Bébé fait</p>
