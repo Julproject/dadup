@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   verification: {
     google: 'UYNGp5GswFiXJc6l-VEwhnLifvDt-60HZMmU7mv_Nns',
   },
-  title: 'DadUp : l'application grossesse pour les papas',
+  title: "DadUp : l'application grossesse pour les papas",
   description: 'DadUp accompagne les futurs pères semaine par semaine pendant la grossesse et la première année de bébé. Contenu médical, guide accouchement, congé paternité. 49,99€ accès complet.',
   keywords: [
     'dadup',
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://www.dadup.fr' },
   authors: [{ name: 'DadUp' }],
   openGraph: {
-    title: 'DadUp : l'application grossesse pour les papas',
+    title: "DadUp : l'application grossesse pour les papas",
     description: 'DadUp accompagne les futurs pères semaine par semaine pendant la grossesse et la première année de bébé.',
     url: 'https://www.dadup.fr',
     siteName: 'DadUp',
