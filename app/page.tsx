@@ -132,50 +132,22 @@ export default function Home() {
             </div>
           </div>
 
-          {/* MACBOOK DROIT */}
-          <div style={{position:'relative', zIndex:1, display:'flex', alignItems:'center', justifyContent:'center'}}>
-            {/* Écran */}
-            <div style={{background:'#1c1c1e', borderRadius:'12px 12px 0 0', padding:'6px 6px 0', boxShadow:'0 24px 64px rgba(0,0,0,0.5)', width:'320px'}}>
-              {/* Caméra */}
-              <div style={{display:'flex', justifyContent:'center', padding:'4px 0 0'}}>
-                <div style={{width:'6px', height:'6px', borderRadius:'50%', background:'#2a2a2e'}}></div>
-              </div>
-              {/* Barre titre */}
-              <div style={{background:'#2a2a2e', borderRadius:'6px 6px 0 0', padding:'5px 10px', display:'flex', alignItems:'center', gap:'4px', marginTop:'3px'}}>
-                <div style={{width:'7px', height:'7px', borderRadius:'50%', background:'#ff5f57'}}></div>
-                <div style={{width:'7px', height:'7px', borderRadius:'50%', background:'#ffbd2e'}}></div>
-                <div style={{width:'7px', height:'7px', borderRadius:'50%', background:'#28c840'}}></div>
-                <div style={{flex:1, background:'#3a3a3e', borderRadius:'4px', height:'12px', margin:'0 8px', display:'flex', alignItems:'center', justifyContent:'center'}}>
-                  <span style={{color:'rgba(255,255,255,0.25)', fontSize:'7px'}}>dadup.fr</span>
-                </div>
-              </div>
-              {/* Contenu écran : photo + 3 cadres */}
-              <div style={{background:'#faf6f0', width:'308px', height:'193px', overflow:'hidden', padding:'8px', display:'flex', gap:'6px', borderRadius:'0 0 4px 4px'}}>
-                {/* 3 cadres à gauche */}
-                <div style={{display:'flex', flexDirection:'column' as const, gap:'5px', flex:1}}>
-                  {[
-                    {bg:'#E6F0FA', color:'#1A3D5C', label:'41 semaines de contenu'},
-                    {bg:'#E4F5EC', color:'#0D4A2E', label:'Post-partum inclus'},
-                    {bg:'#EDE8FF', color:'#3D2E7A', label:"Jusqu'au 1er anniversaire"},
-                  ].map((b,i) => (
-                    <div key={i} style={{background:b.bg, borderRadius:'7px', padding:'10px 11px', flex:1, display:'flex', alignItems:'center'}}>
-                      <p style={{color:b.color, fontSize:'9px', fontWeight:800, margin:0}}>{b.label}</p>
-                    </div>
-                  ))}
-                </div>
-                {/* Photo à droite */}
-                <div style={{width:'120px', flexShrink:0, borderRadius:'8px', overflow:'hidden'}}>
-                  <img src="/main.jpg" alt="Papa et bébé" style={{width:'100%', height:'100%', objectFit:'cover', objectPosition:'center', display:'block'}}/>
-                </div>
-              </div>
+          {/* PHOTO + BADGES */}
+          <div style={{position:'relative', zIndex:1}}>
+            <div style={{borderRadius:'20px', overflow:'hidden', border:'1px solid rgba(255,255,255,0.1)', boxShadow:'0 20px 60px rgba(0,0,0,0.3)'}}>
+              <img src="/main.jpg" alt="Papa et bébé" style={{width:'100%', height:'380px', objectFit:'cover', objectPosition:'center', display:'block'}}/>
             </div>
-            {/* Base clavier */}
-            <div style={{position:'absolute', bottom:'-13px', left:'50%', transform:'translateX(-50%)', width:'320px'}}>
-              <div style={{background:'#1c1c1e', height:'3px'}}></div>
-              <div style={{background:'#2a2a2e', height:'14px', borderRadius:'0 0 6px 6px', position:'relative'}}>
-                <div style={{position:'absolute', bottom:'3px', left:'50%', transform:'translateX(-50%)', width:'60px', height:'6px', background:'#222', borderRadius:'3px'}}></div>
-              </div>
-              <div style={{background:'#3a3a3e', height:'3px', borderRadius:'0 0 8px 8px', margin:'0 -10px'}}></div>
+            {/* 3 badges sur la photo */}
+            <div style={{position:'absolute', bottom:'20px', left:'16px', right:'16px', display:'flex', flexDirection:'column' as const, gap:'8px'}}>
+              {[
+                {bg:'#E6F0FA', color:'#1A3D5C', label:'41 semaines de contenu'},
+                {bg:'#E4F5EC', color:'#0D4A2E', label:'Post-partum inclus'},
+                {bg:'#EDE8FF', color:'#3D2E7A', label:"Jusqu'au 1er anniversaire de bébé"},
+              ].map((b,i) => (
+                <div key={i} style={{background:b.bg, borderRadius:'10px', padding:'10px 14px', boxShadow:'0 4px 16px rgba(0,0,0,0.15)'}}>
+                  <p style={{color:b.color, fontSize:'12px', fontWeight:800, margin:0}}>{b.label}</p>
+                </div>
+              ))}
             </div>
           </div>
 
