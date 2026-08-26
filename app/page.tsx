@@ -133,28 +133,31 @@ export default function Home() {
           </div>
 
           {/* PHOTO + BADGES */}
+          <style>{`.photo-wrap:hover img { transform: scale(1.04); } .photo-wrap img { transition: transform 0.4s ease; }`}</style>
           <div style={{position:'relative', zIndex:1}}>
-            <div style={{borderRadius:'20px', overflow:'hidden', border:'1px solid rgba(255,255,255,0.1)', boxShadow:'0 20px 60px rgba(0,0,0,0.3)', position:'relative'}}>
+            <div className="photo-wrap" style={{borderRadius:'20px', overflow:'hidden', border:'1px solid rgba(255,255,255,0.1)', boxShadow:'0 20px 60px rgba(0,0,0,0.3)', position:'relative'}}>
               <img src="/main.jpg" alt="Papa et bébé" style={{width:'100%', height:'380px', objectFit:'cover', objectPosition:'center', display:'block'}}/>
-              {/* 3 badges sur la photo en bas à droite */}
-              <div style={{position:'absolute', bottom:'16px', right:'16px', display:'flex', flexDirection:'column' as const, gap:'6px'}}>
-                {[
-                  {bg:'#E6F0FA', color:'#1A3D5C', label:'41 semaines de contenu'},
-                  {bg:'#E4F5EC', color:'#0D4A2E', label:'Post-partum inclus'},
-                  {bg:'#EDE8FF', color:'#3D2E7A', label:"Jusqu'au 1er anniversaire de bébé"},
-                ].map((b,i) => (
-                  <div key={i} style={{background:b.bg, borderRadius:'10px', padding:'8px 12px', boxShadow:'0 2px 8px rgba(0,0,0,0.15)'}}>
+            </div>
+            {/* 4 badges empilés en bas à droite */}
+            <div style={{position:'absolute', bottom:'-16px', right:'16px', display:'flex', flexDirection:'column' as const, gap:'6px'}}>
+              {[
+                {bg:'#E6F0FA', color:'#1A3D5C', label:'41 semaines de contenu', icon:null},
+                {bg:'#E4F5EC', color:'#0D4A2E', label:'Post-partum inclus', icon:null},
+                {bg:'#EDE8FF', color:'#3D2E7A', label:"Jusqu'au 1er anniversaire de bébé", icon:null},
+              ].map((b,i) => (
+                <div key={i} style={{background:b.bg, borderRadius:'12px', padding:'10px 14px', boxShadow:'0 4px 16px rgba(0,0,0,0.15)', display:'flex', alignItems:'center', gap:'8px'}}>
+                  <div style={{width:'28px', height:'28px', borderRadius:'50%', background:'rgba(0,0,0,0.06)', display:'flex', alignItems:'center', justifyContent:'center', flexShrink:0, fontSize:'13px'}}>✓</div>
+                  <div>
                     <p style={{color:b.color, fontSize:'11px', fontWeight:800, margin:0}}>{b.label}</p>
                   </div>
-                ))}
-              </div>
-            </div>
-            {/* Badge contenu médical sous la photo */}
-            <div style={{position:'absolute', bottom:'-16px', left:'-16px', background:C.white, borderRadius:'12px', padding:'10px 14px', boxShadow:'0 4px 20px rgba(0,0,0,0.15)', display:'flex', alignItems:'center', gap:'8px'}}>
-              <div style={{width:'28px', height:'28px', borderRadius:'50%', background:'#E4F5EC', display:'flex', alignItems:'center', justifyContent:'center', fontSize:'14px', flexShrink:0}}>✓</div>
-              <div>
-                <p style={{color:C.dark, fontSize:'11px', fontWeight:800, margin:0}}>Contenu médical sourcé</p>
-                <p style={{color:C.textLight, fontSize:'10px', margin:0}}>HAS · OMS · Inserm</p>
+                </div>
+              ))}
+              <div style={{background:C.white, borderRadius:'12px', padding:'10px 14px', boxShadow:'0 4px 20px rgba(0,0,0,0.15)', display:'flex', alignItems:'center', gap:'8px'}}>
+                <div style={{width:'28px', height:'28px', borderRadius:'50%', background:'#E4F5EC', display:'flex', alignItems:'center', justifyContent:'center', flexShrink:0, fontSize:'13px'}}>✓</div>
+                <div>
+                  <p style={{color:C.dark, fontSize:'11px', fontWeight:800, margin:0}}>Contenu médical sourcé</p>
+                  <p style={{color:C.textLight, fontSize:'10px', margin:0}}>HAS · OMS · Inserm</p>
+                </div>
               </div>
             </div>
           </div>
@@ -186,28 +189,35 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CE QUE PERSONNE NE T'EXPLIQUE */}
-      <section className="section-pad" style={{padding:'80px 40px', background:C.white}}>
-        <div style={{maxWidth:'1200px', margin:'0 auto'}}>
+      {/* CE QUE PERSONNE NE T'EXPLIQUE — CARROUSEL */}
+      <section className="section-pad" style={{padding:'80px 0', background:C.white, overflow:'hidden'}}>
+        <div style={{maxWidth:'1200px', margin:'0 auto', padding:'0 40px'}}>
           <div style={{textAlign:'center', marginBottom:'48px'}}>
             <p style={{color:C.blue, fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase' as const, margin:'0 0 16px'}}>Les sujets traités</p>
             <h2 style={{color:C.dark, fontSize:'36px', fontWeight:800, margin:'0 0 16px', lineHeight:1.2}}>Tout ce que personne<br/>ne t&apos;explique.</h2>
             <p style={{color:C.textLight, fontSize:'15px', margin:'0 auto', maxWidth:'480px', lineHeight:1.7}}>Traités sans détour, au bon moment de la grossesse.</p>
           </div>
-          <div className="newbie-grid">
-            {[
-              {titre:"Les échographies", desc:"À quoi servent T1, T2, T3 ? Ce qu'on cherche, ce que tu dois demander, comment être vraiment présent.", bg:C.bluePale, color:C.blueDark},
-              {titre:"La valise maternité", desc:"Checklist interactive. Ce qu'elle emporte, ce que tu prends pour toi, ce que tout le monde oublie.", bg:'#E4F5EC', color:'#0A2E1A'},
-              {titre:"L'accouchement", desc:"La règle 5-1-1. Quand partir. Ce que tu fais en salle de naissance. Péri ou pas. Tout ce qu'on ne te dit pas.", bg:'#FFF7E0', color:'#3A2800'},
-              {titre:"Le baby blues", desc:"50 à 80% des femmes le vivent. Pas une dépression. Ce que c'est, comment tu peux vraiment aider.", bg:'#F0EEFF', color:'#3030A0'},
-              {titre:"Le congé paternité", desc:"28 jours. Comment les poser, quand les prendre, ce que ça change vraiment pour votre famille.", bg:'#E4F5EC', color:'#0A2E1A'},
-            ].map((item, i) => (
-              <div key={i} style={{background:item.bg, borderRadius:'20px', padding:'24px', border:`1px solid ${C.border}`}}>
-                <p style={{color:item.color, fontSize:'16px', fontWeight:800, margin:'0 0 10px'}}>{item.titre}</p>
-                <p style={{color:item.color, fontSize:'13px', lineHeight:1.65, margin:0, opacity:0.8}}>{item.desc}</p>
-              </div>
-            ))}
-          </div>
+        </div>
+        <style>{`
+          .carousel-track { display:flex; gap:16px; padding:8px 40px; overflow-x:auto; scroll-snap-type:x mandatory; scrollbar-width:none; cursor:grab; }
+          .carousel-track::-webkit-scrollbar { display:none; }
+          .carousel-track:active { cursor:grabbing; }
+          .carousel-card { flex:0 0 300px; scroll-snap-align:center; border-radius:20px; padding:28px; border:1px solid #e8e0d0; }
+        `}</style>
+        <div className="carousel-track" id="newbie-carousel">
+          {[
+            {titre:"Les échographies", desc:"À quoi servent T1, T2, T3 ? Ce qu'on cherche, ce que tu dois demander, comment être vraiment présent.", bg:C.bluePale, color:C.blueDark},
+            {titre:"La valise maternité", desc:"Checklist interactive. Ce qu'elle emporte, ce que tu prends pour toi, ce que tout le monde oublie.", bg:'#E4F5EC', color:'#0A2E1A'},
+            {titre:"L'accouchement", desc:"La règle 5-1-1. Quand partir. Ce que tu fais en salle de naissance. Péri ou pas. Tout ce qu'on ne te dit pas.", bg:'#FFF7E0', color:'#3A2800'},
+            {titre:"Le baby blues", desc:"50 à 80% des femmes le vivent. Pas une dépression. Ce que c'est, comment tu peux vraiment aider.", bg:'#F0EEFF', color:'#3030A0'},
+            {titre:"Le congé paternité", desc:"28 jours. Comment les poser, quand les prendre, ce que ça change vraiment pour votre famille.", bg:'#E4F5EC', color:'#0A2E1A'},
+            {titre:"Le post-partum", desc:"Baby blues, reprise du travail, nuits sans sommeil. Ton rôle les premières semaines avec bébé.", bg:C.bluePale, color:C.blueDark},
+          ].map((item, i) => (
+            <div key={i} className="carousel-card" style={{background:item.bg}}>
+              <p style={{color:item.color, fontSize:'16px', fontWeight:800, margin:'0 0 12px'}}>{item.titre}</p>
+              <p style={{color:item.color, fontSize:'13px', lineHeight:1.65, margin:0, opacity:0.8}}>{item.desc}</p>
+            </div>
+          ))}
         </div>
       </section>
 
