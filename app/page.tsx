@@ -117,18 +117,23 @@ export default function Home() {
               Être père, ça commence<br/><span style={{color:C.gold}}>bien avant la naissance.</span>
             </h1>
 
-            <p style={{color:'rgba(255,255,255,0.75)', fontSize:'15px', lineHeight:1.75, margin:'0 0 6px'}}>
+            <p style={{color:'rgba(255,255,255,0.92)', fontSize:'18px', fontWeight:600, lineHeight:1.6, margin:'0 0 8px'}}>
               Elle porte bébé. Toi, tu portes le reste.
             </p>
-            <p style={{color:'rgba(255,255,255,0.45)', fontSize:'13px', lineHeight:1.7, margin:'0 0 32px'}}>
+            <p style={{color:'rgba(255,255,255,0.5)', fontSize:'14px', lineHeight:1.7, margin:'0 0 32px'}}>
               DadUp t&apos;accompagne semaine après semaine, de la grossesse au premier anniversaire de bébé.
             </p>
 
-            <div style={{display:'flex', alignItems:'center', gap:'16px', flexWrap:'wrap' as const}}>
-              <button onClick={goToStripe} style={{background:C.gold, color:'#1c1510', border:'none', padding:'14px 28px', borderRadius:'32px', fontSize:'15px', fontWeight:800, cursor:'pointer'}}>
+            <div style={{display:'flex', flexDirection:'column' as const, gap:'10px', maxWidth:'320px'}}>
+              <button onClick={goToStripe} style={{background:C.gold, color:'#1c1510', border:'none', padding:'16px 32px', borderRadius:'32px', fontSize:'16px', fontWeight:800, cursor:'pointer', textAlign:'center' as const}}>
                 Commencer · 49,99€
               </button>
-              <span style={{color:'rgba(255,255,255,0.35)', fontSize:'12px'}}>Satisfait ou remboursé sous 14 jours</span>
+              <div style={{display:'flex', alignItems:'center', gap:'8px'}}>
+                <div style={{flex:1, height:'1px', background:'rgba(255,255,255,0.1)'}}></div>
+                <span style={{color:'rgba(255,255,255,0.4)', fontSize:'12px'}}>Satisfait ou remboursé sous 14 jours</span>
+                <div style={{flex:1, height:'1px', background:'rgba(255,255,255,0.1)'}}></div>
+              </div>
+              <a href="/inclus" style={{color:'rgba(255,255,255,0.55)', fontSize:'13px', textAlign:'center' as const, textDecoration:'none'}}>Voir ce qui est inclus →</a>
             </div>
           </div>
 
@@ -181,53 +186,51 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CE QUE PERSONNE NE T'EXPLIQUE — CARROUSEL */}
-      <section className="section-pad" style={{padding:'80px 0', background:C.white, overflow:'hidden'}}>
-        <div style={{maxWidth:'1200px', margin:'0 auto', padding:'0 40px'}}>
-          <div style={{textAlign:'center', marginBottom:'48px'}}>
-            <p style={{color:C.blue, fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase' as const, margin:'0 0 16px'}}>Les sujets traités</p>
-            <h2 style={{color:C.dark, fontSize:'36px', fontWeight:800, margin:'0 0 16px', lineHeight:1.2}}>Tout ce que personne<br/>ne t&apos;explique.</h2>
-            <p style={{color:C.textLight, fontSize:'15px', margin:'0 auto', maxWidth:'480px', lineHeight:1.7}}>Traités sans détour, au bon moment de la grossesse.</p>
-          </div>
+      {/* CE QUE PERSONNE NE T'EXPLIQUE — CARROUSEL 3D */}
+      <section style={{padding:'80px 0', background:C.white, overflow:'hidden'}}>
+        <div style={{textAlign:'center', marginBottom:'48px', padding:'0 40px'}}>
+          <p style={{color:C.blue, fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase' as const, margin:'0 0 16px'}}>Les sujets traités</p>
+          <h2 style={{color:C.dark, fontSize:'36px', fontWeight:800, margin:'0 0 16px', lineHeight:1.2}}>Tout ce que personne<br/>ne t&apos;explique.</h2>
+          <p style={{color:C.textLight, fontSize:'15px', margin:'0 auto', maxWidth:'480px', lineHeight:1.7}}>Traités sans détour, au bon moment de la grossesse.</p>
         </div>
         <style>{`
-          .carousel-track { display:flex; gap:16px; padding:8px 40px; overflow-x:auto; scroll-snap-type:x mandatory; scrollbar-width:none; cursor:grab; }
-          .carousel-track::-webkit-scrollbar { display:none; }
-          .carousel-track:active { cursor:grabbing; }
-          .carousel-card { flex:0 0 300px; scroll-snap-align:center; border-radius:20px; padding:28px; border:1px solid #e8e0d0; }
+          .c3d-scene { position:relative; height:260px; display:flex; align-items:center; justify-content:center; overflow:hidden; }
+          .c3d-scene::before, .c3d-scene::after { content:''; position:absolute; top:0; bottom:0; width:140px; z-index:3; pointer-events:none; }
+          .c3d-scene::before { left:0; background:linear-gradient(to right, #ffffff 40%, transparent); }
+          .c3d-scene::after { right:0; background:linear-gradient(to left, #ffffff 40%, transparent); }
+          .c3d-card { position:absolute; border-radius:20px; padding:24px; border:1px solid rgba(0,0,0,0.06); transition:all 0.5s cubic-bezier(0.4,0,0.2,1); }
         `}</style>
-        <div className="carousel-track" id="newbie-carousel"
-          onMouseDown={(e:any) => {
-            const el = e.currentTarget;
-            el.dataset.down = '1';
-            el.dataset.startX = e.pageX - el.offsetLeft;
-            el.dataset.scrollLeft = el.scrollLeft;
-          }}
-          onMouseLeave={(e:any) => { e.currentTarget.dataset.down = '0'; }}
-          onMouseUp={(e:any) => { e.currentTarget.dataset.down = '0'; }}
-          onMouseMove={(e:any) => {
-            const el = e.currentTarget;
-            if (el.dataset.down !== '1') return;
-            e.preventDefault();
-            const x = e.pageX - el.offsetLeft;
-            const walk = (x - Number(el.dataset.startX)) * 2;
-            el.scrollLeft = Number(el.dataset.scrollLeft) - walk;
-          }}
-        >
-          {[
-            {titre:"Les échographies", desc:"À quoi servent T1, T2, T3 ? Ce qu'on cherche, ce que tu dois demander, comment être vraiment présent.", bg:C.bluePale, color:C.blueDark},
-            {titre:"La valise maternité", desc:"Checklist interactive. Ce qu'elle emporte, ce que tu prends pour toi, ce que tout le monde oublie.", bg:'#E4F5EC', color:'#0A2E1A'},
-            {titre:"L'accouchement", desc:"La règle 5-1-1. Quand partir. Ce que tu fais en salle de naissance. Péri ou pas. Tout ce qu'on ne te dit pas.", bg:'#FFF7E0', color:'#3A2800'},
-            {titre:"Le baby blues", desc:"50 à 80% des femmes le vivent. Pas une dépression. Ce que c'est, comment tu peux vraiment aider.", bg:'#F0EEFF', color:'#3030A0'},
-            {titre:"Le congé paternité", desc:"28 jours. Comment les poser, quand les prendre, ce que ça change vraiment pour votre famille.", bg:'#E4F5EC', color:'#0A2E1A'},
-            {titre:"Le post-partum", desc:"Baby blues, reprise du travail, nuits sans sommeil. Ton rôle les premières semaines avec bébé.", bg:C.bluePale, color:C.blueDark},
-          ].map((item, i) => (
-            <div key={i} className="carousel-card" style={{background:item.bg}}>
-              <p style={{color:item.color, fontSize:'16px', fontWeight:800, margin:'0 0 12px'}}>{item.titre}</p>
-              <p style={{color:item.color, fontSize:'13px', lineHeight:1.65, margin:0, opacity:0.8}}>{item.desc}</p>
-            </div>
-          ))}
-        </div>
+        <div className="c3d-scene" id="c3d-scene"></div>
+        <script dangerouslySetInnerHTML={{__html: `
+          (function() {
+            var cards = [
+              {titre:"Les échographies", desc:"À quoi servent T1, T2, T3 ? Ce qu\'on cherche, comment être vraiment présent.", bg:"#E6F0FA", color:"#1A3D5C"},
+              {titre:"La valise maternité", desc:"Checklist interactive. Ce qu\'elle emporte, ce que tu prends pour toi.", bg:"#E4F5EC", color:"#0A2E1A"},
+              {titre:"L\'accouchement", desc:"La règle 5-1-1. Quand partir. Ton rôle en salle de naissance.", bg:"#FFF7E0", color:"#3A2800"},
+              {titre:"Le baby blues", desc:"50 à 80% des femmes le vivent. Ce que c\'est, comment tu peux vraiment aider.", bg:"#F0EEFF", color:"#3030A0"},
+              {titre:"Le congé paternité", desc:"28 jours. Comment les poser, ce que ça change vraiment pour votre famille.", bg:"#E4F5EC", color:"#0A2E1A"},
+              {titre:"Le post-partum", desc:"Baby blues, nuits sans sommeil. Ton rôle les premières semaines.", bg:"#E6F0FA", color:"#1A3D5C"},
+            ];
+            var current = 0;
+            var scene = document.getElementById(\'c3d-scene\');
+            function render() {
+              scene.innerHTML = \'\';
+              var positions = [-1, 0, 1];
+              positions.forEach(function(pos, i) {
+                var idx = (current + i) % cards.length;
+                var card = cards[idx];
+                var isCenter = pos === 0;
+                var div = document.createElement(\'div\');
+                div.className = \'c3d-card\';
+                div.style.cssText = \'width:\' + (isCenter ? \'280\' : \'220\') + \'px;background:\' + card.bg + \';transform:translateX(\' + (pos * 270) + \'px) scale(\' + (isCenter ? 1 : 0.72) + \');opacity:\' + (isCenter ? 1 : 0.6) + \';z-index:\' + (isCenter ? 2 : 1) + \';box-shadow:\' + (isCenter ? \'0 12px 40px rgba(0,0,0,0.12)\' : \'0 4px 16px rgba(0,0,0,0.06)\') + \';\';
+                div.innerHTML = \'<p style="color:\' + card.color + \';font-size:\' + (isCenter ? 16 : 13) + \'px;font-weight:800;margin:0 0 8px">\' + card.titre + \'</p><p style="color:\' + card.color + \';font-size:\' + (isCenter ? 13 : 11) + \'px;line-height:1.6;margin:0;opacity:0.8">\' + card.desc + \'</p>\';
+                scene.appendChild(div);
+              });
+            }
+            render();
+            setInterval(function() { current = (current + 1) % cards.length; render(); }, 2500);
+          })();
+        `}} />
       </section>
 
       {/* SAVOIR AVANT */}
