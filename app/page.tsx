@@ -138,27 +138,19 @@ export default function Home() {
             <div className="photo-wrap" style={{borderRadius:'20px', overflow:'hidden', border:'1px solid rgba(255,255,255,0.1)', boxShadow:'0 20px 60px rgba(0,0,0,0.3)', position:'relative'}}>
               <img src="/main.jpg" alt="Papa et bébé" style={{width:'100%', height:'380px', objectFit:'cover', objectPosition:'center', display:'block'}}/>
             </div>
-            {/* 4 badges empilés en bas à droite */}
-            <div style={{position:'absolute', bottom:'-16px', right:'16px', display:'flex', flexDirection:'column' as const, gap:'6px'}}>
+            {/* 4 badges décalés à droite, débordent du cadre */}
+            <div style={{position:'absolute', bottom:'-16px', right:'-24px', display:'flex', flexDirection:'column' as const, gap:'6px'}}>
               {[
-                {bg:'#E6F0FA', color:'#1A3D5C', label:'41 semaines de contenu', icon:null},
-                {bg:'#E4F5EC', color:'#0D4A2E', label:'Post-partum inclus', icon:null},
-                {bg:'#EDE8FF', color:'#3D2E7A', label:"Jusqu'au 1er anniversaire de bébé", icon:null},
+                {bg:'#E6F0FA', color:'#1A3D5C', label:'41 semaines de contenu'},
+                {bg:'#E4F5EC', color:'#0D4A2E', label:'Post-partum inclus'},
+                {bg:'#EDE8FF', color:'#3D2E7A', label:"Jusqu'au 1er anniversaire de bébé"},
+                {bg:C.white, color:C.dark, label:'Contenu médical sourcé'},
               ].map((b,i) => (
-                <div key={i} style={{background:b.bg, borderRadius:'12px', padding:'10px 14px', boxShadow:'0 4px 16px rgba(0,0,0,0.15)', display:'flex', alignItems:'center', gap:'8px'}}>
-                  <div style={{width:'28px', height:'28px', borderRadius:'50%', background:'rgba(0,0,0,0.06)', display:'flex', alignItems:'center', justifyContent:'center', flexShrink:0, fontSize:'13px'}}>✓</div>
-                  <div>
-                    <p style={{color:b.color, fontSize:'11px', fontWeight:800, margin:0}}>{b.label}</p>
-                  </div>
+                <div key={i} style={{background:b.bg, borderRadius:'12px', padding:'10px 14px', boxShadow:'0 4px 16px rgba(0,0,0,0.15)', display:'flex', alignItems:'center', gap:'8px', minWidth:'200px'}}>
+                  <div style={{width:'26px', height:'26px', borderRadius:'50%', background:'rgba(0,0,0,0.06)', display:'flex', alignItems:'center', justifyContent:'center', flexShrink:0, fontSize:'12px'}}>✓</div>
+                  <p style={{color:b.color, fontSize:'11px', fontWeight:800, margin:0}}>{b.label}</p>
                 </div>
               ))}
-              <div style={{background:C.white, borderRadius:'12px', padding:'10px 14px', boxShadow:'0 4px 20px rgba(0,0,0,0.15)', display:'flex', alignItems:'center', gap:'8px'}}>
-                <div style={{width:'28px', height:'28px', borderRadius:'50%', background:'#E4F5EC', display:'flex', alignItems:'center', justifyContent:'center', flexShrink:0, fontSize:'13px'}}>✓</div>
-                <div>
-                  <p style={{color:C.dark, fontSize:'11px', fontWeight:800, margin:0}}>Contenu médical sourcé</p>
-                  <p style={{color:C.textLight, fontSize:'10px', margin:0}}>HAS · OMS · Inserm</p>
-                </div>
-              </div>
             </div>
           </div>
 
@@ -204,7 +196,24 @@ export default function Home() {
           .carousel-track:active { cursor:grabbing; }
           .carousel-card { flex:0 0 300px; scroll-snap-align:center; border-radius:20px; padding:28px; border:1px solid #e8e0d0; }
         `}</style>
-        <div className="carousel-track" id="newbie-carousel">
+        <div className="carousel-track" id="newbie-carousel"
+          onMouseDown={(e:any) => {
+            const el = e.currentTarget;
+            el.dataset.down = '1';
+            el.dataset.startX = e.pageX - el.offsetLeft;
+            el.dataset.scrollLeft = el.scrollLeft;
+          }}
+          onMouseLeave={(e:any) => { e.currentTarget.dataset.down = '0'; }}
+          onMouseUp={(e:any) => { e.currentTarget.dataset.down = '0'; }}
+          onMouseMove={(e:any) => {
+            const el = e.currentTarget;
+            if (el.dataset.down !== '1') return;
+            e.preventDefault();
+            const x = e.pageX - el.offsetLeft;
+            const walk = (x - Number(el.dataset.startX)) * 2;
+            el.scrollLeft = Number(el.dataset.scrollLeft) - walk;
+          }}
+        >
           {[
             {titre:"Les échographies", desc:"À quoi servent T1, T2, T3 ? Ce qu'on cherche, ce que tu dois demander, comment être vraiment présent.", bg:C.bluePale, color:C.blueDark},
             {titre:"La valise maternité", desc:"Checklist interactive. Ce qu'elle emporte, ce que tu prends pour toi, ce que tout le monde oublie.", bg:'#E4F5EC', color:'#0A2E1A'},
