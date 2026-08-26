@@ -114,7 +114,7 @@ export default function Home() {
             </div>
 
             <h1 style={{color:C.white, fontSize:'clamp(28px,4vw,40px)', fontWeight:800, lineHeight:1.15, margin:'0 0 16px'}}>
-              Être père, ça commence<br/><span style={{color:C.gold}}>bien avant la naissance.</span>
+              TEST 123 — ça fonctionne<br/><span style={{color:C.gold}}>bien avant la naissance.</span>
             </h1>
 
             <p style={{color:'rgba(255,255,255,0.75)', fontSize:'15px', lineHeight:1.75, margin:'0 0 6px'}}>
