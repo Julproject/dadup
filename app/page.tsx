@@ -137,17 +137,25 @@ export default function Home() {
             <div style={{borderRadius:'20px', overflow:'hidden', border:'1px solid rgba(255,255,255,0.1)', boxShadow:'0 20px 60px rgba(0,0,0,0.3)'}}>
               <img src="/main.jpg" alt="Papa et bébé" style={{width:'100%', height:'380px', objectFit:'cover', objectPosition:'center', display:'block'}}/>
             </div>
-            {/* 3 badges sur la photo */}
-            <div style={{position:'absolute', bottom:'20px', left:'16px', right:'16px', display:'flex', flexDirection:'column' as const, gap:'8px'}}>
+            {/* Badges superposés en bas de la photo */}
+            <div style={{position:'absolute', bottom:'16px', right:'16px', display:'flex', flexDirection:'column' as const, gap:'8px', maxWidth:'220px'}}>
               {[
                 {bg:'#E6F0FA', color:'#1A3D5C', label:'41 semaines de contenu'},
                 {bg:'#E4F5EC', color:'#0D4A2E', label:'Post-partum inclus'},
                 {bg:'#EDE8FF', color:'#3D2E7A', label:"Jusqu'au 1er anniversaire de bébé"},
               ].map((b,i) => (
-                <div key={i} style={{background:b.bg, borderRadius:'10px', padding:'10px 14px', boxShadow:'0 4px 16px rgba(0,0,0,0.15)'}}>
+                <div key={i} style={{background:b.bg, borderRadius:'10px', padding:'10px 14px', boxShadow:'0 4px 16px rgba(0,0,0,0.2)'}}>
                   <p style={{color:b.color, fontSize:'12px', fontWeight:800, margin:0}}>{b.label}</p>
                 </div>
               ))}
+              {/* Badge contenu médical */}
+              <div style={{background:C.white, borderRadius:'12px', padding:'10px 14px', boxShadow:'0 4px 20px rgba(0,0,0,0.15)', display:'flex', alignItems:'center', gap:'8px'}}>
+                <div style={{width:'28px', height:'28px', borderRadius:'50%', background:'#E4F5EC', display:'flex', alignItems:'center', justifyContent:'center', fontSize:'14px', flexShrink:0}}>✓</div>
+                <div>
+                  <p style={{color:C.dark, fontSize:'11px', fontWeight:800, margin:0}}>Contenu médical sourcé</p>
+                  <p style={{color:C.textLight, fontSize:'10px', margin:0}}>HAS · OMS · Inserm</p>
+                </div>
+              </div>
             </div>
           </div>
 
