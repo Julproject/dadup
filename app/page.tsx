@@ -100,7 +100,7 @@ export default function Home() {
 
       {/* HERO */}
       <section style={{background:C.cream, padding:'24px 24px 0'}}>
-        <div className="hero-2col" style={{background:C.blueDark, borderRadius:'24px', position:'relative', overflow:'visible', border:'1px solid rgba(255,255,255,0.06)'}}>
+        <div className="hero-2col" style={{background:C.blueDark, borderRadius:'24px', position:'relative', overflow:'hidden', border:'1px solid rgba(255,255,255,0.06)'}}>
 
           {/* Cercles décoratifs */}
           <div style={{position:'absolute', top:'-60px', right:'200px', width:'280px', height:'280px', borderRadius:'50%', background:'#E6F0FA', opacity:0.07, pointerEvents:'none'}}></div>
@@ -114,7 +114,7 @@ export default function Home() {
             </div>
 
             <h1 style={{color:C.white, fontSize:'clamp(28px,4vw,40px)', fontWeight:800, lineHeight:1.15, margin:'0 0 16px'}}>
-              TEST 123 — ça fonctionne<br/><span style={{color:C.gold}}>bien avant la naissance.</span>
+              Être père, ça commence<br/><span style={{color:C.gold}}>bien avant la naissance.</span>
             </h1>
 
             <p style={{color:'rgba(255,255,255,0.75)', fontSize:'15px', lineHeight:1.75, margin:'0 0 6px'}}>
@@ -134,27 +134,27 @@ export default function Home() {
 
           {/* PHOTO + BADGES */}
           <div style={{position:'relative', zIndex:1}}>
-            <div style={{borderRadius:'20px', overflow:'hidden', border:'1px solid rgba(255,255,255,0.1)', boxShadow:'0 20px 60px rgba(0,0,0,0.3)'}}>
+            <div style={{borderRadius:'20px', overflow:'hidden', border:'1px solid rgba(255,255,255,0.1)', boxShadow:'0 20px 60px rgba(0,0,0,0.3)', position:'relative'}}>
               <img src="/main.jpg" alt="Papa et bébé" style={{width:'100%', height:'380px', objectFit:'cover', objectPosition:'center', display:'block'}}/>
+              {/* 3 badges sur la photo en bas à droite */}
+              <div style={{position:'absolute', bottom:'16px', right:'16px', display:'flex', flexDirection:'column' as const, gap:'6px'}}>
+                {[
+                  {bg:'#E6F0FA', color:'#1A3D5C', label:'41 semaines de contenu'},
+                  {bg:'#E4F5EC', color:'#0D4A2E', label:'Post-partum inclus'},
+                  {bg:'#EDE8FF', color:'#3D2E7A', label:"Jusqu'au 1er anniversaire de bébé"},
+                ].map((b,i) => (
+                  <div key={i} style={{background:b.bg, borderRadius:'10px', padding:'8px 12px', boxShadow:'0 2px 8px rgba(0,0,0,0.15)'}}>
+                    <p style={{color:b.color, fontSize:'11px', fontWeight:800, margin:0}}>{b.label}</p>
+                  </div>
+                ))}
+              </div>
             </div>
-            {/* Badges superposés en bas de la photo */}
-            <div style={{position:'absolute', bottom:'16px', right:'16px', display:'flex', flexDirection:'column' as const, gap:'8px', maxWidth:'220px'}}>
-              {[
-                {bg:'#E6F0FA', color:'#1A3D5C', label:'41 semaines de contenu'},
-                {bg:'#E4F5EC', color:'#0D4A2E', label:'Post-partum inclus'},
-                {bg:'#EDE8FF', color:'#3D2E7A', label:"Jusqu'au 1er anniversaire de bébé"},
-              ].map((b,i) => (
-                <div key={i} style={{background:b.bg, borderRadius:'10px', padding:'10px 14px', boxShadow:'0 4px 16px rgba(0,0,0,0.2)'}}>
-                  <p style={{color:b.color, fontSize:'12px', fontWeight:800, margin:0}}>{b.label}</p>
-                </div>
-              ))}
-              {/* Badge contenu médical */}
-              <div style={{background:C.white, borderRadius:'12px', padding:'10px 14px', boxShadow:'0 4px 20px rgba(0,0,0,0.15)', display:'flex', alignItems:'center', gap:'8px'}}>
-                <div style={{width:'28px', height:'28px', borderRadius:'50%', background:'#E4F5EC', display:'flex', alignItems:'center', justifyContent:'center', fontSize:'14px', flexShrink:0}}>✓</div>
-                <div>
-                  <p style={{color:C.dark, fontSize:'11px', fontWeight:800, margin:0}}>Contenu médical sourcé</p>
-                  <p style={{color:C.textLight, fontSize:'10px', margin:0}}>HAS · OMS · Inserm</p>
-                </div>
+            {/* Badge contenu médical sous la photo */}
+            <div style={{position:'absolute', bottom:'-16px', left:'-16px', background:C.white, borderRadius:'12px', padding:'10px 14px', boxShadow:'0 4px 20px rgba(0,0,0,0.15)', display:'flex', alignItems:'center', gap:'8px'}}>
+              <div style={{width:'28px', height:'28px', borderRadius:'50%', background:'#E4F5EC', display:'flex', alignItems:'center', justifyContent:'center', fontSize:'14px', flexShrink:0}}>✓</div>
+              <div>
+                <p style={{color:C.dark, fontSize:'11px', fontWeight:800, margin:0}}>Contenu médical sourcé</p>
+                <p style={{color:C.textLight, fontSize:'10px', margin:0}}>HAS · OMS · Inserm</p>
               </div>
             </div>
           </div>
