@@ -137,26 +137,19 @@ export default function Home() {
             </div>
           </div>
 
-          {/* PHOTO + BADGES */}
-          <style>{`.photo-wrap:hover img { transform: scale(1.04); } .photo-wrap img { transition: transform 0.4s ease; }`}</style>
-          <div style={{position:'relative', zIndex:1}}>
-            <div className="photo-wrap" style={{borderRadius:'20px', overflow:'hidden', border:'1px solid rgba(255,255,255,0.1)', boxShadow:'0 20px 60px rgba(0,0,0,0.3)', position:'relative'}}>
-              <img src="/main.jpg" alt="Papa et bébé" style={{width:'100%', height:'380px', objectFit:'cover', objectPosition:'center', display:'block'}}/>
-            </div>
-            {/* 4 badges décalés à droite, débordent du cadre */}
-            <div style={{position:'absolute', bottom:'-16px', right:'-24px', display:'flex', flexDirection:'column' as const, gap:'6px'}}>
-              {[
-                {bg:'#E6F0FA', color:'#1A3D5C', label:'41 semaines de contenu'},
-                {bg:'#E4F5EC', color:'#0D4A2E', label:'Post-partum inclus'},
-                {bg:'#EDE8FF', color:'#3D2E7A', label:"Jusqu'au 1er anniversaire de bébé"},
-                {bg:C.white, color:C.dark, label:'Contenu médical sourcé'},
-              ].map((b,i) => (
-                <div key={i} style={{background:b.bg, borderRadius:'12px', padding:'10px 14px', boxShadow:'0 4px 16px rgba(0,0,0,0.15)', display:'flex', alignItems:'center', gap:'8px', minWidth:'200px'}}>
-                  <div style={{width:'26px', height:'26px', borderRadius:'50%', background:'rgba(0,0,0,0.06)', display:'flex', alignItems:'center', justifyContent:'center', flexShrink:0, fontSize:'12px'}}>✓</div>
-                  <p style={{color:b.color, fontSize:'11px', fontWeight:800, margin:0}}>{b.label}</p>
-                </div>
-              ))}
-            </div>
+          {/* BADGES VERTICAUX */}
+          <div style={{position:'relative', zIndex:1, display:'flex', flexDirection:'column' as const, gap:'12px', justifyContent:'center'}}>
+            {[
+              {bg:'#E6F0FA', color:'#1A3D5C', label:'41 semaines de contenu'},
+              {bg:'#E4F5EC', color:'#0D4A2E', label:'Post-partum inclus'},
+              {bg:'#EDE8FF', color:'#3D2E7A', label:"Jusqu'au 1er anniversaire de bébé"},
+              {bg:C.white, color:C.dark, label:'Contenu médical sourcé'},
+            ].map((b,i) => (
+              <div key={i} style={{background:b.bg, borderRadius:'14px', padding:'14px 18px', boxShadow:'0 4px 16px rgba(0,0,0,0.12)', display:'flex', alignItems:'center', gap:'12px'}}>
+                <div style={{width:'30px', height:'30px', borderRadius:'50%', background:'rgba(0,0,0,0.06)', display:'flex', alignItems:'center', justifyContent:'center', flexShrink:0, fontSize:'14px'}}>✓</div>
+                <p style={{color:b.color, fontSize:'13px', fontWeight:800, margin:0}}>{b.label}</p>
+              </div>
+            ))}
           </div>
 
         </div>
@@ -239,18 +232,9 @@ export default function Home() {
           </p>
           <a href="/pourquoi" style={{color:C.dark, fontSize:'14px', fontWeight:700, textDecoration:'none'}}>Pourquoi ça change tout →</a>
         </div>
-        <div className="modules-grid">
-          {[
-            {titre:'Calendrier RDV',    desc:'Chaque consultation préparée',  bg:'#E6F0FA', color:'#1A3D5C'},
-            {titre:'Suivi bébé',        desc:'Chaque semaine expliquée',       bg:'#E4F5EC', color:'#0A2E1A'},
-            {titre:'Guide accouchement',desc:'Ton rôle précis le jour J',     bg:'#FFF7E0', color:'#3A2800'},
-            {titre:'Post-partum',       desc:'Baby blues, nuits, couple',     bg:'#F0EEFF', color:'#3030A0'},
-          ].map((m, i) => (
-            <a key={i} href="/inclus" style={{background:m.bg, borderRadius:'16px', padding:'20px', border:`1px solid ${C.border}`, textDecoration:'none', display:'block'}}>
-              <p style={{color:m.color, fontSize:'14px', fontWeight:800, margin:'0 0 4px'}}>{m.titre}</p>
-              <p style={{color:m.color, fontSize:'12px', margin:0, opacity:0.7}}>{m.desc}</p>
-            </a>
-          ))}
+        <style>{`.photo-wrap:hover img { transform: scale(1.04); } .photo-wrap img { transition: transform 0.4s ease; }`}</style>
+        <div className="photo-wrap" style={{borderRadius:'24px', overflow:'hidden', boxShadow:'0 20px 60px rgba(0,0,0,0.15)', border:`1px solid ${C.border}`}}>
+          <img src="/main.jpg" alt="Papa et bébé" style={{width:'100%', height:'100%', objectFit:'cover', objectPosition:'center', display:'block', minHeight:'340px'}}/>
         </div>
       </section>
 
