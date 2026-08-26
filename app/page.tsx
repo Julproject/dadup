@@ -137,45 +137,40 @@ export default function Home() {
         </div>
       )}
 
-      {/* HERO */}
-      <section className="hero-grid" style={{padding:'80px 40px 0', maxWidth:'1200px', margin:'0 auto'}}>
-        <div>
-          {/* Badge FOMO */}
-          <div style={{display:'inline-flex', alignItems:'center', gap:'8px', background:'#FFF0E6', border:'1px solid rgba(192,74,26,0.2)', borderRadius:'20px', padding:'6px 14px', marginBottom:'28px'}}>
-            <div style={{width:'7px', height:'7px', borderRadius:'50%', background:'#C04A1A'}}></div>
-            <span style={{color:'#C04A1A', fontSize:'12px', fontWeight:700, letterSpacing:'0.5px'}}>Conçu pour les futurs pères</span>
-          </div>
+            {/* HERO */}
+      <section style={{padding:'72px 24px 0', maxWidth:'860px', margin:'0 auto', textAlign:'center' as const}}>
 
-          <h1 style={{fontSize:'54px', fontWeight:800, color:C.dark, lineHeight:1.0, margin:'0 0 24px'}}>
-            Être père,<br/><span style={{color:C.gold}}>ça se prépare.</span>
-          </h1>
-
-          <p style={{color:C.text, fontSize:'16px', lineHeight:1.8, margin:'0 0 36px', maxWidth:'480px'}}>
-            De la première échographie au premier anniversaire. Tout ce que personne ne t&apos;explique sur la grossesse, l&apos;accouchement et les premiers mois avec bébé.
-          </p>
-
-          <div style={{display:'flex', gap:'12px', alignItems:'center', flexWrap:'wrap' as const}}>
-            <button onClick={goToStripe} style={{background:C.dark, color:C.white, border:'none', padding:'16px 32px', borderRadius:'32px', fontSize:'15px', fontWeight:800, cursor:'pointer'}}>
-              Commencer
-            </button>
-            <a href="/inclus" style={{color:C.blue, fontSize:'14px', fontWeight:700, textDecoration:'none'}}>Voir ce qui est inclus →</a>
-          </div>
-          
+        {/* Badge */}
+        <div style={{display:'inline-flex', alignItems:'center', gap:'8px', background:'#E6F0FA', border:'1px solid rgba(46,95,138,0.2)', borderRadius:'20px', padding:'6px 16px', marginBottom:'32px'}}>
+          <div style={{width:'7px', height:'7px', borderRadius:'50%', background:C.blue}}></div>
+          <span style={{color:C.blue, fontSize:'12px', fontWeight:700, letterSpacing:'0.5px'}}>Conçu pour les futurs pères</span>
         </div>
 
-          {/* Photo hero */}
-        <div style={{position:'relative'}}>
-          <div className="hero-img-wrap" style={{background:C.cream, borderRadius:'24px', height:'500px', overflow:'hidden', border:`1px solid ${C.border}`}}>
-            <img src="/main.jpg" alt="Papa main sur le ventre" style={{width:'100%', height:'100%', objectFit:'cover', objectPosition:'center'}}/>
-          </div>
-          <div style={{position:'absolute', bottom:'24px', left:'-20px', background:C.white, borderRadius:'16px', padding:'12px 16px', border:`1px solid ${C.border}`, boxShadow:'0 4px 16px rgba(0,0,0,0.1)', display:'flex', alignItems:'center', gap:'10px'}}>
-            <div style={{width:'32px', height:'32px', borderRadius:'50%', background:'#E4F5EC', display:'flex', alignItems:'center', justifyContent:'center', fontSize:'16px'}}>💪</div>
-            <div>
-              <p style={{color:C.dark, fontSize:'12px', fontWeight:800, margin:0}}>Toujours prêt</p>
-              <p style={{color:C.textLight, fontSize:'11px', margin:'1px 0 0'}}></p>
-            </div>
-          </div>
+        {/* Headline */}
+        <h1 style={{fontSize:'clamp(36px, 6vw, 58px)', fontWeight:800, color:C.dark, lineHeight:1.1, margin:'0 0 24px'}}>
+          Être père, ça commence<br/><span style={{color:C.gold}}>bien avant la naissance.</span>
+        </h1>
+
+        {/* Sous-titre */}
+        <p style={{color:C.text, fontSize:'clamp(16px, 2vw, 19px)', lineHeight:1.8, margin:'0 auto 40px', maxWidth:'620px'}}>
+          Elle porte bébé. Toi, tu portes le reste.<br/>
+          DadUp t&apos;accompagne semaine après semaine, de la grossesse au premier anniversaire de bébé.
+        </p>
+
+        {/* CTA */}
+        <div style={{display:'flex', flexDirection:'column' as const, alignItems:'center', gap:'12px', marginBottom:'48px'}}>
+          <button onClick={goToStripe} style={{background:C.dark, color:C.white, border:'none', padding:'18px 48px', borderRadius:'32px', fontSize:'17px', fontWeight:800, cursor:'pointer', width:'100%', maxWidth:'340px'}}>
+            Commencer · 49,99€
+          </button>
+          <p style={{color:C.textLight, fontSize:'13px', margin:0}}>Satisfait ou remboursé sous 14 jours</p>
+          <a href="/inclus" style={{color:C.blue, fontSize:'14px', fontWeight:700, textDecoration:'none'}}>Voir ce qui est inclus →</a>
         </div>
+
+        {/* Photo réduite */}
+        <div style={{borderRadius:'24px', overflow:'hidden', border:`1px solid ${C.border}`, maxHeight:'380px'}}>
+          <img src="/main.jpg" alt="Papa main sur le ventre" style={{width:'100%', height:'380px', objectFit:'cover', objectPosition:'center top'}}/>
+        </div>
+
       </section>
 
       {/* STATS */}
@@ -253,7 +248,7 @@ export default function Home() {
           </p>
           <div style={{display:'flex', gap:'16px', flexWrap:'wrap' as const}}>
             <a href="/pourquoi" style={{color:C.dark, fontSize:'14px', fontWeight:700, textDecoration:'none'}}>Pourquoi ça change tout →</a>
-            <a href="/temoignages" style={{color:C.dark, fontSize:'14px', fontWeight:700, textDecoration:'none'}}>Ce qu'ils en disent →</a>
+            
           </div>
         </div>
         <div className="modules-grid">
@@ -317,7 +312,6 @@ export default function Home() {
         </div>
       </footer>
 
-      {showModal && <CheckoutModal onClose={() => setShowModal(false)} />}
       {showModal && <CheckoutModal onClose={() => setShowModal(false)} />}
     </main>
   );
