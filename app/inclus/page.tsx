@@ -195,7 +195,7 @@ export default function InclusPage() {
         @media(max-width:768px){
           .nl{display:none!important;}.nc{display:none!important;}
           nav{padding:0 16px!important;}
-          h1{font-size:28px!important;}
+          h1{font-size:36px!important;}
           .sp{padding:48px 20px!important;}
           .grid6{grid-template-columns:1fr 1fr!important;}
           .grid2{grid-template-columns:1fr!important;}
