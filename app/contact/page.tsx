@@ -11,7 +11,7 @@ const C = {
 
 const SUJETS = [
   'Mon accès ne fonctionne pas',
-  'Je n\'arrive pas à me connecter',
+  "Je n'arrive pas à me connecter",
   'Question sur le contenu',
   'Problème de paiement',
   'Suggestion ou retour',
