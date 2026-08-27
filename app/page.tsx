@@ -126,7 +126,7 @@ export default function Home() {
 
             <div style={{display:'flex', flexDirection:'column' as const, gap:'10px', maxWidth:'320px'}}>
               <button onClick={goToStripe} style={{background:C.gold, color:'#1c1510', border:'none', padding:'16px 32px', borderRadius:'32px', fontSize:'16px', fontWeight:800, cursor:'pointer', textAlign:'center' as const}}>
-                Rejoindre DadUp
+                Accéder
               </button>
               <div style={{display:'flex', alignItems:'center', gap:'8px'}}>
                 <div style={{flex:1, height:'1px', background:'rgba(255,255,255,0.1)'}}></div>
@@ -249,7 +249,7 @@ export default function Home() {
           Elle porte bébé. Tu portes le reste.
         </p>
         <button onClick={goToStripe} style={{background:C.gold, color:'#1c1510', border:'none', padding:'18px 48px', borderRadius:'32px', fontSize:'16px', fontWeight:800, cursor:'pointer', width:'100%', maxWidth:'400px', display:'block', margin:'0 auto 12px'}}>
-          Rejoindre DadUp
+          Accéder
         </button>
         <p style={{color:'rgba(255,255,255,0.3)', fontSize:'13px', margin:0}}>Paiement unique · Satisfait ou remboursé sous 14 jours</p>
       </section>
