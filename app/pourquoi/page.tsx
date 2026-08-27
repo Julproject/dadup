@@ -95,7 +95,7 @@ export default function PourquoiPage() {
       <section style={{background:'#1A3D5C',padding:'80px 40px'}}>
         <div style={{maxWidth:'800px',margin:'0 auto',textAlign:'center'}}>
 
-          <h1 style={{color:C.white,fontSize:'52px',fontWeight:800,margin:'0 0 24px',lineHeight:1.1}}>
+          <h1 style={{color:C.white,fontSize:'44px',fontWeight:800,margin:'0 0 24px',lineHeight:1.1}}>
             Être père,<br/><span style={{color:C.gold}}>ça se prépare.</span>
           </h1>
           <p style={{color:'#6a7585',fontSize:'18px',lineHeight:1.7,margin:'0 0 16px'}}>DadUp est le premier guide conçu exclusivement pour le papa.</p>
@@ -123,7 +123,7 @@ export default function PourquoiPage() {
       <section className="sp" style={{padding:'80px 40px',maxWidth:'1200px',margin:'0 auto'}}>
         <div style={{textAlign:'center',marginBottom:'48px'}}>
           <p style={{color:C.blue,fontSize:'11px',fontWeight:700,letterSpacing:'3px',textTransform:'uppercase',margin:'0 0 12px'}}>Ce que DadUp change</p>
-          <h2 style={{fontSize:'38px',fontWeight:800,color:C.dark,margin:0}}>Avant / Après DadUp</h2>
+          <h2 style={{fontSize:'32px',fontWeight:800,color:C.dark,margin:0}}>Avant / Après DadUp</h2>
         </div>
         <div className="aa">
           <div style={{background:C.orange,borderRadius:'20px',padding:'32px',border:`1px solid rgba(192,74,26,0.15)`}}>
@@ -189,7 +189,7 @@ export default function PourquoiPage() {
       {/* CTA */}
       <section style={{background:'#1A3D5C',padding:'80px 40px',textAlign:'center' as const}}>
         <p style={{color:C.gold,fontSize:'11px',fontWeight:700,letterSpacing:'3px',textTransform:'uppercase',margin:'0 0 16px'}}>Prêt à commencer ?</p>
-        <h2 style={{color:C.white,fontSize:'38px',fontWeight:800,margin:'0 0 12px'}}>49,99€ accès complet</h2>
+        <h2 style={{color:C.white,fontSize:'32px',fontWeight:800,margin:'0 0 12px'}}>49,99€ accès complet</h2>
         <p style={{color:'#6a7585',fontSize:'16px',margin:'0 0 8px'}}>Paiement unique. Accès jusqu\'au 1er anniversaire de bébé.</p>
         <p style={{color:'rgba(200,160,96,0.5)',fontSize:'13px',margin:'0 0 32px'}}></p>
         <a href="/tarifs" style={{background:C.gold,color:'#1c1510',padding:'16px 40px',borderRadius:'32px',fontSize:'15px',fontWeight:800,textDecoration:'none',display:'inline-block'}}>Commencer</a>
