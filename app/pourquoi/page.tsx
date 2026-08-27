@@ -189,8 +189,8 @@ export default function PourquoiPage() {
       {/* CTA */}
       <section style={{background:'#1A3D5C',padding:'80px 40px',textAlign:'center' as const}}>
         <p style={{color:C.gold,fontSize:'11px',fontWeight:700,letterSpacing:'3px',textTransform:'uppercase',margin:'0 0 16px'}}>Prêt à commencer ?</p>
-        <h2 style={{color:C.white,fontSize:'32px',fontWeight:800,margin:'0 0 12px'}}>49,99€</h2>
-        <p style={{color:'#6a7585',fontSize:'16px',margin:'0 0 8px'}}>Paiement unique.</p>
+        <h2 style={{color:C.white,fontSize:'56px',fontWeight:800,margin:'0 0 8px'}}>49,99€</h2>
+        <p style={{color:'#6a7585',fontSize:'16px',margin:'0 0 8px'}}>Paiement unique</p>
         <p style={{color:'rgba(200,160,96,0.5)',fontSize:'13px',margin:'0 0 32px'}}></p>
         <a href="/tarifs" style={{background:C.gold,color:'#1c1510',padding:'16px 40px',borderRadius:'32px',fontSize:'15px',fontWeight:800,textDecoration:'none',display:'inline-block'}}>Commencer</a>
       </section>
