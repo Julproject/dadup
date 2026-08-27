@@ -222,7 +222,7 @@ export default function Home() {
       </section>
 
             {/* SAVOIR AVANT */}
-      <section style={{padding:'40px', background:C.white}}>
+      <section style={{padding:'24px 40px 40px', background:C.white}}>
         <div style={{position:'relative', borderRadius:'24px', overflow:'hidden', minHeight:'380px', display:'flex', alignItems:'center', justifyContent:'center'}}>
           <img src="/main.jpg" alt="Papa et bébé" style={{position:'absolute', top:0, left:0, width:'100%', height:'100%', objectFit:'cover', objectPosition:'center 60%', display:'block'}}/>
           <div style={{position:'absolute', top:0, left:0, right:0, bottom:0, background:'linear-gradient(to right, rgba(26,61,92,0.92) 50%, rgba(26,61,92,0.55) 100%)'}}></div>
