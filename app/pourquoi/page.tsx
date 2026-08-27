@@ -73,7 +73,7 @@ export default function PourquoiPage() {
         </div>
         <div className="nc" style={{alignItems:'center',gap:'16px'}}>
           <a href="/login" style={{color:C.dark,fontSize:'14px',fontWeight:600,textDecoration:'none'}}>Se connecter</a>
-          <a href="/tarifs" style={{background:C.dark,color:C.white,padding:'11px 22px',borderRadius:'32px',fontSize:'13px',fontWeight:700,textDecoration:'none'}}>Commencer</a>
+          <a href="/tarifs" style={{background:'#1A3D5C',color:C.white,padding:'11px 22px',borderRadius:'32px',fontSize:'13px',fontWeight:700,textDecoration:'none'}}>Commencer</a>
         </div>
         <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)} style={{ display: 'none', background: 'none', border: `1px solid ${C.border}`, padding: '8px 12px', borderRadius: '8px', cursor: 'pointer' }}>
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -92,7 +92,7 @@ export default function PourquoiPage() {
       )}
 
       {/* HERO */}
-      <section style={{background:C.dark,padding:'80px 40px'}}>
+      <section style={{background:'#1A3D5C',padding:'80px 40px'}}>
         <div style={{maxWidth:'800px',margin:'0 auto',textAlign:'center'}}>
 
           <h1 style={{color:C.white,fontSize:'52px',fontWeight:800,margin:'0 0 24px',lineHeight:1.1}}>
@@ -141,7 +141,7 @@ export default function PourquoiPage() {
               </div>
             ))}
           </div>
-          <div style={{background:C.dark,borderRadius:'20px',padding:'32px'}}>
+          <div style={{background:'#1A3D5C',borderRadius:'20px',padding:'32px'}}>
             <p style={{color:C.gold,fontSize:'12px',fontWeight:700,letterSpacing:'2px',textTransform:'uppercase',margin:'0 0 20px'}}>Avec DadUp</p>
             {[
               "Tu connais chaque étape avant qu'elle arrive",
@@ -187,7 +187,7 @@ export default function PourquoiPage() {
         </div>
       </section>
       {/* CTA */}
-      <section style={{background:C.dark,padding:'80px 40px',textAlign:'center' as const}}>
+      <section style={{background:'#1A3D5C',padding:'80px 40px',textAlign:'center' as const}}>
         <p style={{color:C.gold,fontSize:'11px',fontWeight:700,letterSpacing:'3px',textTransform:'uppercase',margin:'0 0 16px'}}>Prêt à commencer ?</p>
         <h2 style={{color:C.white,fontSize:'38px',fontWeight:800,margin:'0 0 12px'}}>49,99€ accès complet</h2>
         <p style={{color:'#6a7585',fontSize:'16px',margin:'0 0 8px'}}>Paiement unique. Accès jusqu\'au 1er anniversaire de bébé.</p>
@@ -195,7 +195,7 @@ export default function PourquoiPage() {
         <a href="/tarifs" style={{background:C.gold,color:'#1c1510',padding:'16px 40px',borderRadius:'32px',fontSize:'15px',fontWeight:800,textDecoration:'none',display:'inline-block'}}>Commencer</a>
       </section>
 
-      <footer style={{background:C.dark,borderTop:'1px solid #2e3848',padding:'32px 40px'}}>
+      <footer style={{background:'#1A3D5C',borderTop:'1px solid #2e3848',padding:'32px 40px'}}>
         <div style={{maxWidth:'1200px',margin:'0 auto',display:'flex',flexDirection:'column',gap:'16px'}}>
           <div style={{display:'flex',alignItems:'center',justifyContent:'space-between',flexWrap:'wrap' as const,gap:'16px'}}>
             <div style={{display:'flex',alignItems:'center',gap:'8px'}}>
