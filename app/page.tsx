@@ -234,7 +234,7 @@ export default function Home() {
           <a href="/pourquoi" style={{color:C.dark, fontSize:'14px', fontWeight:700, textDecoration:'none'}}>Pourquoi ça change tout →</a>
         </div>
         <style>{`.photo-wrap:hover img { transform: scale(1.04); } .photo-wrap img { transition: transform 0.4s ease; }`}</style>
-        <div className="photo-wrap" style={{borderRadius:'24px', overflow:'hidden', boxShadow:'0 20px 60px rgba(0,0,0,0.15)', border:`1px solid ${C.border}`, width:'fit-content', marginLeft:'auto'}}>
+        <div className="photo-wrap" style={{borderRadius:'24px', overflow:'hidden', boxShadow:'0 20px 60px rgba(0,0,0,0.15)', border:`1px solid ${C.border}`, width:'fit-content', marginLeft:'30%'}}>
           <img src="/main.jpg" alt="Papa et bébé" style={{width:'280px', height:'380px', objectFit:'cover', objectPosition:'center 60%', display:'block'}}/>
         </div>
       </section>
