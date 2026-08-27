@@ -114,11 +114,11 @@ export default function Home() {
             </div>
 
             <h1 style={{color:C.white, fontSize:'clamp(28px,4vw,40px)', fontWeight:800, lineHeight:1.15, margin:'0 0 16px'}}>
-              Être père, ça commence<br/><span style={{color:C.gold}}>bien avant la naissance.</span>
+              Être père, ça commence<br/><span style={{color:C.gold}}>bien avant la naissance</span>
             </h1>
 
             <p style={{color:'rgba(255,255,255,0.92)', fontSize:'18px', fontWeight:600, lineHeight:1.6, margin:'0 0 8px'}}>
-              Elle porte bébé. Toi, tu portes le reste.
+              Elle porte bébé. Tu portes le reste.
             </p>
             <p style={{color:'rgba(255,255,255,0.5)', fontSize:'14px', lineHeight:1.7, margin:'0 0 32px'}}>
               DadUp t&apos;accompagne semaine après semaine, de la grossesse au premier anniversaire de bébé.
@@ -138,6 +138,7 @@ export default function Home() {
           </div>
 
           {/* BADGES VERTICAUX */}
+          <style>{`.badge-item{transition:transform .2s ease,box-shadow .2s ease}.badge-item:hover{transform:scale(1.05);box-shadow:0 8px 24px rgba(0,0,0,0.18)!important}`}</style>
           <div style={{position:'relative', zIndex:1, display:'flex', flexDirection:'column' as const, gap:'12px', justifyContent:'center'}}>
             {[
               {bg:'#E6F0FA', color:'#1A3D5C', label:'41 semaines de contenu'},
@@ -145,7 +146,7 @@ export default function Home() {
               {bg:'#EDE8FF', color:'#3D2E7A', label:"Jusqu'au 1er anniversaire de bébé"},
               {bg:C.white, color:C.dark, label:'Contenu médical sourcé'},
             ].map((b,i) => (
-              <div key={i} style={{background:b.bg, borderRadius:'14px', padding:'14px 18px', boxShadow:'0 4px 16px rgba(0,0,0,0.12)', display:'flex', alignItems:'center', gap:'12px'}}>
+              <div key={i} className="badge-item" style={{background:b.bg, borderRadius:'14px', padding:'14px 18px', boxShadow:'0 4px 16px rgba(0,0,0,0.12)', display:'flex', alignItems:'center', gap:'12px', cursor:'default'}}>
                 <div style={{width:'30px', height:'30px', borderRadius:'50%', background:'rgba(0,0,0,0.06)', display:'flex', alignItems:'center', justifyContent:'center', flexShrink:0, fontSize:'14px'}}>✓</div>
                 <p style={{color:b.color, fontSize:'13px', fontWeight:800, margin:0}}>{b.label}</p>
               </div>
@@ -160,7 +161,7 @@ export default function Home() {
         <div style={{maxWidth:'1000px', margin:'0 auto'}}>
           <div style={{textAlign:'center', marginBottom:'48px'}}>
             <p style={{color:C.blue, fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase' as const, margin:'0 0 16px'}}>Ce que DadUp couvre</p>
-            <h2 style={{color:C.dark, fontSize:'36px', fontWeight:800, margin:0, lineHeight:1.2}}>Tout ce dont tu as besoin,<br/>au bon moment.</h2>
+            <h2 style={{color:C.dark, fontSize:'36px', fontWeight:800, margin:0, lineHeight:1.2}}>Tout ce dont tu as besoin,<br/>au bon moment</h2>
           </div>
           <div className="stats-4col">
             {[
@@ -183,7 +184,7 @@ export default function Home() {
       <section style={{padding:'80px 0', background:C.white, overflow:'hidden'}}>
         <div style={{textAlign:'center', marginBottom:'48px', padding:'0 40px'}}>
           <p style={{color:C.blue, fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase' as const, margin:'0 0 16px'}}>Les sujets traités</p>
-          <h2 style={{color:C.dark, fontSize:'36px', fontWeight:800, margin:'0 0 16px', lineHeight:1.2}}>Tout ce que personne<br/>ne t&apos;explique.</h2>
+          <h2 style={{color:C.dark, fontSize:'36px', fontWeight:800, margin:'0 0 16px', lineHeight:1.2}}>Tout ce que personne<br/>ne t&apos;explique</h2>
           <p style={{color:C.textLight, fontSize:'15px', margin:'0 auto', maxWidth:'480px', lineHeight:1.7}}>Traités sans détour, au bon moment de la grossesse.</p>
         </div>
         <style>{`
@@ -225,7 +226,7 @@ export default function Home() {
         <div style={{borderLeft:`3px solid ${C.gold}`, paddingLeft:'32px'}}>
           <p style={{color:C.gold, fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase' as const, margin:'0 0 16px'}}>Ce que tu peux changer</p>
           <p style={{fontSize:'34px', fontWeight:800, color:C.dark, margin:'0 0 16px', lineHeight:1.2}}>
-            Savoir ce qui se passe avant qu&apos;on te l&apos;explique.
+            Savoir ce qui se passe avant qu&apos;on te l&apos;explique
           </p>
           <p style={{color:C.text, fontSize:'16px', margin:'0 0 32px', lineHeight:1.7}}>
             Un père qui comprend ce qui se passe prend de meilleures décisions. Il est plus calme le jour J. Il sait quoi faire, et quand le faire.
@@ -242,10 +243,10 @@ export default function Home() {
       <section className="cta-section" style={{background:C.blueDark, padding:'80px 40px', textAlign:'center' as const}}>
         <p style={{color:C.gold, fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase' as const, margin:'0 0 16px'}}>Accès immédiat</p>
         <h2 style={{color:C.white, fontSize:'44px', fontWeight:800, margin:'0 0 16px', lineHeight:1.1}}>
-          Être père, ça commence<br/>bien avant la naissance.
+          Être père, ça commence<br/>bien avant la naissance
         </h2>
         <p style={{color:'rgba(255,255,255,0.5)', fontSize:'15px', margin:'0 0 32px', lineHeight:1.7}}>
-          Elle porte bébé. Toi, tu portes le reste.
+          Elle porte bébé. Tu portes le reste.
         </p>
         <button onClick={goToStripe} style={{background:C.gold, color:'#1c1510', border:'none', padding:'18px 48px', borderRadius:'32px', fontSize:'16px', fontWeight:800, cursor:'pointer', width:'100%', maxWidth:'400px', display:'block', margin:'0 auto 12px'}}>
           Commencer · 49,99€
