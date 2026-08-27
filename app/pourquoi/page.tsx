@@ -23,7 +23,7 @@ export default function PourquoiPage() {
           .nc{display:none!important;}
           .sp{padding:32px 16px!important;}
           nav{padding:0 16px!important;}
-          h1{font-size:32px!important;line-height:1.15!important;}
+          h1{font-size:36px!important;line-height:1.15!important;}
           h2{font-size:24px!important;}
           .prix{font-size:48px!important;}
           .hero-grid{grid-template-columns:1fr!important;gap:24px!important;padding:40px 16px 0!important;}
