@@ -104,7 +104,7 @@ export default function TarifsPage() {
       <section className="hero" style={{ background: '#1A3D5C', padding: '72px 40px' }}>
         <div style={{ maxWidth: '760px', margin: '0 auto', textAlign: 'center' }}>
           <p style={{ color: C.gold, fontSize: '11px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase', margin: '0 0 20px' }}>Tarifs</p>
-          <h1 style={{ color: C.white, fontSize: '48px', fontWeight: 800, margin: '0 0 16px', lineHeight: 1.1 }}>
+          <h1 style={{ color: C.white, fontSize: '44px', fontWeight: 800, margin: '0 0 16px', lineHeight: 1.1 }}>
             Une offre claire, <span style={{ color: C.gold }}>un prix unique.</span>
           </h1>
           <p style={{ color: '#6a7585', fontSize: '17px', lineHeight: 1.7, margin: 0 }}>Tout est inclus. Rien de caché.</p>
