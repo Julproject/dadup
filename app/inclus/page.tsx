@@ -340,7 +340,7 @@ export default function InclusPage() {
               <p style={{ color: C.gold, fontSize: '10px', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase' as const, margin: '0 0 14px' }}>Un échantillon du contenu qui t&apos;attend</p>
               <p style={{ color: C.white, fontSize: '28px', fontWeight: 800, margin: '0 0 28px', lineHeight: 1.25 }}>Tout ce dont tu as besoin, au bon moment</p>
               <div>
-                <button onClick={() => setShowModal(true)} style={{ background: C.gold, color: '#1c1510', border: 'none', padding: '20px 40px', borderRadius: '32px', fontWeight: 800, cursor: 'pointer', display: 'block', width: '100%', display: 'flex', flexDirection: 'column' as const, alignItems: 'center', gap: '2px' }}>
+                <button onClick={() => setShowModal(true)} style={{ background: C.gold, color: '#1c1510', border: 'none', padding: '20px 40px', borderRadius: '32px', fontWeight: 800, cursor: 'pointer', width: '100%', display: 'flex', flexDirection: 'column' as const, alignItems: 'center', gap: '2px' }}>
                   <span style={{ fontSize: '28px', fontWeight: 800 }}>49,99€</span>
                   <span style={{ fontSize: '14px', fontWeight: 700, opacity: 0.8 }}>Commencer</span>
                 </button>
