@@ -341,8 +341,9 @@ export default function InclusPage() {
               <p style={{ color: C.white, fontSize: '28px', fontWeight: 800, margin: '0 0 28px', lineHeight: 1.25 }}>Tout ce dont tu as besoin, au bon moment</p>
               <div>
                 <button onClick={() => setShowModal(true)} style={{ background: C.gold, color: '#1c1510', border: 'none', padding: '16px 32px', borderRadius: '32px', fontSize: '15px', fontWeight: 800, cursor: 'pointer', display: 'block', marginBottom: '10px', width: '100%' }}>
-                  Commencer · 49,99€
+                  Commencer
                 </button>
+                <p style={{ color: C.white, fontSize: '48px', fontWeight: 800, margin: '8px 0 4px', textAlign: 'center' as const }}>49,99€</p>
                 <p style={{ color: '#6a7585', fontSize: '12px', margin: 0, textAlign: 'center' as const }}>Satisfait ou remboursé sous 14 jours</p>
               </div>
             </div>
