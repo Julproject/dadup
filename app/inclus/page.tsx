@@ -220,7 +220,7 @@ export default function InclusPage() {
         </div>
         <div className="nc" style={{ alignItems: 'center', gap: '16px' }}>
           <a href="/login" style={{ color: C.dark, fontSize: '14px', fontWeight: 600, textDecoration: 'none' }}>Se connecter</a>
-          <button onClick={() => setShowModal(true)} style={{ background: C.dark, color: C.white, padding: '11px 22px', borderRadius: '32px', fontSize: '13px', fontWeight: 700, border: 'none', cursor: 'pointer' }}>Commencer</button>
+          <button onClick={() => setShowModal(true)} style={{ background: '#1A3D5C', color: C.white, padding: '11px 22px', borderRadius: '32px', fontSize: '13px', fontWeight: 700, border: 'none', cursor: 'pointer' }}>Commencer</button>
         </div>
         <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)} style={{ display: 'none', background: 'none', border: `1px solid ${C.border}`, padding: '8px 12px', borderRadius: '8px', cursor: 'pointer' }}>
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -239,7 +239,7 @@ export default function InclusPage() {
       )}
 
       {/* HERO */}
-      <section style={{ background: C.dark, padding: '72px 40px' }}>
+      <section style={{ background: '#1A3D5C', padding: '72px 40px' }}>
         <div style={{ maxWidth: '760px', margin: '0 auto', textAlign: 'center' }}>
           <p style={{ color: C.gold, fontSize: '11px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase' as const, margin: '0 0 20px' }}>Ce qui est inclus</p>
           <h1 style={{ color: C.white, fontSize: '44px', fontWeight: 800, margin: '0 0 16px', lineHeight: 1.15 }}>De la grossesse au premier anniversaire</h1>
@@ -274,7 +274,7 @@ export default function InclusPage() {
         <div style={{ background: C.cream, height: '80px' }}></div>
 
         {/* Section sombre */}
-        <div style={{ background: C.dark, padding: '0 40px 64px' }}>
+        <div style={{ background: '#1A3D5C', padding: '0 40px 64px' }}>
           <div style={{ maxWidth: '960px', margin: '0 auto', display: 'flex', alignItems: 'center', gap: '56px' }}>
 
             {/* iPhone avec relief */}
@@ -288,7 +288,7 @@ export default function InclusPage() {
               }}>
                 {/* Reflet de lumière sur le bord */}
                 <div style={{ position: 'absolute', top: 0, left: '10%', right: '10%', height: '1px', background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent)', borderRadius: '999px' }}></div>
-                <div style={{ background: C.dark, borderRadius: '36px 36px 0 0', padding: '10px 14px 6px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', position: 'relative' }}>
+                <div style={{ background: '#1A3D5C', borderRadius: '36px 36px 0 0', padding: '10px 14px 6px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', position: 'relative' }}>
                   <span style={{ color: '#fff', fontSize: '8px', fontWeight: 700 }}>9:41</span>
                   <div style={{ background: '#1c1c1e', borderRadius: '20px', padding: '3px 10px', position: 'absolute', left: '50%', transform: 'translateX(-50%)' }}>
                     <div style={{ width: '6px', height: '6px', background: '#2a2a2c', borderRadius: '50%' }}></div>
@@ -300,7 +300,7 @@ export default function InclusPage() {
                   <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '30%', background: 'linear-gradient(180deg, rgba(255,255,255,0.06) 0%, transparent 100%)', zIndex: 1, pointerEvents: 'none' }}></div>
                   <div style={{ padding: '10px', display: 'flex', flexDirection: 'column', gap: '6px' }}>
 
-                    <div style={{ background: C.dark, borderRadius: '10px', padding: '9px 12px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <div style={{ background: '#1A3D5C', borderRadius: '10px', padding: '9px 12px', display: 'flex', alignItems: 'center', gap: '8px' }}>
                       <span style={{ fontSize: '20px' }}>🍋</span>
                       <div>
                         <p style={{ color: C.gold, fontSize: '8px', fontWeight: 700, letterSpacing: '1.5px', textTransform: 'uppercase' as const, margin: '0 0 1px' }}>Semaine 20</p>
@@ -314,7 +314,7 @@ export default function InclusPage() {
                       <p style={{ color: '#1A3D5C', fontSize: '9px', lineHeight: 1.6, margin: 0 }}>L&apos;échographie T2 examine chaque organe</p>
                     </div>
 
-                    <div style={{ background: C.dark, borderRadius: '10px', padding: '9px 12px' }}>
+                    <div style={{ background: '#1A3D5C', borderRadius: '10px', padding: '9px 12px' }}>
                       <p style={{ color: C.gold, fontSize: '8px', fontWeight: 700, letterSpacing: '1.5px', textTransform: 'uppercase' as const, margin: '0 0 3px' }}>Le saviez-vous ?</p>
                       <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: '9px', lineHeight: 1.6, margin: 0 }}>Plus de 100 critères anatomiques</p>
                     </div>
@@ -352,7 +352,7 @@ export default function InclusPage() {
       </div>
 
       {/* FOOTER */}
-      <footer style={{ background: C.dark, borderTop: '1px solid #2e3848', padding: '32px 40px' }}>
+      <footer style={{ background: '#1A3D5C', borderTop: '1px solid #2e3848', padding: '32px 40px' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '16px' }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap' as const, gap: '16px' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
