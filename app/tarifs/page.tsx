@@ -82,7 +82,7 @@ export default function TarifsPage() {
         </div>
         <div className="nc" style={{ alignItems: 'center', gap: '16px' }}>
           <a href="/login" style={{ color: C.dark, fontSize: '14px', fontWeight: 600, textDecoration: 'none' }}>Se connecter</a>
-          <button onClick={goToStripe} style={{ background: C.dark, color: C.white, padding: '11px 22px', borderRadius: '32px', fontSize: '13px', fontWeight: 700, border: 'none', cursor: 'pointer' }}>Commencer</button>
+          <button onClick={goToStripe} style={{ background: '#1A3D5C', color: C.white, padding: '11px 22px', borderRadius: '32px', fontSize: '13px', fontWeight: 700, border: 'none', cursor: 'pointer' }}>Commencer</button>
         </div>
         <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)} style={{ display: 'none', background: 'none', border: `1px solid ${C.border}`, padding: '8px 12px', borderRadius: '8px', cursor: 'pointer' }}>
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -101,7 +101,7 @@ export default function TarifsPage() {
       )}
 
       {/* HERO */}
-      <section className="hero" style={{ background: C.dark, padding: '72px 40px' }}>
+      <section className="hero" style={{ background: '#1A3D5C', padding: '72px 40px' }}>
         <div style={{ maxWidth: '760px', margin: '0 auto', textAlign: 'center' }}>
           <p style={{ color: C.gold, fontSize: '11px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase', margin: '0 0 20px' }}>Tarifs</p>
           <h1 style={{ color: C.white, fontSize: '48px', fontWeight: 800, margin: '0 0 16px', lineHeight: 1.1 }}>
@@ -116,7 +116,7 @@ export default function TarifsPage() {
         <div className="grid">
 
           {/* COLONNE GAUCHE, carte prix */}
-          <div style={{ background: C.dark, borderRadius: '24px', padding: '40px', display: 'flex', flexDirection: 'column', height: '100%' }}>
+          <div style={{ background: '#1A3D5C', borderRadius: '24px', padding: '40px', display: 'flex', flexDirection: 'column', height: '100%' }}>
             <p style={{ color: C.gold, fontSize: '11px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase', margin: '0 0 20px' }}>Accès annuel complet</p>
             <div style={{ marginBottom: '6px' }}>
               <span style={{ color: C.white, fontSize: '68px', fontWeight: 800, lineHeight: 1 }}>49,99€</span>
@@ -216,7 +216,7 @@ export default function TarifsPage() {
       </section>
 
       {/* CTA BAS */}
-      <section style={{ background: C.dark, padding: '72px 40px', textAlign: 'center' as const }}>
+      <section style={{ background: '#1A3D5C', padding: '72px 40px', textAlign: 'center' as const }}>
         <p style={{ color: C.gold, fontSize: '11px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase' as const, margin: '0 0 16px' }}>Prêt à commencer ?</p>
         <h2 style={{ color: C.white, fontSize: '40px', fontWeight: 800, margin: '0 0 8px' }}>49,99€ accès complet</h2>
         <p style={{ color: '#6a7585', fontSize: '15px', margin: '0 0 36px' }}>Paiement unique · Accès jusqu'au 1er anniversaire de bébé</p>
@@ -226,7 +226,7 @@ export default function TarifsPage() {
       </section>
 
       {/* FOOTER */}
-      <footer style={{ background: C.dark, borderTop: '1px solid #2e3848', padding: '32px 40px' }}>
+      <footer style={{ background: '#1A3D5C', borderTop: '1px solid #2e3848', padding: '32px 40px' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '16px' }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap' as const, gap: '16px' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
