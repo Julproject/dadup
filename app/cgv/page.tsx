@@ -1,123 +1,291 @@
 'use client';
+import CheckoutModal from '@/app/components/CheckoutModal';
+import { useState } from 'react';
 
-export default function CGVPage() {
+export default function Home() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const goToStripe = () => setShowModal(true);
+
+  const C = {
+    dark: '#1e2535', gold: '#c8a060', cream: '#faf6f0', white: '#ffffff',
+    border: '#e8e0d0', text: '#4a5568', textLight: '#9aa0a8',
+    blue: '#2E5F8A', bluePale: '#E6F0FA', blueDark: '#1A3D5C',
+  };
+
   return (
-    <>
+    <main style={{minHeight:'100vh', background:C.white, fontFamily:"-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif", overflowX:'hidden'}}>
+
       <style>{`
-        *{box-sizing:border-box;margin:0;padding:0;}
-        @media(max-width:768px){
-          .nl{display:none!important;}
-          .nc{display:none!important;}
-          .sp{padding:32px 16px!important;}
-          nav{padding:0 16px!important;}
-          h1{font-size:32px!important;line-height:1.15!important;}
-          h2{font-size:24px!important;}
-          .prix{font-size:48px!important;}
-          .hero-grid{grid-template-columns:1fr!important;gap:24px!important;padding:40px 16px 0!important;}
-          .hero-img-wrap{height:220px!important;}
-          .stats-grid{grid-template-columns:1fr 1fr!important;padding:20px 16px!important;}
-          .stats-item{border-left:none!important;border-top:1px solid #2e3848;padding:14px!important;}
-          .stats-item:nth-child(2){border-left:1px solid #2e3848!important;}
-          .modules-grid{grid-template-columns:1fr!important;}
-          .quote-grid{grid-template-columns:1fr!important;gap:24px!important;}
-          .newbie-grid>div{flex:1 1 100%!important;max-width:100%!important;}
-          .temoignages-grid{grid-template-columns:1fr!important;}
-          .aa{grid-template-columns:1fr!important;}
-          .tg{grid-template-columns:1fr!important;}
-          .mg{grid-template-columns:1fr!important;gap:24px!important;}
-          .footer-inner{flex-direction:column!important;gap:16px!important;text-align:center!important;}
-          .footer-links{flex-wrap:wrap!important;justify-content:center!important;gap:12px!important;}
-          section{padding:48px 16px!important;}
-          .section-pad{padding:48px 16px!important;}
-          .cta-section{padding:48px 16px!important;}
-          .footer-section{padding:24px 16px!important;}
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        .nav-links { display: flex; gap: 4px; }
+        .nav-cta-group { display: flex; align-items: center; gap: 16px; }
+        .hamburger { display: none; }
+        .mobile-menu { display: none; }
+        .hero-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; max-width: 1200px; margin: 0 auto; padding: 56px 48px; }
+        .stats-4col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .modules-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .quote-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+        .newbie-grid { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; }
+        .newbie-grid > div { flex: 1 1 calc(33% - 16px); min-width: 240px; max-width: calc(33% - 16px); }
+        .footer-inner { display: flex; align-items: center; justify-content: space-between; }
+        .footer-links { display: flex; gap: 24px; }
+        @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+        .float { animation: float 4s ease-in-out infinite; }
+        @media (max-width: 768px) {
+          .nav-links { display: none; }
+          .nav-cta-group { display: none; }
+          .hamburger { display: flex !important; }
+          .mobile-menu { display: flex; flex-direction: column; }
+          .hero-2col { grid-template-columns: 1fr !important; gap: 32px !important; padding: 32px 20px !important; }
+          .float { animation: none !important; }
+          .stats-4col { grid-template-columns: 1fr !important; }
+          .modules-grid { grid-template-columns: 1fr 1fr; }
+          .quote-grid { grid-template-columns: 1fr; gap: 32px; }
+          .newbie-grid > div { flex: 1 1 100%; max-width: 100%; }
+          .footer-inner { flex-direction: column; gap: 20px; text-align: center; }
+          .footer-links { flex-wrap: wrap; justify-content: center; gap: 16px; }
+          .section-pad { padding: 60px 20px !important; }
+          .cta-section { padding: 60px 20px !important; }
+          .footer-section { padding: 32px 20px !important; }
+          h1 { font-size: 32px !important; }
+          h2 { font-size: 26px !important; }
+          nav { padding: 0 16px !important; }
         }
       `}</style>
-      <main style={{ minHeight: '100vh', background: '#faf6f0', fontFamily: "-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif", color: '#4a5568' }}>
 
-      <nav style={{ background: '#ffffff', borderBottom: '1px solid #e8e0d0', padding: '0 40px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '64px' }}>
-        <a href="/" style={{ display: 'flex', alignItems: 'center', gap: '8px', textDecoration: 'none' }}>
-          <svg viewBox="0 0 300 300" width="30" height="30"><circle cx="150" cy="150" r="145" fill="#1A3D5C"/><circle cx="150" cy="150" r="122" fill="#2E5F8A"/><ellipse cx="150" cy="205" rx="58" ry="54" fill="#c8a060"/><circle cx="150" cy="112" r="40" fill="#c8a060"/><ellipse cx="150" cy="196" rx="27" ry="31" fill="#F7FAFC"/><circle cx="150" cy="128" r="26" fill="#F7FAFC"/></svg>
-          <span style={{ fontWeight: 800, color: '#1e2535', fontSize: '17px' }}>DadUp</span>
-        </a>
-        <div style={{ display: 'flex', gap: '20px' }}>
-          <a href="/confidentialite" style={{ color: '#9aa0a8', textDecoration: 'none' }}>Confidentialité</a>
-          <a href="/mentions-legales" style={{ color: '#9aa0a8', textDecoration: 'none' }}>Mentions légales</a>
-          <a href="/" style={{ color: '#9aa0a8', textDecoration: 'none', fontWeight: 600 }}>← Retour</a>
-        </div>
-      </nav>
-
-      <div style={{ maxWidth: '680px', margin: '0 auto', padding: '60px 24px 80px' }}>
-        <p style={{ color: '#2E5F8A', fontSize: '11px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase', margin: '0 0 12px' }}>Légal</p>
-        <h1 style={{ color: '#1e2535', fontSize: '32px', fontWeight: 800, margin: '0 0 8px' }}>Conditions Générales de Vente</h1>
-        <p style={{ color: '#9aa0a8', fontSize: '13px', fontStyle: 'italic', margin: '0 0 40px' }}>Les présentes CGV régissent exclusivement la relation commerciale entre DadUp et ses Utilisateurs.</p>
-
-        <h2 style={{ color: '#1A3D5C', fontSize: '15px', fontWeight: 700, margin: '36px 0 8px' }}>Article 1, Éditeur</h2>
-        <p style={{ fontSize: '14px', lineHeight: 1.85, margin: '0 0 14px' }}>Le site dadup.fr et le service DadUp sont édités par DadUp, entreprise individuelle (EI), SIRET 10349796200011, dont le siège est situé au 19 avenue de la préservation, 33000 Bordeaux. Contact : hello@dadup.fr.</p>
-
-        <h2 style={{ color: '#1A3D5C', fontSize: '15px', fontWeight: 700, margin: '36px 0 8px' }}>Article 2, Objet</h2>
-        <p style={{ fontSize: '14px', lineHeight: 1.85, margin: '0 0 14px' }}>Les présentes CGV régissent les relations contractuelles entre DadUp et tout utilisateur souscrivant à l&apos;abonnement payant. Toute souscription vaut acceptation entière des présentes CGV. En cas de modification substantielle, les abonnés actifs en sont informés par email au moins 30 jours avant l&apos;entrée en vigueur.</p>
-
-        <h2 style={{ color: '#1A3D5C', fontSize: '15px', fontWeight: 700, margin: '36px 0 8px' }}>Article 3, Description du Service</h2>
-        <p style={{ fontSize: '14px', lineHeight: 1.85, margin: '0 0 14px' }}>DadUp est un service numérique d&apos;information et d&apos;accompagnement proposant un suivi hebdomadaire personnalisé adapté à la date prévue d&apos;accouchement, des contenus d&apos;information sur la période périnatale, un module post-natal, un glossaire, des outils d&apos;organisation et un accès au support par email. Les contenus sont rédigés à titre informatif et ne constituent pas un avis médical.</p>
-
-        <h2 style={{ color: '#1A3D5C', fontSize: '15px', fontWeight: 700, margin: '36px 0 8px' }}>Article 4, Conditions d&apos;accès</h2>
-        <p style={{ fontSize: '14px', lineHeight: 1.85, margin: '0 0 14px' }}>L&apos;accès est réservé aux personnes physiques majeures (18 ans révolus). L&apos;Utilisateur est seul responsable de la confidentialité de ses identifiants.</p>
-
-        <h2 style={{ color: '#1A3D5C', fontSize: '15px', fontWeight: 700, margin: '36px 0 8px' }}>Article 5, Tarifs et paiement</h2>
-        <p style={{ fontSize: '14px', lineHeight: 1.85, margin: '0 0 14px' }}>L&apos;abonnement DadUp est proposé au prix de 49,99 € TTC, avec un accès valable jusqu'au premier anniversaire de bébé. Toute modification est notifiée par email au moins 30 jours avant son entrée en vigueur. Le paiement est réalisé par carte bancaire via Stripe. DadUp ne collecte ni ne stocke aucune donnée bancaire. L&apos;abonnement expire automatiquement à son échéance, sans reconduction tacite et sans prélèvement automatique.</p>
-
-        <h2 style={{ color: '#1A3D5C', fontSize: '15px', fontWeight: 700, margin: '36px 0 8px' }}>Article 6, Droit de rétractation</h2>
-        <p style={{ fontSize: '14px', lineHeight: 1.85, margin: '0 0 14px' }}>Conformément aux articles L.221-18 et suivants du Code de la consommation, l&apos;Utilisateur dispose d&apos;un droit de rétractation de 14 jours calendaires à compter de la date de souscription, sans condition, même si le Service a commencé à être utilisé. Pour l&apos;exercer : email à hello@dadup.fr avec nom, prénom, email de connexion, date de souscription. Remboursement sous 14 jours.</p>
-
-        <h2 style={{ color: '#1A3D5C', fontSize: '15px', fontWeight: 700, margin: '36px 0 8px' }}>Article 7, Fin de l&apos;accès</h2>
-        <p style={{ fontSize: '14px', lineHeight: 1.85, margin: '0 0 14px' }}>L&apos;abonnement prend fin automatiquement à son échéance. L&apos;Utilisateur peut clôturer son compte depuis Mon compte → Se désinscrire. La clôture est immédiate, sans remboursement proratisé sauf exercice du droit de rétractation.</p>
-
-        <h2 style={{ color: '#1A3D5C', fontSize: '15px', fontWeight: 700, margin: '36px 0 8px' }}>Article 8, Obligations de l&apos;Utilisateur</h2>
-        <p style={{ fontSize: '14px', lineHeight: 1.85, margin: '0 0 14px' }}>L&apos;Utilisateur s&apos;engage à fournir des informations exactes, à préserver la confidentialité de ses identifiants, à utiliser le Service à des fins personnelles et à ne pas reproduire les contenus sans autorisation.</p>
-
-        <h2 style={{ color: '#1A3D5C', fontSize: '15px', fontWeight: 700, margin: '36px 0 8px' }}>Article 9, Responsabilité</h2>
-        <p style={{ fontSize: '14px', lineHeight: 1.85, margin: '0 0 14px' }}>Les contenus sont informatifs et ne remplacent pas un professionnel de santé. Urgence médicale : 15, 18 ou 112. La responsabilité de DadUp ne peut être engagée qu&apos;en cas de faute directe. Les dommages indirects sont exclus. Ces limitations ne s&apos;appliquent pas en cas de dol ou faute lourde.</p>
-
-        <h2 style={{ color: '#1A3D5C', fontSize: '15px', fontWeight: 700, margin: '36px 0 8px' }}>Article 10, Propriété intellectuelle</h2>
-        <p style={{ fontSize: '14px', lineHeight: 1.85, margin: '0 0 14px' }}>L&apos;ensemble des éléments du Service appartiennent à DadUp et sont protégés par le droit de la propriété intellectuelle. L&apos;Utilisateur bénéficie d&apos;un droit d&apos;accès personnel et non cessible pour la durée de son abonnement.</p>
-
-        <h2 style={{ color: '#1A3D5C', fontSize: '15px', fontWeight: 700, margin: '36px 0 8px' }}>Article 11, Données personnelles</h2>
-        <p style={{ fontSize: '14px', lineHeight: 1.85, margin: '0 0 14px' }}>La Politique de Confidentialité complète est disponible sur le Site. DadUp est responsable du traitement au sens du RGPD. Droits exercisables à hello@dadup.fr ou auprès de la CNIL (www.cnil.fr). Sous-traitants : Vercel Inc. (CCT), Supabase Inc. (CCT), Stripe Inc. (DPF), Brevo SAS (France).</p>
-
-        <h2 style={{ color: '#1A3D5C', fontSize: '15px', fontWeight: 700, margin: '36px 0 8px' }}>Article 12, Cookies</h2>
-        <p style={{ fontSize: '14px', lineHeight: 1.85, margin: '0 0 14px' }}>Le Site utilise uniquement des cookies techniques nécessaires au maintien de la session. Aucun consentement requis (article 82 loi Informatique et Libertés). Aucun cookie publicitaire ou analytique n&apos;est déployé.</p>
-
-        <h2 style={{ color: '#1A3D5C', fontSize: '15px', fontWeight: 700, margin: '36px 0 8px' }}>Article 13, Force majeure</h2>
-        <p style={{ fontSize: '14px', lineHeight: 1.85, margin: '0 0 14px' }}>Aucune des parties n&apos;est responsable d&apos;un manquement résultant d&apos;un événement de force majeure au sens de l&apos;article 1218 du Code civil.</p>
-
-        <h2 style={{ color: '#1A3D5C', fontSize: '15px', fontWeight: 700, margin: '36px 0 8px' }}>Article 14, Médiation</h2>
-        <p style={{ fontSize: '14px', lineHeight: 1.85, margin: '0 0 14px' }}>En cas de différend : hello@dadup.fr (réponse sous 15 jours ouvrés). Recours gratuit possible auprès du CM2C, 49 rue de Ponthieu, 75008 Paris, 01 89 47 00 14, www.cm2c.net/declarer-un-litige.php, litiges@cm2c.net.</p>
-
-        <h2 style={{ color: '#1A3D5C', fontSize: '15px', fontWeight: 700, margin: '36px 0 8px' }}>Article 15, Droit applicable</h2>
-        <p style={{ fontSize: '14px', lineHeight: 1.85, margin: '0 0 14px' }}>Les présentes CGV sont soumises au droit français. En cas de litige, l&apos;Utilisateur peut saisir la juridiction du lieu où il demeurait à la conclusion du contrat (article R.631-3 du Code de la consommation).</p>
-
-        <h2 style={{ color: '#1A3D5C', fontSize: '15px', fontWeight: 700, margin: '36px 0 8px' }}>Article 16, Dispositions générales</h2>
-        <p style={{ fontSize: '14px', lineHeight: 1.85, margin: '0 0 14px' }}>Intégralité : les présentes CGV constituent l&apos;intégralité de l&apos;accord. Divisibilité : si une clause est nulle, les autres demeurent en vigueur. Cession : DadUp peut céder le contrat après en avoir informé l&apos;Utilisateur.</p>
-      </div>
-
-      <footer style={{ background: '#1e2535', borderTop: '1px solid #2e3848', padding: '32px 40px' }}>
-        <div style={{ maxWidth: '680px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '16px' }}>
-          <div style={{ display: 'flex', gap: '24px', flexWrap: 'wrap' }}>
-            <a href="/pourquoi" style={{ color: '#6a7585', fontSize: '13px', textDecoration: 'none' }}>Pourquoi DadUp</a>
-            <a href="/inclus" style={{ color: '#6a7585', fontSize: '13px', textDecoration: 'none' }}>Ce qui est inclus</a>
-            <a href="/tarifs" style={{ color: '#6a7585', fontSize: '13px', textDecoration: 'none' }}>Tarifs</a>
-              <a href="/professionnels" style={{ color: '#6a7585', fontSize: '13px', textDecoration: 'none' }}>Professionnels</a>
-              <a href="/sources" style={{ color: '#6a7585', fontSize: '13px', textDecoration: 'none' }}>Sources</a>
-            <a href="/contact" style={{ color: '#6a7585', fontSize: '13px', textDecoration: 'none' }}>Contactez-nous</a>
-            <a href="/confidentialite" style={{ color: '#6a7585', fontSize: '13px', textDecoration: 'none' }}>Confidentialité</a>
-            <a href="/mentions-legales" style={{ color: '#6a7585', fontSize: '13px', textDecoration: 'none' }}>Mentions légales</a>
+      {/* NAV */}
+      <nav style={{background:C.white, borderBottom:`1px solid ${C.border}`, position:'sticky', top:0, zIndex:50, padding:'0 40px', display:'flex', alignItems:'center', justifyContent:'space-between', height:'68px'}}>
+        <div style={{display:'flex', alignItems:'center', gap:'48px'}}>
+          <a href="/" style={{display:'flex', alignItems:'center', gap:'10px', textDecoration:'none'}}>
+            <svg viewBox="0 0 300 300" width="34" height="34">
+              <circle cx="150" cy="150" r="145" fill="#3a4f6e"/>
+              <circle cx="150" cy="150" r="122" fill="#4a6080"/>
+              <ellipse cx="150" cy="205" rx="58" ry="54" fill="#c8a060"/>
+              <circle cx="150" cy="112" r="40" fill="#c8a060"/>
+              <ellipse cx="150" cy="196" rx="27" ry="31" fill="#faf6f0"/>
+              <circle cx="150" cy="128" r="26" fill="#faf6f0"/>
+            </svg>
+            <span style={{fontWeight:800, color:C.dark, fontSize:'20px'}}>DadUp</span>
+          </a>
+          <div className="nav-links">
+            <a href="/pourquoi" style={{color:C.text, fontSize:'14px', fontWeight:500, padding:'8px 14px', borderRadius:'8px', textDecoration:'none'}}>Pourquoi DadUp</a>
+            <a href="/inclus" style={{color:C.text, fontSize:'14px', fontWeight:500, padding:'8px 14px', borderRadius:'8px', textDecoration:'none'}}>Ce qui est inclus</a>
+            <a href="/tarifs" style={{color:C.text, fontSize:'14px', fontWeight:500, padding:'8px 14px', borderRadius:'8px', textDecoration:'none'}}>Tarifs</a>
+            <a href="/contact" style={{color:C.text, fontSize:'14px', fontWeight:500, padding:'8px 14px', borderRadius:'8px', textDecoration:'none'}}>Contact</a>
           </div>
-          <p style={{ color: '#3d4f6a', fontSize: '12px', margin: '0' }}>DadUp, SIRET 10349796200011, hello@dadup.fr</p>
+        </div>
+        <div className="nav-cta-group">
+          <a href="/login" style={{color:C.dark, fontSize:'14px', fontWeight:600, textDecoration:'none'}}>Se connecter</a>
+          <button onClick={goToStripe} style={{background:C.dark, color:C.white, border:'none', padding:'11px 22px', borderRadius:'32px', fontSize:'13px', fontWeight:700, cursor:'pointer'}}>Commencer</button>
+        </div>
+        <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)} style={{display:'none', background:'none', border:`1px solid ${C.border}`, padding:'8px 12px', borderRadius:'8px', cursor:'pointer'}}>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            {menuOpen
+              ? <path d="M4 4L16 16M16 4L4 16" stroke={C.dark} strokeWidth="2" strokeLinecap="round"/>
+              : <path d="M3 5h14M3 10h14M3 15h14" stroke={C.dark} strokeWidth="2" strokeLinecap="round"/>
+            }
+          </svg>
+        </button>
+      </nav>
+      {menuOpen && (
+        <div className="mobile-menu" style={{background:C.white, borderBottom:`1px solid ${C.border}`, padding:'16px 20px', gap:'4px', position:'sticky', top:'68px', zIndex:49}}>
+          <a href="/pourquoi" style={{color:C.text, fontSize:'15px', padding:'10px 8px', textDecoration:'none', borderBottom:`1px solid ${C.cream}`}}>Pourquoi DadUp</a>
+          <a href="/inclus" style={{color:C.text, fontSize:'15px', padding:'10px 8px', textDecoration:'none', borderBottom:`1px solid ${C.cream}`}}>Ce qui est inclus</a>
+          <a href="/tarifs" style={{color:C.text, fontSize:'15px', padding:'10px 8px', textDecoration:'none', borderBottom:`1px solid ${C.cream}`}}>Tarifs</a>
+          <a href="/contact" style={{color:C.text, fontSize:'15px', padding:'10px 8px', textDecoration:'none', borderBottom:`1px solid ${C.cream}`}}>Contact</a>
+          <a href="/login" style={{color:C.dark, fontSize:'15px', fontWeight:700, padding:'10px 8px', textDecoration:'none'}}>Se connecter</a>
+        </div>
+      )}
+
+      {/* HERO */}
+      <section style={{background:C.cream, padding:'24px 24px 0'}}>
+        <div className="hero-2col" style={{background:C.blueDark, borderRadius:'24px', position:'relative', overflow:'hidden', border:'1px solid rgba(255,255,255,0.06)'}}>
+
+          {/* Cercles décoratifs */}
+          <div style={{position:'absolute', top:'-60px', right:'200px', width:'280px', height:'280px', borderRadius:'50%', background:'#E6F0FA', opacity:0.07, pointerEvents:'none'}}></div>
+          <div style={{position:'absolute', bottom:'-80px', left:'-40px', width:'260px', height:'260px', borderRadius:'50%', background:'#E4F5EC', opacity:0.08, pointerEvents:'none'}}></div>
+
+          {/* TEXTE GAUCHE */}
+          <div style={{position:'relative', zIndex:1, padding:'8px 0'}}>
+            <div style={{display:'inline-flex', alignItems:'center', gap:'8px', background:'rgba(230,240,250,0.15)', border:'1px solid rgba(200,160,96,0.4)', borderRadius:'20px', padding:'5px 14px', marginBottom:'24px'}}>
+              <div style={{width:'6px', height:'6px', borderRadius:'50%', background:C.gold}}></div>
+              <span style={{color:C.gold, fontSize:'11px', fontWeight:700, letterSpacing:'1px'}}>Conçu pour les futurs pères</span>
+            </div>
+
+            <h1 style={{color:C.white, fontSize:'clamp(28px,4vw,40px)', fontWeight:800, lineHeight:1.15, margin:'0 0 16px'}}>
+              Être père, ça commence<br/><span style={{color:C.gold}}>bien avant la naissance.</span>
+            </h1>
+
+            <p style={{color:'rgba(255,255,255,0.92)', fontSize:'18px', fontWeight:600, lineHeight:1.6, margin:'0 0 8px'}}>
+              Elle porte bébé. Tu portes le reste.
+            </p>
+            <p style={{color:'rgba(255,255,255,0.5)', fontSize:'14px', lineHeight:1.7, margin:'0 0 32px'}}>
+              DadUp t&apos;accompagne semaine après semaine, de la grossesse au premier anniversaire de bébé.
+            </p>
+
+            <div style={{display:'flex', flexDirection:'column' as const, gap:'10px', maxWidth:'320px'}}>
+              <button onClick={goToStripe} style={{background:C.gold, color:'#1c1510', border:'none', padding:'16px 32px', borderRadius:'32px', fontSize:'16px', fontWeight:800, cursor:'pointer', textAlign:'center' as const}}>
+                Commencer · 49,99€
+              </button>
+              <div style={{display:'flex', alignItems:'center', gap:'8px'}}>
+                <div style={{flex:1, height:'1px', background:'rgba(255,255,255,0.1)'}}></div>
+                <span style={{color:'rgba(255,255,255,0.4)', fontSize:'12px'}}>Satisfait ou remboursé sous 14 jours</span>
+                <div style={{flex:1, height:'1px', background:'rgba(255,255,255,0.1)'}}></div>
+              </div>
+              <a href="/inclus" style={{color:'rgba(255,255,255,0.55)', fontSize:'13px', textAlign:'center' as const, textDecoration:'none'}}>Voir ce qui est inclus →</a>
+            </div>
+          </div>
+
+          {/* BADGES VERTICAUX */}
+          <style>{`.badge-item { transition: transform 0.2s ease, box-shadow 0.2s ease; } .badge-item:hover { transform: scale(1.05); box-shadow: 0 8px 24px rgba(0,0,0,0.18) !important; }`}</style>
+          <div style={{position:'relative', zIndex:1, display:'flex', flexDirection:'column' as const, gap:'12px', justifyContent:'center'}}>
+            {[
+              {bg:'#E6F0FA', color:'#1A3D5C', label:'41 semaines de contenu'},
+              {bg:'#E4F5EC', color:'#0D4A2E', label:'Post-partum inclus'},
+              {bg:'#EDE8FF', color:'#3D2E7A', label:"Jusqu'au 1er anniversaire de bébé"},
+              {bg:C.white, color:C.dark, label:'Contenu médical sourcé'},
+            ].map((b,i) => (
+              <div key={i} className="badge-item" style={{background:b.bg, borderRadius:'14px', padding:'14px 18px', boxShadow:'0 4px 16px rgba(0,0,0,0.12)', display:'flex', alignItems:'center', gap:'12px', cursor:'default'}}>
+                <div style={{width:'30px', height:'30px', borderRadius:'50%', background:'rgba(0,0,0,0.06)', display:'flex', alignItems:'center', justifyContent:'center', flexShrink:0, fontSize:'14px'}}>✓</div>
+                <p style={{color:b.color, fontSize:'13px', fontWeight:800, margin:0}}>{b.label}</p>
+              </div>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
+      {/* SECTION CHIFFRES CLÉS — jaune pastel */}
+      <section className="section-pad" style={{padding:'80px 40px', background:C.cream}}>
+        <div style={{maxWidth:'1000px', margin:'0 auto'}}>
+          <div style={{textAlign:'center', marginBottom:'48px'}}>
+            <p style={{color:C.blue, fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase' as const, margin:'0 0 16px'}}>Ce que DadUp couvre</p>
+            <h2 style={{color:C.dark, fontSize:'36px', fontWeight:800, margin:0, lineHeight:1.2}}>Tout ce dont tu as besoin,<br/>au bon moment</h2>
+          </div>
+          <div className="stats-4col">
+            {[
+              {label:'41 semaines', title:'De SA 3 à SA 41', desc:"Chaque semaine expliquée côté papa : développement de bébé, ton rôle, ce qu'elle vit."},
+              {label:"Jusqu'au 1er anniversaire", title:'Post-partum inclus', desc:'Les premiers mois, le développement de bébé, le baby blues, le couple. Tout est inclus.'},
+              {label:'Calendrier médical', title:'Chaque consultation préparée', desc:"Ce qu'on cherche à chaque rendez-vous, les bonnes questions à poser, comment être vraiment présent."},
+              {label:'Paiement unique', title:'Sans abonnement', desc:"Tu paies une fois, tu accèdes jusqu'au premier anniversaire de bébé. Pas de surprise."},
+            ].map((s,i) => (
+              <div key={i} style={{background:'#FFF7E0', borderRadius:'20px', padding:'24px 28px', border:'1px solid rgba(200,160,96,0.15)'}}>
+                <p style={{color:'#8A6010', fontSize:'10px', fontWeight:700, letterSpacing:'2px', textTransform:'uppercase' as const, margin:'0 0 10px'}}>{s.label}</p>
+                <p style={{color:'#3A2800', fontSize:'15px', fontWeight:700, margin:'0 0 8px'}}>{s.title}</p>
+                <p style={{color:'#6a5020', fontSize:'13px', margin:0, lineHeight:1.65}}>{s.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CE QUE PERSONNE NE T'EXPLIQUE — DÉFILEMENT AUTO */}
+      <section style={{padding:'80px 0', background:C.white, overflow:'hidden'}}>
+        <div style={{textAlign:'center', marginBottom:'48px', padding:'0 40px'}}>
+          <p style={{color:C.blue, fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase' as const, margin:'0 0 16px'}}>Les sujets traités</p>
+          <h2 style={{color:C.dark, fontSize:'36px', fontWeight:800, margin:'0 0 16px', lineHeight:1.2}}>Tout ce que personne<br/>ne t&apos;explique</h2>
+          <p style={{color:C.textLight, fontSize:'15px', margin:'0 auto', maxWidth:'480px', lineHeight:1.7}}>Traités sans détour, au bon moment de la grossesse.</p>
+        </div>
+        <style>{`
+          @keyframes scrollLeft { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+          .auto-track { display:flex; gap:16px; width:max-content; animation:scrollLeft 22s linear infinite; }
+          .auto-track:hover { animation-play-state:paused; }
+          .auto-wrap { overflow:hidden; position:relative; }
+          .auto-wrap::before { content:''; position:absolute; left:0; top:0; bottom:0; width:100px; background:linear-gradient(to right,#fff,transparent); z-index:2; pointer-events:none; }
+          .auto-wrap::after { content:''; position:absolute; right:0; top:0; bottom:0; width:100px; background:linear-gradient(to left,#fff,transparent); z-index:2; pointer-events:none; }
+          .auto-card { flex:0 0 280px; border-radius:20px; padding:24px; border:1px solid #e8e0d0; }
+        `}</style>
+        <div className="auto-wrap">
+          <div className="auto-track">
+            {[
+              {titre:"Les échographies", desc:"À quoi servent T1, T2, T3 ? Ce qu'on cherche, ce que tu dois demander, comment être vraiment présent.", bg:C.bluePale, color:C.blueDark},
+              {titre:"La valise maternité", desc:"Checklist interactive. Ce qu'elle emporte, ce que tu prends pour toi, ce que tout le monde oublie.", bg:'#E4F5EC', color:'#0A2E1A'},
+              {titre:"L'accouchement", desc:"La règle 5-1-1. Quand partir. Ce que tu fais en salle de naissance. Péri ou pas.", bg:'#FFF7E0', color:'#3A2800'},
+              {titre:"Le baby blues", desc:"50 à 80% des femmes le vivent. Pas une dépression. Ce que c'est, comment tu peux vraiment aider.", bg:'#F0EEFF', color:'#3030A0'},
+              {titre:"Le congé paternité", desc:"28 jours. Comment les poser, quand les prendre, ce que ça change vraiment pour votre famille.", bg:'#E4F5EC', color:'#0A2E1A'},
+              {titre:"Le post-partum", desc:"Baby blues, reprise du travail, nuits sans sommeil. Ton rôle les premières semaines.", bg:C.bluePale, color:C.blueDark},
+              {titre:"Les échographies", desc:"À quoi servent T1, T2, T3 ? Ce qu'on cherche, ce que tu dois demander, comment être vraiment présent.", bg:C.bluePale, color:C.blueDark},
+              {titre:"La valise maternité", desc:"Checklist interactive. Ce qu'elle emporte, ce que tu prends pour toi, ce que tout le monde oublie.", bg:'#E4F5EC', color:'#0A2E1A'},
+              {titre:"L'accouchement", desc:"La règle 5-1-1. Quand partir. Ce que tu fais en salle de naissance. Péri ou pas.", bg:'#FFF7E0', color:'#3A2800'},
+              {titre:"Le baby blues", desc:"50 à 80% des femmes le vivent. Pas une dépression. Ce que c'est, comment tu peux vraiment aider.", bg:'#F0EEFF', color:'#3030A0'},
+              {titre:"Le congé paternité", desc:"28 jours. Comment les poser, quand les prendre, ce que ça change vraiment pour votre famille.", bg:'#E4F5EC', color:'#0A2E1A'},
+              {titre:"Le post-partum", desc:"Baby blues, reprise du travail, nuits sans sommeil. Ton rôle les premières semaines.", bg:C.bluePale, color:C.blueDark},
+            ].map((item, i) => (
+              <div key={i} className="auto-card" style={{background:item.bg}}>
+                <p style={{color:item.color, fontSize:'15px', fontWeight:800, margin:'0 0 10px'}}>{item.titre}</p>
+                <p style={{color:item.color, fontSize:'13px', lineHeight:1.65, margin:0, opacity:0.8}}>{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SAVOIR AVANT */}
+      <section className="section-pad quote-grid" style={{padding:'80px 40px', maxWidth:'1200px', margin:'0 auto'}}>
+        <div style={{borderLeft:`3px solid ${C.gold}`, paddingLeft:'32px'}}>
+          <p style={{color:C.gold, fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase' as const, margin:'0 0 16px'}}>Ce que tu peux changer</p>
+          <p style={{fontSize:'34px', fontWeight:800, color:C.dark, margin:'0 0 16px', lineHeight:1.2}}>
+            Savoir ce qui se passe avant qu&apos;on te l&apos;explique
+          </p>
+          <p style={{color:C.text, fontSize:'16px', margin:'0 0 32px', lineHeight:1.7}}>
+            Un père qui comprend ce qui se passe prend de meilleures décisions. Il est plus calme le jour J. Il sait quoi faire, et quand le faire.
+          </p>
+          <a href="/pourquoi" style={{color:C.dark, fontSize:'14px', fontWeight:700, textDecoration:'none'}}>Pourquoi ça change tout →</a>
+        </div>
+        <style>{`.photo-wrap:hover img { transform: scale(1.04); } .photo-wrap img { transition: transform 0.4s ease; }`}</style>
+        <div className="photo-wrap" style={{borderRadius:'24px', overflow:'hidden', boxShadow:'0 20px 60px rgba(0,0,0,0.15)', border:`1px solid ${C.border}`}}>
+          <img src="/main.jpg" alt="Papa et bébé" style={{width:'100%', height:'100%', objectFit:'cover', objectPosition:'center top', display:'block', minHeight:'320px', maxHeight:'320px'}}/>
+        </div>
+      </section>
+
+      {/* CTA FINAL */}
+      <section className="cta-section" style={{background:C.blueDark, padding:'80px 40px', textAlign:'center' as const}}>
+        <p style={{color:C.gold, fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase' as const, margin:'0 0 16px'}}>Accès immédiat</p>
+        <h2 style={{color:C.white, fontSize:'44px', fontWeight:800, margin:'0 0 16px', lineHeight:1.1}}>
+          Être père, ça commence<br/>bien avant la naissance
+        </h2>
+        <p style={{color:'rgba(255,255,255,0.5)', fontSize:'15px', margin:'0 0 32px', lineHeight:1.7}}>
+          Elle porte bébé. Tu portes le reste.
+        </p>
+        <button onClick={goToStripe} style={{background:C.gold, color:'#1c1510', border:'none', padding:'18px 48px', borderRadius:'32px', fontSize:'16px', fontWeight:800, cursor:'pointer', width:'100%', maxWidth:'400px', display:'block', margin:'0 auto 12px'}}>
+          Commencer · 49,99€
+        </button>
+        <p style={{color:'rgba(255,255,255,0.3)', fontSize:'13px', margin:0}}>Paiement unique · Satisfait ou remboursé sous 14 jours</p>
+      </section>
+
+      {/* FOOTER */}
+      <footer className="footer-section" style={{background:C.dark, borderTop:'1px solid #2e3848', padding:'32px 40px'}}>
+        <div className="footer-inner">
+          <div style={{display:'flex', alignItems:'center', gap:'8px'}}>
+            <svg viewBox="0 0 300 300" width="28" height="28">
+              <circle cx="150" cy="150" r="145" fill="#3a4f6e"/>
+              <circle cx="150" cy="150" r="122" fill="#4a6080"/>
+              <ellipse cx="150" cy="205" rx="58" ry="54" fill="#c8a060"/>
+              <circle cx="150" cy="112" r="40" fill="#c8a060"/>
+              <ellipse cx="150" cy="196" rx="27" ry="31" fill="#faf6f0"/>
+              <circle cx="150" cy="128" r="26" fill="#faf6f0"/>
+            </svg>
+            <span style={{color:C.white, fontSize:'16px', fontWeight:700}}>DadUp</span>
+          </div>
+          <div className="footer-links">
+            <a href="/pourquoi" style={{color:'#6a7585', fontSize:'13px', textDecoration:'none'}}>Pourquoi DadUp</a>
+            <a href="/inclus" style={{color:'#6a7585', fontSize:'13px', textDecoration:'none'}}>Ce qui est inclus</a>
+            <a href="/tarifs" style={{color:'#6a7585', fontSize:'13px', textDecoration:'none'}}>Tarifs</a>
+            <a href="/professionnels" style={{color:'#6a7585', fontSize:'13px', textDecoration:'none'}}>Professionnels</a>
+            <a href="/sources" style={{color:'#6a7585', fontSize:'13px', textDecoration:'none'}}>Sources</a>
+            <a href="/contact" style={{color:'#6a7585', fontSize:'13px', textDecoration:'none'}}>Contact</a>
+          </div>
+          <div style={{display:'flex', gap:'16px', flexWrap:'wrap' as const}}>
+            <a href="/cgv" style={{color:'#6a7585', fontSize:'12px', textDecoration:'none'}}>CGV</a>
+            <a href="/confidentialite" style={{color:'#6a7585', fontSize:'12px', textDecoration:'none'}}>Confidentialité</a>
+            <a href="/mentions-legales" style={{color:'#6a7585', fontSize:'12px', textDecoration:'none'}}>Mentions légales</a>
+          </div>
+          <p style={{color:'#6a7585', fontSize:'12px', margin:0}}>DadUp ne remplace pas l&apos;avis d&apos;un médecin.</p>
         </div>
       </footer>
 
+      {showModal && <CheckoutModal onClose={() => setShowModal(false)} />}
     </main>
-    </>
   );
 }
