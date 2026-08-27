@@ -235,7 +235,7 @@ export default function Home() {
         </div>
         <style>{`.photo-wrap:hover img { transform: scale(1.04); } .photo-wrap img { transition: transform 0.4s ease; }`}</style>
         <div className="photo-wrap" style={{borderRadius:'24px', overflow:'hidden', boxShadow:'0 20px 60px rgba(0,0,0,0.15)', border:`1px solid ${C.border}`}}>
-          <img src="/main.jpg" alt="Papa et bébé" style={{width:'100%', height:'auto', display:'block'}}/>
+          <img src="/main.jpg" alt="Papa et bébé" style={{width:'100%', height:'200px', objectFit:'cover', objectPosition:'center 60%', display:'block'}}/>
         </div>
       </section>
 
