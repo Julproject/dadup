@@ -53,7 +53,7 @@ export default function TarifsPage() {
           .nl{display:none!important;}.nc{display:none!important;}
           .grid{grid-template-columns:1fr!important;}
           nav{padding:0 20px!important;}
-          h1{font-size:32px!important;}
+          h1{font-size:36px!important;}
           .hero{padding:48px 24px!important;}
           .main{padding:40px 24px 80px!important;}
         }
