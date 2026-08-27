@@ -242,7 +242,7 @@ export default function InclusPage() {
       <section style={{ background: '#1A3D5C', padding: '72px 40px' }}>
         <div style={{ maxWidth: '760px', margin: '0 auto', textAlign: 'center' }}>
           <p style={{ color: C.gold, fontSize: '11px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase' as const, margin: '0 0 20px' }}>Ce qui est inclus</p>
-          <h1 style={{ color: C.white, fontSize: '44px', fontWeight: 800, margin: '0 0 16px', lineHeight: 1.15 }}>De la grossesse au premier anniversaire</h1>
+          <h1 style={{ color: C.white, fontSize: '44px', fontWeight: 800, margin: '0 0 16px', lineHeight: 1.1 }}>De la grossesse au premier anniversaire</h1>
           <p style={{ color: '#6a7585', fontSize: '17px', lineHeight: 1.75, margin: 0 }}>Tout ce que tu as besoin de savoir, organisé par thème, personnalisé à ta DPA</p>
         </div>
       </section>
