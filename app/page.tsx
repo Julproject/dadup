@@ -221,21 +221,23 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SAVOIR AVANT */}
-      <section className="section-pad quote-grid" style={{padding:'80px 40px', maxWidth:'1200px', margin:'0 auto'}}>
-        <div style={{borderLeft:`3px solid ${C.gold}`, paddingLeft:'32px'}}>
-          <p style={{color:C.gold, fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase' as const, margin:'0 0 16px'}}>Ce que tu peux changer</p>
-          <p style={{fontSize:'34px', fontWeight:800, color:C.dark, margin:'0 0 16px', lineHeight:1.2}}>
-            Savoir ce qui se passe avant qu&apos;on te l&apos;explique
-          </p>
-          <p style={{color:C.text, fontSize:'16px', margin:'0 0 32px', lineHeight:1.7}}>
-            Un père qui comprend ce qui se passe prend de meilleures décisions. Il est plus calme le jour J. Il sait quoi faire, et quand le faire.
-          </p>
-          <a href="/pourquoi" style={{color:C.dark, fontSize:'14px', fontWeight:700, textDecoration:'none'}}>Pourquoi ça change tout →</a>
-        </div>
-        <style>{`.photo-wrap:hover img { transform: scale(1.04); } .photo-wrap img { transition: transform 0.4s ease; }`}</style>
-        <div className="photo-wrap" style={{borderRadius:'24px', overflow:'hidden', boxShadow:'0 20px 60px rgba(0,0,0,0.15)', border:`1px solid ${C.border}`, width:'fit-content', marginLeft:'30%'}}>
-          <img src="/main.jpg" alt="Papa et bébé" style={{width:'280px', height:'380px', objectFit:'cover', objectPosition:'center 60%', display:'block'}}/>
+            {/* SAVOIR AVANT */}
+      <section style={{padding:'40px', background:C.white}}>
+        <div style={{position:'relative', borderRadius:'24px', overflow:'hidden', minHeight:'380px', display:'flex', alignItems:'center', justifyContent:'center'}}>
+          <img src="/main.jpg" alt="Papa et bébé" style={{position:'absolute', top:0, left:0, width:'100%', height:'100%', objectFit:'cover', objectPosition:'center 60%', display:'block'}}/>
+          <div style={{position:'absolute', top:0, left:0, right:0, bottom:0, background:'linear-gradient(to right, rgba(26,61,92,0.92) 50%, rgba(26,61,92,0.55) 100%)'}}></div>
+          <div style={{position:'relative', zIndex:1, maxWidth:'640px', padding:'60px 40px', textAlign:'center' as const}}>
+            <p style={{color:C.gold, fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase' as const, margin:'0 0 20px'}}>Ce que tu peux changer</p>
+            <h2 style={{color:C.white, fontSize:'38px', fontWeight:800, lineHeight:1.2, margin:'0 0 24px'}}>
+              Savoir ce qui se passe<br/>avant qu&apos;on te l&apos;explique
+            </h2>
+            <p style={{color:'rgba(255,255,255,0.75)', fontSize:'16px', lineHeight:1.8, margin:'0 auto 36px', maxWidth:'480px'}}>
+              Un père qui comprend ce qui se passe prend de meilleures décisions. Il est plus calme le jour J. Il sait quoi faire, et quand le faire.
+            </p>
+            <a href="/pourquoi" style={{display:'inline-flex', alignItems:'center', gap:'8px', background:'rgba(255,255,255,0.1)', border:'1px solid rgba(255,255,255,0.25)', color:C.white, padding:'12px 24px', borderRadius:'32px', fontSize:'14px', fontWeight:700, textDecoration:'none'}}>
+              Pourquoi ça change tout →
+            </a>
+          </div>
         </div>
       </section>
 
