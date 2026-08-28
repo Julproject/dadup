@@ -108,30 +108,67 @@ export default function InclusPage() {
           <div style={{position:'absolute', top:'-60px', right:'100px', width:'320px', height:'320px', borderRadius:'50%', background:'radial-gradient(circle,rgba(200,160,96,0.22) 0%,transparent 65%)', pointerEvents:'none'}}></div>
           <div style={{maxWidth:'960px', margin:'0 auto', display:'flex', alignItems:'center', gap:'56px', position:'relative', zIndex:1}}>
 
-            {/* iPhone mockup */}
-            <div style={{flexShrink:0, marginTop:'-220px', transform:'rotate(-5deg)', position:'relative', zIndex:2}}>
-              <div style={{background:'linear-gradient(145deg,#2a2a2e,#0d0d0f,#1a1a1c)', borderRadius:'42px', padding:'8px', width:'200px', boxShadow:'0 30px 60px rgba(0,0,0,0.6), 0 0 0 0.5px rgba(255,255,255,0.08)'}}>
-                <div style={{background:'linear-gradient(135deg,#0a1f32,#1A3D5C)', borderRadius:'36px 36px 0 0', padding:'10px 14px 6px', display:'flex', justifyContent:'space-between', alignItems:'center'}}>
-                  <span style={{color:'#fff', fontSize:'8px', fontWeight:700}}>9:41</span>
-                  <span style={{color:'#fff', fontSize:'7px'}}>●●● ■</span>
-                </div>
-                <div style={{background:C.cream, borderRadius:'0 0 34px 34px', overflow:'hidden', padding:'10px', display:'flex', flexDirection:'column' as const, gap:'6px'}}>
-                  <div style={{background:'linear-gradient(135deg,#0a1f32,#1A3D5C)', borderRadius:'10px', padding:'9px 12px'}}>
-                    <p style={{color:C.gold, fontSize:'8px', fontWeight:700, letterSpacing:'1.5px', textTransform:'uppercase' as const, margin:'0 0 1px'}}>Semaine 20</p>
-                    <p style={{color:'#fff', fontSize:'10px', fontWeight:700, margin:'0 0 1px'}}>La mi-grossesse</p>
-                    <p style={{fontSize:'7px', color:'#6a7585', margin:0}}>16,4 cm · 300 g</p>
+            {/* iPhone 17 mockup */}
+            <div style={{flexShrink:0, marginTop:'-220px', position:'relative', zIndex:2, animation:'float 4s ease-in-out infinite', transform:'rotate(-2deg)'}}>
+              <style>{`@keyframes float{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-8px) rotate(-2deg)}}`}</style>
+              <div style={{width:'185px', height:'380px', background:'linear-gradient(160deg,#2c2c2e 0%,#1c1c1e 50%,#232323 100%)', borderRadius:'36px', padding:'6px', boxShadow:'0 40px 80px rgba(0,0,0,0.65),0 0 0 0.5px rgba(255,255,255,0.08),inset 0 0.5px 0 rgba(255,255,255,0.18)', position:'relative'}}>
+                <div style={{position:'absolute', top:0, left:'20%', right:'20%', height:'0.5px', background:'linear-gradient(90deg,transparent,rgba(255,255,255,0.4),transparent)', borderRadius:'999px', zIndex:5}}></div>
+                <div style={{position:'absolute', right:'-2px', top:'100px', width:'2.5px', height:'50px', background:'#2a2a2e', borderRadius:'0 2px 2px 0'}}></div>
+                <div style={{position:'absolute', left:'-2px', top:'80px', width:'2.5px', height:'24px', background:'#2a2a2e', borderRadius:'2px 0 0 2px'}}></div>
+                <div style={{position:'absolute', left:'-2px', top:'115px', width:'2.5px', height:'36px', background:'#2a2a2e', borderRadius:'2px 0 0 2px'}}></div>
+                <div style={{position:'absolute', left:'-2px', top:'60px', width:'2.5px', height:'14px', background:'#2a2a2e', borderRadius:'2px 0 0 2px'}}></div>
+                <div style={{background:C.cream, borderRadius:'31px', height:'100%', overflow:'hidden', display:'flex', flexDirection:'column' as const}}>
+                  {/* Status bar */}
+                  <div style={{padding:'10px 14px 4px', display:'flex', justifyContent:'space-between', alignItems:'center', flexShrink:0, position:'relative'}}>
+                    <span style={{fontSize:'8px', fontWeight:700, color:C.dark}}>9:41</span>
+                    <div style={{position:'absolute', top:'8px', left:'50%', transform:'translateX(-50%)', background:'#000', width:'68px', height:'17px', borderRadius:'11px', zIndex:3, display:'flex', alignItems:'center', justifyContent:'space-between', padding:'0 9px'}}>
+                      <div style={{width:'4px', height:'4px', background:'#1c1c1e', borderRadius:'50%'}}></div>
+                      <div style={{width:'3px', height:'3px', background:'#222', borderRadius:'50%'}}></div>
+                    </div>
+                    <span style={{fontSize:'7px', color:C.dark}}>●●● ■</span>
                   </div>
-                  <div style={{background:'#C8E8FF', borderRadius:'10px', padding:'9px 12px'}}>
-                    <p style={{color:'#2E5F8A', fontSize:'8px', fontWeight:700, letterSpacing:'1.5px', textTransform:'uppercase' as const, margin:'0 0 3px'}}>Développement</p>
-                    <p style={{color:'#1A3D5C', fontSize:'9px', lineHeight:1.6, margin:0}}>L&apos;échographie T2 examine chaque organe</p>
+                  {/* Topbar app */}
+                  <div style={{background:'#fff', borderBottom:'0.5px solid #e8e0d0', padding:'4px 10px', display:'flex', justifyContent:'space-between', alignItems:'center', flexShrink:0}}>
+                    <span style={{fontSize:'8px', fontWeight:800, color:C.dark}}>DadUp</span>
+                    <div style={{display:'flex', gap:'3px'}}>
+                      {['Accueil','Bébé','RDV','Préparer'].map((t,i) => (
+                        <span key={i} style={{background:i===0?C.cream:'transparent', borderRadius:'5px', padding:'2px 5px', fontSize:'5.5px', color:i===0?C.dark:C.textLight, fontWeight:i===0?700:400}}>{t}</span>
+                      ))}
+                    </div>
                   </div>
-                  <div style={{background:'#B8F0D8', borderRadius:'10px', padding:'9px 12px'}}>
-                    <p style={{color:'#0D6B40', fontSize:'8px', fontWeight:700, letterSpacing:'1.5px', textTransform:'uppercase' as const, margin:'0 0 3px'}}>Ton rôle</p>
-                    <p style={{color:'#0A2E1A', fontSize:'9px', lineHeight:1.6, margin:0}}>Prépare 3 questions pour l&apos;échographe</p>
+                  {/* Contenu */}
+                  <div style={{padding:'7px 8px', display:'flex', flexDirection:'column' as const, gap:'4px', flex:1}}>
+                    <div style={{background:'linear-gradient(135deg,#0a1f32,#1A3D5C)', borderRadius:'11px', padding:'9px 11px', flexShrink:0}}>
+                      <p style={{color:C.gold, fontSize:'6.5px', fontWeight:700, letterSpacing:'1.5px', textTransform:'uppercase' as const, margin:'0 0 2px'}}>Semaine 20 · T2</p>
+                      <p style={{color:'#fff', fontSize:'11px', fontWeight:800, margin:'0 0 2px'}}>La mi-grossesse</p>
+                      <p style={{color:'rgba(255,255,255,0.5)', fontSize:'7px', margin:0}}>16,4 cm · 300 g</p>
+                    </div>
+                    <div style={{background:'#C8E8FF', borderRadius:'8px', padding:'9px 11px', flexShrink:0}}>
+                      <p style={{color:'#2E5F8A', fontSize:'6px', fontWeight:700, letterSpacing:'1px', textTransform:'uppercase' as const, margin:'0 0 3px'}}>Développement</p>
+                      <p style={{color:'#1A3D5C', fontSize:'8px', fontWeight:600, margin:0}}>L&apos;échographie T2 examine chaque organe du bébé</p>
+                    </div>
+                    <div style={{background:'#B8F0D8', borderRadius:'8px', padding:'9px 11px', flexShrink:0}}>
+                      <p style={{color:'#0D6B40', fontSize:'6px', fontWeight:700, letterSpacing:'1px', textTransform:'uppercase' as const, margin:'0 0 3px'}}>Ton rôle</p>
+                      <p style={{color:'#0A2E1A', fontSize:'8px', fontWeight:600, margin:0}}>Prépare 3 questions pour l&apos;échographe</p>
+                    </div>
+                    <div style={{background:'#FFE8A0', borderRadius:'10px', padding:'9px 11px', flexShrink:0}}>
+                      <p style={{color:'#8A6010', fontSize:'6px', fontWeight:700, letterSpacing:'1px', textTransform:'uppercase' as const, margin:'0 0 3px'}}>Mission</p>
+                      <p style={{color:'#3A2000', fontSize:'8px', fontWeight:600, margin:0}}>Commence la liste valise maternité</p>
+                    </div>
+                    <div style={{background:'#EDE8FF', borderRadius:'10px', padding:'9px 11px', flexShrink:0}}>
+                      <p style={{color:'#6B4FBB', fontSize:'6px', fontWeight:700, letterSpacing:'1px', textTransform:'uppercase' as const, margin:'0 0 3px'}}>Ce qu&apos;elle vit</p>
+                      <p style={{color:'#3D2E7A', fontSize:'8px', fontWeight:600, margin:0}}>Anxiété mêlée d&apos;excitation avant l&apos;écho</p>
+                    </div>
+                    <div style={{background:'#fff', borderRadius:'8px', padding:'9px 11px', border:'0.5px solid #e8e0d0', display:'flex', alignItems:'center', justifyContent:'space-between', flexShrink:0}}>
+                      <div>
+                        <p style={{color:C.textLight, fontSize:'6px', fontWeight:700, textTransform:'uppercase' as const, letterSpacing:'1px', margin:'0 0 2px'}}>Prochain RDV</p>
+                        <p style={{color:C.dark, fontSize:'8px', fontWeight:700, margin:0}}>Échographie T2 · SA 22</p>
+                      </div>
+                      <span style={{color:C.gold, fontSize:'10px'}}>→</span>
+                    </div>
                   </div>
-                  <div style={{background:'#FFE8A0', borderRadius:'10px', padding:'9px 12px'}}>
-                    <p style={{color:'#8A6010', fontSize:'8px', fontWeight:700, letterSpacing:'1.5px', textTransform:'uppercase' as const, margin:'0 0 3px'}}>Mission</p>
-                    <p style={{color:'#3A2000', fontSize:'9px', lineHeight:1.6, margin:0}}>Commence la liste valise maternité</p>
+                  <div style={{display:'flex', justifyContent:'center', padding:'5px 0', flexShrink:0}}>
+                    <div style={{background:'#9aa0a8', width:'36px', height:'3px', borderRadius:'3px'}}></div>
                   </div>
                 </div>
               </div>
