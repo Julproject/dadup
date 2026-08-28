@@ -251,24 +251,34 @@ export default function Home() {
         </div>
       </section>
 
-            {/* CTA FINAL */}
-      <section style={{padding:'80px 40px', background:'#faf6f0', textAlign:'center' as const}}>
-        <div style={{maxWidth:'600px', margin:'0 auto'}}>
-          <p style={{color:C.gold, fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase' as const, margin:'0 0 16px'}}>Accès immédiat</p>
-          <h2 style={{color:C.dark, fontSize:'44px', fontWeight:800, margin:'0 0 16px', lineHeight:1.1}}>
-            Prends ta place<br/><span style={{color:C.gold}}>de père</span>
-          </h2>
-          <p style={{color:C.text, fontSize:'16px', margin:'0 0 32px', lineHeight:1.7}}>
-            À deux, dès le premier jour
-          </p>
-          <button onClick={goToStripe} style={{background:'linear-gradient(135deg,#c8a060,#e8c070)', color:'#1c1510', border:'none', padding:'18px 48px', borderRadius:'32px', fontSize:'16px', fontWeight:800, cursor:'pointer', width:'100%', maxWidth:'400px', display:'block', margin:'0 auto 12px', boxShadow:'0 6px 24px rgba(200,160,96,0.4)'}}>
+                  {/* CTA FINAL */}
+      <section style={{padding:'40px', background:'#faf6f0'}}>
+        <div style={{background:'linear-gradient(135deg,#0a1f32 0%,#1A3D5C 50%,#1d4d72 100%)', borderRadius:'24px', padding:'72px 48px', position:'relative', overflow:'hidden', textAlign:'center' as const}}>
+          {/* Halos */}
+          <div style={{position:'absolute', top:'-60px', right:'100px', width:'320px', height:'320px', borderRadius:'50%', background:'radial-gradient(circle,rgba(200,160,96,0.22) 0%,transparent 65%)', pointerEvents:'none'}}></div>
+          <div style={{position:'absolute', bottom:'-60px', left:'-40px', width:'280px', height:'280px', borderRadius:'50%', background:'radial-gradient(circle,rgba(100,200,160,0.1) 0%,transparent 70%)', pointerEvents:'none'}}></div>
+          <div style={{position:'absolute', top:'20px', left:'60px', width:'200px', height:'200px', borderRadius:'50%', background:'radial-gradient(circle,rgba(150,120,220,0.08) 0%,transparent 70%)', pointerEvents:'none'}}></div>
+          {/* Contenu */}
+          <div style={{position:'relative', zIndex:1, maxWidth:'520px', margin:'0 auto'}}>
+            <div style={{display:'inline-flex', alignItems:'center', gap:'8px', background:'rgba(200,160,96,0.18)', border:'1px solid rgba(200,160,96,0.5)', borderRadius:'20px', padding:'5px 14px', marginBottom:'24px'}}>
+              <div style={{width:'7px', height:'7px', borderRadius:'50%', background:'#c8a060', boxShadow:'0 0 8px rgba(200,160,96,0.9)'}}></div>
+              <span style={{color:'#e0b870', fontSize:'11px', fontWeight:700, letterSpacing:'1px'}}>Accès immédiat</span>
+            </div>
+            <h2 style={{color:'#fff', fontSize:'48px', fontWeight:800, margin:'0 0 12px', lineHeight:1.1}}>
+              Prends ta place<br/><span style={{color:'#e0b870'}}>de père</span>
+            </h2>
+            <p style={{color:'rgba(255,255,255,0.6)', fontSize:'16px', margin:'0 0 36px', lineHeight:1.7}}>
+              À deux, dès le premier jour
+            </p>
+            <button onClick={goToStripe} style={{background:'linear-gradient(135deg,#c8a060,#e8c070)', color:'#1c1510', border:'none', padding:'20px 56px', borderRadius:'32px', fontSize:'18px', fontWeight:800, cursor:'pointer', display:'block', margin:'0 auto 14px', boxShadow:'0 8px 32px rgba(200,160,96,0.5), 0 2px 8px rgba(0,0,0,0.2)'}}>
               Accéder · 49,99€
-          </button>
-          <p style={{color:C.textLight, fontSize:'13px', margin:0}}>Paiement unique · Satisfait ou remboursé sous 14 jours</p>
+            </button>
+            <p style={{color:'rgba(255,255,255,0.35)', fontSize:'13px', margin:0}}>Paiement unique · Satisfait ou remboursé sous 14 jours</p>
+          </div>
         </div>
       </section>
 
-            {/* FOOTER */}
+      {/* FOOTER */}
       <footer style={{background:'#1A3D5C', borderTop:'none', padding:'40px'}}>
         <div style={{maxWidth:'1200px', margin:'0 auto', display:'flex', alignItems:'center', justifyContent:'space-between', flexWrap:'wrap' as const, gap:'20px'}}>
           <div style={{display:'flex', alignItems:'center', gap:'8px'}}>
