@@ -230,9 +230,10 @@ export default function TarifsPage() {
         <div style={{ background: 'linear-gradient(135deg,#0a1f32 0%,#1A3D5C 50%,#1d4d72 100%)', borderRadius: '24px', padding: '72px 48px', position: 'relative', overflow: 'hidden', textAlign: 'center' as const, maxWidth: '1100px', margin: '0 auto' }}>
           <div style={{ position: 'absolute', top: '-60px', right: '100px', width: '320px', height: '320px', borderRadius: '50%', background: 'radial-gradient(circle,rgba(200,160,96,0.22) 0%,transparent 65%)', pointerEvents: 'none' }}></div>
           <div style={{ position: 'relative', zIndex: 1 }}>
-        <h2 style={{ color: C.white, fontSize: '40px', fontWeight: 800, margin: '0 0 8px' }}>Prends ta place de père</h2>
-        <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '15px', margin: '0 0 36px' }}>À deux, dès le premier jour</p>
-        <button onClick={goToStripe} style={{ background: 'linear-gradient(135deg,#c8a060,#e8c070)', color: '#1c1510', border: 'none', padding: '20px 56px', borderRadius: '32px', fontSize: '20px', fontWeight: 800, cursor: 'pointer', boxShadow: '0 8px 32px rgba(200,160,96,0.5)' }}>
+        <h2 style={{ color: C.white, fontSize: '40px', fontWeight: 800, margin: '0 0 8px' }}>Tout est là. Il ne manque plus que toi</h2>
+        <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '15px', margin: '0 0 32px' }}>Paiement unique · accès immédiat</p>
+        <p style={{ color: '#e0b870', fontSize: '56px', fontWeight: 800, margin: '0 0 24px', lineHeight: 1 }}>49,99€</p>
+          <button onClick={goToStripe} style={{ background: 'linear-gradient(135deg,#c8a060,#e8c070)', color: '#1c1510', border: 'none', padding: '20px 56px', borderRadius: '32px', fontSize: '20px', fontWeight: 800, cursor: 'pointer', boxShadow: '0 8px 32px rgba(200,160,96,0.5)' }}>
             Accéder
           </button>
           </div>
