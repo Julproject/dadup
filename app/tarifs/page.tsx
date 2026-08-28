@@ -158,7 +158,7 @@ export default function TarifsPage() {
                 {[
                   { label: "Accès", val: "Disponible sur web + mobile (PWA)" },
                   { label: "Durée", val: "Accès jusqu'au 1er anniversaire de bébé à compter du paiement" },
-                  { label: "Données", val: "Email et DPA uniquement. Aucune revente." },
+                  { label: "Données", val: "Email et DPA uniquement. Aucune revente" },
                   { label: "Support", val: "hello@dadup.fr" },
                 ].map(({ label, val }, i, arr) => (
                   <div key={label} style={{ display: 'flex', gap: '16px', padding: '13px 0', borderBottom: i < arr.length - 1 ? '1px solid rgba(46,95,138,0.12)' : 'none' }}>
@@ -177,7 +177,7 @@ export default function TarifsPage() {
       {/* FAQ */}
       <section style={{ maxWidth: '760px', margin: '0 auto', padding: '72px 40px 80px' }}>
         <p style={{ color: C.blue, fontSize: '11px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase' as const, margin: '0 0 20px' }}>Questions fréquentes</p>
-        <h2 style={{ color: C.dark, fontSize: '30px', fontWeight: 800, margin: '0 0 40px' }}>Tout ce qu&apos;il faut savoir.</h2>
+        <h2 style={{ color: C.dark, fontSize: '30px', fontWeight: 800, margin: '0 0 40px' }}>Tout ce qu&apos;il faut savoir</h2>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
           {[
             {
@@ -186,15 +186,15 @@ export default function TarifsPage() {
             },
             {
               q: "Que se passe-t-il au 1er anniversaire de bébé ?",
-              r: "L'accès s'arrête simplement. Aucun prélèvement automatique, aucune reconduction tacite. Vous ne devez rien faire."
+              r: "L'accès s'arrête simplement. Aucun prélèvement automatique, aucune reconduction tacite. Vous ne devez rien faire"
             },
             {
               q: "Le paiement est-il sécurisé ?",
-              r: "Oui. Le paiement est géré par Stripe, référence mondiale de la sécurité des paiements en ligne. Nous ne stockons aucune donnée bancaire."
+              r: "Oui. Le paiement est géré par Stripe, référence mondiale de la sécurité des paiements en ligne. Nous ne stockons aucune donnée bancaire"
             },
             {
               q: "Y a-t-il un renouvellement automatique ?",
-              r: "Non. DadUp est un paiement unique. Vous payez une fois, vous accédez jusqu'au 1er anniversaire de bébé. Pas de surprise."
+              r: "Non. DadUp est un paiement unique. Vous payez une fois, vous accédez jusqu'au 1er anniversaire de bébé. Pas de surprise"
             },
             {
               q: "À quel moment puis-je accéder à DadUp après le paiement ?",
