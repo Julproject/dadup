@@ -93,7 +93,7 @@ export default function PourquoiPage() {
         </div>
         <div style={{display:'flex', flexDirection:'column' as const, gap:'10px'}}>
           {[
-            {sans:"Tu découvres l'accouchement sur le moment", avec:"Tu connais chaque étape avant qu'elle arrive"},
+            {sans:"Tu subis la grossesse sans vraiment comprendre ce qui se passe", avec:"Chaque semaine, tu sais ce que bébé développe et ce qu'elle vit"},
             {sans:"Tu ne sais pas quand partir à la maternité", avec:"Tu sais exactement quand et comment réagir"},
             {sans:"Le post-partum te prend par surprise", avec:"Tu comprends ce qu'elle vit et tu l'accompagnes"},
             {sans:"Tu achètes au hasard et tu dépenses trop", avec:"Tu achètes ce qui est vraiment utile"},
