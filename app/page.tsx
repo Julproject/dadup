@@ -171,9 +171,9 @@ export default function Home() {
               {border:'rgba(200,170,255,0.2)', label:'Calendrier médical', lc:'#a888f0', title:'Chaque consultation préparée', tc:'#C8AAFF', desc:"Ce qu'on cherche à chaque rendez-vous, les bonnes questions à poser, comment être vraiment présent.", dc:'rgba(200,170,255,0.6)'},
               {border:'rgba(255,240,160,0.25)', label:'Paiement unique', lc:'#e0b870', title:'Sans abonnement', tc:'#FFF0A0', desc:"Tu paies une fois, tu accèdes jusqu'au premier anniversaire de bébé. Pas de surprise.", dc:'rgba(255,240,160,0.6)'},
             ].map((s,i) => (
-              <div key={i} style={{background:'#FFF7E0', borderRadius:'20px', padding:'24px 28px', border:'1px solid rgba(200,160,96,0.2)'}}>
+              <div key={i} style={{background:'#fff', borderRadius:'20px', padding:'24px 28px', border:'1px solid rgba(0,0,0,0.06)', boxShadow:'0 4px 20px rgba(0,0,0,0.06)'}}>
                 <p style={{color:'#8A6010', fontSize:'10px', fontWeight:700, letterSpacing:'2px', textTransform:'uppercase' as const, margin:'0 0 10px'}}>{s.label}</p>
-                <p style={{color:'#3A2800', fontSize:'15px', fontWeight:700, margin:'0 0 8px'}}>{s.title}</p>
+                <p style={{color:'#1e2535', fontSize:'15px', fontWeight:700, margin:'0 0 8px'}}>{s.title}</p>
                 <p style={{color:'#6a5020', fontSize:'13px', margin:0, lineHeight:1.65}}>{s.desc}</p>
               </div>
             ))}
@@ -223,19 +223,28 @@ export default function Home() {
       </section>
 
             {/* SAVOIR AVANT */}
-      <section style={{padding:'24px 40px 40px', background:C.white}}>
-        <div style={{position:'relative', borderRadius:'24px', overflow:'hidden', minHeight:'380px', display:'flex', alignItems:'center', justifyContent:'center'}}>
-          <img src="/main.jpg" alt="Papa et bébé" style={{position:'absolute', top:0, left:0, width:'100%', height:'100%', objectFit:'cover', objectPosition:'center 60%', display:'block'}}/>
-          <div style={{position:'absolute', top:0, left:0, right:0, bottom:0, background:'linear-gradient(to right, rgba(26,61,92,0.92) 50%, rgba(26,61,92,0.55) 100%)'}}></div>
-          <div style={{position:'relative', zIndex:1, maxWidth:'640px', padding:'60px 40px', textAlign:'center' as const}}>
-            <p style={{color:C.gold, fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase' as const, margin:'0 0 20px'}}>Ce que tu peux changer</p>
-            <h2 style={{color:C.white, fontSize:'38px', fontWeight:800, lineHeight:1.2, margin:'0 0 24px'}}>
-              Savoir ce qui se passe<br/>avant qu&apos;on te l&apos;explique
+      <section style={{padding:'24px 40px 40px', background:'#f0ece6'}}>
+        <div style={{background:'linear-gradient(135deg,#0a1f32 0%,#1A3D5C 50%,#1d4d72 100%)', borderRadius:'24px', padding:'60px 48px', position:'relative', overflow:'hidden', display:'flex', flexDirection:'column' as const, alignItems:'center', justifyContent:'center', textAlign:'center' as const, minHeight:'360px'}}>
+          {/* Halos lumineux */}
+          <div style={{position:'absolute', top:'-40px', right:'100px', width:'300px', height:'300px', borderRadius:'50%', background:'radial-gradient(circle,rgba(200,160,96,0.2) 0%,transparent 65%)', pointerEvents:'none'}}></div>
+          <div style={{position:'absolute', bottom:'-60px', left:'-20px', width:'260px', height:'260px', borderRadius:'50%', background:'radial-gradient(circle,rgba(100,200,160,0.12) 0%,transparent 70%)', pointerEvents:'none'}}></div>
+          <div style={{position:'absolute', top:'20px', left:'80px', width:'180px', height:'180px', borderRadius:'50%', background:'radial-gradient(circle,rgba(150,120,220,0.1) 0%,transparent 70%)', pointerEvents:'none'}}></div>
+          {/* Contenu */}
+          <div style={{position:'relative', zIndex:1, maxWidth:'640px'}}>
+            <div style={{display:'inline-flex', alignItems:'center', gap:'8px', background:'rgba(200,160,96,0.18)', border:'1px solid rgba(200,160,96,0.5)', borderRadius:'20px', padding:'5px 14px', marginBottom:'24px'}}>
+              <div style={{width:'7px', height:'7px', borderRadius:'50%', background:'#c8a060', boxShadow:'0 0 8px rgba(200,160,96,0.9)'}}></div>
+              <span style={{color:'#e0b870', fontSize:'11px', fontWeight:700, letterSpacing:'1px'}}>Ce que tu peux changer</span>
+            </div>
+            <h2 style={{color:'#fff', fontSize:'38px', fontWeight:800, lineHeight:1.2, margin:'0 0 20px', textShadow:'0 2px 20px rgba(0,0,0,0.3)' as any}}>
+              Savoir ce qui se passe<br/><span style={{color:'#e0b870'}}>avant qu&apos;on te l&apos;explique</span>
             </h2>
-            <p style={{color:'rgba(255,255,255,0.75)', fontSize:'16px', lineHeight:1.8, margin:'0 auto 36px', maxWidth:'480px'}}>
-              Un père qui comprend ce qui se passe prend de meilleures décisions. Il est plus calme le jour J. Il sait quoi faire, et quand le faire.
+            <p style={{color:'rgba(255,255,255,0.9)', fontSize:'17px', fontWeight:600, lineHeight:1.6, margin:'0 0 8px'}}>
+              Un père qui comprend prend de meilleures décisions.
             </p>
-            <a href="/pourquoi" style={{display:'inline-flex', alignItems:'center', gap:'8px', background:'rgba(255,255,255,0.1)', border:'1px solid rgba(255,255,255,0.25)', color:C.white, padding:'12px 24px', borderRadius:'32px', fontSize:'14px', fontWeight:700, textDecoration:'none'}}>
+            <p style={{color:'rgba(255,255,255,0.5)', fontSize:'14px', lineHeight:1.7, margin:'0 0 32px'}}>
+              Il est plus calme le jour J. Il sait quoi faire, et quand le faire.
+            </p>
+            <a href="/pourquoi" style={{display:'inline-flex', alignItems:'center', gap:'8px', background:'linear-gradient(135deg,#c8a060,#e8c070)', color:'#1c1510', padding:'14px 28px', borderRadius:'32px', fontSize:'14px', fontWeight:800, textDecoration:'none', boxShadow:'0 6px 20px rgba(200,160,96,0.4)'}}>
               Pourquoi ça change tout →
             </a>
           </div>
@@ -248,7 +257,7 @@ export default function Home() {
         <h2 style={{color:C.white, fontSize:'44px', fontWeight:800, margin:'0 0 16px', lineHeight:1.1}}>
           Être père, ça commence<br/>bien avant la naissance
         </h2>
-        <p style={{color:'rgba(255,255,255,0.5)', fontSize:'15px', margin:'0 0 32px', lineHeight:1.7}}>
+        <p style={{color:'rgba(255,255,255,0.65)', fontSize:'15px', margin:'0 0 32px', lineHeight:1.7}}>
           Elle porte bébé. Tu portes le reste.
         </p>
         <button onClick={goToStripe} style={{background:'linear-gradient(135deg,#c8a060,#e8c070)', color:'#1c1510', border:'none', padding:'18px 48px', borderRadius:'32px', fontSize:'16px', fontWeight:800, cursor:'pointer', width:'100%', maxWidth:'400px', display:'block', margin:'0 auto 12px', boxShadow:'0 6px 24px rgba(200,160,96,0.4)'}}>
