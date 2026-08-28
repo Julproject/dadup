@@ -13,12 +13,12 @@ export default function InclusPage() {
   const [showModal, setShowModal] = useState(false);
 
   const modules = [
-    { num:'01', titre:'Calendrier des rendez-vous', desc:'8 consultations expliquées pas à pas, ce que tu dois demander, ton rôle précis', bg:'#C8E8FF', titleColor:'#0A2847', descColor:'#1A3D5C', shadow:'rgba(46,95,138,0.2)' },
-    { num:'02', titre:'Suivi bébé semaine par semaine', desc:'SA 3 à SA 41, développement des organes, taille, poids', bg:'#B8F0D8', titleColor:'#0A2E1A', descColor:'#0D6B40', shadow:'rgba(13,107,64,0.18)' },
-    { num:'03', titre:'Guide accouchement', desc:'Contractions, départ maternité, salle de naissance, comment soutenir', bg:'linear-gradient(135deg,#0a1f32,#1A3D5C)', titleColor:C.white, descColor:'rgba(255,255,255,0.6)', shadow:'rgba(26,61,92,0.35)', dark:true },
-    { num:'04', titre:'Valise maternité', desc:'Checklist complète pour toi, elle et bébé', bg:'#FFE8A0', titleColor:'#3A2000', descColor:'#8A6010', shadow:'rgba(200,160,96,0.25)' },
-    { num:'05', titre:'Post-partum décrypté', desc:'Baby blues, manque de sommeil, couple, ton rôle dès le retour', bg:'#DDD0FF', titleColor:'#1A0A4A', descColor:'#6B4FBB', shadow:'rgba(107,79,187,0.2)' },
-    { num:'06', titre:'Première année de bébé', desc:'12 mois, diversification, premiers mots, développement', bg:'#FFD4E8', titleColor:'#4A0A2A', descColor:'#B04070', shadow:'rgba(176,64,112,0.18)' },
+    { titre:'Calendrier des rendez-vous', desc:'8 consultations expliquées pas à pas, ce que tu dois demander, ton rôle précis', bg:'rgba(200,232,255,0.35)', border:'rgba(46,95,138,0.2)', titleColor:'#0A2847', descColor:'#2E5F8A' },
+    { titre:'Suivi bébé semaine par semaine', desc:'SA 3 à SA 41, développement des organes, taille, poids', bg:'rgba(184,240,216,0.35)', border:'rgba(13,107,64,0.2)', titleColor:'#0A2E1A', descColor:'#0D6B40' },
+    { titre:'Guide accouchement', desc:'Contractions, départ maternité, salle de naissance, comment soutenir', bg:'rgba(26,61,92,0.08)', border:'rgba(26,61,92,0.2)', titleColor:'#0a1f32', descColor:'#1A3D5C' },
+    { titre:'Valise maternité', desc:'Checklist complète pour toi, elle et bébé', bg:'rgba(255,232,160,0.35)', border:'rgba(200,160,96,0.25)', titleColor:'#3A2000', descColor:'#8A6010' },
+    { titre:'Post-partum décrypté', desc:'Baby blues, manque de sommeil, couple, ton rôle dès le retour', bg:'rgba(221,208,255,0.35)', border:'rgba(107,79,187,0.2)', titleColor:'#1A0A4A', descColor:'#6B4FBB' },
+    { titre:'Première année de bébé', desc:'12 mois, diversification, premiers mots, développement', bg:'rgba(255,212,232,0.35)', border:'rgba(176,64,112,0.2)', titleColor:'#4A0A2A', descColor:'#B04070' },
   ];
 
   return (
@@ -93,12 +93,8 @@ export default function InclusPage() {
       <section style={{padding:'72px 40px', maxWidth:'1100px', margin:'0 auto'}}>
         <div className="grid6">
           {modules.map((m, i) => (
-            <div key={i} className="card-h" style={{background:m.bg, borderRadius:'20px', padding:'28px', boxShadow:`0 10px 36px ${m.shadow}`}}>
-              <div style={{display:'flex', alignItems:'center', gap:'10px', marginBottom:'16px'}}>
-                <span style={{color: m.dark ? 'rgba(200,160,96,0.7)' : 'rgba(0,0,0,0.25)', fontSize:'11px', fontWeight:800, letterSpacing:'1px'}}>{m.num}</span>
-                <div style={{flex:1, height:'2px', borderRadius:'2px', background:'linear-gradient(135deg,#c8a060,#e8c070)', opacity:0.6}}></div>
-              </div>
-              <p style={{color:m.titleColor, fontSize:'15px', fontWeight:800, margin:'0 0 10px', lineHeight:1.3}}>{m.titre}</p>
+            <div key={i} className="card-h" style={{background:m.bg, border:`1px solid ${m.border}`, borderRadius:'20px', padding:'28px', boxShadow:'0 4px 20px rgba(0,0,0,0.06)'}}>
+              <p style={{color:m.titleColor, fontSize:'16px', fontWeight:800, margin:'0 0 10px', lineHeight:1.3}}>{m.titre}</p>
               <p style={{color:m.descColor, fontSize:'13px', lineHeight:1.65, margin:0}}>{m.desc}</p>
             </div>
           ))}
@@ -113,7 +109,7 @@ export default function InclusPage() {
 
             {/* iPhone mockup */}
             <div style={{flexShrink:0, transform:'rotate(-5deg)', position:'relative'}}>
-              <div style={{background:'linear-gradient(145deg,#2a2a2e,#0d0d0f,#1a1a1c)', borderRadius:'42px', padding:'8px', width:'175px', boxShadow:'0 30px 60px rgba(0,0,0,0.6), 0 0 0 0.5px rgba(255,255,255,0.08)'}}>
+              <div style={{background:'linear-gradient(145deg,#2a2a2e,#0d0d0f,#1a1a1c)', borderRadius:'42px', padding:'8px', width:'200px', boxShadow:'0 30px 60px rgba(0,0,0,0.6), 0 0 0 0.5px rgba(255,255,255,0.08)'}}>
                 <div style={{background:'linear-gradient(135deg,#0a1f32,#1A3D5C)', borderRadius:'36px 36px 0 0', padding:'10px 14px 6px', display:'flex', justifyContent:'space-between', alignItems:'center'}}>
                   <span style={{color:'#fff', fontSize:'8px', fontWeight:700}}>9:41</span>
                   <span style={{color:'#fff', fontSize:'7px'}}>●●● ■</span>
