@@ -100,11 +100,12 @@ export default function Home() {
 
       {/* HERO */}
       <section style={{background:C.cream, padding:'24px 24px 0'}}>
-        <div className="hero-2col" style={{background:C.blueDark, borderRadius:'24px', position:'relative', overflow:'hidden', border:'1px solid rgba(255,255,255,0.06)'}}>
+        <div className="hero-2col" style={{background:'linear-gradient(135deg,#0a1f32 0%,#1A3D5C 50%,#1d4d72 100%)', borderRadius:'24px', position:'relative', overflow:'hidden', border:'1px solid rgba(255,255,255,0.06)'}}>
 
           {/* Cercles décoratifs */}
-          <div style={{position:'absolute', top:'-60px', right:'200px', width:'280px', height:'280px', borderRadius:'50%', background:'#E6F0FA', opacity:0.07, pointerEvents:'none'}}></div>
-          <div style={{position:'absolute', bottom:'-80px', left:'-40px', width:'260px', height:'260px', borderRadius:'50%', background:'#E4F5EC', opacity:0.08, pointerEvents:'none'}}></div>
+          <div style={{position:'absolute', top:'-60px', right:'200px', width:'320px', height:'320px', borderRadius:'50%', background:'radial-gradient(circle,rgba(200,160,96,0.22) 0%,transparent 65%)', pointerEvents:'none'}}></div>
+          <div style={{position:'absolute', bottom:'-80px', left:'-40px', width:'280px', height:'280px', borderRadius:'50%', background:'radial-gradient(circle,rgba(100,200,160,0.12) 0%,transparent 70%)', pointerEvents:'none'}}></div>
+          <div style={{position:'absolute', top:'30px', right:'20px', width:'200px', height:'200px', borderRadius:'50%', background:'radial-gradient(circle,rgba(150,120,220,0.1) 0%,transparent 70%)', pointerEvents:'none'}}></div>
 
           {/* TEXTE GAUCHE */}
           <div style={{position:'relative', zIndex:1, padding:'8px 0'}}>
@@ -117,7 +118,7 @@ export default function Home() {
               Être père, ça commence<br/><span style={{color:C.gold}}>bien avant la naissance</span>
             </h1>
 
-            <p style={{color:'rgba(255,255,255,0.92)', fontSize:'18px', fontWeight:600, lineHeight:1.6, margin:'0 0 8px'}}>
+            <p style={{color:'rgba(255,255,255,0.95)', fontSize:'18px', fontWeight:700, lineHeight:1.6, margin:'0 0 8px'}}>
               Elle porte bébé. Tu portes le reste.
             </p>
             <p style={{color:'rgba(255,255,255,0.5)', fontSize:'14px', lineHeight:1.7, margin:'0 0 32px'}}>
@@ -125,7 +126,7 @@ export default function Home() {
             </p>
 
             <div style={{display:'flex', flexDirection:'column' as const, gap:'10px', maxWidth:'320px'}}>
-              <button onClick={goToStripe} style={{background:C.gold, color:'#1c1510', border:'none', padding:'16px 32px', borderRadius:'32px', fontSize:'16px', fontWeight:800, cursor:'pointer', textAlign:'center' as const}}>
+              <button onClick={goToStripe} style={{background:'linear-gradient(135deg,#c8a060,#e8c070)', color:'#1c1510', border:'none', padding:'16px 32px', borderRadius:'32px', fontSize:'16px', fontWeight:800, cursor:'pointer', textAlign:'center' as const, boxShadow:'0 6px 24px rgba(200,160,96,0.5),0 2px 8px rgba(0,0,0,0.2)'}}>
                 Accéder
               </button>
               <div style={{display:'flex', alignItems:'center', gap:'8px'}}>
@@ -138,17 +139,17 @@ export default function Home() {
           </div>
 
           {/* BADGES VERTICAUX */}
-          <style>{`.badge-item{transition:transform .2s ease,box-shadow .2s ease}.badge-item:hover{transform:scale(1.05);box-shadow:0 8px 24px rgba(0,0,0,0.18)!important}`}</style>
-          <div style={{position:'relative', zIndex:1, display:'flex', flexDirection:'column' as const, gap:'12px', justifyContent:'center'}}>
+          <style>{`.badge-item{transition:transform .2s ease}.badge-item:hover{transform:scale(1.04)}`}</style>
+          <div style={{position:'relative', zIndex:1, display:'flex', flexDirection:'column' as const, gap:'10px', justifyContent:'center'}}>
             {[
-              {bg:'#E6F0FA', color:'#1A3D5C', label:'41 semaines de contenu'},
-              {bg:'#E4F5EC', color:'#0D4A2E', label:'Post-partum inclus'},
-              {bg:'#EDE8FF', color:'#3D2E7A', label:"Jusqu'au 1er anniversaire de bébé"},
-              {bg:C.white, color:C.dark, label:'Contenu médical sourcé'},
+              {bg:'rgba(180,220,255,0.15)', border:'rgba(180,220,255,0.35)', iconBg:'#B8DCFF', iconColor:'#1A3D5C', textColor:'#B8DCFF', label:'41 semaines de contenu'},
+              {bg:'rgba(150,240,200,0.12)', border:'rgba(150,240,200,0.3)', iconBg:'#96F0C8', iconColor:'#0D4A2E', textColor:'#96F0C8', label:'Post-partum inclus'},
+              {bg:'rgba(200,170,255,0.12)', border:'rgba(200,170,255,0.3)', iconBg:'#C8AAFF', iconColor:'#3D2E7A', textColor:'#C8AAFF', label:"Jusqu'au 1er anniversaire de bébé"},
+              {bg:'rgba(255,240,160,0.12)', border:'rgba(255,240,160,0.3)', iconBg:'#FFF0A0', iconColor:'#8A6010', textColor:'#FFF0A0', label:'Contenu médical sourcé'},
             ].map((b,i) => (
-              <div key={i} className="badge-item" style={{background:b.bg, borderRadius:'14px', padding:'14px 18px', boxShadow:'0 4px 16px rgba(0,0,0,0.12)', display:'flex', alignItems:'center', gap:'12px', cursor:'default'}}>
-                <div style={{width:'30px', height:'30px', borderRadius:'50%', background:'rgba(0,0,0,0.06)', display:'flex', alignItems:'center', justifyContent:'center', flexShrink:0, fontSize:'14px'}}>✓</div>
-                <p style={{color:b.color, fontSize:'13px', fontWeight:800, margin:0}}>{b.label}</p>
+              <div key={i} className="badge-item" style={{background:b.bg, border:`1px solid ${b.border}`, borderRadius:'14px', padding:'14px 18px', display:'flex', alignItems:'center', gap:'12px', cursor:'default'}}>
+                <div style={{width:'30px', height:'30px', borderRadius:'50%', background:b.iconBg, display:'flex', alignItems:'center', justifyContent:'center', flexShrink:0, fontSize:'14px', color:b.iconColor, fontWeight:800}}>✓</div>
+                <p style={{color:b.textColor, fontSize:'13px', fontWeight:700, margin:0}}>{b.label}</p>
               </div>
             ))}
           </div>
