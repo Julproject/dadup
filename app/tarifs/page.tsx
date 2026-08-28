@@ -156,7 +156,7 @@ export default function TarifsPage() {
               <p style={{ color: '#1A3D5C', fontSize: '11px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase', margin: '0 0 20px' }}>Informations pratiques</p>
               <div style={{ display: 'flex', flexDirection: 'column' }}>
                 {[
-                  { label: "Accès", val: "Web, mobile et PWA — installable sur iPhone et Android" },
+                  { label: "Accès", val: "Web + mobile (PWA) · iPhone et Android" },
                   { label: "Durée", val: "Accès jusqu'au 1er anniversaire de bébé à compter du paiement" },
                   { label: "Données", val: "Email et DPA uniquement. Aucune revente." },
                   { label: "Support", val: "hello@dadup.fr" },
