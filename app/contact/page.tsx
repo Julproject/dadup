@@ -82,10 +82,10 @@ export default function ContactPage() {
           .footer-section{padding:24px 16px!important;}
         }
       `}</style>
-      <main style={{minHeight:'100vh', background:C.cream, fontFamily:"-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif", display:'flex', flexDirection:'column'}}>
+      <main style={{minHeight:'100vh', background:'#faf6f0', fontFamily:"-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif", display:'flex', flexDirection:'column'}}>
 
       {/* NAV simple */}
-      <nav style={{background:C.white, borderBottom:`1px solid ${C.border}`, padding:'0 40px', display:'flex', alignItems:'center', height:'68px'}}>
+      <nav style={{background:'#faf6f0', borderBottom:`1px solid ${C.border}`, padding:'0 40px', display:'flex', alignItems:'center', height:'68px'}}>
         <a href="/" style={{display:'flex', alignItems:'center', gap:'10px', textDecoration:'none'}}>
           <svg viewBox="0 0 300 300" width="32" height="32">
             <circle cx="150" cy="150" r="145" fill="#3a4f6e"/>
@@ -98,8 +98,8 @@ export default function ContactPage() {
           <span style={{fontWeight:800, color:C.dark, fontSize:'18px'}}>DadUp</span>
         </a>
         <div style={{marginLeft:'auto', display:'flex', gap:'24px', alignItems:'center'}}>
-          <a href="/login" style={{color:C.text, fontSize:'14px', fontWeight:500, textDecoration:'none'}}>Se connecter</a>
-          <a href="/tarifs" style={{background:'#1A3D5C', color:C.white, padding:'9px 20px', borderRadius:'32px', fontSize:'13px', fontWeight:700, textDecoration:'none'}}>Commencer</a>
+          <a href="/login" style={{color:C.dark, fontSize:'14px', fontWeight:700, textDecoration:'none'}}>Se connecter</a>
+          <a href="/tarifs" style={{background:'linear-gradient(135deg,#0a1f32 0%,#1A3D5C 50%,#1d4d72 100%)', color:C.white, padding:'9px 20px', borderRadius:'32px', fontSize:'13px', fontWeight:700, textDecoration:'none'}}>Commencer</a>
         </div>
       </nav>
 
@@ -108,7 +108,7 @@ export default function ContactPage() {
 
           {sent ? (
             /* Message de confirmation */
-            <div style={{background:C.white, borderRadius:'28px', padding:'48px 40px', textAlign:'center', border:`1px solid ${C.border}`, boxShadow:'0 4px 32px rgba(0,0,0,0.06)'}}>
+            <div style={{background:'#faf6f0', borderRadius:'28px', padding:'48px 40px', textAlign:'center', border:`1px solid ${C.border}`, boxShadow:'0 4px 32px rgba(0,0,0,0.06)'}}>
               <div style={{width:'64px', height:'64px', borderRadius:'50%', background:C.green, display:'flex', alignItems:'center', justifyContent:'center', margin:'0 auto 24px'}}>
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke={C.greenDark} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                   <polyline points="20 6 9 17 4 12"/>
@@ -118,7 +118,7 @@ export default function ContactPage() {
               <p style={{color:C.text, fontSize:'15px', lineHeight:1.7, margin:'0 0 32px'}}>
                 On te répond en général sous 24h, souvent bien moins. Tu recevras la réponse sur <strong>{email}</strong>.
               </p>
-              <a href="/" style={{display:'inline-block', background:'#1A3D5C', color:C.white, padding:'13px 32px', borderRadius:'32px', fontSize:'14px', fontWeight:700, textDecoration:'none'}}>
+              <a href="/" style={{display:'inline-block', background:'linear-gradient(135deg,#0a1f32 0%,#1A3D5C 50%,#1d4d72 100%)', color:C.white, padding:'13px 32px', borderRadius:'32px', fontSize:'14px', fontWeight:700, textDecoration:'none'}}>
                 Retour à l'accueil
               </a>
             </div>
@@ -138,7 +138,7 @@ export default function ContactPage() {
 
 
               {/* Formulaire */}
-              <div style={{background:C.white, borderRadius:'24px', padding:'36px', border:`1px solid ${C.border}`, boxShadow:'0 4px 24px rgba(0,0,0,0.06)'}}>
+              <div style={{background:'#faf6f0', borderRadius:'24px', padding:'36px', border:`1px solid ${C.border}`, boxShadow:'0 4px 24px rgba(0,0,0,0.06)'}}>
                 <form onSubmit={handleSubmit} style={{display:'flex', flexDirection:'column', gap:'18px'}}>
 
                   <div style={{display:'grid', gridTemplateColumns:'1fr 1fr', gap:'12px'}}>
@@ -149,7 +149,7 @@ export default function ContactPage() {
                         value={prenom}
                         onChange={e => setPrenom(e.target.value)}
                         placeholder="Thomas"
-                        style={{width:'100%', background:C.cream, border:`1.5px solid ${C.border}`, borderRadius:'12px', padding:'11px 14px', fontSize:'14px', color:C.dark, outline:'none', boxSizing:'border-box'}}
+                        style={{width:'100%', background:'#faf6f0', border:`1.5px solid ${C.border}`, borderRadius:'12px', padding:'11px 14px', fontSize:'14px', color:C.dark, outline:'none', boxSizing:'border-box'}}
                         onFocus={e => e.target.style.borderColor = C.blue}
                         onBlur={e => e.target.style.borderColor = C.border}
                       />
@@ -162,7 +162,7 @@ export default function ContactPage() {
                         onChange={e => setEmail(e.target.value)}
                         placeholder="ton@email.fr"
                         required
-                        style={{width:'100%', background:C.cream, border:`1.5px solid ${C.border}`, borderRadius:'12px', padding:'11px 14px', fontSize:'14px', color:C.dark, outline:'none', boxSizing:'border-box'}}
+                        style={{width:'100%', background:'#faf6f0', border:`1.5px solid ${C.border}`, borderRadius:'12px', padding:'11px 14px', fontSize:'14px', color:C.dark, outline:'none', boxSizing:'border-box'}}
                         onFocus={e => e.target.style.borderColor = C.blue}
                         onBlur={e => e.target.style.borderColor = C.border}
                       />
@@ -175,7 +175,7 @@ export default function ContactPage() {
                       value={sujet}
                       onChange={e => setSujet(e.target.value)}
                       required
-                      style={{width:'100%', background:C.cream, border:`1.5px solid ${C.border}`, borderRadius:'12px', padding:'11px 14px', fontSize:'14px', color: sujet ? C.dark : C.textLight, outline:'none', cursor:'pointer', appearance:'none', boxSizing:'border-box'}}
+                      style={{width:'100%', background:'#faf6f0', border:`1.5px solid ${C.border}`, borderRadius:'12px', padding:'11px 14px', fontSize:'14px', color: sujet ? C.dark : C.textLight, outline:'none', cursor:'pointer', appearance:'none', boxSizing:'border-box'}}
                       onFocus={e => (e.target as HTMLSelectElement).style.borderColor = C.blue}
                       onBlur={e => (e.target as HTMLSelectElement).style.borderColor = C.border}
                     >
@@ -192,7 +192,7 @@ export default function ContactPage() {
                       placeholder="Décris ton problème ou ta question en détail..."
                       required
                       rows={5}
-                      style={{width:'100%', background:C.cream, border:`1.5px solid ${C.border}`, borderRadius:'12px', padding:'11px 14px', fontSize:'14px', color:C.dark, outline:'none', resize:'vertical', fontFamily:'inherit', lineHeight:1.6, boxSizing:'border-box'}}
+                      style={{width:'100%', background:'#faf6f0', border:`1.5px solid ${C.border}`, borderRadius:'12px', padding:'11px 14px', fontSize:'14px', color:C.dark, outline:'none', resize:'vertical', fontFamily:'inherit', lineHeight:1.6, boxSizing:'border-box'}}
                       onFocus={e => e.target.style.borderColor = C.blue}
                       onBlur={e => e.target.style.borderColor = C.border}
                     />
