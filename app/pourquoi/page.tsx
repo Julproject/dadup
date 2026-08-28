@@ -87,13 +87,15 @@ export default function PourquoiPage() {
       <section style={{background:C.cream, padding:'32px 40px'}}>
         <div style={{maxWidth:'1200px', margin:'0 auto', display:'flex', gap:'12px', justifyContent:'center', flexWrap:'wrap' as const}}>
           {[
-            {bg:'#C8E8FF', color:'#0A2847', label:'Tout centralisé, semaine par semaine'},
-            {bg:'#B8F0D8', color:'#0A2E1A', label:"Paiement unique, jusqu'au 1er anniversaire"},
-            {bg:'#DDD0FF', color:'#1A0A4A', label:'De la grossesse au premier anniversaire'},
-          ].map((b,i) => (
-            <div key={i} style={{display:'flex', alignItems:'center', gap:'8px', background:b.bg, borderRadius:'24px', padding:'10px 18px', boxShadow:'0 4px 16px rgba(0,0,0,0.08)'}}>
-              <span style={{color:b.color, fontSize:'16px', fontWeight:800}}>✓</span>
-              <span style={{color:b.color, fontSize:'13px', fontWeight:700}}>{b.label}</span>
+            'Tout centralisé, semaine par semaine',
+            "Paiement unique, jusqu'au 1er anniversaire",
+            'De la grossesse au premier anniversaire',
+          ].map((label,i) => (
+            <div key={i} style={{display:'flex', alignItems:'center', gap:'10px', background:'rgba(184,240,216,0.25)', border:'1px solid rgba(13,107,64,0.15)', borderRadius:'12px', padding:'12px 20px'}}>
+              <div style={{width:'22px', height:'22px', borderRadius:'50%', background:'#B8F0D8', display:'flex', alignItems:'center', justifyContent:'center', flexShrink:0}}>
+                <span style={{color:'#0A2E1A', fontSize:'12px', fontWeight:800}}>✓</span>
+              </div>
+              <span style={{color:'#0A2E1A', fontSize:'13px', fontWeight:700}}>{label}</span>
             </div>
           ))}
         </div>
@@ -105,44 +107,32 @@ export default function PourquoiPage() {
           <p style={{color:C.blue, fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase' as const, margin:'0 0 12px'}}>Ce que DadUp change</p>
           <h2 style={{fontSize:'36px', fontWeight:800, color:C.dark, margin:0}}>Avant / Après DadUp</h2>
         </div>
-        <div className="aa">
-          {/* Sans DadUp */}
-          <div className="card-hover" style={{background:'#FFE8E8', borderRadius:'20px', padding:'32px', boxShadow:'0 8px 32px rgba(180,60,60,0.12)'}}>
-            <p style={{color:'#C04A1A', fontSize:'12px', fontWeight:700, letterSpacing:'2px', textTransform:'uppercase' as const, margin:'0 0 20px'}}>Sans DadUp</p>
-            {[
-              "Tu découvres l'accouchement sur le moment",
-              "Tu ne sais pas quand partir à la maternité",
-              "Le post-partum te prend par surprise",
-              "Tu achètes au hasard et tu dépenses trop",
-              "Tu te sens spectateur plutôt qu'acteur",
-            ].map((t,i) => (
-              <div key={i} style={{display:'flex', gap:'12px', alignItems:'flex-start', marginBottom:'12px'}}>
-                <div style={{width:'22px', height:'22px', borderRadius:'50%', background:'rgba(192,74,26,0.15)', display:'flex', alignItems:'center', justifyContent:'center', flexShrink:0}}>
+        <div style={{display:'flex', flexDirection:'column' as const, gap:'10px'}}>
+          {[
+            {sans:"Tu découvres l'accouchement sur le moment", avec:"Tu connais chaque étape avant qu'elle arrive"},
+            {sans:"Tu ne sais pas quand partir à la maternité", avec:"Tu sais exactement quand et comment réagir"},
+            {sans:"Le post-partum te prend par surprise", avec:"Tu comprends ce qu'elle vit et tu l'accompagnes"},
+            {sans:"Tu achètes au hasard et tu dépenses trop", avec:"Tu achètes ce qui est vraiment utile"},
+            {sans:"Tu te sens spectateur plutôt qu'acteur", avec:"Tu es présent, confiant et pleinement impliqué"},
+          ].map((item,i) => (
+            <div key={i} style={{background:'#fff', borderRadius:'16px', padding:'20px 24px', display:'grid', gridTemplateColumns:'1fr 40px 1fr', gap:'16px', alignItems:'center', boxShadow:'0 6px 24px rgba(0,0,0,0.07)'}}>
+              <div style={{display:'flex', alignItems:'center', gap:'12px'}}>
+                <div style={{width:'28px', height:'28px', borderRadius:'50%', background:'#FFE8E8', display:'flex', alignItems:'center', justifyContent:'center', flexShrink:0}}>
                   <span style={{color:'#C04A1A', fontSize:'13px', fontWeight:800}}>✗</span>
                 </div>
-                <p style={{color:'#7A3010', fontSize:'14px', margin:0, lineHeight:1.6}}>{t}</p>
+                <p style={{color:'#9aa0a8', fontSize:'15px', fontWeight:600, margin:0, textDecoration:'line-through', textDecorationColor:'#C04A1A'}}>{item.sans}</p>
               </div>
-            ))}
-          </div>
-          {/* Avec DadUp */}
-          <div className="card-hover" style={{background:'linear-gradient(135deg,#0a1f32 0%,#1A3D5C 50%,#1d4d72 100%)', borderRadius:'20px', padding:'32px', boxShadow:'0 8px 32px rgba(26,61,92,0.3)', position:'relative', overflow:'hidden'}}>
-            <div style={{position:'absolute', top:'-30px', right:'-20px', width:'160px', height:'160px', borderRadius:'50%', background:'radial-gradient(circle,rgba(200,160,96,0.2) 0%,transparent 65%)', pointerEvents:'none'}}></div>
-            <p style={{color:C.gold, fontSize:'12px', fontWeight:700, letterSpacing:'2px', textTransform:'uppercase' as const, margin:'0 0 20px', position:'relative', zIndex:1}}>Avec DadUp</p>
-            {[
-              "Tu connais chaque étape avant qu'elle arrive",
-              "Tu sais exactement quand et comment réagir",
-              "Tu comprends ce qu'elle vit et tu l'accompagnes",
-              "Tu achètes ce qui est vraiment utile",
-              "Tu es présent, confiant et pleinement impliqué",
-            ].map((t,i) => (
-              <div key={i} style={{display:'flex', gap:'12px', alignItems:'flex-start', marginBottom:'12px', position:'relative', zIndex:1}}>
-                <div style={{width:'22px', height:'22px', borderRadius:'50%', background:'rgba(200,160,96,0.25)', display:'flex', alignItems:'center', justifyContent:'center', flexShrink:0, boxShadow:'0 0 8px rgba(200,160,96,0.4)'}}>
-                  <span style={{color:'#e0b870', fontSize:'13px', fontWeight:800}}>✓</span>
+              <div style={{display:'flex', alignItems:'center', justifyContent:'center'}}>
+                <div style={{width:'32px', height:'32px', borderRadius:'50%', background:'linear-gradient(135deg,#c8a060,#e8c070)', display:'flex', alignItems:'center', justifyContent:'center', boxShadow:'0 4px 12px rgba(200,160,96,0.4)', fontSize:'14px', color:'#1c1510', fontWeight:800}}>→</div>
+              </div>
+              <div style={{display:'flex', alignItems:'center', gap:'12px'}}>
+                <div style={{width:'28px', height:'28px', borderRadius:'50%', background:'#B8F0D8', display:'flex', alignItems:'center', justifyContent:'center', flexShrink:0, boxShadow:'0 0 8px rgba(13,107,64,0.2)'}}>
+                  <span style={{color:'#0A2E1A', fontSize:'13px', fontWeight:800}}>✓</span>
                 </div>
-                <p style={{color:C.white, fontSize:'14px', margin:0, lineHeight:1.6}}>{t}</p>
+                <p style={{color:'#1e2535', fontSize:'15px', fontWeight:800, margin:0}}>{item.avec}</p>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -156,16 +146,16 @@ export default function PourquoiPage() {
           </div>
           <div className="sources-grid">
             {[
-              {sigle:'HAS', nom:'Haute Autorité de Santé', bg:'#C8E8FF', color:'#003189'},
-              {sigle:'OMS', nom:'Organisation Mondiale de la Santé', bg:'#B8F0D8', color:'#007BAD'},
-              {sigle:'ESPGHAN', nom:'Société Européenne de Gastroentérologie Pédiatrique', bg:'#DDD0FF', color:'#00693E'},
-              {sigle:'Inserm', nom:'Institut national de la santé et de la recherche médicale', bg:'#FFE8E8', color:'#A0002E'},
+              {sigle:'HAS', nom:'Haute Autorité de Santé', color:'#003189'},
+              {sigle:'OMS', nom:'Organisation Mondiale de la Santé', color:'#007BAD'},
+              {sigle:'ESPGHAN', nom:'Société Européenne de Gastroentérologie Pédiatrique', color:'#5B2D8E'},
+              {sigle:'Inserm', nom:'Institut national de la santé et de la recherche médicale', color:'#A0002E'},
             ].map((s,i) => (
-              <div key={i} className="card-hover" style={{background:s.bg, borderRadius:'16px', padding:'24px', textAlign:'center' as const, boxShadow:'0 6px 24px rgba(0,0,0,0.08)'}}>
+              <div key={i} className="card-hover" style={{background:'rgba(221,208,255,0.25)', border:'1px solid rgba(107,79,187,0.2)', borderRadius:'16px', padding:'24px', textAlign:'center' as const, boxShadow:'0 6px 24px rgba(107,79,187,0.1)'}}>
                 <div style={{background:s.color, color:'#fff', borderRadius:'10px', padding:'8px 14px', fontSize:'16px', fontWeight:800, display:'inline-block', marginBottom:'12px', boxShadow:`0 4px 12px ${s.color}40`}}>
                   {s.sigle}
                 </div>
-                <p style={{color:s.color, fontSize:'12px', lineHeight:1.5, fontWeight:600}}>{s.nom}</p>
+                <p style={{color:'#3D2E7A', fontSize:'12px', lineHeight:1.5, fontWeight:600}}>{s.nom}</p>
               </div>
             ))}
           </div>
