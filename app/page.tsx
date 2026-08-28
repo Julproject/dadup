@@ -222,43 +222,31 @@ export default function Home() {
         </div>
       </section>
 
-                  {/* SAVOIR AVANT */}
-      <section style={{padding:'40px', background:'#faf6f0'}}>
-        <div style={{position:'relative', borderRadius:'24px', overflow:'hidden', minHeight:'400px', display:'flex', alignItems:'center', justifyContent:'center'}}>
-          <img src="/main.jpg" alt="Papa et bébé" style={{position:'absolute', top:0, left:0, width:'100%', height:'100%', objectFit:'cover', objectPosition:'center 60%', display:'block'}}/>
-          <div style={{position:'absolute', top:0, left:0, right:0, bottom:0, background:'linear-gradient(135deg,rgba(10,31,50,0.93) 0%,rgba(26,61,92,0.88) 50%,rgba(29,77,114,0.75) 100%)'}}></div>
-          {/* Halos lumineux */}
-          <div style={{position:'absolute', top:'-40px', right:'80px', width:'280px', height:'280px', borderRadius:'50%', background:'radial-gradient(circle,rgba(200,160,96,0.2) 0%,transparent 65%)', pointerEvents:'none'}}></div>
-          <div style={{position:'absolute', bottom:'-40px', left:'-20px', width:'240px', height:'240px', borderRadius:'50%', background:'radial-gradient(circle,rgba(100,200,160,0.1) 0%,transparent 70%)', pointerEvents:'none'}}></div>
-          <div style={{position:'relative', zIndex:1, maxWidth:'640px', padding:'60px 40px', textAlign:'center' as const}}>
-            <div style={{display:'inline-flex', alignItems:'center', gap:'8px', background:'rgba(200,160,96,0.18)', border:'1px solid rgba(200,160,96,0.5)', borderRadius:'20px', padding:'5px 14px', marginBottom:'24px'}}>
-              <div style={{width:'7px', height:'7px', borderRadius:'50%', background:'#c8a060', boxShadow:'0 0 8px rgba(200,160,96,0.9)'}}></div>
-              <span style={{color:'#e0b870', fontSize:'11px', fontWeight:700, letterSpacing:'1px'}}>Ce que tu peux changer</span>
-            </div>
-            <h2 style={{color:'#fff', fontSize:'38px', fontWeight:800, lineHeight:1.2, margin:'0 0 20px'}}>
-              Savoir ce qui se passe<br/><span style={{color:'#e0b870'}}>avant qu&apos;on te l&apos;explique</span>
+                        {/* SAVOIR AVANT + CTA — section fusionnée */}
+      <section style={{padding:'80px 40px', background:'#faf6f0'}}>
+        <div style={{maxWidth:'720px', margin:'0 auto', textAlign:'center' as const}}>
+          {/* Savoir avant — sur le fond crème directement */}
+          <div style={{marginBottom:'72px'}}>
+            <p style={{color:C.gold, fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase' as const, margin:'0 0 20px'}}>Ce que tu peux changer</p>
+            <h2 style={{color:C.dark, fontSize:'40px', fontWeight:800, lineHeight:1.2, margin:'0 0 20px'}}>
+              Savoir ce qui se passe<br/><span style={{color:C.gold}}>avant qu&apos;on te l&apos;explique</span>
             </h2>
-            <p style={{color:'rgba(255,255,255,0.88)', fontSize:'17px', fontWeight:600, lineHeight:1.6, margin:'0 0 8px'}}>
-              Un père qui comprend prend de meilleures décisions.
+            <p style={{color:C.text, fontSize:'17px', lineHeight:1.8, margin:'0 auto 32px', maxWidth:'520px'}}>
+              Un père qui comprend prend de meilleures décisions. Il est plus calme le jour J. Il sait quoi faire, et quand le faire.
             </p>
-            <p style={{color:'rgba(255,255,255,0.5)', fontSize:'14px', lineHeight:1.7, margin:'0 0 32px'}}>
-              Il est plus calme le jour J. Il sait quoi faire, et quand le faire.
-            </p>
-            <a href="/pourquoi" style={{display:'inline-flex', alignItems:'center', gap:'8px', background:'linear-gradient(135deg,#c8a060,#e8c070)', color:'#1c1510', padding:'14px 28px', borderRadius:'32px', fontSize:'14px', fontWeight:800, textDecoration:'none', boxShadow:'0 6px 20px rgba(200,160,96,0.4)'}}>
+            <a href="/pourquoi" style={{display:'inline-flex', alignItems:'center', gap:'8px', color:C.dark, fontSize:'15px', fontWeight:700, textDecoration:'none', borderBottom:`2px solid ${C.gold}`, paddingBottom:'2px'}}>
               Pourquoi ça change tout →
             </a>
           </div>
-        </div>
-      </section>
 
-                  {/* CTA FINAL */}
-      <section style={{padding:'40px', background:'#faf6f0'}}>
-        <div style={{background:'linear-gradient(135deg,#0a1f32 0%,#1A3D5C 50%,#1d4d72 100%)', borderRadius:'24px', padding:'72px 48px', position:'relative', overflow:'hidden', textAlign:'center' as const}}>
-          {/* Halos */}
+          {/* Séparateur discret */}
+          <div style={{width:'60px', height:'3px', background:`linear-gradient(to right,${C.gold},transparent)`, margin:'0 auto 72px', borderRadius:'2px'}}></div>
+        </div>
+
+        {/* CTA final — cadre sombre */}
+        <div style={{background:'linear-gradient(135deg,#0a1f32 0%,#1A3D5C 50%,#1d4d72 100%)', borderRadius:'24px', padding:'72px 48px', position:'relative', overflow:'hidden', textAlign:'center' as const, maxWidth:'1200px', margin:'0 auto'}}>
           <div style={{position:'absolute', top:'-60px', right:'100px', width:'320px', height:'320px', borderRadius:'50%', background:'radial-gradient(circle,rgba(200,160,96,0.22) 0%,transparent 65%)', pointerEvents:'none'}}></div>
           <div style={{position:'absolute', bottom:'-60px', left:'-40px', width:'280px', height:'280px', borderRadius:'50%', background:'radial-gradient(circle,rgba(100,200,160,0.1) 0%,transparent 70%)', pointerEvents:'none'}}></div>
-          <div style={{position:'absolute', top:'20px', left:'60px', width:'200px', height:'200px', borderRadius:'50%', background:'radial-gradient(circle,rgba(150,120,220,0.08) 0%,transparent 70%)', pointerEvents:'none'}}></div>
-          {/* Contenu */}
           <div style={{position:'relative', zIndex:1, maxWidth:'520px', margin:'0 auto'}}>
             <div style={{display:'inline-flex', alignItems:'center', gap:'8px', background:'rgba(200,160,96,0.18)', border:'1px solid rgba(200,160,96,0.5)', borderRadius:'20px', padding:'5px 14px', marginBottom:'24px'}}>
               <div style={{width:'7px', height:'7px', borderRadius:'50%', background:'#c8a060', boxShadow:'0 0 8px rgba(200,160,96,0.9)'}}></div>
