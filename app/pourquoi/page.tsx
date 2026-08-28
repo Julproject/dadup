@@ -115,16 +115,14 @@ export default function PourquoiPage() {
             {sans:"Tu achètes au hasard et tu dépenses trop", avec:"Tu achètes ce qui est vraiment utile"},
             {sans:"Tu te sens spectateur plutôt qu'acteur", avec:"Tu es présent, confiant et pleinement impliqué"},
           ].map((item,i) => (
-            <div key={i} style={{background:'#fff', borderRadius:'16px', padding:'20px 24px', display:'grid', gridTemplateColumns:'1fr 40px 1fr', gap:'16px', alignItems:'center', boxShadow:'0 6px 24px rgba(0,0,0,0.07)'}}>
+            <div key={i} style={{background:'#fff', borderRadius:'16px', padding:'20px 24px', display:'grid', gridTemplateColumns:'1fr 1fr', gap:'16px', alignItems:'center', boxShadow:'0 6px 24px rgba(0,0,0,0.07)'}}>
               <div style={{display:'flex', alignItems:'center', gap:'12px'}}>
                 <div style={{width:'28px', height:'28px', borderRadius:'50%', background:'#FFE8E8', display:'flex', alignItems:'center', justifyContent:'center', flexShrink:0}}>
                   <span style={{color:'#C04A1A', fontSize:'13px', fontWeight:800}}>✗</span>
                 </div>
-                <p style={{color:'#9aa0a8', fontSize:'15px', fontWeight:600, margin:0, textDecoration:'line-through', textDecorationColor:'#C04A1A'}}>{item.sans}</p>
+                <p style={{color:'#C04A1A', fontSize:'15px', fontWeight:700, margin:0}}>{item.sans}</p>
               </div>
-              <div style={{display:'flex', alignItems:'center', justifyContent:'center'}}>
-                <div style={{width:'32px', height:'32px', borderRadius:'50%', background:'linear-gradient(135deg,#c8a060,#e8c070)', display:'flex', alignItems:'center', justifyContent:'center', boxShadow:'0 4px 12px rgba(200,160,96,0.4)', fontSize:'14px', color:'#1c1510', fontWeight:800}}>→</div>
-              </div>
+
               <div style={{display:'flex', alignItems:'center', gap:'12px'}}>
                 <div style={{width:'28px', height:'28px', borderRadius:'50%', background:'#B8F0D8', display:'flex', alignItems:'center', justifyContent:'center', flexShrink:0, boxShadow:'0 0 8px rgba(13,107,64,0.2)'}}>
                   <span style={{color:'#0A2E1A', fontSize:'13px', fontWeight:800}}>✓</span>
