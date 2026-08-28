@@ -82,7 +82,7 @@ export default function InclusPage() {
             <div style={{width:'7px', height:'7px', borderRadius:'50%', background:'#c8a060', boxShadow:'0 0 8px rgba(200,160,96,0.9)'}}></div>
             <span style={{color:'#e0b870', fontSize:'11px', fontWeight:700, letterSpacing:'1px'}}>Ce qui est inclus</span>
           </div>
-          <h1 style={{color:C.white, fontSize:'44px', fontWeight:800, margin:'0 0 20px', lineHeight:1.1}}>
+          <h1 style={{color:C.white, fontSize:'44px', fontWeight:800, margin:'0 0 20px', lineHeight:1.1, whiteSpace:'nowrap' as const}}>
             Tout ça,<br/><span style={{color:'#e0b870'}}>au bon moment</span>
           </h1>
           <p style={{color:'rgba(255,255,255,0.65)', fontSize:'17px', lineHeight:1.7}}>De SA 3 à SA 41, puis jusqu'au premier anniversaire de bébé.</p>
