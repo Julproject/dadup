@@ -83,29 +83,13 @@ export default function PourquoiPage() {
         </div>
       </section>
 
-      {/* BADGES */}
-      <section style={{background:C.cream, padding:'32px 40px'}}>
-        <div style={{maxWidth:'1200px', margin:'0 auto', display:'flex', gap:'12px', justifyContent:'center', flexWrap:'wrap' as const}}>
-          {[
-            'Tout centralisé, semaine par semaine',
-            "Paiement unique, jusqu'au 1er anniversaire",
-            'De la grossesse au premier anniversaire',
-          ].map((label,i) => (
-            <div key={i} style={{display:'flex', alignItems:'center', gap:'10px', background:'rgba(184,240,216,0.25)', border:'1px solid rgba(13,107,64,0.15)', borderRadius:'12px', padding:'12px 20px'}}>
-              <div style={{width:'22px', height:'22px', borderRadius:'50%', background:'#B8F0D8', display:'flex', alignItems:'center', justifyContent:'center', flexShrink:0}}>
-                <span style={{color:'#0A2E1A', fontSize:'12px', fontWeight:800}}>✓</span>
-              </div>
-              <span style={{color:'#0A2E1A', fontSize:'13px', fontWeight:700}}>{label}</span>
-            </div>
-          ))}
-        </div>
-      </section>
+
 
       {/* AVANT / APRÈS */}
       <section style={{padding:'80px 40px', maxWidth:'1200px', margin:'0 auto'}}>
         <div style={{textAlign:'center' as const, marginBottom:'48px'}}>
           <p style={{color:C.blue, fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase' as const, margin:'0 0 12px'}}>Ce que DadUp change</p>
-          <h2 style={{fontSize:'36px', fontWeight:800, color:C.dark, margin:0}}>Avant / Après DadUp</h2>
+          <h2 style={{fontSize:'36px', fontWeight:800, color:C.dark, margin:0}}>Deux façons de vivre la grossesse</h2>
         </div>
         <div style={{display:'flex', flexDirection:'column' as const, gap:'10px'}}>
           {[
