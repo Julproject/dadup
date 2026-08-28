@@ -116,18 +116,20 @@ export default function TarifsPage() {
         <div className="grid">
 
           {/* COLONNE GAUCHE, carte prix */}
-          <div style={{ background: 'linear-gradient(135deg,#0a1f32 0%,#1A3D5C 50%,#1d4d72 100%)', borderRadius: '24px', padding: '40px', display: 'flex', flexDirection: 'column', height: '100%' }}>
-            <p style={{ color: C.gold, fontSize: '11px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase', margin: '0 0 20px' }}>Accès annuel complet</p>
-            <div style={{ marginBottom: '6px' }}>
+          <div style={{ background: 'linear-gradient(135deg,#0a1f32 0%,#1A3D5C 50%,#1d4d72 100%)', borderRadius: '24px', padding: '40px', display: 'flex', flexDirection: 'column', height: '100%', position: 'relative', overflow: 'hidden' }}>
+            <div style={{ position: 'absolute', top: '-40px', right: '-40px', width: '200px', height: '200px', borderRadius: '50%', background: 'radial-gradient(circle,rgba(200,160,96,0.25) 0%,transparent 65%)', pointerEvents: 'none' }}></div>
+            <div style={{ position: 'absolute', bottom: '-40px', left: '-20px', width: '180px', height: '180px', borderRadius: '50%', background: 'radial-gradient(circle,rgba(100,200,160,0.12) 0%,transparent 70%)', pointerEvents: 'none' }}></div>
+            <p style={{ color: C.gold, fontSize: '11px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase', margin: '0 0 20px', position: 'relative', zIndex: 1 }}>Accès annuel complet</p>
+            <div style={{ marginBottom: '6px', position: 'relative', zIndex: 1 }}>
               <span style={{ color: C.white, fontSize: '68px', fontWeight: 800, lineHeight: 1 }}>49,99€</span>
             </div>
-            <p style={{ color: '#6a7585', fontSize: '14px', margin: '0 0 36px' }}>accès complet · paiement unique · accès immédiat</p>
+            <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '14px', margin: '0 0 36px', position: 'relative', zIndex: 1 }}>accès complet · paiement unique · accès immédiat</p>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '36px', flex: 1 }}>
               {FEATURES.map(f => (
                 <div key={f} style={{ display: 'flex', gap: '10px', alignItems: 'flex-start' }}>
-                  <span style={{ color: C.gold, fontSize: '13px', flexShrink: 0, marginTop: '3px' }}>·</span>
-                  <p style={{ color: 'rgba(255,255,255,0.75)', fontSize: '14px', margin: 0, lineHeight: 1.55 }}>{f}</p>
+                  <div style={{ width: '20px', height: '20px', borderRadius: '50%', background: 'rgba(184,240,216,0.25)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}><span style={{ color: '#96F0C8', fontSize: '11px', fontWeight: 800 }}>✓</span></div>
+                  <p style={{ color: 'rgba(255,255,255,0.9)', fontSize: '15px', fontWeight: 600, margin: 0, lineHeight: 1.55 }}>{f}</p>
                 </div>
               ))}
             </div>
@@ -135,32 +137,32 @@ export default function TarifsPage() {
             <button onClick={goToStripe} style={{ background: 'linear-gradient(135deg,#c8a060,#e8c070)', color: '#1c1510', border: 'none', padding: '16px', borderRadius: '32px', fontSize: '15px', fontWeight: 800, cursor: 'pointer', width: '100%', marginBottom: '10px' }}>
               Commencer
             </button>
-            <p style={{ color: '#3d5070', fontSize: '12px', textAlign: 'center', margin: 0 }}>Paiement sécurisé par Stripe</p>
-            <p style={{ color: '#3d5070', fontSize: '12px', margin: '6px 0 0', textAlign: 'center' }}>Satisfait ou remboursé sous 14 jours.</p>
+            <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '12px', textAlign: 'center', margin: 0 }}>Paiement sécurisé par Stripe</p>
+            <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '12px', margin: '6px 0 0', textAlign: 'center' }}>Satisfait ou remboursé sous 14 jours</p>
           </div>
 
           {/* COLONNE DROITE, infos */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', height: '100%', boxSizing: 'border-box' }}>
 
             {/* À SAVOIR */}
-            <div style={{ background: '#C8E8FF', borderRadius: '24px', padding: '36px', boxShadow: '0 8px 28px rgba(46,95,138,0.15)' }}>
-              <p style={{ color: '#0A2847', fontSize: '11px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase', margin: '0 0 16px' }}>À savoir</p>
-              <p style={{ color: '#0A2847', fontSize: '16px', fontWeight: 700, margin: '0 0 12px', lineHeight: 1.4 }}>DadUp ne remplace pas ton médecin ni ta sage-femme.</p>
-              <p style={{ color: '#1A3D5C', fontSize: '14px', lineHeight: 1.75, margin: 0 }}>C&apos;est un outil de préparation et d&apos;information, conçu pour que tu arrives à chaque étape en sachant ce qui t&apos;attend.</p>
+            <div style={{ background: 'rgba(200,232,255,0.3)', borderRadius: '24px', padding: '36px', boxShadow: '0 12px 40px rgba(46,95,138,0.15)', border: '1px solid rgba(46,95,138,0.15)' }}>
+              <p style={{ color: '#1A3D5C', fontSize: '11px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase', margin: '0 0 16px' }}>À savoir</p>
+              <p style={{ color: '#0a1f32', fontSize: '17px', fontWeight: 800, margin: '0 0 12px', lineHeight: 1.4 }}>DadUp ne remplace pas ton médecin ni ta sage-femme.</p>
+              <p style={{ color: '#1A3D5C', fontSize: '15px', lineHeight: 1.75, margin: 0 }}>C&apos;est un outil de préparation et d&apos;information, conçu pour que tu arrives à chaque étape en sachant ce qui t&apos;attend.</p>
             </div>
 
             {/* INFOS PRATIQUES */}
-            <div style={{ background: '#B8F0D8', borderRadius: '24px', padding: '36px', boxShadow: '0 8px 28px rgba(13,107,64,0.12)', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
-              <p style={{ color: '#0D6B40', fontSize: '11px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase', margin: '0 0 20px' }}>Informations pratiques</p>
+            <div style={{ background: 'rgba(200,232,255,0.2)', borderRadius: '24px', padding: '36px', boxShadow: '0 12px 40px rgba(46,95,138,0.12)', border: '1px solid rgba(46,95,138,0.12)', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+              <p style={{ color: '#1A3D5C', fontSize: '11px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase', margin: '0 0 20px' }}>Informations pratiques</p>
               <div style={{ display: 'flex', flexDirection: 'column' }}>
                 {[
                   { label: "Durée", val: "Accès jusqu'au 1er anniversaire de bébé à compter du paiement" },
                   { label: "Données", val: "Email et DPA uniquement. Aucune revente." },
                   { label: "Support", val: "hello@dadup.fr" },
                 ].map(({ label, val }, i, arr) => (
-                  <div key={label} style={{ display: 'flex', gap: '16px', padding: '13px 0', borderBottom: i < arr.length - 1 ? '1px solid rgba(13,107,64,0.15)' : 'none' }}>
-                    <p style={{ color: '#0A2E1A', fontSize: '13px', fontWeight: 700, margin: 0, minWidth: '130px', flexShrink: 0 }}>{label}</p>
-                    <p style={{ color: '#0D4A2E', fontSize: '13px', margin: 0, lineHeight: 1.5 }}>{val}</p>
+                  <div key={label} style={{ display: 'flex', gap: '16px', padding: '13px 0', borderBottom: i < arr.length - 1 ? '1px solid rgba(46,95,138,0.12)' : 'none' }}>
+                    <p style={{ color: '#0a1f32', fontSize: '14px', fontWeight: 800, margin: 0, minWidth: '120px', flexShrink: 0 }}>{label}</p>
+                    <p style={{ color: '#1A3D5C', fontSize: '14px', margin: 0, lineHeight: 1.5 }}>{val}</p>
                   </div>
                 ))}
               </div>
