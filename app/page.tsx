@@ -55,7 +55,7 @@ export default function Home() {
       `}</style>
 
       {/* NAV */}
-      <nav style={{background:'#ffffff', borderBottom:'1px solid #ede8e0', position:'sticky', top:0, zIndex:50, padding:'0 40px', display:'flex', alignItems:'center', justifyContent:'space-between', height:'68px'}}>
+      <nav style={{background:'rgba(10,31,50,0.15)', backdropFilter:'blur(12px)', WebkitBackdropFilter:'blur(12px)', position:'absolute', top:0, left:0, right:0, zIndex:50, padding:'0 40px', display:'flex', alignItems:'center', justifyContent:'space-between', height:'68px'}}>
         <div style={{display:'flex', alignItems:'center', gap:'48px'}}>
           <a href="/" style={{display:'flex', alignItems:'center', gap:'10px', textDecoration:'none'}}>
             <svg viewBox="0 0 300 300" width="34" height="34">
@@ -66,18 +66,18 @@ export default function Home() {
               <ellipse cx="150" cy="196" rx="27" ry="31" fill="#faf6f0"/>
               <circle cx="150" cy="128" r="26" fill="#faf6f0"/>
             </svg>
-            <span style={{fontWeight:800, color:C.dark, fontSize:'20px'}}>DadUp</span>
+            <span style={{fontWeight:800, color:'#fff', fontSize:'20px'}}>DadUp</span>
           </a>
           <div className="nav-links">
-            <a href="/pourquoi" style={{color:C.text, fontSize:'14px', fontWeight:500, padding:'8px 14px', borderRadius:'8px', textDecoration:'none'}}>Pourquoi DadUp</a>
-            <a href="/inclus" style={{color:C.text, fontSize:'14px', fontWeight:500, padding:'8px 14px', borderRadius:'8px', textDecoration:'none'}}>Ce qui est inclus</a>
-            <a href="/tarifs" style={{color:C.text, fontSize:'14px', fontWeight:500, padding:'8px 14px', borderRadius:'8px', textDecoration:'none'}}>Tarifs</a>
-            <a href="/contact" style={{color:C.text, fontSize:'14px', fontWeight:500, padding:'8px 14px', borderRadius:'8px', textDecoration:'none'}}>Contact</a>
+            <a href="/pourquoi" style={{color:'rgba(255,255,255,0.8)', fontSize:'14px', fontWeight:500, padding:'8px 14px', borderRadius:'8px', textDecoration:'none'}}>Pourquoi DadUp</a>
+            <a href="/inclus" style={{color:'rgba(255,255,255,0.8)', fontSize:'14px', fontWeight:500, padding:'8px 14px', borderRadius:'8px', textDecoration:'none'}}>Ce qui est inclus</a>
+            <a href="/tarifs" style={{color:'rgba(255,255,255,0.8)', fontSize:'14px', fontWeight:500, padding:'8px 14px', borderRadius:'8px', textDecoration:'none'}}>Tarifs</a>
+            <a href="/contact" style={{color:'rgba(255,255,255,0.8)', fontSize:'14px', fontWeight:500, padding:'8px 14px', borderRadius:'8px', textDecoration:'none'}}>Contact</a>
           </div>
         </div>
         <div className="nav-cta-group">
-          <a href="/login" style={{color:C.dark, fontSize:'14px', fontWeight:600, textDecoration:'none'}}>Se connecter</a>
-          <button onClick={goToStripe} style={{background:C.dark, color:C.white, border:'none', padding:'11px 22px', borderRadius:'32px', fontSize:'13px', fontWeight:700, cursor:'pointer'}}>Commencer</button>
+          <a href="/login" style={{color:'rgba(255,255,255,0.8)', fontSize:'14px', fontWeight:600, textDecoration:'none'}}>Se connecter</a>
+          <button onClick={goToStripe} style={{background:'rgba(200,160,96,0.9)', color:'#1c1510', border:'none', padding:'11px 22px', borderRadius:'32px', fontSize:'13px', fontWeight:700, cursor:'pointer'}}>Commencer</button>
         </div>
         <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)} style={{display:'none', background:'none', border:`1px solid ${C.border}`, padding:'8px 12px', borderRadius:'8px', cursor:'pointer'}}>
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -90,17 +90,17 @@ export default function Home() {
       </nav>
       {menuOpen && (
         <div className="mobile-menu" style={{background:'#ffffff', borderBottom:'1px solid #ede8e0', padding:'16px 20px', gap:'4px', position:'sticky', top:'68px', zIndex:49}}>
-          <a href="/pourquoi" style={{color:C.text, fontSize:'15px', padding:'10px 8px', textDecoration:'none', borderBottom:`1px solid ${C.cream}`}}>Pourquoi DadUp</a>
-          <a href="/inclus" style={{color:C.text, fontSize:'15px', padding:'10px 8px', textDecoration:'none', borderBottom:`1px solid ${C.cream}`}}>Ce qui est inclus</a>
-          <a href="/tarifs" style={{color:C.text, fontSize:'15px', padding:'10px 8px', textDecoration:'none', borderBottom:`1px solid ${C.cream}`}}>Tarifs</a>
-          <a href="/contact" style={{color:C.text, fontSize:'15px', padding:'10px 8px', textDecoration:'none', borderBottom:`1px solid ${C.cream}`}}>Contact</a>
-          <a href="/login" style={{color:C.dark, fontSize:'15px', fontWeight:700, padding:'10px 8px', textDecoration:'none'}}>Se connecter</a>
+          <a href="/pourquoi" style={{color:'rgba(255,255,255,0.8)', fontSize:'15px', padding:'10px 8px', textDecoration:'none', borderBottom:'1px solid rgba(255,255,255,0.1)'}}>Pourquoi DadUp</a>
+          <a href="/inclus" style={{color:'rgba(255,255,255,0.8)', fontSize:'15px', padding:'10px 8px', textDecoration:'none', borderBottom:'1px solid rgba(255,255,255,0.1)'}}>Ce qui est inclus</a>
+          <a href="/tarifs" style={{color:'rgba(255,255,255,0.8)', fontSize:'15px', padding:'10px 8px', textDecoration:'none', borderBottom:'1px solid rgba(255,255,255,0.1)'}}>Tarifs</a>
+          <a href="/contact" style={{color:'rgba(255,255,255,0.8)', fontSize:'15px', padding:'10px 8px', textDecoration:'none', borderBottom:'1px solid rgba(255,255,255,0.1)'}}>Contact</a>
+          <a href="/login" style={{color:'#c8a060', fontSize:'15px', fontWeight:700, padding:'10px 8px', textDecoration:'none'}}>Se connecter</a>
         </div>
       )}
 
       {/* HERO */}
       <section style={{background:'#faf6f0', padding:'24px 24px 0'}}>
-        <div className="hero-2col" style={{background:'linear-gradient(135deg,#0a1f32 0%,#1A3D5C 50%,#1d4d72 100%)', borderRadius:'24px', position:'relative', overflow:'hidden', border:'1px solid rgba(255,255,255,0.06)'}}>
+        <div className="hero-2col" style={{background:'linear-gradient(135deg,#0a1f32 0%,#1A3D5C 50%,#1d4d72 100%)', borderRadius:'0 0 24px 24px', paddingTop:'100px', borderRadius:'24px', position:'relative', overflow:'hidden', border:'1px solid rgba(255,255,255,0.06)'}}>
 
           {/* Cercles décoratifs */}
           <div style={{position:'absolute', top:'-60px', right:'200px', width:'320px', height:'320px', borderRadius:'50%', background:'radial-gradient(circle,rgba(200,160,96,0.22) 0%,transparent 65%)', pointerEvents:'none'}}></div>
