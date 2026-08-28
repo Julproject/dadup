@@ -256,7 +256,7 @@ export default function Home() {
         <div style={{maxWidth:'600px', margin:'0 auto'}}>
           <p style={{color:C.gold, fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase' as const, margin:'0 0 16px'}}>Accès immédiat</p>
           <h2 style={{color:C.dark, fontSize:'44px', fontWeight:800, margin:'0 0 16px', lineHeight:1.1}}>
-            Être père, ça commence<br/><span style={{color:C.gold}}>bien avant la naissance</span>
+            Prends ta place<br/><span style={{color:C.gold}}>de père</span>
           </h2>
           <p style={{color:C.text, fontSize:'16px', margin:'0 0 32px', lineHeight:1.7}}>
             Elle porte bébé. Tu portes le reste.
