@@ -219,7 +219,7 @@ export default function TarifsPage() {
       <section style={{ padding: '40px', background: '#faf6f0' }}>
         <div style={{ background: 'linear-gradient(135deg,#0a1f32 0%,#1A3D5C 50%,#1d4d72 100%)', borderRadius: '24px', padding: '72px 48px', position: 'relative', overflow: 'hidden', textAlign: 'center' as const, maxWidth: '1100px', margin: '0 auto' }}>
           <div style={{ position: 'absolute', top: '-60px', right: '100px', width: '320px', height: '320px', borderRadius: '50%', background: 'radial-gradient(circle,rgba(200,160,96,0.22) 0%,transparent 65%)', pointerEvents: 'none' }}></div>
-          <div style={{ position: 'relative', zIndex: 1 }}>>
+          <div style={{ position: 'relative', zIndex: 1 }}>
         <p style={{ color: C.gold, fontSize: '11px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase' as const, margin: '0 0 16px' }}>Prêt à commencer ?</p>
         <h2 style={{ color: C.white, fontSize: '40px', fontWeight: 800, margin: '0 0 8px' }}>49,99€ accès complet</h2>
         <p style={{ color: '#6a7585', fontSize: '15px', margin: '0 0 36px' }}>Paiement unique · Accès jusqu'au 1er anniversaire de bébé</p>
