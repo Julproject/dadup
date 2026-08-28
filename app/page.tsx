@@ -14,7 +14,7 @@ export default function Home() {
   };
 
   return (
-    <main style={{minHeight:'100vh', background:'#f0ece6', fontFamily:"-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif", overflowX:'hidden'}}>
+    <main style={{minHeight:'100vh', background:'#faf6f0', fontFamily:"-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif", overflowX:'hidden'}}>
 
       <style>{`
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -55,7 +55,7 @@ export default function Home() {
       `}</style>
 
       {/* NAV */}
-      <nav style={{background:'#fffdf9', borderBottom:'1px solid #e8e0d0', position:'sticky', top:0, zIndex:50, padding:'0 40px', display:'flex', alignItems:'center', justifyContent:'space-between', height:'68px'}}>
+      <nav style={{background:'#ffffff', borderBottom:'1px solid #ede8e0', position:'sticky', top:0, zIndex:50, padding:'0 40px', display:'flex', alignItems:'center', justifyContent:'space-between', height:'68px'}}>
         <div style={{display:'flex', alignItems:'center', gap:'48px'}}>
           <a href="/" style={{display:'flex', alignItems:'center', gap:'10px', textDecoration:'none'}}>
             <svg viewBox="0 0 300 300" width="34" height="34">
@@ -89,7 +89,7 @@ export default function Home() {
         </button>
       </nav>
       {menuOpen && (
-        <div className="mobile-menu" style={{background:'#fffdf9', borderBottom:'1px solid #e8e0d0', padding:'16px 20px', gap:'4px', position:'sticky', top:'68px', zIndex:49}}>
+        <div className="mobile-menu" style={{background:'#ffffff', borderBottom:'1px solid #ede8e0', padding:'16px 20px', gap:'4px', position:'sticky', top:'68px', zIndex:49}}>
           <a href="/pourquoi" style={{color:C.text, fontSize:'15px', padding:'10px 8px', textDecoration:'none', borderBottom:`1px solid ${C.cream}`}}>Pourquoi DadUp</a>
           <a href="/inclus" style={{color:C.text, fontSize:'15px', padding:'10px 8px', textDecoration:'none', borderBottom:`1px solid ${C.cream}`}}>Ce qui est inclus</a>
           <a href="/tarifs" style={{color:C.text, fontSize:'15px', padding:'10px 8px', textDecoration:'none', borderBottom:`1px solid ${C.cream}`}}>Tarifs</a>
@@ -99,7 +99,7 @@ export default function Home() {
       )}
 
       {/* HERO */}
-      <section style={{background:C.cream, padding:'24px 24px 0'}}>
+      <section style={{background:'#faf6f0', padding:'24px 24px 0'}}>
         <div className="hero-2col" style={{background:'linear-gradient(135deg,#0a1f32 0%,#1A3D5C 50%,#1d4d72 100%)', borderRadius:'24px', position:'relative', overflow:'hidden', border:'1px solid rgba(255,255,255,0.06)'}}>
 
           {/* Cercles décoratifs */}
@@ -158,7 +158,7 @@ export default function Home() {
       </section>
 
       {/* SECTION CHIFFRES CLÉS — jaune pastel */}
-      <section style={{padding:'80px 40px', background:'#f0ece6'}}>
+      <section style={{padding:'80px 40px', background:'#faf6f0'}}>
         <div style={{maxWidth:'1000px', margin:'0 auto'}}>
           <div style={{textAlign:'center', marginBottom:'48px'}}>
             <p style={{color:C.blue, fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase' as const, margin:'0 0 16px'}}>Ce que DadUp couvre</p>
@@ -171,8 +171,8 @@ export default function Home() {
               {border:'rgba(200,170,255,0.2)', label:'Calendrier médical', lc:'#a888f0', title:'Chaque consultation préparée', tc:'#C8AAFF', desc:"Ce qu'on cherche à chaque rendez-vous, les bonnes questions à poser, comment être vraiment présent.", dc:'rgba(200,170,255,0.6)'},
               {border:'rgba(255,240,160,0.25)', label:'Paiement unique', lc:'#e0b870', title:'Sans abonnement', tc:'#FFF0A0', desc:"Tu paies une fois, tu accèdes jusqu'au premier anniversaire de bébé. Pas de surprise.", dc:'rgba(255,240,160,0.6)'},
             ].map((s,i) => (
-              <div key={i} style={{background:'#fff', borderRadius:'20px', padding:'24px 28px', border:'1px solid rgba(0,0,0,0.06)', boxShadow:'0 4px 20px rgba(0,0,0,0.06)'}}>
-                <p style={{color:'#8A6010', fontSize:'10px', fontWeight:700, letterSpacing:'2px', textTransform:'uppercase' as const, margin:'0 0 10px'}}>{s.label}</p>
+              <div key={i} style={{background:'#ffffff', borderRadius:'20px', padding:'28px 32px', boxShadow:'0 8px 32px rgba(0,0,0,0.08)', border:'none'}}>
+                <p style={{color:'#c8a060', fontSize:'10px', fontWeight:700, letterSpacing:'2px', textTransform:'uppercase' as const, margin:'0 0 10px'}}>{s.label}</p>
                 <p style={{color:'#1e2535', fontSize:'15px', fontWeight:700, margin:'0 0 8px'}}>{s.title}</p>
                 <p style={{color:'#6a5020', fontSize:'13px', margin:0, lineHeight:1.65}}>{s.desc}</p>
               </div>
@@ -182,7 +182,7 @@ export default function Home() {
       </section>
 
       {/* CE QUE PERSONNE NE T'EXPLIQUE — DÉFILEMENT AUTO */}
-      <section style={{padding:'80px 0', background:'#f0ece6', overflow:'hidden'}}>
+      <section style={{padding:'80px 0', background:'#faf6f0', overflow:'hidden'}}>
         <div style={{textAlign:'center', marginBottom:'48px', padding:'0 40px'}}>
           <p style={{color:C.blue, fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase' as const, margin:'0 0 16px'}}>Les sujets traités</p>
           <h2 style={{color:C.dark, fontSize:'36px', fontWeight:800, margin:'0 0 16px', lineHeight:1.2}}>Tout ce que personne<br/>ne t&apos;explique</h2>
@@ -195,7 +195,7 @@ export default function Home() {
           .auto-wrap { overflow:hidden; position:relative; }
           .auto-wrap::before { content:''; position:absolute; left:0; top:0; bottom:0; width:100px; background:linear-gradient(to right,#fff,transparent); z-index:2; pointer-events:none; }
           .auto-wrap::after { content:''; position:absolute; right:0; top:0; bottom:0; width:100px; background:linear-gradient(to left,#fff,transparent); z-index:2; pointer-events:none; }
-          .auto-card { flex:0 0 280px; border-radius:20px; padding:24px; border:1px solid #e8e0d0; }
+          .auto-card { flex:0 0 300px; border-radius:20px; padding:28px; box-shadow:0 8px 28px rgba(0,0,0,0.1); transition:transform .2s ease,box-shadow .2s ease; cursor:default; } .auto-card:hover { transform:translateY(-4px); box-shadow:0 16px 40px rgba(0,0,0,0.14); }
         `}</style>
         <div className="auto-wrap">
           <div className="auto-track">
@@ -222,23 +222,23 @@ export default function Home() {
         </div>
       </section>
 
-            {/* SAVOIR AVANT */}
-      <section style={{padding:'24px 40px 40px', background:'#f0ece6'}}>
-        <div style={{background:'linear-gradient(135deg,#0a1f32 0%,#1A3D5C 50%,#1d4d72 100%)', borderRadius:'24px', padding:'60px 48px', position:'relative', overflow:'hidden', display:'flex', flexDirection:'column' as const, alignItems:'center', justifyContent:'center', textAlign:'center' as const, minHeight:'360px'}}>
+                  {/* SAVOIR AVANT */}
+      <section style={{padding:'40px', background:'#faf6f0'}}>
+        <div style={{position:'relative', borderRadius:'24px', overflow:'hidden', minHeight:'400px', display:'flex', alignItems:'center', justifyContent:'center'}}>
+          <img src="/main.jpg" alt="Papa et bébé" style={{position:'absolute', top:0, left:0, width:'100%', height:'100%', objectFit:'cover', objectPosition:'center 60%', display:'block'}}/>
+          <div style={{position:'absolute', top:0, left:0, right:0, bottom:0, background:'linear-gradient(135deg,rgba(10,31,50,0.93) 0%,rgba(26,61,92,0.88) 50%,rgba(29,77,114,0.75) 100%)'}}></div>
           {/* Halos lumineux */}
-          <div style={{position:'absolute', top:'-40px', right:'100px', width:'300px', height:'300px', borderRadius:'50%', background:'radial-gradient(circle,rgba(200,160,96,0.2) 0%,transparent 65%)', pointerEvents:'none'}}></div>
-          <div style={{position:'absolute', bottom:'-60px', left:'-20px', width:'260px', height:'260px', borderRadius:'50%', background:'radial-gradient(circle,rgba(100,200,160,0.12) 0%,transparent 70%)', pointerEvents:'none'}}></div>
-          <div style={{position:'absolute', top:'20px', left:'80px', width:'180px', height:'180px', borderRadius:'50%', background:'radial-gradient(circle,rgba(150,120,220,0.1) 0%,transparent 70%)', pointerEvents:'none'}}></div>
-          {/* Contenu */}
-          <div style={{position:'relative', zIndex:1, maxWidth:'640px'}}>
+          <div style={{position:'absolute', top:'-40px', right:'80px', width:'280px', height:'280px', borderRadius:'50%', background:'radial-gradient(circle,rgba(200,160,96,0.2) 0%,transparent 65%)', pointerEvents:'none'}}></div>
+          <div style={{position:'absolute', bottom:'-40px', left:'-20px', width:'240px', height:'240px', borderRadius:'50%', background:'radial-gradient(circle,rgba(100,200,160,0.1) 0%,transparent 70%)', pointerEvents:'none'}}></div>
+          <div style={{position:'relative', zIndex:1, maxWidth:'640px', padding:'60px 40px', textAlign:'center' as const}}>
             <div style={{display:'inline-flex', alignItems:'center', gap:'8px', background:'rgba(200,160,96,0.18)', border:'1px solid rgba(200,160,96,0.5)', borderRadius:'20px', padding:'5px 14px', marginBottom:'24px'}}>
               <div style={{width:'7px', height:'7px', borderRadius:'50%', background:'#c8a060', boxShadow:'0 0 8px rgba(200,160,96,0.9)'}}></div>
               <span style={{color:'#e0b870', fontSize:'11px', fontWeight:700, letterSpacing:'1px'}}>Ce que tu peux changer</span>
             </div>
-            <h2 style={{color:'#fff', fontSize:'38px', fontWeight:800, lineHeight:1.2, margin:'0 0 20px', textShadow:'0 2px 20px rgba(0,0,0,0.3)' as any}}>
+            <h2 style={{color:'#fff', fontSize:'38px', fontWeight:800, lineHeight:1.2, margin:'0 0 20px'}}>
               Savoir ce qui se passe<br/><span style={{color:'#e0b870'}}>avant qu&apos;on te l&apos;explique</span>
             </h2>
-            <p style={{color:'rgba(255,255,255,0.9)', fontSize:'17px', fontWeight:600, lineHeight:1.6, margin:'0 0 8px'}}>
+            <p style={{color:'rgba(255,255,255,0.88)', fontSize:'17px', fontWeight:600, lineHeight:1.6, margin:'0 0 8px'}}>
               Un père qui comprend prend de meilleures décisions.
             </p>
             <p style={{color:'rgba(255,255,255,0.5)', fontSize:'14px', lineHeight:1.7, margin:'0 0 32px'}}>
@@ -251,49 +251,45 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA FINAL */}
-      <section className="cta-section" style={{background:'linear-gradient(135deg,#0a1f32,#1A3D5C)', padding:'80px 40px', textAlign:'center' as const}}>
-        <p style={{color:C.gold, fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase' as const, margin:'0 0 16px'}}>Accès immédiat</p>
-        <h2 style={{color:C.white, fontSize:'44px', fontWeight:800, margin:'0 0 16px', lineHeight:1.1}}>
-          Être père, ça commence<br/>bien avant la naissance
-        </h2>
-        <p style={{color:'rgba(255,255,255,0.65)', fontSize:'15px', margin:'0 0 32px', lineHeight:1.7}}>
-          Elle porte bébé. Tu portes le reste.
-        </p>
-        <button onClick={goToStripe} style={{background:'linear-gradient(135deg,#c8a060,#e8c070)', color:'#1c1510', border:'none', padding:'18px 48px', borderRadius:'32px', fontSize:'16px', fontWeight:800, cursor:'pointer', width:'100%', maxWidth:'400px', display:'block', margin:'0 auto 12px', boxShadow:'0 6px 24px rgba(200,160,96,0.4)'}}>
-          Accéder
-        </button>
-        <p style={{color:'rgba(255,255,255,0.3)', fontSize:'13px', margin:0}}>Paiement unique · Satisfait ou remboursé sous 14 jours</p>
+            {/* CTA FINAL */}
+      <section style={{padding:'80px 40px', background:'#faf6f0', textAlign:'center' as const}}>
+        <div style={{maxWidth:'600px', margin:'0 auto'}}>
+          <p style={{color:C.gold, fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase' as const, margin:'0 0 16px'}}>Accès immédiat</p>
+          <h2 style={{color:C.dark, fontSize:'44px', fontWeight:800, margin:'0 0 16px', lineHeight:1.1}}>
+            Être père, ça commence<br/><span style={{color:C.gold}}>bien avant la naissance</span>
+          </h2>
+          <p style={{color:C.text, fontSize:'16px', margin:'0 0 32px', lineHeight:1.7}}>
+            Elle porte bébé. Tu portes le reste.
+          </p>
+          <button onClick={goToStripe} style={{background:'linear-gradient(135deg,#c8a060,#e8c070)', color:'#1c1510', border:'none', padding:'18px 48px', borderRadius:'32px', fontSize:'16px', fontWeight:800, cursor:'pointer', width:'100%', maxWidth:'400px', display:'block', margin:'0 auto 12px', boxShadow:'0 6px 24px rgba(200,160,96,0.4)'}}>
+              Accéder · 49,99€
+          </button>
+          <p style={{color:C.textLight, fontSize:'13px', margin:0}}>Paiement unique · Satisfait ou remboursé sous 14 jours</p>
+        </div>
       </section>
 
-      {/* FOOTER */}
-      <footer className="footer-section" style={{background:'#060e16', borderTop:'1px solid rgba(255,255,255,0.06)', padding:'32px 40px'}}>
-        <div className="footer-inner">
+            {/* FOOTER */}
+      <footer style={{background:'#1A3D5C', borderTop:'none', padding:'40px'}}>
+        <div style={{maxWidth:'1200px', margin:'0 auto', display:'flex', alignItems:'center', justifyContent:'space-between', flexWrap:'wrap' as const, gap:'20px'}}>
           <div style={{display:'flex', alignItems:'center', gap:'8px'}}>
             <svg viewBox="0 0 300 300" width="28" height="28">
-              <circle cx="150" cy="150" r="145" fill="#3a4f6e"/>
-              <circle cx="150" cy="150" r="122" fill="#4a6080"/>
-              <ellipse cx="150" cy="205" rx="58" ry="54" fill="#c8a060"/>
-              <circle cx="150" cy="112" r="40" fill="#c8a060"/>
-              <ellipse cx="150" cy="196" rx="27" ry="31" fill="#faf6f0"/>
-              <circle cx="150" cy="128" r="26" fill="#faf6f0"/>
+              <circle cx="150" cy="150" r="145" fill="#3a4f6e"/><circle cx="150" cy="150" r="122" fill="#4a6080"/>
+              <ellipse cx="150" cy="205" rx="58" ry="54" fill="#c8a060"/><circle cx="150" cy="112" r="40" fill="#c8a060"/>
+              <ellipse cx="150" cy="196" rx="27" ry="31" fill="#faf6f0"/><circle cx="150" cy="128" r="26" fill="#faf6f0"/>
             </svg>
-            <span style={{color:C.white, fontSize:'16px', fontWeight:700}}>DadUp</span>
+            <span style={{color:'rgba(255,255,255,0.9)', fontSize:'16px', fontWeight:700}}>DadUp</span>
+            <span style={{color:'rgba(255,255,255,0.3)', fontSize:'13px', marginLeft:'12px'}}>La grossesse, une histoire de pères</span>
           </div>
-          <div className="footer-links">
-            <a href="/pourquoi" style={{color:'#6a7585', fontSize:'13px', textDecoration:'none'}}>Pourquoi DadUp</a>
-            <a href="/inclus" style={{color:'#6a7585', fontSize:'13px', textDecoration:'none'}}>Ce qui est inclus</a>
-            <a href="/tarifs" style={{color:'#6a7585', fontSize:'13px', textDecoration:'none'}}>Tarifs</a>
-            <a href="/professionnels" style={{color:'#6a7585', fontSize:'13px', textDecoration:'none'}}>Professionnels</a>
-            <a href="/sources" style={{color:'#6a7585', fontSize:'13px', textDecoration:'none'}}>Sources</a>
-            <a href="/contact" style={{color:'#6a7585', fontSize:'13px', textDecoration:'none'}}>Contact</a>
+          <div style={{display:'flex', gap:'20px', flexWrap:'wrap' as const}}>
+            {[['Pourquoi DadUp','/pourquoi'],['Ce qui est inclus','/inclus'],['Tarifs','/tarifs'],['Professionnels','/professionnels'],['Sources','/sources'],['Contact','/contact']].map(([label,href]) => (
+              <a key={href} href={href} style={{color:'rgba(255,255,255,0.55)', fontSize:'13px', textDecoration:'none'}}>{label}</a>
+            ))}
           </div>
-          <div style={{display:'flex', gap:'16px', flexWrap:'wrap' as const}}>
-            <a href="/cgv" style={{color:'#6a7585', fontSize:'12px', textDecoration:'none'}}>CGV</a>
-            <a href="/confidentialite" style={{color:'#6a7585', fontSize:'12px', textDecoration:'none'}}>Confidentialité</a>
-            <a href="/mentions-legales" style={{color:'#6a7585', fontSize:'12px', textDecoration:'none'}}>Mentions légales</a>
+          <div style={{display:'flex', gap:'16px'}}>
+            {[['CGV','/cgv'],['Confidentialité','/confidentialite'],['Mentions légales','/mentions-legales']].map(([label,href]) => (
+              <a key={href} href={href} style={{color:'rgba(255,255,255,0.35)', fontSize:'12px', textDecoration:'none'}}>{label}</a>
+            ))}
           </div>
-          <p style={{color:'#6a7585', fontSize:'12px', margin:0}}>DadUp ne remplace pas l&apos;avis d&apos;un médecin.</p>
         </div>
       </footer>
 
