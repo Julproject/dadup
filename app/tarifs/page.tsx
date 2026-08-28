@@ -105,9 +105,9 @@ export default function TarifsPage() {
         <div style={{ maxWidth: '760px', margin: '0 auto', textAlign: 'center' }}>
           <p style={{ color: C.gold, fontSize: '11px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase', margin: '0 0 20px' }}>Tarifs</p>
           <h1 style={{ color: C.white, fontSize: '44px', fontWeight: 800, margin: '0 0 16px', lineHeight: 1.1 }}>
-            Une offre claire, <span style={{ color: C.gold }}>un prix unique.</span>
+            Une offre claire, <span style={{ color: C.gold }}>un prix unique</span>
           </h1>
-          <p style={{ color: '#6a7585', fontSize: '17px', lineHeight: 1.7, margin: 0 }}>Tout est inclus. Rien de caché.</p>
+          <p style={{ color: '#6a7585', fontSize: '17px', lineHeight: 1.7, margin: 0 }}>Tout est inclus. Rien de caché</p>
         </div>
       </section>
 
@@ -147,8 +147,8 @@ export default function TarifsPage() {
             {/* À SAVOIR */}
             <div style={{ background: 'rgba(200,232,255,0.3)', borderRadius: '24px', padding: '36px', boxShadow: '0 12px 40px rgba(46,95,138,0.15)', border: '1px solid rgba(46,95,138,0.15)' }}>
               <p style={{ color: '#1A3D5C', fontSize: '11px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase', margin: '0 0 16px' }}>À savoir</p>
-              <p style={{ color: '#0a1f32', fontSize: '17px', fontWeight: 800, margin: '0 0 12px', lineHeight: 1.4 }}>DadUp ne remplace pas ton médecin ni ta sage-femme.</p>
-              <p style={{ color: '#1A3D5C', fontSize: '15px', lineHeight: 1.75, margin: 0 }}>C&apos;est un outil de préparation et d&apos;information, conçu pour que tu arrives à chaque étape en sachant ce qui t&apos;attend.</p>
+              <p style={{ color: '#0a1f32', fontSize: '17px', fontWeight: 800, margin: '0 0 12px', lineHeight: 1.4 }}>DadUp ne remplace pas ton médecin ni ta sage-femme</p>
+              <p style={{ color: '#1A3D5C', fontSize: '15px', lineHeight: 1.75, margin: 0 }}>C&apos;est un outil de préparation et d&apos;information, conçu pour que tu arrives à chaque étape en sachant ce qui t&apos;attend</p>
             </div>
 
             {/* INFOS PRATIQUES */}
@@ -182,11 +182,11 @@ export default function TarifsPage() {
           {[
             {
               q: "L'accès dure combien de temps ?",
-              r: "Jusqu'au 1er anniversaire de bébé, à compter de la DPA. Vous avez accès à tout le contenu pendant cette période, sans restriction."
+              r: "Jusqu'au 1er anniversaire de bébé, à compter de la DPA. Vous avez accès à tout le contenu pendant cette période, sans restriction"
             },
             {
               q: "Que se passe-t-il au 1er anniversaire de bébé ?",
-              r: "L'accès s'arrête simplement. Aucun prélèvement automatique, aucune reconduction tacite. Vous ne devez rien faire"
+              r: "L'accès s'arrête simplement Aucun prélèvement automatique, aucune reconduction tacite. Vous ne devez rien faire"
             },
             {
               q: "Le paiement est-il sécurisé ?",
@@ -198,19 +198,19 @@ export default function TarifsPage() {
             },
             {
               q: "À quel moment puis-je accéder à DadUp après le paiement ?",
-              r: "Immédiatement. Vous recevez un email avec un lien pour créer votre mot de passe. L'accès est ouvert dès que votre mot de passe est créé."
+              r: "Immédiatement. Vous recevez un email avec un lien pour créer votre mot de passe. L'accès est ouvert dès que votre mot de passe est créé"
             },
             {
               q: "Que se passe-t-il si bébé naît avant la DPA que j'ai renseignée ?",
-              r: "Le contenu s'adapte à votre situation réelle. Vous pouvez déclarer la naissance à tout moment depuis votre compte."
+              r: "Le contenu s'adapte à votre situation réelle. Vous pouvez déclarer la naissance à tout moment depuis votre compte"
             },
             {
               q: "Comment fonctionne la garantie 14 jours ?",
-              r: "Si DadUp ne vous convient pas, écrivez-nous à hello@dadup.fr dans les 14 jours suivant votre achat. Nous vous remboursons intégralement, sans condition et sans question."
+              r: "Si DadUp ne vous convient pas, écrivez-nous à hello@dadup.fr dans les 14 jours suivant votre achat. Nous vous remboursons intégralement, sans condition et sans question"
             },
             {
               q: "Ma partenaire peut-elle accéder à mon compte ?",
-              r: "DadUp est conçu pour le père. Le compte est personnel. Un accès partagé n'est pas prévu à ce stade."
+              r: "DadUp est conçu pour le père. Le compte est personnel. Un accès partagé n'est pas prévu à ce stade"
             },
           ].map((item, i) => (
             <FaqItem key={i} question={item.q} reponse={item.r} />
@@ -256,7 +256,7 @@ export default function TarifsPage() {
               <a href="/confidentialite" style={{ color: '#3d4f6a', fontSize: '12px', textDecoration: 'none' }}>Confidentialité</a>
               <a href="/mentions-legales" style={{ color: '#3d4f6a', fontSize: '12px', textDecoration: 'none' }}>Mentions légales</a>
             </div>
-            <p style={{ color: '#3d4f6a', fontSize: '12px', margin: 0 }}>Il ne remplace pas l&apos;avis d&apos;un médecin.</p>
+            <p style={{ color: '#3d4f6a', fontSize: '12px', margin: 0 }}>Il ne remplace pas l&apos;avis d&apos;un médecin</p>
           </div>
         </div>
       </footer>
