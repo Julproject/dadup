@@ -148,7 +148,6 @@ export default function InclusPage() {
             </div>
           </div>
         </div>
-        </div>
       </div>
 
       {/* FOOTER */}
