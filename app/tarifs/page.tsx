@@ -66,36 +66,43 @@ export default function TarifsPage() {
         }
       `}</style>
 
-      {/* NAV */}
-      <nav style={{ background: '#faf6f0', borderBottom: 'none', padding: '0 40px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '68px', position: 'sticky', top: 0, zIndex: 50 }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '48px' }}>
-          <a href="/" style={{ display: 'flex', alignItems: 'center', gap: '10px', textDecoration: 'none' }}>
-            <svg viewBox="0 0 300 300" width="34" height="34"><circle cx="150" cy="150" r="145" fill="#3a4f6e"/><circle cx="150" cy="150" r="122" fill="#4a6080"/><ellipse cx="150" cy="205" rx="58" ry="54" fill="#c8a060"/><circle cx="150" cy="112" r="40" fill="#c8a060"/><ellipse cx="150" cy="196" rx="27" ry="31" fill="#faf6f0"/><circle cx="150" cy="128" r="26" fill="#faf6f0"/></svg>
-            <span style={{ fontWeight: 800, color: C.dark, fontSize: '20px' }}>DadUp</span>
+            {/* NAV */}
+      <nav style={{background:'#faf6f0', borderBottom:'none', position:'sticky', top:0, zIndex:50, padding:'0 40px', display:'flex', alignItems:'center', justifyContent:'space-between', height:'68px'}}>
+        <div style={{display:'flex', alignItems:'center', gap:'48px'}}>
+          <a href="/" style={{display:'flex', alignItems:'center', gap:'10px', textDecoration:'none'}}>
+            <svg viewBox="0 0 300 300" width="34" height="34">
+              <circle cx="150" cy="150" r="145" fill="#3a4f6e"/>
+              <circle cx="150" cy="150" r="122" fill="#4a6080"/>
+              <ellipse cx="150" cy="205" rx="58" ry="54" fill="#c8a060"/>
+              <circle cx="150" cy="112" r="40" fill="#c8a060"/>
+              <ellipse cx="150" cy="196" rx="27" ry="31" fill="#faf6f0"/>
+              <circle cx="150" cy="128" r="26" fill="#faf6f0"/>
+            </svg>
+            <span style={{fontWeight:800, color:C.dark, fontSize:'20px'}}>DadUp</span>
           </a>
-          <div className="nl" style={{ gap: '4px' }}>
-            <a href="/pourquoi" style={{ color: C.dark, fontSize: '14px', fontWeight: 700, padding: '8px 14px', textDecoration: 'none' }}>Pourquoi DadUp</a>
-            <a href="/inclus" style={{ color: C.dark, fontSize: '14px', fontWeight: 700, padding: '8px 14px', textDecoration: 'none' }}>Ce qui est inclus</a>
-            <a href="/tarifs" style={{ color: C.dark, fontSize: '14px', fontWeight: 700, padding: '8px 14px', borderRadius: '8px', textDecoration: 'none', borderBottom: `2px solid ${C.gold}` }}>Tarifs</a>
-            <a href="/contact" style={{ color: C.dark, fontSize: '14px', fontWeight: 700, padding: '8px 14px', textDecoration: 'none' }}>Contactez-nous</a>
+          <div className="nl" style={{gap:'4px'}}>
+            <a href="/pourquoi" style={{color:C.dark, fontSize:'14px', fontWeight:700, padding:'8px 14px', borderRadius:'8px', textDecoration:'none'}}>Pourquoi DadUp</a>
+            <a href="/inclus" style={{color:C.dark, fontSize:'14px', fontWeight:700, padding:'8px 14px', borderRadius:'8px', textDecoration:'none'}}>Ce qui est inclus</a>
+            <a href="/tarifs" style={{color:C.dark, fontSize:'14px', fontWeight:700, padding:'8px 14px', borderRadius:'8px', textDecoration:'none'}}>Tarifs</a>
+            <a href="/contact" style={{color:C.dark, fontSize:'14px', fontWeight:700, padding:'8px 14px', borderRadius:'8px', textDecoration:'none'}}>Contact</a>
           </div>
         </div>
-        <div className="nc" style={{ alignItems: 'center', gap: '16px' }}>
-          <a href="/login" style={{ color: C.dark, fontSize: '14px', fontWeight: 600, textDecoration: 'none' }}>Se connecter</a>
-          <button onClick={goToStripe} style={{ background: 'linear-gradient(135deg,#c8a060,#e8c070)', color: '#1c1510', padding: '11px 22px', borderRadius: '32px', fontSize: '13px', fontWeight: 700, border: 'none', cursor: 'pointer', boxShadow: '0 4px 16px rgba(200,160,96,0.4)' }}>Accéder · 49,99€</button>
+        <div className="nc" style={{alignItems:'center', gap:'16px'}}>
+          <a href="/login" style={{color:C.dark, fontSize:'14px', fontWeight:600, textDecoration:'none'}}>Se connecter</a>
+          <button onClick={goToStripe} style={{background:'#1e2535', color:'#ffffff', border:'none', padding:'11px 22px', borderRadius:'32px', fontSize:'13px', fontWeight:700, cursor:'pointer'}}>Commencer</button>
         </div>
-        <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)} style={{ display: 'none', background: 'none', border: `1px solid ${C.border}`, padding: '8px 12px', borderRadius: '8px', cursor: 'pointer' }}>
+        <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)} style={{display:'none', background:'none', border:`1px solid ${C.border}`, padding:'8px 12px', borderRadius:'8px', cursor:'pointer'}}>
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
             {menuOpen ? <path d="M4 4L16 16M16 4L4 16" stroke={C.dark} strokeWidth="2" strokeLinecap="round"/> : <path d="M3 5h14M3 10h14M3 15h14" stroke={C.dark} strokeWidth="2" strokeLinecap="round"/>}
           </svg>
         </button>
       </nav>
-      {menuOpen && (
+{menuOpen && (
         <div className="mobile-nav" style={{ flexDirection: 'column', background: '#faf6f0', borderBottom: 'none', padding: '16px 20px', gap: '4px', position: 'sticky', top: '68px', zIndex: 49 }}>
           <a href="/pourquoi" style={{ color: C.text, fontSize: '15px', fontWeight: 500, padding: '10px 8px', textDecoration: 'none', borderBottom: `1px solid ${C.cream}` }}>Pourquoi DadUp</a>
           <a href="/inclus" style={{ color: C.text, fontSize: '15px', fontWeight: 500, padding: '10px 8px', textDecoration: 'none', borderBottom: `1px solid ${C.cream}` }}>Ce qui est inclus</a>
           <a href="/tarifs" style={{ color: C.text, fontSize: '15px', fontWeight: 500, padding: '10px 8px', textDecoration: 'none', borderBottom: `1px solid ${C.cream}` }}>Tarifs</a>
-          <a href="/contact" style={{ color: C.text, fontSize: '15px', fontWeight: 500, padding: '10px 8px', textDecoration: 'none', borderBottom: `1px solid ${C.cream}` }}>Contactez-nous</a>
+          <a href="/contact" style={{ color: C.text, fontSize: '15px', fontWeight: 500, padding: '10px 8px', textDecoration: 'none', borderBottom: `1px solid ${C.cream}` }}>Contact</a>
           <a href="/login" style={{ color: C.dark, fontSize: '15px', fontWeight: 700, padding: '10px 8px', textDecoration: 'none' }}>Se connecter</a>
         </div>
       )}
@@ -246,7 +253,7 @@ export default function TarifsPage() {
               <a href="/tarifs" style={{ color: '#6a7585', fontSize: '13px', textDecoration: 'none' }}>Tarifs</a>
               <a href="/professionnels" style={{ color: '#6a7585', fontSize: '13px', textDecoration: 'none' }}>Professionnels</a>
               <a href="/sources" style={{ color: '#6a7585', fontSize: '13px', textDecoration: 'none' }}>Sources</a>
-              <a href="/contact" style={{ color: '#6a7585', fontSize: '13px', textDecoration: 'none' }}>Contactez-nous</a>
+              <a href="/contact" style={{ color: '#6a7585', fontSize: '13px', textDecoration: 'none' }}>Contact</a>
             </div>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap' as const, gap: '12px', paddingTop: '12px', borderTop: '1px solid #2e3848' }}>
