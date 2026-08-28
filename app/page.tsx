@@ -158,11 +158,11 @@ export default function Home() {
       </section>
 
       {/* SECTION CHIFFRES CLÉS — jaune pastel */}
-      <section style={{padding:'80px 40px', background:'#0d2236'}}>
+      <section style={{padding:'80px 40px', background:'#f0ece6'}}>
         <div style={{maxWidth:'1000px', margin:'0 auto'}}>
           <div style={{textAlign:'center', marginBottom:'48px'}}>
-            <p style={{color:'#c8a060', fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase' as const, margin:'0 0 16px'}}>Ce que DadUp couvre</p>
-            <h2 style={{color:'#fff', fontSize:'36px', fontWeight:800, margin:0, lineHeight:1.2}}>Tout ce dont tu as besoin,<br/>au bon moment</h2>
+            <p style={{color:C.blue, fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase' as const, margin:'0 0 16px'}}>Ce que DadUp couvre</p>
+            <h2 style={{color:C.dark, fontSize:'36px', fontWeight:800, margin:0, lineHeight:1.2}}>Tout ce dont tu as besoin,<br/>au bon moment</h2>
           </div>
           <div className="stats-4col">
             {[
@@ -171,10 +171,10 @@ export default function Home() {
               {border:'rgba(200,170,255,0.2)', label:'Calendrier médical', lc:'#a888f0', title:'Chaque consultation préparée', tc:'#C8AAFF', desc:"Ce qu'on cherche à chaque rendez-vous, les bonnes questions à poser, comment être vraiment présent.", dc:'rgba(200,170,255,0.6)'},
               {border:'rgba(255,240,160,0.25)', label:'Paiement unique', lc:'#e0b870', title:'Sans abonnement', tc:'#FFF0A0', desc:"Tu paies une fois, tu accèdes jusqu'au premier anniversaire de bébé. Pas de surprise.", dc:'rgba(255,240,160,0.6)'},
             ].map((s,i) => (
-              <div key={i} style={{background:'rgba(255,255,255,0.05)', borderRadius:'20px', padding:'24px 28px', border:`1px solid ${s.border}`}}>
-                <p style={{color:s.lc, fontSize:'10px', fontWeight:700, letterSpacing:'2px', textTransform:'uppercase' as const, margin:'0 0 10px'}}>{s.label}</p>
-                <p style={{color:s.tc, fontSize:'15px', fontWeight:700, margin:'0 0 8px'}}>{s.title}</p>
-                <p style={{color:s.dc, fontSize:'13px', margin:0, lineHeight:1.65}}>{s.desc}</p>
+              <div key={i} style={{background:'#FFF7E0', borderRadius:'20px', padding:'24px 28px', border:'1px solid rgba(200,160,96,0.2)'}}>
+                <p style={{color:'#8A6010', fontSize:'10px', fontWeight:700, letterSpacing:'2px', textTransform:'uppercase' as const, margin:'0 0 10px'}}>{s.label}</p>
+                <p style={{color:'#3A2800', fontSize:'15px', fontWeight:700, margin:'0 0 8px'}}>{s.title}</p>
+                <p style={{color:'#6a5020', fontSize:'13px', margin:0, lineHeight:1.65}}>{s.desc}</p>
               </div>
             ))}
           </div>
