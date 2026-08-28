@@ -158,7 +158,7 @@ export default function PourquoiPage() {
               <span style={{color:'#e0b870', fontSize:'11px', fontWeight:700, letterSpacing:'1px'}}>Accès immédiat</span>
             </div>
             <h2 style={{color:C.white, fontSize:'48px', fontWeight:800, margin:'0 0 8px', lineHeight:1.1}}>
-              Prends ta place<br/><span style={{color:'#e0b870'}}>de père</span>
+              Ton bébé arrive<br/><span style={{color:'#e0b870'}}>Commence maintenant</span>
             </h2>
             <p style={{color:'rgba(255,255,255,0.6)', fontSize:'16px', margin:'0 0 12px'}}>À deux, dès le premier jour</p>
             <p style={{color:'rgba(255,255,255,0.4)', fontSize:'32px', fontWeight:800, margin:'0 0 32px'}}>49,99€</p>
