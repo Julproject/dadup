@@ -432,7 +432,7 @@ export default function Home() {
               {titre:"Le congé paternité", desc:"28 jours. Comment les poser, quand les prendre, ce que ça change vraiment pour votre famille.", bg:'#E4F5EC', color:'#0A2E1A'},
               {titre:"Le post-partum", desc:"Baby blues, reprise du travail, nuits sans sommeil. Ton rôle les premières semaines.", bg:C.bluePale, color:C.blueDark},
             ].map((item, i) => (
-              <div key={i} className="auto-card" style={{background:item.bg}}>
+              <div key={i} className="auto-card" style={{background:item.bg, border:`1px solid ${item.border}`, boxShadow:'0 2px 12px rgba(0,0,0,0.06)'}}>
                 <p style={{color:item.color, fontSize:'15px', fontWeight:800, margin:'0 0 10px'}}>{item.titre}</p>
                 <p style={{color:item.color, fontSize:'13px', lineHeight:1.65, margin:0, opacity:0.8}}>{item.desc}</p>
               </div>
