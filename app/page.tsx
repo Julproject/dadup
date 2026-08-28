@@ -14,7 +14,7 @@ export default function Home() {
   };
 
   return (
-    <main style={{minHeight:'100vh', background:C.white, fontFamily:"-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif", overflowX:'hidden'}}>
+    <main style={{minHeight:'100vh', background:'#f0ece6', fontFamily:"-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif", overflowX:'hidden'}}>
 
       <style>{`
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -55,7 +55,7 @@ export default function Home() {
       `}</style>
 
       {/* NAV */}
-      <nav style={{background:C.white, borderBottom:`1px solid ${C.border}`, position:'sticky', top:0, zIndex:50, padding:'0 40px', display:'flex', alignItems:'center', justifyContent:'space-between', height:'68px'}}>
+      <nav style={{background:'#fffdf9', borderBottom:'1px solid #e8e0d0', position:'sticky', top:0, zIndex:50, padding:'0 40px', display:'flex', alignItems:'center', justifyContent:'space-between', height:'68px'}}>
         <div style={{display:'flex', alignItems:'center', gap:'48px'}}>
           <a href="/" style={{display:'flex', alignItems:'center', gap:'10px', textDecoration:'none'}}>
             <svg viewBox="0 0 300 300" width="34" height="34">
@@ -89,7 +89,7 @@ export default function Home() {
         </button>
       </nav>
       {menuOpen && (
-        <div className="mobile-menu" style={{background:C.white, borderBottom:`1px solid ${C.border}`, padding:'16px 20px', gap:'4px', position:'sticky', top:'68px', zIndex:49}}>
+        <div className="mobile-menu" style={{background:'#fffdf9', borderBottom:'1px solid #e8e0d0', padding:'16px 20px', gap:'4px', position:'sticky', top:'68px', zIndex:49}}>
           <a href="/pourquoi" style={{color:C.text, fontSize:'15px', padding:'10px 8px', textDecoration:'none', borderBottom:`1px solid ${C.cream}`}}>Pourquoi DadUp</a>
           <a href="/inclus" style={{color:C.text, fontSize:'15px', padding:'10px 8px', textDecoration:'none', borderBottom:`1px solid ${C.cream}`}}>Ce qui est inclus</a>
           <a href="/tarifs" style={{color:C.text, fontSize:'15px', padding:'10px 8px', textDecoration:'none', borderBottom:`1px solid ${C.cream}`}}>Tarifs</a>
@@ -158,23 +158,23 @@ export default function Home() {
       </section>
 
       {/* SECTION CHIFFRES CLÉS — jaune pastel */}
-      <section className="section-pad" style={{padding:'80px 40px', background:C.cream}}>
+      <section style={{padding:'80px 40px', background:'#0d2236'}}>
         <div style={{maxWidth:'1000px', margin:'0 auto'}}>
           <div style={{textAlign:'center', marginBottom:'48px'}}>
-            <p style={{color:C.blue, fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase' as const, margin:'0 0 16px'}}>Ce que DadUp couvre</p>
-            <h2 style={{color:C.dark, fontSize:'36px', fontWeight:800, margin:0, lineHeight:1.2}}>Tout ce dont tu as besoin,<br/>au bon moment</h2>
+            <p style={{color:'#c8a060', fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase' as const, margin:'0 0 16px'}}>Ce que DadUp couvre</p>
+            <h2 style={{color:'#fff', fontSize:'36px', fontWeight:800, margin:0, lineHeight:1.2}}>Tout ce dont tu as besoin,<br/>au bon moment</h2>
           </div>
           <div className="stats-4col">
             {[
-              {label:'41 semaines', title:'De SA 3 à SA 41', desc:"Chaque semaine expliquée côté papa : développement de bébé, ton rôle, ce qu'elle vit."},
-              {label:"Jusqu'au 1er anniversaire", title:'Post-partum inclus', desc:'Les premiers mois, le développement de bébé, le baby blues, le couple. Tout est inclus.'},
-              {label:'Calendrier médical', title:'Chaque consultation préparée', desc:"Ce qu'on cherche à chaque rendez-vous, les bonnes questions à poser, comment être vraiment présent."},
-              {label:'Paiement unique', title:'Sans abonnement', desc:"Tu paies une fois, tu accèdes jusqu'au premier anniversaire de bébé. Pas de surprise."},
+              {border:'rgba(180,220,255,0.25)', label:'41 semaines', lc:'#7ab8f0', title:'De SA 3 à SA 41', tc:'#B8DCFF', desc:"Chaque semaine expliquée côté papa : développement de bébé, ton rôle, ce qu'elle vit.", dc:'rgba(180,220,255,0.6)'},
+              {border:'rgba(150,240,200,0.2)', label:"Jusqu'au 1er anniversaire", lc:'#5dd4a0', title:'Post-partum inclus', tc:'#96F0C8', desc:'Les premiers mois, le développement de bébé, le baby blues, le couple. Tout est inclus.', dc:'rgba(150,240,200,0.6)'},
+              {border:'rgba(200,170,255,0.2)', label:'Calendrier médical', lc:'#a888f0', title:'Chaque consultation préparée', tc:'#C8AAFF', desc:"Ce qu'on cherche à chaque rendez-vous, les bonnes questions à poser, comment être vraiment présent.", dc:'rgba(200,170,255,0.6)'},
+              {border:'rgba(255,240,160,0.25)', label:'Paiement unique', lc:'#e0b870', title:'Sans abonnement', tc:'#FFF0A0', desc:"Tu paies une fois, tu accèdes jusqu'au premier anniversaire de bébé. Pas de surprise.", dc:'rgba(255,240,160,0.6)'},
             ].map((s,i) => (
-              <div key={i} style={{background:'#FFF7E0', borderRadius:'20px', padding:'24px 28px', border:'1px solid rgba(200,160,96,0.15)'}}>
-                <p style={{color:'#8A6010', fontSize:'10px', fontWeight:700, letterSpacing:'2px', textTransform:'uppercase' as const, margin:'0 0 10px'}}>{s.label}</p>
-                <p style={{color:'#3A2800', fontSize:'15px', fontWeight:700, margin:'0 0 8px'}}>{s.title}</p>
-                <p style={{color:'#6a5020', fontSize:'13px', margin:0, lineHeight:1.65}}>{s.desc}</p>
+              <div key={i} style={{background:'rgba(255,255,255,0.05)', borderRadius:'20px', padding:'24px 28px', border:`1px solid ${s.border}`}}>
+                <p style={{color:s.lc, fontSize:'10px', fontWeight:700, letterSpacing:'2px', textTransform:'uppercase' as const, margin:'0 0 10px'}}>{s.label}</p>
+                <p style={{color:s.tc, fontSize:'15px', fontWeight:700, margin:'0 0 8px'}}>{s.title}</p>
+                <p style={{color:s.dc, fontSize:'13px', margin:0, lineHeight:1.65}}>{s.desc}</p>
               </div>
             ))}
           </div>
@@ -182,7 +182,7 @@ export default function Home() {
       </section>
 
       {/* CE QUE PERSONNE NE T'EXPLIQUE — DÉFILEMENT AUTO */}
-      <section style={{padding:'80px 0', background:C.white, overflow:'hidden'}}>
+      <section style={{padding:'80px 0', background:'#0a1f32', overflow:'hidden'}}>
         <div style={{textAlign:'center', marginBottom:'48px', padding:'0 40px'}}>
           <p style={{color:C.blue, fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase' as const, margin:'0 0 16px'}}>Les sujets traités</p>
           <h2 style={{color:C.dark, fontSize:'36px', fontWeight:800, margin:'0 0 16px', lineHeight:1.2}}>Tout ce que personne<br/>ne t&apos;explique</h2>
@@ -243,7 +243,7 @@ export default function Home() {
       </section>
 
       {/* CTA FINAL */}
-      <section className="cta-section" style={{background:C.blueDark, padding:'80px 40px', textAlign:'center' as const}}>
+      <section className="cta-section" style={{background:'linear-gradient(135deg,#0a1f32,#1A3D5C)', padding:'80px 40px', textAlign:'center' as const}}>
         <p style={{color:C.gold, fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase' as const, margin:'0 0 16px'}}>Accès immédiat</p>
         <h2 style={{color:C.white, fontSize:'44px', fontWeight:800, margin:'0 0 16px', lineHeight:1.1}}>
           Être père, ça commence<br/>bien avant la naissance
@@ -251,14 +251,14 @@ export default function Home() {
         <p style={{color:'rgba(255,255,255,0.5)', fontSize:'15px', margin:'0 0 32px', lineHeight:1.7}}>
           Elle porte bébé. Tu portes le reste.
         </p>
-        <button onClick={goToStripe} style={{background:C.gold, color:'#1c1510', border:'none', padding:'18px 48px', borderRadius:'32px', fontSize:'16px', fontWeight:800, cursor:'pointer', width:'100%', maxWidth:'400px', display:'block', margin:'0 auto 12px'}}>
+        <button onClick={goToStripe} style={{background:'linear-gradient(135deg,#c8a060,#e8c070)', color:'#1c1510', border:'none', padding:'18px 48px', borderRadius:'32px', fontSize:'16px', fontWeight:800, cursor:'pointer', width:'100%', maxWidth:'400px', display:'block', margin:'0 auto 12px', boxShadow:'0 6px 24px rgba(200,160,96,0.4)'}}>
           Accéder
         </button>
         <p style={{color:'rgba(255,255,255,0.3)', fontSize:'13px', margin:0}}>Paiement unique · Satisfait ou remboursé sous 14 jours</p>
       </section>
 
       {/* FOOTER */}
-      <footer className="footer-section" style={{background:C.dark, borderTop:'1px solid #2e3848', padding:'32px 40px'}}>
+      <footer className="footer-section" style={{background:'#060e16', borderTop:'1px solid rgba(255,255,255,0.06)', padding:'32px 40px'}}>
         <div className="footer-inner">
           <div style={{display:'flex', alignItems:'center', gap:'8px'}}>
             <svg viewBox="0 0 300 300" width="28" height="28">
