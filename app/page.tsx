@@ -119,7 +119,7 @@ export default function Home() {
             </h1>
 
             <p style={{color:'rgba(255,255,255,0.95)', fontSize:'18px', fontWeight:700, lineHeight:1.6, margin:'0 0 8px'}}>
-              Elle porte bébé. Tu portes le reste.
+              La grossesse, une histoire de pères
             </p>
             <p style={{color:'rgba(255,255,255,0.5)', fontSize:'14px', lineHeight:1.7, margin:'0 0 32px'}}>
               DadUp t&apos;accompagne semaine après semaine, de la grossesse au premier anniversaire de bébé.
@@ -182,7 +182,7 @@ export default function Home() {
       </section>
 
       {/* CE QUE PERSONNE NE T'EXPLIQUE — DÉFILEMENT AUTO */}
-      <section style={{padding:'80px 0', background:'#faf6f0', overflow:'hidden'}}>
+      <section style={{padding:'80px 0', background:'transparent', overflow:'hidden'}}>
         <div style={{textAlign:'center', marginBottom:'48px', padding:'0 40px'}}>
           <p style={{color:C.blue, fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase' as const, margin:'0 0 16px'}}>Les sujets traités</p>
           <h2 style={{color:C.dark, fontSize:'36px', fontWeight:800, margin:'0 0 16px', lineHeight:1.2}}>Tout ce que personne<br/>ne t&apos;explique</h2>
@@ -195,7 +195,7 @@ export default function Home() {
           .auto-wrap { overflow:hidden; position:relative; }
           .auto-wrap::before { content:''; position:absolute; left:0; top:0; bottom:0; width:100px; background:linear-gradient(to right,#fff,transparent); z-index:2; pointer-events:none; }
           .auto-wrap::after { content:''; position:absolute; right:0; top:0; bottom:0; width:100px; background:linear-gradient(to left,#fff,transparent); z-index:2; pointer-events:none; }
-          .auto-card { flex:0 0 300px; border-radius:20px; padding:28px; box-shadow:0 8px 28px rgba(0,0,0,0.1); transition:transform .2s ease,box-shadow .2s ease; cursor:default; } .auto-card:hover { transform:translateY(-4px); box-shadow:0 16px 40px rgba(0,0,0,0.14); }
+          .auto-card { flex:0 0 300px; border-radius:20px; padding:28px; box-shadow:0 8px 32px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.06); transition:transform .2s ease,box-shadow .2s ease; cursor:default; background:#fff; } .auto-card:hover { transform:translateY(-6px); box-shadow:0 20px 48px rgba(0,0,0,0.16), 0 4px 12px rgba(0,0,0,0.08); }
         `}</style>
         <div className="auto-wrap">
           <div className="auto-track">
@@ -259,7 +259,7 @@ export default function Home() {
             Prends ta place<br/><span style={{color:C.gold}}>de père</span>
           </h2>
           <p style={{color:C.text, fontSize:'16px', margin:'0 0 32px', lineHeight:1.7}}>
-            Elle porte bébé. Tu portes le reste.
+            La grossesse, une histoire de pères
           </p>
           <button onClick={goToStripe} style={{background:'linear-gradient(135deg,#c8a060,#e8c070)', color:'#1c1510', border:'none', padding:'18px 48px', borderRadius:'32px', fontSize:'16px', fontWeight:800, cursor:'pointer', width:'100%', maxWidth:'400px', display:'block', margin:'0 auto 12px', boxShadow:'0 6px 24px rgba(200,160,96,0.4)'}}>
               Accéder · 49,99€
@@ -278,7 +278,7 @@ export default function Home() {
               <ellipse cx="150" cy="196" rx="27" ry="31" fill="#faf6f0"/><circle cx="150" cy="128" r="26" fill="#faf6f0"/>
             </svg>
             <span style={{color:'rgba(255,255,255,0.9)', fontSize:'16px', fontWeight:700}}>DadUp</span>
-            <span style={{color:'rgba(255,255,255,0.3)', fontSize:'13px', marginLeft:'12px'}}>La grossesse, une histoire de pères</span>
+            <span style={{color:'rgba(255,255,255,0.45)', fontSize:'13px', marginLeft:'12px', fontStyle:'italic' as const}}>La grossesse, une histoire de pères</span>
           </div>
           <div style={{display:'flex', gap:'20px', flexWrap:'wrap' as const}}>
             {[['Pourquoi DadUp','/pourquoi'],['Ce qui est inclus','/inclus'],['Tarifs','/tarifs'],['Professionnels','/professionnels'],['Sources','/sources'],['Contact','/contact']].map(([label,href]) => (
