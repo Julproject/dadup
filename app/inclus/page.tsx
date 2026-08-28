@@ -184,7 +184,7 @@ export default function InclusPage() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);
   return (
-    <main style={{ minHeight: '100vh', background: C.cream, fontFamily: "-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" }}>
+    <main style={{ minHeight: '100vh', background: '#faf6f0', fontFamily: "-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" }}>
       <style>{`
         *{box-sizing:border-box;margin:0;padding:0;}
         .nl{display:flex;}.nc{display:flex;}
@@ -205,22 +205,22 @@ export default function InclusPage() {
       `}</style>
 
       {/* NAV */}
-      <nav style={{ background: C.white, borderBottom: `1px solid ${C.border}`, padding: '0 40px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '68px', position: 'sticky', top: 0, zIndex: 50 }}>
+      <nav style={{ background: '#faf6f0', borderBottom: `1px solid ${C.border}`, padding: '0 40px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '68px', position: 'sticky', top: 0, zIndex: 50 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '48px' }}>
           <a href="/" style={{ display: 'flex', alignItems: 'center', gap: '10px', textDecoration: 'none' }}>
             <svg viewBox="0 0 300 300" width="34" height="34"><circle cx="150" cy="150" r="145" fill="#3a4f6e"/><circle cx="150" cy="150" r="122" fill="#4a6080"/><ellipse cx="150" cy="205" rx="58" ry="54" fill="#c8a060"/><circle cx="150" cy="112" r="40" fill="#c8a060"/><ellipse cx="150" cy="196" rx="27" ry="31" fill="#faf6f0"/><circle cx="150" cy="128" r="26" fill="#faf6f0"/></svg>
             <span style={{ fontWeight: 800, color: C.dark, fontSize: '20px' }}>DadUp</span>
           </a>
           <div className="nl" style={{ gap: '4px' }}>
-            <a href="/pourquoi" style={{ color: C.text, fontSize: '14px', fontWeight: 500, padding: '8px 14px', textDecoration: 'none' }}>Pourquoi DadUp</a>
+            <a href="/pourquoi" style={{ color: C.dark, fontSize: '14px', fontWeight: 700, padding: '8px 14px', textDecoration: 'none' }}>Pourquoi DadUp</a>
             <a href="/inclus" style={{ color: C.dark, fontSize: '14px', fontWeight: 700, padding: '8px 14px', textDecoration: 'none', borderBottom: `2px solid ${C.gold}` }}>Ce qui est inclus</a>
-            <a href="/tarifs" style={{ color: C.text, fontSize: '14px', fontWeight: 500, padding: '8px 14px', textDecoration: 'none' }}>Tarifs</a>
-            <a href="/contact" style={{ color: C.text, fontSize: '14px', fontWeight: 500, padding: '8px 14px', textDecoration: 'none' }}>Contactez-nous</a>
+            <a href="/tarifs" style={{ color: C.dark, fontSize: '14px', fontWeight: 700, padding: '8px 14px', textDecoration: 'none' }}>Tarifs</a>
+            <a href="/contact" style={{ color: C.dark, fontSize: '14px', fontWeight: 700, padding: '8px 14px', textDecoration: 'none' }}>Contactez-nous</a>
           </div>
         </div>
         <div className="nc" style={{ alignItems: 'center', gap: '16px' }}>
           <a href="/login" style={{ color: C.dark, fontSize: '14px', fontWeight: 600, textDecoration: 'none' }}>Se connecter</a>
-          <button onClick={() => setShowModal(true)} style={{ background: '#1A3D5C', color: C.white, padding: '11px 22px', borderRadius: '32px', fontSize: '13px', fontWeight: 700, border: 'none', cursor: 'pointer' }}>Commencer</button>
+          <button onClick={() => setShowModal(true)} style={{ background: 'linear-gradient(135deg,#0a1f32 0%,#1A3D5C 50%,#1d4d72 100%)', color: C.white, padding: '11px 22px', borderRadius: '32px', fontSize: '13px', fontWeight: 700, border: 'none', cursor: 'pointer' }}>Commencer</button>
         </div>
         <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)} style={{ display: 'none', background: 'none', border: `1px solid ${C.border}`, padding: '8px 12px', borderRadius: '8px', cursor: 'pointer' }}>
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -229,7 +229,7 @@ export default function InclusPage() {
         </button>
       </nav>
       {menuOpen && (
-        <div className="mobile-nav" style={{ flexDirection: 'column', background: C.white, borderBottom: `1px solid ${C.border}`, padding: '16px 20px', gap: '4px', position: 'sticky', top: '68px', zIndex: 49 }}>
+        <div className="mobile-nav" style={{ flexDirection: 'column', background: '#faf6f0', borderBottom: `1px solid ${C.border}`, padding: '16px 20px', gap: '4px', position: 'sticky', top: '68px', zIndex: 49 }}>
           <a href="/pourquoi" style={{ color: C.text, fontSize: '15px', padding: '10px 8px', textDecoration: 'none', borderBottom: `1px solid ${C.cream}` }}>Pourquoi DadUp</a>
           <a href="/inclus" style={{ color: C.text, fontSize: '15px', padding: '10px 8px', textDecoration: 'none', borderBottom: `1px solid ${C.cream}` }}>Ce qui est inclus</a>
           <a href="/tarifs" style={{ color: C.text, fontSize: '15px', padding: '10px 8px', textDecoration: 'none', borderBottom: `1px solid ${C.cream}` }}>Tarifs</a>
@@ -239,7 +239,7 @@ export default function InclusPage() {
       )}
 
       {/* HERO */}
-      <section style={{ background: '#1A3D5C', padding: '72px 40px' }}>
+      <section style={{ background: 'linear-gradient(135deg,#0a1f32 0%,#1A3D5C 50%,#1d4d72 100%)', padding: '72px 40px' }}>
         <div style={{ maxWidth: '760px', margin: '0 auto', textAlign: 'center' }}>
           <p style={{ color: C.gold, fontSize: '11px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase' as const, margin: '0 0 20px' }}>Ce qui est inclus</p>
           <h1 style={{ color: C.white, fontSize: '44px', fontWeight: 800, margin: '0 0 16px', lineHeight: 1.1 }}>De la grossesse au premier anniversaire</h1>
@@ -259,7 +259,7 @@ export default function InclusPage() {
             { titre: 'Première année de bébé', desc: '12 mois de la première année de bébé, diversification, premiers mots', bg: '#f0ecfa', titleColor: '#3a2a6a', descColor: '#6a4aaa', dark: false },
           ].map((m, i) => (
             <div key={i} style={{ background: m.bg, borderRadius: '16px', padding: '24px', border: m.dark ? 'none' : `1px solid ${C.border}` }}>
-              <div style={{ width: '28px', height: '3px', borderRadius: '2px', background: C.gold, marginBottom: '12px' }}></div>
+              <div style={{ width: '28px', height: '3px', borderRadius: '2px', background: 'linear-gradient(135deg,#c8a060,#e8c070)', marginBottom: '12px' }}></div>
               <p style={{ color: m.titleColor, fontSize: '14px', fontWeight: 700, margin: '0 0 8px' }}>{m.titre}</p>
               <p style={{ color: m.descColor, fontSize: '13px', lineHeight: 1.65, margin: 0 }}>{m.desc}</p>
             </div>
@@ -271,10 +271,10 @@ export default function InclusPage() {
       <div style={{ position: 'relative' }}>
 
         {/* Bande crème pour chevauchement */}
-        <div style={{ background: C.cream, height: '80px' }}></div>
+        <div style={{ background: '#faf6f0', height: '80px' }}></div>
 
         {/* Section sombre */}
-        <div style={{ background: '#1A3D5C', padding: '0 40px 64px' }}>
+        <div style={{ background: 'linear-gradient(135deg,#0a1f32 0%,#1A3D5C 50%,#1d4d72 100%)', padding: '0 40px 64px' }}>
           <div style={{ maxWidth: '960px', margin: '0 auto', display: 'flex', alignItems: 'center', gap: '56px' }}>
 
             {/* iPhone avec relief */}
@@ -288,19 +288,19 @@ export default function InclusPage() {
               }}>
                 {/* Reflet de lumière sur le bord */}
                 <div style={{ position: 'absolute', top: 0, left: '10%', right: '10%', height: '1px', background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent)', borderRadius: '999px' }}></div>
-                <div style={{ background: '#1A3D5C', borderRadius: '36px 36px 0 0', padding: '10px 14px 6px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', position: 'relative' }}>
+                <div style={{ background: 'linear-gradient(135deg,#0a1f32 0%,#1A3D5C 50%,#1d4d72 100%)', borderRadius: '36px 36px 0 0', padding: '10px 14px 6px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', position: 'relative' }}>
                   <span style={{ color: '#fff', fontSize: '8px', fontWeight: 700 }}>9:41</span>
                   <div style={{ background: '#1c1c1e', borderRadius: '20px', padding: '3px 10px', position: 'absolute', left: '50%', transform: 'translateX(-50%)' }}>
                     <div style={{ width: '6px', height: '6px', background: '#2a2a2c', borderRadius: '50%' }}></div>
                   </div>
                   <span style={{ color: '#fff', fontSize: '7px' }}>●●● ■</span>
                 </div>
-                <div style={{ background: C.cream, borderRadius: '0 0 34px 34px', overflow: 'hidden', position: 'relative' }}>
+                <div style={{ background: '#faf6f0', borderRadius: '0 0 34px 34px', overflow: 'hidden', position: 'relative' }}>
                   {/* Reflet écran */}
                   <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '30%', background: 'linear-gradient(180deg, rgba(255,255,255,0.06) 0%, transparent 100%)', zIndex: 1, pointerEvents: 'none' }}></div>
                   <div style={{ padding: '10px', display: 'flex', flexDirection: 'column', gap: '6px' }}>
 
-                    <div style={{ background: '#1A3D5C', borderRadius: '10px', padding: '9px 12px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <div style={{ background: 'linear-gradient(135deg,#0a1f32 0%,#1A3D5C 50%,#1d4d72 100%)', borderRadius: '10px', padding: '9px 12px', display: 'flex', alignItems: 'center', gap: '8px' }}>
                       <span style={{ fontSize: '20px' }}>🍋</span>
                       <div>
                         <p style={{ color: C.gold, fontSize: '8px', fontWeight: 700, letterSpacing: '1.5px', textTransform: 'uppercase' as const, margin: '0 0 1px' }}>Semaine 20</p>
@@ -314,7 +314,7 @@ export default function InclusPage() {
                       <p style={{ color: '#1A3D5C', fontSize: '9px', lineHeight: 1.6, margin: 0 }}>L&apos;échographie T2 examine chaque organe</p>
                     </div>
 
-                    <div style={{ background: '#1A3D5C', borderRadius: '10px', padding: '9px 12px' }}>
+                    <div style={{ background: 'linear-gradient(135deg,#0a1f32 0%,#1A3D5C 50%,#1d4d72 100%)', borderRadius: '10px', padding: '9px 12px' }}>
                       <p style={{ color: C.gold, fontSize: '8px', fontWeight: 700, letterSpacing: '1.5px', textTransform: 'uppercase' as const, margin: '0 0 3px' }}>Le saviez-vous ?</p>
                       <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: '9px', lineHeight: 1.6, margin: 0 }}>Plus de 100 critères anatomiques</p>
                     </div>
@@ -340,7 +340,7 @@ export default function InclusPage() {
               <p style={{ color: C.gold, fontSize: '10px', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase' as const, margin: '0 0 14px' }}>Un échantillon du contenu qui t&apos;attend</p>
               <p style={{ color: C.white, fontSize: '28px', fontWeight: 800, margin: '0 0 28px', lineHeight: 1.25 }}>Tout ce dont tu as besoin, au bon moment</p>
               <div>
-                <button onClick={() => setShowModal(true)} style={{ background: C.gold, color: '#1c1510', border: 'none', padding: '16px 32px', borderRadius: '32px', fontSize: '15px', fontWeight: 800, cursor: 'pointer', display: 'block', marginBottom: '10px', width: '100%' }}>
+                <button onClick={() => setShowModal(true)} style={{ background: 'linear-gradient(135deg,#c8a060,#e8c070)', color: '#1c1510', border: 'none', padding: '16px 32px', borderRadius: '32px', fontSize: '15px', fontWeight: 800, cursor: 'pointer', display: 'block', marginBottom: '10px', width: '100%' }}>
                   Commencer · 49,99€
                 </button>
                 <p style={{ color: '#6a7585', fontSize: '12px', margin: 0, textAlign: 'center' as const }}>Satisfait ou remboursé sous 14 jours</p>
@@ -352,7 +352,7 @@ export default function InclusPage() {
       </div>
 
       {/* FOOTER */}
-      <footer style={{ background: '#1A3D5C', borderTop: '1px solid #2e3848', padding: '32px 40px' }}>
+      <footer style={{ background: 'linear-gradient(135deg,#0a1f32 0%,#1A3D5C 50%,#1d4d72 100%)', borderTop: '1px solid #2e3848', padding: '32px 40px' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '16px' }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap' as const, gap: '16px' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
