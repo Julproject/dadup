@@ -223,11 +223,10 @@ export default function TarifsPage() {
         <div style={{ background: 'linear-gradient(135deg,#0a1f32 0%,#1A3D5C 50%,#1d4d72 100%)', borderRadius: '24px', padding: '72px 48px', position: 'relative', overflow: 'hidden', textAlign: 'center' as const, maxWidth: '1100px', margin: '0 auto' }}>
           <div style={{ position: 'absolute', top: '-60px', right: '100px', width: '320px', height: '320px', borderRadius: '50%', background: 'radial-gradient(circle,rgba(200,160,96,0.22) 0%,transparent 65%)', pointerEvents: 'none' }}></div>
           <div style={{ position: 'relative', zIndex: 1 }}>
-        <p style={{ color: C.gold, fontSize: '11px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase' as const, margin: '0 0 16px' }}>Prêt à commencer ?</p>
-        <h2 style={{ color: C.white, fontSize: '40px', fontWeight: 800, margin: '0 0 8px' }}>49,99€ accès complet</h2>
-        <p style={{ color: '#6a7585', fontSize: '15px', margin: '0 0 36px' }}>Paiement unique · Accès jusqu'au 1er anniversaire de bébé</p>
-        <button onClick={goToStripe} style={{ background: 'linear-gradient(135deg,#c8a060,#e8c070)', color: '#1c1510', border: 'none', padding: '18px 48px', borderRadius: '32px', fontSize: '16px', fontWeight: 800, cursor: 'pointer', boxShadow: '0 8px 32px rgba(200,160,96,0.5)' }}>
-            Accéder · 49,99€
+        <h2 style={{ color: C.white, fontSize: '40px', fontWeight: 800, margin: '0 0 8px' }}>Prends ta place de père</h2>
+        <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '15px', margin: '0 0 36px' }}>À deux, dès le premier jour</p>
+        <button onClick={goToStripe} style={{ background: 'linear-gradient(135deg,#c8a060,#e8c070)', color: '#1c1510', border: 'none', padding: '20px 56px', borderRadius: '32px', fontSize: '20px', fontWeight: 800, cursor: 'pointer', boxShadow: '0 8px 32px rgba(200,160,96,0.5)' }}>
+            Accéder
           </button>
           </div>
         </div>
