@@ -146,7 +146,7 @@ export default function Home() {
               {bg:'rgba(150,240,200,0.12)', border:'rgba(150,240,200,0.3)', iconBg:'#96F0C8', iconColor:'#0D4A2E', textColor:'#96F0C8', label:'Post-partum inclus'},
               {bg:'rgba(200,170,255,0.12)', border:'rgba(200,170,255,0.3)', iconBg:'#C8AAFF', iconColor:'#3D2E7A', textColor:'#C8AAFF', label:"Jusqu'au 1er anniversaire de bébé"},
               {bg:'rgba(255,240,160,0.12)', border:'rgba(255,240,160,0.3)', iconBg:'#FFF0A0', iconColor:'#8A6010', textColor:'#FFF0A0', label:'Contenu médical sourcé'},
-              {bg:'rgba(200,255,240,0.12)', border:'rgba(100,220,200,0.3)', iconBg:'#A0FFE8', iconColor:'#006B55', textColor:'#A0FFE8', label:'Web, mobile et PWA'},
+              {bg:'rgba(200,255,240,0.12)', border:'rgba(100,220,200,0.3)', iconBg:'#A0FFE8', iconColor:'#006B55', textColor:'#A0FFE8', label:'Web + mobile (PWA)'},
             ].map((b,i) => (
               <div key={i} className="badge-item" style={{background:b.bg, border:`1px solid ${b.border}`, borderRadius:'14px', padding:'14px 18px', display:'flex', alignItems:'center', gap:'12px', cursor:'default'}}>
                 <div style={{width:'30px', height:'30px', borderRadius:'50%', background:b.iconBg, display:'flex', alignItems:'center', justifyContent:'center', flexShrink:0, fontSize:'14px', color:b.iconColor, fontWeight:800}}>✓</div>
