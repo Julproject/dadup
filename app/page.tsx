@@ -192,10 +192,10 @@ export default function Home() {
           @keyframes scrollLeft { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
           .auto-track { display:flex; gap:16px; width:max-content; animation:scrollLeft 22s linear infinite; }
           .auto-track:hover { animation-play-state:paused; }
-          .auto-wrap { overflow:hidden; position:relative; }
-          .auto-wrap::before { content:''; position:absolute; left:0; top:0; bottom:0; width:100px; background:linear-gradient(to right,#fff,transparent); z-index:2; pointer-events:none; }
-          .auto-wrap::after { content:''; position:absolute; right:0; top:0; bottom:0; width:100px; background:linear-gradient(to left,#fff,transparent); z-index:2; pointer-events:none; }
-          .auto-card { flex:0 0 300px; border-radius:20px; padding:28px; box-shadow:0 8px 32px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.06); transition:transform .2s ease,box-shadow .2s ease; cursor:default; background:#fff; } .auto-card:hover { transform:translateY(-6px); box-shadow:0 20px 48px rgba(0,0,0,0.16), 0 4px 12px rgba(0,0,0,0.08); }
+          .auto-wrap { overflow:hidden; position:relative; background:transparent; padding:20px 0; }
+          .auto-wrap::before { content:''; position:absolute; left:0; top:0; bottom:0; width:120px; background:linear-gradient(to right,#faf6f0 20%,transparent); z-index:2; pointer-events:none; }
+          .auto-wrap::after { content:''; position:absolute; right:0; top:0; bottom:0; width:120px; background:linear-gradient(to left,#faf6f0 20%,transparent); z-index:2; pointer-events:none; }
+          .auto-card { flex:0 0 300px; border-radius:20px; padding:28px; box-shadow:0 6px 24px rgba(0,0,0,0.1), 0 2px 6px rgba(0,0,0,0.05); transition:transform .25s ease,box-shadow .25s ease; cursor:default; } .auto-card:hover { transform:translateY(-6px); box-shadow:0 18px 44px rgba(0,0,0,0.15), 0 4px 10px rgba(0,0,0,0.07); }
         `}</style>
         <div className="auto-wrap">
           <div className="auto-track">
