@@ -101,10 +101,10 @@ export default function PourquoiPage() {
           ].map((item,i) => (
             <div key={i} style={{background:'#fff', borderRadius:'16px', padding:'20px 24px', display:'grid', gridTemplateColumns:'1fr 1fr', gap:'16px', alignItems:'center', boxShadow:'0 6px 24px rgba(0,0,0,0.07)'}}>
               <div style={{display:'flex', alignItems:'center', gap:'12px'}}>
-                <div style={{width:'28px', height:'28px', borderRadius:'50%', background:'#FFE8E8', display:'flex', alignItems:'center', justifyContent:'center', flexShrink:0}}>
-                  <span style={{color:'#C04A1A', fontSize:'13px', fontWeight:800}}>✗</span>
+                <div style={{width:'28px', height:'28px', borderRadius:'50%', background:'rgba(255,232,232,0.6)', display:'flex', alignItems:'center', justifyContent:'center', flexShrink:0}}>
+                  <span style={{color:'rgba(192,74,26,0.6)', fontSize:'13px', fontWeight:800}}>✗</span>
                 </div>
-                <p style={{color:'#C04A1A', fontSize:'15px', fontWeight:700, margin:0}}>{item.sans}</p>
+                <p style={{color:'rgba(192,74,26,0.7)', fontSize:'15px', fontWeight:600, margin:0}}>{item.sans}</p>
               </div>
 
               <div style={{display:'flex', alignItems:'center', gap:'12px'}}>
