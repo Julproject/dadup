@@ -44,7 +44,7 @@ export default function TarifsPage() {
   const goToStripe = () => setShowModal(true);
 
   return (
-    <main style={{ minHeight: '100vh', background: C.cream, fontFamily: "-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" }}>
+    <main style={{ minHeight: '100vh', background: '#faf6f0', fontFamily: "-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" }}>
       <style>{`
         *{box-sizing:border-box;margin:0;padding:0;}
         .nl{display:flex;}.nc{display:flex;}
@@ -67,22 +67,22 @@ export default function TarifsPage() {
       `}</style>
 
       {/* NAV */}
-      <nav style={{ background: C.white, borderBottom: `1px solid ${C.border}`, padding: '0 40px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '68px', position: 'sticky', top: 0, zIndex: 50 }}>
+      <nav style={{ background: '#faf6f0', borderBottom: `1px solid ${C.border}`, padding: '0 40px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '68px', position: 'sticky', top: 0, zIndex: 50 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '48px' }}>
           <a href="/" style={{ display: 'flex', alignItems: 'center', gap: '10px', textDecoration: 'none' }}>
             <svg viewBox="0 0 300 300" width="34" height="34"><circle cx="150" cy="150" r="145" fill="#3a4f6e"/><circle cx="150" cy="150" r="122" fill="#4a6080"/><ellipse cx="150" cy="205" rx="58" ry="54" fill="#c8a060"/><circle cx="150" cy="112" r="40" fill="#c8a060"/><ellipse cx="150" cy="196" rx="27" ry="31" fill="#faf6f0"/><circle cx="150" cy="128" r="26" fill="#faf6f0"/></svg>
             <span style={{ fontWeight: 800, color: C.dark, fontSize: '20px' }}>DadUp</span>
           </a>
           <div className="nl" style={{ gap: '4px' }}>
-            <a href="/pourquoi" style={{ color: C.text, fontSize: '14px', fontWeight: 500, padding: '8px 14px', textDecoration: 'none' }}>Pourquoi DadUp</a>
-            <a href="/inclus" style={{ color: C.text, fontSize: '14px', fontWeight: 500, padding: '8px 14px', textDecoration: 'none' }}>Ce qui est inclus</a>
+            <a href="/pourquoi" style={{ color: C.dark, fontSize: '14px', fontWeight: 700, padding: '8px 14px', textDecoration: 'none' }}>Pourquoi DadUp</a>
+            <a href="/inclus" style={{ color: C.dark, fontSize: '14px', fontWeight: 700, padding: '8px 14px', textDecoration: 'none' }}>Ce qui est inclus</a>
             <a href="/tarifs" style={{ color: C.dark, fontSize: '14px', fontWeight: 700, padding: '8px 14px', borderRadius: '8px', textDecoration: 'none', borderBottom: `2px solid ${C.gold}` }}>Tarifs</a>
-            <a href="/contact" style={{ color: C.text, fontSize: '14px', fontWeight: 500, padding: '8px 14px', textDecoration: 'none' }}>Contactez-nous</a>
+            <a href="/contact" style={{ color: C.dark, fontSize: '14px', fontWeight: 700, padding: '8px 14px', textDecoration: 'none' }}>Contactez-nous</a>
           </div>
         </div>
         <div className="nc" style={{ alignItems: 'center', gap: '16px' }}>
           <a href="/login" style={{ color: C.dark, fontSize: '14px', fontWeight: 600, textDecoration: 'none' }}>Se connecter</a>
-          <button onClick={goToStripe} style={{ background: '#1A3D5C', color: C.white, padding: '11px 22px', borderRadius: '32px', fontSize: '13px', fontWeight: 700, border: 'none', cursor: 'pointer' }}>Commencer</button>
+          <button onClick={goToStripe} style={{ background: 'linear-gradient(135deg,#0a1f32 0%,#1A3D5C 50%,#1d4d72 100%)', color: C.white, padding: '11px 22px', borderRadius: '32px', fontSize: '13px', fontWeight: 700, border: 'none', cursor: 'pointer' }}>Commencer</button>
         </div>
         <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)} style={{ display: 'none', background: 'none', border: `1px solid ${C.border}`, padding: '8px 12px', borderRadius: '8px', cursor: 'pointer' }}>
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -91,7 +91,7 @@ export default function TarifsPage() {
         </button>
       </nav>
       {menuOpen && (
-        <div className="mobile-nav" style={{ flexDirection: 'column', background: C.white, borderBottom: `1px solid ${C.border}`, padding: '16px 20px', gap: '4px', position: 'sticky', top: '68px', zIndex: 49 }}>
+        <div className="mobile-nav" style={{ flexDirection: 'column', background: '#faf6f0', borderBottom: `1px solid ${C.border}`, padding: '16px 20px', gap: '4px', position: 'sticky', top: '68px', zIndex: 49 }}>
           <a href="/pourquoi" style={{ color: C.text, fontSize: '15px', fontWeight: 500, padding: '10px 8px', textDecoration: 'none', borderBottom: `1px solid ${C.cream}` }}>Pourquoi DadUp</a>
           <a href="/inclus" style={{ color: C.text, fontSize: '15px', fontWeight: 500, padding: '10px 8px', textDecoration: 'none', borderBottom: `1px solid ${C.cream}` }}>Ce qui est inclus</a>
           <a href="/tarifs" style={{ color: C.text, fontSize: '15px', fontWeight: 500, padding: '10px 8px', textDecoration: 'none', borderBottom: `1px solid ${C.cream}` }}>Tarifs</a>
@@ -101,7 +101,7 @@ export default function TarifsPage() {
       )}
 
       {/* HERO */}
-      <section className="hero" style={{ background: '#1A3D5C', padding: '72px 40px' }}>
+      <section className="hero" style={{ background: 'linear-gradient(135deg,#0a1f32 0%,#1A3D5C 50%,#1d4d72 100%)', padding: '72px 40px' }}>
         <div style={{ maxWidth: '760px', margin: '0 auto', textAlign: 'center' }}>
           <p style={{ color: C.gold, fontSize: '11px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase', margin: '0 0 20px' }}>Tarifs</p>
           <h1 style={{ color: C.white, fontSize: '44px', fontWeight: 800, margin: '0 0 16px', lineHeight: 1.1 }}>
@@ -116,7 +116,7 @@ export default function TarifsPage() {
         <div className="grid">
 
           {/* COLONNE GAUCHE, carte prix */}
-          <div style={{ background: '#1A3D5C', borderRadius: '24px', padding: '40px', display: 'flex', flexDirection: 'column', height: '100%' }}>
+          <div style={{ background: 'linear-gradient(135deg,#0a1f32 0%,#1A3D5C 50%,#1d4d72 100%)', borderRadius: '24px', padding: '40px', display: 'flex', flexDirection: 'column', height: '100%' }}>
             <p style={{ color: C.gold, fontSize: '11px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase', margin: '0 0 20px' }}>Accès annuel complet</p>
             <div style={{ marginBottom: '6px' }}>
               <span style={{ color: C.white, fontSize: '68px', fontWeight: 800, lineHeight: 1 }}>49,99€</span>
@@ -132,7 +132,7 @@ export default function TarifsPage() {
               ))}
             </div>
 
-            <button onClick={goToStripe} style={{ background: C.gold, color: '#1c1510', border: 'none', padding: '16px', borderRadius: '32px', fontSize: '15px', fontWeight: 800, cursor: 'pointer', width: '100%', marginBottom: '10px' }}>
+            <button onClick={goToStripe} style={{ background: 'linear-gradient(135deg,#c8a060,#e8c070)', color: '#1c1510', border: 'none', padding: '16px', borderRadius: '32px', fontSize: '15px', fontWeight: 800, cursor: 'pointer', width: '100%', marginBottom: '10px' }}>
               Commencer
             </button>
             <p style={{ color: '#3d5070', fontSize: '12px', textAlign: 'center', margin: 0 }}>Paiement sécurisé par Stripe</p>
@@ -143,14 +143,14 @@ export default function TarifsPage() {
           <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', height: '100%', boxSizing: 'border-box' }}>
 
             {/* À SAVOIR */}
-            <div style={{ background: C.white, borderRadius: '24px', padding: '36px', border: `1px solid ${C.border}` }}>
+            <div style={{ background: '#faf6f0', borderRadius: '24px', padding: '36px', border: `1px solid ${C.border}` }}>
               <p style={{ color: C.blue, fontSize: '11px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase', margin: '0 0 16px' }}>À savoir</p>
               <p style={{ color: C.dark, fontSize: '16px', fontWeight: 700, margin: '0 0 12px', lineHeight: 1.4 }}>DadUp ne remplace pas ton médecin ni ta sage-femme.</p>
               <p style={{ color: C.text, fontSize: '14px', lineHeight: 1.75, margin: 0 }}>C&apos;est un outil de préparation et d&apos;information, conçu pour que tu arrives à chaque étape en sachant ce qui t&apos;attend.</p>
             </div>
 
             {/* INFOS PRATIQUES */}
-            <div style={{ background: C.white, borderRadius: '24px', padding: '36px', border: `1px solid ${C.border}`, flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+            <div style={{ background: '#faf6f0', borderRadius: '24px', padding: '36px', border: `1px solid ${C.border}`, flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
               <p style={{ color: C.blue, fontSize: '11px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase', margin: '0 0 20px' }}>Informations pratiques</p>
               <div style={{ display: 'flex', flexDirection: 'column' }}>
                 {[
@@ -216,17 +216,17 @@ export default function TarifsPage() {
       </section>
 
       {/* CTA BAS */}
-      <section style={{ background: '#1A3D5C', padding: '72px 40px', textAlign: 'center' as const }}>
+      <section style={{ background: 'linear-gradient(135deg,#0a1f32 0%,#1A3D5C 50%,#1d4d72 100%)', padding: '72px 40px', textAlign: 'center' as const }}>
         <p style={{ color: C.gold, fontSize: '11px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase' as const, margin: '0 0 16px' }}>Prêt à commencer ?</p>
         <h2 style={{ color: C.white, fontSize: '40px', fontWeight: 800, margin: '0 0 8px' }}>49,99€ accès complet</h2>
         <p style={{ color: '#6a7585', fontSize: '15px', margin: '0 0 36px' }}>Paiement unique · Accès jusqu'au 1er anniversaire de bébé</p>
-        <button onClick={goToStripe} style={{ background: C.gold, color: '#1c1510', border: 'none', padding: '18px 48px', borderRadius: '32px', fontSize: '16px', fontWeight: 800, cursor: 'pointer' }}>
+        <button onClick={goToStripe} style={{ background: 'linear-gradient(135deg,#c8a060,#e8c070)', color: '#1c1510', border: 'none', padding: '18px 48px', borderRadius: '32px', fontSize: '16px', fontWeight: 800, cursor: 'pointer' }}>
           Commencer
         </button>
       </section>
 
       {/* FOOTER */}
-      <footer style={{ background: '#1A3D5C', borderTop: '1px solid #2e3848', padding: '32px 40px' }}>
+      <footer style={{ background: 'linear-gradient(135deg,#0a1f32 0%,#1A3D5C 50%,#1d4d72 100%)', borderTop: '1px solid #2e3848', padding: '32px 40px' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '16px' }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap' as const, gap: '16px' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
