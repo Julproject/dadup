@@ -176,7 +176,6 @@ export default function InclusPage() {
 
             {/* CTA */}
             <div style={{flex:1}}>
-              <p style={{color:C.gold, fontSize:'10px', fontWeight:700, letterSpacing:'2px', textTransform:'uppercase' as const, margin:'0 0 14px'}}>Un échantillon du contenu</p>
               <h2 style={{color:C.white, fontSize:'32px', fontWeight:800, margin:'0 0 28px', lineHeight:1.25}}>Tout ce dont tu as besoin,<br/>au bon moment</h2>
               <button onClick={() => setShowModal(true)} style={{background:'linear-gradient(135deg,#c8a060,#e8c070)', color:'#1c1510', border:'none', padding:'20px 48px', borderRadius:'32px', fontSize:'18px', fontWeight:800, cursor:'pointer', boxShadow:'0 8px 32px rgba(200,160,96,0.6), 0 2px 8px rgba(0,0,0,0.2)', display:'block', marginBottom:'12px', width:'auto'}}>
                 Accéder · 49,99€
