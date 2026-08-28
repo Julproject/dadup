@@ -103,13 +103,13 @@ export default function InclusPage() {
 
       {/* ECHANTILLON */}
       <div style={{position:'relative'}}>
-        <div style={{background:C.cream, height:'80px'}}></div>
+        <div style={{background:C.cream, height:'120px'}}></div>
         <div style={{background:'linear-gradient(135deg,#0a1f32 0%,#1A3D5C 50%,#1d4d72 100%)', padding:'0 40px 64px', position:'relative', overflow:'hidden'}}>
           <div style={{position:'absolute', top:'-60px', right:'100px', width:'320px', height:'320px', borderRadius:'50%', background:'radial-gradient(circle,rgba(200,160,96,0.22) 0%,transparent 65%)', pointerEvents:'none'}}></div>
           <div style={{maxWidth:'960px', margin:'0 auto', display:'flex', alignItems:'center', gap:'56px', position:'relative', zIndex:1}}>
 
             {/* iPhone mockup */}
-            <div style={{flexShrink:0, marginTop:'-100px', transform:'rotate(-5deg)', position:'relative', zIndex:2}}>
+            <div style={{flexShrink:0, marginTop:'-140px', transform:'rotate(-5deg)', position:'relative', zIndex:2}}>
               <div style={{background:'linear-gradient(145deg,#2a2a2e,#0d0d0f,#1a1a1c)', borderRadius:'42px', padding:'8px', width:'200px', boxShadow:'0 30px 60px rgba(0,0,0,0.6), 0 0 0 0.5px rgba(255,255,255,0.08)'}}>
                 <div style={{background:'linear-gradient(135deg,#0a1f32,#1A3D5C)', borderRadius:'36px 36px 0 0', padding:'10px 14px 6px', display:'flex', justifyContent:'space-between', alignItems:'center'}}>
                   <span style={{color:'#fff', fontSize:'8px', fontWeight:700}}>9:41</span>
@@ -141,7 +141,7 @@ export default function InclusPage() {
             <div style={{flex:1}}>
               <p style={{color:C.gold, fontSize:'10px', fontWeight:700, letterSpacing:'2px', textTransform:'uppercase' as const, margin:'0 0 14px'}}>Un échantillon du contenu</p>
               <h2 style={{color:C.white, fontSize:'32px', fontWeight:800, margin:'0 0 28px', lineHeight:1.25}}>Tout ce dont tu as besoin,<br/>au bon moment</h2>
-              <button onClick={() => setShowModal(true)} style={{background:'linear-gradient(135deg,#c8a060,#e8c070)', color:'#1c1510', border:'none', padding:'16px 32px', borderRadius:'32px', fontSize:'16px', fontWeight:800, cursor:'pointer', boxShadow:'0 6px 24px rgba(200,160,96,0.5)', display:'block', marginBottom:'10px'}}>
+              <button onClick={() => setShowModal(true)} style={{background:'linear-gradient(135deg,#c8a060,#e8c070)', color:'#1c1510', border:'none', padding:'20px 48px', borderRadius:'32px', fontSize:'18px', fontWeight:800, cursor:'pointer', boxShadow:'0 8px 32px rgba(200,160,96,0.6), 0 2px 8px rgba(0,0,0,0.2)', display:'block', marginBottom:'12px', width:'100%', maxWidth:'320px'}}>
                 Accéder · 49,99€
               </button>
               <p style={{color:'rgba(255,255,255,0.35)', fontSize:'12px', margin:0}}>Satisfait ou remboursé sous 14 jours</p>
