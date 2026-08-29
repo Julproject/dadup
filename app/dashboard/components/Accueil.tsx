@@ -58,13 +58,13 @@ export default function Accueil({C,dpa,saReelle,joursRestants,prog,tri,idee,miss
 
       {/* CE QUE VIT MAMAN */}
       {dataR&&(
-        <div style={{background:'rgba(255,232,160,0.3)',borderRadius:'20px',padding:'20px 22px',border:'1px solid rgba(200,160,96,0.2)'}}>
-          <p style={{color:'#8A6010',fontSize:'10px',fontWeight:700,letterSpacing:'2px',textTransform:'uppercase' as const,margin:'0 0 10px'}}>Ce que vit maman</p>
-          <p style={{color:'#3A2000',fontSize:'16px',fontWeight:800,margin:'0 0 8px'}}>{dataR.maman_titre}</p>
-          <p style={{color:'#6a5020',fontSize:'14px',lineHeight:1.75,margin:'0 0 12px'}}>{dataR.maman}</p>
-          <div style={{background:'rgba(200,160,96,0.15)',borderRadius:'12px',padding:'12px 14px',borderLeft:'3px solid #c8a060'}}>
-            <p style={{color:'#8A6010',fontSize:'11px',fontWeight:700,margin:'0 0 4px',textTransform:'uppercase' as const,letterSpacing:'1px'}}>Ton rôle cette semaine</p>
-            <p style={{color:'#3A2000',fontSize:'13px',margin:0,lineHeight:1.6}}>{dataR.maman_aide}</p>
+        <div style={{background:'rgba(200,232,255,0.25)',borderRadius:'20px',padding:'20px 22px',border:'1px solid rgba(46,95,138,0.15)'}}>
+          <p style={{color:'#2E5F8A',fontSize:'10px',fontWeight:700,letterSpacing:'2px',textTransform:'uppercase' as const,margin:'0 0 10px'}}>Ce que vit maman</p>
+          <p style={{color:'#0A2847',fontSize:'16px',fontWeight:800,margin:'0 0 8px'}}>{dataR.maman_titre}</p>
+          <p style={{color:'#1A3D5C',fontSize:'14px',lineHeight:1.75,margin:'0 0 12px'}}>{dataR.maman}</p>
+          <div style={{background:'rgba(46,95,138,0.08)',borderRadius:'12px',padding:'12px 14px',borderLeft:'3px solid #2E5F8A'}}>
+            <p style={{color:'#2E5F8A',fontSize:'11px',fontWeight:700,margin:'0 0 4px',textTransform:'uppercase' as const,letterSpacing:'1px'}}>Ton rôle cette semaine</p>
+            <p style={{color:'#0A2847',fontSize:'13px',margin:0,lineHeight:1.6}}>{dataR.maman_aide}</p>
           </div>
         </div>
       )}
