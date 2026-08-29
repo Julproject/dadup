@@ -36,7 +36,7 @@ export default function RDVPage({C,dpa,saReelle,rdvDates,saveRdvI,rdvOuvert,setR
                     {/* Badge SA */}
                     <div style={{width:'38px',height:'38px',borderRadius:'12px',background:badgeBg,display:'flex',flexDirection:'column' as const,alignItems:'center',justifyContent:'center',flexShrink:0}}>
                       {s==='passe'
-                        ? <span style={{color:'#0D6B40',fontSize:'15px',fontWeight:800}}>✓</span>
+                        ? <span style={{color:'#0D6B40',fontSize:'16px',fontWeight:800}}>✓</span>
                         : <>
                             <span style={{color:badgeColor,fontSize:'12px',fontWeight:900,lineHeight:1}}>{r.sa}</span>
                             <span style={{color:badgeColor,fontSize:'8px',fontWeight:700,opacity:0.7}}>SA</span>
@@ -59,7 +59,7 @@ export default function RDVPage({C,dpa,saReelle,rdvDates,saveRdvI,rdvOuvert,setR
               {isOpen&&(
                 <div style={{background:'#faf6f0',padding:'16px 18px',borderTop:'1px solid #ede8e0'}} onClick={e=>e.stopPropagation()}>
                   <p style={{color:C.text,fontSize:'14px',lineHeight:1.75,margin:'0 0 14px'}}>{r.desc}</p>
-                  <a href="https://www.doctolib.fr" target="_blank" rel="noopener noreferrer" style={{display:'inline-flex',alignItems:'center',gap:'6px',background:'rgba(200,232,255,0.4)',color:'#0A2847',padding:'9px 16px',borderRadius:'20px',fontSize:'13px',fontWeight:700,textDecoration:'none',marginBottom:'14px',border:'1px solid rgba(46,95,138,0.15)'}}>
+                  <a href="https://www.doctolib.fr" target="_blank" rel="noopener noreferrer" style={{display:'inline-flex',alignItems:'center',gap:'6px',background:'rgba(200,232,255,0.4)',color:'#0A2847',padding:'9px 16px',borderRadius:'20px',fontSize:'14px',fontWeight:700,textDecoration:'none',marginBottom:'14px',border:'1px solid rgba(46,95,138,0.15)'}}>
                     Prendre RDV sur Doctolib →
                   </a>
                   <div>
