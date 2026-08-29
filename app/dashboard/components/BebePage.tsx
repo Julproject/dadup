@@ -27,7 +27,7 @@ export default function BebePage({C,saReelle,sa,data,dataR,avance,setAvance,dpa}
         <div style={{padding:'28px',position:'relative'}}>
           <p style={{color:'rgba(200,160,96,0.7)',fontSize:'10px',letterSpacing:'3px',textTransform:'uppercase' as const,margin:'0 0 8px',fontWeight:700}}>{sa} SA</p>
           <p style={{color:C.white,fontSize:'18px',fontWeight:800,margin:'0 0 6px'}}>{data.titre}</p>
-          <p style={{color:C.gold,fontSize:'44px',fontWeight:900,margin:0,lineHeight:1}}>{data.taille}</p>
+          <p style={{color:C.gold,fontSize:'56px',fontWeight:900,margin:0,lineHeight:1}}>{data.taille}</p>
           <p style={{color:'rgba(255,255,255,0.45)',fontSize:'14px',margin:'6px 0 0'}}>environ {data.poids}</p>
         </div>
       </div>
