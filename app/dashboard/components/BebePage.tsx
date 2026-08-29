@@ -5,7 +5,7 @@ export default function BebePage({C,saReelle,sa,data,dataR,avance,setAvance,dpa}
   
   const TITRE_STYLE = {color:C.dark, fontSize:'16px', fontWeight:800, margin:0};
   const TEXTE_STYLE = {color:C.text, fontSize:'14px', lineHeight:1.75, margin:0};
-  const LABEL_STYLE = {color:C.muted, fontSize:'10px', fontWeight:700, letterSpacing:'2px', textTransform:'uppercase' as const, margin:'0 0 6px'};
+  const LABEL_STYLE = {color:'#6a7585', fontSize:'11px', fontWeight:700, letterSpacing:'2px', textTransform:'uppercase' as const, margin:'0 0 6px'};
 
   return (
     <div style={{display:'flex',flexDirection:'column',gap:'20px'}}>
@@ -40,7 +40,7 @@ export default function BebePage({C,saReelle,sa,data,dataR,avance,setAvance,dpa}
       {/* DÉVELOPPEMENT */}
       <div style={{background:'#fff',borderRadius:'18px',padding:'20px 22px',boxShadow:'0 2px 12px rgba(0,0,0,0.05)'}}>
         <p style={{...LABEL_STYLE, marginBottom:'10px'}}>Développement</p>
-        <p style={{color:C.dark,fontSize:'16px',fontWeight:800,margin:'0 0 10px'}}>{data.titre}</p>
+        <p style={{color:C.dark,fontSize:'14px',fontWeight:700,margin:'0 0 10px'}}>{data.titre}</p>
         <p style={TEXTE_STYLE}>{data.developpement}</p>
       </div>
 
