@@ -185,7 +185,7 @@ export default function DicoPapa({ C: propC, isPost = false }: { C?: any; isPost
         <div style={{ display: 'flex', gap: '6px', overflowX: 'auto' as const, paddingBottom: '2px' }}>
           <button
             onClick={() => setCat(null)}
-            style={{ flexShrink: 0, padding: '6px 14px', fontSize: '12px', fontWeight: 700, border: 'none', borderRadius: '20px', cursor: 'pointer', background: !catActive ? 'linear-gradient(135deg,#0a1f32,#1A3D5C)' : '#fff', color: !catActive ? '#fff' : '#6a7585', boxShadow: !catActive ? '0 4px 12px rgba(26,61,92,0.25)' : '0 1px 4px rgba(0,0,0,0.06)', border: !catActive ? 'none' : '1px solid #ede8e0' }}
+            style={{ flexShrink: 0, padding: '6px 14px', fontSize: '12px', fontWeight: 700, borderRadius: '20px', cursor: 'pointer', background: !catActive ? 'linear-gradient(135deg,#0a1f32,#1A3D5C)' : '#fff', color: !catActive ? '#fff' : '#6a7585', boxShadow: !catActive ? '0 4px 12px rgba(26,61,92,0.25)' : '0 1px 4px rgba(0,0,0,0.06)', border: !catActive ? 'none' : '1px solid #ede8e0' }}
           >
             Tous
           </button>
