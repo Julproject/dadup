@@ -12,13 +12,13 @@ export default function BebePage({C,saReelle,sa,data,dataR,avance,setAvance,dpa}
           <h2 style={{color:C.dark,fontSize:'26px',fontWeight:800,margin:0}}>{sa} semaines</h2>
         </div>
         <div style={{display:'flex',gap:'8px'}}>
-          <button onClick={()=>setAvance((a:number)=>Math.max(-1,a-1))} disabled={avance<=-1} style={{fontSize:'11px',padding:'8px 14px',borderRadius:'20px',cursor:'pointer',background:'#E6F0FA',color:'#1A4A7A',border:'none',fontWeight:700,opacity:avance<=-1?0.4:1}}>← Précédente</button>
-          <button onClick={()=>setAvance((a:number)=>Math.min(1,a+1))} disabled={avance>=1} style={{fontSize:'11px',padding:'8px 14px',borderRadius:'20px',cursor:'pointer',background:'#E6F0FA',color:'#1A4A7A',border:'none',fontWeight:700,opacity:avance>=1?0.4:1}}>Suivante →</button>
+          <button onClick={()=>setAvance((a:number)=>Math.max(-1,a-1))} disabled={avance<=-1} style={{fontSize:'11px',padding:'8px 14px',borderRadius:'20px',cursor:'pointer',background:'#C8E8FF',color:'#0A2847',border:'none',fontWeight:700,boxShadow:'0 2px 8px rgba(46,95,138,0.1)',opacity:avance<=-1?0.4:1}}>← Précédente</button>
+          <button onClick={()=>setAvance((a:number)=>Math.min(1,a+1))} disabled={avance>=1} style={{fontSize:'11px',padding:'8px 14px',borderRadius:'20px',cursor:'pointer',background:'#C8E8FF',color:'#0A2847',border:'none',fontWeight:700,boxShadow:'0 2px 8px rgba(46,95,138,0.1)',opacity:avance>=1?0.4:1}}>Suivante →</button>
         </div>
       </div>
 
       {/* HERO BÉBÉ */}
-      <div style={{background:C.blue,borderRadius:'22px',overflow:'hidden'}}>
+      <div style={{background:'linear-gradient(135deg,#0a1f32 0%,#1A3D5C 50%,#1d4d72 100%)',borderRadius:'22px',overflow:'hidden',position:'relative'}}>
         <div style={{padding:'28px',position:'relative'}}>
 
           <div style={{position:'relative'}}>
@@ -39,7 +39,7 @@ export default function BebePage({C,saReelle,sa,data,dataR,avance,setAvance,dpa}
       </div>
 
       {/* INTRODUCTION */}
-      <div style={{background:'#E4F5EC',borderRadius:'18px',padding:'20px 22px'}}>
+      <div style={{background:'rgba(184,240,216,0.4)',borderRadius:'18px',padding:'20px 22px',border:'1px solid rgba(13,107,64,0.15)'}}>
         <p style={{color:'#0D6B40',fontSize:'10px',fontWeight:700,letterSpacing:'2px',textTransform:'uppercase' as const,margin:'0 0 8px'}}>Introduction</p>
         <p style={{color:'#0A2E1A',fontSize:'14px',lineHeight:1.75,margin:0}}>{data.intro}</p>
       </div>
@@ -62,7 +62,7 @@ export default function BebePage({C,saReelle,sa,data,dataR,avance,setAvance,dpa}
           </div>
           <div style={{display:'flex',flexWrap:'wrap' as const,gap:'8px',paddingLeft:'13px'}}>
             {data.organes.map((o:string,i:number)=>(
-              <span key={i} style={{background:'#E6F0FA',border:'none',borderRadius:'20px',padding:'6px 14px',fontSize:'13px',fontWeight:600,color:'#1A4A7A'}}>{o}</span>
+              <span key={i} style={{background:'#C8E8FF',border:'none',borderRadius:'20px',padding:'6px 14px',fontSize:'13px',fontWeight:700,color:'#0A2847'}}>{o}</span>
             ))}
           </div>
         </div>
@@ -83,7 +83,7 @@ export default function BebePage({C,saReelle,sa,data,dataR,avance,setAvance,dpa}
           </div>
           <div style={{display:'flex',flexDirection:'column',gap:'10px',paddingLeft:'13px'}}>
             {data.faq.map((f:any,i:number)=>(
-              <div key={i} style={{background:'#E6F0FA',borderRadius:'14px',padding:'16px 18px'}}>
+              <div key={i} style={{background:'#C8E8FF',borderRadius:'14px',padding:'16px 18px',boxShadow:'0 4px 16px rgba(46,95,138,0.1)'}}>
                 <p style={{color:'#1A3D5C',fontSize:'14px',fontWeight:700,margin:'0 0 6px'}}>{f.q}</p>
                 <p style={{color:'#1A3A6A',fontSize:'13px',lineHeight:1.65,margin:0}}>{f.r}</p>
               </div>
