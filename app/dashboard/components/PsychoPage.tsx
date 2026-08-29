@@ -359,8 +359,8 @@ export default function PsychoPage({ C: propC, saReelle }: any) {
 
       <div style={{background:Cs.blueDark,borderRadius:'24px',padding:'26px 28px'}}>
         <p style={{color:'rgba(200,220,240,0.55)',fontSize:'10px',fontWeight:700,letterSpacing:'3px',textTransform:'uppercase' as const,margin:'0 0 8px'}}>Psychologie du papa</p>
-        <h2 style={{color:Cs.white,fontSize:'20px',fontWeight:800,margin:'0 0 8px',lineHeight:1.3}}>Cette semaine, une info pour toi.</h2>
-        <p style={{color:'rgba(255,255,255,0.5)',fontSize:'13px',margin:0}}>Pour te guider, te rassurer, t'impliquer.</p>
+        <h2 style={{color:Cs.white,fontSize:'22px',fontWeight:800,margin:'0 0 8px',lineHeight:1.3}}>Cette semaine, une info pour toi.</h2>
+        <p style={{color:'rgba(255,255,255,0.5)',fontSize:'14px',margin:0}}>Pour te guider, te rassurer, t'impliquer.</p>
       </div>
 
       <div style={{display:'flex',alignItems:'center',gap:'10px',flexWrap:'wrap' as const}}>
@@ -369,24 +369,24 @@ export default function PsychoPage({ C: propC, saReelle }: any) {
       </div>
 
       <div style={{background:tc.bg,borderRadius:'24px',padding:'28px'}}>
-        <h3 style={{color:Cs.dark,fontSize:'20px',fontWeight:800,margin:'0 0 14px',lineHeight:1.3}}>{semaine.titre}</h3>
+        <h3 style={{color:Cs.dark,fontSize:'18px',fontWeight:800,margin:'0 0 14px',lineHeight:1.3}}>{semaine.titre}</h3>
         <p style={{color:tc.tc,fontSize:'14px',fontWeight:600,lineHeight:1.7,margin:0,fontStyle:'italic'}}>{semaine.intro}</p>
       </div>
 
       <div style={{display:'flex',flexDirection:'column',gap:'16px'}}>
         {paragraphes.map((para, i) => (
-          <p key={i} style={{color:Cs.dark,fontSize:'15px',lineHeight:1.8,margin:0}}>{para}</p>
+          <p key={i} style={{color:Cs.dark,fontSize:'16px',lineHeight:1.8,margin:0}}>{para}</p>
         ))}
       </div>
 
       <div style={{background:'linear-gradient(135deg,#0a1f32,#1A3D5C)',borderRadius:'20px',padding:'22px 24px'}}>
         <p style={{color:Cs.gold,fontSize:'10px',fontWeight:700,letterSpacing:'2px',textTransform:'uppercase' as const,margin:'0 0 10px'}}>Cette semaine</p>
-        <p style={{color:Cs.white,fontSize:'15px',fontWeight:600,lineHeight:1.7,margin:0}}>{semaine.conseil}</p>
+        <p style={{color:Cs.white,fontSize:'16px',fontWeight:600,lineHeight:1.7,margin:0}}>{semaine.conseil}</p>
       </div>
 
       <div style={{background:Cs.cream,borderRadius:'20px',padding:'22px 24px',textAlign:'center' as const,border:`1px solid ${Cs.border}`}}>
-        <p style={{color:Cs.dark,fontSize:'15px',fontWeight:700,margin:'0 0 6px'}}>Tu traverses quelque chose de difficile ?</p>
-        <p style={{color:Cs.muted,fontSize:'13px',margin:'0 0 16px',lineHeight:1.6}}>Un psychologue périnatal peut t'aider. C'est fait pour ça.</p>
+        <p style={{color:Cs.dark,fontSize:'16px',fontWeight:700,margin:'0 0 6px'}}>Tu traverses quelque chose de difficile ?</p>
+        <p style={{color:Cs.muted,fontSize:'14px',margin:'0 0 16px',lineHeight:1.6}}>Un psychologue périnatal peut t'aider. C'est fait pour ça.</p>
         <a
           href="https://www.doctolib.fr/psychologue"
           target="_blank"
