@@ -305,7 +305,7 @@ export default function PreparerPage({C, valiseChecked, toggleV, achatChecked, t
             flex:1, padding:'12px 8px', borderRadius:'16px', cursor:'pointer',
             background: onglet===t.id ? 'linear-gradient(135deg,#0a1f32,#1A3D5C)' : t.inactiveBg,
             color: onglet===t.id ? '#fff' : t.inactiveColor,
-            fontWeight:700, fontSize:'13px', transition:'all 0.15s',
+            fontWeight:700, fontSize:'14px', transition:'all 0.15s',
             boxShadow: onglet===t.id ? '0 4px 16px rgba(26,61,92,0.25)' : '0 2px 8px rgba(0,0,0,0.04)',
             border: onglet===t.id ? 'none' : `1px solid ${t.inactiveBorder}`,
           }}>
@@ -348,7 +348,7 @@ export default function PreparerPage({C, valiseChecked, toggleV, achatChecked, t
 
               {/* Info contextuelle */}
               {'info' in groupe && (groupe as any).info && (
-                <p style={{fontSize:'13px',color:'#6a7585',lineHeight:1.7,margin:'0 0 14px',paddingLeft:'0'}}>{(groupe as any).info}</p>
+                <p style={{fontSize:'14px',color:'#6a7585',lineHeight:1.7,margin:'0 0 14px',paddingLeft:'0'}}>{(groupe as any).info}</p>
               )}
 
               {/* Items */}
