@@ -163,7 +163,7 @@ export default function DicoPapa({ C: propC, isPost = false }: { C?: any; isPost
       <div style={{ background: 'linear-gradient(135deg,#0a1f32,#1A3D5C)', borderRadius: '18px', padding: '20px 24px', position: 'relative', overflow: 'hidden' }}>
         <p style={{ color: '#c8a060', fontSize: '11px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase' as const, margin: '0 0 6px' }}>Grossesse</p>
         <p style={{ color: '#fff', fontSize: '22px', fontWeight: 800, margin: '0 0 4px' }}>Dictionnaire</p>
-        <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '13px', margin: 0 }}>{TERMES.length} termes expliqués en langage simple</p>
+        <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '14px', margin: 0 }}>{TERMES.length} termes expliqués en langage simple</p>
       </div>
 
       {/* Recherche */}
@@ -203,7 +203,7 @@ export default function DicoPapa({ C: propC, isPost = false }: { C?: any; isPost
 
       {/* Nombre de résultats si recherche */}
       {search && (
-        <p style={{ color: '#9aa0a8', fontSize: '13px', margin: 0 }}>
+        <p style={{ color: '#9aa0a8', fontSize: '14px', margin: 0 }}>
           {filtered.length} résultat{filtered.length !== 1 ? 's' : ''} pour "{search}"
         </p>
       )}
@@ -227,7 +227,7 @@ export default function DicoPapa({ C: propC, isPost = false }: { C?: any; isPost
                 style={{ width: '100%', display: 'flex', alignItems: 'center', gap: '10px', padding: '13px 16px', background: 'none', border: 'none', cursor: 'pointer', textAlign: 'left' as const }}
               >
                 <span style={{ width: '7px', height: '7px', borderRadius: '50%', background: col.tc, flexShrink: 0, opacity: 0.7 }} />
-                <span style={{ color: isOpen ? col.tc : '#1e2535', fontSize: '15px', fontWeight: 700, flex: 1, lineHeight: 1.3 }}>{t.mot}</span>
+                <span style={{ color: isOpen ? col.tc : '#1e2535', fontSize: '16px', fontWeight: 700, flex: 1, lineHeight: 1.3 }}>{t.mot}</span>
                 <span style={{ color: '#ccc', fontSize: '16px', flexShrink: 0 }}>{isOpen ? '−' : '+'}</span>
               </button>
               {isOpen && (
