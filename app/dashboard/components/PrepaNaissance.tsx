@@ -44,7 +44,7 @@ export default function PrepaNaissance({ C, saReelle }: { C: any; saReelle: numb
             Les contractions de travail sont régulières, progressivement plus intenses, plus longues et plus rapprochées. Elles ne passent pas avec le mouvement ou le repos.
           </p>
 
-          <div style={{ background: '#E4F5EC', borderRadius: '12px', padding: '14px 16px' }}>
+          <div style={{ background: 'rgba(184,240,216,0.4)', borderRadius: '12px', padding: '14px 16px' }}>
             <p style={{ color: '#0D6B40', fontSize: '12px', fontWeight: 700, letterSpacing: '1px', textTransform: 'uppercase' as const, margin: '0 0 8px' }}>La règle 5-1-1</p>
             <p style={{ color: '#0A3020', fontSize: '13px', lineHeight: 1.7, margin: 0 }}>
               Contractions toutes les <strong>5 minutes</strong>, qui durent <strong>1 minute</strong>, depuis <strong>1 heure</strong> minimum. À ce stade, appelle la maternité avant de partir.
@@ -54,7 +54,7 @@ export default function PrepaNaissance({ C, saReelle }: { C: any; saReelle: numb
           <div>
             <p style={{ color: '#1e2535', fontSize: '13px', fontWeight: 700, margin: '0 0 8px' }}>Vraies contractions vs fausses (Braxton-Hicks)</p>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '10px' }}>
-              <div style={{ background: '#E4F5EC', borderRadius: '10px', padding: '12px' }}>
+              <div style={{ background: 'rgba(184,240,216,0.4)', borderRadius: '10px', padding: '12px' }}>
                 <p style={{ color: '#0D6B40', fontSize: '12px', fontWeight: 700, margin: '0 0 6px' }}>Vraies contractions</p>
                 <ul style={{ color: '#0A3020', fontSize: '12px', lineHeight: 1.7, margin: 0, paddingLeft: '14px' }}>
                   <li>Régulières</li>
@@ -77,7 +77,7 @@ export default function PrepaNaissance({ C, saReelle }: { C: any; saReelle: numb
             </div>
           </div>
 
-          <div style={{ background: '#EDE8FF', borderRadius: '12px', padding: '14px 16px' }}>
+          <div style={{ background: 'rgba(221,208,255,0.4)', borderRadius: '12px', padding: '14px 16px' }}>
             <p style={{ color: '#8A0000', fontSize: '12px', fontWeight: 700, margin: '0 0 6px' }}>Partir immédiatement si</p>
             <ul style={{ color: '#6A0000', fontSize: '13px', lineHeight: 1.7, margin: 0, paddingLeft: '16px' }}>
               <li>La poche des eaux se rompt (liquide clair, rosé ou verdâtre)</li>
@@ -103,7 +103,7 @@ export default function PrepaNaissance({ C, saReelle }: { C: any; saReelle: numb
             <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
               {CHECKLIST_VALISE.map((item, i) => (
                 <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
-                  <div style={{ width: '18px', height: '18px', borderRadius: '4px', background: '#E6F0FA', border: '1.5px solid #aac0d8', flexShrink: 0, marginTop: '1px' }} />
+                  <div style={{ width: '18px', height: '18px', borderRadius: '4px', background: '#C8E8FF', border: '1.5px solid rgba(46,95,138,0.3)', flexShrink: 0, marginTop: '1px' }} />
                   <p style={{ color: '#1e2535', fontSize: '13px', lineHeight: 1.5, margin: 0 }}>{item}</p>
                 </div>
               ))}
@@ -114,13 +114,13 @@ export default function PrepaNaissance({ C, saReelle }: { C: any; saReelle: numb
             <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
               {CHECKLIST_BEBE.map((item, i) => (
                 <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
-                  <div style={{ width: '18px', height: '18px', borderRadius: '4px', background: '#E4F5EC', border: '1.5px solid #80c8a0', flexShrink: 0, marginTop: '1px' }} />
+                  <div style={{ width: '18px', height: '18px', borderRadius: '4px', background: 'rgba(184,240,216,0.4)', border: '1.5px solid rgba(13,107,64,0.3)', flexShrink: 0, marginTop: '1px' }} />
                   <p style={{ color: '#1e2535', fontSize: '13px', lineHeight: 1.5, margin: 0 }}>{item}</p>
                 </div>
               ))}
             </div>
           </div>
-          <div style={{ background: '#FFF7E0', borderRadius: '12px', padding: '12px 14px' }}>
+          <div style={{ background: 'rgba(255,232,160,0.4)', borderRadius: '12px', padding: '12px 14px' }}>
             <p style={{ color: '#8A6010', fontSize: '12px', fontWeight: 700, margin: '0 0 4px' }}>Toi aussi tu prépares ta valise</p>
             <p style={{ color: '#5a4010', fontSize: '12px', lineHeight: 1.6, margin: 0 }}>
               Vêtements confortables, chargeur, en-cas, livre ou série sur le téléphone. Le travail peut durer plusieurs heures.
@@ -273,7 +273,7 @@ export default function PrepaNaissance({ C, saReelle }: { C: any; saReelle: numb
       })}
 
       {/* BOUTON BÉBÉ EST NÉ */}
-      <div style={{ background: '#EDE8FF', borderRadius: '16px', padding: '20px 24px', marginTop: '24px', textAlign: 'center' as const }}>
+      <div style={{ background: 'rgba(221,208,255,0.4)', borderRadius: '16px', padding: '20px 24px', marginTop: '24px', textAlign: 'center' as const }}>
         <p style={{ color: '#6B4FBB', fontSize: '13px', margin: '0 0 12px', lineHeight: 1.6 }}>
           Bébé est là ? Bascule en mode post-partum pour accéder au contenu de la première année.
         </p>
