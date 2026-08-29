@@ -288,7 +288,7 @@ export default function PreparerPage({C, valiseChecked, toggleV, achatChecked, t
           {id:'conge',  label:`Congé paternité`,  done:0,     total:0},
         ] as const).map(t => (
           <button key={t.id} onClick={()=>setOnglet(t.id)} style={{
-            flex:1, padding:'12px 8px', border:'none', borderRadius:'16px', cursor:'pointer',
+            flex:1, padding:'12px 8px', borderRadius:'16px', cursor:'pointer',
             background: onglet===t.id ? 'linear-gradient(135deg,#0a1f32,#1A3D5C)' : '#fff',
             color: onglet===t.id ? '#fff' : C.dark,
             fontWeight:700, fontSize:'13px', transition:'all 0.15s',
