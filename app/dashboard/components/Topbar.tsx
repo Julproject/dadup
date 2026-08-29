@@ -12,22 +12,22 @@ export default function Topbar({ prenom, dpa, saReelle, tri, prog, isPost, moisB
   onDeclareNaissance: () => void;
 }) {
   const navGrossesse = [
-    { id: 'home',     label: 'Accueil',    bg: '#FFE8D6', tc: '#A03020' },
-    { id: 'bebe',     label: 'Bébé',       bg: '#B8F0D8', tc: '#0A2E1A' },
-    { id: 'rdv',      label: 'RDV',        bg: '#C8E8FF', tc: '#0A2847' },
-    { id: 'pratique', label: 'À préparer', bg: '#FFE8A0', tc: '#3A2000' },
-    { id: 'psycho',   label: 'Psycho',     bg: '#DDD0FF', tc: '#1A0A4A' },
-    { id: 'jourj',    label: 'Jour J',     bg: '#FFD0D0', tc: '#4A0A0A' },
-    { id: 'dico',     label: 'Dico',       bg: '#B8F0D8', tc: '#0A2E1A' },
+    { id: 'home',     label: 'Accueil'    },
+    { id: 'bebe',     label: 'Bébé'       },
+    { id: 'rdv',      label: 'RDV'        },
+    { id: 'pratique', label: 'À préparer' },
+    { id: 'psycho',   label: 'Psycho'     },
+    { id: 'jourj',    label: 'Jour J'     },
+    { id: 'dico',     label: 'Dico'       },
   ];
 
   const navPost = [
-    { id: 'home',    label: 'Ce mois-ci',  bg: '#B8F0D8', tc: '#0A2E1A' },
-    { id: 'bebe',    label: 'Mon bébé',    bg: '#C8E8FF', tc: '#0A2847' },
-    { id: 'rdv',     label: 'Santé & RDV', bg: '#FFE8D6', tc: '#A03020' },
-    { id: 'suivi',   label: 'Suivi J7',    bg: '#DDD0FF', tc: '#1A0A4A' },
-    { id: 'atelier', label: 'Atelier',     bg: '#FFE8A0', tc: '#3A2000' },
-    { id: 'dico',    label: 'Dico',        bg: '#B8F0D8', tc: '#0A2E1A' },
+    { id: 'home',    label: 'Ce mois-ci'  },
+    { id: 'bebe',    label: 'Mon bébé'    },
+    { id: 'rdv',     label: 'Santé & RDV' },
+    { id: 'suivi',   label: 'Suivi J7'    },
+    { id: 'atelier', label: 'Atelier'     },
+    { id: 'dico',    label: 'Dico'        },
   ];
 
   const tabs = isPost ? navPost : navGrossesse;
@@ -76,9 +76,9 @@ export default function Topbar({ prenom, dpa, saReelle, tri, prog, isPost, moisB
               <button key={n.id} onClick={() => setActiveTab(n.id)} className="tab-btn" style={{
                 padding: '9px 20px', fontSize: '13px', fontWeight: 800, border: 'none',
                 borderRadius: '24px', cursor: 'pointer', whiteSpace: 'nowrap' as const, flexShrink: 0,
-                background: on ? 'linear-gradient(135deg,#0a1f32,#1A3D5C)' : n.bg,
-                color: on ? '#fff' : n.tc,
-                boxShadow: on ? '0 4px 16px rgba(26,61,92,0.3)' : '0 2px 8px rgba(0,0,0,0.05)',
+                background: on ? 'linear-gradient(135deg,#0a1f32,#1A3D5C)' : '#ffffff',
+                color: on ? '#fff' : '#1e2535',
+                boxShadow: on ? '0 4px 16px rgba(26,61,92,0.3)' : '0 1px 4px rgba(0,0,0,0.08)',
               }}>{n.label}</button>
             );
           })}
