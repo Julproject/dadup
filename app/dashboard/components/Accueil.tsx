@@ -80,8 +80,8 @@ export default function Accueil({C,dpa,saReelle,joursRestants,prog,tri,idee,miss
 
       {/* À SAVOIR */}
       {dataR&&(
-        <div style={{background:'rgba(184,240,216,0.3)',borderRadius:'20px',padding:'20px 22px',border:'1px solid rgba(13,107,64,0.15)'}}>
-          <p style={{color:'#0D6B40',fontSize:'10px',fontWeight:700,letterSpacing:'2px',textTransform:'uppercase' as const,margin:'0 0 10px'}}>À savoir cette semaine</p>
+        <div style={{background:'rgba(200,232,255,0.25)',borderRadius:'20px',padding:'20px 22px',border:'1px solid rgba(46,95,138,0.15)'}}>
+          <p style={{color:'#2E5F8A',fontSize:'10px',fontWeight:700,letterSpacing:'2px',textTransform:'uppercase' as const,margin:'0 0 10px'}}>À savoir cette semaine</p>
           <p style={{color:'#0A2847',fontSize:'16px',fontWeight:800,margin:'0 0 8px'}}>{dataR.doc_titre}</p>
           <p style={{color:'#1A3D5C',fontSize:'14px',lineHeight:1.75,margin:0}}>{dataR.doc}</p>
         </div>
