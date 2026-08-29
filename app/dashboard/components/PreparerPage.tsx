@@ -162,45 +162,59 @@ function genererPDF(valiseChecked: Record<string,boolean>, maisonChecked: Record
 
   const html = `<!DOCTYPE html>
 <html lang="fr"><head><meta charset="UTF-8"/>
-<title>Checklist DadUp</title>
+<title>Notre checklist · DadUp</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#1e2535;padding:36px;max-width:680px;margin:0 auto;}
-.header{text-align:center;margin-bottom:28px;padding-bottom:20px;border-bottom:2px solid #f0ede8;}
-.logo{font-size:22px;font-weight:900;margin-bottom:4px;}
-.sub{font-size:13px;color:#9aa0a8;}
-.date{font-size:11px;color:#c8c0b8;margin-top:3px;}
-.stats{display:flex;gap:10px;margin-bottom:24px;}
-.stat{flex:1;text-align:center;padding:12px;border-radius:10px;background:#f7f5f0;}
-.stat-n{font-size:22px;font-weight:800;color:#2E5F8A;}
-.stat-l{font-size:11px;color:#9aa0a8;margin-top:2px;}
-.section-title{font-size:13px;font-weight:800;color:#1e2535;margin:20px 0 12px;padding-bottom:6px;border-bottom:2px solid #f0ede8;}
-.groupe{margin-bottom:16px;}
-.groupe-titre{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#9aa0a8;margin-bottom:8px;}
-.item{display:flex;align-items:center;gap:9px;padding:7px 0;border-bottom:1px solid #fafafa;}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#1e2535;background:#faf6f0;padding:0;max-width:720px;margin:0 auto;}
+.hero{background:linear-gradient(135deg,#0a1f32 0%,#1A3D5C 100%);padding:40px 36px 32px;text-align:center;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(200,160,96,0.2) 0%,transparent 65%);}
+.logo{font-size:26px;font-weight:900;color:#fff;margin-bottom:4px;letter-spacing:-0.5px;}
+.logo span{color:#c8a060;}
+.hero-sub{font-size:14px;color:rgba(255,255,255,0.6);margin-bottom:24px;}
+.hero-date{font-size:12px;color:rgba(255,255,255,0.35);}
+.stats{display:flex;gap:12px;padding:24px 36px;background:#fff;border-bottom:1px solid #ede8e0;}
+.stat{flex:1;text-align:center;padding:16px;border-radius:16px;background:#faf6f0;}
+.stat-n{font-size:28px;font-weight:900;color:#1A3D5C;line-height:1;}
+.stat-l{font-size:12px;color:#9aa0a8;margin-top:4px;}
+.section{padding:28px 36px;}
+.section-title{font-size:14px;font-weight:800;color:#6a7585;letter-spacing:2px;text-transform:uppercase;margin:0 0 20px;display:flex;align-items:center;gap:10px;}
+.section-title::after{content:'';flex:1;height:1px;background:#ede8e0;}
+.groupe{margin-bottom:24px;}
+.groupe-titre{font-size:16px;font-weight:800;color:#1e2535;margin-bottom:12px;}
+.groupe-info{font-size:13px;color:#6a7585;line-height:1.7;margin:-4px 0 12px;font-style:italic;}
+.items{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.06);}
+.item{display:flex;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid #f7f5f0;}
 .item:last-child{border:none;}
-.check{width:16px;height:16px;border-radius:4px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;}
+.check{width:20px;height:20px;border-radius:6px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;}
 .ck-done{background:#0D6B40;color:white;}
-.ck-todo{border:1.5px solid #ccc;}
-.lbl-done{font-size:13px;color:#0D6B40;text-decoration:line-through;opacity:0.6;}
-.lbl-todo{font-size:13px;color:#1e2535;}
-.footer{margin-top:28px;padding-top:14px;border-top:1px solid #f0ede8;text-align:center;color:#c8c0b8;font-size:10px;}
-@media print{body{padding:16px;}}
+.ck-todo{border:2px solid #d8d0c8;}
+.lbl-done{font-size:14px;color:#9aa0a8;text-decoration:line-through;}
+.lbl-todo{font-size:14px;color:#1e2535;}
+.footer{background:#1A3D5C;padding:24px 36px;text-align:center;}
+.footer-text{color:rgba(255,255,255,0.4);font-size:12px;margin-bottom:4px;}
+.footer-slogan{color:rgba(255,255,255,0.6);font-size:13px;font-style:italic;}
+@media print{body{background:white;}.hero{-webkit-print-color-adjust:exact;print-color-adjust:exact;}.items{box-shadow:none;}}
 </style></head><body>
-  <div class="header">
-    <div class="logo">DadUp</div>
-    <div class="sub">Checklist - Valise & Maison</div>
-    <div class="date">Générée le ${new Date().toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long',year:'numeric'})}</div>
+  <div class="hero">
+    <div class="logo">Dad<span>Up</span></div>
+    <div class="hero-sub">Notre checklist pour accueillir bébé</div>
+    <div class="hero-date">Préparée le ${new Date().toLocaleDateString('fr-FR',{day:'numeric',month:'long',year:'numeric'})}</div>
   </div>
   <div class="stats">
-    <div class="stat"><div class="stat-n">${doneV}/${allValise.length}</div><div class="stat-l">Valise prête</div></div>
-    <div class="stat"><div class="stat-n">${doneM}/${allMaison.length}</div><div class="stat-l">Maison prête</div></div>
+    <div class="stat"><div class="stat-n">${doneV}<span style="font-size:16px;color:#9aa0a8">/${allValise.length}</span></div><div class="stat-l">Valise prête</div></div>
+    <div class="stat"><div class="stat-n">${doneM}<span style="font-size:16px;color:#9aa0a8">/${allMaison.length}</span></div><div class="stat-l">Maison prête</div></div>
+    <div class="stat"><div class="stat-n" style="font-size:20px;color:#c8a060">${doneV+doneM}<span style="font-size:14px;color:#9aa0a8">/${allValise.length+allMaison.length}</span></div><div class="stat-l">Total coché</div></div>
   </div>
-  <div class="section-title">Valise maternité</div>
-  ${VALISE.map(g => renderGroupe(g, valiseChecked)).join('')}
-  <div class="section-title">À préparer à la maison</div>
-  ${MAISON.map(g => renderGroupe(g, maisonChecked)).join('')}
-  <div class="footer">DadUp · dadup.fr</div>
+  <div class="section">
+    <div class="section-title">Valise maternité</div>
+    ${VALISE.map(g => renderGroupe(g, valiseChecked)).join('')}
+    <div class="section-title" style="margin-top:32px;">À préparer à la maison</div>
+    ${MAISON.map(g => renderGroupe(g, maisonChecked)).join('')}
+  </div>
+  <div class="footer">
+    <div class="footer-text">dadup.fr · Préparé avec amour</div>
+    <div class="footer-slogan">À deux, dès le premier jour</div>
+  </div>
 </body></html>`;
 
   const blob = new Blob([html], {type:'text/html;charset=utf-8'});
@@ -385,7 +399,7 @@ export default function PreparerPage({C, valiseChecked, toggleV, achatChecked, t
             onClick={() => genererPDF(valiseChecked, maisonChecked)}
             style={{display:'inline-flex',alignItems:'center',gap:'8px',background:'linear-gradient(135deg,#c8a060,#e8c070)',color:'#1c1510',border:'none',padding:'14px 28px',borderRadius:'32px',fontSize:'14px',fontWeight:800,cursor:'pointer',boxShadow:'0 6px 20px rgba(200,160,96,0.4)'}}
           >
-            Partager la checklist avec la maman
+            Partager avec la maman
           </button>
           <p style={{color:C.muted,fontSize:'12px',marginTop:'8px'}}>Génère un PDF imprimable avec tout ce qui est coché</p>
         </div>
