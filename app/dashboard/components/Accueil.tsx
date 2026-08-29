@@ -39,7 +39,7 @@ export default function Accueil({C,dpa,saReelle,joursRestants,prog,tri,idee,miss
       {/* PROCHAIN RDV */}
       {nextRdv&&(
         <div style={{background:'rgba(200,232,255,0.3)',borderRadius:'20px',padding:'20px 22px',border:'1px solid rgba(46,95,138,0.15)'}}>
-          <p style={{color:'#2E5F8A',fontSize:'10px',fontWeight:700,letterSpacing:'2px',textTransform:'uppercase' as const,margin:'0 0 12px'}}>Prochain rendez-vous</p>
+          <p style={{color:'#2E5F8A',fontSize:'11px',fontWeight:700,letterSpacing:'2px',textTransform:'uppercase' as const,margin:'0 0 12px'}}>Prochain rendez-vous</p>
           <div style={{display:'flex',alignItems:'center',gap:'14px',marginBottom:'14px'}}>
             <div style={{width:'48px',height:'48px',borderRadius:'14px',background:'#C8E8FF',display:'flex',alignItems:'center',justifyContent:'center',flexShrink:0,fontSize:'22px',boxShadow:'0 4px 12px rgba(46,95,138,0.15)'}}>{nextRdv.emoji}</div>
             <div style={{flex:1}}>
@@ -59,7 +59,7 @@ export default function Accueil({C,dpa,saReelle,joursRestants,prog,tri,idee,miss
       {/* CE QUE VIT MAMAN */}
       {dataR&&(
         <div style={{background:'rgba(184,240,216,0.3)',borderRadius:'20px',padding:'20px 22px',border:'1px solid rgba(13,107,64,0.15)'}}>
-          <p style={{color:'#0D6B40',fontSize:'10px',fontWeight:700,letterSpacing:'2px',textTransform:'uppercase' as const,margin:'0 0 10px'}}>Ce que vit maman</p>
+          <p style={{color:'#0D6B40',fontSize:'11px',fontWeight:700,letterSpacing:'2px',textTransform:'uppercase' as const,margin:'0 0 10px'}}>Ce que vit maman</p>
           <p style={{color:'#0A2E1A',fontSize:'16px',fontWeight:800,margin:'0 0 8px'}}>{dataR.maman_titre}</p>
           <p style={{color:'#0D4A2E',fontSize:'14px',lineHeight:1.75,margin:'0 0 12px'}}>{dataR.maman}</p>
           <div style={{background:'rgba(184,240,216,0.5)',borderRadius:'12px',padding:'12px 14px',borderLeft:'3px solid #0D6B40'}}>
@@ -73,7 +73,7 @@ export default function Accueil({C,dpa,saReelle,joursRestants,prog,tri,idee,miss
       {dataR&&(
         <div style={{background:'linear-gradient(135deg,#0a1f32,#1A3D5C)',borderRadius:'20px',padding:'20px 22px',position:'relative',overflow:'hidden'}}>
           <div style={{position:'absolute',top:'-20px',right:'-20px',width:'100px',height:'100px',borderRadius:'50%',background:'radial-gradient(circle,rgba(200,160,96,0.15) 0%,transparent 65%)'}}></div>
-          <p style={{color:'rgba(200,160,96,0.7)',fontSize:'10px',fontWeight:700,letterSpacing:'2px',textTransform:'uppercase' as const,margin:'0 0 12px',position:'relative',zIndex:1}}>Le savais-tu</p>
+          <p style={{color:'rgba(200,160,96,0.7)',fontSize:'11px',fontWeight:700,letterSpacing:'2px',textTransform:'uppercase' as const,margin:'0 0 12px',position:'relative',zIndex:1}}>Le savais-tu</p>
           <p style={{color:'rgba(255,255,255,0.9)',fontSize:'15px',lineHeight:1.75,margin:0,fontStyle:'italic' as const,position:'relative',zIndex:1}}>{dataR.savistu}</p>
         </div>
       )}
@@ -81,7 +81,7 @@ export default function Accueil({C,dpa,saReelle,joursRestants,prog,tri,idee,miss
       {/* À SAVOIR */}
       {dataR&&(
         <div style={{background:'rgba(200,232,255,0.25)',borderRadius:'20px',padding:'20px 22px',border:'1px solid rgba(46,95,138,0.15)'}}>
-          <p style={{color:'#2E5F8A',fontSize:'10px',fontWeight:700,letterSpacing:'2px',textTransform:'uppercase' as const,margin:'0 0 10px'}}>À savoir cette semaine</p>
+          <p style={{color:'#2E5F8A',fontSize:'11px',fontWeight:700,letterSpacing:'2px',textTransform:'uppercase' as const,margin:'0 0 10px'}}>À savoir cette semaine</p>
           <p style={{color:'#0A2847',fontSize:'16px',fontWeight:800,margin:'0 0 8px'}}>{dataR.doc_titre}</p>
           <p style={{color:'#1A3D5C',fontSize:'14px',lineHeight:1.75,margin:0}}>{dataR.doc}</p>
         </div>
@@ -91,12 +91,12 @@ export default function Accueil({C,dpa,saReelle,joursRestants,prog,tri,idee,miss
       <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'12px'}}>
         {dataR&&(
           <div style={{background:'rgba(221,208,255,0.35)',borderRadius:'18px',padding:'18px 20px',border:'1px solid rgba(107,79,187,0.15)'}}>
-            <p style={{color:'#6B4FBB',fontSize:'10px',fontWeight:700,letterSpacing:'2px',textTransform:'uppercase' as const,margin:'0 0 8px'}}>Conseil</p>
+            <p style={{color:'#6B4FBB',fontSize:'11px',fontWeight:700,letterSpacing:'2px',textTransform:'uppercase' as const,margin:'0 0 8px'}}>Conseil</p>
             <p style={{color:'#1A0A4A',fontSize:'13px',lineHeight:1.7,margin:0}}>{dataR.conseil}</p>
           </div>
         )}
         <div style={{background:'rgba(255,232,160,0.35)',borderRadius:'18px',padding:'18px 20px',border:'1px solid rgba(200,160,96,0.2)'}}>
-          <p style={{color:'#8A6010',fontSize:'10px',fontWeight:700,letterSpacing:'2px',textTransform:'uppercase' as const,margin:'0 0 8px'}}>Idée du mois</p>
+          <p style={{color:'#8A6010',fontSize:'11px',fontWeight:700,letterSpacing:'2px',textTransform:'uppercase' as const,margin:'0 0 8px'}}>Idée du mois</p>
           <p style={{color:'#3A2000',fontSize:'13px',lineHeight:1.7,margin:0}}>{idee}</p>
         </div>
       </div>
@@ -104,7 +104,7 @@ export default function Accueil({C,dpa,saReelle,joursRestants,prog,tri,idee,miss
       {/* MISSIONS */}
       {missions.length>0&&(
         <div>
-          <p style={{color:C.muted,fontSize:'10px',fontWeight:700,letterSpacing:'2px',textTransform:'uppercase' as const,margin:'0 0 12px'}}>Tes missions cette semaine</p>
+          <p style={{color:C.muted,fontSize:'11px',fontWeight:700,letterSpacing:'2px',textTransform:'uppercase' as const,margin:'0 0 12px'}}>Tes missions cette semaine</p>
           <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'10px'}}>
             {missions.map((m:string,i:number)=>{
               const id=`m${saReelle}_${i}`;
