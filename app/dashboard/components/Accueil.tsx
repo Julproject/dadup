@@ -47,7 +47,7 @@ export default function Accueil({C,dpa,saReelle,joursRestants,prog,tri,idee,miss
               <p style={{color:'#2E5F8A',fontSize:'14px',margin:0}}>{nextRdv.sa} SA{dpa?' · '+new Date(new Date(dpa).getTime()-(40-nextRdv.sa)*7*24*60*60*1000).toLocaleDateString('fr-FR',{day:'numeric',month:'long'}):''}</p>
             </div>
             {dpa&&joursRestants&&<div style={{background:'#C8E8FF',borderRadius:'12px',padding:'8px 14px',textAlign:'center' as const,flexShrink:0,boxShadow:'0 4px 12px rgba(46,95,138,0.15)'}}>
-              <p style={{color:'#0A2847',fontSize:'20px',fontWeight:800,margin:0,lineHeight:1}}>{Math.max(0,Math.ceil((new Date(new Date(dpa).getTime()-(40-nextRdv.sa)*7*24*60*60*1000).getTime()-new Date().getTime())/(1000*60*60*24)))}j</p>
+              <p style={{color:'#0A2847',fontSize:'16px',fontWeight:800,margin:0,lineHeight:1}}>{Math.max(0,Math.ceil((new Date(new Date(dpa).getTime()-(40-nextRdv.sa)*7*24*60*60*1000).getTime()-new Date().getTime())/(1000*60*60*24)))}j</p>
             </div>}
           </div>
           <p style={{color:'#2E5F8A',fontSize:'11px',fontWeight:600,margin:'0 0 6px'}}>Ma date de RDV</p>
@@ -74,7 +74,7 @@ export default function Accueil({C,dpa,saReelle,joursRestants,prog,tri,idee,miss
         <div style={{background:'linear-gradient(135deg,#0a1f32,#1A3D5C)',borderRadius:'20px',padding:'20px 22px',position:'relative',overflow:'hidden'}}>
           <div style={{position:'absolute',top:'-20px',right:'-20px',width:'100px',height:'100px',borderRadius:'50%',background:'radial-gradient(circle,rgba(200,160,96,0.15) 0%,transparent 65%)'}}></div>
           <p style={{color:'#6a7585',fontSize:'11px',fontWeight:700,letterSpacing:'2px',textTransform:'uppercase' as const,margin:'0 0 12px',position:'relative',zIndex:1}}>Le savais-tu</p>
-          <p style={{color:'rgba(255,255,255,0.9)',fontSize:'15px',lineHeight:1.75,margin:0,position:'relative',zIndex:1}}>{dataR.savistu}</p>
+          <p style={{color:'rgba(255,255,255,0.9)',fontSize:'14px',lineHeight:1.75,margin:0,position:'relative',zIndex:1}}>{dataR.savistu}</p>
         </div>
       )}
 
