@@ -9,18 +9,18 @@ const C = {
 type Terme = { mot: string; def: string; cat: string };
 
 const CATS_GROSSESSE = [
-  { id: 'suivi',    label: 'Suivi médical',  bg: '#E6F0FA', tc: '#1A4A7A' },
-  { id: 'bebe',     label: 'Bébé',           bg: '#E4F5EC', tc: '#0D6B40' },
-  { id: 'sympt',    label: 'Symptômes',      bg: '#FFF7E0', tc: '#8A6010' },
-  { id: 'accouche', label: 'Accouchement',   bg: '#FFF0E6', tc: '#C04A1A' },
-  { id: 'admin',    label: 'Préparation',    bg: '#F0EEFF', tc: '#5050B0' },
-  { id: 'alerte',   label: 'Alertes',        bg: '#FDECEA', tc: '#8A0000' },
+  { id: 'suivi',    label: 'Suivi médical',  bg: 'rgba(200,232,255,0.5)', tc: '#0A2847' },
+  { id: 'bebe',     label: 'Bébé',           bg: 'rgba(184,240,216,0.5)', tc: '#0A2E1A' },
+  { id: 'sympt',    label: 'Symptômes',      bg: 'rgba(255,232,160,0.5)', tc: '#3A2000' },
+  { id: 'accouche', label: 'Accouchement',   bg: 'rgba(255,220,200,0.5)', tc: '#8A2800' },
+  { id: 'admin',    label: 'Préparation',    bg: 'rgba(221,208,255,0.5)', tc: '#1A0A4A' },
+  { id: 'alerte',   label: 'Alertes',        bg: 'rgba(255,210,205,0.5)', tc: '#6A0000' },
 ];
 
 const CATS_POSTPARTUM = [
   { id: 'postpart', label: 'Post-partum',    bg: '#E0F5F0', tc: '#0A5040' },
-  { id: 'bebe',     label: 'Bébé',           bg: '#E4F5EC', tc: '#0D6B40' },
-  { id: 'alerte',   label: 'Alertes',        bg: '#FDECEA', tc: '#8A0000' },
+  { id: 'bebe',     label: 'Bébé',           bg: 'rgba(184,240,216,0.5)', tc: '#0A2E1A' },
+  { id: 'alerte',   label: 'Alertes',        bg: 'rgba(255,210,205,0.5)', tc: '#6A0000' },
 ];
 
 const TERMES: Terme[] = [
@@ -160,10 +160,10 @@ export default function DicoPapa({ C: propC, isPost = false }: { C?: any; isPost
     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
 
       {/* En-tête */}
-      <div style={{ background: '#1A3D5C', borderRadius: '18px', padding: '18px 20px' }}>
-        <p style={{ color: 'rgba(200,220,240,0.5)', fontSize: '10px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase' as const, margin: '0 0 4px' }}>Grossesse</p>
-        <p style={{ color: '#fff', fontSize: '20px', fontWeight: 800, margin: '0 0 2px' }}>Dictionnaire</p>
-        <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '12px', margin: 0 }}>{TERMES.length} termes expliqués en langage simple</p>
+      <div style={{ background: 'linear-gradient(135deg,#0a1f32,#1A3D5C)', borderRadius: '18px', padding: '20px 24px', position: 'relative', overflow: 'hidden' }}>
+        <p style={{ color: '#c8a060', fontSize: '11px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase' as const, margin: '0 0 6px' }}>Grossesse</p>
+        <p style={{ color: '#fff', fontSize: '22px', fontWeight: 800, margin: '0 0 4px' }}>Dictionnaire</p>
+        <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '13px', margin: 0 }}>{TERMES.length} termes expliqués en langage simple</p>
       </div>
 
       {/* Recherche */}
@@ -176,7 +176,7 @@ export default function DicoPapa({ C: propC, isPost = false }: { C?: any; isPost
           placeholder="Rechercher un terme..."
           value={search}
           onChange={e => { setSearch(e.target.value); setCat(null); }}
-          style={{ width: '100%', background: '#f7f5f0', border: '1.5px solid #f0ede8', borderRadius: '32px', padding: '11px 14px 11px 40px', fontSize: '14px', color: '#1e2535', outline: 'none', boxSizing: 'border-box' as const }}
+          style={{ width: '100%', background: '#fff', border: '1.5px solid #e8e0d0', borderRadius: '32px', padding: '12px 14px 12px 42px', fontSize: '14px', color: '#1e2535', outline: 'none', boxSizing: 'border-box' as const, boxShadow: '0 2px 8px rgba(0,0,0,0.05)' }}
         />
       </div>
 
@@ -185,7 +185,7 @@ export default function DicoPapa({ C: propC, isPost = false }: { C?: any; isPost
         <div style={{ display: 'flex', gap: '6px', overflowX: 'auto' as const, paddingBottom: '2px' }}>
           <button
             onClick={() => setCat(null)}
-            style={{ flexShrink: 0, padding: '6px 14px', fontSize: '12px', fontWeight: 700, border: 'none', borderRadius: '20px', cursor: 'pointer', background: !catActive ? '#1e2535' : '#f7f5f0', color: !catActive ? '#fff' : '#6a7585' }}
+            style={{ flexShrink: 0, padding: '6px 14px', fontSize: '12px', fontWeight: 700, border: 'none', borderRadius: '20px', cursor: 'pointer', background: !catActive ? 'linear-gradient(135deg,#0a1f32,#1A3D5C)' : '#fff', color: !catActive ? '#fff' : '#6a7585', boxShadow: !catActive ? '0 4px 12px rgba(26,61,92,0.25)' : '0 1px 4px rgba(0,0,0,0.06)', border: !catActive ? 'none' : '1px solid #ede8e0' }}
           >
             Tous
           </button>
@@ -193,7 +193,7 @@ export default function DicoPapa({ C: propC, isPost = false }: { C?: any; isPost
             <button
               key={c.id}
               onClick={() => setCat(catActive === c.id ? null : c.id)}
-              style={{ flexShrink: 0, padding: '6px 14px', fontSize: '12px', fontWeight: 700, border: 'none', borderRadius: '20px', cursor: 'pointer', background: catActive === c.id ? '#1e2535' : c.bg, color: catActive === c.id ? '#fff' : c.tc }}
+              style={{ flexShrink: 0, padding: '6px 14px', fontSize: '12px', fontWeight: 700, border: 'none', borderRadius: '20px', cursor: 'pointer', background: catActive === c.id ? 'linear-gradient(135deg,#0a1f32,#1A3D5C)' : c.bg, color: catActive === c.id ? '#fff' : c.tc, boxShadow: catActive === c.id ? '0 4px 12px rgba(26,61,92,0.25)' : '0 1px 4px rgba(0,0,0,0.04)' }}
             >
               {c.label}
             </button>
@@ -220,19 +220,19 @@ export default function DicoPapa({ C: propC, isPost = false }: { C?: any; isPost
           return (
             <div
               key={t.mot}
-              style={{ borderRadius: '14px', border: isOpen ? `1.5px solid ${col.tc}30` : '1.5px solid #f0ede8', overflow: 'hidden', background: '#fff' }}
+              style={{ borderRadius: '14px', border: isOpen ? `1.5px solid ${col.tc}40` : '1px solid #ede8e0', overflow: 'hidden', background: '#fff', boxShadow: '0 2px 8px rgba(0,0,0,0.05)' }}
             >
               <button
                 onClick={() => setOuvert(isOpen ? null : t.mot)}
                 style={{ width: '100%', display: 'flex', alignItems: 'center', gap: '10px', padding: '13px 16px', background: 'none', border: 'none', cursor: 'pointer', textAlign: 'left' as const }}
               >
                 <span style={{ width: '7px', height: '7px', borderRadius: '50%', background: col.tc, flexShrink: 0, opacity: 0.7 }} />
-                <span style={{ color: isOpen ? col.tc : '#1e2535', fontSize: '14px', fontWeight: 700, flex: 1, lineHeight: 1.3 }}>{t.mot}</span>
+                <span style={{ color: isOpen ? col.tc : '#1e2535', fontSize: '15px', fontWeight: 700, flex: 1, lineHeight: 1.3 }}>{t.mot}</span>
                 <span style={{ color: '#ccc', fontSize: '16px', flexShrink: 0 }}>{isOpen ? '−' : '+'}</span>
               </button>
               {isOpen && (
                 <div style={{ padding: '0 16px 16px 33px' }}>
-                  <p style={{ color: '#3a4a5a', fontSize: '13px', lineHeight: 1.75, margin: 0 }}>{t.def}</p>
+                  <p style={{ color: '#3a4a5a', fontSize: '14px', lineHeight: 1.75, margin: 0 }}>{t.def}</p>
                 </div>
               )}
             </div>
