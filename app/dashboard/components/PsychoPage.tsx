@@ -322,6 +322,14 @@ const SEMAINES: Semaine[] = [
     conseil: "Répète mentalement cette phrase jusqu'à la naissance : mon rôle est d'être là. Pas de tout gérer. Pas de tout savoir. Juste d'être là. C'est suffisant. C'est même beaucoup.",
     source: "Klaus, Kennell & Klaus, 1993 - Mothering the Mother"
   },
+  {
+    sa: 41, theme: 'role',
+    titre: "L'attente post-terme. Tenir ensemble.",
+    intro: "Bébé n'est pas encore là. L'impatience, l'anxiété et la fatigue sont à leur maximum. Pour elle. Et pour toi.",
+    corps: "Le post-terme est documenté comme l'une des périodes les plus difficiles psychologiquement de la grossesse pour les deux parents. Pour les pères, cette période révèle souvent un sentiment d'impuissance intense : tu ne peux rien faire pour accélérer les choses, et tu vois ta partenaire épuisée et anxieuse.\n\nDes études sur le soutien paternel en fin de grossesse montrent que ce qui compte le plus dans ces jours d'attente n'est pas ce que tu dis ou fais, mais ta capacité à rester émotionnellement stable. Ta régulation émotionnelle devient un ancrage pour elle. Elle lit tes réactions. Si tu restes calme, son système nerveux peut se calmer aussi.",
+    conseil: "Arrête de parler de l'accouchement. Propose une sortie, un film, un dîner. Fais-lui vivre une journée normale. C'est le plus grand cadeau que tu puisses lui faire en ce moment.",
+    source: "Hildingsson et al., 2011 - Midwifery - Paternal support during post-term pregnancy"
+  },
 ];
 
 export default function PsychoPage({ C: propC, saReelle }: any) {
@@ -356,7 +364,7 @@ export default function PsychoPage({ C: propC, saReelle }: any) {
       </div>
 
       <div style={{display:'flex',alignItems:'center',gap:'10px',flexWrap:'wrap' as const}}>
-        <span style={{background:Cs.dark,color:Cs.white,fontSize:'12px',fontWeight:800,padding:'6px 14px',borderRadius:'20px'}}>SA {semaine.sa}</span>
+        <span style={{background:'linear-gradient(135deg,#0a1f32,#1A3D5C)',color:Cs.white,fontSize:'12px',fontWeight:800,padding:'6px 14px',borderRadius:'20px'}}>SA {semaine.sa}</span>
         <span style={{background:tc.bg,color:tc.tc,fontSize:'12px',fontWeight:700,padding:'6px 14px',borderRadius:'20px'}}>{themeLabel[semaine.theme]}</span>
       </div>
 
@@ -371,7 +379,7 @@ export default function PsychoPage({ C: propC, saReelle }: any) {
         ))}
       </div>
 
-      <div style={{background:Cs.dark,borderRadius:'20px',padding:'22px 24px'}}>
+      <div style={{background:'linear-gradient(135deg,#0a1f32,#1A3D5C)',borderRadius:'20px',padding:'22px 24px'}}>
         <p style={{color:Cs.gold,fontSize:'10px',fontWeight:700,letterSpacing:'2px',textTransform:'uppercase' as const,margin:'0 0 10px'}}>Cette semaine</p>
         <p style={{color:Cs.white,fontSize:'15px',fontWeight:600,lineHeight:1.7,margin:0}}>{semaine.conseil}</p>
       </div>
@@ -383,7 +391,7 @@ export default function PsychoPage({ C: propC, saReelle }: any) {
           href="https://www.doctolib.fr/psychologue"
           target="_blank"
           rel="noopener noreferrer"
-          style={{display:'inline-block',background:Cs.blue,color:Cs.white,padding:'12px 24px',borderRadius:'32px',fontSize:'14px',fontWeight:800,textDecoration:'none'}}
+          style={{display:'inline-block',background:'linear-gradient(135deg,#0a1f32,#1A3D5C)',color:Cs.white,padding:'12px 24px',borderRadius:'32px',fontSize:'14px',fontWeight:800,textDecoration:'none'}}
         >
           Trouver un soutien sur Doctolib
         </a>
@@ -391,7 +399,7 @@ export default function PsychoPage({ C: propC, saReelle }: any) {
 
 
       {/* MENTION MÉDICALE */}
-      <div style={{ background: '#E6F0FA', borderRadius: '12px', padding: '12px 16px', display: 'flex', alignItems: 'center', gap: '10px', marginTop: '8px' }}>
+      <div style={{ background: '#C8E8FF', borderRadius: '12px', padding: '12px 16px', display: 'flex', alignItems: 'center', gap: '10px', marginTop: '8px' }}>
         <span style={{ fontSize: '16px', flexShrink: 0, color: '#1A3D5C' }}>⚕️</span>
         <p style={{ color: '#1A3D5C', fontSize: '12px', lineHeight: 1.6, margin: 0 }}>
           DadUp ne remplace pas l&apos;avis d&apos;un médecin. En cas de doute, appelle ta sage-femme ou ton médecin.
