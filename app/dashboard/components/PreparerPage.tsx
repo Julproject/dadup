@@ -381,7 +381,7 @@ export default function PreparerPage({C, valiseChecked, toggleV, achatChecked, t
         <div style={{paddingTop:'8px',textAlign:'center' as const}}>
           <button
             onClick={() => genererPDF(valiseChecked, maisonChecked)}
-            style={{display:'inline-flex',alignItems:'center',gap:'8px',background:C.dark,color:'#fff',border:'none',padding:'13px 26px',borderRadius:'32px',fontSize:'14px',fontWeight:700,cursor:'pointer'}}
+            style={{display:'inline-flex',alignItems:'center',gap:'8px',background:'linear-gradient(135deg,#0a1f32,#1A3D5C)',color:'#fff',border:'none',padding:'13px 26px',borderRadius:'32px',fontSize:'14px',fontWeight:700,cursor:'pointer'}}
           >
             Partager la checklist avec la maman
           </button>
