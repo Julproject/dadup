@@ -40,8 +40,7 @@ export default function BebePage({C,saReelle,sa,data,dataR,avance,setAvance,dpa}
 
       {/* INTRODUCTION */}
       <div style={{background:'rgba(184,240,216,0.4)',borderRadius:'18px',padding:'20px 22px',border:'1px solid rgba(13,107,64,0.15)'}}>
-        <p style={{color:'#0D6B40',fontSize:'10px',fontWeight:700,letterSpacing:'2px',textTransform:'uppercase' as const,margin:'0 0 8px'}}>Introduction</p>
-        <p style={{color:'#0A2E1A',fontSize:'14px',lineHeight:1.75,margin:0}}>{data.intro}</p>
+        <p style={{color:'#0A2E1A',fontSize:'15px',lineHeight:1.75,margin:0,fontStyle:'italic' as const}}>{data.intro}</p>
       </div>
 
       {/* DÉVELOPPEMENT */}
