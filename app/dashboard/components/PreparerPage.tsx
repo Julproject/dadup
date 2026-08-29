@@ -289,9 +289,11 @@ export default function PreparerPage({C, valiseChecked, toggleV, achatChecked, t
         ] as const).map(t => (
           <button key={t.id} onClick={()=>setOnglet(t.id)} style={{
             flex:1, padding:'12px 8px', border:'none', borderRadius:'16px', cursor:'pointer',
-            background: onglet===t.id ? C.dark : '#f7f5f0',
+            background: onglet===t.id ? 'linear-gradient(135deg,#0a1f32,#1A3D5C)' : '#fff',
             color: onglet===t.id ? '#fff' : C.dark,
-            fontWeight:700, fontSize:'14px', transition:'all 0.15s',
+            fontWeight:700, fontSize:'13px', transition:'all 0.15s',
+            boxShadow: onglet===t.id ? '0 4px 16px rgba(26,61,92,0.25)' : '0 2px 8px rgba(0,0,0,0.05)',
+            border: onglet===t.id ? 'none' : '1px solid #ede8e0',
           }}>
             {t.label}
             <span style={{display:'block',fontSize:'11px',fontWeight:500,marginTop:'2px',opacity:0.65}}>
@@ -304,8 +306,8 @@ export default function PreparerPage({C, valiseChecked, toggleV, achatChecked, t
       {/* PROGRESSION */}
       {onglet !== 'conge' && (
         <div style={{display:'flex',alignItems:'center',gap:'12px'}}>
-          <div style={{flex:1,background:'#f0ede8',borderRadius:'4px',height:'5px'}}>
-            <div style={{background:pct===100?'#0D6B40':C.gold,height:'5px',borderRadius:'4px',width:pct+'%',transition:'width 0.4s'}}/>
+          <div style={{flex:1,background:'#f0ede8',borderRadius:'6px',height:'8px'}}>
+            <div style={{background:pct===100?'#0D6B40':'linear-gradient(to right,#c8a060,#e8c070)',height:'8px',borderRadius:'6px',width:pct+'%',transition:'width 0.4s'}}/>
           </div>
           <span style={{fontSize:'12px',fontWeight:800,color:pct===100?'#0D6B40':C.gold,flexShrink:0}}>{done}/{total}</span>
         </div>
@@ -321,22 +323,22 @@ export default function PreparerPage({C, valiseChecked, toggleV, achatChecked, t
               {/* En-tête groupe */}
               <div style={{display:'flex',alignItems:'center',justifyContent:'space-between',marginBottom:'12px'}}>
                 <div style={{display:'flex',alignItems:'center',gap:'8px'}}>
-<span style={{fontSize:'15px',fontWeight:800,color:C.dark}}>{groupe.titre}</span>
+<span style={{fontSize:'16px',fontWeight:800,color:C.dark}}>{groupe.titre}</span>
                 </div>
                 <span style={{
                   fontSize:'11px',fontWeight:700,padding:'3px 10px',borderRadius:'20px',
-                  background:groupeDone===all?'#E4F5EC':groupe.couleur,
+                  background:groupeDone===all?'rgba(184,240,216,0.5)':groupe.couleur.replace('#E6F0FA','rgba(200,232,255,0.5)').replace('#E4F5EC','rgba(184,240,216,0.5)').replace('#FFF7E0','rgba(255,232,160,0.5)').replace('#FFF0E6','rgba(255,220,200,0.5)').replace('#FDECEA','rgba(255,210,205,0.5)'),
                   color:groupeDone===all?'#0D6B40':groupe.tc,
                 }}>{groupeDone}/{all}</span>
               </div>
 
               {/* Info contextuelle */}
               {'info' in groupe && (groupe as any).info && (
-                <p style={{fontSize:'12px',color:C.muted,lineHeight:1.6,margin:'0 0 12px',paddingLeft:'26px'}}>{(groupe as any).info}</p>
+                <p style={{fontSize:'13px',color:'#6a7585',lineHeight:1.7,margin:'0 0 14px',paddingLeft:'0'}}>{(groupe as any).info}</p>
               )}
 
               {/* Items */}
-              <div style={{display:'flex',flexDirection:'column',gap:'2px',paddingLeft:'26px'}}>
+              <div style={{display:'flex',flexDirection:'column',gap:'0',paddingLeft:'0',background:'#fff',borderRadius:'16px',overflow:'hidden',boxShadow:'0 2px 10px rgba(0,0,0,0.05)'}}>
                 {groupe.items.map((item, idx) => {
                   const isChecked = checked[item.id];
                   return (
@@ -381,7 +383,7 @@ export default function PreparerPage({C, valiseChecked, toggleV, achatChecked, t
         <div style={{paddingTop:'8px',textAlign:'center' as const}}>
           <button
             onClick={() => genererPDF(valiseChecked, maisonChecked)}
-            style={{display:'inline-flex',alignItems:'center',gap:'8px',background:'linear-gradient(135deg,#0a1f32,#1A3D5C)',color:'#fff',border:'none',padding:'13px 26px',borderRadius:'32px',fontSize:'14px',fontWeight:700,cursor:'pointer'}}
+            style={{display:'inline-flex',alignItems:'center',gap:'8px',background:'linear-gradient(135deg,#c8a060,#e8c070)',color:'#1c1510',border:'none',padding:'14px 28px',borderRadius:'32px',fontSize:'14px',fontWeight:800,cursor:'pointer',boxShadow:'0 6px 20px rgba(200,160,96,0.4)'}}
           >
             Partager la checklist avec la maman
           </button>
