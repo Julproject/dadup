@@ -35,7 +35,7 @@ export default function PostBebe({C, moisBebe, dataBebe, joursRestants}: any) {
 
       {/* IDÉE DU MOIS */}
       {idee && (
-        <div style={{background:'#E6F0FA', borderRadius:'16px', padding:'20px 22px'}}>
+        <div style={{background:'#C8E8FF', borderRadius:'16px', padding:'20px 22px'}}>
           <p style={{color:'#2E5F8A', fontSize:'10px', fontWeight:700, letterSpacing:'2px', textTransform:'uppercase' as const, margin:'0 0 10px'}}>Idée du mois</p>
           <p style={{color:'#1A3D5C', fontSize:'14px', lineHeight:1.7, margin:0}}>{idee}</p>
         </div>
