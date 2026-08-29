@@ -39,7 +39,7 @@ export default function PostAccueil({C, moisBebe, dataBebe, joursRestants}: any)
           <p style={{color:'#2E5F8A', fontSize:'10px', fontWeight:700, letterSpacing:'2.5px', textTransform:'uppercase' as const, margin:'0 0 12px'}}>Activités avec bébé</p>
           <div style={{display:'grid', gridTemplateColumns:'1fr 1fr', gap:'10px'}}>
             {activites.map((item: any, i: number) => (
-              <div key={i} style={{background:'#E6F0FA', borderRadius:'14px', padding:'14px 16px'}}>
+              <div key={i} style={{background:'#C8E8FF', borderRadius:'14px', padding:'14px 16px'}}>
                 <p style={{color:'#1A3D5C', fontSize:'13px', fontWeight:700, margin:'0 0 5px'}}>{item.titre}</p>
                 <p style={{color:'#2a5080', fontSize:'12px', lineHeight:1.6, margin:0}}>{item.contenu}</p>
               </div>
@@ -50,7 +50,7 @@ export default function PostAccueil({C, moisBebe, dataBebe, joursRestants}: any)
 
       {/* RDV */}
       {dataBebe.rdv && (
-        <div style={{background:'#FFF7E0', borderRadius:'16px', padding:'16px 18px'}}>
+        <div style={{background:'rgba(255,232,160,0.4)', borderRadius:'16px', padding:'16px 18px'}}>
           <p style={{color:'#8A6010', fontSize:'10px', fontWeight:700, letterSpacing:'2.5px', textTransform:'uppercase' as const, margin:'0 0 8px'}}>Rendez-vous ce mois</p>
           <p style={{color:'#3A2800', fontSize:'13px', lineHeight:1.65, margin:0}}>{dataBebe.rdv}</p>
         </div>
