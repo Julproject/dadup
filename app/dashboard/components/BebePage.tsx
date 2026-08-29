@@ -62,7 +62,7 @@ export default function BebePage({C,saReelle,sa,data,dataR,avance,setAvance,dpa}
           </div>
           <div style={{display:'flex',flexWrap:'wrap' as const,gap:'8px',paddingLeft:'13px'}}>
             {data.organes.map((o:string,i:number)=>(
-              <span key={i} style={{background:'#C8E8FF',border:'none',borderRadius:'20px',padding:'6px 14px',fontSize:'13px',fontWeight:700,color:'#0A2847'}}>{o}</span>
+              <span key={i} style={{background:'rgba(200,232,255,0.4)',border:'1px solid rgba(46,95,138,0.2)',borderRadius:'20px',padding:'6px 14px',fontSize:'13px',fontWeight:700,color:'#0A2847'}}>{o}</span>
             ))}
           </div>
         </div>
@@ -83,7 +83,7 @@ export default function BebePage({C,saReelle,sa,data,dataR,avance,setAvance,dpa}
           </div>
           <div style={{display:'flex',flexDirection:'column',gap:'10px',paddingLeft:'13px'}}>
             {data.faq.map((f:any,i:number)=>(
-              <div key={i} style={{background:'#C8E8FF',borderRadius:'14px',padding:'16px 18px',boxShadow:'0 4px 16px rgba(46,95,138,0.1)'}}>
+              <div key={i} style={{background:'rgba(200,232,255,0.3)',borderRadius:'14px',padding:'16px 18px',border:'1px solid rgba(46,95,138,0.15)',boxShadow:'0 4px 16px rgba(46,95,138,0.08)'}}>
                 <p style={{color:'#1A3D5C',fontSize:'14px',fontWeight:700,margin:'0 0 6px'}}>{f.q}</p>
                 <p style={{color:'#1A3A6A',fontSize:'13px',lineHeight:1.65,margin:0}}>{f.r}</p>
               </div>
