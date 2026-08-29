@@ -19,9 +19,9 @@ export default function RDVPage({C,dpa,saReelle,rdvDates,saveRdvI,rdvOuvert,setR
           const isOpen=rdvOuvert===i;
 
           const bg = s==='passe' ? 'rgba(184,240,216,0.3)' : s==='prochain' ? 'linear-gradient(135deg,#0a1f32,#1A3D5C)' : '#fff';
-          const border = s==='passe' ? '1px solid rgba(13,107,64,0.15)' : s==='prochain' ? 'none' : '1px solid #ede8e0';
-          const titleColor = s==='prochain' ? '#fff' : C.dark;
-          const metaColor = s==='prochain' ? 'rgba(255,255,255,0.5)' : C.muted;
+          const border = s==='passe' ? '1px solid #e8e4de' : s==='prochain' ? 'none' : '1px solid #ede8e0';
+          const titleColor = s==='prochain' ? '#fff' : s==='passe' ? '#9aa0a8' : C.dark;
+          const metaColor = s==='prochain' ? 'rgba(255,255,255,0.5)' : '#b0b8c0';
           const textColor = s==='prochain' ? 'rgba(255,255,255,0.75)' : C.text;
 
           return(
@@ -29,16 +29,16 @@ export default function RDVPage({C,dpa,saReelle,rdvDates,saveRdvI,rdvOuvert,setR
               <button onClick={()=>setRdvOuvert(isOpen?null:i)} style={{
                 width:'100%', background:bg, borderRadius:'18px', padding:'16px 18px',
                 border, cursor:'pointer', textAlign:'left' as const,
-                boxShadow: s==='prochain' ? '0 4px 20px rgba(26,61,92,0.25)' : '0 2px 8px rgba(0,0,0,0.04)',
+                boxShadow: s==='prochain' ? '0 4px 20px rgba(26,61,92,0.25)' : '0 2px 10px rgba(0,0,0,0.06)',
               }}>
                 <div style={{display:'flex',alignItems:'center',justifyContent:'space-between'}}>
                   <div style={{display:'flex',alignItems:'center',gap:'12px'}}>
                     {/* Indicateur statut */}
                     <div style={{width:'36px',height:'36px',borderRadius:'12px',flexShrink:0,
-                      background: s==='passe' ? 'rgba(13,107,64,0.15)' : s==='prochain' ? 'rgba(200,160,96,0.2)' : '#f0ede8',
+                      background: s==='passe' ? '#f0ede8' : s==='prochain' ? 'rgba(200,160,96,0.2)' : '#f0ede8',
                       display:'flex',alignItems:'center',justifyContent:'center',fontSize:'18px'
                     }}>
-                      {s==='passe' ? <span style={{color:'#0D6B40',fontSize:'14px',fontWeight:800}}>✓</span> : r.emoji}
+                      {s==='passe' ? <span style={{color:'#0D6B40',fontSize:'14px',fontWeight:800}}>✓</span> : <span style={{fontSize:'18px'}}>{r.emoji}</span>}
                     </div>
                     <div>
                       <div style={{display:'flex',alignItems:'center',gap:'8px',marginBottom:'2px'}}>
