@@ -357,8 +357,9 @@ export default function PsychoPage({ C: propC, saReelle }: any) {
   return (
     <div style={{display:'flex',flexDirection:'column',gap:'24px',fontFamily:"-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"}}>
 
-      <div style={{background:Cs.blueDark,borderRadius:'24px',padding:'26px 28px'}}>
-        <p style={{color:'rgba(200,220,240,0.55)',fontSize:'10px',fontWeight:700,letterSpacing:'3px',textTransform:'uppercase' as const,margin:'0 0 8px'}}>Psychologie du papa</p>
+      <div style={{background:'linear-gradient(135deg,#0a1f32,#1A3D5C)',borderRadius:'24px',padding:'26px 28px',position:'relative',overflow:'hidden'}}>
+        <div style={{position:'absolute',top:'-30px',right:'-30px',width:'150px',height:'150px',borderRadius:'50%',background:'radial-gradient(circle,rgba(200,160,96,0.18) 0%,transparent 65%)',pointerEvents:'none'}}></div>
+        <p style={{color:'#c8a060',fontSize:'11px',fontWeight:700,letterSpacing:'3px',textTransform:'uppercase' as const,margin:'0 0 8px'}}>Psychologie du papa</p>
         <h2 style={{color:Cs.white,fontSize:'22px',fontWeight:800,margin:'0 0 8px',lineHeight:1.3}}>Cette semaine, une info pour toi.</h2>
         <p style={{color:'rgba(255,255,255,0.5)',fontSize:'14px',margin:0}}>Pour te guider, te rassurer, t'impliquer.</p>
       </div>
@@ -370,12 +371,12 @@ export default function PsychoPage({ C: propC, saReelle }: any) {
 
       <div style={{background:tc.bg,borderRadius:'24px',padding:'28px'}}>
         <h3 style={{color:Cs.dark,fontSize:'18px',fontWeight:800,margin:'0 0 14px',lineHeight:1.3}}>{semaine.titre}</h3>
-        <p style={{color:tc.tc,fontSize:'14px',fontWeight:600,lineHeight:1.7,margin:0,fontStyle:'italic'}}>{semaine.intro}</p>
+        <p style={{color:tc.tc,fontSize:'14px',fontWeight:600,lineHeight:1.7,margin:0}}>{semaine.intro}</p>
       </div>
 
       <div style={{display:'flex',flexDirection:'column',gap:'16px'}}>
         {paragraphes.map((para, i) => (
-          <p key={i} style={{color:Cs.dark,fontSize:'16px',lineHeight:1.8,margin:0}}>{para}</p>
+          <p key={i} style={{color:Cs.dark,fontSize:'14px',lineHeight:1.75,margin:0}}>{para}</p>
         ))}
       </div>
 
@@ -399,9 +400,9 @@ export default function PsychoPage({ C: propC, saReelle }: any) {
 
 
       {/* MENTION MÉDICALE */}
-      <div style={{ background: '#C8E8FF', borderRadius: '12px', padding: '12px 16px', display: 'flex', alignItems: 'center', gap: '10px', marginTop: '8px' }}>
+      <div style={{ background: 'rgba(200,232,255,0.3)', borderRadius: '12px', padding: '14px 16px', border: '1px solid rgba(46,95,138,0.15)', display: 'flex', alignItems: 'center', gap: '10px', marginTop: '8px' }}>
         <span style={{ fontSize: '16px', flexShrink: 0, color: '#1A3D5C' }}>⚕️</span>
-        <p style={{ color: '#1A3D5C', fontSize: '12px', lineHeight: 1.6, margin: 0 }}>
+        <p style={{ color: '#1A3D5C', fontSize: '14px', lineHeight: 1.7, margin: 0 }}>
           DadUp ne remplace pas l&apos;avis d&apos;un médecin. En cas de doute, appelle ta sage-femme ou ton médecin.
         </p>
       </div>
