@@ -57,8 +57,6 @@ export default function ComptePage() {
       setDpaOriginale(user.dpa_originale || '');
 
 
-      const dpaModif = dpaModifCount >= 3;
-      setDpaModifiee(dpaModif);
 
       if (user.dpa) {
         const jr = Math.round((parseLocalDate(user.dpa).setHours(0,0,0,0) - new Date().setHours(0,0,0,0)) / (1000*60*60*24));
@@ -89,7 +87,7 @@ export default function ComptePage() {
       if (dpa) {
         body.dpa = dpa;
         body.dpa_originale = dpa;
-        body.dpa_modif_increment = true;
+        body.dpa_modif_increment = 'true';
       }
       const res = await fetch('/api/auth/save', {
         method: 'POST',
@@ -101,7 +99,6 @@ export default function ComptePage() {
       if (dpa) {
         localStorage.setItem('dadup_dpa', dpa);
 
-        if (newCount >= 3) setDpaModifiee(true);
       }
       setSaved(true);
       setTimeout(() => setSaved(false), 3000);
