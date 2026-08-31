@@ -97,8 +97,7 @@ export default function SuiviBebe({C}: any) {
   };
 
   const supprimerEntree = (idx: number) => {
-    const next = entrees.filter((_:any, i:number) => i !== idx);
-    setEntrees(next);
+    setEntrees((prev: any[]) => prev.filter((_: any, i: number) => i !== idx));
     setOuverte(null);
   };
 
