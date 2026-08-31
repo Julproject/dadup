@@ -176,11 +176,12 @@ export default function InclusPage() {
 
             {/* CTA */}
             <div style={{flex:1}}>
-              <h2 style={{color:'#fff', fontSize:'28px', fontWeight:800, margin:'0 0 20px', lineHeight:1.2}}>Maintenant tu sais.<br/><span style={{color:'#e0b870'}}>À toi de jouer</span></h2>
-              <button onClick={() => setShowModal(true)} style={{background:'linear-gradient(135deg,#c8a060,#e8c070)', color:'#1c1510', border:'none', padding:'20px 48px', borderRadius:'32px', fontSize:'18px', fontWeight:800, cursor:'pointer', boxShadow:'0 8px 32px rgba(200,160,96,0.6), 0 2px 8px rgba(0,0,0,0.2)', display:'block', margin:'0 auto 12px', width:'auto'}}>
+              <h2 style={{color:'#fff', fontSize:'32px', fontWeight:800, margin:'0 0 4px', lineHeight:1.2}}>Maintenant tu sais.</h2>
+              <h2 style={{color:'#e0b870', fontSize:'32px', fontWeight:800, margin:'0 0 28px', lineHeight:1.2}}>À toi de jouer</h2>
+              <button onClick={() => setShowModal(true)} style={{background:'linear-gradient(135deg,#c8a060,#e8c070)', color:'#1c1510', border:'none', padding:'18px 48px', borderRadius:'32px', fontSize:'18px', fontWeight:800, cursor:'pointer', boxShadow:'0 8px 32px rgba(200,160,96,0.5)', display:'block', marginBottom:'12px'}}>
                 Commencer
               </button>
-              <p style={{color:'rgba(255,255,255,0.35)', fontSize:'12px', margin:'12px 0 0', display:'block', textAlign:'center' as const}}>Satisfait ou remboursé sous 14 jours</p>
+              <p style={{color:'rgba(255,255,255,0.4)', fontSize:'13px', margin:0}}>Satisfait ou remboursé sous 14 jours</p>
             </div>
           </div>
         </div>
