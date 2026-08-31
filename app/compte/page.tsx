@@ -89,6 +89,7 @@ export default function ComptePage() {
       if (dpa) {
         body.dpa = dpa;
         body.dpa_originale = dpa;
+        body.dpa_modif_increment = true;
       }
       const res = await fetch('/api/auth/save', {
         method: 'POST',
