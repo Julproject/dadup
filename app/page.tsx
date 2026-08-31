@@ -158,7 +158,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECTION CHIFFRES CLÉS — jaune pastel */}
+      {/* SECTION CHIFFRES CLÉS : jaune pastel */}
       <section style={{padding:'80px 40px', background:'#faf6f0'}}>
         <div style={{maxWidth:'1000px', margin:'0 auto'}}>
           <div style={{textAlign:'center', marginBottom:'48px'}}>
@@ -167,7 +167,7 @@ export default function Home() {
           </div>
           <div className="stats-4col">
             {[
-              {border:'rgba(180,220,255,0.25)', label:'41 semaines', lc:'#7ab8f0', title:'De De la 3e à la 41e semaine', tc:'#B8DCFF', desc:"Chaque semaine expliquée côté papa : développement de bébé, ton rôle, ce qu'elle vit.", dc:'rgba(180,220,255,0.6)'},
+              {border:'rgba(180,220,255,0.25)', label:'41 semaines', lc:'#7ab8f0', title:'De la 3e à la 41e semaine', tc:'#B8DCFF', desc:"Chaque semaine expliquée côté papa : développement de bébé, ton rôle, ce qu'elle vit.", dc:'rgba(180,220,255,0.6)'},
               {border:'rgba(150,240,200,0.2)', label:"Jusqu'au 1er anniversaire", lc:'#5dd4a0', title:'Après la naissance inclus', tc:'#96F0C8', desc:'Les premiers mois, le développement de bébé, le baby blues, le couple. Tout est inclus.', dc:'rgba(150,240,200,0.6)'},
               {border:'rgba(200,170,255,0.2)', label:'Calendrier médical', lc:'#a888f0', title:'Chaque consultation préparée', tc:'#C8AAFF', desc:"Ce qu'on cherche à chaque rendez-vous, les bonnes questions à poser, comment être vraiment présent.", dc:'rgba(200,170,255,0.6)'},
               {border:'rgba(255,240,160,0.25)', label:'Paiement unique', lc:'#e0b870', title:'Sans abonnement', tc:'#FFF0A0', desc:"Tu paies une fois, tu accèdes jusqu'au premier anniversaire de bébé. Pas de surprise.", dc:'rgba(255,240,160,0.6)'},
@@ -182,7 +182,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CE QUE PERSONNE NE T'EXPLIQUE — DÉFILEMENT AUTO */}
+      {/* CE QUE PERSONNE NE T'EXPLIQUE : DÉFILEMENT AUTO */}
       <section style={{padding:'80px 0', background:'transparent', overflow:'hidden'}}>
         <div style={{textAlign:'center', marginBottom:'48px', padding:'0 40px'}}>
           <p style={{color:C.blue, fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase' as const, margin:'0 0 16px'}}>Les sujets traités</p>
@@ -223,10 +223,10 @@ export default function Home() {
         </div>
       </section>
 
-                        {/* SAVOIR AVANT + CTA — section fusionnée */}
+                        {/* SAVOIR AVANT + CTA : section fusionnée */}
       <section style={{padding:'80px 40px', background:'#faf6f0'}}>
         <div style={{maxWidth:'720px', margin:'0 auto', textAlign:'center' as const}}>
-          {/* Savoir avant — sur le fond crème directement */}
+          {/* Savoir avant : sur le fond crème directement */}
           <div style={{marginBottom:'72px'}}>
             <p style={{color:C.gold, fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase' as const, margin:'0 0 20px'}}>Ce que tu peux changer</p>
             <h2 style={{color:C.dark, fontSize:'40px', fontWeight:800, lineHeight:1.2, margin:'0 0 20px'}}>
@@ -242,7 +242,7 @@ export default function Home() {
 
         </div>
 
-        {/* CTA final — photo en fond */}
+        {/* CTA final : photo en fond */}
         <div style={{borderRadius:'24px', padding:'72px 48px', position:'relative', overflow:'hidden', textAlign:'center' as const, maxWidth:'1200px', margin:'0 auto'}}>
           <img src="/main.jpg" alt="Papa et bébé" style={{position:'absolute', top:0, left:0, width:'100%', height:'100%', objectFit:'cover', objectPosition:'center 60%', display:'block'}}/>
           <div style={{position:'absolute', top:0, left:0, right:0, bottom:0, background:'linear-gradient(135deg,rgba(10,31,50,0.93) 0%,rgba(26,61,92,0.88) 50%,rgba(29,77,114,0.82) 100%)'}}></div>
