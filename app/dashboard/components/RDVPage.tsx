@@ -26,7 +26,7 @@ export default function RDVPage({C,dpa,saReelle,rdvDates,saveRdvI,rdvOuvert,setR
           return(
             <div key={i} style={{borderRadius:'18px',overflow:'hidden',boxShadow:s==='prochain'?'0 6px 24px rgba(26,61,92,0.25)':'0 2px 10px rgba(0,0,0,0.06)'}}>
 
-              {/* HEADER — cliquable, coloré */}
+              {/* HEADER : cliquable, coloré */}
               <button onClick={()=>setRdvOuvert(isOpen?null:i)} style={{
                 width:'100%',background:headerBg,padding:'14px 16px',
                 border:headerBorder,borderBottom:'none',cursor:'pointer',textAlign:'left' as const,display:'block'
@@ -55,7 +55,7 @@ export default function RDVPage({C,dpa,saReelle,rdvDates,saveRdvI,rdvOuvert,setR
                 </div>
               </button>
 
-              {/* BODY — fond crème quand ouvert */}
+              {/* BODY : fond crème quand ouvert */}
               {isOpen&&(
                 <div style={{background:'#faf6f0',padding:'16px 18px',borderTop:'1px solid #ede8e0'}} onClick={e=>e.stopPropagation()}>
                   <p style={{color:C.text,fontSize:'14px',lineHeight:1.75,margin:'0 0 14px'}}>{r.desc}</p>
