@@ -96,6 +96,12 @@ export default function SuiviBebe({C}: any) {
     });
   };
 
+  const supprimerEntree = (idx: number) => {
+    const next = entrees.filter((_:any, i:number) => i !== idx);
+    setEntrees(next);
+    setOuverte(null);
+  };
+
   const ajouterEntree = () => {
     const nouvelIdx = jour.entrees.length;
     updateJour(j => ({...j, entrees:[...j.entrees, entreeVide()]}));
@@ -226,11 +232,18 @@ export default function SuiviBebe({C}: any) {
 
                     <div style={{display:'flex',alignItems:'center',justifyContent:'space-between',marginBottom:'14px'}}>
                       <span style={{fontSize:'14px',fontWeight:700,color:'#1e2535'}}>Entrée {idx+1}</span>
-                      <button onClick={()=>setOuverte(null)} style={{
-                        background:'linear-gradient(135deg,#c8a060,#e8c070)',border:'none',color:'#1c1510',
-                        borderRadius:'20px',padding:'8px 18px',fontSize:'14px',
-                        fontWeight:800,cursor:'pointer',boxShadow:'0 4px 12px rgba(200,160,96,0.3)',
-                      }}>✓ Noté</button>
+                      <div style={{display:'flex',gap:'8px',alignItems:'center'}}>
+                        <button onClick={()=>supprimerEntree(idx)} style={{
+                          background:'rgba(255,210,205,0.5)',border:'1px solid rgba(192,74,26,0.2)',color:'#C04A1A',
+                          borderRadius:'20px',padding:'8px 12px',fontSize:'14px',
+                          fontWeight:700,cursor:'pointer',
+                        }}>🗑</button>
+                        <button onClick={()=>setOuverte(null)} style={{
+                          background:'linear-gradient(135deg,#c8a060,#e8c070)',border:'none',color:'#1c1510',
+                          borderRadius:'20px',padding:'8px 18px',fontSize:'14px',
+                          fontWeight:800,cursor:'pointer',boxShadow:'0 4px 12px rgba(200,160,96,0.3)',
+                        }}>✓ Noté</button>
+                      </div>
                     </div>
 
                     {/* HEURE */}
