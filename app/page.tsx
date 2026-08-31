@@ -260,7 +260,7 @@ export default function Home() {
               À deux, dès le premier jour
             </p>
             <button onClick={goToStripe} style={{background:'linear-gradient(135deg,#c8a060,#e8c070)', color:'#1c1510', border:'none', padding:'20px 56px', borderRadius:'32px', fontSize:'18px', fontWeight:800, cursor:'pointer', display:'block', margin:'0 auto 14px', boxShadow:'0 8px 32px rgba(200,160,96,0.5), 0 2px 8px rgba(0,0,0,0.2)'}}>
-              Accéder · 49,99€
+              Accéder
             </button>
             <p style={{color:'rgba(255,255,255,0.35)', fontSize:'13px', margin:0}}>Paiement unique · Satisfait ou remboursé sous 14 jours</p>
           </div>
