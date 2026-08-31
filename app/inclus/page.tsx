@@ -106,7 +106,7 @@ export default function InclusPage() {
         <div style={{background:C.cream, height:'20px'}}></div>
         <div style={{background:'linear-gradient(135deg,#0a1f32 0%,#1A3D5C 50%,#1d4d72 100%)', padding:'0 40px 64px', position:'relative'}}>
           <div style={{position:'absolute', top:'-60px', right:'100px', width:'320px', height:'320px', borderRadius:'50%', background:'radial-gradient(circle,rgba(200,160,96,0.22) 0%,transparent 65%)', pointerEvents:'none'}}></div>
-          <div className="echo-flex" style={{maxWidth:'960px', margin:'0 auto', position:'relative', zIndex:1}}>
+          <div style={{maxWidth:'960px', margin:'0 auto', display:'flex', alignItems:'center', gap:'56px', position:'relative', zIndex:1}}>
 
             {/* iPhone 17 mockup */}
             <div style={{flexShrink:0, marginTop:'-40px', position:'relative', zIndex:2, animation:'float 4s ease-in-out infinite', transform:'rotate(-2deg)'}}>
@@ -177,7 +177,7 @@ export default function InclusPage() {
             {/* CTA */}
             <div style={{flex:1}}>
               <h2 style={{color:C.white, fontSize:'32px', fontWeight:800, margin:'0 0 28px', lineHeight:1.25}}>Maintenant tu sais.<br/><span style={{color:'#e0b870'}}>À toi de jouer</span></h2>
-              <button onClick={() => setShowModal(true)} style={{background:'linear-gradient(135deg,#c8a060,#e8c070)', color:'#1c1510', border:'none', padding:'20px 48px', borderRadius:'32px', fontSize:'18px', fontWeight:800, cursor:'pointer', boxShadow:'0 8px 32px rgba(200,160,96,0.6), 0 2px 8px rgba(0,0,0,0.2)', display:'block', marginBottom:'12px', width:'auto'}}>
+              <button onClick={() => setShowModal(true)} style={{background:'linear-gradient(135deg,#c8a060,#e8c070)', color:'#1c1510', border:'none', padding:'20px 48px', borderRadius:'32px', fontSize:'18px', fontWeight:800, cursor:'pointer', boxShadow:'0 8px 32px rgba(200,160,96,0.6), 0 2px 8px rgba(0,0,0,0.2)', display:'block', margin:'0 auto 12px', width:'auto'}}>
                 Commencer
               </button>
               <p style={{color:'rgba(255,255,255,0.35)', fontSize:'12px', margin:0}}>Satisfait ou remboursé sous 14 jours</p>
