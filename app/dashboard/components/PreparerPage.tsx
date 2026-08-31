@@ -231,7 +231,7 @@ const CONGE = [
     items: [
       { id:"c1",  label: "25 jours de congé paternité + 3 jours de naissance = 28 jours au total (32 pour naissances multiples)" },
       { id:"c2",  label: "4 premiers jours obligatoires dès la naissance (les 4 jours qui suivent les 3 jours de naissance)" },
-      { id:"c3",  label: "21 jours restants à prendre dans les 6 mois suivant la naissance — et depuis juillet 2026, 1 à 2 mois supplémentaires indemnisés à 70% puis 60%" },
+      { id:"c3",  label: "21 jours restants à prendre dans les 6 mois suivant la naissance : et depuis juillet 2026, 1 à 2 mois supplémentaires indemnisés à 70% puis 60%" },
       { id:"c4",  label: "Les 21 jours peuvent être fractionnés en 2 périodes minimum. Le congé supplémentaire peut être pris simultanément ou en alternance avec la maman" },
       { id:"c5",  label: "En cas de jumeaux : 35 jours au total" },
     ],
