@@ -30,7 +30,6 @@ export default function ComptePage() {
   const [email, setEmail]     = useState('');
   const [dpa, setDpa]         = useState('');
   const [dpaOriginale, setDpaOriginale] = useState('');
-  const [dpaModifiee, setDpaModifiee]   = useState(false);
   const [saReelle, setSaReelle]   = useState<number | null>(null);
   const [joursRestants, setJoursRestants] = useState<number | null>(null);
   const [isPost, setIsPost]   = useState(() => typeof window !== 'undefined' ? localStorage.getItem('dadup_is_post') === '1' : false);
@@ -57,7 +56,7 @@ export default function ComptePage() {
       setDpa(user.dpa || '');
       setDpaOriginale(user.dpa_originale || '');
 
-      const dpaModifCount = parseInt(localStorage.getItem('dadup_dpa_modif_count') || '0');
+
       const dpaModif = dpaModifCount >= 3;
       setDpaModifiee(dpaModif);
 
@@ -87,7 +86,7 @@ export default function ComptePage() {
     setInfoMsg('');
     try {
       const body: Record<string, string> = { prenom, email };
-      if (!dpaModifiee && dpa) {
+      if (dpa) {
         body.dpa = dpa;
         body.dpa_originale = dpa;
       }
@@ -98,10 +97,9 @@ export default function ComptePage() {
       });
       if (!res.ok) { setInfoMsg('Erreur lors de la sauvegarde.'); return; }
       if (prenom) localStorage.setItem('dadup_prenom', prenom);
-      if (!dpaModifiee && dpa) {
+      if (dpa) {
         localStorage.setItem('dadup_dpa', dpa);
-        const newCount = parseInt(localStorage.getItem('dadup_dpa_modif_count') || '0') + 1;
-        localStorage.setItem('dadup_dpa_modif_count', String(newCount));
+
         if (newCount >= 3) setDpaModifiee(true);
       }
       setSaved(true);
@@ -260,9 +258,9 @@ export default function ComptePage() {
             <div>
               <label style={{ display: 'block', fontSize: '12px', fontWeight: 700, color: C.dark, marginBottom: '6px' }}>
                 Date prévue d'accouchement
-                {dpaModifiee ? <span style={{ color: C.textLight, fontWeight: 400, marginLeft: '8px' }}>· limite atteinte</span> : dpa !== dpaOriginale && <span style={{ color: C.textLight, fontWeight: 400, marginLeft: '8px' }}>· modifiable encore {3 - (parseInt(localStorage.getItem('dadup_dpa_modif_count') || '0'))} fois</span>}
+                
               </label>
-              {dpaModifiee ? (
+              {false ? (
                 <div>
                   <input type="date" value={dpa} disabled style={inputStyle(true)} />
                   <p style={{ color: C.textLight, fontSize: '12px', margin: '6px 0 0', lineHeight: 1.5 }}>
