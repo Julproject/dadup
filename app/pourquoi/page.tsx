@@ -161,7 +161,7 @@ export default function PourquoiPage() {
               Ton bébé arrive<br/><span style={{color:'#e0b870'}}>Commence maintenant</span>
             </h2>
             <p style={{color:'rgba(255,255,255,0.6)', fontSize:'16px', margin:'0 0 12px'}}>À deux, dès le premier jour</p>
-            <p style={{color:'rgba(255,255,255,0.4)', fontSize:'32px', fontWeight:800, margin:'0 0 32px'}}>49,99€</p>
+            <p style={{color:'#e0b870', fontSize:'48px', fontWeight:900, margin:'0 0 32px'}}>49,99€</p>
             <button onClick={() => setShowModal(true)} style={{background:'linear-gradient(135deg,#c8a060,#e8c070)', color:'#1c1510', border:'none', padding:'18px 48px', borderRadius:'32px', fontSize:'17px', fontWeight:800, cursor:'pointer', boxShadow:'0 8px 32px rgba(200,160,96,0.5)'}}>
               Accéder maintenant
             </button>
