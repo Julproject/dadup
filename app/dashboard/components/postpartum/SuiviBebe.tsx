@@ -97,7 +97,7 @@ export default function SuiviBebe({C}: any) {
   };
 
   const supprimerEntree = (idx: number) => {
-    setEntrees((prev: any[]) => prev.filter((_: any, i: number) => i !== idx));
+    updateJour(j => ({...j, entrees: j.entrees.filter((_: EntreeJour, i: number) => i !== idx)}));
     setOuverte(null);
   };
 
