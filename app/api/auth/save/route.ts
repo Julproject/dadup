@@ -15,7 +15,7 @@ export async function POST(req: NextRequest) {
 
     const body = await req.json();
     const {
-      prenom, email, dpa, dpa_originale, access_until, naissance_count_increment, dpa_modif_increment,
+      prenom, email, dpa, dpa_originale, access_until, naissance_count_increment, dpa_modif_increment: dpa_modif_increment_raw,
       valise_checked, missions_checked,
       rdv_dates, next_rdv, achats_checked,
     } = body;
@@ -60,6 +60,7 @@ export async function POST(req: NextRequest) {
       }
     }
     // Incrémenter dpa_modif_count si demandé et envoyer alerte si >= 3
+    const dpa_modif_increment = dpa_modif_increment_raw === true || dpa_modif_increment_raw === 'true';
     if (dpa_modif_increment) {
       const { data: userData } = await supabase
         .from('users')
