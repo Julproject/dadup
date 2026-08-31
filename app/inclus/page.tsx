@@ -106,7 +106,7 @@ export default function InclusPage() {
         <div style={{background:C.cream, height:'20px'}}></div>
         <div style={{background:'linear-gradient(135deg,#0a1f32 0%,#1A3D5C 50%,#1d4d72 100%)', padding:'0 40px 64px', position:'relative'}}>
           <div style={{position:'absolute', top:'-60px', right:'100px', width:'320px', height:'320px', borderRadius:'50%', background:'radial-gradient(circle,rgba(200,160,96,0.22) 0%,transparent 65%)', pointerEvents:'none'}}></div>
-          <div style={{maxWidth:'960px', margin:'0 auto', display:'flex', alignItems:'center', gap:'56px', position:'relative', zIndex:1}}>
+          <div className="echo-flex" style={{maxWidth:'960px', margin:'0 auto', position:'relative', zIndex:1}}>
 
             {/* iPhone 17 mockup */}
             <div style={{flexShrink:0, marginTop:'-40px', position:'relative', zIndex:2, animation:'float 4s ease-in-out infinite', transform:'rotate(-2deg)'}}>
