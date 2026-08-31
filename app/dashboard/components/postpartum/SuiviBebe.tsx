@@ -227,10 +227,10 @@ export default function SuiviBebe({C}: any) {
                     <div style={{display:'flex',alignItems:'center',justifyContent:'space-between',marginBottom:'14px'}}>
                       <span style={{fontSize:'14px',fontWeight:700,color:'#1e2535'}}>Entrée {idx+1}</span>
                       <button onClick={()=>setOuverte(null)} style={{
-                        background:'#1e2535',border:'none',color:'#fff',
-                        borderRadius:'20px',padding:'4px 12px',fontSize:'14px',
-                        fontWeight:700,cursor:'pointer',
-                      }}>Fermer</button>
+                        background:'linear-gradient(135deg,#c8a060,#e8c070)',border:'none',color:'#1c1510',
+                        borderRadius:'20px',padding:'8px 18px',fontSize:'14px',
+                        fontWeight:800,cursor:'pointer',boxShadow:'0 4px 12px rgba(200,160,96,0.3)',
+                      }}>✓ Noté</button>
                     </div>
 
                     {/* HEURE */}
