@@ -133,6 +133,8 @@ const TERMES: Terme[] = [
   { cat: 'alerte', mot: 'Rupture prématurée des membranes', def: 'Perte des eaux avant 37 SA. Urgence médicale : risque d\'infection et d\'accouchement prématuré. Aller aux urgences immédiatement si cela se produit.' },
   { cat: 'alerte', mot: 'Accouchement prématuré', def: 'Naissance avant 37 SA. Avant 34 SA, une hospitalisation est nécessaire. Des corticoïdes peuvent être injectés pour accélérer la maturation des poumons de bébé.' },
   { cat: 'alerte', mot: 'Dépassement de terme', def: 'Grossesse qui dépasse 41 SA. Une surveillance renforcée est mise en place. Un déclenchement artificiel du travail peut être proposé à 41 SA + quelques jours.' },
+  { cat: 'suivi', mot: 'SA (Semaine d\'Aménorrhée)', def: 'L\'unité officielle pour mesurer l\'avancement de la grossesse en France. On compte depuis le premier jour des dernières règles. La grossesse dure 41 SA au total. Quand le médecin dit "20 SA", ça veut dire que vous êtes à la 20e semaine de grossesse.' },
+  { cat: 'bebe', mot: 'Post-partum', def: 'La période qui suit l\'accouchement, généralement les premières semaines à premiers mois après la naissance. Bébé découvre le monde, maman récupère physiquement et émotionnellement, le couple se réorganise. Le post-partum concerne les deux parents.' },
 ];
 
 export default function DicoPapa({ C: propC, isPost = false }: { C?: any; isPost?: boolean }) {
