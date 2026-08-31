@@ -180,7 +180,7 @@ export default function InclusPage() {
               <button onClick={() => setShowModal(true)} style={{background:'linear-gradient(135deg,#c8a060,#e8c070)', color:'#1c1510', border:'none', padding:'20px 48px', borderRadius:'32px', fontSize:'18px', fontWeight:800, cursor:'pointer', boxShadow:'0 8px 32px rgba(200,160,96,0.6), 0 2px 8px rgba(0,0,0,0.2)', display:'block', margin:'0 auto 12px', width:'auto'}}>
                 Commencer
               </button>
-              <p style={{color:'rgba(255,255,255,0.35)', fontSize:'12px', margin:0}}>Satisfait ou remboursé sous 14 jours</p>
+              <p style={{color:'rgba(255,255,255,0.35)', fontSize:'12px', margin:'12px 0 0', display:'block', textAlign:'center' as const}}>Satisfait ou remboursé sous 14 jours</p>
             </div>
           </div>
         </div>
