@@ -143,7 +143,7 @@ export default function Home() {
           <div style={{position:'relative', zIndex:1, display:'flex', flexDirection:'column' as const, gap:'10px', justifyContent:'center'}}>
             {[
               {bg:'rgba(180,220,255,0.15)', border:'rgba(180,220,255,0.35)', iconBg:'#B8DCFF', iconColor:'#1A3D5C', textColor:'#B8DCFF', label:'41 semaines de contenu'},
-              {bg:'rgba(150,240,200,0.12)', border:'rgba(150,240,200,0.3)', iconBg:'#96F0C8', iconColor:'#0D4A2E', textColor:'#96F0C8', label:'Post-partum inclus'},
+              {bg:'rgba(150,240,200,0.12)', border:'rgba(150,240,200,0.3)', iconBg:'#96F0C8', iconColor:'#0D4A2E', textColor:'#96F0C8', label:'Après la naissance inclus'},
               {bg:'rgba(200,170,255,0.12)', border:'rgba(200,170,255,0.3)', iconBg:'#C8AAFF', iconColor:'#3D2E7A', textColor:'#C8AAFF', label:"Jusqu'au 1er anniversaire de bébé"},
               {bg:'rgba(255,240,160,0.12)', border:'rgba(255,240,160,0.3)', iconBg:'#FFF0A0', iconColor:'#8A6010', textColor:'#FFF0A0', label:'Contenu médical sourcé'},
               {bg:'rgba(200,255,240,0.12)', border:'rgba(100,220,200,0.3)', iconBg:'#A0FFE8', iconColor:'#006B55', textColor:'#A0FFE8', label:'Disponible sur web + mobile (PWA)'},
@@ -167,8 +167,8 @@ export default function Home() {
           </div>
           <div className="stats-4col">
             {[
-              {border:'rgba(180,220,255,0.25)', label:'41 semaines', lc:'#7ab8f0', title:'De SA 3 à SA 41', tc:'#B8DCFF', desc:"Chaque semaine expliquée côté papa : développement de bébé, ton rôle, ce qu'elle vit.", dc:'rgba(180,220,255,0.6)'},
-              {border:'rgba(150,240,200,0.2)', label:"Jusqu'au 1er anniversaire", lc:'#5dd4a0', title:'Post-partum inclus', tc:'#96F0C8', desc:'Les premiers mois, le développement de bébé, le baby blues, le couple. Tout est inclus.', dc:'rgba(150,240,200,0.6)'},
+              {border:'rgba(180,220,255,0.25)', label:'41 semaines', lc:'#7ab8f0', title:'De De la 3e à la 41e semaine', tc:'#B8DCFF', desc:"Chaque semaine expliquée côté papa : développement de bébé, ton rôle, ce qu'elle vit.", dc:'rgba(180,220,255,0.6)'},
+              {border:'rgba(150,240,200,0.2)', label:"Jusqu'au 1er anniversaire", lc:'#5dd4a0', title:'Après la naissance inclus', tc:'#96F0C8', desc:'Les premiers mois, le développement de bébé, le baby blues, le couple. Tout est inclus.', dc:'rgba(150,240,200,0.6)'},
               {border:'rgba(200,170,255,0.2)', label:'Calendrier médical', lc:'#a888f0', title:'Chaque consultation préparée', tc:'#C8AAFF', desc:"Ce qu'on cherche à chaque rendez-vous, les bonnes questions à poser, comment être vraiment présent.", dc:'rgba(200,170,255,0.6)'},
               {border:'rgba(255,240,160,0.25)', label:'Paiement unique', lc:'#e0b870', title:'Sans abonnement', tc:'#FFF0A0', desc:"Tu paies une fois, tu accèdes jusqu'au premier anniversaire de bébé. Pas de surprise.", dc:'rgba(255,240,160,0.6)'},
             ].map((s,i) => (
