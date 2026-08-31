@@ -15,7 +15,7 @@ export async function POST(req: NextRequest) {
 
     const body = await req.json();
     const {
-      prenom, email, dpa, dpa_originale, access_until, naissance_count_increment,
+      prenom, email, dpa, dpa_originale, access_until, naissance_count_increment, dpa_modif_increment,
       valise_checked, missions_checked,
       rdv_dates, next_rdv, achats_checked,
     } = body;
@@ -56,6 +56,37 @@ export async function POST(req: NextRequest) {
           });
         } catch (e) {
           console.error('Email alerte naissance:', e);
+        }
+      }
+    }
+    // Incrémenter dpa_modif_count si demandé et envoyer alerte si >= 3
+    if (dpa_modif_increment) {
+      const { data: userData } = await supabase
+        .from('users')
+        .select('dpa_modif_count, email, prenom')
+        .eq('id', sessionId)
+        .single();
+
+      const currentCount = (userData?.dpa_modif_count || 0) + 1;
+      update.dpa_modif_count = currentCount;
+
+      if (currentCount >= 3 && process.env.BREVO_API_KEY) {
+        try {
+          await fetch('https://api.brevo.com/v3/smtp/email', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'api-key': process.env.BREVO_API_KEY,
+            },
+            body: JSON.stringify({
+              sender: { name: 'DadUp', email: 'hello@dadup.fr' },
+              to: [{ email: 'hello@dadup.fr' }],
+              subject: `⚠️ DadUp - ${userData?.prenom || 'Un père'} a modifié sa DPA ${currentCount} fois`,
+              htmlContent: `<p>L'utilisateur <strong>${userData?.prenom || ''}</strong> (${userData?.email || ''}) a modifié sa DPA <strong>${currentCount} fois</strong>.</p><p>Vérifie que tout est correct dans son profil.</p>`,
+            }),
+          });
+        } catch (e) {
+          console.error('Email alerte DPA:', e);
         }
       }
     }
