@@ -180,8 +180,8 @@ export default function AtelierBebe({C: propC}: any) {
   return (
     <div style={{display:'flex', flexDirection:'column', gap:'20px', fontFamily:"-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"}}>
 
-      <div style={{background:'#1A3D5C', borderRadius:'20px', padding:'22px 24px'}}>
-        <p style={{color:'rgba(200,220,240,0.5)', fontSize:'10px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase' as const, margin:'0 0 6px'}}>Atelier pratique</p>
+      <div style={{background:'linear-gradient(135deg,#0a1f32,#1A3D5C)', borderRadius:'20px', padding:'22px 24px'}}>
+        <p style={{color:'rgba(200,220,240,0.5)', fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase' as const, margin:'0 0 6px'}}>Atelier pratique</p>
         <p style={{color:'#fff', fontSize:'20px', fontWeight:800, margin:'0 0 4px'}}>Les gestes qui comptent</p>
       </div>
 
@@ -189,7 +189,7 @@ export default function AtelierBebe({C: propC}: any) {
         {ATELIERS.map(a => (
           <button key={a.id} onClick={() => { setAtelierActif(a.id); setEtapeOuverte(0); }} style={{
             flexShrink:0, padding:'8px 16px', border:'none', borderRadius:'20px', cursor:'pointer',
-            fontSize:'12px', fontWeight:700,
+            fontSize:'14px', fontWeight:700,
             background: atelierActif === a.id ? '#1e2535' : a.fond,
             color: atelierActif === a.id ? '#fff' : a.couleur,
           }}>
@@ -200,13 +200,13 @@ export default function AtelierBebe({C: propC}: any) {
 
       <div style={{background:atelier.fond, borderRadius:'16px', padding:'16px 18px', borderLeft:`3px solid ${atelier.couleur}`}}>
         <p style={{color:atelier.couleur, fontSize:'16px', fontWeight:800, margin:'0 0 2px'}}>{atelier.titre}</p>
-        <p style={{color:'#6a7585', fontSize:'12px', margin:0}}>{atelier.sousTitre}</p>
+        <p style={{color:'#6a7585', fontSize:'14px', margin:0}}>{atelier.sousTitre}</p>
       </div>
 
       {atelier.alerte && (
         <div style={{background:'#FDECEA', borderRadius:'14px', padding:'12px 16px', display:'flex', gap:'10px', alignItems:'flex-start'}}>
           <span style={{fontSize:'16px', flexShrink:0}}>⚠️</span>
-          <p style={{color:'#8A0000', fontSize:'13px', fontWeight:600, margin:0}}>{atelier.alerte}</p>
+          <p style={{color:'#8A0000', fontSize:'14px', fontWeight:600, margin:0}}>{atelier.alerte}</p>
         </div>
       )}
 
@@ -231,7 +231,7 @@ export default function AtelierBebe({C: propC}: any) {
               </button>
               {ouvert && (
                 <div style={{padding:'0 16px 16px 52px'}}>
-                  <p style={{color:'#3a4a5a', fontSize:'13px', lineHeight:1.75, margin:0}}>{etape.texte}</p>
+                  <p style={{color:'#3a4a5a', fontSize:'14px', lineHeight:1.75, margin:0}}>{etape.texte}</p>
                 </div>
               )}
             </div>
@@ -241,8 +241,8 @@ export default function AtelierBebe({C: propC}: any) {
 
       {atelier.conseil && (
         <div style={{background:'#1e2535', borderRadius:'16px', padding:'16px 18px'}}>
-          <p style={{color:'#c8a060', fontSize:'10px', fontWeight:700, letterSpacing:'2px', textTransform:'uppercase' as const, margin:'0 0 7px'}}>À retenir</p>
-          <p style={{color:'#fff', fontSize:'13px', lineHeight:1.7, margin:0}}>{atelier.conseil}</p>
+          <p style={{color:'#c8a060', fontSize:'11px', fontWeight:700, letterSpacing:'2px', textTransform:'uppercase' as const, margin:'0 0 7px'}}>À retenir</p>
+          <p style={{color:'#fff', fontSize:'14px', lineHeight:1.7, margin:0}}>{atelier.conseil}</p>
         </div>
       )}
 
