@@ -119,7 +119,7 @@ export default function Home() {
             </h1>
 
             <p style={{color:'rgba(255,255,255,0.95)', fontSize:'18px', fontWeight:700, lineHeight:1.6, margin:'0 0 8px'}}>
-              À deux, dès le premier jour
+              Prends ta place de père
             </p>
             <p style={{color:'rgba(255,255,255,0.5)', fontSize:'14px', lineHeight:1.7, margin:'0 0 32px'}}>
               DadUp t&apos;accompagne semaine après semaine, de la grossesse au premier anniversaire de bébé.
@@ -253,7 +253,7 @@ export default function Home() {
               <div style={{width:'7px', height:'7px', borderRadius:'50%', background:'#c8a060', boxShadow:'0 0 8px rgba(200,160,96,0.9)'}}></div>
               <span style={{color:'#e0b870', fontSize:'11px', fontWeight:700, letterSpacing:'1px'}}>Accès immédiat</span>
             </div>
-<p style={{color:'rgba(255,255,255,0.8)', fontSize:'20px', fontWeight:600, margin:'0 0 32px', lineHeight:1.7}}>
+<p style={{color:'rgba(255,255,255,0.9)', fontSize:'28px', fontWeight:800, margin:'0 0 32px', lineHeight:1.3}}>
               À deux, dès le premier jour
             </p>
             <button onClick={goToStripe} style={{background:'linear-gradient(135deg,#c8a060,#e8c070)', color:'#1c1510', border:'none', padding:'20px 56px', borderRadius:'32px', fontSize:'18px', fontWeight:800, cursor:'pointer', display:'block', margin:'0 auto 14px', boxShadow:'0 8px 32px rgba(200,160,96,0.5), 0 2px 8px rgba(0,0,0,0.2)'}}>
