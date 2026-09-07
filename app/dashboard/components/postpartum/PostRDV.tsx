@@ -17,7 +17,7 @@ export default function PostRDV({C, moisBebe, dataBebe}: any) {
 
       {/* RDV */}
       {dataBebe.rdv && (
-        <div style={{background:'rgba(255,232,160,0.35)', borderRadius:'16px', padding:'18px 20px'}}>
+        <div style={{background:'rgba(255,232,160,0.3)', borderRadius:'16px', padding:'18px 20px'}}>
           <p style={{color:'#8A6010', fontSize:'11px', fontWeight:700, letterSpacing:'2.5px', textTransform:'uppercase' as const, margin:'0 0 8px'}}>Rendez-vous médical</p>
           <p style={{color:'#3A2800', fontSize:'14px', lineHeight:1.7, margin:0}}>{dataBebe.rdv}</p>
         </div>
@@ -25,7 +25,7 @@ export default function PostRDV({C, moisBebe, dataBebe}: any) {
 
       {/* VACCINS */}
       {dataBebe.vaccins && (
-        <div style={{background:'rgba(200,232,255,0.35)', borderRadius:'16px', padding:'18px 20px'}}>
+        <div style={{background:'rgba(200,232,255,0.3)', borderRadius:'16px', padding:'18px 20px'}}>
           <p style={{color:'#1A4A7A', fontSize:'11px', fontWeight:700, letterSpacing:'2.5px', textTransform:'uppercase' as const, margin:'0 0 8px'}}>Vaccins</p>
           <p style={{color:'#0A2A5A', fontSize:'14px', lineHeight:1.7, margin:0}}>{dataBebe.vaccins}</p>
         </div>
