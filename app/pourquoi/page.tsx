@@ -88,8 +88,8 @@ export default function PourquoiPage() {
       {/* AVANT / APRÈS */}
       <section style={{padding:'80px 40px', maxWidth:'1200px', margin:'0 auto'}}>
         <div style={{textAlign:'center' as const, marginBottom:'48px'}}>
-          <p style={{color:C.blue, fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase' as const, margin:'0 0 12px'}}>Ce que DadUp change</p>
-          <h2 style={{fontSize:'36px', fontWeight:800, color:C.dark, margin:0}}>Deux façons de vivre la grossesse</h2>
+          <p style={{color:C.blue, fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase' as const, margin:'0 0 12px'}}>Deux façons de vivre la grossesse</p>
+          <h2 style={{fontSize:'36px', fontWeight:800, color:C.dark, margin:0}}>Ce que DadUp change</h2>
         </div>
         <div style={{display:'flex', flexDirection:'column' as const, gap:'10px'}}>
           {[
