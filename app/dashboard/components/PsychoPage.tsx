@@ -355,9 +355,9 @@ export default function PsychoPage({ C: propC, saReelle }: any) {
   const paragraphes = semaine.corps.split('\n\n');
 
   return (
-    <div style={{display:'flex',flexDirection:'column',gap:'24px',fontFamily:"-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"}}>
+    <div style={{display:'flex',flexDirection:'column',gap:'16px',fontFamily:"-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"}}>
 
-      <div style={{background:'linear-gradient(135deg,#0a1f32,#1A3D5C)',borderRadius:'24px',padding:'26px 28px',position:'relative',overflow:'hidden'}}>
+      <div style={{background:'linear-gradient(135deg,#0a1f32,#1A3D5C)',borderRadius:'20px',padding:'22px 24px',position:'relative',overflow:'hidden'}}>
         <div style={{position:'absolute',top:'-30px',right:'-30px',width:'150px',height:'150px',borderRadius:'50%',background:'radial-gradient(circle,rgba(200,160,96,0.18) 0%,transparent 65%)',pointerEvents:'none'}}></div>
         <p style={{color:'#c8a060',fontSize:'11px',fontWeight:700,letterSpacing:'3px',textTransform:'uppercase' as const,margin:'0 0 8px'}}>Psychologie du papa</p>
         <h2 style={{color:Cs.white,fontSize:'22px',fontWeight:800,margin:'0 0 8px',lineHeight:1.3}}>Cette semaine, une info pour toi.</h2>
@@ -369,7 +369,7 @@ export default function PsychoPage({ C: propC, saReelle }: any) {
         <span style={{background:tc.bg,color:tc.tc,fontSize:'12px',fontWeight:700,padding:'6px 14px',borderRadius:'20px'}}>{themeLabel[semaine.theme]}</span>
       </div>
 
-      <div style={{background:tc.bg,borderRadius:'24px',padding:'28px'}}>
+      <div style={{background:tc.bg,borderRadius:'20px',padding:'28px'}}>
         <h3 style={{color:Cs.dark,fontSize:'18px',fontWeight:800,margin:'0 0 14px',lineHeight:1.3}}>{semaine.titre}</h3>
         <p style={{color:tc.tc,fontSize:'14px',fontWeight:600,lineHeight:1.7,margin:0}}>{semaine.intro}</p>
       </div>
