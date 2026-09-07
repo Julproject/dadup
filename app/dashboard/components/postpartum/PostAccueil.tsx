@@ -50,7 +50,7 @@ export default function PostAccueil({C, moisBebe, dataBebe, joursRestants}: any)
 
       {/* RDV */}
       {dataBebe.rdv && (
-        <div style={{background:'rgba(255,232,160,0.4)', borderRadius:'16px', padding:'16px 18px'}}>
+        <div style={{background:'rgba(255,232,160,0.3)', borderRadius:'16px', padding:'16px 18px'}}>
           <p style={{color:'#8A6010', fontSize:'11px', fontWeight:700, letterSpacing:'2.5px', textTransform:'uppercase' as const, margin:'0 0 8px'}}>Rendez-vous ce mois</p>
           <p style={{color:'#3A2800', fontSize:'14px', lineHeight:1.65, margin:0}}>{dataBebe.rdv}</p>
         </div>
