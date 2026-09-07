@@ -12,7 +12,7 @@ export default function RDVPage({C,dpa,saReelle,rdvDates,saveRdvI,rdvOuvert,setR
   const urgent = prochain && !prochainDate && joursAvant !== null && joursAvant <= 21;
 
   return (
-    <div style={{display:'flex',flexDirection:'column',gap:'20px'}}>
+    <div style={{display:'flex',flexDirection:'column',gap:'16px'}}>
 
       <div>
         <p style={{...LABEL,color:'#6a7585',margin:'0 0 4px'}}>Calendrier</p>
@@ -22,8 +22,8 @@ export default function RDVPage({C,dpa,saReelle,rdvDates,saveRdvI,rdvOuvert,setR
 
       {/* PROCHAIN RDV — MIS EN AVANT */}
       {prochain && (
-        <div style={{background:urgent?'linear-gradient(135deg,#7A2010,#C04A1A)':'linear-gradient(135deg,#0a1f32,#1A3D5C)',borderRadius:'22px',padding:'24px',position:'relative',overflow:'hidden',boxShadow:urgent?'0 8px 32px rgba(192,74,26,0.3)':'0 8px 32px rgba(26,61,92,0.3)'}}>
-          <div style={{position:'absolute',top:'-30px',right:'-30px',width:'160px',height:'160px',borderRadius:'50%',background:urgent?'radial-gradient(circle,rgba(255,200,150,0.15) 0%,transparent 65%)':'radial-gradient(circle,rgba(200,160,96,0.2) 0%,transparent 65%)',pointerEvents:'none'}}></div>
+        <div style={{background:urgent?'linear-gradient(135deg,#7A2010,#C04A1A)':'linear-gradient(135deg,#0a1f32,#1A3D5C)',borderRadius:'20px',padding:'24px',position:'relative',overflow:'hidden',boxShadow:urgent?'0 8px 32px rgba(192,74,26,0.3)':'0 8px 32px rgba(26,61,92,0.3)'}}>
+          <div style={{position:'absolute',top:'-30px',right:'-30px',width:'160px',height:'160px',borderRadius:'50%',background:urgent?'radial-gradient(circle,rgba(255,200,150,0.15) 0%,transparent 65%)':'radial-gradient(circle,rgba(200,160,96,0.15) 0%,transparent 65%)',pointerEvents:'none'}}></div>
           <div style={{position:'relative',zIndex:1}}>
             <div style={{display:'flex',alignItems:'center',justifyContent:'space-between',marginBottom:'16px'}}>
               <span style={{...LABEL,color:urgent?'rgba(255,220,200,0.8)':'#c8a060'}}>{urgent?'À prendre rapidement':'Prochain rendez-vous'}</span>
@@ -42,7 +42,7 @@ export default function RDVPage({C,dpa,saReelle,rdvDates,saveRdvI,rdvOuvert,setR
             <p style={{color:'rgba(255,255,255,0.7)',fontSize:'14px',lineHeight:1.7,margin:'0 0 16px'}}>{prochain.desc}</p>
 
             <div style={{display:'flex',gap:'10px',flexWrap:'wrap' as const,alignItems:'center'}}>
-              <a href="https://www.doctolib.fr" target="_blank" rel="noopener noreferrer" style={{display:'inline-flex',alignItems:'center',gap:'6px',background:'linear-gradient(135deg,#c8a060,#e8c070)',color:'#1c1510',padding:'11px 20px',borderRadius:'24px',fontSize:'14px',fontWeight:800,textDecoration:'none',boxShadow:'0 4px 16px rgba(200,160,96,0.4)'}}>
+              <a href="https://www.doctolib.fr" target="_blank" rel="noopener noreferrer" style={{display:'inline-flex',alignItems:'center',gap:'6px',background:'linear-gradient(135deg,#c8a060,#e8c070)',color:'#1c1510',padding:'11px 20px',borderRadius:'20px',fontSize:'14px',fontWeight:800,textDecoration:'none',boxShadow:'0 4px 16px rgba(200,160,96,0.4)'}}>
                 Prendre RDV sur Doctolib →
               </a>
               <div style={{flex:1,minWidth:'160px'}}>
@@ -69,7 +69,7 @@ export default function RDVPage({C,dpa,saReelle,rdvDates,saveRdvI,rdvOuvert,setR
               <div key={i} style={{borderRadius:'14px',overflow:'hidden',boxShadow:'0 2px 8px rgba(0,0,0,0.05)',border:'1px solid #ede8e0'}}>
                 <button onClick={()=>setRdvOuvert(isOpen?null:i)} style={{width:'100%',background:s==='passe'?'#f5f3ef':'#fff',padding:'12px 16px',border:'none',cursor:'pointer',textAlign:'left' as const,display:'flex',alignItems:'center',justifyContent:'space-between'}}>
                   <div style={{display:'flex',alignItems:'center',gap:'12px'}}>
-                    <div style={{width:'32px',height:'32px',borderRadius:'10px',background:s==='passe'?'rgba(13,107,64,0.12)':'rgba(0,0,0,0.05)',display:'flex',alignItems:'center',justifyContent:'center',flexShrink:0}}>
+                    <div style={{width:'32px',height:'32px',borderRadius:'10px',background:s==='passe'?'rgba(13,107,64,0.15)':'rgba(0,0,0,0.05)',display:'flex',alignItems:'center',justifyContent:'center',flexShrink:0}}>
                       {s==='passe'?<span style={{color:'#0D6B40',fontSize:'13px',fontWeight:800}}>✓</span>:<span style={{color:'#6a7585',fontSize:'11px',fontWeight:800}}>{r.sa}</span>}
                     </div>
                     <div>
