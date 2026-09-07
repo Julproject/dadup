@@ -167,7 +167,7 @@ function genererPDF(valiseChecked: Record<string,boolean>, maisonChecked: Record
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#1e2535;background:#faf6f0;padding:0;max-width:720px;margin:0 auto;}
 .hero{background:linear-gradient(135deg,#0a1f32 0%,#1A3D5C 100%);padding:40px 36px 32px;text-align:center;position:relative;overflow:hidden;}
-.hero::before{content:'';position:absolute;top:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(200,160,96,0.2) 0%,transparent 65%);}
+.hero::before{content:'';position:absolute;top:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(200,160,96,0.15) 0%,transparent 65%);}
 .logo{font-size:26px;font-weight:900;color:#fff;margin-bottom:4px;letter-spacing:-0.5px;}
 .logo span{color:#c8a060;}
 .hero-sub{font-size:14px;color:rgba(255,255,255,0.6);margin-bottom:24px;}
@@ -225,17 +225,17 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#1
 
 // ── Données Congé Paternité ───────────────────────────────────────────────────
 const CONGE_CARDS = [
-  { id:'c1', cat:'Durée',            big:'28 jours',   desc:'25 jours de congé paternité + 3 jours de naissance. 32 jours pour des jumeaux.',                                                          bg:'rgba(200,232,255,0.5)', tc:'#0A2847', dc:'#1A3D5C', shadow:'rgba(46,95,138,0.12)' },
-  { id:'c2', cat:'Obligatoire',      big:'4 jours',    desc:'Les 4 premiers jours après les 3 jours de naissance sont obligatoires.',                                                                    bg:'rgba(184,240,216,0.5)', tc:'#0A2E1A', dc:'#0D4A2E', shadow:'rgba(13,107,64,0.12)' },
-  { id:'c3', cat:'Nouveauté 2026',   big:'+2 mois',    desc:'Depuis juillet 2026 : 1 à 2 mois supplémentaires indemnisés à 70% puis 60%.',                                                           bg:'rgba(255,232,160,0.5)', tc:'#3A2000', dc:'#6A4000', shadow:'rgba(200,160,96,0.15)' },
-  { id:'c4', cat:'Délai',            big:'6 mois',     desc:'Les 21 jours restants sont à prendre dans les 6 mois suivant la naissance.',                                                              bg:'rgba(221,208,255,0.5)', tc:'#1A0A4A', dc:'#3D2E7A', shadow:'rgba(107,79,187,0.12)' },
-  { id:'c5', cat:'Prévenir l\'employeur', big:'1 mois', desc:'Avant la date prévue. Email ou courrier, aucune forme imposée. La LRAR reste la plus sûre.',                                              bg:'rgba(255,212,232,0.5)', tc:'#4A0A2A', dc:'#7A2050', shadow:'rgba(176,64,112,0.12)' },
+  { id:'c1', cat:'Durée',            big:'28 jours',   desc:'25 jours de congé paternité + 3 jours de naissance. 32 jours pour des jumeaux.',                                                          bg:'rgba(200,232,255,0.3)', tc:'#0A2847', dc:'#1A3D5C', shadow:'rgba(46,95,138,0.15)' },
+  { id:'c2', cat:'Obligatoire',      big:'4 jours',    desc:'Les 4 premiers jours après les 3 jours de naissance sont obligatoires.',                                                                    bg:'rgba(184,240,216,0.3)', tc:'#0A2E1A', dc:'#0D4A2E', shadow:'rgba(13,107,64,0.15)' },
+  { id:'c3', cat:'Nouveauté 2026',   big:'+2 mois',    desc:'Depuis juillet 2026 : 1 à 2 mois supplémentaires indemnisés à 70% puis 60%.',                                                           bg:'rgba(255,232,160,0.3)', tc:'#3A2000', dc:'#6A4000', shadow:'rgba(200,160,96,0.15)' },
+  { id:'c4', cat:'Délai',            big:'6 mois',     desc:'Les 21 jours restants sont à prendre dans les 6 mois suivant la naissance.',                                                              bg:'rgba(221,208,255,0.3)', tc:'#1A0A4A', dc:'#3D2E7A', shadow:'rgba(107,79,187,0.15)' },
+  { id:'c5', cat:'Prévenir l\'employeur', big:'1 mois', desc:'Avant la date prévue. Email ou courrier, aucune forme imposée. La LRAR reste la plus sûre.',                                              bg:'rgba(255,212,232,0.3)', tc:'#4A0A2A', dc:'#7A2050', shadow:'rgba(176,64,112,0.12)' },
   { id:'c6', cat:'Fractionnement',   big:'2 périodes', desc:'Les 21 jours peuvent être fractionnés en 2 périodes minimum, simultanément ou en alternance avec maman.',                                   bg:'rgba(255,224,208,0.5)', tc:'#5A2000', dc:'#8A4020', shadow:'rgba(200,100,50,0.12)' },
-  { id:'c7', cat:'Indemnisation',    big:'90%',        desc:'Du salaire journalier de base, versé par la CPAM. Plafonné à environ 56 euros par jour. Certains employeurs complètent à 100%.',           bg:'rgba(200,232,255,0.5)', tc:'#0A2847', dc:'#1A3D5C', shadow:'rgba(46,95,138,0.12)' },
-  { id:'c8', cat:'Conditions',       big:'150 heures', desc:'Avoir travaillé au moins 150h sur les 3 derniers mois. Délai de carence : 1 jour non indemnisé.',                                        bg:'rgba(184,240,216,0.5)', tc:'#0A2E1A', dc:'#0D4A2E', shadow:'rgba(13,107,64,0.12)' },
-  { id:'c9', cat:'Démarches',        big:'CPAM',       desc:'Fournir une copie du certificat de naissance à la CPAM. Les indemnités sont versées directement sur ton compte.',                          bg:'rgba(255,232,160,0.5)', tc:'#3A2000', dc:'#6A4000', shadow:'rgba(200,160,96,0.15)' },
-  { id:'c10', cat:'Hospitalisation', big:'Report',     desc:'Si bébé est hospitalisé, le congé peut être reporté jusqu\'à sa sortie.',                                                                bg:'rgba(221,208,255,0.5)', tc:'#1A0A4A', dc:'#3D2E7A', shadow:'rgba(107,79,187,0.12)' },
-  { id:'c11', cat:'Convention',      big:'À vérifier', desc:'Ta convention collective peut être plus avantageuse que la loi. Renseigne-toi auprès des RH.',                                            bg:'rgba(255,212,232,0.5)', tc:'#4A0A2A', dc:'#7A2050', shadow:'rgba(176,64,112,0.12)' },
+  { id:'c7', cat:'Indemnisation',    big:'90%',        desc:'Du salaire journalier de base, versé par la CPAM. Plafonné à environ 56 euros par jour. Certains employeurs complètent à 100%.',           bg:'rgba(200,232,255,0.3)', tc:'#0A2847', dc:'#1A3D5C', shadow:'rgba(46,95,138,0.15)' },
+  { id:'c8', cat:'Conditions',       big:'150 heures', desc:'Avoir travaillé au moins 150h sur les 3 derniers mois. Délai de carence : 1 jour non indemnisé.',                                        bg:'rgba(184,240,216,0.3)', tc:'#0A2E1A', dc:'#0D4A2E', shadow:'rgba(13,107,64,0.15)' },
+  { id:'c9', cat:'Démarches',        big:'CPAM',       desc:'Fournir une copie du certificat de naissance à la CPAM. Les indemnités sont versées directement sur ton compte.',                          bg:'rgba(255,232,160,0.3)', tc:'#3A2000', dc:'#6A4000', shadow:'rgba(200,160,96,0.15)' },
+  { id:'c10', cat:'Hospitalisation', big:'Report',     desc:'Si bébé est hospitalisé, le congé peut être reporté jusqu\'à sa sortie.',                                                                bg:'rgba(221,208,255,0.3)', tc:'#1A0A4A', dc:'#3D2E7A', shadow:'rgba(107,79,187,0.15)' },
+  { id:'c11', cat:'Convention',      big:'À vérifier', desc:'Ta convention collective peut être plus avantageuse que la loi. Renseigne-toi auprès des RH.',                                            bg:'rgba(255,212,232,0.3)', tc:'#4A0A2A', dc:'#7A2050', shadow:'rgba(176,64,112,0.12)' },
   { id:'c12', cat:'Indépendant',     big:'Ta caisse',  desc:'Si tu es indépendant ou auto-entrepreneur, renseigne-toi auprès de ta caisse spécifique.',                                                bg:'rgba(255,224,208,0.5)', tc:'#5A2000', dc:'#8A4020', shadow:'rgba(200,100,50,0.12)' },
 ];
 // ── Composant ─────────────────────────────────────────────────────────────────
@@ -275,14 +275,14 @@ export default function PreparerPage({C, valiseChecked, toggleV, achatChecked, t
   const pct     = onglet === 'valise' ? pctV : onglet === 'maison' ? pctM : 0;
 
   return (
-    <div style={{display:'flex',flexDirection:'column',gap:'24px'}}>
+    <div style={{display:'flex',flexDirection:'column',gap:'16px'}}>
 
       {/* ONGLETS */}
       <div style={{display:'flex',gap:'8px'}}>
         {([
-          {id:'valise', label:`Valise maternité`, done:doneV, total:allValise.length, inactiveBg:'rgba(200,232,255,0.35)', inactiveBorder:'rgba(46,95,138,0.15)', inactiveColor:'#0A2847'},
-          {id:'maison', label:`À la maison`,      done:doneM, total:allMaison.length, inactiveBg:'rgba(184,240,216,0.35)', inactiveBorder:'rgba(13,107,64,0.15)', inactiveColor:'#0A2E1A'},
-          {id:'conge',  label:`Congé paternité`,  done:0,     total:0, inactiveBg:'rgba(255,232,160,0.35)', inactiveBorder:'rgba(200,160,96,0.2)', inactiveColor:'#3A2000'},
+          {id:'valise', label:`Valise maternité`, done:doneV, total:allValise.length, inactiveBg:'rgba(200,232,255,0.3)', inactiveBorder:'rgba(46,95,138,0.15)', inactiveColor:'#0A2847'},
+          {id:'maison', label:`À la maison`,      done:doneM, total:allMaison.length, inactiveBg:'rgba(184,240,216,0.3)', inactiveBorder:'rgba(13,107,64,0.15)', inactiveColor:'#0A2E1A'},
+          {id:'conge',  label:`Congé paternité`,  done:0,     total:0, inactiveBg:'rgba(255,232,160,0.3)', inactiveBorder:'rgba(200,160,96,0.15)', inactiveColor:'#3A2000'},
         ] as const).map(t => (
           <button key={t.id} onClick={()=>setOnglet(t.id)} style={{
             flex:1, padding:'12px 8px', borderRadius:'16px', cursor:'pointer',
@@ -311,7 +311,7 @@ export default function PreparerPage({C, valiseChecked, toggleV, achatChecked, t
       )}
 
       {/* CONTENU */}
-      <div style={{display:'flex',flexDirection:'column',gap:'20px'}}>
+      <div style={{display:'flex',flexDirection:'column',gap:'16px'}}>
         {source.map(groupe => {
           const groupeDone = groupe.items.filter(i => checked[i.id]).length;
           const all = groupe.items.length;
@@ -324,7 +324,7 @@ export default function PreparerPage({C, valiseChecked, toggleV, achatChecked, t
                 </div>
                 <span style={{
                   fontSize:'11px',fontWeight:700,padding:'3px 10px',borderRadius:'20px',
-                  background:groupeDone===all?'rgba(184,240,216,0.5)':groupe.couleur.replace('#E6F0FA','rgba(200,232,255,0.5)').replace('#E4F5EC','rgba(184,240,216,0.5)').replace('#FFF7E0','rgba(255,232,160,0.5)').replace('#FFF0E6','rgba(255,220,200,0.5)').replace('#FDECEA','rgba(255,210,205,0.5)'),
+                  background:groupeDone===all?'rgba(184,240,216,0.3)':groupe.couleur.replace('#E6F0FA','rgba(200,232,255,0.3)').replace('#E4F5EC','rgba(184,240,216,0.3)').replace('#FFF7E0','rgba(255,232,160,0.3)').replace('#FFF0E6','rgba(255,220,200,0.5)').replace('#FDECEA','rgba(255,210,205,0.5)'),
                   color:groupeDone===all?'#0D6B40':groupe.tc,
                 }}>{groupeDone}/{all}</span>
               </div>
@@ -389,14 +389,14 @@ export default function PreparerPage({C, valiseChecked, toggleV, achatChecked, t
             <p style={{color:C.muted,fontSize:'14px',margin:0}}>Clique sur une carte pour l&apos;archiver une fois lue.</p>
           </div>
           {CONGE_CARDS.filter(c => !congeArchives.includes(c.id)).length === 0 ? (
-            <div style={{textAlign:'center' as const,padding:'40px 20px',background:'rgba(184,240,216,0.3)',borderRadius:'18px',border:'1px solid rgba(13,107,64,0.15)'}}>
+            <div style={{textAlign:'center' as const,padding:'40px 20px',background:'rgba(184,240,216,0.3)',borderRadius:'20px',border:'1px solid rgba(13,107,64,0.15)'}}>
               <p style={{color:'#0A2E1A',fontSize:'16px',fontWeight:800,margin:'0 0 6px'}}>Tout est lu</p>
               <p style={{color:'#0D6B40',fontSize:'14px',margin:0}}>Tu connais maintenant tes droits. Retrouve les cartes dans les archives.</p>
             </div>
           ) : (
             <div className="conge-grid">
               {CONGE_CARDS.filter(c => !congeArchives.includes(c.id)).map(card => (
-                <div key={card.id} className="conge-card" onClick={() => archiverCarte(card.id)} style={{background:card.bg,borderRadius:'18px',padding:'20px 22px',boxShadow:`0 6px 24px ${card.shadow}`,position:'relative',overflow:'hidden',border:'1px solid rgba(0,0,0,0.04)'}}>
+                <div key={card.id} className="conge-card" onClick={() => archiverCarte(card.id)} style={{background:card.bg,borderRadius:'20px',padding:'22px 24px',boxShadow:`0 6px 24px ${card.shadow}`,position:'relative',overflow:'hidden',border:'1px solid rgba(0,0,0,0.04)'}}>
                   <div style={{position:'absolute',top:'-20px',right:'-20px',width:'80px',height:'80px',borderRadius:'50%',background:'rgba(255,255,255,0.35)',pointerEvents:'none'}}></div>
                   <p style={{color:card.tc,fontSize:'11px',fontWeight:700,letterSpacing:'1.5px',textTransform:'uppercase' as const,margin:'0 0 10px',position:'relative',zIndex:1}}>{card.cat}</p>
                   <p style={{color:card.tc,fontSize:'26px',fontWeight:900,margin:'0 0 6px',lineHeight:1,position:'relative',zIndex:1}}>{card.big}</p>
@@ -415,7 +415,7 @@ export default function PreparerPage({C, valiseChecked, toggleV, achatChecked, t
               {showArchives && (
                 <div className="conge-grid" style={{marginTop:'12px',opacity:0.7}}>
                   {CONGE_CARDS.filter(c => congeArchives.includes(c.id)).map(card => (
-                    <div key={card.id} className="conge-card" onClick={() => restaurerCarte(card.id)} style={{background:card.bg,borderRadius:'18px',padding:'20px 22px',position:'relative',overflow:'hidden',border:'1px dashed rgba(0,0,0,0.15)'}}>
+                    <div key={card.id} className="conge-card" onClick={() => restaurerCarte(card.id)} style={{background:card.bg,borderRadius:'20px',padding:'22px 24px',position:'relative',overflow:'hidden',border:'1px dashed rgba(0,0,0,0.15)'}}>
                       <p style={{color:card.tc,fontSize:'11px',fontWeight:700,letterSpacing:'1.5px',textTransform:'uppercase' as const,margin:'0 0 10px'}}>{card.cat}</p>
                       <p style={{color:card.tc,fontSize:'26px',fontWeight:900,margin:'0 0 6px',lineHeight:1}}>{card.big}</p>
                       <p style={{color:card.dc,fontSize:'14px',lineHeight:1.65,margin:'0 0 8px'}}>{card.desc}</p>
