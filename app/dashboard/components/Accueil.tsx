@@ -11,9 +11,9 @@ export default function Accueil({C,dpa,saReelle,joursRestants,prog,tri,idee,miss
 
       {/* HERO SEMAINE */}
       {dataR && saReelle && (
-        <div style={{background:'linear-gradient(135deg,#0a1f32 0%,#1A3D5C 50%,#1d4d72 100%)',borderRadius:'24px',overflow:'hidden',position:'relative'}}>
-          <div style={{position:'absolute',top:'-40px',right:'-20px',width:'180px',height:'180px',borderRadius:'50%',background:'radial-gradient(circle,rgba(200,160,96,0.2) 0%,transparent 65%)',pointerEvents:'none'}}></div>
-          <div style={{padding:'28px 28px 20px',position:'relative',zIndex:1}}>
+        <div style={{background:'linear-gradient(135deg,#0a1f32 0%,#1A3D5C 50%,#1d4d72 100%)',borderRadius:'20px',overflow:'hidden',position:'relative'}}>
+          <div style={{position:'absolute',top:'-40px',right:'-20px',width:'180px',height:'180px',borderRadius:'50%',background:'radial-gradient(circle,rgba(200,160,96,0.15) 0%,transparent 65%)',pointerEvents:'none'}}></div>
+          <div style={{padding:'24px 24px 18px',position:'relative',zIndex:1}}>
             <div style={{display:'inline-flex',alignItems:'center',gap:'6px',background:'rgba(200,160,96,0.18)',border:'1px solid rgba(200,160,96,0.4)',borderRadius:'20px',padding:'4px 12px',marginBottom:'16px'}}>
               <div style={{width:'6px',height:'6px',borderRadius:'50%',background:'#c8a060',boxShadow:'0 0 6px rgba(200,160,96,0.8)'}}></div>
               <span style={{color:'#e0b870',fontSize:'10px',fontWeight:700,letterSpacing:'1px'}}>{saReelle} SA · {tri}</span>
@@ -41,7 +41,7 @@ export default function Accueil({C,dpa,saReelle,joursRestants,prog,tri,idee,miss
 
       {/* PROCHAIN RDV */}
       {nextRdv&&(
-        <div style={{background:'rgba(200,232,255,0.3)',borderRadius:'20px',padding:'20px 22px',border:'1px solid rgba(46,95,138,0.15)'}}>
+        <div style={{background:'rgba(200,232,255,0.3)',borderRadius:'20px',padding:'22px 24px',border:'1px solid rgba(46,95,138,0.15)'}}>
           <p style={{...LABEL,color:'#2E5F8A'}}>Prochain rendez-vous</p>
           <div style={{display:'flex',alignItems:'center',gap:'14px',marginBottom:'14px'}}>
             <div style={{width:'48px',height:'48px',borderRadius:'14px',background:'#C8E8FF',display:'flex',alignItems:'center',justifyContent:'center',flexShrink:0,fontSize:'22px',boxShadow:'0 4px 12px rgba(46,95,138,0.15)'}}>{nextRdv.emoji}</div>
@@ -54,7 +54,7 @@ export default function Accueil({C,dpa,saReelle,joursRestants,prog,tri,idee,miss
             </div>}
           </div>
           <p style={{color:'#2E5F8A',fontSize:'11px',fontWeight:600,margin:'0 0 6px'}}>Ma date de RDV</p>
-          <input type="date" value={nextRdvDate} onChange={e=>{saveRdv(e.target.value);if(nextRdv)saveRdvI(nextRdv.sa,e.target.value);}} style={{background:'#fff',border:'1px solid rgba(46,95,138,0.2)',borderRadius:'10px',padding:'10px 14px',fontSize:'14px',color:'#0A2847',width:'100%',outline:'none'}}/>
+          <input type="date" value={nextRdvDate} onChange={e=>{saveRdv(e.target.value);if(nextRdv)saveRdvI(nextRdv.sa,e.target.value);}} style={{background:'#fff',border:'1px solid rgba(46,95,138,0.15)',borderRadius:'10px',padding:'10px 14px',fontSize:'14px',color:'#0A2847',width:'100%',outline:'none'}}/>
           {nextRdvDate&&<p style={{color:'#2E5F8A',fontSize:'12px',margin:'6px 0 0',fontWeight:600}}>RDV noté le {new Date(nextRdvDate).toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long'})}</p>}
         </div>
       )}
@@ -93,7 +93,7 @@ export default function Accueil({C,dpa,saReelle,joursRestants,prog,tri,idee,miss
       )}
 
       {/* MISSIONS + IDÉE DU MOIS */}
-      <div style={{background:'rgba(255,232,160,0.3)',borderRadius:'20px',padding:'22px 24px',border:'1px solid rgba(200,160,96,0.2)'}}>
+      <div style={{background:'rgba(255,232,160,0.3)',borderRadius:'20px',padding:'22px 24px',border:'1px solid rgba(200,160,96,0.15)'}}>
         {missions.length>0&&(
           <>
             <p style={{...LABEL,color:'#8A6010'}}>Tes missions cette semaine</p>
@@ -102,7 +102,7 @@ export default function Accueil({C,dpa,saReelle,joursRestants,prog,tri,idee,miss
                 const id=`m${saReelle}_${i}`;
                 const done=missionsChecked[id];
                 return(
-                  <button key={id} onClick={()=>toggleM(id)} style={{display:'flex',alignItems:'flex-start',gap:'10px',background:done?'rgba(184,240,216,0.5)':'rgba(255,255,255,0.7)',borderRadius:'12px',padding:'12px 14px',border:'none',cursor:'pointer',textAlign:'left' as const,width:'100%'}}>
+                  <button key={id} onClick={()=>toggleM(id)} style={{display:'flex',alignItems:'flex-start',gap:'10px',background:done?'rgba(184,240,216,0.3)':'rgba(255,255,255,0.7)',borderRadius:'12px',padding:'12px 14px',border:'none',cursor:'pointer',textAlign:'left' as const,width:'100%'}}>
                     <div style={{width:'20px',height:'20px',borderRadius:'50%',border:done?'none':'2px solid #d0c8c0',background:done?'#0D6B40':'transparent',display:'flex',alignItems:'center',justifyContent:'center',flexShrink:0,marginTop:'1px'}}>
                       {done&&<span style={{color:'#fff',fontSize:'11px',fontWeight:700}}>✓</span>}
                     </div>
@@ -113,14 +113,14 @@ export default function Accueil({C,dpa,saReelle,joursRestants,prog,tri,idee,miss
             </div>
           </>
         )}
-        <div style={{borderTop:missions.length>0?'1px solid rgba(200,160,96,0.2)':'none',paddingTop:missions.length>0?'16px':'0'}}>
+        <div style={{borderTop:missions.length>0?'1px solid rgba(200,160,96,0.15)':'none',paddingTop:missions.length>0?'16px':'0'}}>
           <p style={{...LABEL,color:'#8A6010',marginBottom:'8px'}}>Idée du mois</p>
           <p style={{color:'#3A2000',...TEXTE}}>{idee}</p>
         </div>
       </div>
 
       {/* MENTION MÉDICALE */}
-      <div style={{background:'rgba(200,232,255,0.2)',borderRadius:'12px',padding:'12px 16px',display:'flex',alignItems:'center',gap:'10px',border:'1px solid rgba(46,95,138,0.1)'}}>
+      <div style={{background:'rgba(200,232,255,0.2)',borderRadius:'12px',padding:'12px 16px',display:'flex',alignItems:'center',gap:'10px',border:'1px solid rgba(46,95,138,0.15)'}}>
         <span style={{fontSize:'16px',flexShrink:0}}>⚕️</span>
         <p style={{color:'#2E5F8A',fontSize:'13px',lineHeight:1.6,margin:0}}>
           DadUp ne remplace pas l&apos;avis d&apos;un médecin. En cas de doute, appelle ta sage-femme ou ton médecin.
