@@ -9,17 +9,17 @@ const C = {
 type Terme = { mot: string; def: string; cat: string };
 
 const CATS_GROSSESSE = [
-  { id: 'suivi',    label: 'Suivi médical',  bg: 'rgba(200,232,255,0.5)', tc: '#0A2847' },
-  { id: 'bebe',     label: 'Bébé',           bg: 'rgba(184,240,216,0.5)', tc: '#0A2E1A' },
-  { id: 'sympt',    label: 'Symptômes',      bg: 'rgba(255,232,160,0.5)', tc: '#3A2000' },
+  { id: 'suivi',    label: 'Suivi médical',  bg: 'rgba(200,232,255,0.3)', tc: '#0A2847' },
+  { id: 'bebe',     label: 'Bébé',           bg: 'rgba(184,240,216,0.3)', tc: '#0A2E1A' },
+  { id: 'sympt',    label: 'Symptômes',      bg: 'rgba(255,232,160,0.3)', tc: '#3A2000' },
   { id: 'accouche', label: 'Accouchement',   bg: 'rgba(255,220,200,0.5)', tc: '#8A2800' },
-  { id: 'admin',    label: 'Préparation',    bg: 'rgba(221,208,255,0.5)', tc: '#1A0A4A' },
+  { id: 'admin',    label: 'Préparation',    bg: 'rgba(221,208,255,0.3)', tc: '#1A0A4A' },
   { id: 'alerte',   label: 'Alertes',        bg: 'rgba(255,210,205,0.5)', tc: '#6A0000' },
 ];
 
 const CATS_POSTPARTUM = [
   { id: 'postpart', label: 'Post-partum',    bg: '#E0F5F0', tc: '#0A5040' },
-  { id: 'bebe',     label: 'Bébé',           bg: 'rgba(184,240,216,0.5)', tc: '#0A2E1A' },
+  { id: 'bebe',     label: 'Bébé',           bg: 'rgba(184,240,216,0.3)', tc: '#0A2E1A' },
   { id: 'alerte',   label: 'Alertes',        bg: 'rgba(255,210,205,0.5)', tc: '#6A0000' },
 ];
 
@@ -162,7 +162,7 @@ export default function DicoPapa({ C: propC, isPost = false }: { C?: any; isPost
     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
 
       {/* En-tête */}
-      <div style={{ background: 'linear-gradient(135deg,#0a1f32,#1A3D5C)', borderRadius: '18px', padding: '20px 24px', position: 'relative', overflow: 'hidden' }}>
+      <div style={{ background: 'linear-gradient(135deg,#0a1f32,#1A3D5C)', borderRadius: '20px', padding: '20px 24px', position: 'relative', overflow: 'hidden' }}>
         <p style={{ color: '#c8a060', fontSize: '11px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase' as const, margin: '0 0 6px' }}>Grossesse</p>
         <p style={{ color: '#fff', fontSize: '22px', fontWeight: 800, margin: '0 0 4px' }}>Dictionnaire</p>
         <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '14px', margin: 0 }}>{TERMES.length} termes expliqués en langage simple</p>
