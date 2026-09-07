@@ -118,10 +118,10 @@ export default function SuiviBebe({C}: any) {
   };
 
   return (
-    <div style={{display:'flex',flexDirection:'column',gap:'20px'}}>
+    <div style={{display:'flex',flexDirection:'column',gap:'16px'}}>
 
       {/* EN-TÊTE */}
-      <div style={{background:'linear-gradient(135deg,#0a1f32,#1A3D5C)',borderRadius:'22px',padding:'22px 24px'}}>
+      <div style={{background:'linear-gradient(135deg,#0a1f32,#1A3D5C)',borderRadius:'20px',padding:'22px 24px'}}>
         <p style={{color:'rgba(200,220,240,0.55)',fontSize:'11px',fontWeight:700,letterSpacing:'3px',textTransform:'uppercase' as const,margin:'0 0 6px'}}>Suivi des 7 premiers jours</p>
         <p style={{color:'#fff',fontSize:'18px',fontWeight:800,margin:'0 0 4px'}}>Carnet de bord de bébé</p>
         <p style={{color:'rgba(255,255,255,0.5)',fontSize:'14px',margin:0}}>Tétées, urines, selles et notes.</p>
@@ -227,7 +227,7 @@ export default function SuiviBebe({C}: any) {
                   </button>
                 ) : (
                   /* FORMULAIRE OUVERT */
-                  <div style={{background:'#fff',borderRadius:'18px',padding:'16px',border:'1.5px solid #1e2535'}}>
+                  <div style={{background:'#fff',borderRadius:'20px',padding:'16px',border:'1.5px solid #1e2535'}}>
 
                     <div style={{display:'flex',alignItems:'center',justifyContent:'space-between',marginBottom:'14px'}}>
                       <span style={{fontSize:'14px',fontWeight:700,color:'#1e2535'}}>Entrée {idx+1}</span>
