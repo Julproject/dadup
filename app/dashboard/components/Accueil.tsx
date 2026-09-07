@@ -2,6 +2,10 @@
 import { useState } from 'react';
 
 export default function Accueil({C,dpa,saReelle,joursRestants,prog,tri,idee,missions,missionsChecked,toggleM,nextRdv,nextRdvDate,saveRdv,saveRdvI,dataR,sa,data}:any) {
+  const LABEL = {fontSize:'11px',fontWeight:700,letterSpacing:'2px',textTransform:'uppercase' as const,margin:'0 0 10px'};
+  const TITRE = {fontSize:'16px',fontWeight:800,margin:'0 0 8px'};
+  const TEXTE = {fontSize:'14px',lineHeight:1.75,margin:0};
+
   return (
     <div style={{display:'flex',flexDirection:'column',gap:'16px'}}>
 
@@ -23,7 +27,6 @@ export default function Accueil({C,dpa,saReelle,joursRestants,prog,tri,idee,miss
               </div>
             )}
           </div>
-          {/* Barre de progression */}
           <div style={{padding:'0 28px 20px',position:'relative',zIndex:1}}>
             <div style={{display:'flex',justifyContent:'space-between',marginBottom:'6px'}}>
               <span style={{color:'rgba(255,255,255,0.35)',fontSize:'10px',fontWeight:700,letterSpacing:'1px',textTransform:'uppercase' as const}}>Progression</span>
@@ -39,11 +42,11 @@ export default function Accueil({C,dpa,saReelle,joursRestants,prog,tri,idee,miss
       {/* PROCHAIN RDV */}
       {nextRdv&&(
         <div style={{background:'rgba(200,232,255,0.3)',borderRadius:'20px',padding:'20px 22px',border:'1px solid rgba(46,95,138,0.15)'}}>
-          <p style={{color:'#6a7585',fontSize:'11px',fontWeight:700,letterSpacing:'2px',textTransform:'uppercase' as const,margin:'0 0 12px'}}>Prochain rendez-vous</p>
+          <p style={{...LABEL,color:'#2E5F8A'}}>Prochain rendez-vous</p>
           <div style={{display:'flex',alignItems:'center',gap:'14px',marginBottom:'14px'}}>
             <div style={{width:'48px',height:'48px',borderRadius:'14px',background:'#C8E8FF',display:'flex',alignItems:'center',justifyContent:'center',flexShrink:0,fontSize:'22px',boxShadow:'0 4px 12px rgba(46,95,138,0.15)'}}>{nextRdv.emoji}</div>
             <div style={{flex:1}}>
-              <p style={{color:'#0A2847',fontSize:'16px',fontWeight:800,margin:'0 0 2px'}}>{nextRdv.titre}</p>
+              <p style={{color:'#0A2847',...TITRE,margin:'0 0 2px'}}>{nextRdv.titre}</p>
               <p style={{color:'#2E5F8A',fontSize:'14px',margin:0}}>{nextRdv.sa} SA{dpa?' · '+new Date(new Date(dpa).getTime()-(40-nextRdv.sa)*7*24*60*60*1000).toLocaleDateString('fr-FR',{day:'numeric',month:'long'}):''}</p>
             </div>
             {dpa&&joursRestants&&<div style={{background:'#C8E8FF',borderRadius:'12px',padding:'8px 14px',textAlign:'center' as const,flexShrink:0,boxShadow:'0 4px 12px rgba(46,95,138,0.15)'}}>
@@ -56,76 +59,70 @@ export default function Accueil({C,dpa,saReelle,joursRestants,prog,tri,idee,miss
         </div>
       )}
 
-      {/* CE QUE VIT MAMAN */}
+      {/* CE QUE VIT MAMAN + TON RÔLE + CONSEIL */}
       {dataR&&(
-        <div style={{background:'rgba(184,240,216,0.3)',borderRadius:'20px',padding:'20px 22px',border:'1px solid rgba(13,107,64,0.15)'}}>
-          <p style={{color:'#6a7585',fontSize:'11px',fontWeight:700,letterSpacing:'2px',textTransform:'uppercase' as const,margin:'0 0 10px'}}>Ce que vit maman</p>
-          <p style={{color:'#0A2E1A',fontSize:'16px',fontWeight:800,margin:'0 0 8px'}}>{dataR.maman_titre}</p>
-          <p style={{color:'#0D4A2E',fontSize:'14px',lineHeight:1.75,margin:'0 0 12px'}}>{dataR.maman}</p>
-          <div style={{background:'rgba(184,240,216,0.5)',borderRadius:'12px',padding:'12px 14px',borderLeft:'3px solid #0D6B40'}}>
-            <p style={{color:'#0D6B40',fontSize:'11px',fontWeight:700,margin:'0 0 4px',textTransform:'uppercase' as const,letterSpacing:'1px'}}>Ton rôle cette semaine</p>
-            <p style={{color:'#0A2E1A',fontSize:'14px',lineHeight:1.75,margin:0}}>{dataR.maman_aide}</p>
+        <div style={{background:'rgba(184,240,216,0.3)',borderRadius:'20px',padding:'22px 24px',border:'1px solid rgba(13,107,64,0.15)'}}>
+          <p style={{...LABEL,color:'#0D6B40'}}>Ce que vit maman</p>
+          <p style={{color:'#0A2E1A',...TITRE}}>{dataR.maman_titre}</p>
+          <p style={{color:'#0D4A2E',...TEXTE,marginBottom:'18px'}}>{dataR.maman}</p>
+
+          <div style={{borderTop:'1px solid rgba(13,107,64,0.15)',paddingTop:'16px'}}>
+            <p style={{...LABEL,color:'#0D6B40',marginBottom:'8px'}}>Ton rôle cette semaine</p>
+            <p style={{color:'#0A2E1A',...TEXTE,marginBottom:'14px'}}>{dataR.maman_aide}</p>
+            <div style={{background:'rgba(255,255,255,0.5)',borderRadius:'12px',padding:'12px 14px',borderLeft:'3px solid #0D6B40'}}>
+              <p style={{color:'#0A2E1A',fontSize:'14px',lineHeight:1.7,margin:0,fontWeight:600}}>{dataR.conseil}</p>
+            </div>
           </div>
         </div>
       )}
 
-      {/* LE SAVAIS-TU */}
+      {/* À SAVOIR + LE SAVAIS-TU */}
       {dataR&&(
-        <div style={{background:'linear-gradient(135deg,#0a1f32,#1A3D5C)',borderRadius:'20px',padding:'20px 22px',position:'relative',overflow:'hidden'}}>
-          <div style={{position:'absolute',top:'-20px',right:'-20px',width:'100px',height:'100px',borderRadius:'50%',background:'radial-gradient(circle,rgba(200,160,96,0.15) 0%,transparent 65%)'}}></div>
-          <p style={{color:'#6a7585',fontSize:'11px',fontWeight:700,letterSpacing:'2px',textTransform:'uppercase' as const,margin:'0 0 12px',position:'relative',zIndex:1}}>Le savais-tu</p>
-          <p style={{color:'rgba(255,255,255,0.9)',fontSize:'14px',lineHeight:1.75,margin:0,position:'relative',zIndex:1}}>{dataR.savistu}</p>
-        </div>
-      )}
-
-      {/* À SAVOIR */}
-      {dataR&&(
-        <div style={{background:'rgba(200,232,255,0.25)',borderRadius:'20px',padding:'20px 22px',border:'1px solid rgba(46,95,138,0.15)'}}>
-          <p style={{color:'#6a7585',fontSize:'11px',fontWeight:700,letterSpacing:'2px',textTransform:'uppercase' as const,margin:'0 0 10px'}}>À savoir cette semaine</p>
-          <p style={{color:'#0A2847',fontSize:'16px',fontWeight:800,margin:'0 0 8px'}}>{dataR.doc_titre}</p>
-          <p style={{color:'#1A3D5C',fontSize:'14px',lineHeight:1.75,margin:0}}>{dataR.doc}</p>
-        </div>
-      )}
-
-      {/* CONSEIL + IDÉE */}
-      <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'12px'}}>
-        {dataR&&(
-          <div style={{background:'rgba(221,208,255,0.35)',borderRadius:'18px',padding:'18px 20px',border:'1px solid rgba(107,79,187,0.15)'}}>
-            <p style={{color:'#6a7585',fontSize:'11px',fontWeight:700,letterSpacing:'2px',textTransform:'uppercase' as const,margin:'0 0 8px'}}>Conseil</p>
-            <p style={{color:'#1A0A4A',fontSize:'14px',lineHeight:1.75,margin:0}}>{dataR.conseil}</p>
+        <div style={{background:'linear-gradient(135deg,#0a1f32,#1A3D5C)',borderRadius:'20px',padding:'22px 24px',position:'relative',overflow:'hidden'}}>
+          <div style={{position:'absolute',top:'-20px',right:'-20px',width:'120px',height:'120px',borderRadius:'50%',background:'radial-gradient(circle,rgba(200,160,96,0.15) 0%,transparent 65%)',pointerEvents:'none'}}></div>
+          <div style={{position:'relative',zIndex:1}}>
+            <p style={{...LABEL,color:'rgba(200,160,96,0.7)'}}>À savoir cette semaine</p>
+            <p style={{color:'#fff',...TITRE}}>{dataR.doc_titre}</p>
+            <p style={{color:'rgba(255,255,255,0.75)',...TEXTE,marginBottom:'18px'}}>{dataR.doc}</p>
+            <div style={{background:'rgba(255,255,255,0.06)',borderRadius:'12px',padding:'14px 16px',borderLeft:'3px solid rgba(200,160,96,0.6)'}}>
+              <p style={{color:'rgba(200,160,96,0.7)',fontSize:'11px',fontWeight:700,letterSpacing:'1px',textTransform:'uppercase' as const,margin:'0 0 6px'}}>Le savais-tu</p>
+              <p style={{color:'rgba(255,255,255,0.85)',fontSize:'14px',lineHeight:1.7,margin:0}}>{dataR.savistu}</p>
+            </div>
           </div>
+        </div>
+      )}
+
+      {/* MISSIONS + IDÉE DU MOIS */}
+      <div style={{background:'rgba(255,232,160,0.3)',borderRadius:'20px',padding:'22px 24px',border:'1px solid rgba(200,160,96,0.2)'}}>
+        {missions.length>0&&(
+          <>
+            <p style={{...LABEL,color:'#8A6010'}}>Tes missions cette semaine</p>
+            <div style={{display:'flex',flexDirection:'column' as const,gap:'8px',marginBottom:'18px'}}>
+              {missions.map((m:string,i:number)=>{
+                const id=`m${saReelle}_${i}`;
+                const done=missionsChecked[id];
+                return(
+                  <button key={id} onClick={()=>toggleM(id)} style={{display:'flex',alignItems:'flex-start',gap:'10px',background:done?'rgba(184,240,216,0.5)':'rgba(255,255,255,0.7)',borderRadius:'12px',padding:'12px 14px',border:'none',cursor:'pointer',textAlign:'left' as const,width:'100%'}}>
+                    <div style={{width:'20px',height:'20px',borderRadius:'50%',border:done?'none':'2px solid #d0c8c0',background:done?'#0D6B40':'transparent',display:'flex',alignItems:'center',justifyContent:'center',flexShrink:0,marginTop:'1px'}}>
+                      {done&&<span style={{color:'#fff',fontSize:'11px',fontWeight:700}}>✓</span>}
+                    </div>
+                    <p style={{color:done?'#0D6B40':C.dark,fontSize:'14px',lineHeight:1.6,margin:0,textDecoration:done?'line-through':'none',opacity:done?0.7:1}}>{m}</p>
+                  </button>
+                );
+              })}
+            </div>
+          </>
         )}
-        <div style={{background:'rgba(255,232,160,0.35)',borderRadius:'18px',padding:'18px 20px',border:'1px solid rgba(200,160,96,0.2)'}}>
-          <p style={{color:'#6a7585',fontSize:'11px',fontWeight:700,letterSpacing:'2px',textTransform:'uppercase' as const,margin:'0 0 8px'}}>Idée du mois</p>
-          <p style={{color:'#3A2000',fontSize:'14px',lineHeight:1.75,margin:0}}>{idee}</p>
+        <div style={{borderTop:missions.length>0?'1px solid rgba(200,160,96,0.2)':'none',paddingTop:missions.length>0?'16px':'0'}}>
+          <p style={{...LABEL,color:'#8A6010',marginBottom:'8px'}}>Idée du mois</p>
+          <p style={{color:'#3A2000',...TEXTE}}>{idee}</p>
         </div>
       </div>
-
-      {/* MISSIONS */}
-      {missions.length>0&&(
-        <div>
-          <p style={{color:C.muted,fontSize:'11px',fontWeight:700,letterSpacing:'2px',textTransform:'uppercase' as const,margin:'0 0 12px'}}>Tes missions cette semaine</p>
-          <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'10px'}}>
-            {missions.map((m:string,i:number)=>{
-              const id=`m${saReelle}_${i}`;
-              const done=missionsChecked[id];
-              return(
-                <button key={id} onClick={()=>toggleM(id)} style={{display:'flex',alignItems:'flex-start',gap:'10px',background:done?'rgba(184,240,216,0.4)':'rgba(255,255,255,0.7)',borderRadius:'14px',padding:'14px',border:done?'1px solid rgba(13,107,64,0.2)':'1px solid rgba(0,0,0,0.06)',cursor:'pointer',textAlign:'left' as const,width:'100%',boxShadow:'0 2px 8px rgba(0,0,0,0.04)'}}>
-                  <div style={{width:'20px',height:'20px',borderRadius:'50%',border:done?'none':'2px solid #d0c8c0',background:done?'#0D6B40':'transparent',display:'flex',alignItems:'center',justifyContent:'center',flexShrink:0,marginTop:'1px',boxShadow:done?'0 0 8px rgba(13,107,64,0.3)':'none'}}>
-                    {done&&<span style={{color:'#fff',fontSize:'11px',fontWeight:700}}>✓</span>}
-                  </div>
-                  <p style={{color:done?'#0D6B40':C.dark,fontSize:'14px',lineHeight:1.6,margin:0,textDecoration:done?'line-through':'none',opacity:done?0.7:1}}>{m}</p>
-                </button>
-              );
-            })}
-          </div>
-        </div>
-      )}
 
       {/* MENTION MÉDICALE */}
       <div style={{background:'rgba(200,232,255,0.2)',borderRadius:'12px',padding:'12px 16px',display:'flex',alignItems:'center',gap:'10px',border:'1px solid rgba(46,95,138,0.1)'}}>
         <span style={{fontSize:'16px',flexShrink:0}}>⚕️</span>
-        <p style={{color:'#2E5F8A',fontSize:'12px',lineHeight:1.6,margin:0}}>
+        <p style={{color:'#2E5F8A',fontSize:'13px',lineHeight:1.6,margin:0}}>
           DadUp ne remplace pas l&apos;avis d&apos;un médecin. En cas de doute, appelle ta sage-femme ou ton médecin.
         </p>
       </div>
