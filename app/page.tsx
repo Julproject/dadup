@@ -167,8 +167,8 @@ export default function Home() {
           </div>
           <div className="stats-4col">
             {[
-              {border:'rgba(180,220,255,0.25)', label:'41 semaines', lc:'#7ab8f0', title:'De la 3e à la 41e semaine', tc:'#B8DCFF', desc:"Chaque semaine expliquée côté papa : développement de bébé, ton rôle, ce qu'elle vit.", dc:'rgba(180,220,255,0.6)'},
-              {border:'rgba(150,240,200,0.2)', label:"Jusqu'au 1er anniversaire", lc:'#5dd4a0', title:'Après la naissance inclus', tc:'#96F0C8', desc:'Les premiers mois, le développement de bébé, le baby blues, le couple. Tout est inclus.', dc:'rgba(150,240,200,0.6)'},
+              {border:'rgba(180,220,255,0.25)', label:'La grossesse', lc:'#7ab8f0', title:'De la 3e à la 41e semaine', tc:'#B8DCFF', desc:"Chaque semaine expliquée côté papa : développement de bébé, ton rôle, ce qu'elle vit.", dc:'rgba(180,220,255,0.6)'},
+              {border:'rgba(150,240,200,0.2)', label:"L'après-naissance", lc:'#5dd4a0', title:"Jusqu'au 1er anniversaire de bébé", tc:'#96F0C8', desc:'Les premiers mois, le développement de bébé, le baby blues, le couple. Tout est inclus.', dc:'rgba(150,240,200,0.6)'},
               {border:'rgba(200,170,255,0.2)', label:'Calendrier médical', lc:'#a888f0', title:'Chaque consultation préparée', tc:'#C8AAFF', desc:"Ce qu'on cherche à chaque rendez-vous, les bonnes questions à poser, comment être vraiment présent.", dc:'rgba(200,170,255,0.6)'},
               {border:'rgba(255,240,160,0.25)', label:'Paiement unique', lc:'#e0b870', title:'Sans abonnement', tc:'#FFF0A0', desc:"Tu paies une fois, tu accèdes jusqu'au premier anniversaire de bébé. Pas de surprise.", dc:'rgba(255,240,160,0.6)'},
             ].map((s,i) => (
