@@ -35,7 +35,7 @@ export default function PostBebe({C, moisBebe, dataBebe, joursRestants}: any) {
 
       {/* IDÉE DU MOIS */}
       {idee && (
-        <div style={{background:'#C8E8FF', borderRadius:'16px', padding:'20px 22px'}}>
+        <div style={{background:'#C8E8FF', borderRadius:'16px', padding:'22px 24px'}}>
           <p style={{color:'#2E5F8A', fontSize:'11px', fontWeight:700, letterSpacing:'2px', textTransform:'uppercase' as const, margin:'0 0 10px'}}>Idée du mois</p>
           <p style={{color:'#1A3D5C', fontSize:'14px', lineHeight:1.7, margin:0}}>{idee}</p>
         </div>
@@ -43,7 +43,7 @@ export default function PostBebe({C, moisBebe, dataBebe, joursRestants}: any) {
 
       {/* INTRO */}
       {dataBebe.intro && (
-        <div style={{background:'#faf6f0', borderRadius:'16px', padding:'20px 22px', border:'1px solid #e8e0d0'}}>
+        <div style={{background:'#faf6f0', borderRadius:'16px', padding:'22px 24px', border:'1px solid #e8e0d0'}}>
           <p style={{color:'#4a5568', fontSize:'14px', lineHeight:1.75, margin:0}}>{dataBebe.intro}</p>
         </div>
       )}
