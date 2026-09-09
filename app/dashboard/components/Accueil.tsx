@@ -1,25 +1,9 @@
 'use client';
 import { useState } from 'react';
 
-const FRUITS: Record<number, {emoji: string; nom: string}> = {
-  3:{emoji:'🌱',nom:"une graine de pavot"}, 4:{emoji:'🌱',nom:"une graine de sésame"}, 5:{emoji:'🫘',nom:"une graine de pomme"},
-  6:{emoji:'🫛',nom:"une lentille"}, 7:{emoji:'🫐',nom:"une myrtille"}, 8:{emoji:'🫘',nom:"un haricot rouge"},
-  9:{emoji:'🍇',nom:"un grain de raisin"}, 10:{emoji:'🍓',nom:"une fraise"}, 11:{emoji:'🥝',nom:"un abricot"},
-  12:{emoji:'🍋',nom:"un citron vert"}, 13:{emoji:'🍑',nom:"une pêche"}, 14:{emoji:'🍋',nom:"un citron"},
-  15:{emoji:'🍎',nom:"une pomme"}, 16:{emoji:'🥑',nom:"un avocat"}, 17:{emoji:'🍐',nom:"une poire"},
-  18:{emoji:'🫑',nom:"un poivron"}, 19:{emoji:'🥭',nom:"une mangue"}, 20:{emoji:'🍌',nom:"une banane"},
-  21:{emoji:'🥕',nom:"une carotte"}, 22:{emoji:'🥒',nom:"un concombre"}, 23:{emoji:'🌽',nom:"un épi de maïs"},
-  24:{emoji:'🍈',nom:"un melon"}, 25:{emoji:'🥦',nom:"un chou-fleur"}, 26:{emoji:'🥬',nom:"une laitue"},
-  27:{emoji:'🍆',nom:"une aubergine"}, 28:{emoji:'🥥',nom:"une noix de coco"}, 29:{emoji:'🎃',nom:"une courge"},
-  30:{emoji:'🥬',nom:"un gros chou"}, 31:{emoji:'🥥',nom:"une noix de coco"}, 32:{emoji:'🍍',nom:"un ananas"},
-  33:{emoji:'🍍',nom:"un ananas"}, 34:{emoji:'🍈',nom:"un melon cantaloup"}, 35:{emoji:'🍈',nom:"un melon miel"},
-  36:{emoji:'🥬',nom:"une romaine"}, 37:{emoji:'🥬',nom:"une blette"}, 38:{emoji:'🎃',nom:"une citrouille"},
-  39:{emoji:'🍉',nom:"une pastèque"}, 40:{emoji:'🍉',nom:"une pastèque"}, 41:{emoji:'🍉',nom:"une pastèque"},
-};
 
 export default function Accueil({C,dpa,saReelle,joursRestants,prog,tri,idee,missions,missionsChecked,toggleM,nextRdv,nextRdvDate,saveRdv,saveRdvI,dataR,sa,data}:any) {
   const [open, setOpen] = useState<string|null>(null);
-  const fruit = FRUITS[saReelle] || FRUITS[20];
   const toggle = (id: string) => setOpen(open === id ? null : id);
 
   const missionsDone = missions.filter((_:string, i:number) => missionsChecked[`m${saReelle}_${i}`]).length;
@@ -40,9 +24,18 @@ export default function Accueil({C,dpa,saReelle,joursRestants,prog,tri,idee,miss
       {/* HERO BÉBÉ */}
       {dataR && saReelle && (
         <div style={{textAlign:'center' as const, padding:'24px 24px 36px'}}>
-          <div className="hero-emoji" style={{fontSize:'72px', marginBottom:'12px', filter:'drop-shadow(0 8px 16px rgba(0,0,0,0.3))', lineHeight:1}}>{fruit.emoji}</div>
+          <div className="hero-emoji" style={{width:'140px', height:'175px', margin:'0 auto 16px', position:'relative'}}>
+            <div style={{position:'absolute', inset:'-20px', borderRadius:'50%', background:'radial-gradient(circle,rgba(200,160,96,0.25) 0%,transparent 65%)', pointerEvents:'none'}}></div>
+            <img src={`/sa-${saReelle}.png`} alt={`Bébé à ${saReelle} semaines`} onError={(e:any) => { e.target.style.display='none'; e.target.nextSibling.style.display='flex'; }} style={{width:'100%', height:'100%', objectFit:'contain', position:'relative', zIndex:1, filter:'drop-shadow(0 12px 24px rgba(0,0,0,0.4))'}}/>
+            <div style={{display:'none', width:'100%', height:'100%', alignItems:'center', justifyContent:'center', position:'relative', zIndex:1}}>
+              <svg viewBox="0 0 100 100" style={{width:'90px', height:'90px'}}>
+                <path d="M50 22 C68 22 76 36 74 50 C72 64 62 72 52 75 C42 78 34 74 32 66 C30 58 36 52 42 50" stroke="#e0b870" strokeWidth="11" strokeLinecap="round" fill="none"/>
+                <circle cx="52" cy="28" r="13" fill="#e0b870"/>
+              </svg>
+            </div>
+          </div>
           <p style={{color:'#e0b870', fontSize:'11px', fontWeight:700, letterSpacing:'2px', textTransform:'uppercase' as const, margin:'0 0 8px'}}>Semaine {saReelle} · {tri}</p>
-          <p style={{color:'#fff', fontSize:'24px', fontWeight:900, margin:'0 0 6px', lineHeight:1.2}}>Bébé fait la taille<br/>d&apos;{fruit.nom}</p>
+          <p style={{color:'#fff', fontSize:'24px', fontWeight:900, margin:'0 0 6px', lineHeight:1.2}}>{dataR.titre}</p>
           <p style={{color:'rgba(255,255,255,0.55)', fontSize:'14px', margin:'0 0 18px'}}>{dataR.taille} · {dataR.poids}{joursRestants&&joursRestants>0?` · J-${joursRestants}`:''}</p>
           <div style={{maxWidth:'220px', margin:'0 auto'}}>
             <div style={{background:'rgba(255,255,255,0.12)', borderRadius:'99px', height:'6px'}}>
