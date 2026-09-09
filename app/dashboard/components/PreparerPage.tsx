@@ -224,37 +224,32 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#1
 }
 
 // ── Données Congé Paternité ───────────────────────────────────────────────────
-const CONGE_CARDS = [
-  { id:'c1', cat:'Durée',            big:'28 jours',   desc:'25 jours de congé paternité + 3 jours de naissance. 32 jours pour des jumeaux.',                                                          bg:'rgba(200,232,255,0.3)', tc:'#0A2847', dc:'#1A3D5C', shadow:'rgba(46,95,138,0.15)' },
-  { id:'c2', cat:'Obligatoire',      big:'4 jours',    desc:'Les 4 premiers jours après les 3 jours de naissance sont obligatoires.',                                                                    bg:'rgba(184,240,216,0.3)', tc:'#0A2E1A', dc:'#0D4A2E', shadow:'rgba(13,107,64,0.15)' },
-  { id:'c3', cat:'Nouveauté 2026',   big:'+2 mois',    desc:'Depuis juillet 2026 : 1 à 2 mois supplémentaires indemnisés à 70% puis 60%.',                                                           bg:'rgba(255,232,160,0.3)', tc:'#3A2000', dc:'#6A4000', shadow:'rgba(200,160,96,0.15)' },
-  { id:'c4', cat:'Délai',            big:'6 mois',     desc:'Les 21 jours restants sont à prendre dans les 6 mois suivant la naissance.',                                                              bg:'rgba(221,208,255,0.3)', tc:'#1A0A4A', dc:'#3D2E7A', shadow:'rgba(107,79,187,0.15)' },
-  { id:'c5', cat:'Prévenir l\'employeur', big:'1 mois', desc:'Avant la date prévue. Email ou courrier, aucune forme imposée. La LRAR reste la plus sûre.',                                              bg:'rgba(255,212,232,0.3)', tc:'#4A0A2A', dc:'#7A2050', shadow:'rgba(176,64,112,0.12)' },
-  { id:'c6', cat:'Fractionnement',   big:'2 périodes', desc:'Les 21 jours peuvent être fractionnés en 2 périodes minimum, simultanément ou en alternance avec maman.',                                   bg:'rgba(255,224,208,0.5)', tc:'#5A2000', dc:'#8A4020', shadow:'rgba(200,100,50,0.12)' },
-  { id:'c7', cat:'Indemnisation',    big:'90%',        desc:'Du salaire journalier de base, versé par la CPAM. Plafonné à environ 56 euros par jour. Certains employeurs complètent à 100%.',           bg:'rgba(200,232,255,0.3)', tc:'#0A2847', dc:'#1A3D5C', shadow:'rgba(46,95,138,0.15)' },
-  { id:'c8', cat:'Conditions',       big:'150 heures', desc:'Avoir travaillé au moins 150h sur les 3 derniers mois. Délai de carence : 1 jour non indemnisé.',                                        bg:'rgba(184,240,216,0.3)', tc:'#0A2E1A', dc:'#0D4A2E', shadow:'rgba(13,107,64,0.15)' },
-  { id:'c9', cat:'Démarches',        big:'CPAM',       desc:'Fournir une copie du certificat de naissance à la CPAM. Les indemnités sont versées directement sur ton compte.',                          bg:'rgba(255,232,160,0.3)', tc:'#3A2000', dc:'#6A4000', shadow:'rgba(200,160,96,0.15)' },
-  { id:'c10', cat:'Hospitalisation', big:'Report',     desc:'Si bébé est hospitalisé, le congé peut être reporté jusqu\'à sa sortie.',                                                                bg:'rgba(221,208,255,0.3)', tc:'#1A0A4A', dc:'#3D2E7A', shadow:'rgba(107,79,187,0.15)' },
-  { id:'c11', cat:'Convention',      big:'À vérifier', desc:'Ta convention collective peut être plus avantageuse que la loi. Renseigne-toi auprès des RH.',                                            bg:'rgba(255,212,232,0.3)', tc:'#4A0A2A', dc:'#7A2050', shadow:'rgba(176,64,112,0.12)' },
-  { id:'c12', cat:'Indépendant',     big:'Ta caisse',  desc:'Si tu es indépendant ou auto-entrepreneur, renseigne-toi auprès de ta caisse spécifique.',                                                bg:'rgba(255,224,208,0.5)', tc:'#5A2000', dc:'#8A4020', shadow:'rgba(200,100,50,0.12)' },
+const ADMIN = [
+  { id:'a1', phase:'Pendant la grossesse', titre:'Déclaration de grossesse', resume:'Avant la 14e semaine, en général faite par le médecin ou la sage-femme.', detail:"Lors du premier examen prénatal, le médecin ou la sage-femme déclare la grossesse en ligne. Elle est transmise automatiquement à la CPAM et à la CAF : vous n'avez rien à faire. Si vous recevez un formulaire papier en 3 volets, envoyez les 2 volets bleus à la CAF et le volet rose à la CPAM avant la fin de la 14e semaine. Cette déclaration ouvre la prise en charge à 100% des examens et le droit à la prime de naissance.", source:'service-public.gouv.fr' },
+  { id:'a2', phase:'Pendant la grossesse', titre:'Reconnaissance anticipée', resume:"Si vous n'êtes pas mariés, reconnaître bébé avant la naissance sécurise ta filiation.", detail:"Si tu n'es pas marié avec la maman, la reconnaissance est nécessaire pour établir ton lien de filiation. Tu peux la faire avant la naissance, dans n'importe quelle mairie, avec une pièce d'identité et un justificatif de domicile de moins de 3 mois. C'est gratuit, ça prend quelques minutes, et ça évite toute question de filiation au moment de la déclaration de naissance. Si vous êtes mariés, ton nom figure automatiquement sur l'acte.", source:'service-public.gouv.fr' },
+  { id:'a3', phase:'Pendant la grossesse', titre:'Prévenir ton employeur', resume:'Au moins 1 mois avant la date prévue du congé.', detail:"Pour poser ton congé paternité, tu dois prévenir ton employeur au moins 1 mois avant la date de début. Aucune forme imposée par la loi : email, courrier ou entretien RH. La lettre recommandée avec AR reste la plus sûre pour dater la démarche. Indique les dates de début et de fin. Ton employeur ne peut pas refuser ce congé.", source:'service-public.gouv.fr' },
+  { id:'a4', phase:'À la naissance', titre:'Déclaration de naissance', resume:'Dans les 5 jours à la mairie du lieu de naissance. Obligatoire.', detail:"La déclaration de naissance doit être faite dans les 5 jours qui suivent l'accouchement (le jour de l'accouchement n'est pas compté). Si le 5e jour tombe un week-end ou férié, le délai est prolongé au premier jour ouvrable. Elle se fait à la mairie du lieu de naissance, par toi ou toute personne ayant assisté à l'accouchement. Beaucoup de maternités ont un officier d'état civil sur place. Apporte le certificat d'accouchement remis par la maternité, ta pièce d'identité et le livret de famille si tu en as un. Passé les 5 jours, seul un jugement du tribunal permet de régulariser.", source:'service-public.gouv.fr' },
+  { id:'a5', phase:'À la naissance', titre:'Reconnaissance à la naissance', resume:'Si non fait avant : à faire en même temps que la déclaration.', detail:"Si tu n'as pas fait de reconnaissance anticipée et que vous n'êtes pas mariés, tu peux reconnaître bébé lors de la déclaration de naissance à la mairie. Apporte ta pièce d'identité et un justificatif de domicile de moins de 3 mois. Cette démarche établit ton lien de filiation et te donne l'autorité parentale.", source:'service-public.gouv.fr' },
+  { id:'a6', phase:'À la naissance', titre:'Déclarer bébé à la CAF et la CPAM', resume:'Dès que possible pour ouvrir les droits et prestations.', detail:"Après la naissance, déclare bébé sur ton compte CAF (Déclarer un changement > Déclarer une naissance) pour ouvrir ou réestimer vos droits : allocation de base PAJE, complément mode de garde, etc. Déclare aussi sur ameli.fr (Mes démarches > Déclarer un changement de situation > Déclaration du nouveau-né) pour rattacher bébé à ta sécurité sociale. Envoie une copie de l'acte de naissance à la CPAM pour déclencher les indemnités de ton congé paternité.", source:'caf.fr' },
+  { id:'a7', phase:'Congé paternité', titre:'Durée : 28 jours', resume:'25 jours de congé paternité + 3 jours de naissance. 32 pour des jumeaux.', detail:"Le congé paternité est de 25 jours calendaires (32 en cas de naissances multiples), auxquels s'ajoutent 3 jours de congé de naissance pris à la charge de l'employeur. Total : 28 jours. Les week-ends et jours fériés sont comptés.", source:'service-public.gouv.fr' },
+  { id:'a8', phase:'Congé paternité', titre:'Les 4 premiers jours obligatoires', resume:'À prendre immédiatement après les 3 jours de naissance.', detail:"Les 4 premiers jours du congé paternité sont obligatoires et doivent être pris immédiatement après les 3 jours de congé de naissance. Ils ne peuvent pas être reportés. Le congé de naissance commence le jour de la naissance ou le premier jour ouvrable suivant.", source:'service-public.gouv.fr' },
+  { id:'a9', phase:'Congé paternité', titre:'Les 21 jours restants', resume:'À prendre dans les 6 mois, fractionnables en 2 périodes.', detail:"Les 21 jours restants (28 pour jumeaux) peuvent être pris dans les 6 mois suivant la naissance. Ils sont fractionnables en 2 périodes minimum de 5 jours chacune. Tu peux les prendre en même temps que le congé maternité de la maman ou en alternance.", source:'service-public.gouv.fr' },
+  { id:'a10', phase:'Congé paternité', titre:"Nouveauté 2026 : jusqu'à 2 mois de plus", resume:'Depuis le 1er juillet 2026, congé supplémentaire de naissance.', detail:"Depuis le 1er juillet 2026, chaque parent peut demander un congé supplémentaire de naissance de 1 ou 2 mois, en plus du congé paternité. Il est indemnisé à 70% du salaire net le premier mois et 60% le second. Il doit être demandé à l'employeur en respectant un délai de prévenance. Les deux parents peuvent le prendre simultanément ou en alternance.", source:'service-public.gouv.fr' },
+  { id:'a11', phase:'Congé paternité', titre:'Indemnisation', resume:'Environ 90% du salaire journalier, versé par la CPAM.', detail:"Les indemnités sont versées par la CPAM sur la base de 90% du salaire journalier de base, plafonné à environ 56 euros par jour. Un délai de carence d'1 jour s'applique. Condition : avoir travaillé au moins 150 heures sur les 3 derniers mois. Certaines conventions collectives complètent à 100% du salaire : vérifie auprès des RH.", source:'ameli.fr' },
+  { id:'a12', phase:'Congé paternité', titre:'Indépendant ou auto-entrepreneur', resume:'Renseigne-toi auprès de ta caisse spécifique.', detail:"Si tu es travailleur indépendant, auto-entrepreneur ou profession libérale, les règles d'indemnisation dépendent de ta caisse de rattachement (SSI, CIPAV, etc.). Le congé existe mais les modalités et montants diffèrent. Contacte ta caisse avant la naissance pour connaître tes droits.", source:'ameli.fr' },
 ];
 // ── Composant ─────────────────────────────────────────────────────────────────
 export default function PreparerPage({C, valiseChecked, toggleV, achatChecked, toggleA}: any) {
   const [onglet, setOnglet] = useState<'valise'|'maison'|'conge'>('valise');
-  const [congeArchives, setCongeArchives] = useState<string[]>(() => {
+  const [adminLu, setAdminLu] = useState<string[]>(() => {
     if (typeof window === 'undefined') return [];
-    try { return JSON.parse(localStorage.getItem('dadup_conge_archives') || '[]'); } catch { return []; }
+    try { return JSON.parse(localStorage.getItem('dadup_admin_lu') || '[]'); } catch { return []; }
   });
-  const [showArchives, setShowArchives] = useState(false);
-  const archiverCarte = (id: string) => {
-    const next = [...congeArchives, id];
-    setCongeArchives(next);
-    localStorage.setItem('dadup_conge_archives', JSON.stringify(next));
-  };
-  const restaurerCarte = (id: string) => {
-    const next = congeArchives.filter(c => c !== id);
-    setCongeArchives(next);
-    localStorage.setItem('dadup_conge_archives', JSON.stringify(next));
+  const [adminOuvert, setAdminOuvert] = useState<string|null>(null);
+  const toggleAdminLu = (id: string) => {
+    const next = adminLu.includes(id) ? adminLu.filter(c => c !== id) : [...adminLu, id];
+    setAdminLu(next);
+    localStorage.setItem('dadup_admin_lu', JSON.stringify(next));
   };
   const [maisonChecked, setMaisonChecked] = useState<Record<string,boolean>>({});
   const toggleM = (id: string) => setMaisonChecked(u => ({...u, [id]: !u[id]}));
@@ -376,56 +371,51 @@ export default function PreparerPage({C, valiseChecked, toggleV, achatChecked, t
         })}
       </div>
 
-      {/* CARTES CONGÉ PATERNITÉ */}
+      {/* ADMINISTRATIF */}
       {onglet === 'conge' && (
         <div>
-          <style>{`
-            .conge-card{transition:transform .2s ease,box-shadow .2s ease;cursor:pointer;}
-            .conge-card:hover{transform:translateY(-4px) rotate(-0.5deg);}
-            .conge-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
-            @media(max-width:640px){.conge-grid{grid-template-columns:1fr;}}
-          `}</style>
-          <div style={{marginBottom:'16px'}}>
-            <p style={{color:C.muted,fontSize:'14px',margin:0}}>Clique sur une carte pour l&apos;archiver une fois lue.</p>
+          <div style={{display:'flex',alignItems:'center',gap:'12px',marginBottom:'20px'}}>
+            <div style={{flex:1,background:'rgba(0,0,0,0.05)',borderRadius:'6px',height:'8px'}}>
+              <div style={{background:'linear-gradient(to right,#2E5F8A,#1A3D5C)',borderRadius:'6px',height:'8px',width:`${Math.round(adminLu.length/ADMIN.length*100)}%`,transition:'width .3s'}}></div>
+            </div>
+            <span style={{fontSize:'14px',fontWeight:800,color:C.dark,minWidth:'36px',textAlign:'right' as const}}>{Math.round(adminLu.length/ADMIN.length*100)}%</span>
           </div>
-          {CONGE_CARDS.filter(c => !congeArchives.includes(c.id)).length === 0 ? (
-            <div style={{textAlign:'center' as const,padding:'40px 20px',background:'rgba(184,240,216,0.3)',borderRadius:'20px',border:'1px solid rgba(13,107,64,0.15)'}}>
-              <p style={{color:'#0A2E1A',fontSize:'16px',fontWeight:800,margin:'0 0 6px'}}>Tout est lu</p>
-              <p style={{color:'#0D6B40',fontSize:'14px',margin:0}}>Tu connais maintenant tes droits. Retrouve les cartes dans les archives.</p>
-            </div>
-          ) : (
-            <div className="conge-grid">
-              {CONGE_CARDS.filter(c => !congeArchives.includes(c.id)).map(card => (
-                <div key={card.id} className="conge-card" onClick={() => archiverCarte(card.id)} style={{background:card.bg,borderRadius:'20px',padding:'22px 24px',boxShadow:`0 6px 24px ${card.shadow}`,position:'relative',overflow:'hidden',border:'1px solid rgba(0,0,0,0.04)'}}>
-                  <div style={{position:'absolute',top:'-20px',right:'-20px',width:'80px',height:'80px',borderRadius:'50%',background:'rgba(255,255,255,0.35)',pointerEvents:'none'}}></div>
-                  <p style={{color:card.tc,fontSize:'11px',fontWeight:700,letterSpacing:'1.5px',textTransform:'uppercase' as const,margin:'0 0 10px',position:'relative',zIndex:1}}>{card.cat}</p>
-                  <p style={{color:card.tc,fontSize:'26px',fontWeight:900,margin:'0 0 6px',lineHeight:1,position:'relative',zIndex:1}}>{card.big}</p>
-                  <p style={{color:card.dc,fontSize:'14px',lineHeight:1.65,margin:0,position:'relative',zIndex:1}}>{card.desc}</p>
-                </div>
-              ))}
-            </div>
-          )}
-
-          {congeArchives.length > 0 && (
-            <div style={{marginTop:'20px'}}>
-              <button onClick={() => setShowArchives(!showArchives)} style={{width:'100%',background:'rgba(0,0,0,0.04)',border:'1px solid rgba(0,0,0,0.06)',borderRadius:'14px',padding:'14px 18px',display:'flex',alignItems:'center',justifyContent:'space-between',cursor:'pointer',opacity:0.75}}>
-                <span style={{color:'#6a7585',fontSize:'14px',fontWeight:700}}>Cartes archivées ({congeArchives.length})</span>
-                <span style={{color:'#9aa0a8',fontSize:'12px'}}>{showArchives?'Masquer':'Voir'} →</span>
-              </button>
-              {showArchives && (
-                <div className="conge-grid" style={{marginTop:'12px',opacity:0.7}}>
-                  {CONGE_CARDS.filter(c => congeArchives.includes(c.id)).map(card => (
-                    <div key={card.id} className="conge-card" onClick={() => restaurerCarte(card.id)} style={{background:card.bg,borderRadius:'20px',padding:'22px 24px',position:'relative',overflow:'hidden',border:'1px dashed rgba(0,0,0,0.15)'}}>
-                      <p style={{color:card.tc,fontSize:'11px',fontWeight:700,letterSpacing:'1.5px',textTransform:'uppercase' as const,margin:'0 0 10px'}}>{card.cat}</p>
-                      <p style={{color:card.tc,fontSize:'26px',fontWeight:900,margin:'0 0 6px',lineHeight:1}}>{card.big}</p>
-                      <p style={{color:card.dc,fontSize:'14px',lineHeight:1.65,margin:'0 0 8px'}}>{card.desc}</p>
-                      <p style={{color:card.dc,fontSize:'12px',fontWeight:700,margin:0,opacity:0.6}}>Cliquer pour restaurer</p>
+          {['Pendant la grossesse','À la naissance','Congé paternité'].map(phase => (
+            <div key={phase} style={{marginBottom:'20px'}}>
+              <p style={{color:'#6a7585',fontSize:'11px',fontWeight:700,letterSpacing:'2px',textTransform:'uppercase' as const,margin:'0 0 10px'}}>{phase}</p>
+              <div style={{display:'flex',flexDirection:'column' as const,gap:'8px'}}>
+                {ADMIN.filter(a => a.phase === phase).map(item => {
+                  const lu = adminLu.includes(item.id);
+                  const open = adminOuvert === item.id;
+                  return (
+                    <div key={item.id} style={{borderRadius:'16px',overflow:'hidden',border:'1px solid #ede8e0',background:'#fff',boxShadow:'0 2px 8px rgba(0,0,0,0.04)'}}>
+                      <div onClick={() => setAdminOuvert(open ? null : item.id)} style={{background:open?'rgba(200,232,255,0.3)':'#fff',padding:'14px 16px',cursor:'pointer',display:'flex',alignItems:'center',gap:'12px'}}>
+                        <button onClick={e => { e.stopPropagation(); toggleAdminLu(item.id); }} style={{width:'24px',height:'24px',borderRadius:'50%',border:lu?'none':'2px solid #d0c8c0',background:lu?'#1A3D5C':'transparent',display:'flex',alignItems:'center',justifyContent:'center',flexShrink:0,cursor:'pointer',padding:0}}>
+                          {lu && <span style={{color:'#fff',fontSize:'12px',fontWeight:800}}>✓</span>}
+                        </button>
+                        <div style={{flex:1,minWidth:0}}>
+                          <p style={{color:lu?'#9aa0a8':C.dark,fontSize:'14px',fontWeight:700,margin:'0 0 2px',textDecoration:lu?'line-through':'none'}}>{item.titre}</p>
+                          <p style={{color:'#9aa0a8',fontSize:'13px',margin:0,lineHeight:1.4}}>{item.resume}</p>
+                        </div>
+                        <span style={{color:'#b0b8c0',fontSize:'11px',flexShrink:0}}>{open?'▲':'▼'}</span>
+                      </div>
+                      {open && (
+                        <div style={{padding:'14px 16px 16px',borderTop:'1px solid #ede8e0',background:'#faf6f0'}}>
+                          <p style={{color:C.text,fontSize:'14px',lineHeight:1.75,margin:'0 0 12px'}}>{item.detail}</p>
+                          <div style={{display:'flex',alignItems:'center',justifyContent:'space-between',flexWrap:'wrap' as const,gap:'8px'}}>
+                            <span style={{color:'#9aa0a8',fontSize:'12px'}}>Source : {item.source}</span>
+                            <button onClick={() => toggleAdminLu(item.id)} style={{background:lu?'rgba(0,0,0,0.05)':'linear-gradient(135deg,#0a1f32,#1A3D5C)',color:lu?'#6a7585':'#fff',border:'none',padding:'8px 16px',borderRadius:'20px',fontSize:'13px',fontWeight:700,cursor:'pointer'}}>
+                              {lu ? 'Marquer non lu' : "✓ J'ai lu"}
+                            </button>
+                          </div>
+                        </div>
+                      )}
                     </div>
-                  ))}
-                </div>
-              )}
+                  );
+                })}
+              </div>
             </div>
-          )}
+          ))}
         </div>
       )}
 
