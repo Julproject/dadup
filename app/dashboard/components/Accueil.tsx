@@ -11,8 +11,18 @@ export default function Accueil({C,dpa,saReelle,joursRestants,prog,tri,idee,miss
   return (
     <div className="acc-wrap" style={{background:'linear-gradient(180deg,#0a1f32 0%,#1A3D5C 30%,#faf6f0 38%)', paddingBottom:'24px', borderRadius:'24px'}}>
       <style>{`
-        @keyframes floatbebe{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
-        .hero-emoji{animation:floatbebe 3.5s ease-in-out infinite;}
+        @keyframes floatbebe{
+          0%{transform:translateY(0) rotate(-3deg) scale(1);}
+          25%{transform:translateY(-6px) rotate(1deg) scale(1.02);}
+          50%{transform:translateY(-2px) rotate(3deg) scale(1);}
+          75%{transform:translateY(-8px) rotate(-1deg) scale(1.01);}
+          100%{transform:translateY(0) rotate(-3deg) scale(1);}
+        }
+        @keyframes spin360{from{transform:rotateY(0deg);}to{transform:rotateY(360deg);}}
+        .hero-emoji{animation:floatbebe 6s ease-in-out infinite;transition:transform .3s ease;perspective:600px;}
+        .hero-emoji img{transition:transform .6s ease;transform-style:preserve-3d;}
+        .hero-emoji:hover img{animation:spin360 1.8s ease-in-out;}
+        .hero-emoji img{mix-blend-mode:screen;}
         .acc-card{transition:transform .15s ease,box-shadow .15s ease;}
         .acc-card:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,0.08)!important;}
         .acc-wrap{margin:-32px -36px 0;}
@@ -24,7 +34,7 @@ export default function Accueil({C,dpa,saReelle,joursRestants,prog,tri,idee,miss
       {/* HERO BÉBÉ */}
       {dataR && saReelle && (
         <div style={{textAlign:'center' as const, padding:'24px 24px 36px'}}>
-          <div className="hero-emoji" style={{width:'140px', height:'175px', margin:'0 auto 16px', position:'relative'}}>
+          <div className="hero-emoji" style={{width:'180px', height:'220px', margin:'0 auto 16px', position:'relative', cursor:'pointer'}}>
             <div style={{position:'absolute', inset:'-20px', borderRadius:'50%', background:'radial-gradient(circle,rgba(200,160,96,0.25) 0%,transparent 65%)', pointerEvents:'none'}}></div>
             <img src={`/sa-${saReelle}.png`} alt={`Bébé à ${saReelle} semaines`} onError={(e:any) => { e.target.style.display='none'; e.target.nextSibling.style.display='flex'; }} style={{width:'100%', height:'100%', objectFit:'contain', position:'relative', zIndex:1, filter:'drop-shadow(0 12px 24px rgba(0,0,0,0.4))'}}/>
             <div style={{display:'none', width:'100%', height:'100%', alignItems:'center', justifyContent:'center', position:'relative', zIndex:1}}>
