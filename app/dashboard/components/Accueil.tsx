@@ -22,7 +22,7 @@ export default function Accueil({C,dpa,saReelle,joursRestants,prog,tri,idee,miss
         .hero-emoji{animation:floatbebe 6s ease-in-out infinite;transition:transform .3s ease;perspective:600px;}
         .hero-emoji img{transition:transform .6s ease;transform-style:preserve-3d;}
         .hero-emoji:hover img{animation:spin360 1.8s ease-in-out;}
-        .hero-emoji img{mix-blend-mode:screen;}
+
         .acc-card{transition:transform .15s ease,box-shadow .15s ease;}
         .acc-card:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,0.08)!important;}
         .acc-wrap{margin:-32px -36px 0;}
