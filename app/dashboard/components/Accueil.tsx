@@ -9,7 +9,7 @@ export default function Accueil({C,dpa,saReelle,joursRestants,prog,tri,idee,miss
   const missionsDone = missions.filter((_:string, i:number) => missionsChecked[`m${saReelle}_${i}`]).length;
 
   return (
-    <div className="acc-wrap" style={{background:'linear-gradient(180deg,#0a1f32 0%,#1A3D5C 55%,#1A3D5C 62%,#faf6f0 68%)', paddingBottom:'24px', borderRadius:'24px'}}>
+    <div className="acc-wrap" style={{background:'#faf6f0', paddingBottom:'24px'}}>
       <style>{`
         @keyframes floatbebe{
           0%{transform:translate(0,0);}
@@ -31,13 +31,15 @@ export default function Accueil({C,dpa,saReelle,joursRestants,prog,tri,idee,miss
         .acc-wrap{margin:-32px -36px 0;}
         .acc-inner{padding:0 36px;}
         @media(max-width:640px){.acc-inner{padding:0 16px;}}
-        @media(max-width:640px){.acc-wrap{margin:-16px -16px 0;border-radius:0;}}
+        @media(max-width:640px){.acc-wrap{margin:-16px -16px 0;} .acc-hero{border-radius:0 0 28px 28px!important;}}
       `}</style>
 
       {/* HERO BÉBÉ */}
       {dataR && saReelle && (
-        <div style={{textAlign:'center' as const, padding:'24px 24px 48px'}}>
-          <div className="hero-emoji" style={{width:'220px', height:'260px', margin:'0 auto 16px', position:'relative'}}>
+        <div className="acc-hero" style={{textAlign:'center' as const, padding:'28px 24px 56px', background:'linear-gradient(160deg,#0a1f32 0%,#1A3D5C 60%,#1d4d72 100%)', borderRadius:'0 0 32px 32px', position:'relative', overflow:'hidden'}}>
+          <div style={{position:'absolute', top:'-60px', right:'-40px', width:'260px', height:'260px', borderRadius:'50%', background:'radial-gradient(circle,rgba(200,160,96,0.18) 0%,transparent 65%)', pointerEvents:'none'}}></div>
+          <div style={{position:'absolute', bottom:'-80px', left:'-60px', width:'220px', height:'220px', borderRadius:'50%', background:'radial-gradient(circle,rgba(100,200,160,0.1) 0%,transparent 70%)', pointerEvents:'none'}}></div>
+          <div className="hero-emoji" style={{width:'220px', height:'260px', margin:'0 auto 16px', position:'relative', zIndex:1}}>
             <div style={{position:'absolute', inset:'-30px', borderRadius:'50%', background:'radial-gradient(circle,rgba(200,160,96,0.15) 0%,transparent 65%)', pointerEvents:'none'}}></div>
             <div style={{position:'relative', width:'100%', height:'100%', overflow:'hidden', borderRadius:'50%'}}>
               <img src={`/sa-${saReelle}.png`} alt={`Bébé à ${saReelle} semaines`} onError={(e:any) => { e.target.style.display='none'; e.target.parentNode.nextSibling.style.display='flex'; }} style={{width:'100%', height:'100%', objectFit:'contain', position:'relative', zIndex:1, filter:'drop-shadow(0 8px 20px rgba(0,0,0,0.25))'}}/>
@@ -68,7 +70,7 @@ export default function Accueil({C,dpa,saReelle,joursRestants,prog,tri,idee,miss
 
         {/* MISSION DU JOUR — carte focus */}
         {dataR && (
-          <div style={{background:'#fff', borderRadius:'22px', padding:'22px', boxShadow:'0 12px 40px rgba(0,0,0,0.15)', marginTop:'-20px'}}>
+          <div style={{background:'#fff', borderRadius:'22px', padding:'22px', boxShadow:'0 12px 40px rgba(0,0,0,0.15)', marginTop:'-32px', position:'relative', zIndex:2}}>
             <div style={{display:'flex', alignItems:'center', gap:'8px', marginBottom:'12px'}}>
               <div style={{width:'8px', height:'8px', borderRadius:'50%', background:'#c8a060', boxShadow:'0 0 8px rgba(200,160,96,0.6)'}}></div>
               <p style={{color:'#c8a060', fontSize:'11px', fontWeight:700, letterSpacing:'2px', textTransform:'uppercase' as const, margin:0}}>Ton rôle cette semaine</p>
