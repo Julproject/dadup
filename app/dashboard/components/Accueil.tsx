@@ -9,7 +9,7 @@ export default function Accueil({C,dpa,saReelle,joursRestants,prog,tri,idee,miss
   const missionsDone = missions.filter((_:string, i:number) => missionsChecked[`m${saReelle}_${i}`]).length;
 
   return (
-    <div className="acc-wrap" style={{background:'linear-gradient(180deg,#0a1f32 0%,#1A3D5C 30%,#faf6f0 38%)', paddingBottom:'24px', borderRadius:'24px'}}>
+    <div className="acc-wrap" style={{background:'linear-gradient(180deg,#0a1f32 0%,#1A3D5C 55%,#1A3D5C 62%,#faf6f0 68%)', paddingBottom:'24px', borderRadius:'24px'}}>
       <style>{`
         @keyframes floatbebe{
           0%{transform:translate(0,0);}
@@ -36,7 +36,7 @@ export default function Accueil({C,dpa,saReelle,joursRestants,prog,tri,idee,miss
 
       {/* HERO BÉBÉ */}
       {dataR && saReelle && (
-        <div style={{textAlign:'center' as const, padding:'24px 24px 36px'}}>
+        <div style={{textAlign:'center' as const, padding:'24px 24px 48px'}}>
           <div className="hero-emoji" style={{width:'220px', height:'260px', margin:'0 auto 16px', position:'relative'}}>
             <div style={{position:'absolute', inset:'-30px', borderRadius:'50%', background:'radial-gradient(circle,rgba(200,160,96,0.15) 0%,transparent 65%)', pointerEvents:'none'}}></div>
             <div style={{position:'relative', width:'100%', height:'100%', overflow:'hidden', borderRadius:'50%'}}>
@@ -59,7 +59,7 @@ export default function Accueil({C,dpa,saReelle,joursRestants,prog,tri,idee,miss
             <div style={{background:'rgba(255,255,255,0.12)', borderRadius:'99px', height:'6px'}}>
               <div style={{background:'linear-gradient(to right,#c8a060,#e8c070)', width:`${prog}%`, height:'6px', borderRadius:'99px', transition:'width .5s'}}></div>
             </div>
-            <p style={{color:'rgba(255,255,255,0.4)', fontSize:'11px', margin:'6px 0 0'}}>{prog}% du chemin parcouru</p>
+            <p style={{color:'rgba(255,255,255,0.6)', fontSize:'12px', margin:'8px 0 0', fontWeight:600}}>{prog}% du chemin parcouru</p>
           </div>
         </div>
       )}
