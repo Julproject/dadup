@@ -12,14 +12,12 @@ export default function Accueil({C,dpa,saReelle,joursRestants,prog,tri,idee,miss
     <div className="acc-wrap" style={{background:'linear-gradient(180deg,#0a1f32 0%,#1A3D5C 30%,#faf6f0 38%)', paddingBottom:'24px', borderRadius:'24px'}}>
       <style>{`
         @keyframes floatbebe{
-          0%{transform:translateY(0) rotate(-3deg) scale(1);}
-          25%{transform:translateY(-6px) rotate(1deg) scale(1.02);}
-          50%{transform:translateY(-2px) rotate(3deg) scale(1);}
-          75%{transform:translateY(-8px) rotate(-1deg) scale(1.01);}
-          100%{transform:translateY(0) rotate(-3deg) scale(1);}
+          0%{transform:translate(0,0);}
+          33%{transform:translate(1.5px,-2px);}
+          66%{transform:translate(-1px,1.5px);}
+          100%{transform:translate(0,0);}
         }
-        @keyframes spin360{0%{transform:rotateY(0deg);}50%{transform:rotateY(25deg);}100%{transform:rotateY(0deg);}}
-        .hero-emoji{animation:floatbebe 6s ease-in-out infinite;transition:transform .3s ease;perspective:600px;}
+        .hero-emoji{animation:floatbebe 7s ease-in-out infinite;}
         @keyframes fluid1{0%{transform:translate(-30%,-20%) scale(1);opacity:0.35;}50%{transform:translate(20%,25%) scale(1.3);opacity:0.15;}100%{transform:translate(-30%,-20%) scale(1);opacity:0.35;}}
         @keyframes fluid2{0%{transform:translate(25%,30%) scale(1.2);opacity:0.2;}50%{transform:translate(-20%,-25%) scale(0.9);opacity:0.4;}100%{transform:translate(25%,30%) scale(1.2);opacity:0.2;}}
         @keyframes fluid3{0%{transform:translate(0%,40%) scale(0.8);opacity:0.25;}50%{transform:translate(10%,-30%) scale(1.1);opacity:0.1;}100%{transform:translate(0%,40%) scale(0.8);opacity:0.25;}}
@@ -27,8 +25,6 @@ export default function Accueil({C,dpa,saReelle,joursRestants,prog,tri,idee,miss
         .fluid-1{width:60%;height:50%;top:15%;left:20%;background:radial-gradient(circle,rgba(255,255,255,0.9),transparent 70%);animation:fluid1 8s ease-in-out infinite;}
         .fluid-2{width:50%;height:45%;top:35%;left:25%;background:radial-gradient(circle,rgba(255,240,230,0.8),transparent 70%);animation:fluid2 11s ease-in-out infinite;}
         .fluid-3{width:40%;height:40%;top:25%;left:30%;background:radial-gradient(circle,rgba(255,220,220,0.7),transparent 70%);animation:fluid3 9s ease-in-out infinite;}
-        .hero-emoji img{transition:transform .6s ease;transform-style:preserve-3d;}
-        .hero-emoji:hover img{animation:spin360 1.2s ease-in-out;}
 
         .acc-card{transition:transform .15s ease,box-shadow .15s ease;}
         .acc-card:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,0.08)!important;}
@@ -41,7 +37,7 @@ export default function Accueil({C,dpa,saReelle,joursRestants,prog,tri,idee,miss
       {/* HERO BÉBÉ */}
       {dataR && saReelle && (
         <div style={{textAlign:'center' as const, padding:'24px 24px 36px'}}>
-          <div className="hero-emoji" style={{width:'220px', height:'260px', margin:'0 auto 16px', position:'relative', cursor:'pointer'}}>
+          <div className="hero-emoji" style={{width:'220px', height:'260px', margin:'0 auto 16px', position:'relative'}}>
             <div style={{position:'absolute', inset:'-30px', borderRadius:'50%', background:'radial-gradient(circle,rgba(200,160,96,0.15) 0%,transparent 65%)', pointerEvents:'none'}}></div>
             <div style={{position:'relative', width:'100%', height:'100%', overflow:'hidden', borderRadius:'50%'}}>
               <img src={`/sa-${saReelle}.png`} alt={`Bébé à ${saReelle} semaines`} onError={(e:any) => { e.target.style.display='none'; e.target.parentNode.nextSibling.style.display='flex'; }} style={{width:'100%', height:'100%', objectFit:'contain', position:'relative', zIndex:1, filter:'drop-shadow(0 8px 20px rgba(0,0,0,0.25))'}}/>
