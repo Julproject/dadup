@@ -1,8 +1,8 @@
 'use client';
 
 const C = {
-  dark: '#1e2535', blue: '#2E5F8A', blueDark: '#1A3D5C', gold: '#c8a060',
-  white: '#ffffff', border: '#ede8e0', muted: '#9aa0a8', cream: '#faf6f0',
+  dark: '#1e2535', blue: '#2E5F8A', blueDark: '#1A3D5C', gold:'#C9D8C4',
+  white: '#ffffff', border: '#E6E0D5', muted: '#5f6b72', cream: '#F6F1E9',
 };
 
 // Onglets regroupés : chaque onglet de navigation couvre plusieurs écrans internes
@@ -57,11 +57,11 @@ export default function Topbar({ prenom, dpa, saReelle, tri, prog, isPost, moisB
 
   return (
     <>
-      <div style={{ background: C.cream, position: 'sticky', top: 0, zIndex: 40 }}>
+      <div style={{ background: C.cream, position: 'sticky', top: 0, zIndex: 40, borderBottom: '1px solid #E6E0D5' }}>
         <style>{`
           .dd-tabs::-webkit-scrollbar{display:none;}
           .tab-btn{transition:transform .15s ease,box-shadow .15s ease;}
-          .tab-btn:hover{transform:translateY(-1px);}
+          .tab-btn:hover{color:#15263A!important;}
           .dd-bottomnav{display:none;}
           @media(max-width:640px){.tb-prenom{display:none!important;}}
           @media(max-width:860px){
@@ -78,18 +78,18 @@ export default function Topbar({ prenom, dpa, saReelle, tri, prog, isPost, moisB
               <circle cx="150" cy="150" r="122" fill="#2E5F8A" />
               <ellipse cx="150" cy="205" rx="58" ry="54" fill="#c8a060" />
               <circle cx="150" cy="112" r="40" fill="#c8a060" />
-              <ellipse cx="150" cy="196" rx="27" ry="31" fill="#faf6f0" />
-              <circle cx="150" cy="128" r="26" fill="#faf6f0" />
+              <ellipse cx="150" cy="196" rx="27" ry="31" fill="#F6F1E9" />
+              <circle cx="150" cy="128" r="26" fill="#F6F1E9" />
             </svg>
             <span style={{ fontSize: '20px', fontWeight: 900, color: C.dark, letterSpacing: '-0.3px' }}>DadUp</span>
           </div>
 
-          <a href="/compte" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px', background: '#fff', border: '1px solid #e8e0d0', padding: '7px 14px', borderRadius: '32px', boxShadow: '0 2px 8px rgba(0,0,0,0.06)' }}>
+          <a href="/compte" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px', background: '#fff', border: '1px solid #E6E0D5', padding: '6px 8px 6px 14px', borderRadius: '12px', boxShadow: '0 2px 8px rgba(21,38,58,0.05)' }}>
             <span className="tb-prenom" style={{ fontSize: '13px', fontWeight: 700, color: C.dark }}>
               {prenom || 'Mon compte'}
             </span>
             {saReelle && (
-              <span style={{ fontSize: '11px', background: 'linear-gradient(135deg,#c8a060,#e8c070)', color: '#1c1510', padding: '3px 8px', borderRadius: '20px', fontWeight: 800, boxShadow: '0 2px 6px rgba(200,160,96,0.3)' }}>
+              <span style={{ fontSize: '11px', background: 'linear-gradient(160deg,#0c1d2e,#1A3D5C)', color: '#ffffff', padding: '4px 9px', borderRadius: '8px', fontWeight: 800 }}>
                 {isPost ? `Mois ${moisBebe + 1}` : `SA ${saReelle}`}
               </span>
             )}
@@ -98,16 +98,15 @@ export default function Topbar({ prenom, dpa, saReelle, tri, prog, isPost, moisB
 
         {/* Ligne 2 : onglets (ordinateur et tablette) */}
         <div className="dd-toptabs" style={{ position: 'relative', paddingBottom: '2px' }}>
-          <nav aria-label="Navigation principale" className="dd-tabs" style={{ display: 'flex', gap: '6px', padding: '0 20px 14px', overflowX: 'auto' as const, maxWidth: '1180px', margin: '0 auto', scrollbarWidth: 'none' as const }}>
+          <nav aria-label="Navigation principale" className="dd-tabs" style={{ display: 'flex', gap: '4px', padding: '0 20px', overflowX: 'auto' as const, maxWidth: '1180px', margin: '0 auto', scrollbarWidth: 'none' as const }}>
             {tabs.map(n => {
               const on = isOn(n);
               return (
                 <button key={n.id} onClick={() => setActiveTab(n.target)} aria-current={on ? 'page' : undefined} className="tab-btn" style={{
-                  padding: '9px 20px', fontSize: '13px', fontWeight: 800, border: 'none',
-                  borderRadius: '24px', cursor: 'pointer', whiteSpace: 'nowrap' as const, flexShrink: 0,
-                  background: on ? 'linear-gradient(135deg,#0a1f32,#1A3D5C)' : '#ffffff',
-                  color: on ? '#fff' : '#1e2535',
-                  boxShadow: on ? '0 4px 16px rgba(26,61,92,0.3)' : '0 1px 4px rgba(0,0,0,0.08)',
+                  padding: '12px 16px 11px', fontSize: '14px', fontWeight: on ? 800 : 700, border: 'none',
+                  borderBottom: on ? '3px solid #C96F4A' : '3px solid transparent',
+                  cursor: 'pointer', whiteSpace: 'nowrap' as const, flexShrink: 0, background: 'transparent',
+                  color: on ? '#15263A' : '#5f6b72',
                 }}>{n.label}</button>
               );
             })}
@@ -118,25 +117,21 @@ export default function Topbar({ prenom, dpa, saReelle, tri, prog, isPost, moisB
       {/* Barre de navigation du bas (mobile) */}
       <nav aria-label="Navigation principale" className="dd-bottomnav" style={{
         position: 'fixed', left: 0, right: 0, bottom: 0, zIndex: 60,
-        background: '#ffffff', borderTop: '1px solid rgba(26,61,92,0.08)',
+        background: '#ffffff', borderTop: '1px solid #E6E0D5',
         boxShadow: '0 -4px 20px rgba(26,61,92,0.06)',
-        padding: '8px 6px calc(8px + env(safe-area-inset-bottom))',
+        padding: '0 6px calc(8px + env(safe-area-inset-bottom))',
         justifyContent: 'space-around',
       }}>
         {tabs.map(n => {
           const on = isOn(n);
           return (
             <button key={n.id} onClick={() => setActiveTab(n.target)} aria-current={on ? 'page' : undefined} style={{
-              flex: 1, minWidth: 0, minHeight: '48px', background: 'none', border: 'none', cursor: 'pointer',
-              display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '3px', padding: '2px 0',
+              flex: 1, minWidth: 0, minHeight: '50px', background: 'none', border: 'none', cursor: 'pointer',
+              borderTop: on ? '3px solid #C96F4A' : '3px solid transparent',
+              display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '3px', padding: '4px 0 0',
             }}>
-              <span style={{
-                width: '40px', height: '26px', borderRadius: '13px', display: 'flex', alignItems: 'center', justifyContent: 'center',
-                background: on ? 'linear-gradient(135deg,#0a1f32,#1d4d72)' : 'transparent',
-              }}>
-                <Icon name={n.icon} color={on ? '#e8c070' : '#6a7585'} />
-              </span>
-              <span style={{ fontSize: '11px', fontWeight: on ? 800 : 700, color: on ? C.blueDark : '#6a7585', whiteSpace: 'nowrap' as const }}>{n.short}</span>
+              <Icon name={n.icon} color={on ? '#15263A' : '#8b949a'} />
+              <span style={{ fontSize: '11px', fontWeight: on ? 800 : 700, color: on ? '#15263A' : '#5f6b72', whiteSpace: 'nowrap' as const }}>{n.short}</span>
             </button>
           );
         })}

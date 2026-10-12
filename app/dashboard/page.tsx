@@ -37,10 +37,10 @@ const PREPARER_TABS = ['rdv', 'pratique', 'valise', 'maison', 'admin', 'jourj'];
 
 // ── Palette ───────────────────────────────────────────────────────────────────
 const C = {
-  dark:'#1e2535', blue:'#2E5F8A', blueDark:'#1A3D5C', gold:'#c8a060',
+  dark:'#15263A', blue:'#2E5F8A', blueDark:'#1A3D5C', gold:'#C9D8C4',
   white:'#ffffff', border:'#f0ede8', text:'#1e2535', textLight:'#6B8FA8',
   muted:'#9aa0a8', orange:'#FFF0E6', green:'#E4F5EC', amber:'#FFF7E0',
-  teal:'#E0F5F0', coral:'#FDECEA', blueLight:'#E6F0FA', cream:'#f7f5f0',
+  teal:'#E0F5F0', coral:'#FDECEA', blueLight:'#E6F0FA', cream:'#F6F1E9',
 };
 
 // Parse une date "YYYY-MM-DD" en heure LOCALE (pas UTC)
@@ -290,8 +290,9 @@ function DashboardContent() {
 
   return (
     <>
-    <div style={{ minHeight: '100vh', background: C.white, fontFamily: "-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" }}>
+    <div style={{ minHeight: '100vh', background: '#F6F1E9', color: '#15263A', fontFamily: "'Manrope',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" }}>
       <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&display=swap');
         *{box-sizing:border-box;margin:0;padding:0;}
         body{-webkit-font-smoothing:antialiased;}
         .dd-c{max-width:1080px;margin:0 auto;padding:32px 36px;}
@@ -316,7 +317,7 @@ function DashboardContent() {
       />
 
       <div className="dd-c">
-        {activeTab === 'home'    && (isPost ? <PostAccueil  {...shared}/> : <Accueil      {...shared}/>)}
+        {activeTab === 'home'    && (isPost ? <PostAccueil  {...shared}/> : <Accueil      {...shared} setActiveTab={setActiveTab}/>)}
         {activeTab === 'bebe'    && (isPost ? <PostBebe     {...shared}/> : <BebePage     {...shared}/>)}
         {isPost  && activeTab === 'rdv'       && <PostRDV      {...shared}/>}
         {!isPost && PREPARER_TABS.includes(activeTab) && <PreparerHub {...shared} activeTab={activeTab} setActiveTab={setActiveTab}/>}
@@ -357,8 +358,8 @@ export default function DashboardPage() {
   return (
     <>
     <Suspense fallback={
-      <div style={{ minHeight: '100vh', background: '#f7f5f0', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        <p style={{ color: '#9aa0a8', fontSize: '14px' }}>Chargement...</p>
+      <div style={{ minHeight: '100vh', background: '#F6F1E9', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <p style={{ color: '#5f6b72', fontSize: '14px' }}>Chargement...</p>
       </div>
     }>
       <DashboardContent />

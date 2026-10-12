@@ -112,7 +112,7 @@ export default function SuiviBebe({C}: any) {
   const totalTetees = jour.entrees.filter(e => e.seins.length > 0 || e.ml).length;
 
   const inputStyle = {
-    background:'#f7f5f0', border:'1.5px solid #f0ede8', borderRadius:'10px',
+    background:'#F6F1E9', border:'1.5px solid #f0ede8', borderRadius:'10px',
     padding:'8px 12px', fontSize:'14px', color:'#1e2535', outline:'none',
     width:'100%', fontFamily:'inherit',
   };
@@ -132,7 +132,7 @@ export default function SuiviBebe({C}: any) {
         {(['allaitement','biberon'] as const).map(m=>(
           <button key={m} onClick={()=>setMode(m)} style={{
             flex:1, padding:'10px', border:'none', borderRadius:'14px', cursor:'pointer',
-            background: modeAllaitement===m ? '#1e2535' : '#f7f5f0',
+            background: modeAllaitement===m ? '#1e2535' : '#F6F1E9',
             color: modeAllaitement===m ? '#fff' : '#1e2535',
             fontSize:'14px', fontWeight:700,
           }}>
@@ -149,7 +149,7 @@ export default function SuiviBebe({C}: any) {
           return (
             <button key={i} onClick={()=>setJourActif(i)} style={{
               flexShrink:0, padding:'8px 14px', border:'none', borderRadius:'20px', cursor:'pointer',
-              background: jourActif===i ? '#1e2535' : hasData ? '#E4F5EC' : '#f7f5f0',
+              background: jourActif===i ? '#1e2535' : hasData ? '#E4F5EC' : '#F6F1E9',
               color: jourActif===i ? '#fff' : hasData ? '#0D6B40' : '#9aa0a8',
               fontSize:'14px', fontWeight:700,
             }}>
@@ -161,7 +161,7 @@ export default function SuiviBebe({C}: any) {
       </div>
 
       {/* POIDS */}
-      <div style={{display:'flex',alignItems:'center',gap:'12px',background:'#f7f5f0',borderRadius:'16px',padding:'14px 18px'}}>
+      <div style={{display:'flex',alignItems:'center',gap:'12px',background:'#F6F1E9',borderRadius:'16px',padding:'14px 18px'}}>
         <span style={{fontSize:'14px',fontWeight:700,color:'#1e2535',flexShrink:0}}>Poids ce jour</span>
         <input
           type="number"
@@ -206,7 +206,7 @@ export default function SuiviBebe({C}: any) {
                     onClick={()=>setOuverte(idx)}
                     style={{
                       width:'100%', display:'flex', alignItems:'center', justifyContent:'space-between',
-                      background: remplie ? '#f7f5f0' : '#fff',
+                      background: remplie ? '#F6F1E9' : '#fff',
                       border:'1px solid #f0ede8', borderRadius:'14px',
                       padding:'12px 16px', cursor:'pointer', textAlign:'left' as const,
                     }}
@@ -238,9 +238,9 @@ export default function SuiviBebe({C}: any) {
                           fontWeight:700,cursor:'pointer',
                         }}>🗑</button>
                         <button onClick={()=>setOuverte(null)} style={{
-                          background:'linear-gradient(135deg,#c8a060,#e8c070)',border:'none',color:'#1c1510',
+                          background:'#B4593A',border:'none',color:'#ffffff',
                           borderRadius:'20px',padding:'8px 18px',fontSize:'14px',
-                          fontWeight:800,cursor:'pointer',boxShadow:'0 4px 12px rgba(200,160,96,0.3)',
+                          fontWeight:800,cursor:'pointer',boxShadow:'0 4px 12px rgba(157,176,154,0.3)',
                         }}>✓ Noté</button>
                       </div>
                     </div>
@@ -267,7 +267,7 @@ export default function SuiviBebe({C}: any) {
                               <button key={s} onClick={()=>toggleSein(idx,s)} style={{
                                 flex:1, padding:'10px', border:'none', borderRadius:'12px', cursor:'pointer',
                                 fontWeight:800, fontSize:'16px',
-                                background: active ? '#1e2535' : '#f7f5f0',
+                                background: active ? '#1e2535' : '#F6F1E9',
                                 color: active ? '#fff' : '#9aa0a8',
                               }}>
                                 {s}
@@ -301,7 +301,7 @@ export default function SuiviBebe({C}: any) {
                       ].map(btn=>(
                         <button key={btn.key} onClick={()=>updateEntree(idx,e=>({...e,[btn.key]:!e[btn.key]}))} style={{
                           padding:'10px', border:'none', borderRadius:'12px', cursor:'pointer',
-                          background: entree[btn.key] ? btn.color : '#f7f5f0',
+                          background: entree[btn.key] ? btn.color : '#F6F1E9',
                           color: entree[btn.key] ? btn.tc : '#9aa0a8',
                           fontWeight:700, fontSize:'14px',
                         }}>
@@ -341,7 +341,7 @@ export default function SuiviBebe({C}: any) {
       </div>
 
       {/* INFO */}
-      <div style={{background:'#f7f5f0',borderRadius:'16px',padding:'16px 18px'}}>
+      <div style={{background:'#F6F1E9',borderRadius:'16px',padding:'16px 18px'}}>
         <p style={{color:'#9aa0a8',fontSize:'14px',lineHeight:1.7,margin:0}}>
           Les premiers jours, bébé mouille de plus en plus de couches. À partir du 5e jour, compte au moins 6 couches bien mouillées par jour et, s'il est allaité, au moins 3 selles jaunes. Ces chiffres permettent de vérifier que bébé s'hydrate et s'alimente correctement. En cas de doute, appelle la sage-femme ou le pédiatre.
         </p>

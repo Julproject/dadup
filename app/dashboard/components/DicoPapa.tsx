@@ -2,8 +2,8 @@
 import { useState, useMemo } from 'react';
 
 const C = {
-  dark: '#1e2535', blue: '#2E5F8A', blueDark: '#1A3D5C', gold: '#c8a060',
-  white: '#ffffff', border: '#f0ede8', muted: '#9aa0a8', cream: '#f7f5f0',
+  dark: '#1e2535', blue: '#2E5F8A', blueDark: '#1A3D5C', gold:'#C9D8C4',
+  white: '#ffffff', border: '#f0ede8', muted: '#9aa0a8', cream: '#F6F1E9',
 };
 
 type Terme = { mot: string; def: string; cat: string };
@@ -11,9 +11,9 @@ type Terme = { mot: string; def: string; cat: string };
 const CATS_GROSSESSE = [
   { id: 'suivi',    label: 'Suivi médical',  bg: 'rgba(200,232,255,0.3)', tc: '#0A2847' },
   { id: 'bebe',     label: 'Bébé',           bg: 'rgba(184,240,216,0.3)', tc: '#0A2E1A' },
-  { id: 'sympt',    label: 'Symptômes',      bg: 'rgba(255,232,160,0.3)', tc: '#3A2000' },
+  { id: 'sympt',    label: 'Symptômes',      bg: 'rgba(242,218,203,0.45)', tc: '#3A2000' },
   { id: 'accouche', label: 'Accouchement',   bg: 'rgba(255,220,200,0.5)', tc: '#8A2800' },
-  { id: 'admin',    label: 'Préparation',    bg: 'rgba(221,208,255,0.3)', tc: '#1A0A4A' },
+  { id: 'admin',    label: 'Préparation',    bg: 'rgba(220,229,215,0.6)', tc: '#1A0A4A' },
   { id: 'alerte',   label: 'Alertes',        bg: 'rgba(255,210,205,0.5)', tc: '#6A0000' },
 ];
 
@@ -163,7 +163,7 @@ export default function DicoPapa({ C: propC, isPost = false }: { C?: any; isPost
 
       {/* En-tête */}
       <div style={{ background: 'linear-gradient(135deg,#0a1f32,#1A3D5C)', borderRadius: '20px', padding: '20px 24px', position: 'relative', overflow: 'hidden' }}>
-        <p style={{ color: '#c8a060', fontSize: '11px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase' as const, margin: '0 0 6px' }}>Grossesse</p>
+        <p style={{ color: '#C9D8C4', fontSize: '11px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase' as const, margin: '0 0 6px' }}>Grossesse</p>
         <p style={{ color: '#fff', fontSize: '22px', fontWeight: 800, margin: '0 0 4px' }}>Dictionnaire</p>
         <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '14px', margin: 0 }}>{TERMES.length} termes expliqués en langage simple</p>
       </div>
@@ -213,7 +213,7 @@ export default function DicoPapa({ C: propC, isPost = false }: { C?: any; isPost
       {/* Liste des termes */}
       <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
         {filtered.length === 0 ? (
-          <div style={{ background: '#f7f5f0', borderRadius: '16px', padding: '24px', textAlign: 'center' as const }}>
+          <div style={{ background: '#F6F1E9', borderRadius: '16px', padding: '24px', textAlign: 'center' as const }}>
             <p style={{ color: '#9aa0a8', fontSize: '14px', margin: 0 }}>Aucun terme trouvé pour "{search}"</p>
           </div>
         ) : filtered.map(t => {

@@ -64,7 +64,7 @@ export default function PrepaNaissance({ C, saReelle }: { C: any; saReelle: numb
                   <li>Ne passent pas au repos</li>
                 </ul>
               </div>
-              <div style={{ background: '#f7f5f0', borderRadius: '10px', padding: '12px' }}>
+              <div style={{ background: '#F6F1E9', borderRadius: '10px', padding: '12px' }}>
                 <p style={{ color: '#8A6010', fontSize: '13px', fontWeight: 700, margin: '0 0 6px' }}>Braxton-Hicks</p>
                 <ul style={{ color: '#5a4010', fontSize: '13px', lineHeight: 1.7, margin: 0, paddingLeft: '14px' }}>
                   <li>Irrégulières</li>
@@ -77,7 +77,7 @@ export default function PrepaNaissance({ C, saReelle }: { C: any; saReelle: numb
             </div>
           </div>
 
-          <div style={{ background: 'rgba(221,208,255,0.3)', borderRadius: '12px', padding: '14px 16px' }}>
+          <div style={{ background: 'rgba(220,229,215,0.6)', borderRadius: '12px', padding: '14px 16px' }}>
             <p style={{ color: '#8A0000', fontSize: '13px', fontWeight: 700, margin: '0 0 6px' }}>Partir immédiatement si</p>
             <ul style={{ color: '#6A0000', fontSize: '14px', lineHeight: 1.7, margin: 0, paddingLeft: '16px' }}>
               <li>La poche des eaux se rompt (liquide clair, rosé ou verdâtre)</li>
@@ -120,7 +120,7 @@ export default function PrepaNaissance({ C, saReelle }: { C: any; saReelle: numb
               ))}
             </div>
           </div>
-          <div style={{ background: 'rgba(255,232,160,0.3)', borderRadius: '12px', padding: '12px 14px' }}>
+          <div style={{ background: 'rgba(242,218,203,0.45)', borderRadius: '12px', padding: '12px 14px' }}>
             <p style={{ color: '#8A6010', fontSize: '13px', fontWeight: 700, margin: '0 0 4px' }}>Toi aussi tu prépares ta valise</p>
             <p style={{ color: '#5a4010', fontSize: '13px', lineHeight: 1.6, margin: 0 }}>
               Vêtements confortables, chargeur, en-cas, livre ou série sur le téléphone. Le travail peut durer plusieurs heures.
@@ -169,7 +169,7 @@ export default function PrepaNaissance({ C, saReelle }: { C: any; saReelle: numb
           </div>
 
           <div style={{ background: '#1e2535', borderRadius: '12px', padding: '14px 16px' }}>
-            <p style={{ color: '#c8a060', fontSize: '13px', fontWeight: 700, margin: '0 0 6px' }}>À retenir</p>
+            <p style={{ color: '#C9D8C4', fontSize: '13px', fontWeight: 700, margin: '0 0 6px' }}>À retenir</p>
             <p style={{ color: '#fff', fontSize: '14px', lineHeight: 1.7, margin: 0 }}>
               Les études montrent qu'un soutien continu pendant l'accouchement aide la future maman à mieux vivre ce moment, et peut même raccourcir un peu le travail. Ta présence compte vraiment.
             </p>
@@ -232,7 +232,7 @@ export default function PrepaNaissance({ C, saReelle }: { C: any; saReelle: numb
 
       {/* En-tête */}
       <div style={{ background: '#1A3D5C', borderRadius: '20px', padding: '18px 20px' }}>
-        <p style={{ color: '#c8a060', fontSize: '11px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase' as const, margin: '0 0 5px' }}>
+        <p style={{ color: '#C9D8C4', fontSize: '11px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase' as const, margin: '0 0 5px' }}>
           SA {saReelle} · Préparation
         </p>
         <p style={{ color: '#fff', fontSize: '18px', fontWeight: 800, margin: 0 }}>
@@ -273,7 +273,7 @@ export default function PrepaNaissance({ C, saReelle }: { C: any; saReelle: numb
       })}
 
       {/* BOUTON BÉBÉ EST NÉ */}
-      <div style={{ background: 'rgba(221,208,255,0.3)', borderRadius: '16px', padding: '20px 24px', marginTop: '24px', textAlign: 'center' as const }}>
+      <div style={{ background: 'rgba(220,229,215,0.6)', borderRadius: '16px', padding: '20px 24px', marginTop: '24px', textAlign: 'center' as const }}>
         <p style={{ color: '#6B4FBB', fontSize: '14px', margin: '0 0 12px', lineHeight: 1.6 }}>
           Bébé est là ? Bascule en mode post-partum pour accéder au contenu de la première année.
         </p>

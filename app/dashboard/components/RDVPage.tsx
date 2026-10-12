@@ -23,10 +23,10 @@ export default function RDVPage({C,dpa,saReelle,rdvDates,saveRdvI,rdvOuvert,setR
       {/* PROCHAIN RDV : MIS EN AVANT */}
       {prochain && (
         <div style={{background:urgent?'linear-gradient(135deg,#7A2010,#C04A1A)':'linear-gradient(135deg,#0a1f32,#1A3D5C)',borderRadius:'20px',padding:'24px',position:'relative',overflow:'hidden',boxShadow:urgent?'0 8px 32px rgba(192,74,26,0.3)':'0 8px 32px rgba(26,61,92,0.3)'}}>
-          <div style={{position:'absolute',top:'-30px',right:'-30px',width:'160px',height:'160px',borderRadius:'50%',background:urgent?'radial-gradient(circle,rgba(255,200,150,0.15) 0%,transparent 65%)':'radial-gradient(circle,rgba(200,160,96,0.15) 0%,transparent 65%)',pointerEvents:'none'}}></div>
+          <div style={{position:'absolute',top:'-30px',right:'-30px',width:'160px',height:'160px',borderRadius:'50%',background:urgent?'radial-gradient(circle,rgba(255,200,150,0.15) 0%,transparent 65%)':'radial-gradient(circle,rgba(157,176,154,0.15) 0%,transparent 65%)',pointerEvents:'none'}}></div>
           <div style={{position:'relative',zIndex:1}}>
             <div style={{display:'flex',alignItems:'center',justifyContent:'space-between',marginBottom:'16px'}}>
-              <span style={{...LABEL,color:urgent?'rgba(255,220,200,0.8)':'#c8a060'}}>{urgent?'À prendre rapidement':'Prochain rendez-vous'}</span>
+              <span style={{...LABEL,color:urgent?'rgba(255,220,200,0.8)':'#C9D8C4'}}>{urgent?'À prendre rapidement':'Prochain rendez-vous'}</span>
               {joursAvant !== null && <span style={{background:'rgba(255,255,255,0.12)',color:'#fff',fontSize:'13px',fontWeight:800,padding:'5px 12px',borderRadius:'20px'}}>J-{joursAvant}</span>}
             </div>
             <p style={{color:'#fff',fontSize:'20px',fontWeight:800,margin:'0 0 4px'}}>{prochain.titre}</p>
@@ -42,14 +42,14 @@ export default function RDVPage({C,dpa,saReelle,rdvDates,saveRdvI,rdvOuvert,setR
             <p style={{color:'rgba(255,255,255,0.7)',fontSize:'14px',lineHeight:1.7,margin:'0 0 16px'}}>{prochain.desc}</p>
 
             <div style={{display:'flex',gap:'10px',flexWrap:'wrap' as const,alignItems:'center'}}>
-              <a href="https://www.doctolib.fr" target="_blank" rel="noopener noreferrer" style={{display:'inline-flex',alignItems:'center',gap:'6px',background:'linear-gradient(135deg,#c8a060,#e8c070)',color:'#1c1510',padding:'11px 20px',borderRadius:'20px',fontSize:'14px',fontWeight:800,textDecoration:'none',boxShadow:'0 4px 16px rgba(200,160,96,0.4)'}}>
+              <a href="https://www.doctolib.fr" target="_blank" rel="noopener noreferrer" style={{display:'inline-flex',alignItems:'center',gap:'6px',background:'#B4593A',color:'#ffffff',padding:'11px 20px',borderRadius:'20px',fontSize:'14px',fontWeight:800,textDecoration:'none',boxShadow:'0 4px 16px rgba(157,176,154,0.4)'}}>
                 Prendre RDV sur Doctolib →
               </a>
               <div style={{flex:1,minWidth:'160px'}}>
                 <input type="date" value={prochainDate||''} onChange={e=>{saveRdvI(prochain.sa,e.target.value);if(nextRdv&&nextRdv.sa===prochain.sa)saveRdv(e.target.value);}} style={{background:'rgba(255,255,255,0.1)',border:'1px solid rgba(255,255,255,0.2)',borderRadius:'12px',padding:'10px 14px',fontSize:'14px',color:'#fff',width:'100%',outline:'none'}}/>
               </div>
             </div>
-            {prochainDate&&<p style={{color:'#e0b870',fontSize:'13px',margin:'10px 0 0',fontWeight:700}}>✓ Noté le {new Date(prochainDate).toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long'})}</p>}
+            {prochainDate&&<p style={{color:'#C9D8C4',fontSize:'13px',margin:'10px 0 0',fontWeight:700}}>✓ Noté le {new Date(prochainDate).toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long'})}</p>}
           </div>
         </div>
       )}
@@ -80,7 +80,7 @@ export default function RDVPage({C,dpa,saReelle,rdvDates,saveRdvI,rdvOuvert,setR
                   <span style={{color:'#b0b8c0',fontSize:'11px'}}>{isOpen?'▲':'▼'}</span>
                 </button>
                 {isOpen&&(
-                  <div style={{background:'#faf6f0',padding:'14px 16px',borderTop:'1px solid #ede8e0'}} onClick={e=>e.stopPropagation()}>
+                  <div style={{background:'#F6F1E9',padding:'14px 16px',borderTop:'1px solid #ede8e0'}} onClick={e=>e.stopPropagation()}>
                     <p style={{color:C.text,fontSize:'14px',lineHeight:1.7,margin:'0 0 12px'}}>{r.desc}</p>
                     <input type="date" value={rdvDates[r.sa]||''} onChange={e=>{saveRdvI(r.sa,e.target.value);if(nextRdv&&nextRdv.sa===r.sa)saveRdv(e.target.value);}} style={{background:'#fff',border:'1px solid #e8e0d0',borderRadius:'10px',padding:'9px 14px',fontSize:'14px',color:C.dark,width:'100%',outline:'none'}}/>
                   </div>

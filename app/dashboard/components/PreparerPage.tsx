@@ -165,15 +165,15 @@ function genererPDF(valiseChecked: Record<string,boolean>, maisonChecked: Record
 <title>Notre checklist · DadUp</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#1e2535;background:#faf6f0;padding:0;max-width:720px;margin:0 auto;}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#1e2535;background:#F6F1E9;padding:0;max-width:720px;margin:0 auto;}
 .hero{background:linear-gradient(135deg,#0a1f32 0%,#1A3D5C 100%);padding:40px 36px 32px;text-align:center;position:relative;overflow:hidden;}
-.hero::before{content:'';position:absolute;top:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(200,160,96,0.15) 0%,transparent 65%);}
+.hero::before{content:'';position:absolute;top:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(157,176,154,0.15) 0%,transparent 65%);}
 .logo{font-size:26px;font-weight:900;color:#fff;margin-bottom:4px;letter-spacing:-0.5px;}
-.logo span{color:#c8a060;}
+.logo span{color:#B4593A;}
 .hero-sub{font-size:14px;color:rgba(255,255,255,0.6);margin-bottom:24px;}
 .hero-date{font-size:12px;color:rgba(255,255,255,0.35);}
 .stats{display:flex;gap:12px;padding:24px 36px;background:#fff;border-bottom:1px solid #ede8e0;}
-.stat{flex:1;text-align:center;padding:16px;border-radius:16px;background:#faf6f0;}
+.stat{flex:1;text-align:center;padding:16px;border-radius:16px;background:#F6F1E9;}
 .stat-n{font-size:28px;font-weight:900;color:#1A3D5C;line-height:1;}
 .stat-l{font-size:12px;color:#9aa0a8;margin-top:4px;}
 .section{padding:28px 36px;}
@@ -183,7 +183,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#1
 .groupe-titre{font-size:16px;font-weight:800;color:#1e2535;margin-bottom:12px;}
 .groupe-info{font-size:13px;color:#6a7585;line-height:1.7;margin:-4px 0 12px;font-style:italic;}
 .items{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.06);}
-.item{display:flex;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid #f7f5f0;}
+.item{display:flex;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid #F6F1E9;}
 .item:last-child{border:none;}
 .check{width:20px;height:20px;border-radius:6px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;}
 .ck-done{background:#0D6B40;color:white;}
@@ -203,7 +203,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#1
   <div class="stats">
     <div class="stat"><div class="stat-n">${doneV}<span style="font-size:16px;color:#9aa0a8">/${allValise.length}</span></div><div class="stat-l">Valise prête</div></div>
     <div class="stat"><div class="stat-n">${doneM}<span style="font-size:16px;color:#9aa0a8">/${allMaison.length}</span></div><div class="stat-l">Maison prête</div></div>
-    <div class="stat"><div class="stat-n" style="font-size:20px;color:#c8a060">${doneV+doneM}<span style="font-size:14px;color:#9aa0a8">/${allValise.length+allMaison.length}</span></div><div class="stat-l">Total coché</div></div>
+    <div class="stat"><div class="stat-n" style="font-size:20px;color:#B4593A">${doneV+doneM}<span style="font-size:14px;color:#9aa0a8">/${allValise.length+allMaison.length}</span></div><div class="stat-l">Total coché</div></div>
   </div>
   <div class="section">
     <div class="section-title">Valise maternité</div>
@@ -278,7 +278,7 @@ export default function PreparerPage({C, valiseChecked, toggleV, achatChecked, t
         {([
           {id:'valise', label:`Valise maternité`, done:doneV, total:allValise.length, inactiveBg:'rgba(200,232,255,0.3)', inactiveBorder:'rgba(46,95,138,0.15)', inactiveColor:'#0A2847'},
           {id:'maison', label:`À la maison`,      done:doneM, total:allMaison.length, inactiveBg:'rgba(184,240,216,0.3)', inactiveBorder:'rgba(13,107,64,0.15)', inactiveColor:'#0A2E1A'},
-          {id:'conge',  label:`Congé paternité`,  done:0,     total:0, inactiveBg:'rgba(255,232,160,0.3)', inactiveBorder:'rgba(200,160,96,0.15)', inactiveColor:'#3A2000'},
+          {id:'conge',  label:`Congé paternité`,  done:0,     total:0, inactiveBg:'rgba(242,218,203,0.45)', inactiveBorder:'rgba(157,176,154,0.15)', inactiveColor:'#3A2000'},
         ] as const).map(t => (
           <button key={t.id} onClick={()=>setOnglet(t.id)} style={{
             flex:1, padding:'12px 8px', borderRadius:'16px', cursor:'pointer',
@@ -300,9 +300,9 @@ export default function PreparerPage({C, valiseChecked, toggleV, achatChecked, t
       {onglet !== 'conge' && (
         <div style={{display:'flex',alignItems:'center',gap:'12px'}}>
           <div style={{flex:1,background:'#f0ede8',borderRadius:'6px',height:'8px'}}>
-            <div style={{background:pct===100?'#0D6B40':'linear-gradient(to right,#c8a060,#e8c070)',height:'8px',borderRadius:'6px',width:pct+'%',transition:'width 0.4s'}}/>
+            <div style={{background:pct===100?'#0D6B40':'linear-gradient(to right,#1A3D5C,#24507a)',height:'8px',borderRadius:'6px',width:pct+'%',transition:'width 0.4s'}}/>
           </div>
-          <span style={{fontSize:'12px',fontWeight:800,color:pct===100?'#0D6B40':C.gold,flexShrink:0}}>{done}/{total}</span>
+          <span style={{fontSize:'12px',fontWeight:800,color:pct===100?'#2F4F3E':'#B4593A',flexShrink:0}}>{done}/{total}</span>
         </div>
       )}
 
@@ -320,7 +320,7 @@ export default function PreparerPage({C, valiseChecked, toggleV, achatChecked, t
                 </div>
                 <span style={{
                   fontSize:'11px',fontWeight:700,padding:'3px 10px',borderRadius:'20px',
-                  background:groupeDone===all?'rgba(184,240,216,0.3)':groupe.couleur.replace('#E6F0FA','rgba(200,232,255,0.3)').replace('#E4F5EC','rgba(184,240,216,0.3)').replace('#FFF7E0','rgba(255,232,160,0.3)').replace('#FFF0E6','rgba(255,220,200,0.5)').replace('#FDECEA','rgba(255,210,205,0.5)'),
+                  background:groupeDone===all?'rgba(184,240,216,0.3)':groupe.couleur.replace('#E6F0FA','rgba(200,232,255,0.3)').replace('#E4F5EC','rgba(184,240,216,0.3)').replace('#FFF7E0','rgba(242,218,203,0.45)').replace('#FFF0E6','rgba(255,220,200,0.5)').replace('#FDECEA','rgba(255,210,205,0.5)'),
                   color:groupeDone===all?'#0D6B40':groupe.tc,
                 }}>{groupeDone}/{all}</span>
               </div>
@@ -342,7 +342,7 @@ export default function PreparerPage({C, valiseChecked, toggleV, achatChecked, t
                         display:'flex',alignItems:'center',gap:'12px',
                         padding:'11px 14px',
                         background:isChecked?'rgba(13,107,64,0.06)':'transparent',
-                        border:'none',borderBottom: idx < groupe.items.length-1 ? '1px solid #f7f5f0' : 'none',
+                        border:'none',borderBottom: idx < groupe.items.length-1 ? '1px solid #F6F1E9' : 'none',
                         cursor:'pointer',textAlign:'left' as const,width:'100%',
                         borderRadius: idx===0?'12px 12px 0 0' : idx===groupe.items.length-1?'0 0 12px 12px':'0',
                       }}
@@ -401,7 +401,7 @@ export default function PreparerPage({C, valiseChecked, toggleV, achatChecked, t
                         <span style={{color:'#b0b8c0',fontSize:'11px',flexShrink:0}}>{open?'▲':'▼'}</span>
                       </div>
                       {open && (
-                        <div style={{padding:'14px 16px 16px',borderTop:'1px solid #ede8e0',background:'#faf6f0'}}>
+                        <div style={{padding:'14px 16px 16px',borderTop:'1px solid #ede8e0',background:'#F6F1E9'}}>
                           <p style={{color:C.text,fontSize:'14px',lineHeight:1.75,margin:'0 0 12px'}}>{item.detail}</p>
                           <div style={{display:'flex',alignItems:'center',justifyContent:'space-between',flexWrap:'wrap' as const,gap:'8px'}}>
                             <span style={{color:'#9aa0a8',fontSize:'12px'}}>Source : {item.source}</span>
@@ -424,7 +424,7 @@ export default function PreparerPage({C, valiseChecked, toggleV, achatChecked, t
         <div style={{paddingTop:'8px',textAlign:'center' as const}}>
           <button
             onClick={() => genererPDF(valiseChecked, maisonChecked)}
-            style={{display:'inline-flex',alignItems:'center',gap:'8px',background:'linear-gradient(135deg,#c8a060,#e8c070)',color:'#1c1510',border:'none',padding:'14px 28px',borderRadius:'32px',fontSize:'14px',fontWeight:800,cursor:'pointer',boxShadow:'0 6px 20px rgba(200,160,96,0.4)'}}
+            style={{display:'inline-flex',alignItems:'center',gap:'8px',background:'#B4593A',color:'#ffffff',border:'none',padding:'14px 28px',borderRadius:'32px',fontSize:'14px',fontWeight:800,cursor:'pointer',boxShadow:'0 6px 20px rgba(157,176,154,0.4)'}}
           >
             Partager avec la maman
           </button>

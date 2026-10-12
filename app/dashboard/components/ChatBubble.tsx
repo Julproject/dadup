@@ -37,7 +37,7 @@ export default function ChatBubble() {
   };
 
   return (
-    <div className="dd-chat" style={{ position: 'fixed', bottom: '24px', right: '24px', zIndex: 999, fontFamily: "-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" }}>
+    <div className="dd-chat" style={{ position: 'fixed', bottom: '24px', right: '24px', zIndex: 999, fontFamily: "'Manrope',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" }}>
       <style>{`@media(max-width:860px){.dd-chat{bottom:calc(84px + env(safe-area-inset-bottom))!important;right:16px!important;}}`}</style>
 
       {/* Panneau ouvert */}
@@ -62,12 +62,12 @@ export default function ChatBubble() {
                   onChange={e => setMsg(e.target.value)}
                   placeholder="Ton message..."
                   rows={4}
-                  style={{ width: '100%', background: '#faf6f0', border: '1px solid #e8e0d0', borderRadius: '10px', padding: '10px 12px', fontSize: '13px', color: '#1e2535', resize: 'none', outline: 'none', fontFamily: 'inherit', boxSizing: 'border-box' }}
+                  style={{ width: '100%', background: '#F6F1E9', border: '1px solid #e8e0d0', borderRadius: '10px', padding: '10px 12px', fontSize: '13px', color: '#1e2535', resize: 'none', outline: 'none', fontFamily: 'inherit', boxSizing: 'border-box' }}
                 />
                 <button
                   onClick={send}
                   disabled={loading || !msg.trim()}
-                  style={{ marginTop: '10px', width: '100%', background: 'linear-gradient(135deg,#c8a060,#e8c070)', color: '#1c1510', border: 'none', padding: '12px', borderRadius: '32px', fontSize: '14px', fontWeight: 700, cursor: msg.trim() ? 'pointer' : 'not-allowed', opacity: msg.trim() ? 1 : 0.5, boxShadow: '0 4px 12px rgba(200,160,96,0.35)' }}
+                  style={{ marginTop: '10px', width: '100%', background: '#B4593A', color: '#ffffff', border: 'none', padding: '12px', borderRadius: '32px', fontSize: '14px', fontWeight: 700, cursor: msg.trim() ? 'pointer' : 'not-allowed', opacity: msg.trim() ? 1 : 0.5, boxShadow: '0 4px 12px rgba(157,176,154,0.35)' }}
                 >
                   {loading ? 'Envoi...' : 'Envoyer'}
                 </button>
@@ -75,7 +75,7 @@ export default function ChatBubble() {
             ) : (
               <div style={{ textAlign: 'center', padding: '12px 0' }}>
                 <div style={{ width: '48px', height: '48px', borderRadius: '50%', background: 'linear-gradient(135deg,#0a1f32,#1A3D5C)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 12px', boxShadow: '0 4px 16px rgba(26,61,92,0.3)' }}>
-                  <span style={{ color: '#e0b870', fontSize: '20px', fontWeight: 800 }}>✓</span>
+                  <span style={{ color: '#C9D8C4', fontSize: '20px', fontWeight: 800 }}>✓</span>
                 </div>
                 <p style={{ color: '#1e2535', fontSize: '14px', fontWeight: 800, margin: '0 0 4px' }}>Message reçu</p>
                 <p style={{ color: '#9aa0a8', fontSize: '12px', margin: 0 }}>On te répond en moins de 24h</p>
@@ -88,7 +88,7 @@ export default function ChatBubble() {
       {/* Bulle */}
       <button
         onClick={() => { setOpen(!open); if (sent) { setSent(false); setMsg(''); } }}
-        style={{ width: '52px', height: '52px', borderRadius: '50%', background: 'linear-gradient(135deg,#0a1f32,#1A3D5C)', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 4px 20px rgba(26,61,92,0.4), 0 0 0 3px rgba(200,160,96,0.2)', transition: 'transform 0.15s', marginLeft: 'auto' }}
+        style={{ width: '52px', height: '52px', borderRadius: '50%', background: 'linear-gradient(135deg,#0a1f32,#1A3D5C)', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 4px 20px rgba(26,61,92,0.4), 0 0 0 3px rgba(157,176,154,0.2)', transition: 'transform 0.15s', marginLeft: 'auto' }}
       >
         {open ? (
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5" strokeLinecap="round">

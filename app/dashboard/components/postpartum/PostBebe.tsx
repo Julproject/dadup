@@ -43,7 +43,7 @@ export default function PostBebe({C, moisBebe, dataBebe, joursRestants}: any) {
 
       {/* INTRO */}
       {dataBebe.intro && (
-        <div style={{background:'#faf6f0', borderRadius:'16px', padding:'22px 24px', border:'1px solid #e8e0d0'}}>
+        <div style={{background:'#F6F1E9', borderRadius:'16px', padding:'22px 24px', border:'1px solid #e8e0d0'}}>
           <p style={{color:'#4a5568', fontSize:'14px', lineHeight:1.75, margin:0}}>{dataBebe.intro}</p>
         </div>
       )}

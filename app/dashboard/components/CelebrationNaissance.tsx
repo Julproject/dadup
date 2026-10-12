@@ -17,11 +17,11 @@ export default function CelebrationNaissance({ prenom, onClose }: Props) {
       position: 'fixed', inset: 0, zIndex: 999,
       background: 'rgba(0,0,0,0.55)',
       display: 'flex', alignItems: 'center', justifyContent: 'center',
-      fontFamily: "-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif",
+      fontFamily: "'Manrope',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif",
       padding: '20px',
     }}>
       <div style={{
-        background: '#faf6f0', borderRadius: '20px',
+        background: '#F6F1E9', borderRadius: '20px',
         padding: '48px 40px', maxWidth: '420px', width: '100%',
         textAlign: 'center', border: '1px solid #e8e0d0',
       }}>
@@ -30,7 +30,7 @@ export default function CelebrationNaissance({ prenom, onClose }: Props) {
           Félicitations
         </p>
 
-        <h2 style={{ color: '#c8a060', fontSize: '42px', fontWeight: 800, margin: '0 0 16px', lineHeight: 1.15 }}>
+        <h2 style={{ color: '#C9D8C4', fontSize: '42px', fontWeight: 800, margin: '0 0 16px', lineHeight: 1.15 }}>
           Tu es papa !
         </h2>
 

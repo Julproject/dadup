@@ -82,8 +82,8 @@ const ATELIERS: Atelier[] = [
     id: 'apaisement',
     titre: 'Apaiser bébé',
     sousTitre: 'Comprendre et répondre aux pleurs',
-    couleur: '#5050B0',
-    fond: '#F0EEFF',
+    couleur: '#1A3D5C',
+    fond: '#E3EBF3',
     etapes: [
       {
         titre: "Vérifier les causes dans l'ordre",
@@ -178,7 +178,7 @@ export default function AtelierBebe({C: propC}: any) {
   const atelier = ATELIERS.find(a => a.id === atelierActif) || ATELIERS[0];
 
   return (
-    <div style={{display:'flex', flexDirection:'column', gap:'20px', fontFamily:"-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"}}>
+    <div style={{display:'flex', flexDirection:'column', gap:'20px', fontFamily:"'Manrope',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"}}>
 
       <div style={{background:'linear-gradient(135deg,#0a1f32,#1A3D5C)', borderRadius:'20px', padding:'22px 24px'}}>
         <p style={{color:'rgba(200,220,240,0.5)', fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase' as const, margin:'0 0 6px'}}>Atelier pratique</p>
@@ -241,7 +241,7 @@ export default function AtelierBebe({C: propC}: any) {
 
       {atelier.conseil && (
         <div style={{background:'#1e2535', borderRadius:'16px', padding:'16px 18px'}}>
-          <p style={{color:'#c8a060', fontSize:'11px', fontWeight:700, letterSpacing:'2px', textTransform:'uppercase' as const, margin:'0 0 7px'}}>À retenir</p>
+          <p style={{color:'#C9D8C4', fontSize:'11px', fontWeight:700, letterSpacing:'2px', textTransform:'uppercase' as const, margin:'0 0 7px'}}>À retenir</p>
           <p style={{color:'#fff', fontSize:'14px', lineHeight:1.7, margin:0}}>{atelier.conseil}</p>
         </div>
       )}

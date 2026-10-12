@@ -1,6 +1,6 @@
 'use client';
 
-const LABEL = { fontSize: '11px', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase' as const, color: '#6a7585', margin: '0 0 8px' };
+const LABEL = { fontSize: '11px', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase' as const, color: '#5f6b72', margin: '0 0 8px' };
 
 type Ligne = { titre: string; detail: string; href?: string; onClick?: () => void; icon: string };
 
@@ -16,8 +16,8 @@ const ICONS: Record<string, string> = {
 function Rangee({ l }: { l: Ligne }) {
   const contenu = (
     <>
-      <span style={{ width: '42px', height: '42px', borderRadius: '14px', background: 'rgba(200,232,255,0.4)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1A3D5C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d={ICONS[l.icon]} /></svg>
+      <span style={{ width: '42px', height: '42px', borderRadius: '12px', background: 'linear-gradient(160deg,#0c1d2e,#1A3D5C)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#DCE5D7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d={ICONS[l.icon]} /></svg>
       </span>
       <span style={{ display: 'flex', flexDirection: 'column', gap: '2px', flex: 1, minWidth: 0, textAlign: 'left' as const }}>
         <span style={{ fontSize: '15px', fontWeight: 800, color: '#1e2535' }}>{l.titre}</span>
