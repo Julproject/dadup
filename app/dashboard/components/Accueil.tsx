@@ -4,8 +4,6 @@ import { useState } from 'react';
 
 export default function Accueil({C,dpa,saReelle,joursRestants,prog,tri,idee,missions,missionsChecked,toggleM,nextRdv,nextRdvDate,saveRdv,saveRdvI,dataR,sa,data}:any) {
   const [open, setOpen] = useState<string|null>(null);
-  const [imgFail, setImgFail] = useState<number|null>(null);
-  const imgOk = imgFail !== saReelle;
   const toggle = (id: string) => setOpen(open === id ? null : id);
 
   const missionsDone = missions.filter((_:string, i:number) => missionsChecked[`m${saReelle}_${i}`]).length;
@@ -41,19 +39,15 @@ export default function Accueil({C,dpa,saReelle,joursRestants,prog,tri,idee,miss
         <div className="acc-hero" style={{textAlign:'center' as const, padding:'28px 24px 56px', background:'linear-gradient(160deg,#0a1f32 0%,#1A3D5C 60%,#1d4d72 100%)', borderRadius:'0 0 32px 32px', position:'relative', overflow:'hidden'}}>
           <div style={{position:'absolute', top:'-60px', right:'-40px', width:'260px', height:'260px', borderRadius:'50%', background:'radial-gradient(circle,rgba(200,160,96,0.18) 0%,transparent 65%)', pointerEvents:'none'}}></div>
           <div style={{position:'absolute', bottom:'-80px', left:'-60px', width:'220px', height:'220px', borderRadius:'50%', background:'radial-gradient(circle,rgba(100,200,160,0.1) 0%,transparent 70%)', pointerEvents:'none'}}></div>
-          <div className="hero-emoji" style={{width:'220px', height:'260px', margin:'0 auto 16px', position:'relative', zIndex:1}}>
+          <div className="hero-emoji" style={{width:'150px', height:'150px', margin:'8px auto 18px', position:'relative', zIndex:1}}>
             <div style={{position:'absolute', inset:'-30px', borderRadius:'50%', background:'radial-gradient(circle,rgba(200,160,96,0.15) 0%,transparent 65%)', pointerEvents:'none'}}></div>
             <div style={{position:'relative', width:'100%', height:'100%', overflow:'hidden', borderRadius:'50%'}}>
-              {imgOk ? (
-                <img src={`/sa-${saReelle}.png`} alt={`Bébé à ${saReelle} SA`} onError={() => setImgFail(saReelle)} style={{width:'100%', height:'100%', objectFit:'contain', position:'relative', zIndex:1, filter:'drop-shadow(0 8px 20px rgba(0,0,0,0.25))'}}/>
-              ) : (
-                <div style={{width:'100%', height:'100%', display:'flex', alignItems:'center', justifyContent:'center', position:'relative', zIndex:1}}>
-                  <svg viewBox="0 0 100 100" style={{width:'90px', height:'90px'}} role="img" aria-label={`Bébé à ${saReelle} SA`}>
-                    <path d="M50 22 C68 22 76 36 74 50 C72 64 62 72 52 75 C42 78 34 74 32 66 C30 58 36 52 42 50" stroke="#e0b870" strokeWidth="11" strokeLinecap="round" fill="none"/>
-                    <circle cx="52" cy="28" r="13" fill="#e0b870"/>
-                  </svg>
-                </div>
-              )}
+              <div style={{width:'100%', height:'100%', display:'flex', alignItems:'center', justifyContent:'center', position:'relative', zIndex:1}}>
+                <svg viewBox="0 0 100 100" style={{width:'90px', height:'90px'}} role="img" aria-label={`Bébé à ${saReelle} SA`}>
+                  <path d="M50 22 C68 22 76 36 74 50 C72 64 62 72 52 75 C42 78 34 74 32 66 C30 58 36 52 42 50" stroke="#e0b870" strokeWidth="11" strokeLinecap="round" fill="none"/>
+                  <circle cx="52" cy="28" r="13" fill="#e0b870"/>
+                </svg>
+              </div>
               <div className="fluid fluid-1" style={{zIndex:2}}></div>
               <div className="fluid fluid-2" style={{zIndex:2}}></div>
               <div className="fluid fluid-3" style={{zIndex:2}}></div>
