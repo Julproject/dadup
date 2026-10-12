@@ -190,7 +190,7 @@ export default function PrepaNaissance({ C, saReelle }: { C: any; saReelle: numb
             {[
               {
                 titre: 'Césarienne programmée',
-                texte: `Elle est prévue à l'avance pour des raisons médicales (présentation du siège, placenta praevia, antécédent de césarienne, etc.). La date est fixée à 38-39 SA généralement. Vous avez le temps de vous préparer ensemble.`,
+                texte: `Elle est prévue à l'avance pour des raisons médicales (présentation du siège, placenta praevia, antécédent de césarienne, etc.). La date est fixée à 38-39 SA généralement. Tu as le temps de te préparer avec elle.`,
               },
               {
                 titre: 'Césarienne en urgence',
@@ -219,7 +219,7 @@ export default function PrepaNaissance({ C, saReelle }: { C: any; saReelle: numb
           <div style={{ background: '#FFF0E6', borderRadius: '12px', padding: '14px 16px' }}>
             <p style={{ color: '#6B4FBB', fontSize: '13px', fontWeight: 700, margin: '0 0 6px' }}>Ce qui ne change pas</p>
             <p style={{ color: '#5A2000', fontSize: '14px', lineHeight: 1.7, margin: 0 }}>
-              Voie basse ou césarienne, bébé arrive. La façon dont il naît ne définit pas la qualité de votre accueil ni de votre parentalité. Certaines mamans vivent la césarienne comme un deuil de l'accouchement prévu : accueille ce ressenti avec bienveillance, sans minimiser.
+              Voie basse ou césarienne, bébé arrive. La façon dont il naît ne définit pas la qualité de ton accueil ni de ta parentalité. Certaines mamans vivent la césarienne comme un deuil de l'accouchement prévu : accueille ce ressenti avec bienveillance, sans minimiser.
             </p>
           </div>
         </div>
