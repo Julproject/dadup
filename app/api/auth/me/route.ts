@@ -6,11 +6,20 @@ const supabase = createClient(
   process.env.SUPABASE_SERVICE_ROLE_KEY!
 );
 
+
+function noUser(status: number, extra: Record<string, unknown> = {}) {
+  // On efface le cookie de session : sinon /dashboard renvoie vers /login,
+  // et proxy.ts renvoie /login vers /dashboard (cookie présent) : boucle infinie
+  const res = NextResponse.json({ user: null, ...extra }, { status });
+  res.cookies.set('dadup_session', '', { httpOnly: true, secure: process.env.NODE_ENV === 'production', sameSite: 'lax', path: '/', maxAge: 0 });
+  return res;
+}
+
 export async function GET(req: NextRequest) {
   try {
     const sessionId = req.cookies.get('dadup_session')?.value;
     if (!sessionId) {
-      return NextResponse.json({ user: null }, { status: 401 });
+      return noUser(401);
     }
 
     const { data: user, error } = await supabase
@@ -21,11 +30,11 @@ export async function GET(req: NextRequest) {
 
     if (error) {
       console.error('Supabase me error:', JSON.stringify(error));
-      return NextResponse.json({ user: null }, { status: 401 });
+      return noUser(401);
     }
 
     if (!user || !user.actif) {
-      return NextResponse.json({ user: null }, { status: 401 });
+      return noUser(401);
     }
 
 
@@ -34,7 +43,7 @@ export async function GET(req: NextRequest) {
       const now = new Date();
       const until = new Date(user.access_until);
       if (now > until) {
-        return NextResponse.json({ user: null, expired: true }, { status: 403 });
+        return noUser(403, { expired: true });
       }
     }
 
