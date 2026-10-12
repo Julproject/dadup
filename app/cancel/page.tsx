@@ -39,7 +39,7 @@ export default function CancelPage() {
       setResult(data);
       setStep('done');
     } catch (err: any) {
-      setError(err.message || 'Une erreur est survenue. Ecris-nous a hello@dadup.fr');
+      setError(err.message || 'Une erreur est survenue. Écris-nous à hello@dadup.fr');
     } finally {
       setLoading(false);
     }
@@ -72,16 +72,16 @@ export default function CancelPage() {
                 </svg>
               </div>
               <h1 style={{ color: C.dark, fontSize: '22px', fontWeight: 800, margin: '0 0 12px' }}>
-                {result.remboursement ? 'Resiliation et remboursement confirmes' : 'Resiliation confirmee'}
+                {result.remboursement ? 'Résiliation et remboursement confirmés' : 'Résiliation confirmée'}
               </h1>
               <p style={{ color: C.text, fontSize: '15px', lineHeight: 1.7, margin: '0 0 24px' }}>
                 {result.remboursement
-                  ? 'Ton abonnement a ete annule et tu as ete rembourse integralement. Le remboursement apparait sur ton compte sous 5 a 10 jours ouvrés.'
-                  : "Ton abonnement est annule. Tu conserves l'acces jusqu'a la fin de ta periode annuelle."}
+                  ? 'Ton accès a été résilié et tu as été remboursé intégralement. Le remboursement apparaîtra sur ton compte sous 5 à 10 jours ouvrés.'
+                  : "Ton accès a été résilié et ton compte est désactivé."}
               </p>
-              <p style={{ color: C.textLight, fontSize: '13px', margin: '0 0 28px' }}>Un email de confirmation a ete envoye.</p>
+              <p style={{ color: C.textLight, fontSize: '13px', margin: '0 0 28px' }}>Un email de confirmation t'a été envoyé.</p>
               <a href="/" style={{ display: 'inline-block', background: C.dark, color: C.white, padding: '12px 28px', borderRadius: '32px', fontSize: '14px', fontWeight: 700, textDecoration: 'none' }}>
-                Retour a l'accueil
+                Retour à l'accueil
               </a>
             </div>
 
@@ -94,14 +94,14 @@ export default function CancelPage() {
                 </p>
                 <p style={{ color: C.redDark, fontSize: '13px', margin: 0, opacity: 0.8 }}>
                   {eligibleRemboursement
-                    ? `Tu es client depuis ${joursClient} jours — sous les 14 jours. Tu seras rembourse integralement.`
-                    : `Tu es client depuis ${joursClient ?? '?'} jours — au-dela des 14 jours. Pas de remboursement, mais tu gardes l'acces jusqu'a la fin de ta periode.`}
+                    ? `Tu es client depuis ${joursClient} jours, donc dans les 14 premiers jours. Tu seras remboursé intégralement.`
+                    : `Tu es client depuis ${joursClient ?? '?'} jours, au-delà des 14 premiers jours. Il n'y aura pas de remboursement.`}
                 </p>
               </div>
 
-              <h2 style={{ color: C.dark, fontSize: '18px', fontWeight: 800, margin: '0 0 10px' }}>Tu es sur ?</h2>
+              <h2 style={{ color: C.dark, fontSize: '18px', fontWeight: 800, margin: '0 0 10px' }}>Tu es sûr ?</h2>
               <p style={{ color: C.text, fontSize: '14px', lineHeight: 1.7, margin: '0 0 24px' }}>
-                Cette action est irreversible. Ton compte sera desactive immediatement.
+                Cette action est irréversible. Ton compte sera désactivé immédiatement.
               </p>
 
               {error && (
@@ -122,7 +122,7 @@ export default function CancelPage() {
                   disabled={loading}
                   style={{ flex: 2, padding: '13px', background: loading ? '#ccc' : C.redDark, border: 'none', borderRadius: '32px', fontSize: '14px', fontWeight: 700, color: '#fff', cursor: loading ? 'not-allowed' : 'pointer' }}
                 >
-                  {loading ? 'Traitement...' : 'Confirmer la resiliation'}
+                  {loading ? 'Traitement...' : 'Confirmer la résiliation'}
                 </button>
               </div>
             </div>
@@ -131,7 +131,7 @@ export default function CancelPage() {
             /* Etape info */
             <div>
               <div style={{ textAlign: 'center', marginBottom: '32px' }}>
-                <h1 style={{ color: C.dark, fontSize: '28px', fontWeight: 800, margin: '0 0 10px' }}>Resilier mon abonnement</h1>
+                <h1 style={{ color: C.dark, fontSize: '28px', fontWeight: 800, margin: '0 0 10px' }}>Résilier mon accès</h1>
                 <p style={{ color: C.textLight, fontSize: '15px', margin: 0, lineHeight: 1.6 }}>
                   Avant de partir, voici ce qui se passe.
                 </p>
@@ -147,13 +147,13 @@ export default function CancelPage() {
                     </svg>
                   </div>
                   <div>
-                    <p style={{ color: C.dark, fontSize: '14px', fontWeight: 700, margin: '0 0 4px' }}>Remboursement sous 14 jours</p>
+                    <p style={{ color: C.dark, fontSize: '14px', fontWeight: 700, margin: '0 0 4px' }}>Remboursement les 14 premiers jours</p>
                     <p style={{ color: C.text, fontSize: '13px', margin: 0, lineHeight: 1.6 }}>
                       {joursClient !== null
                         ? joursClient <= 14
-                          ? `Tu es client depuis ${joursClient} jours. Tu es eligible au remboursement integral automatique.`
-                          : `Tu es client depuis ${joursClient} jours. La periode de remboursement (14 jours) est depassee.`
-                        : 'Si tu es client depuis moins de 14 jours, tu es rembourse integralement et automatiquement.'}
+                          ? `Tu es client depuis ${joursClient} jours. Tu as droit au remboursement intégral, automatiquement.`
+                          : `Tu es client depuis ${joursClient} jours. La période de remboursement (14 premiers jours) est dépassée.`
+                        : 'Si tu es client depuis 14 jours ou moins, tu es remboursé intégralement et automatiquement.'}
                     </p>
                   </div>
                 </div>
@@ -166,9 +166,9 @@ export default function CancelPage() {
                     </svg>
                   </div>
                   <div>
-                    <p style={{ color: C.dark, fontSize: '14px', fontWeight: 700, margin: '0 0 4px' }}>Acces jusqu'a la fin de la periode</p>
+                    <p style={{ color: C.dark, fontSize: '14px', fontWeight: 700, margin: '0 0 4px' }}>Après 14 jours</p>
                     <p style={{ color: C.text, fontSize: '13px', margin: 0, lineHeight: 1.6 }}>
-                      Sans remboursement, tu gardes l'acces complet jusqu'a la date de renouvellement annuel.
+                      Au-delà des 14 premiers jours, la résiliation n'ouvre pas droit à un remboursement.
                     </p>
                   </div>
                 </div>
@@ -181,9 +181,9 @@ export default function CancelPage() {
                     </svg>
                   </div>
                   <div>
-                    <p style={{ color: C.dark, fontSize: '14px', fontWeight: 700, margin: '0 0 4px' }}>Compte desactive</p>
+                    <p style={{ color: C.dark, fontSize: '14px', fontWeight: 700, margin: '0 0 4px' }}>Compte désactivé</p>
                     <p style={{ color: C.text, fontSize: '13px', margin: 0, lineHeight: 1.6 }}>
-                      Ton compte sera desactive immediatement. Tes donnees (prenom, DPA) sont supprimees.
+                      Ton compte sera désactivé immédiatement. Pour faire supprimer tes données, écris-nous à hello@dadup.fr.
                     </p>
                   </div>
                 </div>
@@ -193,7 +193,7 @@ export default function CancelPage() {
                 onClick={() => setStep('confirm')}
                 style={{ width: '100%', padding: '14px', background: C.dark, border: 'none', borderRadius: '32px', fontSize: '15px', fontWeight: 700, color: C.white, cursor: 'pointer' }}
               >
-                Continuer vers la resiliation
+                Continuer vers la résiliation
               </button>
 
               <p style={{ textAlign: 'center', color: C.textLight, fontSize: '13px', margin: '16px 0 0' }}>

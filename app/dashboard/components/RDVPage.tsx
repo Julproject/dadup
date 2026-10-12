@@ -7,7 +7,7 @@ export default function RDVPage({C,dpa,saReelle,rdvDates,saveRdvI,rdvOuvert,setR
   const prochainIdx = saReelle ? RDV_LIST.findIndex((r:any) => r.sa >= saReelle) : 0;
   const prochain = prochainIdx >= 0 ? RDV_LIST[prochainIdx] : null;
   const prochainDate = prochain ? rdvDates[prochain.sa] : null;
-  const prochainRd = prochain && dpa ? new Date(new Date(dpa).getTime()-(40-prochain.sa)*7*24*60*60*1000) : null;
+  const prochainRd = prochain && dpa ? new Date(new Date(dpa).getTime()-(41-prochain.sa)*7*24*60*60*1000) : null;
   const joursAvant = prochainRd ? Math.max(0, Math.ceil((prochainRd.getTime()-new Date().getTime())/(1000*60*60*24))) : null;
   const urgent = prochain && !prochainDate && joursAvant !== null && joursAvant <= 21;
 
@@ -20,7 +20,7 @@ export default function RDVPage({C,dpa,saReelle,rdvDates,saveRdvI,rdvOuvert,setR
         {dpa&&<p style={{color:C.muted,fontSize:'14px',margin:0}}>DPA : {new Date(dpa).toLocaleDateString('fr-FR',{day:'numeric',month:'long',year:'numeric'})}</p>}
       </div>
 
-      {/* PROCHAIN RDV — MIS EN AVANT */}
+      {/* PROCHAIN RDV : MIS EN AVANT */}
       {prochain && (
         <div style={{background:urgent?'linear-gradient(135deg,#7A2010,#C04A1A)':'linear-gradient(135deg,#0a1f32,#1A3D5C)',borderRadius:'20px',padding:'24px',position:'relative',overflow:'hidden',boxShadow:urgent?'0 8px 32px rgba(192,74,26,0.3)':'0 8px 32px rgba(26,61,92,0.3)'}}>
           <div style={{position:'absolute',top:'-30px',right:'-30px',width:'160px',height:'160px',borderRadius:'50%',background:urgent?'radial-gradient(circle,rgba(255,200,150,0.15) 0%,transparent 65%)':'radial-gradient(circle,rgba(200,160,96,0.15) 0%,transparent 65%)',pointerEvents:'none'}}></div>
@@ -54,14 +54,14 @@ export default function RDVPage({C,dpa,saReelle,rdvDates,saveRdvI,rdvOuvert,setR
         </div>
       )}
 
-      {/* AUTRES RDV — compacts */}
+      {/* AUTRES RDV : compacts */}
       <div>
         <p style={{...LABEL,color:'#6a7585',margin:'0 0 12px'}}>Tous les rendez-vous</p>
         <div style={{display:'flex',flexDirection:'column' as const,gap:'8px'}}>
           {RDV_LIST.map((r:any,i:number)=>{
             if (i === prochainIdx) return null;
             const s=!saReelle?'futur':r.sa<saReelle?'passe':'futur';
-            const rd=dpa?new Date(new Date(dpa).getTime()-(40-r.sa)*7*24*60*60*1000).toLocaleDateString('fr-FR',{day:'numeric',month:'short'}):null;
+            const rd=dpa?new Date(new Date(dpa).getTime()-(41-r.sa)*7*24*60*60*1000).toLocaleDateString('fr-FR',{day:'numeric',month:'short'}):null;
             const isOpen=rdvOuvert===i;
             const hasDate=!!rdvDates[r.sa];
 

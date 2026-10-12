@@ -18,8 +18,8 @@ export const RDV_LIST: RDVItem[] = [
   {
     sa: 12,
     titre: "Échographie T1 + dépistage trisomie 21",
-    desc: "Obligatoire entre 11 et 13 SA. Mesure la clarté nucale (épaisseur derrière la nuque de bébé) et date précisément la grossesse. Combinée à une prise de sang, elle évalue le risque de trisomie 21. Si le risque est élevé, un DPNI (simple prise de sang) peut être proposé avant toute procédure invasive. Apporte ton téléphone pour filmer.",
-    oblig: true,
+    desc: "Recommandée et remboursée, entre 11 et 13 SA + 6 jours. Mesure la clarté nucale (épaisseur derrière la nuque de bébé) et date précisément la grossesse. Combinée à une prise de sang, elle évalue le risque de trisomie 21. Si le risque est élevé, un DPNI (simple prise de sang) peut être proposé avant toute procédure invasive. Apporte ton téléphone pour filmer.",
+    oblig: false,
     emoji: "🔬"
   },
   {
@@ -32,43 +32,43 @@ export const RDV_LIST: RDVItem[] = [
   {
     sa: 20,
     titre: "Consultation mensuelle du 5e mois",
-    desc: "Suivi mensuel classique. C'est aussi le moment de choisir votre maternité et de vous inscrire aux cours de préparation à la naissance. 8 séances remboursées à 100%. Des séances spécifiques pour les pères existent - demandez-les explicitement à votre maternité.",
+    desc: "Suivi mensuel classique. C'est aussi le moment de choisir votre maternité et de vous inscrire aux cours de préparation à la naissance. 7 séances prises en charge à 100%. Des séances spécifiques pour les pères existent : demandez-les à votre maternité.",
     oblig: true,
     emoji: "📋"
   },
   {
     sa: 22,
     titre: "Échographie T2 morphologique",
-    desc: "La plus complète de la grossesse. Obligatoire entre 20 et 24 SA. Examine plus de 100 critères : chaque organe, le cerveau, le cœur, les membres. Vérifie le placenta et le liquide amniotique. Le sexe est généralement visible. Durée : 45 min à 1 heure. Prépare 3 questions précises à l'avance.",
-    oblig: true,
+    desc: "La plus complète de la grossesse. Recommandée vers 22 SA (entre 20 et 25 SA). Elle examine en détail chaque organe, le cerveau, le cœur, les membres. Vérifie le placenta et le liquide amniotique. Le sexe est généralement visible. Durée : souvent entre 30 minutes et 1 heure. Prépare 3 questions précises à l'avance.",
+    oblig: false,
     emoji: "👶"
   },
   {
     sa: 24,
     titre: "Test diabète gestationnel (HGPO)",
-    desc: "Recommandé entre 24 et 28 SA. Test en laboratoire : 3 prises de sang sur 2 heures après absorption de glucose. Elle doit être à jeun. Accompagne-la : c'est long seul. Le diabète gestationnel touche 8 à 10% des grossesses. Bien pris en charge, la grossesse se déroule normalement.",
+    desc: "Proposé entre 24 et 28 SA en cas de facteurs de risque (35 ans ou plus, IMC de 25 ou plus, diabète chez un parent proche, antécédent de diabète gestationnel ou de bébé de plus de 4 kg). Test en laboratoire : 3 prises de sang sur 2 heures après absorption de glucose. Elle doit être à jeun. Accompagne-la : c'est long seul. Le diabète gestationnel touche environ 16% des grossesses en France. Bien pris en charge, la grossesse se déroule normalement.",
     oblig: false,
     emoji: "🧪"
   },
   {
     sa: 24,
     titre: "Consultation mensuelle du 6e mois",
-    desc: "À partir de ce mois, tous les soins liés à la grossesse sont pris en charge à 100% par la Sécurité sociale. Suivi classique : tension, poids, mouvements de bébé. C'est le moment d'avancer sur le plan de naissance.",
+    desc: "À partir du 1er jour du 6e mois, tous ses frais médicaux, liés ou non à la grossesse, sont pris en charge à 100% par l'Assurance maladie. Suivi classique : tension, poids, mouvements de bébé. C'est le moment d'avancer sur le plan de naissance.",
     oblig: true,
     emoji: "📋"
   },
   {
     sa: 28,
     titre: "Consultation du 7e mois",
-    desc: "Début du 3e trimestre. Consultation obligatoire mensuelle. Vaccin coqueluche fortement recommandé pour le papa maintenant : il protège bébé dans ses premiers mois de vie avant qu'il soit lui-même vacciné. Prise en charge à 100%. À faire sans attendre.",
+    desc: "Début du 3e trimestre. Consultation obligatoire mensuelle. Vaccin coqueluche : il est recommandé à ta partenaire à chaque grossesse, entre 20 et 36 SA, pour protéger bébé dès la naissance. Si elle n'a pas pu le faire, fais vérifier ton propre vaccin : tu dois être à jour au plus tard à la naissance.",
     oblig: true,
     emoji: "💉"
   },
   {
     sa: 32,
     titre: "Échographie T3 de croissance",
-    desc: "Obligatoire. Vérifie que bébé grandit bien, sa position (tête en bas ?), le volume de liquide amniotique et l'état du placenta. Si bébé est en siège, c'est maintenant qu'on en parle. Une version par manœuvre externe peut être proposée vers 36 SA. Le poids estimé a une marge d'erreur de 10 à 15%.",
-    oblig: true,
+    desc: "Recommandée et remboursée, vers 32 SA. Elle vérifie que bébé grandit bien, sa position (tête en bas ?), le volume de liquide amniotique et l'état du placenta. Si bébé est en siège, c'est maintenant qu'on en parle. Une version par manœuvre externe peut être proposée vers 36 SA. Le poids estimé a une marge d'erreur de 10 à 15%.",
+    oblig: false,
     emoji: "📏"
   },
   {
@@ -81,7 +81,7 @@ export const RDV_LIST: RDVItem[] = [
   {
     sa: 35,
     titre: "Dépistage streptocoque B",
-    desc: "Prélèvement vaginal recommandé entre 34 et 38 SA. Le streptocoque B est inoffensif pour la maman mais peut être dangereux pour bébé à la naissance. Si positif, un traitement antibiotique pendant le travail protège bébé efficacement. Ce n'est pas grave - c'est un dépistage de routine.",
+    desc: "Prélèvement vaginal recommandé entre 34 et 38 SA. Le streptocoque B est le plus souvent sans conséquence pour la maman, mais peut être dangereux pour bébé à la naissance. Si positif, un traitement antibiotique pendant le travail protège bébé efficacement. Ce n'est pas grave : c'est un dépistage de routine.",
     oblig: false,
     emoji: "🧬"
   },
@@ -94,8 +94,8 @@ export const RDV_LIST: RDVItem[] = [
   },
   {
     sa: 40,
-    titre: "Date prévue d'accouchement",
-    desc: "50% des accouchements ont lieu après la DPA. Mode alerte maximale. Téléphone chargé en permanence. Règle 5-1-1 : contractions toutes les 5 minutes, pendant 1 minute, depuis 1 heure → appeler la maternité avant de partir. Poche des eaux rompue ou saignements → partir immédiatement.",
+    titre: "Dernière ligne droite",
+    desc: "En France, la DPA est fixée à 41 SA : peu de bébés naissent pile ce jour-là. Mode alerte maximale. Téléphone chargé en permanence. Règle 5-1-1 : contractions toutes les 5 minutes, pendant 1 minute, depuis 1 heure → appeler la maternité avant de partir. Poche des eaux rompue ou saignements → partir immédiatement.",
     oblig: false,
     emoji: "👶"
   },

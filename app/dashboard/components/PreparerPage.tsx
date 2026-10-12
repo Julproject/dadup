@@ -41,7 +41,7 @@ const VALISE = [
       { id:'v17', label:`Couverture ou lange` },
       { id:'v18', label:`1 ou 2 tenues de sortie selon la saison` },
       { id:'v19', label:`Gigoteuse si la maternité n'en fournit pas` },
-      { id:'v20', label:`Siège auto (obligatoire pour quitter la maternité)` },
+      { id:'v20', label:`Siège auto (obligatoire pour rentrer en voiture)` },
     ],
   },
   {
@@ -105,7 +105,7 @@ const MAISON = [
     titre: 'Santé et suivi',
       couleur: '#FDECEA',
     tc: '#A03030',
-    info: `Prenez rendez-vous chez le pédiatre maintenant. L'examen J8 (8 jours après la naissance) est obligatoire.`,
+    info: `Choisissez dès maintenant un pédiatre ou un médecin généraliste. Un premier examen obligatoire a lieu dans les 8 jours après la naissance (souvent à la maternité), puis un autre au cours de la 2e semaine.`,
     items: [
       { id:'m18', label:`Thermomètre rectal (le plus fiable pour les nourrissons)` },
       { id:'m19', label:`Médicaments recommandés par le médecin (sérum physiologique, etc.)` },
@@ -130,7 +130,7 @@ const MAISON = [
     titre: 'Sorties et transport',
       couleur: '#E4F5EC',
     tc: '#0D6B40',
-    info: `Le siège auto est obligatoire dès la sortie de maternité. Fais-le vérifier par un professionnel avant la naissance.`,
+    info: `Le siège auto est obligatoire pour tout trajet en voiture, dès la sortie de maternité. Fais-le vérifier avant la naissance.`,
     items: [
       { id:'m27', label:`Siège auto installé et vérifié par un professionnel` },
       { id:'m28', label:`Poussette assemblée et testée` },
@@ -225,22 +225,23 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#1
 
 // ── Données Congé Paternité ───────────────────────────────────────────────────
 const ADMIN = [
-  { id:'a1', phase:'Pendant la grossesse', titre:'Déclaration de grossesse', resume:'Avant la 14e semaine, en général faite par le médecin ou la sage-femme.', detail:"Lors du premier examen prénatal, le médecin ou la sage-femme déclare la grossesse en ligne. Elle est transmise automatiquement à la CPAM et à la CAF : vous n'avez rien à faire. Si vous recevez un formulaire papier en 3 volets, envoyez les 2 volets bleus à la CAF et le volet rose à la CPAM avant la fin de la 14e semaine. Cette déclaration ouvre la prise en charge à 100% des examens et le droit à la prime de naissance.", source:'service-public.gouv.fr' },
+  { id:'a1', phase:'Pendant la grossesse', titre:'Déclaration de grossesse', resume:'Avant la fin du 3e mois (14e semaine de grossesse, soit 16 SA), faite par le médecin ou la sage-femme.', detail:"Lors du premier examen prénatal, le médecin ou la sage-femme déclare la grossesse en ligne. Elle est transmise automatiquement à la CPAM et à la CAF : vous n'avez rien à faire. Si vous recevez un formulaire papier en 3 volets, envoyez les 2 volets bleus à la CAF et le volet rose à la CPAM avant la fin de la 14e semaine. Cette déclaration ouvre la prise en charge à 100% des examens et le droit à la prime à la naissance (sous conditions de ressources).", source:'service-public.gouv.fr' },
   { id:'a2', phase:'Pendant la grossesse', titre:'Reconnaissance anticipée', resume:"Si vous n'êtes pas mariés, reconnaître bébé avant la naissance sécurise ta filiation.", detail:"Si tu n'es pas marié avec la maman, la reconnaissance est nécessaire pour établir ton lien de filiation. Tu peux la faire avant la naissance, dans n'importe quelle mairie, avec une pièce d'identité et un justificatif de domicile de moins de 3 mois. C'est gratuit, ça prend quelques minutes, et ça évite toute question de filiation au moment de la déclaration de naissance. Si vous êtes mariés, ton nom figure automatiquement sur l'acte.", source:'service-public.gouv.fr' },
   { id:'a3', phase:'Pendant la grossesse', titre:'Prévenir ton employeur', resume:'Au moins 1 mois avant la date prévue du congé.', detail:"Pour poser ton congé paternité, tu dois prévenir ton employeur au moins 1 mois avant la date de début. Aucune forme imposée par la loi : email, courrier ou entretien RH. La lettre recommandée avec AR reste la plus sûre pour dater la démarche. Indique les dates de début et de fin. Ton employeur ne peut pas refuser ce congé.", source:'service-public.gouv.fr' },
-  { id:'a4', phase:'À la naissance', titre:'Déclaration de naissance', resume:'Dans les 5 jours à la mairie du lieu de naissance. Obligatoire.', detail:"La déclaration de naissance doit être faite dans les 5 jours qui suivent l'accouchement (le jour de l'accouchement n'est pas compté). Si le 5e jour tombe un week-end ou férié, le délai est prolongé au premier jour ouvrable. Elle se fait à la mairie du lieu de naissance, par toi ou toute personne ayant assisté à l'accouchement. Beaucoup de maternités ont un officier d'état civil sur place. Apporte le certificat d'accouchement remis par la maternité, ta pièce d'identité et le livret de famille si tu en as un. Passé les 5 jours, seul un jugement du tribunal permet de régulariser.", source:'service-public.gouv.fr' },
+  { id:'a4', phase:'À la naissance', titre:'Déclaration de naissance', resume:'Dans les 5 jours à la mairie du lieu de naissance. Obligatoire.', detail:"La déclaration de naissance doit être faite dans les 5 jours qui suivent l'accouchement (le jour de l'accouchement n'est pas compté). Si le 5e jour tombe un week-end ou férié, le délai est prolongé au premier jour ouvrable. Elle se fait à la mairie du lieu de naissance, par toi ou toute personne ayant assisté à l'accouchement. Certaines maternités ont une permanence d'état civil sur place. Apporte le certificat d'accouchement remis par la maternité, ta pièce d'identité et le livret de famille si tu en as un. Passé les 5 jours, seul un jugement du tribunal permet de régulariser.", source:'service-public.gouv.fr' },
   { id:'a5', phase:'À la naissance', titre:'Reconnaissance à la naissance', resume:'Si non fait avant : à faire en même temps que la déclaration.', detail:"Si tu n'as pas fait de reconnaissance anticipée et que vous n'êtes pas mariés, tu peux reconnaître bébé lors de la déclaration de naissance à la mairie. Apporte ta pièce d'identité et un justificatif de domicile de moins de 3 mois. Cette démarche établit ton lien de filiation et te donne l'autorité parentale.", source:'service-public.gouv.fr' },
   { id:'a6', phase:'À la naissance', titre:'Déclarer bébé à la CAF et la CPAM', resume:'Dès que possible pour ouvrir les droits et prestations.', detail:"Après la naissance, déclare bébé sur ton compte CAF (Déclarer un changement > Déclarer une naissance) pour ouvrir ou réestimer vos droits : allocation de base PAJE, complément mode de garde, etc. Déclare aussi sur ameli.fr (Mes démarches > Déclarer un changement de situation > Déclaration du nouveau-né) pour rattacher bébé à ta sécurité sociale. Envoie une copie de l'acte de naissance à la CPAM pour déclencher les indemnités de ton congé paternité.", source:'caf.fr' },
-  { id:'a7', phase:'Congé paternité', titre:'Durée : 28 jours', resume:'25 jours de congé paternité + 3 jours de naissance. 32 pour des jumeaux.', detail:"Le congé paternité est de 25 jours calendaires (32 en cas de naissances multiples), auxquels s'ajoutent 3 jours de congé de naissance pris à la charge de l'employeur. Total : 28 jours. Les week-ends et jours fériés sont comptés.", source:'service-public.gouv.fr' },
+  { id:'a7', phase:'Congé paternité', titre:'Durée : 28 jours', resume:'25 jours de congé paternité + 3 jours de naissance. 32 pour des jumeaux.', detail:"Le congé paternité est de 25 jours calendaires (32 en cas de naissances multiples), auxquels s'ajoutent 3 jours de congé de naissance pris à la charge de l'employeur. Total : 28 jours. Les week-ends et jours fériés sont comptés dans les 25 jours. Les 3 jours de congé de naissance, eux, sont des jours ouvrables.", source:'service-public.gouv.fr' },
   { id:'a8', phase:'Congé paternité', titre:'Les 4 premiers jours obligatoires', resume:'À prendre immédiatement après les 3 jours de naissance.', detail:"Les 4 premiers jours du congé paternité sont obligatoires et doivent être pris immédiatement après les 3 jours de congé de naissance. Ils ne peuvent pas être reportés. Le congé de naissance commence le jour de la naissance ou le premier jour ouvrable suivant.", source:'service-public.gouv.fr' },
-  { id:'a9', phase:'Congé paternité', titre:'Les 21 jours restants', resume:'À prendre dans les 6 mois, fractionnables en 2 périodes.', detail:"Les 21 jours restants (28 pour jumeaux) peuvent être pris dans les 6 mois suivant la naissance. Ils sont fractionnables en 2 périodes minimum de 5 jours chacune. Tu peux les prendre en même temps que le congé maternité de la maman ou en alternance.", source:'service-public.gouv.fr' },
-  { id:'a10', phase:'Congé paternité', titre:"Nouveauté 2026 : jusqu'à 2 mois de plus", resume:'Depuis le 1er juillet 2026, congé supplémentaire de naissance.', detail:"Depuis le 1er juillet 2026, chaque parent peut demander un congé supplémentaire de naissance de 1 ou 2 mois, en plus du congé paternité. Il est indemnisé à 70% du salaire net le premier mois et 60% le second. Il doit être demandé à l'employeur en respectant un délai de prévenance. Les deux parents peuvent le prendre simultanément ou en alternance.", source:'service-public.gouv.fr' },
-  { id:'a11', phase:'Congé paternité', titre:'Indemnisation', resume:'Environ 90% du salaire journalier, versé par la CPAM.', detail:"Les indemnités sont versées par la CPAM sur la base de 90% du salaire journalier de base, plafonné à environ 56 euros par jour. Un délai de carence d'1 jour s'applique. Condition : avoir travaillé au moins 150 heures sur les 3 derniers mois. Certaines conventions collectives complètent à 100% du salaire : vérifie auprès des RH.", source:'ameli.fr' },
-  { id:'a12', phase:'Congé paternité', titre:'Indépendant ou auto-entrepreneur', resume:'Renseigne-toi auprès de ta caisse spécifique.', detail:"Si tu es travailleur indépendant, auto-entrepreneur ou profession libérale, les règles d'indemnisation dépendent de ta caisse de rattachement (SSI, CIPAV, etc.). Le congé existe mais les modalités et montants diffèrent. Contacte ta caisse avant la naissance pour connaître tes droits.", source:'ameli.fr' },
+  { id:'a9', phase:'Congé paternité', titre:'Les 21 jours restants', resume:'À prendre dans les 6 mois, fractionnables en 2 périodes.', detail:"Les 21 jours restants (28 pour jumeaux) peuvent être pris dans les 6 mois suivant la naissance. Tu peux les prendre en une fois ou en 2 périodes au maximum, d'au moins 5 jours chacune. Tu peux les prendre en même temps que le congé maternité de la maman ou en alternance.", source:'service-public.gouv.fr' },
+  { id:'a10', phase:'Congé paternité', titre:"Nouveauté 2026 : jusqu'à 2 mois de plus", resume:'Depuis le 1er juillet 2026, congé supplémentaire de naissance.', detail:"Depuis le 1er juillet 2026, chaque parent peut demander un congé supplémentaire de naissance de 1 ou 2 mois, en plus du congé paternité. Il est indemnisé par la Sécurité sociale à 70% du salaire (dans la limite du plafond de la Sécurité sociale, 4 005 euros par mois en 2026) le premier mois, puis à 60% le second. Préviens ton employeur au moins 1 mois avant (15 jours s'il suit directement ton congé paternité), par lettre recommandée avec AR ou remise en main propre contre décharge. Il doit commencer dans les 9 mois suivant la naissance, après la fin de ton congé paternité, et peut être pris en une fois ou en 2 périodes d'1 mois. Les deux parents peuvent le prendre en même temps ou en alternance. Il concerne les enfants nés depuis le 1er janvier 2026.", source:'service-public.gouv.fr' },
+  { id:'a11', phase:'Congé paternité', titre:'Indemnisation', resume:'Indemnités versées par la CPAM, proches du salaire net, avec un plafond.', detail:"Les indemnités sont versées par la CPAM, sans délai de carence, week-ends et jours fériés compris. Elles sont calculées sur tes salaires des 3 derniers mois, moins 21% de cotisations forfaitaires, ce qui donne un montant proche de ton salaire net, dans la limite de 104,02 euros par jour en 2026. Conditions : 6 mois d'affiliation à la Sécurité sociale et au moins 150 heures travaillées sur les 3 derniers mois (ou un niveau de cotisations équivalent). Certaines conventions collectives complètent à 100% du salaire : vérifie auprès des RH.", source:'ameli.fr' },
+  { id:'a12', phase:'Congé paternité', titre:'Indépendant ou auto-entrepreneur', resume:'Renseigne-toi auprès de ta CPAM.', detail:"Si tu es travailleur indépendant, micro-entrepreneur ou profession libérale, c'est ta CPAM qui gère tes indemnités (la SSI a disparu en 2020 et la CIPAV ne gère que la retraite). Les règles diffèrent des salariés : les 7 premiers jours sont obligatoires et commencent le jour de la naissance, les 18 jours restants peuvent être pris en 3 fois maximum, et l'indemnité est forfaitaire. Contacte ta CPAM avant la naissance pour connaître tes droits.", source:'ameli.fr' },
 ];
 // ── Composant ─────────────────────────────────────────────────────────────────
-export default function PreparerPage({C, valiseChecked, toggleV, achatChecked, toggleA}: any) {
-  const [onglet, setOnglet] = useState<'valise'|'maison'|'conge'>('valise');
+export default function PreparerPage({C, valiseChecked, toggleV, achatChecked, toggleA, ongletForce}: any) {
+  const [ongletState, setOnglet] = useState<'valise'|'maison'|'conge'>('valise');
+  const onglet: 'valise'|'maison'|'conge' = ongletForce || ongletState;
   const [adminLu, setAdminLu] = useState<string[]>(() => {
     if (typeof window === 'undefined') return [];
     try { return JSON.parse(localStorage.getItem('dadup_admin_lu') || '[]'); } catch { return []; }
@@ -273,7 +274,7 @@ export default function PreparerPage({C, valiseChecked, toggleV, achatChecked, t
     <div style={{display:'flex',flexDirection:'column',gap:'16px'}}>
 
       {/* ONGLETS */}
-      <div style={{display:'flex',gap:'8px'}}>
+      {!ongletForce && <div style={{display:'flex',gap:'8px'}}>
         {([
           {id:'valise', label:`Valise maternité`, done:doneV, total:allValise.length, inactiveBg:'rgba(200,232,255,0.3)', inactiveBorder:'rgba(46,95,138,0.15)', inactiveColor:'#0A2847'},
           {id:'maison', label:`À la maison`,      done:doneM, total:allMaison.length, inactiveBg:'rgba(184,240,216,0.3)', inactiveBorder:'rgba(13,107,64,0.15)', inactiveColor:'#0A2E1A'},
@@ -293,7 +294,7 @@ export default function PreparerPage({C, valiseChecked, toggleV, achatChecked, t
             </span>
           </button>
         ))}
-      </div>
+      </div>}
 
       {/* PROGRESSION */}
       {onglet !== 'conge' && (

@@ -4,6 +4,8 @@ import { useState } from 'react';
 
 export default function Accueil({C,dpa,saReelle,joursRestants,prog,tri,idee,missions,missionsChecked,toggleM,nextRdv,nextRdvDate,saveRdv,saveRdvI,dataR,sa,data}:any) {
   const [open, setOpen] = useState<string|null>(null);
+  const [imgFail, setImgFail] = useState<number|null>(null);
+  const imgOk = imgFail !== saReelle;
   const toggle = (id: string) => setOpen(open === id ? null : id);
 
   const missionsDone = missions.filter((_:string, i:number) => missionsChecked[`m${saReelle}_${i}`]).length;
@@ -42,19 +44,23 @@ export default function Accueil({C,dpa,saReelle,joursRestants,prog,tri,idee,miss
           <div className="hero-emoji" style={{width:'220px', height:'260px', margin:'0 auto 16px', position:'relative', zIndex:1}}>
             <div style={{position:'absolute', inset:'-30px', borderRadius:'50%', background:'radial-gradient(circle,rgba(200,160,96,0.15) 0%,transparent 65%)', pointerEvents:'none'}}></div>
             <div style={{position:'relative', width:'100%', height:'100%', overflow:'hidden', borderRadius:'50%'}}>
-              <img src={`/sa-${saReelle}.png`} alt={`Bébé à ${saReelle} semaines`} onError={(e:any) => { e.target.style.display='none'; e.target.parentNode.nextSibling.style.display='flex'; }} style={{width:'100%', height:'100%', objectFit:'contain', position:'relative', zIndex:1, filter:'drop-shadow(0 8px 20px rgba(0,0,0,0.25))'}}/>
+              {imgOk ? (
+                <img src={`/sa-${saReelle}.png`} alt={`Bébé à ${saReelle} SA`} onError={() => setImgFail(saReelle)} style={{width:'100%', height:'100%', objectFit:'contain', position:'relative', zIndex:1, filter:'drop-shadow(0 8px 20px rgba(0,0,0,0.25))'}}/>
+              ) : (
+                <div style={{width:'100%', height:'100%', display:'flex', alignItems:'center', justifyContent:'center', position:'relative', zIndex:1}}>
+                  <svg viewBox="0 0 100 100" style={{width:'90px', height:'90px'}} role="img" aria-label={`Bébé à ${saReelle} SA`}>
+                    <path d="M50 22 C68 22 76 36 74 50 C72 64 62 72 52 75 C42 78 34 74 32 66 C30 58 36 52 42 50" stroke="#e0b870" strokeWidth="11" strokeLinecap="round" fill="none"/>
+                    <circle cx="52" cy="28" r="13" fill="#e0b870"/>
+                  </svg>
+                </div>
+              )}
               <div className="fluid fluid-1" style={{zIndex:2}}></div>
               <div className="fluid fluid-2" style={{zIndex:2}}></div>
               <div className="fluid fluid-3" style={{zIndex:2}}></div>
             </div>
-            <div style={{display:'none', width:'100%', height:'100%', alignItems:'center', justifyContent:'center', position:'relative', zIndex:1}}>
-              <svg viewBox="0 0 100 100" style={{width:'90px', height:'90px'}}>
-                <path d="M50 22 C68 22 76 36 74 50 C72 64 62 72 52 75 C42 78 34 74 32 66 C30 58 36 52 42 50" stroke="#e0b870" strokeWidth="11" strokeLinecap="round" fill="none"/>
-                <circle cx="52" cy="28" r="13" fill="#e0b870"/>
-              </svg>
-            </div>
           </div>
-          <p style={{color:'#e0b870', fontSize:'11px', fontWeight:700, letterSpacing:'2px', textTransform:'uppercase' as const, margin:'0 0 8px'}}>Semaine {saReelle} · {tri}</p>
+          <p style={{color:'#e0b870', fontSize:'11px', fontWeight:700, letterSpacing:'2px', textTransform:'uppercase' as const, margin:'0 0 8px'}}>SA {saReelle} · {tri}</p>
+          <p style={{display:'inline-block', color:'rgba(255,255,255,0.8)', background:'rgba(255,255,255,0.1)', border:'1px solid rgba(255,255,255,0.12)', borderRadius:'99px', fontSize:'12px', fontWeight:600, padding:'4px 12px', margin:'0 0 12px'}}>Soit la {Math.max(1,(saReelle||0)-2) === 1 ? '1re' : `${Math.max(1,(saReelle||0)-2)}e`} semaine de grossesse</p>
           <p style={{color:'#fff', fontSize:'24px', fontWeight:900, margin:'0 0 6px', lineHeight:1.2}}>{dataR.titre}</p>
           <p style={{color:'rgba(255,255,255,0.55)', fontSize:'14px', margin:'0 0 18px'}}>{dataR.taille} · {dataR.poids}{joursRestants&&joursRestants>0?` · J-${joursRestants}`:''}</p>
           <div style={{maxWidth:'220px', margin:'0 auto'}}>
@@ -68,7 +74,7 @@ export default function Accueil({C,dpa,saReelle,joursRestants,prog,tri,idee,miss
 
       <div className="acc-inner" style={{display:'flex', flexDirection:'column' as const, gap:'12px'}}>
 
-        {/* MISSION DU JOUR — carte focus */}
+        {/* MISSION DU JOUR : carte focus */}
         {dataR && (
           <div style={{background:'#fff', borderRadius:'22px', padding:'22px', boxShadow:'0 12px 40px rgba(0,0,0,0.15)', marginTop:'-32px', position:'relative', zIndex:2}}>
             <div style={{display:'flex', alignItems:'center', gap:'8px', marginBottom:'12px'}}>
@@ -107,7 +113,7 @@ export default function Accueil({C,dpa,saReelle,joursRestants,prog,tri,idee,miss
             <button onClick={() => toggle('rdv')} style={{width:'100%', background:'none', border:'none', padding:'16px 18px', display:'flex', alignItems:'center', gap:'14px', cursor:'pointer', textAlign:'left' as const}}>
               <div style={{width:'44px', height:'44px', borderRadius:'14px', background:'rgba(200,232,255,0.5)', display:'flex', alignItems:'center', justifyContent:'center', fontSize:'20px', flexShrink:0}}>{nextRdv.emoji}</div>
               <div style={{flex:1, minWidth:0}}>
-                <p style={{color:'#9aa0a8', fontSize:'10px', fontWeight:700, letterSpacing:'1px', margin:'0 0 2px'}}>PROCHAIN RDV{dpa && joursRestants ? ` · J-${Math.max(0,Math.ceil((new Date(new Date(dpa).getTime()-(40-nextRdv.sa)*7*24*60*60*1000).getTime()-new Date().getTime())/(1000*60*60*24)))}` : ''}</p>
+                <p style={{color:'#9aa0a8', fontSize:'10px', fontWeight:700, letterSpacing:'1px', margin:'0 0 2px'}}>PROCHAIN RDV{dpa && joursRestants ? ` · J-${Math.max(0,Math.ceil((new Date(new Date(dpa).getTime()-(41-nextRdv.sa)*7*24*60*60*1000).getTime()-new Date().getTime())/(1000*60*60*24)))}` : ''}</p>
                 <p style={{color:C.dark, fontSize:'14px', fontWeight:700, margin:0}}>{nextRdv.titre}</p>
               </div>
               <span style={{color:'#c8c0b8', fontSize:'12px', flexShrink:0}}>{open==='rdv'?'▲':'▼'}</span>
@@ -161,7 +167,7 @@ export default function Accueil({C,dpa,saReelle,joursRestants,prog,tri,idee,miss
               <div style={{padding:'0 18px 18px', borderTop:'1px solid #ede8e0'}}>
                 <p style={{color:C.text, fontSize:'14px', lineHeight:1.7, margin:'14px 0 14px'}}>{dataR.doc}</p>
                 <div style={{background:'linear-gradient(135deg,#0a1f32,#1A3D5C)', borderRadius:'12px', padding:'14px 16px'}}>
-                  <p style={{color:'rgba(200,160,96,0.7)', fontSize:'11px', fontWeight:700, letterSpacing:'1px', textTransform:'uppercase' as const, margin:'0 0 6px'}}>Le savais-tu</p>
+                  <p style={{color:'rgba(200,160,96,0.7)', fontSize:'11px', fontWeight:700, letterSpacing:'1px', textTransform:'uppercase' as const, margin:'0 0 6px'}}>Le savais-tu ?</p>
                   <p style={{color:'rgba(255,255,255,0.9)', fontSize:'14px', lineHeight:1.7, margin:0}}>{dataR.savistu}</p>
                 </div>
               </div>

@@ -59,7 +59,7 @@ export default function BebePage({C,saReelle,sa,data,dataR,avance,setAvance,dpa}
       {/* LE SAVAIS-TU */}
       <div style={{background:'linear-gradient(135deg,#0a1f32,#1A3D5C)',borderRadius:'20px',padding:'22px 24px',position:'relative',overflow:'hidden'}}>
         <div style={{position:'absolute',top:'-20px',right:'-20px',width:'100px',height:'100px',borderRadius:'50%',background:'radial-gradient(circle,rgba(200,160,96,0.15) 0%,transparent 65%)'}}></div>
-        <p style={{...LABEL_STYLE, color:'rgba(200,160,96,0.7)', marginBottom:'10px'}}>Le savais-tu</p>
+        <p style={{...LABEL_STYLE, color:'rgba(200,160,96,0.7)', marginBottom:'10px'}}>Le savais-tu ?</p>
         <p style={{color:C.white,fontSize:'14px',fontWeight:600,lineHeight:1.75,margin:0}}>{data.savistu}</p>
       </div>
 

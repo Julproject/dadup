@@ -343,7 +343,7 @@ export default function SuiviBebe({C}: any) {
       {/* INFO */}
       <div style={{background:'#f7f5f0',borderRadius:'16px',padding:'16px 18px'}}>
         <p style={{color:'#9aa0a8',fontSize:'14px',lineHeight:1.7,margin:0}}>
-          Un nouveau-né mouille en moyenne 6 couches par jour et a 3 à 4 selles les premiers jours. Ces chiffres permettent de vérifier que bébé s'hydrate et s'alimente correctement. En cas de doute, appelle la sage-femme ou le pédiatre.
+          Les premiers jours, bébé mouille de plus en plus de couches. À partir du 5e jour, compte au moins 6 couches bien mouillées par jour et, s'il est allaité, au moins 3 selles jaunes. Ces chiffres permettent de vérifier que bébé s'hydrate et s'alimente correctement. En cas de doute, appelle la sage-femme ou le pédiatre.
         </p>
       </div>
 

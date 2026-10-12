@@ -22,16 +22,18 @@ import Accueil       from './components/Accueil';
 
 // Chargement différé, réduit le bundle initial et accélère le démarrage
 const BebePage     = dynamic(() => import('./components/BebePage'));
-const RDVPage      = dynamic(() => import('./components/RDVPage'));
-const PreparerPage = dynamic(() => import('./components/PreparerPage'));
-const PsychoPage   = dynamic(() => import('./components/PsychoPage'));
+const PreparerHub  = dynamic(() => import('./components/PreparerHub'));
+const ToiPage      = dynamic(() => import('./components/ToiPage'));
+const PlusPage     = dynamic(() => import('./components/PlusPage'));
 const PostAccueil  = dynamic(() => import('./components/postpartum/PostAccueil'));
 const PostBebe     = dynamic(() => import('./components/postpartum/PostBebe'));
 const PostRDV      = dynamic(() => import('./components/postpartum/PostRDV'));
 const SuiviBebe      = dynamic(() => import('./components/postpartum/SuiviBebe'));
-const PrepaNaissance = dynamic(() => import('./components/PrepaNaissance'));
 const AtelierBebe    = dynamic(() => import('./components/postpartum/AtelierBebe'));
 const DicoPapa       = dynamic(() => import('./components/DicoPapa'));
+
+// Écrans regroupés sous l'onglet « Préparer » (grossesse)
+const PREPARER_TABS = ['rdv', 'pratique', 'valise', 'maison', 'admin', 'jourj'];
 
 // ── Palette ───────────────────────────────────────────────────────────────────
 const C = {
@@ -251,15 +253,15 @@ function DashboardContent() {
   const isPost = isPostFlag;
 
   const saReelle = !isPost && dpa
-    ? Math.max(3, Math.min(42, Math.round(40 - (joursRestants ?? 0) / 7)))
+    ? Math.max(3, Math.min(41, Math.round(41 - (joursRestants ?? 0) / 7)))
     : null;
   const sa = !isPost && dpa
-    ? Math.max(3, Math.min(42, Math.round(40 - (joursRestants ?? 0) / 7) + avance))
+    ? Math.max(3, Math.min(41, Math.round(41 - (joursRestants ?? 0) / 7) + avance))
     : null;
 
   const data      = sa       ? (SD[sa]       || SD[20]) : null;
   const dataR     = saReelle ? (SD[saReelle] || SD[20]) : null;
-  const prog      = isPost ? 100 : Math.min(100, Math.round(((saReelle||0)/40)*100));
+  const prog      = isPost ? 100 : Math.min(100, Math.round(((saReelle||0)/41)*100));
   const tri       = (saReelle||0) <= 14 ? 'T1' : (saReelle||0) <= 27 ? 'T2' : 'T3';
   const idee      = getIdee(saReelle || 20);
   const missions  = saReelle ? (MISSIONS[saReelle] || MISSIONS[20] || []) : [];
@@ -301,7 +303,7 @@ function DashboardContent() {
           .dd-g2col,.dd-mg{grid-template-columns:1fr!important;}
           .dd-g3col{grid-template-columns:1fr 1fr!important;}
           .dd-stats{display:flex!important;flex-direction:row!important;border-radius:12px!important;overflow:hidden!important;}
-          .dd-c{padding:16px!important;}
+          .dd-c{padding:16px 16px 110px!important;}
           .dd-g2col,.dd-mg{grid-template-columns:1fr!important;}
         }
       `}</style>
@@ -316,13 +318,18 @@ function DashboardContent() {
       <div className="dd-c">
         {activeTab === 'home'    && (isPost ? <PostAccueil  {...shared}/> : <Accueil      {...shared}/>)}
         {activeTab === 'bebe'    && (isPost ? <PostBebe     {...shared}/> : <BebePage     {...shared}/>)}
-        {activeTab === 'rdv'     && (isPost ? <PostRDV      {...shared}/> : <RDVPage      {...shared}/>)}
+        {isPost  && activeTab === 'rdv'       && <PostRDV      {...shared}/>}
+        {!isPost && PREPARER_TABS.includes(activeTab) && <PreparerHub {...shared} activeTab={activeTab} setActiveTab={setActiveTab}/>}
         {isPost  && activeTab === 'suivi'     && <SuiviBebe    C={C}/>}
-        {!isPost && activeTab === 'pratique'  && <PreparerPage  {...shared}/>}
-        {!isPost && activeTab === 'psycho'    && <PsychoPage    C={C} saReelle={saReelle}/>}
-        {!isPost && activeTab === 'jourj'     && <PrepaNaissance C={C} saReelle={saReelle || 40}/>}
+        {!isPost && (activeTab === 'toi' || activeTab === 'psycho') && <ToiPage C={C} saReelle={saReelle}/>}
         {isPost  && activeTab === 'atelier'   && <AtelierBebe   C={C}/>}
-        {activeTab === 'dico' && <DicoPapa C={C} isPost={isPost}/>}
+        {activeTab === 'plus' && <PlusPage setActiveTab={setActiveTab}/>}
+        {activeTab === 'dico' && (
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+            <button onClick={() => setActiveTab('plus')} style={{ alignSelf: 'flex-start', minHeight: '44px', background: '#ffffff', border: 'none', borderRadius: '24px', padding: '10px 18px', fontSize: '14px', fontWeight: 800, color: '#1A3D5C', cursor: 'pointer', boxShadow: '0 1px 4px rgba(0,0,0,0.08)' }}>← Plus</button>
+            <DicoPapa C={C} isPost={isPost}/>
+          </div>
+        )}
       </div>
 
       {/* MODALE CONFIRMATION NAISSANCE */}

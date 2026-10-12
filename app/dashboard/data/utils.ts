@@ -7,7 +7,7 @@ export function getSA(offset=0):number|null {
     const dpaDate = new Date(dpa);
     const now = new Date();
     const diff = Math.ceil((dpaDate.getTime()-now.getTime())/(1000*60*60*24));
-    const sa = Math.round(40 - diff/7) + offset;
-    return Math.max(3, Math.min(42, sa));
+    const sa = Math.round(41 - diff/7) + offset;
+    return Math.max(3, Math.min(41, sa));
   } catch { return null; }
 }

@@ -17,7 +17,7 @@ const ATELIERS: Atelier[] = [
   {
     id: 'change',
     titre: 'Changer la couche',
-    sousTitre: 'La technique recommandée HAS 2023',
+    sousTitre: 'Les bons gestes, étape par étape',
     couleur: '#1A4A7A',
     fond: '#E6F0FA',
     etapes: [
@@ -39,11 +39,11 @@ const ATELIERS: Atelier[] = [
       },
       {
         titre: 'Le cordon ombilical',
-        texte: `Plie le bord avant de la couche vers le bas pour ne pas frotter le cordon ombilical. Le cordon tombe seul entre le 5e et le 15e jour. La HAS recommande depuis 2013 un soin à sec : pas d'antiseptique systématique, laisser simplement sécher à l'air. En cas de rougeur autour du cordon, d'odeur forte ou d'écoulement, consulte sans attendre. Ne jamais tirer le cordon.`,
+        texte: `Plie le bord avant de la couche vers le bas pour ne pas frotter le cordon ombilical. Le cordon tombe seul entre le 5e et le 15e jour. Les recommandations françaises (SFN et SF2H, mises à jour en 2023) préconisent un soin simple : nettoyer à l'eau, avec un savon doux si besoin, bien sécher, sans antiseptique systématique, et laisser le cordon à l'air. En cas de rougeur autour du cordon, d'odeur forte ou d'écoulement, consulte sans attendre. Ne jamais tirer le cordon.`,
       },
       {
         titre: 'Les selles : ce qui est normal',
-        texte: `Les trois premiers jours, les selles sont noires et goudronneuses : c'est le méconium, tout à fait normal. À partir du 4e jour, elles deviennent jaune moutarde et grumeleuses si bébé est allaité, ou beige et plus formées s'il est nourri au lait infantile. La fréquence est très variable : plusieurs selles par jour à une selle tous les 5 jours chez les bébés allaités, sans que ce soit une constipation.`,
+        texte: `Les trois premiers jours, les selles sont noires et goudronneuses : c'est le méconium, tout à fait normal. À partir du 4e jour, elles deviennent jaune moutarde et grumeleuses si bébé est allaité, ou beige et plus formées s'il est nourri au lait infantile. Les premières semaines, un bébé allaité fait en général au moins 3 selles par jour : s'il en fait moins, parles-en à la sage-femme, cela peut signaler qu'il ne boit pas assez. Après 4 à 6 semaines, la fréquence devient très variable : certains bébés allaités ne font qu'une selle tous les quelques jours, sans constipation tant que les selles restent molles.`,
       },
     ],
     conseil: `Le change est un moment de relation. Parle à bébé, nomme ce que tu fais, maintiens un contact visuel. Ces moments répétés construisent la confiance et le lien.`,
@@ -76,7 +76,7 @@ const ATELIERS: Atelier[] = [
         texte: `Ton soutien a un impact direct sur la durée et la réussite de l'allaitement. Concrètement : apporte-lui à boire (elle perd beaucoup de liquide pendant les tétées), prends bébé entre les tétées pour qu'elle récupère, assure-toi qu'elle peut manger correctement, soutiens ses décisions sans pression extérieure. Si elle rencontre des difficultés, oriente-la vers une consultante en lactation certifiée IBCLC.`,
       },
     ],
-    conseil: `La Leche League France propose un soutien gratuit par téléphone et des groupes locaux : 0970 840 404. Une seule consultation avec une IBCLC peut résoudre la plupart des difficultés d'allaitement.`,
+    conseil: `La Leche League France propose un soutien gratuit par téléphone et des groupes locaux : retrouve les contacts sur lllfrance.org. Une consultation avec une IBCLC permet souvent de débloquer les difficultés d'allaitement.`,
   },
   {
     id: 'apaisement',
@@ -87,7 +87,7 @@ const ATELIERS: Atelier[] = [
     etapes: [
       {
         titre: "Vérifier les causes dans l'ordre",
-        texte: `Quand bébé pleure, passe en revue les causes les plus fréquentes dans cet ordre : la faim (cause la plus courante), la couche souillée, la température (trop chaud ou trop froid), la douleur ou les coliques, le besoin de contact et de portage. Si aucune cause n'est identifiée, le portage ou le bruit blanc sont les techniques les mieux documentées pour apaiser un nourrisson.`,
+        texte: `Quand bébé pleure, passe en revue les causes les plus fréquentes dans cet ordre : la faim (cause la plus courante), la couche souillée, la température (trop chaud ou trop froid), la douleur ou les coliques, le besoin de contact et de portage. Si aucune cause n'est identifiée, le portage, le bercement ou un bruit blanc doux aident souvent à apaiser un nourrisson.`,
       },
       {
         titre: 'Reconnaître les signaux de faim avant les pleurs',
@@ -99,7 +99,7 @@ const ATELIERS: Atelier[] = [
       },
       {
         titre: 'Le bruit blanc',
-        texte: `Le bruit blanc rappelle à bébé les sons entendus in utero. Il est efficace pour l'apaisement et pour faciliter l'endormissement. Il doit être aussi fort que la voix de bébé, jamais plus fort. Les applications White Noise Baby ou Baby Sleep Sound sont adaptées. À utiliser à bonne distance, jamais directement contre l'oreille.`,
+        texte: `Le bruit blanc rappelle à bébé les sons entendus in utero. Il est efficace pour l'apaisement et pour faciliter l'endormissement. Garde un volume faible (50 dB maximum, l'équivalent d'une conversation à voix basse) et place l'appareil ou le téléphone à au moins 2 mètres de son lit, jamais contre son oreille. Si tu peux, coupe-le une fois qu'il est endormi.`,
       },
       {
         titre: 'Quand tu décroches toi-même',
@@ -152,11 +152,11 @@ const ATELIERS: Atelier[] = [
       },
       {
         titre: "Bébé s'étouffe et ne tousse plus ou ne crie plus",
-        texte: `Si la toux devient inefficace ou que bébé ne fait plus de bruit, agis immédiatement. Retourne-le tête en bas sur ton avant-bras, ventre contre ton bras, la tête plus basse que le corps. Donne 5 tapes fermes entre les omoplates avec le talon de ta main ouverte. Si insuffisant : retourne-le sur le dos, place 2 doigts au centre de la poitrine entre les mamelons, et donne 5 compressions fermes d'environ 1,5 cm de profondeur. Alterne 5 tapes dans le dos et 5 compressions thoraciques jusqu'à ce que l'objet soit expulsé ou que les secours arrivent. Appelle le 15 dès le début.`,
+        texte: `Si la toux devient inefficace ou que bébé ne fait plus de bruit, agis immédiatement. Retourne-le tête en bas sur ton avant-bras, ventre contre ton bras, la tête plus basse que le corps. Donne 5 tapes fermes entre les omoplates avec le talon de ta main ouverte. Si insuffisant : retourne-le sur le dos, place 2 doigts au centre de la poitrine, juste sous la ligne des mamelons, et donne 5 compressions franches en enfonçant d'environ un tiers de l'épaisseur du thorax (environ 4 cm). Alterne 5 tapes dans le dos et 5 compressions thoraciques jusqu'à ce que l'objet soit expulsé ou que les secours arrivent. Appelle le 15 dès le début.`,
       },
       {
         titre: 'Bébé perd connaissance ou ne réagit plus',
-        texte: `Stimule doucement : talon de pied, appel de son prénom à voix forte. S'il ne réagit pas, appelle le 15 immédiatement et mets le haut-parleur. S'il respire, place-le en position latérale de sécurité. S'il ne respire pas, commence le massage cardiaque nourrisson : 30 compressions avec 2 doigts au centre de la poitrine, puis 2 insufflations bouche-bouche-nez. Continue jusqu'à l'arrivée des secours.`,
+        texte: `Stimule doucement : talon de pied, appel de son prénom à voix forte. S'il ne réagit pas, appelle le 15 immédiatement et mets le haut-parleur. S'il respire, place-le en position latérale de sécurité. S'il ne respire pas ou respire de façon anormale, commence par 5 insufflations en couvrant sa bouche et son nez avec ta bouche. Enchaîne avec 30 compressions avec 2 doigts au centre de la poitrine, juste sous la ligne des mamelons, en enfonçant d'un tiers de l'épaisseur du thorax (environ 4 cm), à un rythme de 100 à 120 par minute. Puis alterne 2 insufflations et 30 compressions jusqu'à l'arrivée des secours. Si tu es seul sans téléphone, fais 1 minute de réanimation avant d'aller appeler.`,
       },
       {
         titre: 'Chute de hauteur',
@@ -164,10 +164,10 @@ const ATELIERS: Atelier[] = [
       },
       {
         titre: 'Fièvre du nourrisson',
-        texte: `Avant 3 mois : toute température supérieure à 38°C est une urgence médicale. Appelle le 15 ou rends-toi aux urgences pédiatriques sans attendre. Entre 3 et 6 mois : consulte ton médecin le jour même pour toute fièvre supérieure à 38°C. Après 6 mois : surveille l'état général. Un enfant qui joue, boit et réagit normalement malgré la fièvre est rassurant.`,
+        texte: `Avant 3 mois : toute température de 38°C ou plus est une urgence médicale. Appelle le 15 ou rends-toi aux urgences pédiatriques sans attendre. Entre 3 et 6 mois : consulte ton médecin le jour même pour toute fièvre supérieure à 38°C. Après 6 mois : surveille l'état général. Un enfant qui joue, boit et réagit normalement malgré la fièvre est rassurant.`,
       },
     ],
-    conseil: `La formation PSC1 nourrisson dure 7 heures et peut sauver une vie. Renseigne-toi auprès de ta maternité, de la Croix-Rouge ou de la Protection Civile. Certaines maternités proposent ces formations aux futurs pères pendant la grossesse.`,
+    conseil: `La formation PSC1 (7 heures) inclut les gestes sur le nourrisson, et des initiations aux premiers secours enfants et nourrissons existent aussi. Ces formations peuvent sauver une vie. Renseigne-toi auprès de ta maternité, de la Croix-Rouge ou de la Protection Civile. Certaines maternités proposent ces formations aux futurs pères pendant la grossesse.`,
   },
 ];
 
