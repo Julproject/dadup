@@ -335,7 +335,7 @@ export const SEMAINES: Semaine[] = [
 export default function PsychoPage({ C: propC, saReelle }: any) {
   const Cs = {
     dark:'#1e2535', blue:'#2E5F8A', blueDark:'#1A3D5C', gold:'#C9D8C4',
-    white:'#ffffff', border:'#f0ede8', muted:'#9aa0a8', cream:'#F6F1E9',
+    white:'#ffffff', border:'#f0ede8', muted:'#56616B', cream:'#F6F1E9',
   };
 
   const saActuelle = saReelle || 20;
@@ -359,9 +359,9 @@ export default function PsychoPage({ C: propC, saReelle }: any) {
 
       <div style={{background:'linear-gradient(135deg,#0a1f32,#1A3D5C)',borderRadius:'20px',padding:'22px 24px',position:'relative',overflow:'hidden'}}>
         <div style={{position:'absolute',top:'-30px',right:'-30px',width:'150px',height:'150px',borderRadius:'50%',background:'radial-gradient(circle,rgba(157,176,154,0.18) 0%,transparent 65%)',pointerEvents:'none'}}></div>
-        <p style={{color:'#C9D8C4',fontSize:'11px',fontWeight:700,letterSpacing:'3px',textTransform:'uppercase' as const,margin:'0 0 8px'}}>Psychologie du papa</p>
+        <p style={{color:'#C9D8C4',fontSize:'12px',fontWeight:700,letterSpacing:'3px',textTransform:'uppercase' as const,margin:'0 0 8px'}}>Psychologie du papa</p>
         <h2 style={{color:Cs.white,fontSize:'22px',fontWeight:800,margin:'0 0 8px',lineHeight:1.3}}>Cette semaine, une info pour toi</h2>
-        <p style={{color:'rgba(255,255,255,0.5)',fontSize:'14px',margin:0}}>Pour te guider, te rassurer, t'impliquer.</p>
+        <p style={{color:'rgba(255,255,255,0.78)',fontSize:'14px',margin:0}}>Pour te guider, te rassurer, t'impliquer.</p>
       </div>
 
       <div style={{display:'flex',alignItems:'center',gap:'10px',flexWrap:'wrap' as const}}>
@@ -381,7 +381,7 @@ export default function PsychoPage({ C: propC, saReelle }: any) {
       </div>
 
       <div style={{background:'linear-gradient(135deg,#0a1f32,#1A3D5C)',borderRadius:'20px',padding:'22px 24px'}}>
-        <p style={{color:Cs.gold,fontSize:'10px',fontWeight:700,letterSpacing:'2px',textTransform:'uppercase' as const,margin:'0 0 10px'}}>Cette semaine</p>
+        <p style={{color:Cs.gold,fontSize:'12px',fontWeight:700,letterSpacing:'2px',textTransform:'uppercase' as const,margin:'0 0 10px'}}>Cette semaine</p>
         <p style={{color:Cs.white,fontSize:'16px',fontWeight:600,lineHeight:1.7,margin:0}}>{semaine.conseil}</p>
       </div>
 

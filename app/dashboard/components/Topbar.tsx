@@ -121,7 +121,7 @@ export default function Topbar({ prenom, dpa, saReelle, tri, prog, isPost, moisB
               display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '3px', padding: '4px 0 0',
             }}>
               <Icon name={n.icon} color={on ? '#15263A' : '#8b949a'} />
-              <span style={{ fontSize: '11px', fontWeight: on ? 800 : 700, color: on ? '#15263A' : '#5f6b72', whiteSpace: 'nowrap' as const }}>{n.short}</span>
+              <span style={{ fontSize: '12px', fontWeight: on ? 800 : 700, color: on ? '#15263A' : '#5f6b72', whiteSpace: 'nowrap' as const }}>{n.short}</span>
             </button>
           );
         })}

@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 
 const C = {
   dark: '#1e2535', gold:'#C9D8C4', blue: '#2E5F8A',
-  white: '#ffffff', textLight: '#6a7585',
+  white: '#ffffff', textLight: '#56616B',
 };
 
 export default function PWABanner() {
@@ -98,7 +98,7 @@ export default function PWABanner() {
                 <div style={{
                   width: '18px', height: '18px', borderRadius: '50%',
                   background: C.blue, display: 'flex', alignItems: 'center',
-                  justifyContent: 'center', fontSize: '10px', fontWeight: 700,
+                  justifyContent: 'center', fontSize: '12px', fontWeight: 700,
                   color: C.white, flexShrink: 0,
                 }}>{i + 1}</div>
                 <span style={{ color: C.textLight, fontSize: '12px', lineHeight: 1.5 }}>{step}</span>

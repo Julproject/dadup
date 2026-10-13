@@ -12,10 +12,11 @@ export const COULEURS = {
   foret: '#2F4F3E',
   terra: '#B4593A',
   terraClair: '#F2DACB',
+  terraTexte: '#9C4A2E', // terracotta pour du petit texte sur fond clair
   creme: '#F6F1E9',
   blanc: '#FFFFFF',
   texte: '#15263A',
-  texte2: '#5F6B72',
+  texte2: '#56616B',
   bord: '#E6E0D5',
   alerte: '#B42318',
 } as const;

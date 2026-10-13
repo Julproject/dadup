@@ -41,14 +41,14 @@ export default function MentionsLegalesPage() {
           <span style={{ fontWeight: 800, color: '#1e2535', fontSize: '17px' }}>DadUp</span>
         </a>
         <div style={{ display: 'flex', gap: '20px' }}>
-          <a href="/cgv" style={{ color: '#9aa0a8', textDecoration: 'none' }}>CGV</a>
-          <a href="/confidentialite" style={{ color: '#9aa0a8', textDecoration: 'none' }}>Confidentialité</a>
-          <a href="/" style={{ color: '#9aa0a8', textDecoration: 'none', fontWeight: 600 }}>← Retour</a>
+          <a href="/cgv" style={{ color: '#56616B', textDecoration: 'none' }}>CGV</a>
+          <a href="/confidentialite" style={{ color: '#56616B', textDecoration: 'none' }}>Confidentialité</a>
+          <a href="/" style={{ color: '#56616B', textDecoration: 'none', fontWeight: 600 }}>← Retour</a>
         </div>
       </nav>
 
       <div style={{ maxWidth: '680px', margin: '0 auto', padding: '60px 24px 80px' }}>
-        <p style={{ color: '#2E5F8A', fontSize: '11px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase', margin: '0 0 12px' }}>Légal</p>
+        <p style={{ color: '#2E5F8A', fontSize: '12px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase', margin: '0 0 12px' }}>Légal</p>
         <h1 style={{ color: '#1e2535', fontSize: '32px', fontWeight: 800, margin: '0 0 40px' }}>Mentions Légales</h1>
 
         <h2 style={{ color: '#1A3D5C', fontSize: '15px', fontWeight: 700, margin: '36px 0 8px' }}>1. Éditeur du site</h2>
@@ -79,16 +79,16 @@ export default function MentionsLegalesPage() {
       <footer style={{ background: '#1e2535', borderTop: '1px solid #2e3848', padding: '32px 40px' }}>
         <div style={{ maxWidth: '680px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '16px' }}>
           <div style={{ display: 'flex', gap: '24px', flexWrap: 'wrap' }}>
-            <a href="/pourquoi" style={{ color: '#6a7585', fontSize: '13px', textDecoration: 'none' }}>Pourquoi DadUp</a>
-            <a href="/inclus" style={{ color: '#6a7585', fontSize: '13px', textDecoration: 'none' }}>Ce qui est inclus</a>
-            <a href="/tarifs" style={{ color: '#6a7585', fontSize: '13px', textDecoration: 'none' }}>Tarifs</a>
-              <a href="/professionnels" style={{ color: '#6a7585', fontSize: '13px', textDecoration: 'none' }}>Professionnels</a>
-              <a href="/sources" style={{ color: '#6a7585', fontSize: '13px', textDecoration: 'none' }}>Sources</a>
-            <a href="/contact" style={{ color: '#6a7585', fontSize: '13px', textDecoration: 'none' }}>Contactez-nous</a>
-            <a href="/cgv" style={{ color: '#6a7585', fontSize: '13px', textDecoration: 'none' }}>CGV</a>
-            <a href="/confidentialite" style={{ color: '#6a7585', fontSize: '13px', textDecoration: 'none' }}>Confidentialité</a>
+            <a href="/pourquoi" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '13px', textDecoration: 'none' }}>Pourquoi DadUp</a>
+            <a href="/inclus" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '13px', textDecoration: 'none' }}>Ce qui est inclus</a>
+            <a href="/tarifs" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '13px', textDecoration: 'none' }}>Tarifs</a>
+              <a href="/professionnels" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '13px', textDecoration: 'none' }}>Professionnels</a>
+              <a href="/sources" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '13px', textDecoration: 'none' }}>Sources</a>
+            <a href="/contact" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '13px', textDecoration: 'none' }}>Contactez-nous</a>
+            <a href="/cgv" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '13px', textDecoration: 'none' }}>CGV</a>
+            <a href="/confidentialite" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '13px', textDecoration: 'none' }}>Confidentialité</a>
           </div>
-          <p style={{ color: '#3d4f6a', fontSize: '12px', margin: '0' }}>DadUp, SIRET 10349796200011, hello@dadup.fr</p>
+          <p style={{ color: 'rgba(255,255,255,0.75)', fontSize: '12px', margin: '0' }}>DadUp, SIRET 10349796200011, hello@dadup.fr</p>
         </div>
       </footer>
 

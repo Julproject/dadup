@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 const C = {
   dark: '#1e2535', blue: '#2E5F8A', gold: '#c8a060',
   white: '#ffffff', border: '#f0ede8', text: '#4a5568',
-  textLight: '#9aa0a8', cream: '#f7f5f0',
+  textLight: '#56616B', cream: '#f7f5f0',
 };
 
 export default function LoginPage() {
@@ -125,13 +125,15 @@ export default function LoginPage() {
 
           {!showForgot ? (
             <>
-              <h1 style={{fontSize:'22px',fontWeight:800,color:C.dark,margin:'0 0 6px',textAlign:'center'}}>Content de te revoir.</h1>
+              <h1 style={{fontSize:'22px',fontWeight:800,color:C.dark,margin:'0 0 6px',textAlign:'center'}}>Content de te revoir</h1>
               <p style={{color:C.textLight,fontSize:'13px',textAlign:'center',margin:'0 0 28px'}}>Connecte-toi à ton espace DadUp</p>
 
               <form onSubmit={handleLogin} style={{display:'flex',flexDirection:'column',gap:'14px'}}>
                 <div>
-                  <label style={{display:'block',color:C.dark,fontSize:'12px',fontWeight:700,marginBottom:'7px',letterSpacing:'0.3px'}}>Email</label>
+                  <label style={{display:'block',color:C.dark,fontSize:'12px',fontWeight:700,marginBottom:'7px',letterSpacing:'0.3px'}} htmlFor="login-email">Email</label>
                   <input
+                    id="login-email"
+                    autoComplete="email"
                     type="email"
                     value={email}
                     onChange={e=>setEmail(e.target.value)}
@@ -143,8 +145,10 @@ export default function LoginPage() {
                   />
                 </div>
                 <div>
-                  <label style={{display:'block',color:C.dark,fontSize:'12px',fontWeight:700,marginBottom:'7px',letterSpacing:'0.3px'}}>Mot de passe</label>
+                  <label style={{display:'block',color:C.dark,fontSize:'12px',fontWeight:700,marginBottom:'7px',letterSpacing:'0.3px'}} htmlFor="login-mdp">Mot de passe</label>
                   <input
+                    id="login-mdp"
+                    autoComplete="current-password"
                     type="password"
                     value={password}
                     onChange={e=>setPassword(e.target.value)}
@@ -172,7 +176,7 @@ export default function LoginPage() {
               </form>
 
               <div style={{textAlign:'center',marginTop:'20px'}}>
-                <button onClick={()=>setShowForgot(true)} style={{background:'none',border:'none',color:C.textLight,fontSize:'13px',cursor:'pointer',textDecoration:'underline'}}>
+                <button onClick={()=>setShowForgot(true)} style={{background:'none',border:'none',color:C.textLight,fontSize:'14px',cursor:'pointer',textDecoration:'underline',minHeight:'44px',padding:'10px 12px'}}>
                   Mot de passe oublié ?
                 </button>
               </div>
@@ -192,6 +196,7 @@ export default function LoginPage() {
                       type="email"
                       value={forgotEmail}
                       onChange={e=>setForgotEmail(e.target.value)}
+                      aria-label="Ton email"
                       placeholder="ton@email.fr"
                       required
                       style={{width:'100%',background:C.cream,border:`1.5px solid ${C.border}`,borderRadius:'12px',padding:'12px 16px',fontSize:'15px',color:C.dark,outline:'none'}}

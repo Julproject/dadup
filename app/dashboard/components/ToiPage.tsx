@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { SEMAINES } from './PsychoPage';
 
 // ── Styles partagés (système unifié du dashboard) ─────────────────────────────
-const LABEL = { fontSize: '11px', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase' as const, color: '#6a7585', margin: '0 0 8px' };
+const LABEL = { fontSize: '12px', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase' as const, color: '#56616B', margin: '0 0 8px' };
 const TITRE = { fontSize: '16px', fontWeight: 800, color: '#1e2535', margin: 0, lineHeight: 1.35 };
 const TEXTE = { fontSize: '14px', color: '#1e2535', lineHeight: 1.75, margin: 0 };
 

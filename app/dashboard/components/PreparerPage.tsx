@@ -19,7 +19,7 @@ const VALISE = [
   {
     titre: 'Pour elle',
       couleur: '#FFF0E6',
-    tc: '#C04A1A',
+    tc: '#9C4A2E',
     items: [
       { id:'v7',  label:`Robe de chambre et chaussons antidérapants` },
       { id:'v8',  label:`Soutien-gorge d'allaitement (2 pièces)` },
@@ -91,7 +91,7 @@ const MAISON = [
   {
     titre: 'Alimentation',
       couleur: '#FFF0E6',
-    tc: '#C04A1A',
+    tc: '#9C4A2E',
     info: `Que vous allaitiez ou non, avoir quelques biberons à la maison est utile. La décision peut évoluer après la naissance.`,
     items: [
       { id:'m13', label:`Biberons (2 à 3, même si allaitement prévu)` },
@@ -175,20 +175,20 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#1
 .stats{display:flex;gap:12px;padding:24px 36px;background:#fff;border-bottom:1px solid #ede8e0;}
 .stat{flex:1;text-align:center;padding:16px;border-radius:16px;background:#F6F1E9;}
 .stat-n{font-size:28px;font-weight:900;color:#1A3D5C;line-height:1;}
-.stat-l{font-size:12px;color:#9aa0a8;margin-top:4px;}
+.stat-l{font-size:12px;color:#56616B;margin-top:4px;}
 .section{padding:28px 36px;}
-.section-title{font-size:14px;font-weight:800;color:#6a7585;letter-spacing:2px;text-transform:uppercase;margin:0 0 20px;display:flex;align-items:center;gap:10px;}
+.section-title{font-size:14px;font-weight:800;color:#56616B;letter-spacing:2px;text-transform:uppercase;margin:0 0 20px;display:flex;align-items:center;gap:10px;}
 .section-title::after{content:'';flex:1;height:1px;background:#ede8e0;}
 .groupe{margin-bottom:24px;}
 .groupe-titre{font-size:16px;font-weight:800;color:#1e2535;margin-bottom:12px;}
-.groupe-info{font-size:13px;color:#6a7585;line-height:1.7;margin:-4px 0 12px;font-style:italic;}
+.groupe-info{font-size:13px;color:#56616B;line-height:1.7;margin:-4px 0 12px;font-style:italic;}
 .items{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.06);}
 .item{display:flex;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid #F6F1E9;}
 .item:last-child{border:none;}
 .check{width:20px;height:20px;border-radius:6px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;}
 .ck-done{background:#0D6B40;color:white;}
 .ck-todo{border:2px solid #d8d0c8;}
-.lbl-done{font-size:14px;color:#9aa0a8;text-decoration:line-through;}
+.lbl-done{font-size:14px;color:#56616B;text-decoration:line-through;}
 .lbl-todo{font-size:14px;color:#1e2535;}
 .footer{background:#1A3D5C;padding:24px 36px;text-align:center;}
 .footer-text{color:rgba(255,255,255,0.4);font-size:12px;margin-bottom:4px;}
@@ -201,9 +201,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#1
     <div class="hero-date">Préparée le ${new Date().toLocaleDateString('fr-FR',{day:'numeric',month:'long',year:'numeric'})}</div>
   </div>
   <div class="stats">
-    <div class="stat"><div class="stat-n">${doneV}<span style="font-size:16px;color:#9aa0a8">/${allValise.length}</span></div><div class="stat-l">Valise prête</div></div>
-    <div class="stat"><div class="stat-n">${doneM}<span style="font-size:16px;color:#9aa0a8">/${allMaison.length}</span></div><div class="stat-l">Maison prête</div></div>
-    <div class="stat"><div class="stat-n" style="font-size:20px;color:#B4593A">${doneV+doneM}<span style="font-size:14px;color:#9aa0a8">/${allValise.length+allMaison.length}</span></div><div class="stat-l">Total coché</div></div>
+    <div class="stat"><div class="stat-n">${doneV}<span style="font-size:16px;color:#56616B">/${allValise.length}</span></div><div class="stat-l">Valise prête</div></div>
+    <div class="stat"><div class="stat-n">${doneM}<span style="font-size:16px;color:#56616B">/${allMaison.length}</span></div><div class="stat-l">Maison prête</div></div>
+    <div class="stat"><div class="stat-n" style="font-size:20px;color:#B4593A">${doneV+doneM}<span style="font-size:14px;color:#56616B">/${allValise.length+allMaison.length}</span></div><div class="stat-l">Total coché</div></div>
   </div>
   <div class="section">
     <div class="section-title">Valise maternité</div>
@@ -289,7 +289,7 @@ export default function PreparerPage({C, valiseChecked, toggleV, achatChecked, t
             border: onglet===t.id ? 'none' : `1px solid ${t.inactiveBorder}`,
           }}>
             {t.label}
-            <span style={{display:'block',fontSize:'11px',fontWeight:500,marginTop:'2px',opacity:0.65}}>
+            <span style={{display:'block',fontSize:'12px',fontWeight:500,marginTop:'2px',opacity:0.65}}>
               {t.done}/{t.total} cochés
             </span>
           </button>
@@ -302,7 +302,7 @@ export default function PreparerPage({C, valiseChecked, toggleV, achatChecked, t
           <div style={{flex:1,background:'#f0ede8',borderRadius:'6px',height:'8px'}}>
             <div style={{background:pct===100?'#0D6B40':'linear-gradient(to right,#1A3D5C,#24507a)',height:'8px',borderRadius:'6px',width:pct+'%',transition:'width 0.4s'}}/>
           </div>
-          <span style={{fontSize:'12px',fontWeight:800,color:pct===100?'#2F4F3E':'#B4593A',flexShrink:0}}>{done}/{total}</span>
+          <span style={{fontSize:'12px',fontWeight:800,color:pct===100?'#2F4F3E':'#9C4A2E',flexShrink:0}}>{done}/{total}</span>
         </div>
       )}
 
@@ -319,7 +319,7 @@ export default function PreparerPage({C, valiseChecked, toggleV, achatChecked, t
 <span style={{fontSize:'16px',fontWeight:800,color:C.dark}}>{groupe.titre}</span>
                 </div>
                 <span style={{
-                  fontSize:'11px',fontWeight:700,padding:'3px 10px',borderRadius:'20px',
+                  fontSize:'12px',fontWeight:700,padding:'3px 10px',borderRadius:'20px',
                   background:groupeDone===all?'rgba(184,240,216,0.3)':groupe.couleur.replace('#E6F0FA','rgba(200,232,255,0.3)').replace('#E4F5EC','rgba(184,240,216,0.3)').replace('#FFF7E0','rgba(242,218,203,0.45)').replace('#FFF0E6','rgba(255,220,200,0.5)').replace('#FDECEA','rgba(255,210,205,0.5)'),
                   color:groupeDone===all?'#0D6B40':groupe.tc,
                 }}>{groupeDone}/{all}</span>
@@ -327,7 +327,7 @@ export default function PreparerPage({C, valiseChecked, toggleV, achatChecked, t
 
               {/* Info contextuelle */}
               {'info' in groupe && (groupe as any).info && (
-                <p style={{fontSize:'14px',color:'#6a7585',lineHeight:1.7,margin:'0 0 14px',paddingLeft:'0'}}>{(groupe as any).info}</p>
+                <p style={{fontSize:'14px',color:'#56616B',lineHeight:1.7,margin:'0 0 14px',paddingLeft:'0'}}>{(groupe as any).info}</p>
               )}
 
               {/* Items */}
@@ -383,7 +383,7 @@ export default function PreparerPage({C, valiseChecked, toggleV, achatChecked, t
           </div>
           {['Pendant la grossesse','À la naissance','Congé paternité'].map(phase => (
             <div key={phase} style={{marginBottom:'20px'}}>
-              <p style={{color:'#6a7585',fontSize:'11px',fontWeight:700,letterSpacing:'2px',textTransform:'uppercase' as const,margin:'0 0 10px'}}>{phase}</p>
+              <p style={{color:'#56616B',fontSize:'12px',fontWeight:700,letterSpacing:'2px',textTransform:'uppercase' as const,margin:'0 0 10px'}}>{phase}</p>
               <div style={{display:'flex',flexDirection:'column' as const,gap:'8px'}}>
                 {ADMIN.filter(a => a.phase === phase).map(item => {
                   const lu = adminLu.includes(item.id);
@@ -391,20 +391,22 @@ export default function PreparerPage({C, valiseChecked, toggleV, achatChecked, t
                   return (
                     <div key={item.id} style={{borderRadius:'16px',overflow:'hidden',border:'1px solid #ede8e0',background:'#fff',boxShadow:'0 2px 8px rgba(0,0,0,0.04)'}}>
                       <div onClick={() => setAdminOuvert(open ? null : item.id)} style={{background:open?'rgba(200,232,255,0.3)':'#fff',padding:'14px 16px',cursor:'pointer',display:'flex',alignItems:'center',gap:'12px'}}>
-                        <button onClick={e => { e.stopPropagation(); toggleAdminLu(item.id); }} style={{width:'24px',height:'24px',borderRadius:'50%',border:lu?'none':'2px solid #d0c8c0',background:lu?'#1A3D5C':'transparent',display:'flex',alignItems:'center',justifyContent:'center',flexShrink:0,cursor:'pointer',padding:0}}>
-                          {lu && <span style={{color:'#fff',fontSize:'12px',fontWeight:800}}>✓</span>}
+                        <button onClick={e => { e.stopPropagation(); toggleAdminLu(item.id); }} aria-label={lu ? `${item.titre} : marquer comme non lu` : `${item.titre} : marquer comme lu`} aria-pressed={lu} style={{width:'44px',height:'44px',margin:'-10px',background:'transparent',border:'none',display:'flex',alignItems:'center',justifyContent:'center',flexShrink:0,cursor:'pointer',padding:0}}>
+                          <span style={{width:'24px',height:'24px',borderRadius:'50%',border:lu?'none':'2px solid #8A9298',background:lu?'#1A3D5C':'transparent',display:'flex',alignItems:'center',justifyContent:'center'}}>
+                            {lu && <span style={{color:'#fff',fontSize:'12px',fontWeight:800}}>✓</span>}
+                          </span>
                         </button>
                         <div style={{flex:1,minWidth:0}}>
-                          <p style={{color:lu?'#9aa0a8':C.dark,fontSize:'14px',fontWeight:700,margin:'0 0 2px',textDecoration:lu?'line-through':'none'}}>{item.titre}</p>
-                          <p style={{color:'#9aa0a8',fontSize:'13px',margin:0,lineHeight:1.4}}>{item.resume}</p>
+                          <p style={{color:lu?'#56616B':C.dark,fontSize:'14px',fontWeight:700,margin:'0 0 2px',textDecoration:lu?'line-through':'none'}}>{item.titre}</p>
+                          <p style={{color:'#56616B',fontSize:'13px',margin:0,lineHeight:1.4}}>{item.resume}</p>
                         </div>
-                        <span style={{color:'#b0b8c0',fontSize:'11px',flexShrink:0}}>{open?'▲':'▼'}</span>
+                        <span style={{color:'#56616B',fontSize:'12px',flexShrink:0}}>{open?'▲':'▼'}</span>
                       </div>
                       {open && (
                         <div style={{padding:'14px 16px 16px',borderTop:'1px solid #ede8e0',background:'#F6F1E9'}}>
                           <p style={{color:C.text,fontSize:'14px',lineHeight:1.75,margin:'0 0 12px'}}>{item.detail}</p>
                           <div style={{display:'flex',alignItems:'center',justifyContent:'flex-end',flexWrap:'wrap' as const,gap:'8px'}}>
-                            <button onClick={() => toggleAdminLu(item.id)} style={{background:lu?'rgba(0,0,0,0.05)':'linear-gradient(135deg,#0a1f32,#1A3D5C)',color:lu?'#6a7585':'#fff',border:'none',padding:'8px 16px',borderRadius:'20px',fontSize:'13px',fontWeight:700,cursor:'pointer'}}>
+                            <button onClick={() => toggleAdminLu(item.id)} style={{background:lu?'rgba(0,0,0,0.05)':'linear-gradient(135deg,#0a1f32,#1A3D5C)',color:lu?'#56616B':'#fff',border:'none',padding:'8px 16px',borderRadius:'20px',fontSize:'13px',fontWeight:700,cursor:'pointer'}}>
                               {lu ? 'Marquer non lu' : "✓ J'ai lu"}
                             </button>
                           </div>

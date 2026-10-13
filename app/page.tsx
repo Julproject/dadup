@@ -9,7 +9,7 @@ export default function Home() {
 
   const C = {
     dark: '#1e2535', gold: '#c8a060', cream: '#faf6f0', white: '#ffffff',
-    border: '#e8e0d0', text: '#4a5568', textLight: '#9aa0a8',
+    border: '#e8e0d0', text: '#4a5568', textLight: '#56616B',
     blue: '#2E5F8A', bluePale: '#E6F0FA', blueDark: '#1A3D5C',
   };
 
@@ -79,7 +79,7 @@ export default function Home() {
           <a href="/login" style={{color:C.dark, fontSize:'14px', fontWeight:600, textDecoration:'none'}}>Se connecter</a>
           <button onClick={goToStripe} style={{background:'#1e2535', color:'#ffffff', border:'none', padding:'11px 22px', borderRadius:'32px', fontSize:'13px', fontWeight:700, cursor:'pointer'}}>Commencer</button>
         </div>
-        <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)} style={{display:'none', background:'none', border:`1px solid ${C.border}`, padding:'8px 12px', borderRadius:'8px', cursor:'pointer'}}>
+        <button className="hamburger" aria-label={menuOpen ? "Fermer le menu" : "Ouvrir le menu"} aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)} style={{display:'none', minWidth:'44px', minHeight:'44px', background:'none', border:`1px solid ${C.border}`, padding:'8px 12px', borderRadius:'8px', cursor:'pointer'}}>
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
             {menuOpen
               ? <path d="M4 4L16 16M16 4L4 16" stroke={C.dark} strokeWidth="2" strokeLinecap="round"/>
@@ -111,7 +111,7 @@ export default function Home() {
           <div style={{position:'relative', zIndex:1, padding:'8px 0'}}>
             <div style={{display:'inline-flex', alignItems:'center', gap:'8px', background:'rgba(230,240,250,0.15)', border:'1px solid rgba(200,160,96,0.4)', borderRadius:'20px', padding:'5px 14px', marginBottom:'24px'}}>
               <div style={{width:'6px', height:'6px', borderRadius:'50%', background:C.gold}}></div>
-              <span style={{color:C.gold, fontSize:'11px', fontWeight:700, letterSpacing:'1px'}}>Conçu pour les futurs pères</span>
+              <span style={{color:C.gold, fontSize:'12px', fontWeight:700, letterSpacing:'1px'}}>Conçu pour les futurs pères</span>
             </div>
 
             <h1 style={{color:C.white, fontSize:'clamp(28px,4vw,40px)', fontWeight:800, lineHeight:1.15, margin:'0 0 16px'}}>
@@ -162,7 +162,7 @@ export default function Home() {
       <section style={{padding:'80px 40px', background:'#faf6f0'}}>
         <div style={{maxWidth:'1000px', margin:'0 auto'}}>
           <div style={{textAlign:'center', marginBottom:'48px'}}>
-            <p style={{color:C.blue, fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase' as const, margin:'0 0 16px'}}>Ce que DadUp couvre</p>
+            <p style={{color:C.blue, fontSize:'12px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase' as const, margin:'0 0 16px'}}>Ce que DadUp couvre</p>
             <h2 style={{color:C.dark, fontSize:'36px', fontWeight:800, margin:0, lineHeight:1.2}}>Tout ce dont tu as besoin,<br/>au bon moment</h2>
           </div>
           <div className="stats-4col">
@@ -173,7 +173,7 @@ export default function Home() {
               {border:'rgba(255,240,160,0.25)', label:'Paiement unique', lc:'#e0b870', title:'Sans abonnement', tc:'#FFF0A0', desc:"Tu paies une fois, tu accèdes jusqu'au premier anniversaire de bébé. Pas de surprise.", dc:'rgba(255,240,160,0.6)'},
             ].map((s,i) => (
               <div key={i} style={{background:'#ffffff', borderRadius:'20px', padding:'28px 32px', boxShadow:'0 8px 32px rgba(0,0,0,0.08)', border:'none'}}>
-                <p style={{color:'#c8a060', fontSize:'10px', fontWeight:700, letterSpacing:'2px', textTransform:'uppercase' as const, margin:'0 0 10px'}}>{s.label}</p>
+                <p style={{color:'#c8a060', fontSize:'12px', fontWeight:700, letterSpacing:'2px', textTransform:'uppercase' as const, margin:'0 0 10px'}}>{s.label}</p>
                 <p style={{color:'#1e2535', fontSize:'15px', fontWeight:700, margin:'0 0 8px'}}>{s.title}</p>
                 <p style={{color:'#6a5020', fontSize:'13px', margin:0, lineHeight:1.65}}>{s.desc}</p>
               </div>
@@ -185,7 +185,7 @@ export default function Home() {
       {/* CE QUE PERSONNE NE T'EXPLIQUE : DÉFILEMENT AUTO */}
       <section style={{padding:'80px 0', background:'transparent', overflow:'hidden'}}>
         <div style={{textAlign:'center', marginBottom:'48px', padding:'0 40px'}}>
-          <p style={{color:C.blue, fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase' as const, margin:'0 0 16px'}}>Les sujets traités</p>
+          <p style={{color:C.blue, fontSize:'12px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase' as const, margin:'0 0 16px'}}>Les sujets traités</p>
           <h2 style={{color:C.dark, fontSize:'36px', fontWeight:800, margin:'0 0 16px', lineHeight:1.2}}>Tout ce que personne<br/>ne t&apos;explique</h2>
           <p style={{color:C.textLight, fontSize:'15px', margin:'0 auto', maxWidth:'480px', lineHeight:1.7}}>Traités sans détour, au bon moment de la grossesse.</p>
         </div>
@@ -228,7 +228,7 @@ export default function Home() {
         <div style={{maxWidth:'720px', margin:'0 auto', textAlign:'center' as const}}>
           {/* Savoir avant : sur le fond crème directement */}
           <div style={{marginBottom:'72px'}}>
-            <p style={{color:C.gold, fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase' as const, margin:'0 0 20px'}}>Ce que tu peux changer</p>
+            <p style={{color:C.gold, fontSize:'12px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase' as const, margin:'0 0 20px'}}>Ce que tu peux changer</p>
             <h2 style={{color:C.dark, fontSize:'40px', fontWeight:800, lineHeight:1.2, margin:'0 0 20px'}}>
               Savoir ce qui se passe<br/><span style={{color:C.gold}}>avant qu&apos;on te l&apos;explique</span>
             </h2>
@@ -251,7 +251,7 @@ export default function Home() {
           <div style={{position:'relative', zIndex:1, maxWidth:'520px', margin:'0 auto'}}>
             <div style={{display:'inline-flex', alignItems:'center', gap:'8px', background:'rgba(200,160,96,0.18)', border:'1px solid rgba(200,160,96,0.5)', borderRadius:'20px', padding:'5px 14px', marginBottom:'24px'}}>
               <div style={{width:'7px', height:'7px', borderRadius:'50%', background:'#c8a060', boxShadow:'0 0 8px rgba(200,160,96,0.9)'}}></div>
-              <span style={{color:'#e0b870', fontSize:'11px', fontWeight:700, letterSpacing:'1px'}}>Accès immédiat</span>
+              <span style={{color:'#e0b870', fontSize:'12px', fontWeight:700, letterSpacing:'1px'}}>Accès immédiat</span>
             </div>
 <p style={{color:'rgba(255,255,255,0.9)', fontSize:'28px', fontWeight:800, margin:'0 0 32px', lineHeight:1.3}}>
               À deux, dès le premier jour

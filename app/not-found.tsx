@@ -16,9 +16,9 @@ export default function NotFound() {
           </svg>
         </div>
 
-        <p style={{ color: '#2E5F8A', fontSize: '11px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase', margin: '0 0 16px' }}>Erreur 404</p>
+        <p style={{ color: '#2E5F8A', fontSize: '12px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase', margin: '0 0 16px' }}>Erreur 404</p>
         <h1 style={{ color: '#1e2535', fontSize: '36px', fontWeight: 800, margin: '0 0 12px', lineHeight: 1.2 }}>Cette page n'existe pas.</h1>
-        <p style={{ color: '#9aa0a8', fontSize: '16px', lineHeight: 1.7, margin: '0 0 40px' }}>Tu t'es perdu en chemin. Pas de panique, retourne à l'accueil.</p>
+        <p style={{ color: '#56616B', fontSize: '16px', lineHeight: 1.7, margin: '0 0 40px' }}>Tu t'es perdu en chemin. Pas de panique, retourne à l'accueil.</p>
 
         <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
           <Link

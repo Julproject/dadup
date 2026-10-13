@@ -3,7 +3,7 @@ import { useState, useMemo } from 'react';
 
 const C = {
   dark: '#1e2535', blue: '#2E5F8A', blueDark: '#1A3D5C', gold:'#C9D8C4',
-  white: '#ffffff', border: '#f0ede8', muted: '#9aa0a8', cream: '#F6F1E9',
+  white: '#ffffff', border: '#f0ede8', muted: '#56616B', cream: '#F6F1E9',
 };
 
 type Terme = { mot: string; def: string; cat: string };
@@ -163,19 +163,20 @@ export default function DicoPapa({ C: propC, isPost = false }: { C?: any; isPost
 
       {/* En-tête */}
       <div style={{ background: 'linear-gradient(135deg,#0a1f32,#1A3D5C)', borderRadius: '20px', padding: '20px 24px', position: 'relative', overflow: 'hidden' }}>
-        <p style={{ color: '#C9D8C4', fontSize: '11px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase' as const, margin: '0 0 6px' }}>Grossesse</p>
+        <p style={{ color: '#C9D8C4', fontSize: '12px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase' as const, margin: '0 0 6px' }}>Grossesse</p>
         <p style={{ color: '#fff', fontSize: '22px', fontWeight: 800, margin: '0 0 4px' }}>Dictionnaire</p>
-        <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '14px', margin: 0 }}>{TERMES.length} termes expliqués en langage simple</p>
+        <p style={{ color: 'rgba(255,255,255,0.78)', fontSize: '14px', margin: 0 }}>{TERMES.length} termes expliqués en langage simple</p>
       </div>
 
       {/* Recherche */}
       <div style={{ position: 'relative' as const }}>
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9aa0a8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ position: 'absolute' as const, left: '14px', top: '50%', transform: 'translateY(-50%)' }}>
+        <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#56616B" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ position: 'absolute' as const, left: '14px', top: '50%', transform: 'translateY(-50%)' }}>
           <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
         </svg>
         <input
           type="text"
-          placeholder="Rechercher un terme..."
+          placeholder="Rechercher un terme…"
+          aria-label="Rechercher un terme"
           value={search}
           onChange={e => { setSearch(e.target.value); setCat(null); }}
           style={{ width: '100%', background: '#fff', border: '1.5px solid #e8e0d0', borderRadius: '32px', padding: '12px 14px 12px 42px', fontSize: '14px', color: '#1e2535', outline: 'none', boxSizing: 'border-box' as const, boxShadow: '0 2px 8px rgba(0,0,0,0.05)' }}
@@ -187,7 +188,7 @@ export default function DicoPapa({ C: propC, isPost = false }: { C?: any; isPost
         <div style={{ display: 'flex', gap: '6px', overflowX: 'auto' as const, paddingBottom: '2px' }}>
           <button
             onClick={() => setCat(null)}
-            style={{ flexShrink: 0, padding: '6px 14px', fontSize: '12px', fontWeight: 700, borderRadius: '20px', cursor: 'pointer', background: !catActive ? 'linear-gradient(135deg,#0a1f32,#1A3D5C)' : '#fff', color: !catActive ? '#fff' : '#6a7585', boxShadow: !catActive ? '0 4px 12px rgba(26,61,92,0.25)' : '0 1px 4px rgba(0,0,0,0.06)', border: !catActive ? 'none' : '1px solid #ede8e0' }}
+            style={{ flexShrink: 0, minHeight: '44px', padding: '10px 16px', fontSize: '13px', fontWeight: 700, borderRadius: '20px', cursor: 'pointer', background: !catActive ? 'linear-gradient(135deg,#0a1f32,#1A3D5C)' : '#fff', color: !catActive ? '#fff' : '#56616B', boxShadow: !catActive ? '0 4px 12px rgba(26,61,92,0.25)' : '0 1px 4px rgba(0,0,0,0.06)', border: !catActive ? 'none' : '1px solid #ede8e0' }}
           >
             Tous
           </button>
@@ -195,7 +196,7 @@ export default function DicoPapa({ C: propC, isPost = false }: { C?: any; isPost
             <button
               key={c.id}
               onClick={() => setCat(catActive === c.id ? null : c.id)}
-              style={{ flexShrink: 0, padding: '6px 14px', fontSize: '12px', fontWeight: 700, border: 'none', borderRadius: '20px', cursor: 'pointer', background: catActive === c.id ? 'linear-gradient(135deg,#0a1f32,#1A3D5C)' : c.bg, color: catActive === c.id ? '#fff' : c.tc, boxShadow: catActive === c.id ? '0 4px 12px rgba(26,61,92,0.25)' : '0 1px 4px rgba(0,0,0,0.04)' }}
+              style={{ flexShrink: 0, minHeight: '44px', padding: '10px 16px', fontSize: '13px', fontWeight: 700, border: 'none', borderRadius: '20px', cursor: 'pointer', background: catActive === c.id ? 'linear-gradient(135deg,#0a1f32,#1A3D5C)' : c.bg, color: catActive === c.id ? '#fff' : c.tc, boxShadow: catActive === c.id ? '0 4px 12px rgba(26,61,92,0.25)' : '0 1px 4px rgba(0,0,0,0.04)' }}
             >
               {c.label}
             </button>
@@ -205,7 +206,7 @@ export default function DicoPapa({ C: propC, isPost = false }: { C?: any; isPost
 
       {/* Nombre de résultats si recherche */}
       {search && (
-        <p style={{ color: '#9aa0a8', fontSize: '14px', margin: 0 }}>
+        <p style={{ color: '#56616B', fontSize: '14px', margin: 0 }}>
           {filtered.length} résultat{filtered.length !== 1 ? 's' : ''} pour "{search}"
         </p>
       )}
@@ -214,7 +215,7 @@ export default function DicoPapa({ C: propC, isPost = false }: { C?: any; isPost
       <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
         {filtered.length === 0 ? (
           <div style={{ background: '#F6F1E9', borderRadius: '16px', padding: '24px', textAlign: 'center' as const }}>
-            <p style={{ color: '#9aa0a8', fontSize: '14px', margin: 0 }}>Aucun terme trouvé pour "{search}"</p>
+            <p style={{ color: '#56616B', fontSize: '14px', margin: 0 }}>Aucun terme trouvé pour "{search}"</p>
           </div>
         ) : filtered.map(t => {
           const col = colors[t.cat];
@@ -226,11 +227,12 @@ export default function DicoPapa({ C: propC, isPost = false }: { C?: any; isPost
             >
               <button
                 onClick={() => setOuvert(isOpen ? null : t.mot)}
+                aria-expanded={isOpen}
                 style={{ width: '100%', display: 'flex', alignItems: 'center', gap: '10px', padding: '13px 16px', background: 'none', border: 'none', cursor: 'pointer', textAlign: 'left' as const }}
               >
                 <span style={{ width: '7px', height: '7px', borderRadius: '50%', background: col.tc, flexShrink: 0, opacity: 0.7 }} />
                 <span style={{ color: isOpen ? col.tc : '#1e2535', fontSize: '16px', fontWeight: 700, flex: 1, lineHeight: 1.3 }}>{t.mot}</span>
-                <span style={{ color: '#ccc', fontSize: '16px', flexShrink: 0 }}>{isOpen ? '−' : '+'}</span>
+                <span aria-hidden="true" style={{ color: '#56616B', fontSize: '18px', flexShrink: 0 }}>{isOpen ? '−' : '+'}</span>
               </button>
               {isOpen && (
                 <div style={{ padding: '0 16px 16px 33px' }}>

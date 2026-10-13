@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 
 const C = {
   dark: '#1e2535', gold: '#c8a060', cream: '#faf6f0', white: '#ffffff',
-  border: '#e8e0d0', text: '#4a5568', textLight: '#9aa0a8',
+  border: '#e8e0d0', text: '#4a5568', textLight: '#56616B',
   blue: '#2E5F8A', red: '#FDECEA', redDark: '#A03030',
   green: '#E4F5EC', greenDark: '#0D6B40',
 };

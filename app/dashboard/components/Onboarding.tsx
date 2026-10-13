@@ -4,7 +4,7 @@ import { useState } from 'react';
 const C = {
   dark:'#1e2535', blue:'#2E5F8A', gold:'#C9D8C4',
   white:'#ffffff', border:'#f0ede8', text:'#1e2535',
-  textLight:'#9aa0a8', cream:'#F6F1E9',
+  textLight:'#56616B', cream:'#F6F1E9',
 };
 
 export default function Onboarding({onSave}:{onSave:(d:string,p:string)=>void}) {
@@ -40,7 +40,7 @@ export default function Onboarding({onSave}:{onSave:(d:string,p:string)=>void}) 
             </button>
           </div>
         </div>
-        <p style={{textAlign:'center',color:C.textLight,fontSize:'11px',marginTop:'14px'}}>Aucune donnée personnelle stockée en ligne.</p>
+        <p style={{textAlign:'center',color:C.textLight,fontSize:'12px',marginTop:'14px'}}>Aucune donnée personnelle stockée en ligne.</p>
       </div>
     </main>
   );

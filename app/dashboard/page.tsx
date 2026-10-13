@@ -39,7 +39,7 @@ const PREPARER_TABS = ['rdv', 'pratique', 'valise', 'maison', 'admin', 'jourj'];
 const C = {
   dark:'#15263A', blue:'#2E5F8A', blueDark:'#1A3D5C', gold:'#C9D8C4',
   white:'#ffffff', border:'#f0ede8', text:'#1e2535', textLight:'#6B8FA8',
-  muted:'#9aa0a8', orange:'#FFF0E6', green:'#E4F5EC', amber:'#FFF7E0',
+  muted:'#56616B', orange:'#FFF0E6', green:'#E4F5EC', amber:'#FFF7E0',
   teal:'#E0F5F0', coral:'#FDECEA', blueLight:'#E6F0FA', cream:'#F6F1E9',
 };
 
@@ -310,6 +310,7 @@ function DashboardContent() {
         }
       `}</style>
 
+      <a href="#contenu" className="skip-link">Aller au contenu</a>
       <Topbar
         prenom={prenom} dpa={dpa} saReelle={saReelle} tri={tri} prog={prog}
         isPost={isPost} moisBebe={moisBebe}
@@ -317,7 +318,7 @@ function DashboardContent() {
         onDeclareNaissance={() => setShowConfirmNaissance(true)}
       />
 
-      <div className="dd-c">
+      <div className="dd-c" id="contenu" tabIndex={-1}>
         {activeTab === 'home'    && (isPost ? <PostAccueil  {...shared} setActiveTab={setActiveTab}/> : <Accueil      {...shared} setActiveTab={setActiveTab}/>)}
         {activeTab === 'bebe'    && (isPost ? <PostBebe     {...shared}/> : <BebePage     {...shared}/>)}
         {isPost  && activeTab === 'rdv'       && <PostRDV      {...shared}/>}
@@ -340,9 +341,9 @@ function DashboardContent() {
           <div style={{ background: '#fff', borderRadius: '24px', padding: '32px', width: '100%', maxWidth: '360px', textAlign: 'center', boxShadow: '0 8px 40px rgba(0,0,0,0.15)' }} onClick={e => e.stopPropagation()}>
             <p style={{ fontSize: '48px', margin: '0 0 16px' }}>{isPost ? '🤰' : '👶'}</p>
             <h3 style={{ color: '#1e2535', fontSize: '20px', fontWeight: 800, margin: '0 0 10px' }}>{isPost ? 'Retour en mode grossesse ?' : 'Félicitations !'}</h3>
-            <p style={{ color: '#6a7585', fontSize: '14px', lineHeight: 1.7, margin: '0 0 24px' }}>{isPost ? 'Tu reviendras à la dernière semaine de grossesse enregistrée. Ton suivi post-partum sera conservé.' : 'En confirmant, ton application bascule en mode post-naissance. Tu pourras suivre le développement de bébé mois par mois.'}</p>
+            <p style={{ color: '#56616B', fontSize: '14px', lineHeight: 1.7, margin: '0 0 24px' }}>{isPost ? 'Tu reviendras à la dernière semaine de grossesse enregistrée. Ton suivi post-partum sera conservé.' : 'En confirmant, ton application bascule en mode post-naissance. Tu pourras suivre le développement de bébé mois par mois.'}</p>
             <div style={{ display: 'flex', gap: '10px' }}>
-              <button onClick={() => setShowConfirmNaissance(false)} style={{ flex: 1, padding: '13px', background: '#f7f5f0', border: 'none', borderRadius: '32px', fontSize: '14px', fontWeight: 700, color: '#9aa0a8', cursor: 'pointer' }}>Annuler</button>
+              <button onClick={() => setShowConfirmNaissance(false)} style={{ flex: 1, padding: '13px', background: '#f7f5f0', border: 'none', borderRadius: '32px', fontSize: '14px', fontWeight: 700, color: '#56616B', cursor: 'pointer' }}>Annuler</button>
               <button onClick={declareNaissance} style={{ flex: 2, padding: '13px', background: '#1e2535', border: 'none', borderRadius: '32px', fontSize: '14px', fontWeight: 700, color: '#fff', cursor: 'pointer' }}>{isPost ? 'Revenir en mode grossesse' : 'Bébé est né !'}</button>
             </div>
           </div>

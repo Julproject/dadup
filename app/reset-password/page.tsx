@@ -5,7 +5,7 @@ import { useSearchParams, useRouter } from 'next/navigation';
 
 const C = {
   dark: '#1e2535', blue: '#2E5F8A', gold: '#c8a060',
-  white: '#ffffff', border: '#f0ede8', textLight: '#9aa0a8', cream: '#f7f5f0',
+  white: '#ffffff', border: '#f0ede8', textLight: '#56616B', cream: '#f7f5f0',
 };
 
 function ResetForm() {
@@ -86,6 +86,7 @@ function ResetForm() {
                 value={password}
                 onChange={e=>setPassword(e.target.value)}
                 placeholder="••••••••"
+                aria-label="Nouveau mot de passe"
                 required
                 minLength={8}
                 style={{width:'100%',background:C.cream,border:`1.5px solid ${C.border}`,borderRadius:'12px',padding:'12px 16px',fontSize:'15px',color:C.dark,outline:'none'}}
@@ -98,6 +99,7 @@ function ResetForm() {
                 value={confirm}
                 onChange={e=>setConfirm(e.target.value)}
                 placeholder="••••••••"
+                aria-label="Confirme le mot de passe"
                 required
                 style={{width:'100%',background:C.cream,border:`1.5px solid ${C.border}`,borderRadius:'12px',padding:'12px 16px',fontSize:'15px',color:C.dark,outline:'none'}}
               />
