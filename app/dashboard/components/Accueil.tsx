@@ -104,6 +104,28 @@ export default function Accueil({C,dpa,prenom,saReelle,joursRestants,prog,tri,id
         </div>
       )}
 
+      {/* JOUR J : mis en avant à partir de SA 36 */}
+      {saReelle >= 36 && (
+        <div style={{ background: '#ffffff', border: '2px solid #B42318', borderRadius: '20px', padding: '18px', display: 'flex', flexDirection: 'column' as const, gap: '12px' }}>
+          <div>
+            <p style={{ ...LABEL, color: '#B42318', marginBottom: '4px' }}>Jour J</p>
+            <p style={{ fontSize: '18px', fontWeight: 800, color: NAVY, margin: 0, lineHeight: 1.3 }}>
+              {saReelle >= 37 ? 'Bébé peut arriver à tout moment' : 'Le Jour J approche'}
+            </p>
+          </div>
+          <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' as const }}>
+            {setActiveTab && (
+              <button onClick={() => setActiveTab('jourj')} style={{ flex: '1 1 160px', minHeight: '48px', background: NAVY_GRAD, color: '#ffffff', border: 'none', borderRadius: '12px', fontSize: '14px', fontWeight: 800, cursor: 'pointer' }}>
+                Quand partir, quoi faire
+              </button>
+            )}
+            <a href="tel:15" style={{ flex: '1 1 120px', minHeight: '48px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#B42318', color: '#ffffff', borderRadius: '12px', fontSize: '14px', fontWeight: 800, textDecoration: 'none' }}>
+              Appeler le 15
+            </a>
+          </div>
+        </div>
+      )}
+
       {/* BÉBÉ CETTE SEMAINE */}
       {dataR && saReelle && (
         <div style={{ ...carteBlanche, padding: '18px', display: 'flex', flexDirection: 'column' as const, gap: '14px' }}>

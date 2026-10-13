@@ -28,6 +28,10 @@ export const ICONES: Record<string, string> = {
   alerte:   'M12 3l9 16H3zM12 10v4M12 17h.01',
   idee:     'M12 3a6 6 0 0 0-4 10.5V17h8v-3.5A6 6 0 0 0 12 3zM9 21h6',
   livre:    'M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2zM4 19V5M8 7h7M8 11h5',
+  chrono:   'M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zM12 7v5l3 2',
+  valise:   'M4 8h16v12H4zM9 8V5h6v3M4 13h16',
+  tel:      'M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z',
+  naissance:'M12 3l1.8 4.6L18 9l-4.2 1.4L12 15l-1.8-4.6L6 9l4.2-1.4zM19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z',
 };
 
 export function TuileIcone({ nom, taille = 44 }: { nom: string; taille?: number }) {
@@ -56,7 +60,7 @@ export function Section({ titre, children }: { titre: string; children: React.Re
   );
 }
 
-type Item = { titre: string; contenu: string };
+type Item = { titre: string; contenu: React.ReactNode; icone?: string };
 
 // Liste de cartes dépliables : la première est ouverte par défaut
 export function Accordeons({ items, icone, premierOuvert = true }: { items: Item[]; icone: string; premierOuvert?: boolean }) {
@@ -68,13 +72,15 @@ export function Accordeons({ items, icone, premierOuvert = true }: { items: Item
         return (
           <div key={i} className="pp-card" style={{ ...CARTE, overflow: 'hidden' }}>
             <button onClick={() => setOuvert(open ? null : i)} aria-expanded={open} style={{ width: '100%', minHeight: '64px', background: 'none', border: 'none', padding: '14px 18px', display: 'flex', alignItems: 'center', gap: '14px', cursor: 'pointer', textAlign: 'left' as const }}>
-              <TuileIcone nom={icone} />
+              <TuileIcone nom={it.icone || icone} />
               <span style={{ flex: 1, fontSize: '15px', fontWeight: 800, color: NAVY, lineHeight: 1.35 }}>{it.titre}</span>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1A3D5C" strokeWidth="2.5" strokeLinecap="round" aria-hidden="true" style={{ flexShrink: 0, transform: open ? 'rotate(180deg)' : 'none', transition: 'transform .2s' }}><path d="M6 9l6 6 6-6" /></svg>
             </button>
             {open && (
               <div style={{ padding: '0 18px 18px', borderTop: '1px solid #EEE7DC' }}>
-                <p style={{ ...TEXTE, marginTop: '14px' }}>{it.contenu}</p>
+                {typeof it.contenu === 'string'
+                  ? <p style={{ ...TEXTE, marginTop: '14px' }}>{it.contenu}</p>
+                  : <div style={{ marginTop: '14px' }}>{it.contenu}</div>}
               </div>
             )}
           </div>
