@@ -8,13 +8,13 @@ export default function Home() {
   const goToStripe = () => setShowModal(true);
 
   const C = {
-    dark: '#1e2535', gold: '#c8a060', cream: '#faf6f0', white: '#ffffff',
-    border: '#e8e0d0', text: '#4a5568', textLight: '#56616B',
-    blue: '#2E5F8A', bluePale: '#E6F0FA', blueDark: '#1A3D5C',
+    dark: '#15263A', gold: '#B4593A', cream: '#F6F1E9', white: '#ffffff',
+    border: '#E6E0D5', text: '#3D4A55', textLight: '#56616B',
+    blue: '#2E5F8A', bluePale: '#ffffff', blueDark: '#1A3D5C',
   };
 
   return (
-    <main style={{minHeight:'100vh', background:'#faf6f0', fontFamily:'inherit', overflowX:'hidden'}}>
+    <main style={{minHeight:'100vh', background:'#F6F1E9', fontFamily:'inherit', overflowX:'hidden'}}>
 
       <style>{`
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -55,7 +55,7 @@ export default function Home() {
       `}</style>
 
       {/* NAV */}
-      <nav style={{background:'#faf6f0', borderBottom:'none', position:'sticky', top:0, zIndex:50, padding:'0 40px', display:'flex', alignItems:'center', justifyContent:'space-between', height:'68px'}}>
+      <nav style={{background:'#F6F1E9', borderBottom:'none', position:'sticky', top:0, zIndex:50, padding:'0 40px', display:'flex', alignItems:'center', justifyContent:'space-between', height:'68px'}}>
         <div style={{display:'flex', alignItems:'center', gap:'48px'}}>
           <a href="/" style={{display:'flex', alignItems:'center', gap:'10px', textDecoration:'none'}}>
             <svg viewBox="0 0 300 300" width="34" height="34">
@@ -99,42 +99,42 @@ export default function Home() {
       )}
 
       {/* HERO */}
-      <section style={{background:'#faf6f0', padding:'24px 24px 0'}}>
+      <section style={{background:'#F6F1E9', padding:'24px 24px 0'}}>
         <div className="hero-2col" style={{background:'linear-gradient(135deg,#0a1f32 0%,#1A3D5C 50%,#1d4d72 100%)', borderRadius:'24px', position:'relative', overflow:'hidden', border:'1px solid rgba(255,255,255,0.06)'}}>
 
           {/* Cercles décoratifs */}
-          <div style={{position:'absolute', top:'-60px', right:'200px', width:'320px', height:'320px', borderRadius:'50%', background:'radial-gradient(circle,rgba(200,160,96,0.22) 0%,transparent 65%)', pointerEvents:'none'}}></div>
+          <div style={{position:'absolute', top:'-60px', right:'200px', width:'320px', height:'320px', borderRadius:'50%', background:'radial-gradient(circle,rgba(157,176,154,0.22) 0%,transparent 65%)', pointerEvents:'none'}}></div>
           <div style={{position:'absolute', bottom:'-80px', left:'-40px', width:'280px', height:'280px', borderRadius:'50%', background:'radial-gradient(circle,rgba(100,200,160,0.12) 0%,transparent 70%)', pointerEvents:'none'}}></div>
           <div style={{position:'absolute', top:'30px', right:'20px', width:'200px', height:'200px', borderRadius:'50%', background:'radial-gradient(circle,rgba(150,120,220,0.1) 0%,transparent 70%)', pointerEvents:'none'}}></div>
 
           {/* TEXTE GAUCHE */}
           <div style={{position:'relative', zIndex:1, padding:'8px 0'}}>
-            <div style={{display:'inline-flex', alignItems:'center', gap:'8px', background:'rgba(230,240,250,0.15)', border:'1px solid rgba(200,160,96,0.4)', borderRadius:'20px', padding:'5px 14px', marginBottom:'24px'}}>
+            <div style={{display:'inline-flex', alignItems:'center', gap:'8px', background:'rgba(230,240,250,0.15)', border:'1px solid rgba(157,176,154,0.4)', borderRadius:'20px', padding:'5px 14px', marginBottom:'24px'}}>
               <div style={{width:'6px', height:'6px', borderRadius:'50%', background:C.gold}}></div>
-              <span style={{color:C.gold, fontSize:'12px', fontWeight:700, letterSpacing:'1px'}}>Conçu pour les futurs pères</span>
+              <span style={{color:'#C9D8C4', fontSize:'12px', fontWeight:700, letterSpacing:'1px'}}>Conçu pour les futurs pères</span>
             </div>
 
             <h1 style={{color:C.white, fontSize:'clamp(28px,4vw,40px)', fontWeight:800, lineHeight:1.15, margin:'0 0 16px'}}>
-              Être père, ça commence<br/><span style={{color:C.gold}}>bien avant la naissance</span>
+              Être père, ça commence<br/><span style={{color:'#C9D8C4'}}>bien avant la naissance</span>
             </h1>
 
             <p style={{color:'rgba(255,255,255,0.95)', fontSize:'18px', fontWeight:700, lineHeight:1.6, margin:'0 0 8px'}}>
               Prends ta place de père
             </p>
-            <p style={{color:'rgba(255,255,255,0.5)', fontSize:'14px', lineHeight:1.7, margin:'0 0 32px'}}>
+            <p style={{color:'rgba(255,255,255,0.78)', fontSize:'14px', lineHeight:1.7, margin:'0 0 32px'}}>
               DadUp t&apos;accompagne semaine après semaine, de la grossesse au premier anniversaire de bébé.
             </p>
 
             <div style={{display:'flex', flexDirection:'column' as const, gap:'10px', maxWidth:'320px'}}>
-              <button onClick={goToStripe} style={{background:'linear-gradient(135deg,#c8a060,#e8c070)', color:'#1c1510', border:'none', padding:'16px 32px', borderRadius:'32px', fontSize:'16px', fontWeight:800, cursor:'pointer', textAlign:'center' as const, boxShadow:'0 6px 24px rgba(200,160,96,0.5),0 2px 8px rgba(0,0,0,0.2)'}}>
+              <button onClick={goToStripe} style={{background:'#B4593A', color:'#ffffff', border:'none', padding:'16px 32px', borderRadius:'32px', fontSize:'16px', fontWeight:800, cursor:'pointer', textAlign:'center' as const, boxShadow:'0 6px 24px rgba(157,176,154,0.5),0 2px 8px rgba(0,0,0,0.2)'}}>
                 Accéder
               </button>
               <div style={{display:'flex', alignItems:'center', gap:'8px'}}>
                 <div style={{flex:1, height:'1px', background:'rgba(255,255,255,0.1)'}}></div>
-                <span style={{color:'rgba(255,255,255,0.4)', fontSize:'12px'}}>Satisfait ou remboursé sous 14 jours</span>
+                <span style={{color:'rgba(255,255,255,0.78)', fontSize:'12px'}}>Satisfait ou remboursé sous 14 jours</span>
                 <div style={{flex:1, height:'1px', background:'rgba(255,255,255,0.1)'}}></div>
               </div>
-              <a href="/inclus" style={{color:'rgba(255,255,255,0.55)', fontSize:'13px', textAlign:'center' as const, textDecoration:'none'}}>Voir ce qui est inclus →</a>
+              <a href="/inclus" style={{color:'rgba(255,255,255,0.78)', fontSize:'13px', textAlign:'center' as const, textDecoration:'none'}}>Voir ce qui est inclus →</a>
             </div>
           </div>
 
@@ -142,11 +142,11 @@ export default function Home() {
           <style>{`.badge-item{transition:transform .2s ease}.badge-item:hover{transform:scale(1.04)}`}</style>
           <div style={{position:'relative', zIndex:1, display:'flex', flexDirection:'column' as const, gap:'10px', justifyContent:'center'}}>
             {[
-              {bg:'rgba(180,220,255,0.15)', border:'rgba(180,220,255,0.35)', iconBg:'#B8DCFF', iconColor:'#1A3D5C', textColor:'#B8DCFF', label:'41 semaines de contenu'},
-              {bg:'rgba(150,240,200,0.12)', border:'rgba(150,240,200,0.3)', iconBg:'#96F0C8', iconColor:'#0D4A2E', textColor:'#96F0C8', label:'Après la naissance inclus'},
-              {bg:'rgba(200,170,255,0.12)', border:'rgba(200,170,255,0.3)', iconBg:'#C8AAFF', iconColor:'#3D2E7A', textColor:'#C8AAFF', label:"Jusqu'au 1er anniversaire de bébé"},
-              {bg:'rgba(255,240,160,0.12)', border:'rgba(255,240,160,0.3)', iconBg:'#FFF0A0', iconColor:'#8A6010', textColor:'#FFF0A0', label:'Contenu médical sourcé'},
-              {bg:'rgba(200,255,240,0.12)', border:'rgba(100,220,200,0.3)', iconBg:'#A0FFE8', iconColor:'#006B55', textColor:'#A0FFE8', label:'Disponible sur web + mobile (PWA)'},
+              {bg:'rgba(255,255,255,0.07)', border:'rgba(255,255,255,0.16)', iconBg:'#DCE5D7', iconColor:'#2F4F3E', textColor:'#ffffff', label:'41 semaines de contenu'},
+              {bg:'rgba(255,255,255,0.07)', border:'rgba(255,255,255,0.16)', iconBg:'#DCE5D7', iconColor:'#2F4F3E', textColor:'#ffffff', label:'Après la naissance inclus'},
+              {bg:'rgba(255,255,255,0.07)', border:'rgba(255,255,255,0.16)', iconBg:'#DCE5D7', iconColor:'#2F4F3E', textColor:'#ffffff', label:"Jusqu'au 1er anniversaire de bébé"},
+              {bg:'rgba(255,255,255,0.07)', border:'rgba(255,255,255,0.16)', iconBg:'#DCE5D7', iconColor:'#2F4F3E', textColor:'#ffffff', label:'Contenu médical sourcé'},
+              {bg:'rgba(255,255,255,0.07)', border:'rgba(255,255,255,0.16)', iconBg:'#DCE5D7', iconColor:'#2F4F3E', textColor:'#ffffff', label:'Disponible sur web + mobile (PWA)'},
             ].map((b,i) => (
               <div key={i} className="badge-item" style={{background:b.bg, border:`1px solid ${b.border}`, borderRadius:'14px', padding:'14px 18px', display:'flex', alignItems:'center', gap:'12px', cursor:'default'}}>
                 <div style={{width:'30px', height:'30px', borderRadius:'50%', background:b.iconBg, display:'flex', alignItems:'center', justifyContent:'center', flexShrink:0, fontSize:'14px', color:b.iconColor, fontWeight:800}}>✓</div>
@@ -159,7 +159,7 @@ export default function Home() {
       </section>
 
       {/* SECTION CHIFFRES CLÉS : jaune pastel */}
-      <section style={{padding:'80px 40px', background:'#faf6f0'}}>
+      <section style={{padding:'80px 40px', background:'#F6F1E9'}}>
         <div style={{maxWidth:'1000px', margin:'0 auto'}}>
           <div style={{textAlign:'center', marginBottom:'48px'}}>
             <p style={{color:C.blue, fontSize:'12px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase' as const, margin:'0 0 16px'}}>Ce que DadUp couvre</p>
@@ -170,12 +170,12 @@ export default function Home() {
               {border:'rgba(180,220,255,0.25)', label:'La grossesse', lc:'#7ab8f0', title:'De la 3e à la 41e semaine', tc:'#B8DCFF', desc:"Chaque semaine expliquée côté papa : développement de bébé, ton rôle, ce qu'elle vit.", dc:'rgba(180,220,255,0.6)'},
               {border:'rgba(150,240,200,0.2)', label:"L'après-naissance", lc:'#5dd4a0', title:"Jusqu'au 1er anniversaire de bébé", tc:'#96F0C8', desc:'Les premiers mois, le développement de bébé, le baby blues, le couple. Tout est inclus.', dc:'rgba(150,240,200,0.6)'},
               {border:'rgba(200,170,255,0.2)', label:'Calendrier médical', lc:'#a888f0', title:'Chaque consultation préparée', tc:'#C8AAFF', desc:"Ce qu'on cherche à chaque rendez-vous, les bonnes questions à poser, comment être vraiment présent.", dc:'rgba(200,170,255,0.6)'},
-              {border:'rgba(255,240,160,0.25)', label:'Paiement unique', lc:'#e0b870', title:'Sans abonnement', tc:'#FFF0A0', desc:"Tu paies une fois, tu accèdes jusqu'au premier anniversaire de bébé. Pas de surprise.", dc:'rgba(255,240,160,0.6)'},
+              {border:'rgba(255,240,160,0.25)', label:'Paiement unique', lc:'#C9D8C4', title:'Sans abonnement', tc:'#FFF0A0', desc:"Tu paies une fois, tu accèdes jusqu'au premier anniversaire de bébé. Pas de surprise.", dc:'rgba(255,240,160,0.6)'},
             ].map((s,i) => (
               <div key={i} style={{background:'#ffffff', borderRadius:'20px', padding:'28px 32px', boxShadow:'0 8px 32px rgba(0,0,0,0.08)', border:'none'}}>
-                <p style={{color:'#c8a060', fontSize:'12px', fontWeight:700, letterSpacing:'2px', textTransform:'uppercase' as const, margin:'0 0 10px'}}>{s.label}</p>
-                <p style={{color:'#1e2535', fontSize:'15px', fontWeight:700, margin:'0 0 8px'}}>{s.title}</p>
-                <p style={{color:'#6a5020', fontSize:'13px', margin:0, lineHeight:1.65}}>{s.desc}</p>
+                <p style={{color:'#9C4A2E', fontSize:'12px', fontWeight:700, letterSpacing:'2px', textTransform:'uppercase' as const, margin:'0 0 10px'}}>{s.label}</p>
+                <p style={{color:'#15263A', fontSize:'15px', fontWeight:700, margin:'0 0 8px'}}>{s.title}</p>
+                <p style={{color:'#56616B', fontSize:'13px', margin:0, lineHeight:1.65}}>{s.desc}</p>
               </div>
             ))}
           </div>
@@ -194,29 +194,29 @@ export default function Home() {
           .auto-track { display:flex; gap:16px; width:max-content; animation:scrollLeft 22s linear infinite; }
           .auto-track:hover { animation-play-state:paused; }
           .auto-wrap { overflow:hidden; position:relative; background:transparent; padding:20px 0; }
-          .auto-wrap::before { content:''; position:absolute; left:0; top:0; bottom:0; width:120px; background:linear-gradient(to right,#faf6f0 20%,transparent); z-index:2; pointer-events:none; }
-          .auto-wrap::after { content:''; position:absolute; right:0; top:0; bottom:0; width:120px; background:linear-gradient(to left,#faf6f0 20%,transparent); z-index:2; pointer-events:none; }
+          .auto-wrap::before { content:''; position:absolute; left:0; top:0; bottom:0; width:120px; background:linear-gradient(to right,#F6F1E9 20%,transparent); z-index:2; pointer-events:none; }
+          .auto-wrap::after { content:''; position:absolute; right:0; top:0; bottom:0; width:120px; background:linear-gradient(to left,#F6F1E9 20%,transparent); z-index:2; pointer-events:none; }
           .auto-card { flex:0 0 300px; border-radius:20px; padding:28px; box-shadow:0 6px 24px rgba(0,0,0,0.1), 0 2px 6px rgba(0,0,0,0.05); transition:transform .25s ease,box-shadow .25s ease; cursor:default; } .auto-card:hover { transform:translateY(-6px); box-shadow:0 18px 44px rgba(0,0,0,0.15), 0 4px 10px rgba(0,0,0,0.07); }
         `}</style>
         <div className="auto-wrap">
           <div className="auto-track">
             {[
-              {titre:"Les échographies", desc:"À quoi servent T1, T2, T3 ? Ce qu'on cherche, ce que tu dois demander, comment être vraiment présent.", bg:C.bluePale, color:C.blueDark},
-              {titre:"La valise maternité", desc:"Checklist interactive. Ce qu'elle emporte, ce que tu prends pour toi, ce que tout le monde oublie.", bg:'#E4F5EC', color:'#0A2E1A'},
-              {titre:"L'accouchement", desc:"La règle 5-1-1. Quand partir. Ce que tu fais en salle de naissance. Péri ou pas.", bg:'#FFF7E0', color:'#3A2800'},
-              {titre:"Le baby blues", desc:"50 à 80% des femmes le vivent. Pas une dépression. Ce que c'est, comment tu peux vraiment aider.", bg:'#F0EEFF', color:'#3030A0'},
-              {titre:"Le congé paternité", desc:"28 jours. Comment les poser, quand les prendre, ce que ça change vraiment pour votre famille.", bg:'#E4F5EC', color:'#0A2E1A'},
-              {titre:"Le post-partum", desc:"Baby blues, reprise du travail, nuits sans sommeil. Ton rôle les premières semaines.", bg:C.bluePale, color:C.blueDark},
-              {titre:"Les échographies", desc:"À quoi servent T1, T2, T3 ? Ce qu'on cherche, ce que tu dois demander, comment être vraiment présent.", bg:C.bluePale, color:C.blueDark},
-              {titre:"La valise maternité", desc:"Checklist interactive. Ce qu'elle emporte, ce que tu prends pour toi, ce que tout le monde oublie.", bg:'#E4F5EC', color:'#0A2E1A'},
-              {titre:"L'accouchement", desc:"La règle 5-1-1. Quand partir. Ce que tu fais en salle de naissance. Péri ou pas.", bg:'#FFF7E0', color:'#3A2800'},
-              {titre:"Le baby blues", desc:"50 à 80% des femmes le vivent. Pas une dépression. Ce que c'est, comment tu peux vraiment aider.", bg:'#F0EEFF', color:'#3030A0'},
-              {titre:"Le congé paternité", desc:"28 jours. Comment les poser, quand les prendre, ce que ça change vraiment pour votre famille.", bg:'#E4F5EC', color:'#0A2E1A'},
-              {titre:"Le post-partum", desc:"Baby blues, reprise du travail, nuits sans sommeil. Ton rôle les premières semaines.", bg:C.bluePale, color:C.blueDark},
+              {titre:"Les échographies", desc:"À quoi servent T1, T2, T3 ? Ce qu'on cherche, ce que tu dois demander, comment être vraiment présent.", bg:'#ffffff', color:'#15263A'},
+              {titre:"La valise maternité", desc:"Checklist interactive. Ce qu'elle emporte, ce que tu prends pour toi, ce que tout le monde oublie.", bg:'#ffffff', color:'#15263A'},
+              {titre:"L'accouchement", desc:"La règle 5-1-1. Quand partir. Ce que tu fais en salle de naissance. Péri ou pas.", bg:'#ffffff', color:'#15263A'},
+              {titre:"Le baby blues", desc:"50 à 80% des femmes le vivent. Pas une dépression. Ce que c'est, comment tu peux vraiment aider.", bg:'#ffffff', color:'#15263A'},
+              {titre:"Le congé paternité", desc:"28 jours. Comment les poser, quand les prendre, ce que ça change vraiment pour votre famille.", bg:'#ffffff', color:'#15263A'},
+              {titre:"Le post-partum", desc:"Baby blues, reprise du travail, nuits sans sommeil. Ton rôle les premières semaines.", bg:'#ffffff', color:'#15263A'},
+              {titre:"Les échographies", desc:"À quoi servent T1, T2, T3 ? Ce qu'on cherche, ce que tu dois demander, comment être vraiment présent.", bg:'#ffffff', color:'#15263A'},
+              {titre:"La valise maternité", desc:"Checklist interactive. Ce qu'elle emporte, ce que tu prends pour toi, ce que tout le monde oublie.", bg:'#ffffff', color:'#15263A'},
+              {titre:"L'accouchement", desc:"La règle 5-1-1. Quand partir. Ce que tu fais en salle de naissance. Péri ou pas.", bg:'#ffffff', color:'#15263A'},
+              {titre:"Le baby blues", desc:"50 à 80% des femmes le vivent. Pas une dépression. Ce que c'est, comment tu peux vraiment aider.", bg:'#ffffff', color:'#15263A'},
+              {titre:"Le congé paternité", desc:"28 jours. Comment les poser, quand les prendre, ce que ça change vraiment pour votre famille.", bg:'#ffffff', color:'#15263A'},
+              {titre:"Le post-partum", desc:"Baby blues, reprise du travail, nuits sans sommeil. Ton rôle les premières semaines.", bg:'#ffffff', color:'#15263A'},
             ].map((item, i) => (
               <div key={i} className="auto-card" style={{background:item.bg}}>
                 <p style={{color:item.color, fontSize:'15px', fontWeight:800, margin:'0 0 10px'}}>{item.titre}</p>
-                <p style={{color:item.color, fontSize:'13px', lineHeight:1.65, margin:0, opacity:0.8}}>{item.desc}</p>
+                <p style={{color:'#56616B', fontSize:'13px', lineHeight:1.65, margin:0}}>{item.desc}</p>
               </div>
             ))}
           </div>
@@ -224,18 +224,18 @@ export default function Home() {
       </section>
 
                         {/* SAVOIR AVANT + CTA : section fusionnée */}
-      <section style={{padding:'80px 40px', background:'#faf6f0'}}>
+      <section style={{padding:'80px 40px', background:'#F6F1E9'}}>
         <div style={{maxWidth:'720px', margin:'0 auto', textAlign:'center' as const}}>
           {/* Savoir avant : sur le fond crème directement */}
           <div style={{marginBottom:'72px'}}>
-            <p style={{color:C.gold, fontSize:'12px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase' as const, margin:'0 0 20px'}}>Ce que tu peux changer</p>
+            <p style={{color:'#9C4A2E', fontSize:'12px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase' as const, margin:'0 0 20px'}}>Ce que tu peux changer</p>
             <h2 style={{color:C.dark, fontSize:'40px', fontWeight:800, lineHeight:1.2, margin:'0 0 20px'}}>
-              Savoir ce qui se passe<br/><span style={{color:C.gold}}>avant qu&apos;on te l&apos;explique</span>
+              Savoir ce qui se passe<br/><span style={{color:'#B4593A'}}>avant qu&apos;on te l&apos;explique</span>
             </h2>
             <p style={{color:C.text, fontSize:'17px', lineHeight:1.8, margin:'0 auto 32px', maxWidth:'520px'}}>
               Un père qui comprend prend de meilleures décisions. Il est plus calme le jour J. Il sait quoi faire, et quand le faire.
             </p>
-            <a href="/pourquoi" style={{display:'inline-flex', alignItems:'center', gap:'8px', color:C.dark, fontSize:'15px', fontWeight:700, textDecoration:'none', borderBottom:`2px solid ${C.gold}`, paddingBottom:'2px'}}>
+            <a href="/pourquoi" style={{display:'inline-flex', alignItems:'center', gap:'8px', color:C.dark, fontSize:'15px', fontWeight:700, textDecoration:'none', borderBottom:`2px solid #B4593A`, paddingBottom:'2px'}}>
               Pourquoi ça change tout →
             </a>
           </div>
@@ -246,20 +246,20 @@ export default function Home() {
         <div style={{borderRadius:'24px', padding:'72px 48px', position:'relative', overflow:'hidden', textAlign:'center' as const, maxWidth:'1200px', margin:'0 auto'}}>
           <img src="/main.jpg" alt="Papa et bébé" style={{position:'absolute', top:0, left:0, width:'100%', height:'100%', objectFit:'cover', objectPosition:'center 60%', display:'block'}}/>
           <div style={{position:'absolute', top:0, left:0, right:0, bottom:0, background:'linear-gradient(135deg,rgba(10,31,50,0.93) 0%,rgba(26,61,92,0.88) 50%,rgba(29,77,114,0.82) 100%)'}}></div>
-          <div style={{position:'absolute', top:'-60px', right:'100px', width:'320px', height:'320px', borderRadius:'50%', background:'radial-gradient(circle,rgba(200,160,96,0.22) 0%,transparent 65%)', pointerEvents:'none'}}></div>
+          <div style={{position:'absolute', top:'-60px', right:'100px', width:'320px', height:'320px', borderRadius:'50%', background:'radial-gradient(circle,rgba(157,176,154,0.22) 0%,transparent 65%)', pointerEvents:'none'}}></div>
           <div style={{position:'absolute', bottom:'-60px', left:'-40px', width:'280px', height:'280px', borderRadius:'50%', background:'radial-gradient(circle,rgba(100,200,160,0.1) 0%,transparent 70%)', pointerEvents:'none'}}></div>
           <div style={{position:'relative', zIndex:1, maxWidth:'520px', margin:'0 auto'}}>
-            <div style={{display:'inline-flex', alignItems:'center', gap:'8px', background:'rgba(200,160,96,0.18)', border:'1px solid rgba(200,160,96,0.5)', borderRadius:'20px', padding:'5px 14px', marginBottom:'24px'}}>
-              <div style={{width:'7px', height:'7px', borderRadius:'50%', background:'#c8a060', boxShadow:'0 0 8px rgba(200,160,96,0.9)'}}></div>
-              <span style={{color:'#e0b870', fontSize:'12px', fontWeight:700, letterSpacing:'1px'}}>Accès immédiat</span>
+            <div style={{display:'inline-flex', alignItems:'center', gap:'8px', background:'rgba(157,176,154,0.18)', border:'1px solid rgba(157,176,154,0.5)', borderRadius:'20px', padding:'5px 14px', marginBottom:'24px'}}>
+              <div style={{width:'7px', height:'7px', borderRadius:'50%', background:'#9DB09A', boxShadow:'0 0 8px rgba(157,176,154,0.9)'}}></div>
+              <span style={{color:'#C9D8C4', fontSize:'12px', fontWeight:700, letterSpacing:'1px'}}>Accès immédiat</span>
             </div>
 <p style={{color:'rgba(255,255,255,0.9)', fontSize:'28px', fontWeight:800, margin:'0 0 32px', lineHeight:1.3}}>
               À deux, dès le premier jour
             </p>
-            <button onClick={goToStripe} style={{background:'linear-gradient(135deg,#c8a060,#e8c070)', color:'#1c1510', border:'none', padding:'20px 56px', borderRadius:'32px', fontSize:'18px', fontWeight:800, cursor:'pointer', display:'block', margin:'0 auto 14px', boxShadow:'0 8px 32px rgba(200,160,96,0.5), 0 2px 8px rgba(0,0,0,0.2)'}}>
+            <button onClick={goToStripe} style={{background:'#B4593A', color:'#ffffff', border:'none', padding:'20px 56px', borderRadius:'32px', fontSize:'18px', fontWeight:800, cursor:'pointer', display:'block', margin:'0 auto 14px', boxShadow:'0 8px 32px rgba(157,176,154,0.5), 0 2px 8px rgba(0,0,0,0.2)'}}>
               Commencer
             </button>
-            <p style={{color:'rgba(255,255,255,0.35)', fontSize:'13px', margin:0}}>Paiement unique · Satisfait ou remboursé sous 14 jours</p>
+            <p style={{color:'rgba(255,255,255,0.78)', fontSize:'13px', margin:0}}>Paiement unique · Satisfait ou remboursé sous 14 jours</p>
           </div>
         </div>
       </section>
@@ -274,16 +274,16 @@ export default function Home() {
               <ellipse cx="150" cy="196" rx="27" ry="31" fill="#faf6f0"/><circle cx="150" cy="128" r="26" fill="#faf6f0"/>
             </svg>
             <span style={{color:'rgba(255,255,255,0.9)', fontSize:'16px', fontWeight:700}}>DadUp</span>
-            <span style={{color:'rgba(255,255,255,0.45)', fontSize:'13px', marginLeft:'12px', fontStyle:'italic' as const}}>À deux, dès le premier jour</span>
+            <span style={{color:'rgba(255,255,255,0.78)', fontSize:'13px', marginLeft:'12px', fontStyle:'italic' as const}}>À deux, dès le premier jour</span>
           </div>
           <div style={{display:'flex', gap:'20px', flexWrap:'wrap' as const}}>
             {[['Pourquoi DadUp','/pourquoi'],['Ce qui est inclus','/inclus'],['Tarifs','/tarifs'],['Professionnels','/professionnels'],['Sources','/sources'],['Contact','/contact']].map(([label,href]) => (
-              <a key={href} href={href} style={{color:'rgba(255,255,255,0.55)', fontSize:'13px', textDecoration:'none'}}>{label}</a>
+              <a key={href} href={href} style={{color:'rgba(255,255,255,0.78)', fontSize:'13px', textDecoration:'none'}}>{label}</a>
             ))}
           </div>
           <div style={{display:'flex', gap:'16px'}}>
             {[['CGV','/cgv'],['Confidentialité','/confidentialite'],['Mentions légales','/mentions-legales']].map(([label,href]) => (
-              <a key={href} href={href} style={{color:'rgba(255,255,255,0.35)', fontSize:'12px', textDecoration:'none'}}>{label}</a>
+              <a key={href} href={href} style={{color:'rgba(255,255,255,0.78)', fontSize:'12px', textDecoration:'none'}}>{label}</a>
             ))}
           </div>
         </div>

@@ -3,9 +3,9 @@ import React, { useState } from 'react';
 import CheckoutModal from '@/app/components/CheckoutModal';
 
 const C = {
-  dark: '#1e2535', gold: '#c8a060', cream: '#faf6f0', white: '#ffffff',
-  border: '#e8e0d0', text: '#4a5568', textLight: '#56616B',
-  blue: '#2E5F8A', bluePale: '#E6F0FA', blueDark: '#1A3D5C',
+  dark: '#15263A', gold: '#B4593A', cream: '#F6F1E9', white: '#ffffff',
+  border: '#E6E0D5', text: '#3D4A55', textLight: '#56616B',
+  blue: '#2E5F8A', bluePale: '#ffffff', blueDark: '#1A3D5C',
 };
 
 const FEATURES = [
@@ -27,7 +27,7 @@ function FaqItem({ question, reponse }: { question: string; reponse: string }) {
         style={{ width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '20px 24px', background: 'none', border: 'none', cursor: 'pointer', textAlign: 'left' as const }}
       >
         <span style={{ color: '#1e2535', fontSize: '15px', fontWeight: 600, lineHeight: 1.5 }}>{question}</span>
-        <span style={{ color: '#c8a060', fontSize: '20px', flexShrink: 0, marginLeft: '16px', fontWeight: 300 }}>{open ? '−' : '+'}</span>
+        <span aria-hidden="true" style={{ color: '#9C4A2E', fontSize: '22px', flexShrink: 0, marginLeft: '16px', fontWeight: 400 }}>{open ? '−' : '+'}</span>
       </button>
       {open && (
         <div style={{ padding: '0 24px 20px' }}>
@@ -44,7 +44,7 @@ export default function TarifsPage() {
   const goToStripe = () => setShowModal(true);
 
   return (
-    <main style={{ minHeight: '100vh', background: '#faf6f0', fontFamily: 'inherit' }}>
+    <main style={{ minHeight: '100vh', background: '#F6F1E9', fontFamily: 'inherit' }}>
       <style>{`
         *{box-sizing:border-box;margin:0;padding:0;}
         .nl{display:flex;}.nc{display:flex;}
@@ -67,7 +67,7 @@ export default function TarifsPage() {
       `}</style>
 
             {/* NAV */}
-      <nav style={{background:'#faf6f0', borderBottom:'none', position:'sticky', top:0, zIndex:50, padding:'0 40px', display:'flex', alignItems:'center', justifyContent:'space-between', height:'68px'}}>
+      <nav style={{background:'#F6F1E9', borderBottom:'none', position:'sticky', top:0, zIndex:50, padding:'0 40px', display:'flex', alignItems:'center', justifyContent:'space-between', height:'68px'}}>
         <div style={{display:'flex', alignItems:'center', gap:'48px'}}>
           <a href="/" style={{display:'flex', alignItems:'center', gap:'10px', textDecoration:'none'}}>
             <svg viewBox="0 0 300 300" width="34" height="34">
@@ -98,7 +98,7 @@ export default function TarifsPage() {
         </button>
       </nav>
 {menuOpen && (
-        <div className="mobile-nav" style={{ flexDirection: 'column', background: '#faf6f0', borderBottom: 'none', padding: '16px 20px', gap: '4px', position: 'sticky', top: '68px', zIndex: 49 }}>
+        <div className="mobile-nav" style={{ flexDirection: 'column', background: '#F6F1E9', borderBottom: 'none', padding: '16px 20px', gap: '4px', position: 'sticky', top: '68px', zIndex: 49 }}>
           <a href="/pourquoi" style={{ color: C.text, fontSize: '15px', fontWeight: 500, padding: '10px 8px', textDecoration: 'none', borderBottom: `1px solid ${C.cream}` }}>Pourquoi DadUp</a>
           <a href="/inclus" style={{ color: C.text, fontSize: '15px', fontWeight: 500, padding: '10px 8px', textDecoration: 'none', borderBottom: `1px solid ${C.cream}` }}>Ce qui est inclus</a>
           <a href="/tarifs" style={{ color: C.text, fontSize: '15px', fontWeight: 500, padding: '10px 8px', textDecoration: 'none', borderBottom: `1px solid ${C.cream}` }}>Tarifs</a>
@@ -110,9 +110,9 @@ export default function TarifsPage() {
       {/* HERO */}
       <section className="hero" style={{ background: 'linear-gradient(135deg,#0a1f32 0%,#1A3D5C 50%,#1d4d72 100%)', padding: '72px 40px' }}>
         <div style={{ maxWidth: '760px', margin: '0 auto', textAlign: 'center' }}>
-          <p style={{ color: C.gold, fontSize: '12px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase', margin: '0 0 20px' }}>Tarifs</p>
+          <p style={{ color: '#C9D8C4', fontSize: '12px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase', margin: '0 0 20px' }}>Tarifs</p>
           <h1 style={{ color: C.white, fontSize: '44px', fontWeight: 800, margin: '0 0 16px', lineHeight: 1.1 }}>
-            Une offre claire, <span style={{ color: C.gold }}>un prix unique</span>
+            Une offre claire, <span style={{ color: '#C9D8C4' }}>un prix unique</span>
           </h1>
           <p style={{ color: 'rgba(255,255,255,0.78)', fontSize: '17px', lineHeight: 1.7, margin: 0 }}>Tout est inclus. Rien de caché</p>
         </div>
@@ -124,13 +124,13 @@ export default function TarifsPage() {
 
           {/* COLONNE GAUCHE, carte prix */}
           <div style={{ background: 'linear-gradient(135deg,#0a1f32 0%,#1A3D5C 50%,#1d4d72 100%)', borderRadius: '24px', padding: '40px', display: 'flex', flexDirection: 'column', height: '100%', position: 'relative', overflow: 'hidden' }}>
-            <div style={{ position: 'absolute', top: '-40px', right: '-40px', width: '200px', height: '200px', borderRadius: '50%', background: 'radial-gradient(circle,rgba(200,160,96,0.25) 0%,transparent 65%)', pointerEvents: 'none' }}></div>
+            <div style={{ position: 'absolute', top: '-40px', right: '-40px', width: '200px', height: '200px', borderRadius: '50%', background: 'radial-gradient(circle,rgba(157,176,154,0.25) 0%,transparent 65%)', pointerEvents: 'none' }}></div>
             <div style={{ position: 'absolute', bottom: '-40px', left: '-20px', width: '180px', height: '180px', borderRadius: '50%', background: 'radial-gradient(circle,rgba(100,200,160,0.12) 0%,transparent 70%)', pointerEvents: 'none' }}></div>
-            <p style={{ color: C.gold, fontSize: '12px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase', margin: '0 0 20px', position: 'relative', zIndex: 1 }}>Accès annuel complet</p>
+            <p style={{ color: '#C9D8C4', fontSize: '12px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase', margin: '0 0 20px', position: 'relative', zIndex: 1 }}>Accès annuel complet</p>
             <div style={{ marginBottom: '6px', position: 'relative', zIndex: 1 }}>
               <span style={{ color: C.white, fontSize: '68px', fontWeight: 800, lineHeight: 1 }}>49,99€</span>
             </div>
-            <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '14px', margin: '0 0 36px', position: 'relative', zIndex: 1 }}>accès complet · paiement unique · accès immédiat</p>
+            <p style={{ color: 'rgba(255,255,255,0.78)', fontSize: '14px', margin: '0 0 36px', position: 'relative', zIndex: 1 }}>accès complet · paiement unique · accès immédiat</p>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '36px', flex: 1 }}>
               {FEATURES.map(f => (
@@ -141,25 +141,25 @@ export default function TarifsPage() {
               ))}
             </div>
 
-            <button onClick={goToStripe} style={{ background: 'linear-gradient(135deg,#c8a060,#e8c070)', color: '#1c1510', border: 'none', padding: '16px', borderRadius: '32px', fontSize: '15px', fontWeight: 800, cursor: 'pointer', width: '100%', marginBottom: '10px' }}>
+            <button onClick={goToStripe} style={{ background: '#B4593A', color: '#ffffff', border: 'none', padding: '16px', borderRadius: '32px', fontSize: '15px', fontWeight: 800, cursor: 'pointer', width: '100%', marginBottom: '10px' }}>
               Commencer
             </button>
-            <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '12px', textAlign: 'center', margin: 0 }}>Paiement sécurisé par Stripe</p>
-            <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '12px', margin: '6px 0 0', textAlign: 'center' }}>Satisfait ou remboursé sous 14 jours</p>
+            <p style={{ color: 'rgba(255,255,255,0.78)', fontSize: '12px', textAlign: 'center', margin: 0 }}>Paiement sécurisé par Stripe</p>
+            <p style={{ color: 'rgba(255,255,255,0.78)', fontSize: '12px', margin: '6px 0 0', textAlign: 'center' }}>Satisfait ou remboursé sous 14 jours</p>
           </div>
 
           {/* COLONNE DROITE, infos */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', height: '100%', boxSizing: 'border-box' }}>
 
             {/* À SAVOIR */}
-            <div style={{ background: 'rgba(200,232,255,0.3)', borderRadius: '24px', padding: '36px', boxShadow: '0 12px 40px rgba(46,95,138,0.15)', border: '1px solid rgba(46,95,138,0.15)' }}>
+            <div style={{ background:'#ffffff', borderRadius: '24px', padding: '36px', boxShadow: '0 12px 40px rgba(46,95,138,0.15)', border: '1px solid rgba(46,95,138,0.15)' }}>
               <p style={{ color: '#1A3D5C', fontSize: '12px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase', margin: '0 0 16px' }}>À savoir</p>
               <p style={{ color: '#0a1f32', fontSize: '17px', fontWeight: 800, margin: '0 0 12px', lineHeight: 1.4 }}>DadUp ne remplace pas ton médecin ni ta sage-femme</p>
               <p style={{ color: '#1A3D5C', fontSize: '15px', lineHeight: 1.75, margin: 0 }}>C&apos;est un outil de préparation et d&apos;information, conçu pour que tu arrives à chaque étape en sachant ce qui t&apos;attend</p>
             </div>
 
             {/* INFOS PRATIQUES */}
-            <div style={{ background: 'rgba(200,232,255,0.2)', borderRadius: '24px', padding: '36px', boxShadow: '0 12px 40px rgba(46,95,138,0.12)', border: '1px solid rgba(46,95,138,0.12)', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+            <div style={{ background:'#ffffff', borderRadius: '24px', padding: '36px', boxShadow: '0 12px 40px rgba(46,95,138,0.12)', border: '1px solid rgba(46,95,138,0.12)', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
               <p style={{ color: '#1A3D5C', fontSize: '12px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase', margin: '0 0 20px' }}>Informations pratiques</p>
               <div style={{ display: 'flex', flexDirection: 'column' }}>
                 {[
@@ -226,14 +226,14 @@ export default function TarifsPage() {
       </section>
 
       {/* CTA BAS */}
-      <section style={{ padding: '40px', background: '#faf6f0' }}>
+      <section style={{ padding: '40px', background: '#F6F1E9' }}>
         <div style={{ background: 'linear-gradient(135deg,#0a1f32 0%,#1A3D5C 50%,#1d4d72 100%)', borderRadius: '24px', padding: '72px 48px', position: 'relative', overflow: 'hidden', textAlign: 'center' as const, maxWidth: '1100px', margin: '0 auto' }}>
-          <div style={{ position: 'absolute', top: '-60px', right: '100px', width: '320px', height: '320px', borderRadius: '50%', background: 'radial-gradient(circle,rgba(200,160,96,0.22) 0%,transparent 65%)', pointerEvents: 'none' }}></div>
+          <div style={{ position: 'absolute', top: '-60px', right: '100px', width: '320px', height: '320px', borderRadius: '50%', background: 'radial-gradient(circle,rgba(157,176,154,0.22) 0%,transparent 65%)', pointerEvents: 'none' }}></div>
           <div style={{ position: 'relative', zIndex: 1 }}>
         <h2 style={{ color: C.white, fontSize: '40px', fontWeight: 800, margin: '0 0 8px' }}>Tout est là. Il ne manque plus que toi</h2>
-        <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '15px', margin: '0 0 32px' }}>Paiement unique · accès immédiat</p>
-        <p style={{ color: '#e0b870', fontSize: '56px', fontWeight: 800, margin: '0 0 24px', lineHeight: 1 }}>49,99€</p>
-          <button onClick={goToStripe} style={{ background: 'linear-gradient(135deg,#c8a060,#e8c070)', color: '#1c1510', border: 'none', padding: '20px 56px', borderRadius: '32px', fontSize: '20px', fontWeight: 800, cursor: 'pointer', boxShadow: '0 8px 32px rgba(200,160,96,0.5)' }}>
+        <p style={{ color: 'rgba(255,255,255,0.78)', fontSize: '15px', margin: '0 0 32px' }}>Paiement unique · accès immédiat</p>
+        <p style={{ color: '#C9D8C4', fontSize: '56px', fontWeight: 800, margin: '0 0 24px', lineHeight: 1 }}>49,99€</p>
+          <button onClick={goToStripe} style={{ background: '#B4593A', color: '#ffffff', border: 'none', padding: '20px 56px', borderRadius: '32px', fontSize: '20px', fontWeight: 800, cursor: 'pointer', boxShadow: '0 8px 32px rgba(157,176,154,0.5)' }}>
             Accéder
           </button>
           </div>

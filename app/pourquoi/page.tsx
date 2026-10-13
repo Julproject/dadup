@@ -3,9 +3,9 @@ import { useState } from 'react';
 import CheckoutModal from '@/app/components/CheckoutModal';
 
 const C = {
-  dark: '#1e2535', gold: '#c8a060', cream: '#faf6f0', white: '#ffffff',
-  border: '#e8e0d0', text: '#4a5568', textLight: '#56616B',
-  blue: '#2E5F8A', bluePale: '#E6F0FA', blueDark: '#1A3D5C',
+  dark: '#15263A', gold: '#B4593A', cream: '#F6F1E9', white: '#ffffff',
+  border: '#E6E0D5', text: '#3D4A55', textLight: '#56616B',
+  blue: '#2E5F8A', bluePale: '#ffffff', blueDark: '#1A3D5C',
 };
 
 export default function PourquoiPage() {
@@ -42,7 +42,7 @@ export default function PourquoiPage() {
             <span style={{fontWeight:800, color:C.dark, fontSize:'20px'}}>DadUp</span>
           </a>
           <div className="nl" style={{gap:'4px'}}>
-            <a href="/pourquoi" style={{color:C.dark, fontSize:'14px', fontWeight:700, padding:'8px 14px', borderRadius:'8px', textDecoration:'none', borderBottom:`2px solid ${C.gold}`}}>Pourquoi DadUp</a>
+            <a href="/pourquoi" style={{color:C.dark, fontSize:'14px', fontWeight:700, padding:'8px 14px', borderRadius:'8px', textDecoration:'none', borderBottom:`2px solid #B4593A`}}>Pourquoi DadUp</a>
             <a href="/inclus" style={{color:C.dark, fontSize:'14px', fontWeight:700, padding:'8px 14px', textDecoration:'none'}}>Ce qui est inclus</a>
             <a href="/tarifs" style={{color:C.dark, fontSize:'14px', fontWeight:700, padding:'8px 14px', textDecoration:'none'}}>Tarifs</a>
             <a href="/contact" style={{color:C.dark, fontSize:'14px', fontWeight:700, padding:'8px 14px', textDecoration:'none'}}>Contact</a>
@@ -69,15 +69,15 @@ export default function PourquoiPage() {
 
       {/* HERO */}
       <section style={{background:'linear-gradient(135deg,#0a1f32 0%,#1A3D5C 50%,#1d4d72 100%)', padding:'80px 40px', position:'relative', overflow:'hidden'}}>
-        <div style={{position:'absolute', top:'-60px', right:'100px', width:'320px', height:'320px', borderRadius:'50%', background:'radial-gradient(circle,rgba(200,160,96,0.22) 0%,transparent 65%)', pointerEvents:'none'}}></div>
+        <div style={{position:'absolute', top:'-60px', right:'100px', width:'320px', height:'320px', borderRadius:'50%', background:'radial-gradient(circle,rgba(157,176,154,0.22) 0%,transparent 65%)', pointerEvents:'none'}}></div>
         <div style={{position:'absolute', bottom:'-60px', left:'-40px', width:'280px', height:'280px', borderRadius:'50%', background:'radial-gradient(circle,rgba(100,200,160,0.1) 0%,transparent 70%)', pointerEvents:'none'}}></div>
         <div style={{maxWidth:'800px', margin:'0 auto', textAlign:'center' as const, position:'relative', zIndex:1}}>
-          <div style={{display:'inline-flex', alignItems:'center', gap:'8px', background:'rgba(200,160,96,0.18)', border:'1px solid rgba(200,160,96,0.5)', borderRadius:'20px', padding:'5px 14px', marginBottom:'24px'}}>
-            <div style={{width:'7px', height:'7px', borderRadius:'50%', background:'#c8a060', boxShadow:'0 0 8px rgba(200,160,96,0.9)'}}></div>
-            <span style={{color:'#e0b870', fontSize:'12px', fontWeight:700, letterSpacing:'1px'}}>Pourquoi DadUp</span>
+          <div style={{display:'inline-flex', alignItems:'center', gap:'8px', background:'rgba(157,176,154,0.18)', border:'1px solid rgba(157,176,154,0.5)', borderRadius:'20px', padding:'5px 14px', marginBottom:'24px'}}>
+            <div style={{width:'7px', height:'7px', borderRadius:'50%', background:'#9DB09A', boxShadow:'0 0 8px rgba(157,176,154,0.9)'}}></div>
+            <span style={{color:'#C9D8C4', fontSize:'12px', fontWeight:700, letterSpacing:'1px'}}>Pourquoi DadUp</span>
           </div>
           <h1 style={{color:C.white, fontSize:'44px', fontWeight:800, margin:'0 0 20px', lineHeight:1.1}}>
-            Être père,<br/><span style={{color:'#e0b870'}}>ça se prépare</span>
+            Être père,<br/><span style={{color:'#C9D8C4'}}>ça se prépare</span>
           </h1>
           <p style={{color:'rgba(255,255,255,0.75)', fontSize:'18px', lineHeight:1.7, margin:'0 0 0px'}}>DadUp est le premier guide conçu exclusivement pour le papa.</p>
         </div>
@@ -102,9 +102,9 @@ export default function PourquoiPage() {
             <div key={i} style={{background:'#fff', borderRadius:'16px', padding:'20px 24px', display:'grid', gridTemplateColumns:'1fr 1fr', gap:'16px', alignItems:'center', boxShadow:'0 6px 24px rgba(0,0,0,0.07)'}}>
               <div style={{display:'flex', alignItems:'center', gap:'12px'}}>
                 <div style={{width:'28px', height:'28px', borderRadius:'50%', background:'rgba(255,232,232,0.6)', display:'flex', alignItems:'center', justifyContent:'center', flexShrink:0}}>
-                  <span style={{color:'rgba(192,74,26,0.6)', fontSize:'13px', fontWeight:800}}>✗</span>
+                  <span style={{color:'#9C4A2E', fontSize:'13px', fontWeight:800}}>✗</span>
                 </div>
-                <p style={{color:'rgba(192,74,26,0.7)', fontSize:'15px', fontWeight:600, margin:0}}>{item.sans}</p>
+                <p style={{color:'#9C4A2E', fontSize:'15px', fontWeight:600, margin:0}}>{item.sans}</p>
               </div>
 
               <div style={{display:'flex', alignItems:'center', gap:'12px'}}>
@@ -128,16 +128,16 @@ export default function PourquoiPage() {
           </div>
           <div className="sources-grid">
             {[
-              {sigle:'HAS', nom:'Haute Autorité de Santé', color:'#003189'},
-              {sigle:'OMS', nom:'Organisation Mondiale de la Santé', color:'#007BAD'},
-              {sigle:'ESPGHAN', nom:'Société Européenne de Gastroentérologie Pédiatrique', color:'#5B2D8E'},
-              {sigle:'Inserm', nom:'Institut national de la santé et de la recherche médicale', color:'#A0002E'},
+              {sigle:'HAS', nom:'Haute Autorité de Santé', color:'#1A3D5C'},
+              {sigle:'OMS', nom:'Organisation Mondiale de la Santé', color:'#1A3D5C'},
+              {sigle:'ESPGHAN', nom:'Société Européenne de Gastroentérologie Pédiatrique', color:'#1A3D5C'},
+              {sigle:'Inserm', nom:'Institut national de la santé et de la recherche médicale', color:'#1A3D5C'},
             ].map((s,i) => (
-              <div key={i} className="card-hover" style={{background:'rgba(221,208,255,0.25)', border:'1px solid rgba(107,79,187,0.2)', borderRadius:'16px', padding:'24px', textAlign:'center' as const, boxShadow:'0 6px 24px rgba(107,79,187,0.1)'}}>
+              <div key={i} className="card-hover" style={{background:'#ffffff', border:'1px solid rgba(21,38,58,0.2)', borderRadius:'16px', padding:'24px', textAlign:'center' as const, boxShadow:'0 6px 24px rgba(21,38,58,0.1)'}}>
                 <div style={{background:s.color, color:'#fff', borderRadius:'10px', padding:'8px 14px', fontSize:'16px', fontWeight:800, display:'inline-block', marginBottom:'12px', boxShadow:`0 4px 12px ${s.color}40`}}>
                   {s.sigle}
                 </div>
-                <p style={{color:'#3D2E7A', fontSize:'12px', lineHeight:1.5, fontWeight:600}}>{s.nom}</p>
+                <p style={{color:'#15263A', fontSize:'12px', lineHeight:1.5, fontWeight:600}}>{s.nom}</p>
               </div>
             ))}
           </div>
@@ -150,22 +150,22 @@ export default function PourquoiPage() {
       {/* CTA */}
       <section style={{padding:'40px', background:C.cream}}>
         <div style={{background:'linear-gradient(135deg,#0a1f32 0%,#1A3D5C 50%,#1d4d72 100%)', borderRadius:'24px', padding:'72px 48px', position:'relative', overflow:'hidden', textAlign:'center' as const}}>
-          <div style={{position:'absolute', top:'-60px', right:'100px', width:'320px', height:'320px', borderRadius:'50%', background:'radial-gradient(circle,rgba(200,160,96,0.22) 0%,transparent 65%)', pointerEvents:'none'}}></div>
+          <div style={{position:'absolute', top:'-60px', right:'100px', width:'320px', height:'320px', borderRadius:'50%', background:'radial-gradient(circle,rgba(157,176,154,0.22) 0%,transparent 65%)', pointerEvents:'none'}}></div>
           <div style={{position:'absolute', bottom:'-60px', left:'-40px', width:'280px', height:'280px', borderRadius:'50%', background:'radial-gradient(circle,rgba(100,200,160,0.1) 0%,transparent 70%)', pointerEvents:'none'}}></div>
           <div style={{position:'relative', zIndex:1}}>
-            <div style={{display:'inline-flex', alignItems:'center', gap:'8px', background:'rgba(200,160,96,0.18)', border:'1px solid rgba(200,160,96,0.5)', borderRadius:'20px', padding:'5px 14px', marginBottom:'24px'}}>
-              <div style={{width:'7px', height:'7px', borderRadius:'50%', background:'#c8a060', boxShadow:'0 0 8px rgba(200,160,96,0.9)'}}></div>
-              <span style={{color:'#e0b870', fontSize:'12px', fontWeight:700, letterSpacing:'1px'}}>Accès immédiat</span>
+            <div style={{display:'inline-flex', alignItems:'center', gap:'8px', background:'rgba(157,176,154,0.18)', border:'1px solid rgba(157,176,154,0.5)', borderRadius:'20px', padding:'5px 14px', marginBottom:'24px'}}>
+              <div style={{width:'7px', height:'7px', borderRadius:'50%', background:'#9DB09A', boxShadow:'0 0 8px rgba(157,176,154,0.9)'}}></div>
+              <span style={{color:'#C9D8C4', fontSize:'12px', fontWeight:700, letterSpacing:'1px'}}>Accès immédiat</span>
             </div>
             <h2 style={{color:C.white, fontSize:'48px', fontWeight:800, margin:'0 0 8px', lineHeight:1.1}}>
-              Ton bébé arrive<br/><span style={{color:'#e0b870'}}>Commence maintenant</span>
+              Ton bébé arrive<br/><span style={{color:'#C9D8C4'}}>Commence maintenant</span>
             </h2>
-            <p style={{color:'rgba(255,255,255,0.6)', fontSize:'16px', margin:'0 0 12px'}}>À deux, dès le premier jour</p>
-            <p style={{color:'#e0b870', fontSize:'48px', fontWeight:900, margin:'0 0 32px'}}>49,99€</p>
-            <button onClick={() => setShowModal(true)} style={{background:'linear-gradient(135deg,#c8a060,#e8c070)', color:'#1c1510', border:'none', padding:'18px 48px', borderRadius:'32px', fontSize:'17px', fontWeight:800, cursor:'pointer', boxShadow:'0 8px 32px rgba(200,160,96,0.5)'}}>
+            <p style={{color:'rgba(255,255,255,0.78)', fontSize:'16px', margin:'0 0 12px'}}>À deux, dès le premier jour</p>
+            <p style={{color:'#C9D8C4', fontSize:'48px', fontWeight:900, margin:'0 0 32px'}}>49,99€</p>
+            <button onClick={() => setShowModal(true)} style={{background:'#B4593A', color:'#ffffff', border:'none', padding:'18px 48px', borderRadius:'32px', fontSize:'17px', fontWeight:800, cursor:'pointer', boxShadow:'0 8px 32px rgba(157,176,154,0.5)'}}>
               Accéder maintenant
             </button>
-            <p style={{color:'rgba(255,255,255,0.35)', fontSize:'13px', margin:'12px 0 0'}}>Paiement unique · Satisfait ou remboursé sous 14 jours</p>
+            <p style={{color:'rgba(255,255,255,0.78)', fontSize:'13px', margin:'12px 0 0'}}>Paiement unique · Satisfait ou remboursé sous 14 jours</p>
           </div>
         </div>
       </section>
@@ -176,16 +176,16 @@ export default function PourquoiPage() {
           <div style={{display:'flex', alignItems:'center', gap:'8px'}}>
             <svg viewBox="0 0 300 300" width="28" height="28"><circle cx="150" cy="150" r="145" fill="#3a4f6e"/><circle cx="150" cy="150" r="122" fill="#4a6080"/><ellipse cx="150" cy="205" rx="58" ry="54" fill="#c8a060"/><circle cx="150" cy="112" r="40" fill="#c8a060"/><ellipse cx="150" cy="196" rx="27" ry="31" fill="#faf6f0"/><circle cx="150" cy="128" r="26" fill="#faf6f0"/></svg>
             <span style={{color:C.white, fontSize:'16px', fontWeight:700}}>DadUp</span>
-            <span style={{color:'rgba(255,255,255,0.45)', fontSize:'13px', marginLeft:'12px', fontStyle:'italic' as const}}>À deux, dès le premier jour</span>
+            <span style={{color:'rgba(255,255,255,0.78)', fontSize:'13px', marginLeft:'12px', fontStyle:'italic' as const}}>À deux, dès le premier jour</span>
           </div>
           <div style={{display:'flex', gap:'20px', flexWrap:'wrap' as const}}>
             {[['Pourquoi DadUp','/pourquoi'],['Ce qui est inclus','/inclus'],['Tarifs','/tarifs'],['Professionnels','/professionnels'],['Sources','/sources'],['Contact','/contact']].map(([l,h]) => (
-              <a key={h} href={h} style={{color:'rgba(255,255,255,0.55)', fontSize:'13px', textDecoration:'none'}}>{l}</a>
+              <a key={h} href={h} style={{color:'rgba(255,255,255,0.78)', fontSize:'13px', textDecoration:'none'}}>{l}</a>
             ))}
           </div>
           <div style={{display:'flex', gap:'16px'}}>
             {[['CGV','/cgv'],['Confidentialité','/confidentialite'],['Mentions légales','/mentions-legales']].map(([l,h]) => (
-              <a key={h} href={h} style={{color:'rgba(255,255,255,0.35)', fontSize:'12px', textDecoration:'none'}}>{l}</a>
+              <a key={h} href={h} style={{color:'rgba(255,255,255,0.78)', fontSize:'12px', textDecoration:'none'}}>{l}</a>
             ))}
           </div>
         </div>
