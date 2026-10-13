@@ -22,23 +22,25 @@ import Accueil       from './components/Accueil';
 
 // Chargement différé, réduit le bundle initial et accélère le démarrage
 const BebePage     = dynamic(() => import('./components/BebePage'));
-const RDVPage      = dynamic(() => import('./components/RDVPage'));
-const PreparerPage = dynamic(() => import('./components/PreparerPage'));
-const PsychoPage   = dynamic(() => import('./components/PsychoPage'));
+const PreparerHub  = dynamic(() => import('./components/PreparerHub'));
+const ToiPage      = dynamic(() => import('./components/ToiPage'));
+const PlusPage     = dynamic(() => import('./components/PlusPage'));
 const PostAccueil  = dynamic(() => import('./components/postpartum/PostAccueil'));
 const PostBebe     = dynamic(() => import('./components/postpartum/PostBebe'));
 const PostRDV      = dynamic(() => import('./components/postpartum/PostRDV'));
 const SuiviBebe      = dynamic(() => import('./components/postpartum/SuiviBebe'));
-const PrepaNaissance = dynamic(() => import('./components/PrepaNaissance'));
 const AtelierBebe    = dynamic(() => import('./components/postpartum/AtelierBebe'));
 const DicoPapa       = dynamic(() => import('./components/DicoPapa'));
 
+// Écrans regroupés sous l'onglet « Préparer » (grossesse)
+const PREPARER_TABS = ['rdv', 'pratique', 'valise', 'maison', 'admin', 'jourj'];
+
 // ── Palette ───────────────────────────────────────────────────────────────────
 const C = {
-  dark:'#1e2535', blue:'#2E5F8A', blueDark:'#1A3D5C', gold:'#c8a060',
+  dark:'#15263A', blue:'#2E5F8A', blueDark:'#1A3D5C', gold:'#C9D8C4',
   white:'#ffffff', border:'#f0ede8', text:'#1e2535', textLight:'#6B8FA8',
   muted:'#9aa0a8', orange:'#FFF0E6', green:'#E4F5EC', amber:'#FFF7E0',
-  teal:'#E0F5F0', coral:'#FDECEA', blueLight:'#E6F0FA', cream:'#f7f5f0',
+  teal:'#E0F5F0', coral:'#FDECEA', blueLight:'#E6F0FA', cream:'#F6F1E9',
 };
 
 // Parse une date "YYYY-MM-DD" en heure LOCALE (pas UTC)
@@ -251,15 +253,15 @@ function DashboardContent() {
   const isPost = isPostFlag;
 
   const saReelle = !isPost && dpa
-    ? Math.max(3, Math.min(42, Math.round(40 - (joursRestants ?? 0) / 7)))
+    ? Math.max(3, Math.min(41, Math.round(41 - (joursRestants ?? 0) / 7)))
     : null;
   const sa = !isPost && dpa
-    ? Math.max(3, Math.min(42, Math.round(40 - (joursRestants ?? 0) / 7) + avance))
+    ? Math.max(3, Math.min(41, Math.round(41 - (joursRestants ?? 0) / 7) + avance))
     : null;
 
   const data      = sa       ? (SD[sa]       || SD[20]) : null;
   const dataR     = saReelle ? (SD[saReelle] || SD[20]) : null;
-  const prog      = isPost ? 100 : Math.min(100, Math.round(((saReelle||0)/40)*100));
+  const prog      = isPost ? 100 : Math.min(100, Math.round(((saReelle||0)/41)*100));
   const tri       = (saReelle||0) <= 14 ? 'T1' : (saReelle||0) <= 27 ? 'T2' : 'T3';
   const idee      = getIdee(saReelle || 20);
   const missions  = saReelle ? (MISSIONS[saReelle] || MISSIONS[20] || []) : [];
@@ -288,9 +290,12 @@ function DashboardContent() {
 
   return (
     <>
-    <div style={{ minHeight: '100vh', background: C.white, fontFamily: "-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" }}>
+    <div style={{ minHeight: '100vh', background: '#F6F1E9', color: '#15263A', fontFamily: "'Manrope',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" }}>
       <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&display=swap');
         *{box-sizing:border-box;margin:0;padding:0;}
+        input[type=date]{-webkit-appearance:none;appearance:none;display:block;width:100%;max-width:100%;min-width:0;min-height:44px;text-align:left;}
+        input[type=date]::-webkit-date-and-time-value{text-align:left;}
         body{-webkit-font-smoothing:antialiased;}
         .dd-c{max-width:1080px;margin:0 auto;padding:32px 36px;}
         .dd-g2col{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
@@ -301,7 +306,7 @@ function DashboardContent() {
           .dd-g2col,.dd-mg{grid-template-columns:1fr!important;}
           .dd-g3col{grid-template-columns:1fr 1fr!important;}
           .dd-stats{display:flex!important;flex-direction:row!important;border-radius:12px!important;overflow:hidden!important;}
-          .dd-c{padding:16px!important;}
+          .dd-c{padding:16px 16px 110px!important;}
           .dd-g2col,.dd-mg{grid-template-columns:1fr!important;}
         }
       `}</style>
@@ -314,15 +319,20 @@ function DashboardContent() {
       />
 
       <div className="dd-c">
-        {activeTab === 'home'    && (isPost ? <PostAccueil  {...shared}/> : <Accueil      {...shared}/>)}
+        {activeTab === 'home'    && (isPost ? <PostAccueil  {...shared} setActiveTab={setActiveTab}/> : <Accueil      {...shared} setActiveTab={setActiveTab}/>)}
         {activeTab === 'bebe'    && (isPost ? <PostBebe     {...shared}/> : <BebePage     {...shared}/>)}
-        {activeTab === 'rdv'     && (isPost ? <PostRDV      {...shared}/> : <RDVPage      {...shared}/>)}
+        {isPost  && activeTab === 'rdv'       && <PostRDV      {...shared}/>}
+        {!isPost && PREPARER_TABS.includes(activeTab) && <PreparerHub {...shared} activeTab={activeTab} setActiveTab={setActiveTab}/>}
         {isPost  && activeTab === 'suivi'     && <SuiviBebe    C={C}/>}
-        {!isPost && activeTab === 'pratique'  && <PreparerPage  {...shared}/>}
-        {!isPost && activeTab === 'psycho'    && <PsychoPage    C={C} saReelle={saReelle}/>}
-        {!isPost && activeTab === 'jourj'     && <PrepaNaissance C={C} saReelle={saReelle || 40}/>}
+        {!isPost && (activeTab === 'toi' || activeTab === 'psycho') && <ToiPage C={C} saReelle={saReelle}/>}
         {isPost  && activeTab === 'atelier'   && <AtelierBebe   C={C}/>}
-        {activeTab === 'dico' && <DicoPapa C={C} isPost={isPost}/>}
+        {activeTab === 'plus' && <PlusPage setActiveTab={setActiveTab}/>}
+        {activeTab === 'dico' && (
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+            <button onClick={() => setActiveTab('plus')} style={{ alignSelf: 'flex-start', minHeight: '44px', background: '#ffffff', border: 'none', borderRadius: '24px', padding: '10px 18px', fontSize: '14px', fontWeight: 800, color: '#1A3D5C', cursor: 'pointer', boxShadow: '0 1px 4px rgba(0,0,0,0.08)' }}>← Plus</button>
+            <DicoPapa C={C} isPost={isPost}/>
+          </div>
+        )}
       </div>
 
       {/* MODALE CONFIRMATION NAISSANCE */}
@@ -350,8 +360,8 @@ export default function DashboardPage() {
   return (
     <>
     <Suspense fallback={
-      <div style={{ minHeight: '100vh', background: '#f7f5f0', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        <p style={{ color: '#9aa0a8', fontSize: '14px' }}>Chargement...</p>
+      <div style={{ minHeight: '100vh', background: '#F6F1E9', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <p style={{ color: '#5f6b72', fontSize: '14px' }}>Chargement...</p>
       </div>
     }>
       <DashboardContent />

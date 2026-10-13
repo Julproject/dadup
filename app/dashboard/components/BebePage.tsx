@@ -25,7 +25,7 @@ export default function BebePage({C,saReelle,sa,data,dataR,avance,setAvance,dpa}
       {/* HERO BÉBÉ */}
       <div style={{background:'linear-gradient(135deg,#0a1f32 0%,#1A3D5C 50%,#1d4d72 100%)',borderRadius:'20px',overflow:'hidden',position:'relative'}}>
         <div style={{padding:'28px',position:'relative'}}>
-          <p style={{color:'rgba(200,160,96,0.7)',fontSize:'10px',letterSpacing:'3px',textTransform:'uppercase' as const,margin:'0 0 8px',fontWeight:700}}>{sa} SA</p>
+          <p style={{color:'rgba(157,176,154,0.7)',fontSize:'10px',letterSpacing:'3px',textTransform:'uppercase' as const,margin:'0 0 8px',fontWeight:700}}>{sa} SA</p>
           <p style={{color:C.white,fontSize:'18px',fontWeight:800,margin:'0 0 6px'}}>{data.titre}</p>
           <p style={{color:C.gold,fontSize:'56px',fontWeight:900,margin:0,lineHeight:1}}>{data.taille}</p>
           <p style={{color:'rgba(255,255,255,0.45)',fontSize:'14px',margin:'6px 0 0'}}>environ {data.poids}</p>
@@ -58,8 +58,8 @@ export default function BebePage({C,saReelle,sa,data,dataR,avance,setAvance,dpa}
 
       {/* LE SAVAIS-TU */}
       <div style={{background:'linear-gradient(135deg,#0a1f32,#1A3D5C)',borderRadius:'20px',padding:'22px 24px',position:'relative',overflow:'hidden'}}>
-        <div style={{position:'absolute',top:'-20px',right:'-20px',width:'100px',height:'100px',borderRadius:'50%',background:'radial-gradient(circle,rgba(200,160,96,0.15) 0%,transparent 65%)'}}></div>
-        <p style={{...LABEL_STYLE, color:'rgba(200,160,96,0.7)', marginBottom:'10px'}}>Le savais-tu</p>
+        <div style={{position:'absolute',top:'-20px',right:'-20px',width:'100px',height:'100px',borderRadius:'50%',background:'radial-gradient(circle,rgba(157,176,154,0.15) 0%,transparent 65%)'}}></div>
+        <p style={{...LABEL_STYLE, color:'rgba(157,176,154,0.7)', marginBottom:'10px'}}>Le savais-tu ?</p>
         <p style={{color:C.white,fontSize:'14px',fontWeight:600,lineHeight:1.75,margin:0}}>{data.savistu}</p>
       </div>
 
@@ -80,7 +80,7 @@ export default function BebePage({C,saReelle,sa,data,dataR,avance,setAvance,dpa}
 
       {/* BÉBÉ EST NÉ */}
       {saReelle >= 35 && (
-        <div style={{background:'rgba(221,208,255,0.3)',borderRadius:'16px',padding:'20px 24px',border:'1px solid rgba(107,79,187,0.15)',textAlign:'center' as const}}>
+        <div style={{background:'rgba(220,229,215,0.6)',borderRadius:'16px',padding:'20px 24px',border:'1px solid rgba(107,79,187,0.15)',textAlign:'center' as const}}>
           <p style={{color:'#3D2E7A',fontSize:'14px',margin:'0 0 14px',lineHeight:1.6,fontWeight:600}}>
             Bébé est là ? Bascule en mode post-partum pour accéder au contenu de la première année.
           </p>

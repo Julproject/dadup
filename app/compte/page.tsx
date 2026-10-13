@@ -62,7 +62,7 @@ export default function ComptePage() {
         const jr = Math.round((parseLocalDate(user.dpa).setHours(0,0,0,0) - new Date().setHours(0,0,0,0)) / (1000*60*60*24));
         setJoursRestants(jr);
         const post = localStorage.getItem('dadup_is_post') === '1';
-        if (!post) setSaReelle(Math.max(3, Math.min(42, Math.round(40 - jr / 7))));
+        if (!post) setSaReelle(Math.max(3, Math.min(41, Math.round(41 - jr / 7))));
       }
 
       const missions = JSON.parse(localStorage.getItem('dadup_missions') || '{}');
@@ -77,7 +77,7 @@ export default function ComptePage() {
   }, []);
 
   const tri = (saReelle || 0) <= 14 ? 'T1' : (saReelle || 0) <= 27 ? 'T2' : 'T3';
-  const prog = isPost ? 100 : Math.min(100, Math.round(((saReelle || 0) / 40) * 100));
+  const prog = isPost ? 100 : Math.min(100, Math.round(((saReelle || 0) / 41) * 100));
 
   const saveInfos = async () => {
     setSaving(true);

@@ -8,7 +8,7 @@ type Section = {
 };
 
 const CHECKLIST_VALISE = [
-  "Carte vitale + carte mutuelle + carnet de maternité",
+  "Carte Vitale + carte mutuelle + carnet de maternité",
   "Plan de naissance (si rédigé)",
   "Vêtements confortables pour le travail (2 changes)",
   "Chaussons et robe de chambre",
@@ -47,7 +47,7 @@ export default function PrepaNaissance({ C, saReelle }: { C: any; saReelle: numb
           <div style={{ background: 'rgba(184,240,216,0.3)', borderRadius: '12px', padding: '14px 16px' }}>
             <p style={{ color: '#0D6B40', fontSize: '13px', fontWeight: 700, letterSpacing: '1px', textTransform: 'uppercase' as const, margin: '0 0 8px' }}>La règle 5-1-1</p>
             <p style={{ color: '#0A3020', fontSize: '14px', lineHeight: 1.7, margin: 0 }}>
-              Contractions toutes les <strong>5 minutes</strong>, qui durent <strong>1 minute</strong>, depuis <strong>1 heure</strong> minimum. À ce stade, appelle la maternité avant de partir.
+              Contractions toutes les <strong>5 minutes</strong>, qui durent <strong>1 minute</strong>, depuis <strong>1 heure</strong> minimum. À ce stade, appelle la maternité avant de partir. Si ce n'est pas votre premier bébé ou si la maternité est loin, appelle plus tôt.
             </p>
           </div>
 
@@ -64,7 +64,7 @@ export default function PrepaNaissance({ C, saReelle }: { C: any; saReelle: numb
                   <li>Ne passent pas au repos</li>
                 </ul>
               </div>
-              <div style={{ background: '#f7f5f0', borderRadius: '10px', padding: '12px' }}>
+              <div style={{ background: '#F6F1E9', borderRadius: '10px', padding: '12px' }}>
                 <p style={{ color: '#8A6010', fontSize: '13px', fontWeight: 700, margin: '0 0 6px' }}>Braxton-Hicks</p>
                 <ul style={{ color: '#5a4010', fontSize: '13px', lineHeight: 1.7, margin: 0, paddingLeft: '14px' }}>
                   <li>Irrégulières</li>
@@ -77,13 +77,13 @@ export default function PrepaNaissance({ C, saReelle }: { C: any; saReelle: numb
             </div>
           </div>
 
-          <div style={{ background: 'rgba(221,208,255,0.3)', borderRadius: '12px', padding: '14px 16px' }}>
+          <div style={{ background: 'rgba(220,229,215,0.6)', borderRadius: '12px', padding: '14px 16px' }}>
             <p style={{ color: '#8A0000', fontSize: '13px', fontWeight: 700, margin: '0 0 6px' }}>Partir immédiatement si</p>
             <ul style={{ color: '#6A0000', fontSize: '14px', lineHeight: 1.7, margin: 0, paddingLeft: '16px' }}>
               <li>La poche des eaux se rompt (liquide clair, rosé ou verdâtre)</li>
               <li>Saignements rouges abondants</li>
               <li>Douleur abdominale continue sans relâchement</li>
-              <li>Bébé ne bouge plus depuis 2 heures</li>
+              <li>Bébé bouge moins que d'habitude, ou plus du tout</li>
             </ul>
           </div>
 
@@ -120,7 +120,7 @@ export default function PrepaNaissance({ C, saReelle }: { C: any; saReelle: numb
               ))}
             </div>
           </div>
-          <div style={{ background: 'rgba(255,232,160,0.3)', borderRadius: '12px', padding: '12px 14px' }}>
+          <div style={{ background: 'rgba(242,218,203,0.45)', borderRadius: '12px', padding: '12px 14px' }}>
             <p style={{ color: '#8A6010', fontSize: '13px', fontWeight: 700, margin: '0 0 4px' }}>Toi aussi tu prépares ta valise</p>
             <p style={{ color: '#5a4010', fontSize: '13px', lineHeight: 1.6, margin: 0 }}>
               Vêtements confortables, chargeur, en-cas, livre ou série sur le téléphone. Le travail peut durer plusieurs heures.
@@ -158,7 +158,7 @@ export default function PrepaNaissance({ C, saReelle }: { C: any; saReelle: numb
               },
               {
                 phase: 'Si tu perds pied',
-                desc: `Si tu te sens mal (c'est possible et normal), dis-le à l'infirmière ou sage-femme. Sors 2 minutes, respire, reviens. Elle a besoin que tu sois stable, pas que tu joues au super-héros.`,
+                desc: `Si tu te sens mal (c'est possible et normal), dis-le à la sage-femme ou à l'auxiliaire de puériculture. Sors 2 minutes, respire, reviens. Elle a besoin que tu sois stable, pas que tu joues au super-héros.`,
               },
             ].map((item, i) => (
               <div key={i} style={{ borderLeft: '3px solid #2E5F8A', paddingLeft: '14px' }}>
@@ -169,9 +169,9 @@ export default function PrepaNaissance({ C, saReelle }: { C: any; saReelle: numb
           </div>
 
           <div style={{ background: '#1e2535', borderRadius: '12px', padding: '14px 16px' }}>
-            <p style={{ color: '#c8a060', fontSize: '13px', fontWeight: 700, margin: '0 0 6px' }}>À retenir</p>
+            <p style={{ color: '#C9D8C4', fontSize: '13px', fontWeight: 700, margin: '0 0 6px' }}>À retenir</p>
             <p style={{ color: '#fff', fontSize: '14px', lineHeight: 1.7, margin: 0 }}>
-              La présence d'un soutien non médical en salle de naissance réduit la durée du travail de 25% et le recours aux analgésiques. Ta présence a un effet physiologique mesurable. Tu comptes.
+              Les études montrent qu'un soutien continu pendant l'accouchement aide la future maman à mieux vivre ce moment, et peut même raccourcir un peu le travail. Ta présence compte vraiment.
             </p>
           </div>
         </div>
@@ -190,7 +190,7 @@ export default function PrepaNaissance({ C, saReelle }: { C: any; saReelle: numb
             {[
               {
                 titre: 'Césarienne programmée',
-                texte: `Elle est prévue à l'avance pour des raisons médicales (présentation du siège, placenta praevia, antécédent de césarienne, etc.). La date est fixée à 38-39 SA généralement. Tu as le temps de te préparer avec elle.`,
+                texte: `Elle est prévue à l'avance pour des raisons médicales (présentation du siège, placenta praevia, antécédent de césarienne, etc.). La date est généralement fixée à partir de 39 SA. Tu as le temps de te préparer avec elle.`,
               },
               {
                 titre: 'Césarienne en urgence',
@@ -198,7 +198,7 @@ export default function PrepaNaissance({ C, saReelle }: { C: any; saReelle: numb
               },
               {
                 titre: `Pendant l'intervention`,
-                texte: `Tu seras généralement autorisé à rester assis à la tête du lit, derrière le champ opératoire. Elle est consciente (anesthésie péridurale ou rachianesthésie). Parle-lui, tiens sa main. L'intervention dure environ 30 à 45 minutes.`,
+                texte: `Pour une césarienne programmée, tu peux en général rester assis à sa tête, derrière le champ opératoire. Elle est consciente (péridurale ou rachianesthésie). En cas de grande urgence sous anesthésie générale, on te demandera souvent d'attendre dehors : ce n'est pas contre toi, c'est pour aller vite. Parle-lui, tiens sa main. L'intervention dure environ 30 à 45 minutes.`,
               },
               {
                 titre: `Juste après la naissance`,
@@ -206,7 +206,7 @@ export default function PrepaNaissance({ C, saReelle }: { C: any; saReelle: numb
               },
               {
                 titre: `Les suites pour elle`,
-                texte: `La récupération est plus longue qu'après un accouchement voie basse : 3 à 5 jours d'hospitalisation, douleur à la cicatrice pendant 2 à 4 semaines, pas de port de charges. Ton soutien physique et logistique au retour est encore plus important après une césarienne.`,
+                texte: `La récupération est plus longue qu'après un accouchement voie basse : 3 à 5 jours d'hospitalisation, douleur à la cicatrice pendant 2 à 4 semaines, pas de port de charges lourdes. Ton soutien physique et logistique au retour est encore plus important après une césarienne.`,
               },
             ].map((item, i) => (
               <div key={i} style={{ borderLeft: '3px solid #6B4FBB', paddingLeft: '14px' }}>
@@ -232,7 +232,7 @@ export default function PrepaNaissance({ C, saReelle }: { C: any; saReelle: numb
 
       {/* En-tête */}
       <div style={{ background: '#1A3D5C', borderRadius: '20px', padding: '18px 20px' }}>
-        <p style={{ color: '#c8a060', fontSize: '11px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase' as const, margin: '0 0 5px' }}>
+        <p style={{ color: '#C9D8C4', fontSize: '11px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase' as const, margin: '0 0 5px' }}>
           SA {saReelle} · Préparation
         </p>
         <p style={{ color: '#fff', fontSize: '18px', fontWeight: 800, margin: 0 }}>
@@ -273,7 +273,7 @@ export default function PrepaNaissance({ C, saReelle }: { C: any; saReelle: numb
       })}
 
       {/* BOUTON BÉBÉ EST NÉ */}
-      <div style={{ background: 'rgba(221,208,255,0.3)', borderRadius: '16px', padding: '20px 24px', marginTop: '24px', textAlign: 'center' as const }}>
+      <div style={{ background: 'rgba(220,229,215,0.6)', borderRadius: '16px', padding: '20px 24px', marginTop: '24px', textAlign: 'center' as const }}>
         <p style={{ color: '#6B4FBB', fontSize: '14px', margin: '0 0 12px', lineHeight: 1.6 }}>
           Bébé est là ? Bascule en mode post-partum pour accéder au contenu de la première année.
         </p>

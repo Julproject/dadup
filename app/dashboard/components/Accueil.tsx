@@ -1,197 +1,252 @@
 'use client';
 import { useState } from 'react';
 
+// ── Palette du tableau de bord ────────────────────────────────────────────────
+const NAVY = '#15263A';
+const NAVY_GRAD = 'linear-gradient(160deg,#0c1d2e,#1A3D5C 70%,#24507a)';
+const SAUGE = '#DCE5D7';
+const SAUGE_BORD = '#C9D8C4';
+const FORET = '#2F4F3E';
+const TERRA = '#B4593A';
+const TERRA_CLAIR = '#F2DACB';
+const GRIS = '#5f6b72';
 
-export default function Accueil({C,dpa,saReelle,joursRestants,prog,tri,idee,missions,missionsChecked,toggleM,nextRdv,nextRdvDate,saveRdv,saveRdvI,dataR,sa,data}:any) {
+const LABEL = { fontSize: '11px', fontWeight: 800, letterSpacing: '1.5px', textTransform: 'uppercase' as const, margin: 0 };
+
+const ICONES: Record<string, string> = {
+  rdv:    'M3 7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2zM3 10h18M8 3v4M16 3v4',
+  maman:  'M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.5-7 10-7 10z',
+  savoir: 'M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2zM4 19V5M8 7h7M8 11h5',
+  idee:   'M12 3a6 6 0 0 0-4 10.5V17h8v-3.5A6 6 0 0 0 12 3zM9 21h6',
+};
+
+function TuileIcone({ nom }: { nom: string }) {
+  return (
+    <div style={{ width: '44px', height: '44px', borderRadius: '12px', background: NAVY_GRAD, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={SAUGE} strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d={ICONES[nom]} /></svg>
+    </div>
+  );
+}
+
+function Chevron({ ouvert }: { ouvert: boolean }) {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1A3D5C" strokeWidth="2.5" strokeLinecap="round" aria-hidden="true" style={{ flexShrink: 0, transform: ouvert ? 'rotate(180deg)' : 'none', transition: 'transform .2s' }}><path d="M6 9l6 6 6-6" /></svg>
+  );
+}
+
+export default function Accueil({C,dpa,prenom,saReelle,joursRestants,prog,tri,idee,missions,missionsChecked,toggleM,nextRdv,nextRdvDate,saveRdv,saveRdvI,dataR,setActiveTab}:any) {
   const [open, setOpen] = useState<string|null>(null);
   const toggle = (id: string) => setOpen(open === id ? null : id);
 
   const missionsDone = missions.filter((_:string, i:number) => missionsChecked[`m${saReelle}_${i}`]).length;
+  const sg = Math.max(1, (saReelle || 0) - 2);
+  const sgTexte = sg === 1 ? '1re' : `${sg}e`;
+  const nom = prenom || 'futur papa';
+  const initiale = (prenom || 'D').trim().charAt(0).toUpperCase();
+  const jours = typeof joursRestants === 'number' ? joursRestants : null;
+
+  const carteBlanche = { background: '#ffffff', borderRadius: '20px', boxShadow: '0 6px 20px rgba(21,38,58,0.06)' };
 
   return (
-    <div className="acc-wrap" style={{background:'#faf6f0', paddingBottom:'24px'}}>
+    <div style={{ display: 'flex', flexDirection: 'column' as const, gap: '16px' }}>
       <style>{`
-        @keyframes floatbebe{
-          0%{transform:translate(0,0);}
-          33%{transform:translate(1.5px,-2px);}
-          66%{transform:translate(-1px,1.5px);}
-          100%{transform:translate(0,0);}
-        }
-        .hero-emoji{animation:floatbebe 7s ease-in-out infinite;}
-        @keyframes fluid1{0%{transform:translate(-30%,-20%) scale(1);opacity:0.35;}50%{transform:translate(20%,25%) scale(1.3);opacity:0.15;}100%{transform:translate(-30%,-20%) scale(1);opacity:0.35;}}
-        @keyframes fluid2{0%{transform:translate(25%,30%) scale(1.2);opacity:0.2;}50%{transform:translate(-20%,-25%) scale(0.9);opacity:0.4;}100%{transform:translate(25%,30%) scale(1.2);opacity:0.2;}}
-        @keyframes fluid3{0%{transform:translate(0%,40%) scale(0.8);opacity:0.25;}50%{transform:translate(10%,-30%) scale(1.1);opacity:0.1;}100%{transform:translate(0%,40%) scale(0.8);opacity:0.25;}}
-        .fluid{position:absolute;border-radius:50%;pointer-events:none;mix-blend-mode:soft-light;filter:blur(18px);}
-        .fluid-1{width:60%;height:50%;top:15%;left:20%;background:radial-gradient(circle,rgba(255,255,255,0.9),transparent 70%);animation:fluid1 8s ease-in-out infinite;}
-        .fluid-2{width:50%;height:45%;top:35%;left:25%;background:radial-gradient(circle,rgba(255,240,230,0.8),transparent 70%);animation:fluid2 11s ease-in-out infinite;}
-        .fluid-3{width:40%;height:40%;top:25%;left:30%;background:radial-gradient(circle,rgba(255,220,220,0.7),transparent 70%);animation:fluid3 9s ease-in-out infinite;}
-
         .acc-card{transition:transform .15s ease,box-shadow .15s ease;}
-        .acc-card:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,0.08)!important;}
-        .acc-wrap{margin:-32px -36px 0;}
-        .acc-inner{padding:0 36px;}
-        @media(max-width:640px){.acc-inner{padding:0 16px;}}
-        @media(max-width:640px){.acc-wrap{margin:-16px -16px 0;} .acc-hero{border-radius:0 0 28px 28px!important;}}
+        .acc-card:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(21,38,58,0.10)!important;}
+        .acc-tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;}
+        .acc-tile{min-height:150px;}
+        @media(max-width:640px){
+          .acc-tiles{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;}
+          .acc-tile{min-height:128px;padding:18px!important;}
+          .acc-big{font-size:34px!important;}
+          .acc-prog{grid-column:1/-1;min-height:0!important;flex-direction:row!important;align-items:center!important;padding:12px 14px!important;gap:12px!important;}
+          .acc-prog .acc-prog-label{display:none;}
+          .acc-bar{flex:1;}
+        }
       `}</style>
 
-      {/* HERO BÉBÉ */}
-      {dataR && saReelle && (
-        <div className="acc-hero" style={{textAlign:'center' as const, padding:'28px 24px 56px', background:'linear-gradient(160deg,#0a1f32 0%,#1A3D5C 60%,#1d4d72 100%)', borderRadius:'0 0 32px 32px', position:'relative', overflow:'hidden'}}>
-          <div style={{position:'absolute', top:'-60px', right:'-40px', width:'260px', height:'260px', borderRadius:'50%', background:'radial-gradient(circle,rgba(200,160,96,0.18) 0%,transparent 65%)', pointerEvents:'none'}}></div>
-          <div style={{position:'absolute', bottom:'-80px', left:'-60px', width:'220px', height:'220px', borderRadius:'50%', background:'radial-gradient(circle,rgba(100,200,160,0.1) 0%,transparent 70%)', pointerEvents:'none'}}></div>
-          <div className="hero-emoji" style={{width:'220px', height:'260px', margin:'0 auto 16px', position:'relative', zIndex:1}}>
-            <div style={{position:'absolute', inset:'-30px', borderRadius:'50%', background:'radial-gradient(circle,rgba(200,160,96,0.15) 0%,transparent 65%)', pointerEvents:'none'}}></div>
-            <div style={{position:'relative', width:'100%', height:'100%', overflow:'hidden', borderRadius:'50%'}}>
-              <img src={`/sa-${saReelle}.png`} alt={`Bébé à ${saReelle} semaines`} onError={(e:any) => { e.target.style.display='none'; e.target.parentNode.nextSibling.style.display='flex'; }} style={{width:'100%', height:'100%', objectFit:'contain', position:'relative', zIndex:1, filter:'drop-shadow(0 8px 20px rgba(0,0,0,0.25))'}}/>
-              <div className="fluid fluid-1" style={{zIndex:2}}></div>
-              <div className="fluid fluid-2" style={{zIndex:2}}></div>
-              <div className="fluid fluid-3" style={{zIndex:2}}></div>
-            </div>
-            <div style={{display:'none', width:'100%', height:'100%', alignItems:'center', justifyContent:'center', position:'relative', zIndex:1}}>
-              <svg viewBox="0 0 100 100" style={{width:'90px', height:'90px'}}>
-                <path d="M50 22 C68 22 76 36 74 50 C72 64 62 72 52 75 C42 78 34 74 32 66 C30 58 36 52 42 50" stroke="#e0b870" strokeWidth="11" strokeLinecap="round" fill="none"/>
-                <circle cx="52" cy="28" r="13" fill="#e0b870"/>
-              </svg>
-            </div>
+      {/* SALUTATION */}
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '12px' }}>
+        <div style={{ display: 'flex', flexDirection: 'column' as const }}>
+          <span style={{ fontSize: '14px', fontWeight: 700, color: GRIS }}>Bonjour</span>
+          <span style={{ fontSize: '26px', fontWeight: 800, color: NAVY, letterSpacing: '-0.5px', lineHeight: 1.15 }}>{nom}</span>
+        </div>
+        <a href="/compte" aria-label="Mon compte" style={{ width: '46px', height: '46px', borderRadius: '50%', background: NAVY_GRAD, color: '#ffffff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '18px', fontWeight: 800, textDecoration: 'none', flexShrink: 0 }}>{initiale}</a>
+      </div>
+
+      {/* TUILES : compte à rebours, semaine, progression */}
+      {saReelle && (
+        <div className="acc-tiles">
+          <div className="acc-tile" style={{ borderRadius: '22px', padding: '22px', background: NAVY_GRAD, boxShadow: '0 10px 26px rgba(12,29,46,0.22)', display: 'flex', flexDirection: 'column' as const, gap: '6px' }}>
+            <p style={{ ...LABEL, color: SAUGE_BORD }}>Compte à rebours</p>
+            {jours !== null && jours > 0 ? (
+              <>
+                <span className="acc-big" style={{ fontSize: '44px', fontWeight: 800, color: '#ffffff', letterSpacing: '-1.5px', lineHeight: 1 }}>{jours}</span>
+                <span style={{ fontSize: '13px', fontWeight: 700, color: 'rgba(255,255,255,0.8)' }}>{jours === 1 ? 'jour avant bébé' : 'jours avant bébé'}</span>
+              </>
+            ) : (
+              <span style={{ fontSize: '22px', fontWeight: 800, color: '#ffffff', lineHeight: 1.2, marginTop: '6px' }}>Le terme est là</span>
+            )}
           </div>
-          <p style={{color:'#e0b870', fontSize:'11px', fontWeight:700, letterSpacing:'2px', textTransform:'uppercase' as const, margin:'0 0 8px'}}>Semaine {saReelle} · {tri}</p>
-          <p style={{color:'#fff', fontSize:'24px', fontWeight:900, margin:'0 0 6px', lineHeight:1.2}}>{dataR.titre}</p>
-          <p style={{color:'rgba(255,255,255,0.55)', fontSize:'14px', margin:'0 0 18px'}}>{dataR.taille} · {dataR.poids}{joursRestants&&joursRestants>0?` · J-${joursRestants}`:''}</p>
-          <div style={{maxWidth:'220px', margin:'0 auto'}}>
-            <div style={{background:'rgba(255,255,255,0.12)', borderRadius:'99px', height:'6px'}}>
-              <div style={{background:'linear-gradient(to right,#c8a060,#e8c070)', width:`${prog}%`, height:'6px', borderRadius:'99px', transition:'width .5s'}}></div>
+
+          <div className="acc-tile" style={{ borderRadius: '22px', padding: '22px', background: SAUGE, border: `1px solid ${SAUGE_BORD}`, display: 'flex', flexDirection: 'column' as const, gap: '6px' }}>
+            <p style={{ ...LABEL, color: FORET }}>Cette semaine</p>
+            <span className="acc-big" style={{ fontSize: '44px', fontWeight: 800, color: NAVY, letterSpacing: '-1.5px', lineHeight: 1 }}>SA {saReelle}</span>
+            <span style={{ fontSize: '13px', fontWeight: 700, color: FORET }}>{sgTexte} semaine de grossesse</span>
+          </div>
+
+          <div className="acc-tile acc-prog" style={{ borderRadius: '22px', padding: '22px', background: '#ffffff', border: '1px solid #E6E0D5', display: 'flex', flexDirection: 'column' as const, justifyContent: 'center', gap: '12px' }}>
+            <p className="acc-prog-label" style={{ ...LABEL, color: TERRA }}>Progression</p>
+            <div className="acc-bar" style={{ width: '100%', height: '10px', borderRadius: '99px', background: '#E8EEE5' }}>
+              <div style={{ width: `${prog}%`, height: '10px', borderRadius: '99px', background: 'linear-gradient(90deg,#1A3D5C,#24507a)', transition: 'width .5s' }}></div>
             </div>
-            <p style={{color:'rgba(255,255,255,0.6)', fontSize:'12px', margin:'8px 0 0', fontWeight:600}}>{prog}% du chemin parcouru</p>
+            <span style={{ fontSize: '13px', fontWeight: 800, color: NAVY, whiteSpace: 'nowrap' as const }}>{prog} % du chemin</span>
           </div>
         </div>
       )}
 
-      <div className="acc-inner" style={{display:'flex', flexDirection:'column' as const, gap:'12px'}}>
-
-        {/* MISSION DU JOUR — carte focus */}
-        {dataR && (
-          <div style={{background:'#fff', borderRadius:'22px', padding:'22px', boxShadow:'0 12px 40px rgba(0,0,0,0.15)', marginTop:'-32px', position:'relative', zIndex:2}}>
-            <div style={{display:'flex', alignItems:'center', gap:'8px', marginBottom:'12px'}}>
-              <div style={{width:'8px', height:'8px', borderRadius:'50%', background:'#c8a060', boxShadow:'0 0 8px rgba(200,160,96,0.6)'}}></div>
-              <p style={{color:'#c8a060', fontSize:'11px', fontWeight:700, letterSpacing:'2px', textTransform:'uppercase' as const, margin:0}}>Ton rôle cette semaine</p>
+      {/* BÉBÉ CETTE SEMAINE */}
+      {dataR && saReelle && (
+        <div style={{ ...carteBlanche, padding: '18px', display: 'flex', flexDirection: 'column' as const, gap: '14px' }}>
+          <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
+            <div style={{ width: '84px', height: '84px', borderRadius: '50%', background: TERRA_CLAIR, boxShadow: 'inset 0 0 0 8px #F8E9DF', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+              <svg viewBox="0 0 100 100" width="48" height="48" role="img" aria-label={`Bébé à ${saReelle} SA`}>
+                <path d="M50 22 C68 22 76 36 74 50 C72 64 62 72 52 75 C42 78 34 74 32 66 C30 58 36 52 42 50" stroke="#C96F4A" strokeWidth="11" strokeLinecap="round" fill="none"/>
+                <circle cx="52" cy="28" r="13" fill="#C96F4A"/>
+              </svg>
             </div>
-            <p style={{color:C.dark, fontSize:'17px', fontWeight:700, lineHeight:1.5, margin:'0 0 16px'}}>{dataR.maman_aide}</p>
-            {missions.length > 0 && (
-              <div style={{borderTop:'1px solid #ede8e0', paddingTop:'14px'}}>
-                <div style={{display:'flex', alignItems:'center', justifyContent:'space-between', marginBottom:'10px'}}>
-                  <p style={{color:'#6a7585', fontSize:'11px', fontWeight:700, letterSpacing:'2px', textTransform:'uppercase' as const, margin:0}}>Tes missions</p>
-                  <span style={{background:missionsDone===missions.length?'rgba(184,240,216,0.5)':'rgba(0,0,0,0.05)', color:missionsDone===missions.length?'#0D6B40':'#6a7585', fontSize:'12px', fontWeight:800, padding:'3px 10px', borderRadius:'12px'}}>{missionsDone}/{missions.length}</span>
-                </div>
-                <div style={{display:'flex', flexDirection:'column' as const, gap:'6px'}}>
-                  {missions.map((m:string, i:number) => {
-                    const id = `m${saReelle}_${i}`;
-                    const done = missionsChecked[id];
-                    return (
-                      <button key={id} onClick={() => toggleM(id)} style={{display:'flex', alignItems:'flex-start', gap:'10px', background:done?'rgba(184,240,216,0.3)':'#faf6f0', borderRadius:'12px', padding:'10px 12px', border:'none', cursor:'pointer', textAlign:'left' as const, width:'100%'}}>
-                        <div style={{width:'20px', height:'20px', borderRadius:'50%', border:done?'none':'2px solid #d0c8c0', background:done?'#0D6B40':'transparent', display:'flex', alignItems:'center', justifyContent:'center', flexShrink:0, marginTop:'1px'}}>
-                          {done && <span style={{color:'#fff', fontSize:'11px', fontWeight:700}}>✓</span>}
-                        </div>
-                        <p style={{color:done?'#0D6B40':C.dark, fontSize:'14px', lineHeight:1.5, margin:0, textDecoration:done?'line-through':'none', opacity:done?0.7:1}}>{m}</p>
-                      </button>
-                    );
-                  })}
-                </div>
-              </div>
-            )}
-          </div>
-        )}
-
-        {/* PROCHAIN RDV */}
-        {nextRdv && (
-          <div className="acc-card" style={{background:'#fff', borderRadius:'18px', overflow:'hidden', boxShadow:'0 2px 12px rgba(0,0,0,0.05)'}}>
-            <button onClick={() => toggle('rdv')} style={{width:'100%', background:'none', border:'none', padding:'16px 18px', display:'flex', alignItems:'center', gap:'14px', cursor:'pointer', textAlign:'left' as const}}>
-              <div style={{width:'44px', height:'44px', borderRadius:'14px', background:'rgba(200,232,255,0.5)', display:'flex', alignItems:'center', justifyContent:'center', fontSize:'20px', flexShrink:0}}>{nextRdv.emoji}</div>
-              <div style={{flex:1, minWidth:0}}>
-                <p style={{color:'#9aa0a8', fontSize:'10px', fontWeight:700, letterSpacing:'1px', margin:'0 0 2px'}}>PROCHAIN RDV{dpa && joursRestants ? ` · J-${Math.max(0,Math.ceil((new Date(new Date(dpa).getTime()-(40-nextRdv.sa)*7*24*60*60*1000).getTime()-new Date().getTime())/(1000*60*60*24)))}` : ''}</p>
-                <p style={{color:C.dark, fontSize:'14px', fontWeight:700, margin:0}}>{nextRdv.titre}</p>
-              </div>
-              <span style={{color:'#c8c0b8', fontSize:'12px', flexShrink:0}}>{open==='rdv'?'▲':'▼'}</span>
-            </button>
-            {open === 'rdv' && (
-              <div style={{padding:'0 18px 18px', borderTop:'1px solid #ede8e0'}}>
-                <p style={{color:C.text, fontSize:'14px', lineHeight:1.7, margin:'14px 0 12px'}}>{nextRdv.desc}</p>
-                <p style={{color:'#6a7585', fontSize:'11px', fontWeight:700, letterSpacing:'1px', textTransform:'uppercase' as const, margin:'0 0 6px'}}>Ma date de RDV</p>
-                <input type="date" value={nextRdvDate} onChange={e=>{saveRdv(e.target.value);saveRdvI(nextRdv.sa,e.target.value);}} style={{background:'#faf6f0', border:'1px solid #e8e0d0', borderRadius:'10px', padding:'10px 14px', fontSize:'14px', color:C.dark, width:'100%', outline:'none'}}/>
-                {nextRdvDate && <p style={{color:'#c8a060', fontSize:'12px', margin:'6px 0 0', fontWeight:700}}>✓ Noté le {new Date(nextRdvDate).toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long'})}</p>}
-              </div>
-            )}
-          </div>
-        )}
-
-        {/* CE QUE VIT MAMAN */}
-        {dataR && (
-          <div className="acc-card" style={{background:'#fff', borderRadius:'18px', overflow:'hidden', boxShadow:'0 2px 12px rgba(0,0,0,0.05)'}}>
-            <button onClick={() => toggle('maman')} style={{width:'100%', background:'none', border:'none', padding:'16px 18px', display:'flex', alignItems:'center', gap:'14px', cursor:'pointer', textAlign:'left' as const}}>
-              <div style={{width:'44px', height:'44px', borderRadius:'14px', background:'rgba(184,240,216,0.5)', display:'flex', alignItems:'center', justifyContent:'center', fontSize:'20px', flexShrink:0}}>💚</div>
-              <div style={{flex:1, minWidth:0}}>
-                <p style={{color:'#9aa0a8', fontSize:'10px', fontWeight:700, letterSpacing:'1px', margin:'0 0 2px'}}>CE QUE VIT MAMAN</p>
-                <p style={{color:C.dark, fontSize:'14px', fontWeight:700, margin:0}}>{dataR.maman_titre}</p>
-              </div>
-              <span style={{color:'#c8c0b8', fontSize:'12px', flexShrink:0}}>{open==='maman'?'▲':'▼'}</span>
-            </button>
-            {open === 'maman' && (
-              <div style={{padding:'0 18px 18px', borderTop:'1px solid #ede8e0'}}>
-                <p style={{color:C.text, fontSize:'14px', lineHeight:1.7, margin:'14px 0 14px'}}>{dataR.maman}</p>
-                <div style={{background:'rgba(184,240,216,0.3)', borderRadius:'12px', padding:'12px 14px', borderLeft:'3px solid #0D6B40'}}>
-                  <p style={{color:'#0D6B40', fontSize:'11px', fontWeight:700, letterSpacing:'1px', textTransform:'uppercase' as const, margin:'0 0 4px'}}>Conseil</p>
-                  <p style={{color:'#0A2E1A', fontSize:'14px', lineHeight:1.6, margin:0}}>{dataR.conseil}</p>
-                </div>
-              </div>
-            )}
-          </div>
-        )}
-
-        {/* À SAVOIR */}
-        {dataR && (
-          <div className="acc-card" style={{background:'#fff', borderRadius:'18px', overflow:'hidden', boxShadow:'0 2px 12px rgba(0,0,0,0.05)'}}>
-            <button onClick={() => toggle('savoir')} style={{width:'100%', background:'none', border:'none', padding:'16px 18px', display:'flex', alignItems:'center', gap:'14px', cursor:'pointer', textAlign:'left' as const}}>
-              <div style={{width:'44px', height:'44px', borderRadius:'14px', background:'rgba(200,232,255,0.5)', display:'flex', alignItems:'center', justifyContent:'center', fontSize:'20px', flexShrink:0}}>📋</div>
-              <div style={{flex:1, minWidth:0}}>
-                <p style={{color:'#9aa0a8', fontSize:'10px', fontWeight:700, letterSpacing:'1px', margin:'0 0 2px'}}>À SAVOIR CETTE SEMAINE</p>
-                <p style={{color:C.dark, fontSize:'14px', fontWeight:700, margin:0}}>{dataR.doc_titre}</p>
-              </div>
-              <span style={{color:'#c8c0b8', fontSize:'12px', flexShrink:0}}>{open==='savoir'?'▲':'▼'}</span>
-            </button>
-            {open === 'savoir' && (
-              <div style={{padding:'0 18px 18px', borderTop:'1px solid #ede8e0'}}>
-                <p style={{color:C.text, fontSize:'14px', lineHeight:1.7, margin:'14px 0 14px'}}>{dataR.doc}</p>
-                <div style={{background:'linear-gradient(135deg,#0a1f32,#1A3D5C)', borderRadius:'12px', padding:'14px 16px'}}>
-                  <p style={{color:'rgba(200,160,96,0.7)', fontSize:'11px', fontWeight:700, letterSpacing:'1px', textTransform:'uppercase' as const, margin:'0 0 6px'}}>Le savais-tu</p>
-                  <p style={{color:'rgba(255,255,255,0.9)', fontSize:'14px', lineHeight:1.7, margin:0}}>{dataR.savistu}</p>
-                </div>
-              </div>
-            )}
-          </div>
-        )}
-
-        {/* IDÉE DU MOIS */}
-        <div className="acc-card" style={{background:'#fff', borderRadius:'18px', overflow:'hidden', boxShadow:'0 2px 12px rgba(0,0,0,0.05)'}}>
-          <button onClick={() => toggle('idee')} style={{width:'100%', background:'none', border:'none', padding:'16px 18px', display:'flex', alignItems:'center', gap:'14px', cursor:'pointer', textAlign:'left' as const}}>
-            <div style={{width:'44px', height:'44px', borderRadius:'14px', background:'rgba(255,232,160,0.5)', display:'flex', alignItems:'center', justifyContent:'center', fontSize:'20px', flexShrink:0}}>💡</div>
-            <div style={{flex:1, minWidth:0}}>
-              <p style={{color:'#9aa0a8', fontSize:'10px', fontWeight:700, letterSpacing:'1px', margin:'0 0 2px'}}>IDÉE DU MOIS</p>
-              <p style={{color:C.dark, fontSize:'14px', fontWeight:700, margin:0, overflow:'hidden', textOverflow:'ellipsis', whiteSpace:'nowrap' as const}}>{idee}</p>
+            <div style={{ display: 'flex', flexDirection: 'column' as const, gap: '4px', minWidth: 0 }}>
+              <p style={{ ...LABEL, color: FORET }}>Bébé cette semaine</p>
+              <p style={{ fontSize: '20px', fontWeight: 800, color: NAVY, margin: 0, lineHeight: 1.25, letterSpacing: '-0.3px' }}>{dataR.titre}</p>
+              <p style={{ fontSize: '14px', fontWeight: 600, color: GRIS, margin: 0 }}>{dataR.taille} · {dataR.poids}</p>
             </div>
-            <span style={{color:'#c8c0b8', fontSize:'12px', flexShrink:0}}>{open==='idee'?'▲':'▼'}</span>
-          </button>
-          {open === 'idee' && (
-            <div style={{padding:'0 18px 18px', borderTop:'1px solid #ede8e0'}}>
-              <p style={{color:C.text, fontSize:'14px', lineHeight:1.7, margin:'14px 0 0'}}>{idee}</p>
+          </div>
+          {setActiveTab && (
+            <button onClick={() => setActiveTab('bebe')} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', minHeight: '46px', background: '#1A3D5C', color: '#ffffff', border: 'none', borderRadius: '12px', fontSize: '14px', fontWeight: 800, cursor: 'pointer' }}>
+              Voir cette semaine
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2.5" strokeLinecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+            </button>
+          )}
+        </div>
+      )}
+
+      {/* TON RÔLE ET TES MISSIONS */}
+      {dataR && (
+        <div style={{ ...carteBlanche, padding: '20px' }}>
+          <p style={{ ...LABEL, color: TERRA, marginBottom: '10px' }}>Ton rôle cette semaine</p>
+          <p style={{ color: NAVY, fontSize: '16px', fontWeight: 700, lineHeight: 1.55, margin: '0 0 16px' }}>{dataR.maman_aide}</p>
+          {missions.length > 0 && (
+            <div style={{ borderTop: '1px solid #EEE7DC', paddingTop: '14px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '10px' }}>
+                <p style={{ ...LABEL, color: GRIS }}>Tes missions</p>
+                <span style={{ fontSize: '12px', fontWeight: 800, color: missionsDone === missions.length ? FORET : TERRA }}>{missionsDone} / {missions.length}</span>
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column' as const, gap: '6px' }}>
+                {missions.map((m:string, i:number) => {
+                  const id = `m${saReelle}_${i}`;
+                  const done = missionsChecked[id];
+                  return (
+                    <button key={id} onClick={() => toggleM(id)} aria-pressed={!!done} style={{ display: 'flex', alignItems: 'flex-start', gap: '12px', background: done ? 'rgba(220,229,215,0.5)' : '#F6F1E9', borderRadius: '12px', padding: '11px 12px', border: 'none', cursor: 'pointer', textAlign: 'left' as const, width: '100%', minHeight: '44px' }}>
+                      <span style={{ width: '22px', height: '22px', borderRadius: '7px', border: done ? 'none' : '2px solid #C9D3C4', background: done ? FORET : 'transparent', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, boxSizing: 'border-box' as const }}>
+                        {done && <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10" /></svg>}
+                      </span>
+                      <span style={{ color: done ? GRIS : NAVY, fontSize: '14px', fontWeight: 600, lineHeight: 1.5, textDecoration: done ? 'line-through' : 'none' }}>{m}</span>
+                    </button>
+                  );
+                })}
+              </div>
             </div>
           )}
         </div>
+      )}
 
-        {/* MENTION MÉDICALE */}
-        <div style={{background:'rgba(200,232,255,0.2)', borderRadius:'12px', padding:'12px 16px', display:'flex', alignItems:'center', gap:'10px', border:'1px solid rgba(46,95,138,0.15)'}}>
-          <span style={{fontSize:'16px', flexShrink:0}}>⚕️</span>
-          <p style={{color:'#2E5F8A', fontSize:'13px', lineHeight:1.6, margin:0}}>DadUp ne remplace pas l&apos;avis d&apos;un médecin. En cas de doute, appelle ta sage-femme ou ton médecin.</p>
+      {/* PROCHAIN RDV */}
+      {nextRdv && (
+        <div className="acc-card" style={{ ...carteBlanche, overflow: 'hidden' }}>
+          <button onClick={() => toggle('rdv')} aria-expanded={open === 'rdv'} style={{ width: '100%', background: 'none', border: 'none', padding: '16px 18px', display: 'flex', alignItems: 'center', gap: '14px', cursor: 'pointer', textAlign: 'left' as const }}>
+            <TuileIcone nom="rdv" />
+            <div style={{ flex: 1, minWidth: 0 }}>
+              <p style={{ ...LABEL, color: GRIS, marginBottom: '2px' }}>Prochain RDV{dpa && joursRestants ? ` · J-${Math.max(0,Math.ceil((new Date(new Date(dpa).getTime()-(41-nextRdv.sa)*7*24*60*60*1000).getTime()-new Date().getTime())/(1000*60*60*24)))}` : ''}</p>
+              <p style={{ color: NAVY, fontSize: '15px', fontWeight: 800, margin: 0 }}>{nextRdv.titre}</p>
+            </div>
+            <Chevron ouvert={open === 'rdv'} />
+          </button>
+          {open === 'rdv' && (
+            <div style={{ padding: '0 18px 18px', borderTop: '1px solid #EEE7DC' }}>
+              <p style={{ color: NAVY, fontSize: '14px', lineHeight: 1.7, margin: '14px 0 12px' }}>{nextRdv.desc}</p>
+              <p style={{ ...LABEL, color: GRIS, marginBottom: '6px' }}>Ma date de RDV</p>
+              <input type="date" aria-label="Date de mon rendez-vous" value={nextRdvDate} onChange={e=>{saveRdv(e.target.value);saveRdvI(nextRdv.sa,e.target.value);}} style={{ background: '#F6F1E9', border: '1px solid #E6E0D5', borderRadius: '10px', padding: '10px 14px', fontSize: '14px', color: NAVY, width: '100%', outline: 'none' }}/>
+              {nextRdvDate && <p style={{ color: FORET, fontSize: '13px', margin: '8px 0 0', fontWeight: 700 }}>✓ Noté le {new Date(nextRdvDate).toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long'})}</p>}
+            </div>
+          )}
         </div>
+      )}
 
+      {/* CE QUE VIT MAMAN */}
+      {dataR && (
+        <div className="acc-card" style={{ ...carteBlanche, overflow: 'hidden' }}>
+          <button onClick={() => toggle('maman')} aria-expanded={open === 'maman'} style={{ width: '100%', background: 'none', border: 'none', padding: '16px 18px', display: 'flex', alignItems: 'center', gap: '14px', cursor: 'pointer', textAlign: 'left' as const }}>
+            <TuileIcone nom="maman" />
+            <div style={{ flex: 1, minWidth: 0 }}>
+              <p style={{ ...LABEL, color: GRIS, marginBottom: '2px' }}>Ce que vit maman</p>
+              <p style={{ color: NAVY, fontSize: '15px', fontWeight: 800, margin: 0 }}>{dataR.maman_titre}</p>
+            </div>
+            <Chevron ouvert={open === 'maman'} />
+          </button>
+          {open === 'maman' && (
+            <div style={{ padding: '0 18px 18px', borderTop: '1px solid #EEE7DC' }}>
+              <p style={{ color: NAVY, fontSize: '14px', lineHeight: 1.7, margin: '14px 0 14px' }}>{dataR.maman}</p>
+              <div style={{ background: SAUGE, borderRadius: '12px', padding: '12px 14px' }}>
+                <p style={{ ...LABEL, color: FORET, marginBottom: '4px' }}>Conseil</p>
+                <p style={{ color: NAVY, fontSize: '14px', lineHeight: 1.6, margin: 0 }}>{dataR.conseil}</p>
+              </div>
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* À SAVOIR */}
+      {dataR && (
+        <div className="acc-card" style={{ ...carteBlanche, overflow: 'hidden' }}>
+          <button onClick={() => toggle('savoir')} aria-expanded={open === 'savoir'} style={{ width: '100%', background: 'none', border: 'none', padding: '16px 18px', display: 'flex', alignItems: 'center', gap: '14px', cursor: 'pointer', textAlign: 'left' as const }}>
+            <TuileIcone nom="savoir" />
+            <div style={{ flex: 1, minWidth: 0 }}>
+              <p style={{ ...LABEL, color: GRIS, marginBottom: '2px' }}>À savoir cette semaine</p>
+              <p style={{ color: NAVY, fontSize: '15px', fontWeight: 800, margin: 0 }}>{dataR.doc_titre}</p>
+            </div>
+            <Chevron ouvert={open === 'savoir'} />
+          </button>
+          {open === 'savoir' && (
+            <div style={{ padding: '0 18px 18px', borderTop: '1px solid #EEE7DC' }}>
+              <p style={{ color: NAVY, fontSize: '14px', lineHeight: 1.7, margin: '14px 0 14px' }}>{dataR.doc}</p>
+              <div style={{ background: NAVY_GRAD, borderRadius: '12px', padding: '14px 16px' }}>
+                <p style={{ ...LABEL, color: SAUGE_BORD, marginBottom: '6px' }}>Le savais-tu ?</p>
+                <p style={{ color: 'rgba(255,255,255,0.92)', fontSize: '14px', lineHeight: 1.7, margin: 0 }}>{dataR.savistu}</p>
+              </div>
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* IDÉE DU MOIS */}
+      <div className="acc-card" style={{ ...carteBlanche, overflow: 'hidden' }}>
+        <button onClick={() => toggle('idee')} aria-expanded={open === 'idee'} style={{ width: '100%', background: 'none', border: 'none', padding: '16px 18px', display: 'flex', alignItems: 'center', gap: '14px', cursor: 'pointer', textAlign: 'left' as const }}>
+          <TuileIcone nom="idee" />
+          <div style={{ flex: 1, minWidth: 0 }}>
+            <p style={{ ...LABEL, color: GRIS, marginBottom: '2px' }}>Idée du mois</p>
+            <p style={{ color: NAVY, fontSize: '15px', fontWeight: 800, margin: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' as const }}>{idee}</p>
+          </div>
+          <Chevron ouvert={open === 'idee'} />
+        </button>
+        {open === 'idee' && (
+          <div style={{ padding: '0 18px 18px', borderTop: '1px solid #EEE7DC' }}>
+            <p style={{ color: NAVY, fontSize: '14px', lineHeight: 1.7, margin: '14px 0 0' }}>{idee}</p>
+          </div>
+        )}
+      </div>
+
+      {/* MENTION MÉDICALE */}
+      <div style={{ background: '#ffffff', borderRadius: '14px', padding: '12px 16px', border: '1px solid #E6E0D5' }}>
+        <p style={{ color: GRIS, fontSize: '13px', lineHeight: 1.6, margin: 0 }}>DadUp ne remplace pas l&apos;avis d&apos;un médecin. En cas de doute, appelle ta sage-femme ou ton médecin.</p>
       </div>
     </div>
   );

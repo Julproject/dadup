@@ -8,7 +8,7 @@ const supabase = createClient(process.env.SUPABASE_URL!, process.env.SUPABASE_SE
 export async function POST(req: NextRequest) {
   try {
     const sessionId = req.cookies.get('dadup_session')?.value;
-    if (!sessionId) return NextResponse.json({ error: 'Non connecte.' }, { status: 401 });
+    if (!sessionId) return NextResponse.json({ error: 'Non connecté.' }, { status: 401 });
 
     // Récupérer l'utilisateur
     const { data: user, error } = await supabase
@@ -18,7 +18,7 @@ export async function POST(req: NextRequest) {
       .single();
 
     if (error || !user) return NextResponse.json({ error: 'Utilisateur introuvable.' }, { status: 404 });
-    if (!user.actif)    return NextResponse.json({ error: 'Compte deja desactive.' },    { status: 400 });
+    if (!user.actif)    return NextResponse.json({ error: 'Compte déjà désactivé.' },    { status: 400 });
 
     const joursDepuisInscription = Math.floor(
       (Date.now() - new Date(user.created_at).getTime()) / (1000 * 60 * 60 * 24)
@@ -71,12 +71,12 @@ export async function POST(req: NextRequest) {
 
     // ── Email de confirmation à l'utilisateur ─────────────────────────────────
     const sujetEmail = remboursementEffectue
-      ? 'Ton compte DadUp a ete resilie et rembourse'
-      : 'Ton compte DadUp a ete resilie';
+      ? 'Ton compte DadUp a été résilié et remboursé'
+      : 'Ton compte DadUp a été résilié';
 
     const corpsEmail = remboursementEffectue
-      ? `<p>Ton abonnement a ete annule et tu as ete rembourse integralement. Le remboursement apparaitra sur ton compte sous 5 a 10 jours ouvres.</p>`
-      : `<p>Ton abonnement a ete annule. Tu conserves l'acces a DadUp jusqu'a la fin de ta periode annuelle.</p>`;
+      ? `<p>Ton accès a été résilié et tu as été remboursé intégralement. Le remboursement apparaîtra sur ton compte sous 5 à 10 jours ouvrés.</p>`
+      : `<p>Ton accès à DadUp a été résilié et ton compte est désactivé.</p>`;
 
     await fetch('https://api.brevo.com/v3/smtp/email', {
       method: 'POST',
@@ -87,9 +87,9 @@ export async function POST(req: NextRequest) {
         subject: sujetEmail,
         htmlContent: `
 <div style="font-family:sans-serif;max-width:520px;margin:0 auto;padding:32px;background:#f7f5f0;">
-  <h2 style="color:#1e2535;">Resiliation confirmee</h2>
+  <h2 style="color:#1e2535;">Résiliation confirmée</h2>
   ${corpsEmail}
-  <p style="color:#9aa0a8;font-size:12px;margin-top:24px;">DadUp · hello@dadup.fr<br/>Si tu as des questions, reponds directement a cet email.</p>
+  <p style="color:#9aa0a8;font-size:12px;margin-top:24px;">DadUp · hello@dadup.fr<br/>Si tu as des questions, réponds directement à cet email.</p>
 </div>`,
       }),
     });

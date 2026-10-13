@@ -14,7 +14,7 @@ export async function POST(req: NextRequest) {
     const dark = rgb(0.039, 0.059, 0.118);
 
     const dpaDate = new Date(dpa);
-    const conceptionDate = new Date(dpaDate.getTime() - 40 * 7 * 24 * 60 * 60 * 1000);
+    const conceptionDate = new Date(dpaDate.getTime() - 41 * 7 * 24 * 60 * 60 * 1000);
     const diffMs = new Date().getTime() - conceptionDate.getTime();
     const sa = Math.max(1, Math.min(42, Math.floor(diffMs / (7 * 24 * 60 * 60 * 1000))));
 
@@ -108,7 +108,7 @@ export async function POST(req: NextRequest) {
       { sa: 40, label: 'DPA — Jour J !' },
     ];
     for (const rdv of rdvs) {
-      const rdvDate = new Date(dpaDate.getTime() - (40 - rdv.sa) * 7 * 24 * 60 * 60 * 1000);
+      const rdvDate = new Date(dpaDate.getTime() - (41 - rdv.sa) * 7 * 24 * 60 * 60 * 1000);
       p4.drawText(`SA ${rdv.sa} (${rdvDate.toLocaleDateString('fr-FR')}) — ${rdv.label}`, { x: 50, y, size: 11, font: fontRegular, color: white });
       y -= 28;
     }

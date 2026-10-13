@@ -38,7 +38,7 @@ function TimelineContent() {
   useEffect(() => {
     if (!dpa) return;
     const dpaDate = new Date(dpa);
-    const conception = new Date(dpaDate.getTime() - 40 * 7 * 24 * 60 * 60 * 1000);
+    const conception = new Date(dpaDate.getTime() - 41 * 7 * 24 * 60 * 60 * 1000);
     const diff = new Date().getTime() - conception.getTime();
     const sa = Math.max(1, Math.min(42, Math.floor(diff / (7 * 24 * 60 * 60 * 1000))));
     setSaActuelle(sa);
@@ -158,7 +158,7 @@ function TimelineContent() {
                           </div>
                           <p className={`text-xs mt-0.5 ${statut === 'prochain' ? 'text-[#c8a882]' : 'text-[#9a8470]'}`}>
                             SA {rdv.sa}
-                            {dpa && ` · ${new Date(new Date(dpa).getTime() - (40 - rdv.sa) * 7 * 24 * 60 * 60 * 1000).toLocaleDateString('fr-FR', { day: 'numeric', month: 'short' })}`}
+                            {dpa && ` · ${new Date(new Date(dpa).getTime() - (41 - rdv.sa) * 7 * 24 * 60 * 60 * 1000).toLocaleDateString('fr-FR', { day: 'numeric', month: 'short' })}`}
                           </p>
                         </div>
                       </div>

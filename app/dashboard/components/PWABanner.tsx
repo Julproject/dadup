@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 
 const C = {
-  dark: '#1e2535', gold: '#c8a060', blue: '#2E5F8A',
+  dark: '#1e2535', gold:'#C9D8C4', blue: '#2E5F8A',
   white: '#ffffff', textLight: '#6a7585',
 };
 
@@ -83,7 +83,7 @@ export default function PWABanner() {
         {!isIOS && deferredPrompt ? (
           <button
             onClick={installAndroid}
-            style={{ background: C.gold, color: '#1c1510', border: 'none', padding: '8px 20px', borderRadius: '32px', fontSize: '13px', fontWeight: 700, cursor: 'pointer' }}
+            style={{ background: '#B4593A', color: '#ffffff', border: 'none', padding: '8px 20px', borderRadius: '32px', fontSize: '13px', fontWeight: 700, cursor: 'pointer' }}
           >
             Installer
           </button>
