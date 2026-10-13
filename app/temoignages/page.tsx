@@ -3,9 +3,9 @@ import { useState } from 'react';
 import CheckoutModal from '@/app/components/CheckoutModal';
 
 const C = {
-  dark: '#1e2535', gold: '#c8a060', cream: '#faf6f0', white: '#ffffff',
-  border: '#e8e0d0', text: '#4a5568', textLight: '#56616B',
-  blue: '#2E5F8A', bluePale: '#E6F0FA', blueDark: '#1A3D5C',
+  dark: '#15263A', gold: '#B4593A', cream: '#F6F1E9', white: '#ffffff',
+  border: '#E6E0D5', text: '#3D4A55', textLight: '#56616B',
+  blue: '#2E5F8A', bluePale: '#ffffff', blueDark: '#1A3D5C',
 };
 
 export default function TemoignagesPage() {
@@ -49,7 +49,7 @@ export default function TemoignagesPage() {
             <a href="/pourquoi" style={{ color: C.text, fontSize: '14px', fontWeight: 500, padding: '8px 14px', textDecoration: 'none' }}>Pourquoi DadUp</a>
             <a href="/inclus" style={{ color: C.text, fontSize: '14px', fontWeight: 500, padding: '8px 14px', textDecoration: 'none' }}>Ce qui est inclus</a>
             <a href="/tarifs" style={{ color: C.text, fontSize: '14px', fontWeight: 500, padding: '8px 14px', textDecoration: 'none' }}>Tarifs</a>
-            <a href="/temoignages" style={{ color: C.dark, fontSize: '14px', fontWeight: 700, padding: '8px 14px', borderRadius: '8px', textDecoration: 'none', borderBottom: `2px solid ${C.gold}` }}>Témoignages</a>
+            <a href="/temoignages" style={{ color: C.dark, fontSize: '14px', fontWeight: 700, padding: '8px 14px', borderRadius: '8px', textDecoration: 'none', borderBottom: `2px solid #B4593A` }}>Témoignages</a>
             <a href="/contact" style={{ color: C.text, fontSize: '14px', fontWeight: 500, padding: '8px 14px', textDecoration: 'none' }}>Contactez-nous</a>
           </div>
         </div>
@@ -77,9 +77,9 @@ export default function TemoignagesPage() {
       {/* HERO */}
       <section className="hero" style={{ background: C.dark, padding: '80px 40px' }}>
         <div style={{ maxWidth: '680px', margin: '0 auto', textAlign: 'center' }}>
-          <p style={{ color: C.gold, fontSize: '12px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase', margin: '0 0 20px' }}>Lancement</p>
+          <p style={{ color: '#C9D8C4', fontSize: '12px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase', margin: '0 0 20px' }}>Lancement</p>
           <h1 style={{ color: C.white, fontSize: '44px', fontWeight: 800, margin: '0 0 20px', lineHeight: 1.15 }}>
-            DadUp vient de<br /><span style={{ color: C.gold }}>démarrer.</span>
+            DadUp vient de<br /><span style={{ color: '#C9D8C4' }}>démarrer.</span>
           </h1>
           <p style={{ color: 'rgba(255,255,255,0.78)', fontSize: '17px', lineHeight: 1.75, margin: 0 }}>
             Les premiers papas utilisent DadUp en ce moment. Les témoignages arrivent bientôt.

@@ -1,9 +1,9 @@
 'use client';
 
 const C = {
-  dark: '#1e2535', gold: '#c8a060', cream: '#faf6f0', white: '#ffffff',
-  border: '#e8e0d0', text: '#4a5568', textLight: '#56616B',
-  blue: '#2E5F8A', bluePale: '#E6F0FA', blueDark: '#1A3D5C',
+  dark: '#15263A', gold: '#B4593A', cream: '#F6F1E9', white: '#ffffff',
+  border: '#E6E0D5', text: '#3D4A55', textLight: '#56616B',
+  blue: '#2E5F8A', bluePale: '#ffffff', blueDark: '#1A3D5C',
 };
 
 const SOURCES = [
@@ -12,28 +12,28 @@ const SOURCES = [
     nom: "Haute Autorité de Santé",
     description: "Les recommandations de suivi de grossesse, le calendrier des consultations et les protocoles accouchement sont issus des guides de la HAS.",
     url: "https://www.has-sante.fr",
-    couleur: "#003189",
+    couleur: "#1A3D5C",
   },
   {
     sigle: "OMS",
     nom: "Organisation Mondiale de la Santé",
     description: "Les données sur le développement foetal, la nutrition périnatale et les recommandations de suivi prénatal sont issues des publications de l'OMS.",
     url: "https://www.who.int/fr",
-    couleur: "#009BDE",
+    couleur: "#1A3D5C",
   },
   {
     sigle: "ESPGHAN",
     nom: "Société Européenne de Gastroentérologie Pédiatrique",
     description: "Les recommandations sur l'allaitement, la diversification alimentaire et la nutrition du nourrisson sont tirées des guidelines ESPGHAN.",
     url: "https://www.espghan.org",
-    couleur: "#00693E",
+    couleur: "#1A3D5C",
   },
   {
     sigle: "Inserm",
     nom: "Institut national de la santé et de la recherche médicale",
     description: "Les données sur le développement neurologique, le baby blues et l'attachement père-enfant proviennent des publications de l'Inserm.",
     url: "https://www.inserm.fr",
-    couleur: "#C8003A",
+    couleur: "#1A3D5C",
   },
 ];
 
@@ -94,9 +94,9 @@ export default function MethodologiePage() {
       {/* HERO */}
       <section style={{ background: C.dark, padding: '72px 40px' }}>
         <div style={{ maxWidth: '760px', margin: '0 auto', textAlign: 'center' }}>
-          <p style={{ color: C.gold, fontSize: '12px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase', margin: '0 0 20px' }}>Notre approche</p>
+          <p style={{ color: '#C9D8C4', fontSize: '12px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase', margin: '0 0 20px' }}>Notre approche</p>
           <h1 style={{ color: C.white, fontSize: '44px', fontWeight: 800, margin: '0 0 20px', lineHeight: 1.15 }}>
-            Un contenu <span style={{ color: C.gold }}>sourcé et vérifié.</span>
+            Un contenu <span style={{ color: '#C9D8C4' }}>sourcé et vérifié.</span>
           </h1>
           <p style={{ color: 'rgba(255,255,255,0.78)', fontSize: '17px', lineHeight: 1.75, margin: 0 }}>
             Chaque information s'appuie sur des recommandations médicales publiées par des institutions reconnues.
@@ -140,10 +140,10 @@ export default function MethodologiePage() {
 
       {/* CTA */}
       <section style={{ background: C.dark, padding: '72px 40px', textAlign: 'center' as const }}>
-        <p style={{ color: C.gold, fontSize: '12px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase' as const, margin: '0 0 16px' }}>Accéder à DadUp</p>
+        <p style={{ color: '#C9D8C4', fontSize: '12px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase' as const, margin: '0 0 16px' }}>Accéder à DadUp</p>
         
         <p style={{ color: 'rgba(255,255,255,0.78)', fontSize: '16px', margin: '0 0 36px' }}>49,99€ accès complet · Paiement unique · Accès immédiat</p>
-        <a href="/tarifs" style={{ background: C.gold, color: '#1c1510', padding: '18px 48px', borderRadius: '32px', fontSize: '16px', fontWeight: 800, textDecoration: 'none', display: 'inline-block' }}>
+        <a href="/tarifs" style={{ background: C.gold, color: '#ffffff', padding: '18px 48px', borderRadius: '32px', fontSize: '16px', fontWeight: 800, textDecoration: 'none', display: 'inline-block' }}>
           Commencer
         </a>
       </section>

@@ -2,8 +2,8 @@
 import { useState } from 'react';
 
 const C = {
-  dark: '#1e2535', gold: '#c8a060', cream: '#faf6f0', white: '#ffffff',
-  border: '#e8e0d0', text: '#4a5568', textLight: '#56616B',
+  dark: '#15263A', gold: '#B4593A', cream: '#F6F1E9', white: '#ffffff',
+  border: '#E6E0D5', text: '#3D4A55', textLight: '#56616B',
   blue: '#2E5F8A', blueDark: '#1A3D5C',
 };
 
@@ -57,7 +57,7 @@ export default function ContactPage() {
           </a>
           <div className="nl" style={{gap:'4px'}}>
             {[['Pourquoi DadUp','/pourquoi'],['Ce qui est inclus','/inclus'],['Tarifs','/tarifs'],['Contact','/contact']].map(([l,h]) => (
-              <a key={h} href={h} style={{color:C.dark, fontSize:'14px', fontWeight:700, padding:'8px 14px', borderRadius:'8px', textDecoration:'none', ...(h==='/contact'?{borderBottom:`2px solid ${C.gold}`}:{})}}>{l}</a>
+              <a key={h} href={h} style={{color:C.dark, fontSize:'14px', fontWeight:700, padding:'8px 14px', borderRadius:'8px', textDecoration:'none', ...(h==='/contact'?{borderBottom:`2px solid #B4593A`}:{})}}>{l}</a>
             ))}
           </div>
         </div>
@@ -82,17 +82,17 @@ export default function ContactPage() {
 
       {/* HERO */}
       <section style={{background:'linear-gradient(135deg,#0a1f32 0%,#1A3D5C 50%,#1d4d72 100%)', padding:'80px 40px', position:'relative', overflow:'hidden'}}>
-        <div style={{position:'absolute', top:'-60px', right:'100px', width:'320px', height:'320px', borderRadius:'50%', background:'radial-gradient(circle,rgba(200,160,96,0.22) 0%,transparent 65%)', pointerEvents:'none'}}></div>
+        <div style={{position:'absolute', top:'-60px', right:'100px', width:'320px', height:'320px', borderRadius:'50%', background:'radial-gradient(circle,rgba(157,176,154,0.22) 0%,transparent 65%)', pointerEvents:'none'}}></div>
         <div style={{position:'absolute', bottom:'-60px', left:'-40px', width:'280px', height:'280px', borderRadius:'50%', background:'radial-gradient(circle,rgba(100,200,160,0.1) 0%,transparent 70%)', pointerEvents:'none'}}></div>
         <div style={{maxWidth:'800px', margin:'0 auto', textAlign:'center' as const, position:'relative', zIndex:1}}>
-          <div style={{display:'inline-flex', alignItems:'center', gap:'8px', background:'rgba(200,160,96,0.18)', border:'1px solid rgba(200,160,96,0.5)', borderRadius:'20px', padding:'5px 14px', marginBottom:'24px'}}>
-            <div style={{width:'7px', height:'7px', borderRadius:'50%', background:'#c8a060', boxShadow:'0 0 8px rgba(200,160,96,0.9)'}}></div>
-            <span style={{color:'#e0b870', fontSize:'12px', fontWeight:700, letterSpacing:'1px'}}>Support</span>
+          <div style={{display:'inline-flex', alignItems:'center', gap:'8px', background:'rgba(157,176,154,0.18)', border:'1px solid rgba(157,176,154,0.5)', borderRadius:'20px', padding:'5px 14px', marginBottom:'24px'}}>
+            <div style={{width:'7px', height:'7px', borderRadius:'50%', background:'#9DB09A', boxShadow:'0 0 8px rgba(157,176,154,0.9)'}}></div>
+            <span style={{color:'#C9D8C4', fontSize:'12px', fontWeight:700, letterSpacing:'1px'}}>Support</span>
           </div>
           <h1 style={{color:C.white, fontSize:'44px', fontWeight:800, margin:'0 0 16px', lineHeight:1.1}}>
-            On est là<br/><span style={{color:'#e0b870'}}>pour toi</span>
+            On est là<br/><span style={{color:'#C9D8C4'}}>pour toi</span>
           </h1>
-          <p style={{color:'rgba(255,255,255,0.6)', fontSize:'17px', lineHeight:1.7}}>Une question, un problème, une suggestion ? On répond rapidement.</p>
+          <p style={{color:'rgba(255,255,255,0.78)', fontSize:'17px', lineHeight:1.7}}>Une question, un problème, une suggestion ? On répond rapidement.</p>
         </div>
       </section>
 
@@ -105,7 +105,7 @@ export default function ContactPage() {
             {sent ? (
               <div style={{background:'rgba(184,240,216,0.3)', borderRadius:'24px', padding:'48px', textAlign:'center' as const, border:'1px solid rgba(13,107,64,0.15)'}}>
                 <div style={{width:'64px', height:'64px', borderRadius:'50%', background:'linear-gradient(135deg,#0a1f32,#1A3D5C)', display:'flex', alignItems:'center', justifyContent:'center', margin:'0 auto 20px', boxShadow:'0 8px 24px rgba(26,61,92,0.3)'}}>
-                  <span style={{color:'#e0b870', fontSize:'28px', fontWeight:800}}>✓</span>
+                  <span style={{color:'#C9D8C4', fontSize:'28px', fontWeight:800}}>✓</span>
                 </div>
                 <h2 style={{color:'#0A2E1A', fontSize:'22px', fontWeight:800, margin:'0 0 10px'}}>Message envoyé</h2>
                 <p style={{color:'#0D6B40', fontSize:'15px', lineHeight:1.7, margin:'0 0 24px'}}>On te répond dans les 24h. Merci pour ton retour.</p>
@@ -118,25 +118,25 @@ export default function ContactPage() {
                   <div style={{display:'grid', gridTemplateColumns:'1fr 1fr', gap:'12px'}}>
                     <div>
                       <p style={{color:C.dark, fontSize:'13px', fontWeight:700, margin:'0 0 6px'}}>Prénom</p>
-                      <input className="inp" value={prenom} onChange={e => setPrenom(e.target.value)} placeholder="Ton prénom" style={{width:'100%', background:C.cream, border:`1.5px solid ${C.border}`, borderRadius:'12px', padding:'11px 14px', fontSize:'14px', color:C.dark, transition:'border-color .2s'}}/>
+                      <input className="inp" aria-label="Ton prénom" value={prenom} onChange={e => setPrenom(e.target.value)} placeholder="Ton prénom" style={{width:'100%', background:C.cream, border:`1.5px solid ${C.border}`, borderRadius:'12px', padding:'11px 14px', fontSize:'14px', color:C.dark, transition:'border-color .2s'}}/>
                     </div>
                     <div>
-                      <p style={{color:C.dark, fontSize:'13px', fontWeight:700, margin:'0 0 6px'}}>Email <span style={{color:'#e05050'}}>*</span></p>
-                      <input className="inp" type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="ton@email.fr" required style={{width:'100%', background:C.cream, border:`1.5px solid ${C.border}`, borderRadius:'12px', padding:'11px 14px', fontSize:'14px', color:C.dark, transition:'border-color .2s'}}/>
+                      <p style={{color:C.dark, fontSize:'13px', fontWeight:700, margin:'0 0 6px'}}>Email <span style={{color:'#B42318'}}>*</span></p>
+                      <input className="inp" aria-label="Ton email" type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="ton@email.fr" required style={{width:'100%', background:C.cream, border:`1.5px solid ${C.border}`, borderRadius:'12px', padding:'11px 14px', fontSize:'14px', color:C.dark, transition:'border-color .2s'}}/>
                     </div>
                   </div>
                   <div>
-                    <p style={{color:C.dark, fontSize:'13px', fontWeight:700, margin:'0 0 6px'}}>Sujet <span style={{color:'#e05050'}}>*</span></p>
-                    <select className="inp" value={sujet} onChange={e => setSujet(e.target.value)} required style={{width:'100%', background:C.cream, border:`1.5px solid ${C.border}`, borderRadius:'12px', padding:'11px 14px', fontSize:'14px', color:sujet?C.dark:C.textLight, cursor:'pointer', appearance:'none' as any}}>
+                    <p style={{color:C.dark, fontSize:'13px', fontWeight:700, margin:'0 0 6px'}}>Sujet <span style={{color:'#B42318'}}>*</span></p>
+                    <select className="inp" aria-label="Sujet" value={sujet} onChange={e => setSujet(e.target.value)} required style={{width:'100%', background:C.cream, border:`1.5px solid ${C.border}`, borderRadius:'12px', padding:'11px 14px', fontSize:'14px', color:sujet?C.dark:C.textLight, cursor:'pointer', appearance:'none' as any}}>
                       <option value="" disabled>Choisis un sujet</option>
                       {["Question sur le contenu","Problème technique","Remboursement","Partenariat","Autre"].map(s => <option key={s} value={s}>{s}</option>)}
                     </select>
                   </div>
                   <div>
-                    <p style={{color:C.dark, fontSize:'13px', fontWeight:700, margin:'0 0 6px'}}>Message <span style={{color:'#e05050'}}>*</span></p>
-                    <textarea className="inp" value={message} onChange={e => setMessage(e.target.value)} required rows={5} placeholder="Décris ta question ou ton problème..." style={{width:'100%', background:C.cream, border:`1.5px solid ${C.border}`, borderRadius:'12px', padding:'12px 14px', fontSize:'14px', color:C.dark, resize:'vertical' as any, fontFamily:'inherit', transition:'border-color .2s'}}/>
+                    <p style={{color:C.dark, fontSize:'13px', fontWeight:700, margin:'0 0 6px'}}>Message <span style={{color:'#B42318'}}>*</span></p>
+                    <textarea className="inp" aria-label="Ton message" value={message} onChange={e => setMessage(e.target.value)} required rows={5} placeholder="Décris ta question ou ton problème..." style={{width:'100%', background:C.cream, border:`1.5px solid ${C.border}`, borderRadius:'12px', padding:'12px 14px', fontSize:'14px', color:C.dark, resize:'vertical' as any, fontFamily:'inherit', transition:'border-color .2s'}}/>
                   </div>
-                  <button type="submit" disabled={loading || !email || !sujet || !message} style={{background:'linear-gradient(135deg,#c8a060,#e8c070)', color:'#1c1510', border:'none', padding:'16px 32px', borderRadius:'32px', fontSize:'15px', fontWeight:800, cursor:'pointer', boxShadow:'0 6px 20px rgba(200,160,96,0.4)', opacity:(!email||!sujet||!message)?0.5:1}}>
+                  <button type="submit" disabled={loading || !email || !sujet || !message} style={{background:'#B4593A', color:'#ffffff', border:'none', padding:'16px 32px', borderRadius:'32px', fontSize:'15px', fontWeight:800, cursor:'pointer', boxShadow:'0 6px 20px rgba(157,176,154,0.4)', opacity:(!email||!sujet||!message)?0.5:1}}>
                     {loading ? 'Envoi...' : 'Envoyer'}
                   </button>
                 </form>
@@ -149,7 +149,7 @@ export default function ContactPage() {
             {[
               {bg:'#C8E8FF', border:'rgba(46,95,138,0.15)', icon:'✉️', tc:'#0A2847', dc:'#2E5F8A', titre:'Email', desc:'hello@dadup.fr', sub:'On répond en moins de 24h'},
               {bg:'rgba(184,240,216,0.35)', border:'rgba(13,107,64,0.15)', icon:'⏱️', tc:'#0A2E1A', dc:'#0D6B40', titre:'Délai de réponse', desc:'Sous 24h', sub:'Du lundi au vendredi'},
-              {bg:'rgba(255,232,160,0.35)', border:'rgba(200,160,96,0.2)', icon:'↩️', tc:'#3A2000', dc:'#8A6010', titre:'Remboursement', desc:'14 premiers jours', sub:'Remboursement intégral, sans condition'},
+              {bg:'rgba(255,232,160,0.35)', border:'rgba(157,176,154,0.2)', icon:'↩️', tc:'#3A2000', dc:'#8A6010', titre:'Remboursement', desc:'14 premiers jours', sub:'Remboursement intégral, sans condition'},
             ].map((item,i) => (
               <div key={i} style={{background:item.bg, borderRadius:'20px', padding:'22px 24px', border:`1px solid ${item.border}`, display:'flex', gap:'16px', alignItems:'flex-start'}}>
                 <div style={{width:'44px', height:'44px', borderRadius:'14px', background:'rgba(255,255,255,0.6)', display:'flex', alignItems:'center', justifyContent:'center', flexShrink:0, fontSize:'20px', boxShadow:'0 2px 8px rgba(0,0,0,0.06)'}}>
@@ -172,16 +172,16 @@ export default function ContactPage() {
           <div style={{display:'flex', alignItems:'center', gap:'8px'}}>
             <svg viewBox="0 0 300 300" width="28" height="28"><circle cx="150" cy="150" r="145" fill="#3a4f6e"/><circle cx="150" cy="150" r="122" fill="#4a6080"/><ellipse cx="150" cy="205" rx="58" ry="54" fill="#c8a060"/><circle cx="150" cy="112" r="40" fill="#c8a060"/><ellipse cx="150" cy="196" rx="27" ry="31" fill="#faf6f0"/><circle cx="150" cy="128" r="26" fill="#faf6f0"/></svg>
             <span style={{color:C.white, fontSize:'16px', fontWeight:700}}>DadUp</span>
-            <span style={{color:'rgba(255,255,255,0.45)', fontSize:'13px', marginLeft:'12px', fontStyle:'italic' as const}}>À deux, dès le premier jour</span>
+            <span style={{color:'rgba(255,255,255,0.78)', fontSize:'13px', marginLeft:'12px', fontStyle:'italic' as const}}>À deux, dès le premier jour</span>
           </div>
           <div style={{display:'flex', gap:'20px', flexWrap:'wrap' as const}}>
             {[['Pourquoi DadUp','/pourquoi'],['Ce qui est inclus','/inclus'],['Tarifs','/tarifs'],['Professionnels','/professionnels'],['Sources','/sources'],['Contact','/contact']].map(([l,h]) => (
-              <a key={h} href={h} style={{color:'rgba(255,255,255,0.55)', fontSize:'13px', textDecoration:'none'}}>{l}</a>
+              <a key={h} href={h} style={{color:'rgba(255,255,255,0.78)', fontSize:'13px', textDecoration:'none'}}>{l}</a>
             ))}
           </div>
           <div style={{display:'flex', gap:'16px'}}>
             {[['CGV','/cgv'],['Confidentialité','/confidentialite'],['Mentions légales','/mentions-legales']].map(([l,h]) => (
-              <a key={h} href={h} style={{color:'rgba(255,255,255,0.35)', fontSize:'12px', textDecoration:'none'}}>{l}</a>
+              <a key={h} href={h} style={{color:'rgba(255,255,255,0.78)', fontSize:'12px', textDecoration:'none'}}>{l}</a>
             ))}
           </div>
         </div>

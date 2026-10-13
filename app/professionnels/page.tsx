@@ -3,9 +3,9 @@
 import { useState } from 'react';
 
 const C = {
-  dark: '#1e2535', gold: '#c8a060', cream: '#faf6f0', white: '#ffffff',
-  border: '#e8e0d0', text: '#4a5568', textLight: '#56616B',
-  blue: '#2E5F8A', bluePale: '#E6F0FA',
+  dark: '#15263A', gold: '#B4593A', cream: '#F6F1E9', white: '#ffffff',
+  border: '#E6E0D5', text: '#3D4A55', textLight: '#56616B',
+  blue: '#2E5F8A', bluePale: '#ffffff',
 };
 
 export default function ProfessionnelsPage() {
@@ -76,7 +76,7 @@ export default function ProfessionnelsPage() {
         <div style={{ maxWidth: '900px', margin: '0 auto' }}>
           <div className="hero-grid">
             <div>
-              <p style={{ color: C.gold, fontSize: '12px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase' as const, margin: '0 0 20px' }}>Professionnels de santé</p>
+              <p style={{ color: '#C9D8C4', fontSize: '12px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase' as const, margin: '0 0 20px' }}>Professionnels de santé</p>
               <h1 style={{ color: C.white, fontSize: '42px', fontWeight: 800, margin: '0 0 20px', lineHeight: 1.15 }}>
                 Un outil pour les pères que vous accompagnez.
               </h1>
@@ -85,7 +85,7 @@ export default function ProfessionnelsPage() {
               </p>
             </div>
             <div style={{ background: 'rgba(255,255,255,0.05)', borderRadius: '20px', padding: '32px', border: '1px solid rgba(255,255,255,0.1)' }}>
-              <p style={{ color: C.gold, fontSize: '13px', fontWeight: 700, margin: '0 0 20px' }}>Ce que DadUp couvre</p>
+              <p style={{ color: '#C9D8C4', fontSize: '13px', fontWeight: 700, margin: '0 0 20px' }}>Ce que DadUp couvre</p>
               {[
                 'Suivi du développement fœtal SA 3 à SA 41',
                 'Calendrier des consultations obligatoires',
@@ -94,7 +94,7 @@ export default function ProfessionnelsPage() {
                 'Contenu sourcé HAS, OMS, ESPGHAN, Inserm',
               ].map((item, i) => (
                 <div key={i} style={{ display: 'flex', gap: '10px', alignItems: 'flex-start', marginBottom: '12px' }}>
-                  <span style={{ color: C.gold, flexShrink: 0, marginTop: '2px' }}>✓</span>
+                  <span style={{ color: '#C9D8C4', flexShrink: 0, marginTop: '2px' }}>✓</span>
                   <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '14px', margin: 0, lineHeight: 1.6 }}>{item}</p>
                 </div>
               ))}
@@ -123,7 +123,7 @@ export default function ProfessionnelsPage() {
             },
           ].map((item, i) => (
             <div key={i} style={{ background: C.white, borderRadius: '20px', padding: '28px', border: `1px solid ${C.border}` }}>
-              <div style={{ width: '36px', height: '4px', background: C.gold, borderRadius: '2px', marginBottom: '16px' }}></div>
+              <div style={{ width: '36px', height: '4px', background: '#B4593A', borderRadius: '2px', marginBottom: '16px' }}></div>
               <p style={{ color: C.dark, fontSize: '15px', fontWeight: 700, margin: '0 0 10px' }}>{item.titre}</p>
               <p style={{ color: C.text, fontSize: '14px', lineHeight: 1.75, margin: 0 }}>{item.desc}</p>
             </div>
@@ -145,7 +145,7 @@ export default function ProfessionnelsPage() {
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
                 <div>
                   <label style={{ display: 'block', color: C.dark, fontSize: '12px', fontWeight: 700, marginBottom: '6px' }}>Nom</label>
-                  <input
+                  <input aria-label="Nom"
                     type="text"
                     value={form.nom}
                     onChange={e => setForm({ ...form, nom: e.target.value })}
@@ -155,7 +155,7 @@ export default function ProfessionnelsPage() {
                 </div>
                 <div>
                   <label style={{ display: 'block', color: C.dark, fontSize: '12px', fontWeight: 700, marginBottom: '6px' }}>Email</label>
-                  <input
+                  <input aria-label="Email"
                     type="email"
                     value={form.email}
                     onChange={e => setForm({ ...form, email: e.target.value })}
@@ -166,7 +166,7 @@ export default function ProfessionnelsPage() {
               </div>
               <div>
                 <label style={{ display: 'block', color: C.dark, fontSize: '12px', fontWeight: 700, marginBottom: '6px' }}>Profession</label>
-                <input
+                <input aria-label="Profession"
                   type="text"
                   value={form.profession}
                   placeholder="Sage-femme, gynécologue, doula, accompagnant à la naissance..."
@@ -177,7 +177,7 @@ export default function ProfessionnelsPage() {
               </div>
               <div>
                 <label style={{ display: 'block', color: C.dark, fontSize: '12px', fontWeight: 700, marginBottom: '6px' }}>Message</label>
-                <textarea
+                <textarea aria-label="Message"
                   value={form.message}
                   onChange={e => setForm({ ...form, message: e.target.value })}
                   rows={4}
