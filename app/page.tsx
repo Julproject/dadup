@@ -98,63 +98,104 @@ export default function Home() {
         </div>
       )}
 
-      {/* HERO */}
+      {/* HERO : trois écrans de l'app en éventail */}
       <section style={{background:'#F6F1E9', padding:'24px 24px 0'}}>
-        <div className="hero-2col" style={{background:'linear-gradient(135deg,#0a1f32 0%,#1A3D5C 50%,#1d4d72 100%)', borderRadius:'24px', position:'relative', overflow:'hidden', border:'1px solid rgba(255,255,255,0.06)'}}>
-
-          {/* Cercles décoratifs */}
-          <div style={{position:'absolute', top:'-60px', right:'200px', width:'320px', height:'320px', borderRadius:'50%', background:'radial-gradient(circle,rgba(157,176,154,0.22) 0%,transparent 65%)', pointerEvents:'none'}}></div>
-          <div style={{position:'absolute', bottom:'-80px', left:'-40px', width:'280px', height:'280px', borderRadius:'50%', background:'radial-gradient(circle,rgba(100,200,160,0.12) 0%,transparent 70%)', pointerEvents:'none'}}></div>
-          <div style={{position:'absolute', top:'30px', right:'20px', width:'200px', height:'200px', borderRadius:'50%', background:'radial-gradient(circle,rgba(150,120,220,0.1) 0%,transparent 70%)', pointerEvents:'none'}}></div>
-
-          {/* TEXTE GAUCHE */}
-          <div style={{position:'relative', zIndex:1, padding:'8px 0'}}>
-            <div style={{display:'inline-flex', alignItems:'center', gap:'8px', background:'rgba(230,240,250,0.15)', border:'1px solid rgba(157,176,154,0.4)', borderRadius:'20px', padding:'5px 14px', marginBottom:'24px'}}>
-              <div style={{width:'6px', height:'6px', borderRadius:'50%', background:C.gold}}></div>
-              <span style={{color:'#C9D8C4', fontSize:'12px', fontWeight:700, letterSpacing:'1px'}}>Conçu pour les futurs pères</span>
-            </div>
-
-            <h1 style={{color:C.white, fontSize:'clamp(28px,4vw,40px)', fontWeight:800, lineHeight:1.15, margin:'0 0 16px'}}>
-              Être père, ça commence<br/><span style={{color:'#C9D8C4'}}>bien avant la naissance</span>
-            </h1>
-
-            <p style={{color:'rgba(255,255,255,0.95)', fontSize:'18px', fontWeight:700, lineHeight:1.6, margin:'0 0 8px'}}>
-              Prends ta place de père
-            </p>
-            <p style={{color:'rgba(255,255,255,0.78)', fontSize:'14px', lineHeight:1.7, margin:'0 0 32px'}}>
-              DadUp t&apos;accompagne semaine après semaine, de la grossesse au premier anniversaire de bébé.
-            </p>
-
-            <div style={{display:'flex', flexDirection:'column' as const, gap:'10px', maxWidth:'320px'}}>
-              <button onClick={goToStripe} style={{background:'#B4593A', color:'#ffffff', border:'none', padding:'16px 32px', borderRadius:'32px', fontSize:'16px', fontWeight:800, cursor:'pointer', textAlign:'center' as const, boxShadow:'0 6px 24px rgba(157,176,154,0.5),0 2px 8px rgba(0,0,0,0.2)'}}>
-                Accéder
-              </button>
-              <div style={{display:'flex', alignItems:'center', gap:'8px'}}>
-                <div style={{flex:1, height:'1px', background:'rgba(255,255,255,0.1)'}}></div>
-                <span style={{color:'rgba(255,255,255,0.78)', fontSize:'12px'}}>Satisfait ou remboursé sous 14 jours</span>
-                <div style={{flex:1, height:'1px', background:'rgba(255,255,255,0.1)'}}></div>
-              </div>
-              <a href="/inclus" style={{color:'rgba(255,255,255,0.78)', fontSize:'13px', textAlign:'center' as const, textDecoration:'none'}}>Voir ce qui est inclus →</a>
-            </div>
+        <style>{`
+          .hero-a{position:relative;overflow:hidden;border-radius:24px;background:linear-gradient(160deg,#0C1D2E 0%,#1A3D5C 62%,#24507A 100%);padding:72px 24px 0;text-align:center;max-width:1392px;margin:0 auto;}
+          .hero-a h1{color:#fff;font-size:clamp(32px,5vw,58px);font-weight:800;line-height:1.06;letter-spacing:-1.2px;margin:0 auto 18px;max-width:900px;}
+          .hero-chips{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:26px auto 0;max-width:860px;}
+          .hero-chip{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.16);border-radius:99px;padding:8px 14px;color:#fff;font-size:13px;font-weight:700;}
+          .hero-phones{position:relative;width:min(880px,100%);height:420px;margin:48px auto 0;}
+          .hero-phone{position:absolute;background:#0B1118;box-shadow:0 30px 60px rgba(0,0,0,0.35);}
+          .hero-phone img{display:block;width:100%;height:auto;}
+          .hp-c{left:50%;top:0;transform:translateX(-50%);width:270px;padding:10px;border-radius:52px;z-index:2;box-shadow:0 40px 80px rgba(0,0,0,0.45);}
+          .hp-c img{border-radius:43px;}
+          .hp-l,.hp-r{top:90px;width:236px;padding:9px;border-radius:46px;}
+          .hp-l img,.hp-r img{border-radius:38px;}
+          .hp-l{left:70px;transform:rotate(-7deg);}
+          .hp-r{right:70px;transform:rotate(7deg);}
+          @media (max-width:768px){
+            .hero-a{padding:44px 20px 0;}
+            .hero-a h1{letter-spacing:-0.6px;}
+            .hero-chips{gap:6px;margin-top:20px;}
+            .hero-chip{font-size:12px;padding:6px 11px;}
+            .hero-phones{height:300px;margin-top:36px;}
+            .hp-c{width:176px;padding:7px;border-radius:34px;}
+            .hp-c img{border-radius:28px;}
+            .hp-l,.hp-r{top:64px;width:146px;padding:6px;border-radius:30px;}
+            .hp-l img,.hp-r img{border-radius:25px;}
+            .hp-l{left:-6px;transform:rotate(-8deg);}
+            .hp-r{right:-6px;transform:rotate(8deg);}
+          }
+        `}</style>
+        <div className="hero-a">
+          <div style={{display:'inline-flex', alignItems:'center', gap:'8px', background:'rgba(157,176,154,0.18)', border:'1px solid rgba(157,176,154,0.45)', borderRadius:'20px', padding:'5px 14px', marginBottom:'22px'}}>
+            <div style={{width:'6px', height:'6px', borderRadius:'50%', background:'#9DB09A'}}></div>
+            <span style={{color:'#C9D8C4', fontSize:'12px', fontWeight:700, letterSpacing:'1px'}}>Conçu pour les futurs pères</span>
           </div>
 
-          {/* BADGES VERTICAUX */}
-          <style>{`.badge-item{transition:transform .2s ease}.badge-item:hover{transform:scale(1.04)}`}</style>
-          <div style={{position:'relative', zIndex:1, display:'flex', flexDirection:'column' as const, gap:'10px', justifyContent:'center'}}>
-            {[
-              {bg:'rgba(255,255,255,0.07)', border:'rgba(255,255,255,0.16)', iconBg:'#DCE5D7', iconColor:'#2F4F3E', textColor:'#ffffff', label:'41 semaines de contenu'},
-              {bg:'rgba(255,255,255,0.07)', border:'rgba(255,255,255,0.16)', iconBg:'#DCE5D7', iconColor:'#2F4F3E', textColor:'#ffffff', label:'Après la naissance inclus'},
-              {bg:'rgba(255,255,255,0.07)', border:'rgba(255,255,255,0.16)', iconBg:'#DCE5D7', iconColor:'#2F4F3E', textColor:'#ffffff', label:"Jusqu'au 1er anniversaire de bébé"},
-              {bg:'rgba(255,255,255,0.07)', border:'rgba(255,255,255,0.16)', iconBg:'#DCE5D7', iconColor:'#2F4F3E', textColor:'#ffffff', label:'Contenu médical sourcé'},
-              {bg:'rgba(255,255,255,0.07)', border:'rgba(255,255,255,0.16)', iconBg:'#DCE5D7', iconColor:'#2F4F3E', textColor:'#ffffff', label:'Disponible sur web + mobile (PWA)'},
-            ].map((b,i) => (
-              <div key={i} className="badge-item" style={{background:b.bg, border:`1px solid ${b.border}`, borderRadius:'14px', padding:'14px 18px', display:'flex', alignItems:'center', gap:'12px', cursor:'default'}}>
-                <div style={{width:'30px', height:'30px', borderRadius:'50%', background:b.iconBg, display:'flex', alignItems:'center', justifyContent:'center', flexShrink:0, fontSize:'14px', color:b.iconColor, fontWeight:800}}>✓</div>
-                <p style={{color:b.textColor, fontSize:'13px', fontWeight:700, margin:0}}>{b.label}</p>
-              </div>
+          <h1>Être père, ça commence <span style={{color:'#C9D8C4'}}>bien avant la naissance</span></h1>
+
+          <p style={{color:'#ffffff', fontSize:'18px', fontWeight:700, lineHeight:1.5, margin:'0 0 6px'}}>Prends ta place de père</p>
+          <p style={{color:'rgba(255,255,255,0.82)', fontSize:'17px', lineHeight:1.6, margin:'0 auto 30px', maxWidth:'600px'}}>
+            DadUp t&apos;accompagne semaine après semaine, de la grossesse au premier anniversaire de bébé.
+          </p>
+
+          <div style={{display:'flex', flexWrap:'wrap' as const, alignItems:'center', justifyContent:'center', gap:'14px 22px'}}>
+            <button onClick={goToStripe} style={{background:'#B4593A', color:'#ffffff', border:'none', minHeight:'54px', padding:'16px 36px', borderRadius:'14px', fontSize:'17px', fontWeight:800, cursor:'pointer'}}>
+              Accéder à DadUp
+            </button>
+            <a href="/inclus" style={{color:'#ffffff', fontSize:'15px', fontWeight:700, textDecoration:'none', borderBottom:'2px solid rgba(255,255,255,0.35)', paddingBottom:'2px'}}>Voir ce qui est inclus →</a>
+          </div>
+          <p style={{color:'rgba(255,255,255,0.78)', fontSize:'13px', margin:'16px 0 0'}}>49,99 € · paiement unique · satisfait ou remboursé sous 14 jours</p>
+
+          <ul className="hero-chips" style={{listStyle:'none', padding:0}}>
+            {['41 semaines de contenu','Après la naissance inclus',"Jusqu'au 1er anniversaire de bébé",'Contenu médical sourcé','Disponible sur web + mobile (PWA)'].map((label) => (
+              <li key={label} className="hero-chip">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C9D8C4" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>
+                {label}
+              </li>
             ))}
-          </div>
+          </ul>
 
+          <div className="hero-phones">
+            <div className="hero-phone hp-l"><img src="/apercu-bebe.webp" alt="Écran Bébé de DadUp : le développement de bébé semaine après semaine" width={585} height={1266} loading="lazy" /></div>
+            <div className="hero-phone hp-r"><img src="/apercu-jourj.webp" alt="Écran Jour J de DadUp : quand partir et qui appeler" width={585} height={1266} loading="lazy" /></div>
+            <div className="hero-phone hp-c"><img src="/apercu-accueil.webp" alt="Écran d'accueil de DadUp : compte à rebours, semaine de grossesse et bébé cette semaine" width={585} height={1266} fetchPriority="high" /></div>
+          </div>
+        </div>
+      </section>
+
+      {/* L'APP, ÉCRAN PAR ÉCRAN */}
+      <section style={{padding:'88px 40px 24px', background:'#F6F1E9'}} className="section-pad">
+        <style>{`
+          .ecrans-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:32px;max-width:1200px;margin:0 auto;}
+          .ecran{display:flex;flex-direction:column;align-items:center;gap:20px;text-align:center;}
+          .ecran-phone{width:100%;max-width:220px;padding:8px;background:#0B1118;border-radius:42px;box-shadow:0 24px 50px rgba(21,38,58,0.22);}
+          .ecran-phone img{display:block;width:100%;height:auto;border-radius:35px;}
+          @media (max-width:900px){.ecrans-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:40px 20px;}}
+          @media (max-width:768px){.ecran-phone{max-width:160px;padding:6px;border-radius:30px;}.ecran-phone img{border-radius:25px;}}
+        `}</style>
+        <div style={{textAlign:'center' as const, marginBottom:'56px'}}>
+          <p style={{color:'#9C4A2E', fontSize:'12px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase' as const, margin:'0 0 16px'}}>Dans l&apos;app</p>
+          <h2 style={{color:C.dark, fontSize:'40px', fontWeight:800, margin:'0 0 14px', lineHeight:1.15}}>Une app qui suit chaque étape avec toi</h2>
+          <p style={{color:C.text, fontSize:'17px', lineHeight:1.6, margin:0}}>Ce que tu vois ici, c&apos;est l&apos;app telle qu&apos;elle est.</p>
+        </div>
+        <div className="ecrans-grid">
+          {[
+            {src:'accueil', alt:"Écran d'accueil de DadUp", titre:"Ta semaine en un coup d'œil", texte:'Compte à rebours, ton rôle, tes missions.'},
+            {src:'bebe', alt:'Écran Bébé de DadUp', titre:'Bébé, semaine après semaine', texte:'Sa taille, son poids, ce qui se développe.'},
+            {src:'jourj', alt:'Écran Jour J de DadUp', titre:'Le bon réflexe le jour J', texte:'Quand partir, quoi faire, qui appeler.'},
+            {src:'toi', alt:'Écran Toi de DadUp', titre:'Toi aussi, tu deviens parent', texte:'Ce que tu ressens, et un défi à deux.'},
+          ].map((e) => (
+            <div key={e.src} className="ecran">
+              <div className="ecran-phone"><img src={`/apercu-${e.src}.webp`} alt={e.alt} width={585} height={1266} loading="lazy" /></div>
+              <div style={{display:'flex', flexDirection:'column' as const, gap:'6px'}}>
+                <span style={{color:C.dark, fontSize:'18px', fontWeight:800}}>{e.titre}</span>
+                <span style={{color:'#56616B', fontSize:'15px', lineHeight:1.5}}>{e.texte}</span>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
