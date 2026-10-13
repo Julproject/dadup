@@ -166,39 +166,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* L'APP, ÉCRAN PAR ÉCRAN */}
-      <section style={{padding:'88px 40px 24px', background:'#F6F1E9'}} className="section-pad">
-        <style>{`
-          .ecrans-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:32px;max-width:1200px;margin:0 auto;}
-          .ecran{display:flex;flex-direction:column;align-items:center;gap:20px;text-align:center;}
-          .ecran-phone{width:100%;max-width:220px;padding:8px;background:#0B1118;border-radius:42px;box-shadow:0 24px 50px rgba(21,38,58,0.22);}
-          .ecran-phone img{display:block;width:100%;height:auto;border-radius:35px;}
-          @media (max-width:900px){.ecrans-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:40px 20px;}}
-          @media (max-width:768px){.ecran-phone{max-width:160px;padding:6px;border-radius:30px;}.ecran-phone img{border-radius:25px;}}
-        `}</style>
-        <div style={{textAlign:'center' as const, marginBottom:'56px'}}>
-          <p style={{color:'#9C4A2E', fontSize:'12px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase' as const, margin:'0 0 16px'}}>Dans l&apos;app</p>
-          <h2 style={{color:C.dark, fontSize:'40px', fontWeight:800, margin:'0 0 14px', lineHeight:1.15}}>Une app qui suit chaque étape avec toi</h2>
-          <p style={{color:C.text, fontSize:'17px', lineHeight:1.6, margin:0}}>Ce que tu vois ici, c&apos;est l&apos;app telle qu&apos;elle est.</p>
-        </div>
-        <div className="ecrans-grid">
-          {[
-            {src:'accueil', alt:"Écran d'accueil de DadUp", titre:"Ta semaine en un coup d'œil", texte:'Compte à rebours, ton rôle, tes missions.'},
-            {src:'bebe', alt:'Écran Bébé de DadUp', titre:'Bébé, semaine après semaine', texte:'Sa taille, son poids, ce qui se développe.'},
-            {src:'jourj', alt:'Écran Jour J de DadUp', titre:'Le bon réflexe le jour J', texte:'Quand partir, quoi faire, qui appeler.'},
-            {src:'toi', alt:'Écran Toi de DadUp', titre:'Toi aussi, tu deviens parent', texte:'Ce que tu ressens, et un défi à deux.'},
-          ].map((e) => (
-            <div key={e.src} className="ecran">
-              <div className="ecran-phone"><img src={`/apercu-${e.src}.webp`} alt={e.alt} width={585} height={1266} loading="lazy" /></div>
-              <div style={{display:'flex', flexDirection:'column' as const, gap:'6px'}}>
-                <span style={{color:C.dark, fontSize:'18px', fontWeight:800}}>{e.titre}</span>
-                <span style={{color:'#56616B', fontSize:'15px', lineHeight:1.5}}>{e.texte}</span>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
       {/* SECTION CHIFFRES CLÉS : jaune pastel */}
       <section style={{padding:'80px 40px', background:'#F6F1E9'}}>
         <div style={{maxWidth:'1000px', margin:'0 auto'}}>
