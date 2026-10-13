@@ -84,16 +84,6 @@ export default function Topbar({ prenom, dpa, saReelle, tri, prog, isPost, moisB
             <span style={{ fontSize: '20px', fontWeight: 900, color: C.dark, letterSpacing: '-0.3px' }}>DadUp</span>
           </div>
 
-          <a href="/compte" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px', background: '#fff', border: '1px solid #E6E0D5', padding: '6px 8px 6px 14px', borderRadius: '12px', boxShadow: '0 2px 8px rgba(21,38,58,0.05)' }}>
-            <span className="tb-prenom" style={{ fontSize: '13px', fontWeight: 700, color: C.dark }}>
-              {prenom || 'Mon compte'}
-            </span>
-            {saReelle && (
-              <span style={{ fontSize: '11px', background: 'linear-gradient(160deg,#0c1d2e,#1A3D5C)', color: '#ffffff', padding: '4px 9px', borderRadius: '8px', fontWeight: 800 }}>
-                {isPost ? `Mois ${moisBebe + 1}` : `SA ${saReelle}`}
-              </span>
-            )}
-          </a>
         </div>
 
         {/* Ligne 2 : onglets (ordinateur et tablette) */}

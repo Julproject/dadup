@@ -294,6 +294,8 @@ function DashboardContent() {
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&display=swap');
         *{box-sizing:border-box;margin:0;padding:0;}
+        input[type=date]{-webkit-appearance:none;appearance:none;display:block;width:100%;max-width:100%;min-width:0;min-height:44px;text-align:left;}
+        input[type=date]::-webkit-date-and-time-value{text-align:left;}
         body{-webkit-font-smoothing:antialiased;}
         .dd-c{max-width:1080px;margin:0 auto;padding:32px 36px;}
         .dd-g2col{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
