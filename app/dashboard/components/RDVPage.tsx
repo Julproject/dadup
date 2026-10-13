@@ -1,4 +1,5 @@
 'use client';
+import { Chevron } from './postpartum/ui';
 
 export default function RDVPage({C,dpa,saReelle,rdvDates,saveRdvI,rdvOuvert,setRdvOuvert,RDV_LIST,nextRdv,saveRdv}:any) {
   const LABEL = {fontSize:'12px',fontWeight:700,letterSpacing:'2px',textTransform:'uppercase' as const};
@@ -9,6 +10,8 @@ export default function RDVPage({C,dpa,saReelle,rdvDates,saveRdvI,rdvOuvert,setR
   const prochainDate = prochain ? rdvDates[prochain.sa] : null;
   const prochainRd = prochain && dpa ? new Date(new Date(dpa).getTime()-(41-prochain.sa)*7*24*60*60*1000) : null;
   const joursAvant = prochainRd ? Math.max(0, Math.ceil((prochainRd.getTime()-new Date().getTime())/(1000*60*60*24))) : null;
+  // Compte à rebours affiché seulement quand une vraie date a été notée
+  const joursAvantNote = prochainDate ? Math.max(0, Math.ceil((new Date(prochainDate+'T12:00:00').getTime()-new Date().getTime())/(1000*60*60*24))) : null;
   const urgent = prochain && !prochainDate && joursAvant !== null && joursAvant <= 21;
 
   return (
@@ -22,12 +25,12 @@ export default function RDVPage({C,dpa,saReelle,rdvDates,saveRdvI,rdvOuvert,setR
 
       {/* PROCHAIN RDV : MIS EN AVANT */}
       {prochain && (
-        <div style={{background:urgent?'linear-gradient(135deg,#7A2010,#C04A1A)':'linear-gradient(135deg,#0a1f32,#1A3D5C)',borderRadius:'20px',padding:'24px',position:'relative',overflow:'hidden',boxShadow:urgent?'0 8px 32px rgba(192,74,26,0.3)':'0 8px 32px rgba(26,61,92,0.3)'}}>
-          <div style={{position:'absolute',top:'-30px',right:'-30px',width:'160px',height:'160px',borderRadius:'50%',background:urgent?'radial-gradient(circle,rgba(255,200,150,0.15) 0%,transparent 65%)':'radial-gradient(circle,rgba(157,176,154,0.15) 0%,transparent 65%)',pointerEvents:'none'}}></div>
+        <div style={{background:'linear-gradient(160deg,#0C1D2E,#1A3D5C 70%,#24507A)',borderRadius:'20px',padding:'24px',position:'relative',overflow:'hidden',boxShadow:'0 10px 26px rgba(12,29,46,0.22)'}}>
+          <div style={{position:'absolute',top:'-30px',right:'-30px',width:'160px',height:'160px',borderRadius:'50%',background:'radial-gradient(circle,rgba(157,176,154,0.15) 0%,transparent 65%)',pointerEvents:'none'}}></div>
           <div style={{position:'relative',zIndex:1}}>
             <div style={{display:'flex',alignItems:'center',justifyContent:'space-between',marginBottom:'16px'}}>
-              <span style={{...LABEL,color:urgent?'rgba(255,220,200,0.8)':'#C9D8C4'}}>{urgent?'À prendre rapidement':'Prochain rendez-vous'}</span>
-              {joursAvant !== null && <span style={{background:'rgba(255,255,255,0.12)',color:'#fff',fontSize:'13px',fontWeight:800,padding:'5px 12px',borderRadius:'20px'}}>J-{joursAvant}</span>}
+              <span style={{...LABEL,color:urgent?'#F2DACB':'#C9D8C4'}}>{urgent?'À prendre rapidement':'Prochain rendez-vous'}</span>
+              {joursAvantNote !== null && <span style={{background:'rgba(255,255,255,0.12)',color:'#fff',fontSize:'13px',fontWeight:800,padding:'5px 12px',borderRadius:'20px'}}>{joursAvantNote === 0 ? "Aujourd'hui" : `J-${joursAvantNote}`}</span>}
             </div>
             <p style={{color:'#fff',fontSize:'20px',fontWeight:800,margin:'0 0 4px'}}>{prochain.titre}</p>
             <p style={{color:'rgba(255,255,255,0.78)',fontSize:'14px',margin:'0 0 16px'}}>{prochain.sa} SA{prochainRd?' · vers le '+prochainRd.toLocaleDateString('fr-FR',{day:'numeric',month:'long'}):''}{prochain.oblig?' · Obligatoire':''}</p>
@@ -77,7 +80,7 @@ export default function RDVPage({C,dpa,saReelle,rdvDates,saveRdvI,rdvOuvert,setR
                       <p style={{color:'#56616B',fontSize:'12px',margin:0}}>{rd||''}{hasDate?' · noté':''}</p>
                     </div>
                   </div>
-                  <span style={{color:'#56616B',fontSize:'12px'}}>{isOpen?'▲':'▼'}</span>
+                  <Chevron ouvert={isOpen} />
                 </button>
                 {isOpen&&(
                   <div style={{background:'#F6F1E9',padding:'14px 16px',borderTop:'1px solid #ede8e0'}} onClick={e=>e.stopPropagation()}>

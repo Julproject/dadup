@@ -4,7 +4,7 @@ import { useState, Suspense } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 
 const C = {
-  dark: '#1e2535', blue: '#2E5F8A', gold: '#c8a060',
+  dark: '#15263A', blue: '#1A3D5C', gold: '#B4593A',
   white: '#ffffff', border: '#f0ede8', textLight: '#56616B', cream: '#f7f5f0',
 };
 
@@ -67,7 +67,7 @@ function ResetForm() {
   }
 
   return (
-    <div style={{background:C.white,borderRadius:'24px',padding:'32px',border:`1px solid ${C.border}`,boxShadow:'0 4px 24px rgba(0,0,0,0.06)'}}>
+    <div style={{background:C.white,borderRadius:'14px',padding:'32px',border:`1px solid ${C.border}`,boxShadow:'0 4px 24px rgba(0,0,0,0.06)'}}>
       {success ? (
         <div style={{textAlign:'center',padding:'16px 0'}}>
           <p style={{fontSize:'36px',margin:'0 0 16px'}}>✅</p>
@@ -112,7 +112,7 @@ function ResetForm() {
             <button
               type="submit"
               disabled={loading || !password || !confirm}
-              style={{background:loading||!password||!confirm?'#ccc':C.dark,color:C.white,border:'none',padding:'14px',borderRadius:'32px',fontSize:'15px',fontWeight:700,cursor:'pointer',marginTop:'4px'}}
+              style={{background:loading||!password||!confirm?'#ccc':C.dark,color:C.white,border:'none',padding:'14px',borderRadius:'14px',fontSize:'15px',fontWeight:700,cursor:'pointer',marginTop:'4px'}}
             >
               {loading ? 'Création...' : 'Accéder à mon espace'}
             </button>
@@ -125,7 +125,7 @@ function ResetForm() {
 
 export default function ResetPasswordPage() {
   return (
-    <main style={{minHeight:'100vh',background:'#f7f5f0',display:'flex',alignItems:'center',justifyContent:'center',padding:'20px',fontFamily:'inherit'}}>
+    <main style={{minHeight:'100vh',background:'#F6F1E9',display:'flex',alignItems:'center',justifyContent:'center',padding:'20px',fontFamily:'inherit'}}>
       <div style={{maxWidth:'400px',width:'100%'}}>
         <div style={{display:'flex',justifyContent:'center',marginBottom:'32px'}}>
           <a href="/" style={{display:'flex',alignItems:'center',gap:'10px',textDecoration:'none'}}>

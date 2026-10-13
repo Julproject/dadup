@@ -3,9 +3,9 @@
 import { useState } from 'react';
 
 const C = {
-  dark: '#1e2535', gold: '#c8a060', cream: '#faf6f0', white: '#ffffff',
-  border: '#e8e0d0', text: '#4a5568', textLight: '#56616B',
-  blue: '#2E5F8A', blueDark: '#1A3D5C',
+  dark: '#15263A', gold: '#B4593A', cream: '#F6F1E9', white: '#ffffff',
+  border: '#E6E0D5', text: '#15263A', textLight: '#56616B',
+  blue: '#1A3D5C', blueDark: '#1A3D5C',
 };
 
 export default function CheckoutModal({ onClose }: { onClose: () => void }) {
@@ -40,7 +40,7 @@ export default function CheckoutModal({ onClose }: { onClose: () => void }) {
       <div
         onClick={e => e.stopPropagation()}
         style={{
-          background: C.white, borderRadius: '24px', padding: '40px',
+          background: C.white, borderRadius:'14px', padding: '40px',
           width: '100%', maxWidth: '440px', boxShadow: '0 20px 60px rgba(0,0,0,0.2)',
         }}
       >
@@ -103,7 +103,7 @@ export default function CheckoutModal({ onClose }: { onClose: () => void }) {
           style={{
             width: '100%', background: accepted ? C.gold : '#d0c8bc',
             color: accepted ? '#1c1510' : '#a09890',
-            border: 'none', padding: '16px', borderRadius: '32px',
+            border: 'none', padding: '16px', borderRadius:'14px',
             fontSize: '15px', fontWeight: 800, cursor: accepted ? 'pointer' : 'not-allowed',
             transition: 'all 0.2s', marginBottom: '12px',
           }}

@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import { Case } from './postpartum/ui';
 
 // ── Palette du tableau de bord ────────────────────────────────────────────────
 const NAVY = '#15263A';
@@ -9,7 +10,7 @@ const SAUGE_BORD = '#C9D8C4';
 const FORET = '#2F4F3E';
 const TERRA = '#B4593A';
 const TERRA_CLAIR = '#F2DACB';
-const GRIS = '#5f6b72';
+const GRIS = '#56616B';
 
 const LABEL = { fontSize: '12px', fontWeight: 800, letterSpacing: '1.5px', textTransform: 'uppercase' as const, margin: 0 };
 
@@ -168,9 +169,7 @@ export default function Accueil({C,dpa,prenom,saReelle,joursRestants,prog,tri,id
                   const done = missionsChecked[id];
                   return (
                     <button key={id} onClick={() => toggleM(id)} aria-pressed={!!done} style={{ display: 'flex', alignItems: 'flex-start', gap: '12px', background: done ? 'rgba(220,229,215,0.5)' : '#F6F1E9', borderRadius: '12px', padding: '11px 12px', border: 'none', cursor: 'pointer', textAlign: 'left' as const, width: '100%', minHeight: '44px' }}>
-                      <span style={{ width: '22px', height: '22px', borderRadius: '7px', border: done ? 'none' : '2px solid #C9D3C4', background: done ? FORET : 'transparent', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, boxSizing: 'border-box' as const }}>
-                        {done && <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10" /></svg>}
-                      </span>
+                      <Case coche={!!done} />
                       <span style={{ color: done ? GRIS : NAVY, fontSize: '14px', fontWeight: 600, lineHeight: 1.5, textDecoration: done ? 'line-through' : 'none' }}>{m}</span>
                     </button>
                   );
@@ -187,7 +186,7 @@ export default function Accueil({C,dpa,prenom,saReelle,joursRestants,prog,tri,id
           <button onClick={() => toggle('rdv')} aria-expanded={open === 'rdv'} style={{ width: '100%', background: 'none', border: 'none', padding: '16px 18px', display: 'flex', alignItems: 'center', gap: '14px', cursor: 'pointer', textAlign: 'left' as const }}>
             <TuileIcone nom="rdv" />
             <div style={{ flex: 1, minWidth: 0 }}>
-              <p style={{ ...LABEL, color: GRIS, marginBottom: '2px' }}>Prochain RDV{dpa && joursRestants ? ` · J-${Math.max(0,Math.ceil((new Date(new Date(dpa).getTime()-(41-nextRdv.sa)*7*24*60*60*1000).getTime()-new Date().getTime())/(1000*60*60*24)))}` : ''}</p>
+              <p style={{ ...LABEL, color: GRIS, marginBottom: '2px' }}>Prochain RDV{nextRdvDate ? (() => { const j = Math.max(0, Math.ceil((new Date(nextRdvDate + 'T12:00:00').getTime() - new Date().getTime()) / 86400000)); return j === 0 ? " · aujourd'hui" : ` · J-${j}`; })() : ''}</p>
               <p style={{ color: NAVY, fontSize: '15px', fontWeight: 800, margin: 0 }}>{nextRdv.titre}</p>
             </div>
             <Chevron ouvert={open === 'rdv'} />
@@ -249,22 +248,16 @@ export default function Accueil({C,dpa,prenom,saReelle,joursRestants,prog,tri,id
         </div>
       )}
 
-      {/* IDÉE DU MOIS */}
-      <div className="acc-card" style={{ ...carteBlanche, overflow: 'hidden' }}>
-        <button onClick={() => toggle('idee')} aria-expanded={open === 'idee'} style={{ width: '100%', background: 'none', border: 'none', padding: '16px 18px', display: 'flex', alignItems: 'center', gap: '14px', cursor: 'pointer', textAlign: 'left' as const }}>
+      {/* IDÉE DE LA SEMAINE */}
+      {idee && (
+        <div style={{ ...carteBlanche, padding: '16px 18px', display: 'flex', alignItems: 'flex-start', gap: '14px' }}>
           <TuileIcone nom="idee" />
           <div style={{ flex: 1, minWidth: 0 }}>
-            <p style={{ ...LABEL, color: GRIS, marginBottom: '2px' }}>Idée du mois</p>
-            <p style={{ color: NAVY, fontSize: '15px', fontWeight: 800, margin: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' as const }}>{idee}</p>
+            <p style={{ ...LABEL, color: GRIS, marginBottom: '4px' }}>Idée de la semaine</p>
+            <p style={{ color: NAVY, fontSize: '15px', fontWeight: 700, lineHeight: 1.55, margin: 0 }}>{idee}</p>
           </div>
-          <Chevron ouvert={open === 'idee'} />
-        </button>
-        {open === 'idee' && (
-          <div style={{ padding: '0 18px 18px', borderTop: '1px solid #EEE7DC' }}>
-            <p style={{ color: NAVY, fontSize: '14px', lineHeight: 1.7, margin: '14px 0 0' }}>{idee}</p>
-          </div>
-        )}
-      </div>
+        </div>
+      )}
 
       {/* MENTION MÉDICALE */}
       <div style={{ background: '#ffffff', borderRadius: '14px', padding: '12px 16px', border: '1px solid #E6E0D5' }}>

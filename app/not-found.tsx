@@ -23,13 +23,13 @@ export default function NotFound() {
         <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
           <Link
             href="/"
-            style={{ background: '#1e2535', color: '#ffffff', padding: '14px 28px', borderRadius: '32px', fontSize: '15px', fontWeight: 700, textDecoration: 'none', display: 'inline-block' }}
+            style={{ background: '#1e2535', color: '#ffffff', padding: '14px 28px', borderRadius:'14px', fontSize: '15px', fontWeight: 700, textDecoration: 'none', display: 'inline-block' }}
           >
             Retour à l'accueil
           </Link>
           <Link
             href="/login"
-            style={{ background: 'transparent', color: '#1e2535', padding: '14px 28px', borderRadius: '32px', fontSize: '15px', fontWeight: 700, textDecoration: 'none', border: '1px solid #e8e0d0', display: 'inline-block' }}
+            style={{ background: 'transparent', color: '#1e2535', padding: '14px 28px', borderRadius:'14px', fontSize: '15px', fontWeight: 700, textDecoration: 'none', border: '1px solid #e8e0d0', display: 'inline-block' }}
           >
             Se connecter
           </Link>

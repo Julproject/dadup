@@ -1,15 +1,31 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 export default function ChatBubble() {
   const [open, setOpen] = useState(false);
   const [msg, setMsg] = useState('');
   const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [erreur, setErreur] = useState(false);
+  const [cache, setCache] = useState(false);
+  const dernierY = useRef(0);
+
+  // Se range quand on fait défiler vers le bas, revient quand on remonte
+  useEffect(() => {
+    const onScroll = () => {
+      const y = window.scrollY;
+      if (Math.abs(y - dernierY.current) < 8) return;
+      setCache(y > dernierY.current && y > 120);
+      dernierY.current = y;
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   const send = async () => {
     if (!msg.trim()) return;
     setLoading(true);
+    setErreur(false);
     try {
       let userEmail = typeof window !== 'undefined' ? localStorage.getItem('dadup_email') || '' : '';
       const prenom = typeof window !== 'undefined' ? localStorage.getItem('dadup_prenom') || '' : '';
@@ -28,16 +44,16 @@ export default function ChatBubble() {
         }),
       });
       if (res.ok) setSent(true);
-      else setSent(true);
+      else setErreur(true);
     } catch {
-      setSent(true);
+      setErreur(true);
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className="dd-chat" style={{ position: 'fixed', bottom: '24px', right: '24px', zIndex: 999, fontFamily: 'inherit' }}>
+    <div className="dd-chat" style={{ position: 'fixed', bottom: '24px', right: '24px', zIndex: 999, fontFamily: 'inherit', transition: 'transform .25s ease, opacity .25s ease', transform: cache && !open ? 'translateY(140px)' : 'none', opacity: cache && !open ? 0 : 1, pointerEvents: cache && !open ? 'none' : 'auto' }}>
       <style>{`@media(max-width:860px){.dd-chat{bottom:calc(84px + env(safe-area-inset-bottom))!important;right:16px!important;}}`}</style>
 
       {/* Panneau ouvert */}
@@ -60,17 +76,19 @@ export default function ChatBubble() {
                 <textarea
                   value={msg}
                   onChange={e => setMsg(e.target.value)}
-                  placeholder="Ton message..."
+                  placeholder="Ton message…"
+                  aria-label="Ton message"
                   rows={4}
-                  style={{ width: '100%', background: '#F6F1E9', border: '1px solid #e8e0d0', borderRadius: '10px', padding: '10px 12px', fontSize: '13px', color: '#1e2535', resize: 'none', outline: 'none', fontFamily: 'inherit', boxSizing: 'border-box' }}
+                  style={{ width: '100%', background: '#F6F1E9', border: '1px solid #e8e0d0', borderRadius: '10px', padding: '10px 12px', fontSize: '16px', color: '#15263A', resize: 'none', outline: 'none', fontFamily: 'inherit', boxSizing: 'border-box' }}
                 />
                 <button
                   onClick={send}
                   disabled={loading || !msg.trim()}
-                  style={{ marginTop: '10px', width: '100%', background: '#B4593A', color: '#ffffff', border: 'none', padding: '12px', borderRadius: '32px', fontSize: '14px', fontWeight: 700, cursor: msg.trim() ? 'pointer' : 'not-allowed', opacity: msg.trim() ? 1 : 0.5, boxShadow: '0 4px 12px rgba(157,176,154,0.35)' }}
+                  style={{ marginTop: '10px', width: '100%', background: '#B4593A', color: '#ffffff', border: 'none', minHeight: '48px', padding: '12px', borderRadius: '14px', fontSize: '14px', fontWeight: 700, cursor: msg.trim() ? 'pointer' : 'not-allowed', opacity: msg.trim() ? 1 : 0.5, boxShadow: '0 4px 12px rgba(157,176,154,0.35)' }}
                 >
-                  {loading ? 'Envoi...' : 'Envoyer'}
+                  {loading ? 'Envoi…' : 'Envoyer'}
                 </button>
+                {erreur && <p role="alert" style={{ color: '#B42318', fontSize: '13px', lineHeight: 1.5, margin: '10px 0 0' }}>Le message n’est pas parti. Réessaie, ou écris-nous à hello@dadup.fr.</p>}
               </>
             ) : (
               <div style={{ textAlign: 'center', padding: '12px 0' }}>

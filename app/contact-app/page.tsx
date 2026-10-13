@@ -3,9 +3,9 @@
 import { useState } from 'react';
 
 const C = {
-  dark: '#1e2535', gold: '#c8a060', cream: '#faf6f0', white: '#ffffff',
-  border: '#e8e0d0', text: '#4a5568', textLight: '#56616B',
-  blue: '#2E5F8A', bluePale: '#E6F0FA', blueDark: '#1A3D5C',
+  dark: '#15263A', gold: '#B4593A', cream: '#F6F1E9', white: '#ffffff',
+  border: '#E6E0D5', text: '#15263A', textLight: '#56616B',
+  blue: '#1A3D5C', bluePale: '#E6F0FA', blueDark: '#1A3D5C',
   green: '#E4F5EC', greenDark: '#0D6B40',
 };
 
@@ -78,7 +78,7 @@ export default function ContactPage() {
               <p style={{color:C.text, fontSize:'15px', lineHeight:1.7, margin:'0 0 32px'}}>
                 On te répond en général sous 24h, souvent bien moins. Tu recevras la réponse sur <strong>{email}</strong>.
               </p>
-              <a href="/" style={{display:'inline-block', background:C.dark, color:C.white, padding:'13px 32px', borderRadius:'32px', fontSize:'14px', fontWeight:700, textDecoration:'none'}}>
+              <a href="/" style={{display:'inline-block', background:C.dark, color:C.white, padding:'13px 32px', borderRadius:'14px', fontSize:'14px', fontWeight:700, textDecoration:'none'}}>
                 Retour à l'accueil
               </a>
             </div>
@@ -98,7 +98,7 @@ export default function ContactPage() {
 
 
               {/* Formulaire */}
-              <div style={{background:C.white, borderRadius:'24px', padding:'36px', border:`1px solid ${C.border}`, boxShadow:'0 4px 24px rgba(0,0,0,0.06)'}}>
+              <div style={{background:C.white, borderRadius:'14px', padding:'36px', border:`1px solid ${C.border}`, boxShadow:'0 4px 24px rgba(0,0,0,0.06)'}}>
                 <form onSubmit={handleSubmit} style={{display:'flex', flexDirection:'column', gap:'18px'}}>
 
                   <div style={{display:'grid', gridTemplateColumns:'1fr 1fr', gap:'12px'}}>
@@ -170,7 +170,7 @@ export default function ContactPage() {
                     style={{
                       background: loading || !email || !sujet || !message ? '#ccc' : C.dark,
                       color: C.white, border:'none', padding:'14px',
-                      borderRadius:'32px', fontSize:'15px', fontWeight:700,
+                      borderRadius:'14px', fontSize:'15px', fontWeight:700,
                       cursor: loading || !email || !sujet || !message ? 'not-allowed' : 'pointer',
                       transition:'background 0.15s',
                     }}

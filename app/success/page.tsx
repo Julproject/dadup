@@ -63,7 +63,7 @@ function SuccessContent() {
 
   return (
     <main style={{
-      minHeight: '100vh', background: '#f7f5f0',
+      minHeight: '100vh', background: '#F6F1E9',
       display: 'flex', alignItems: 'center', justifyContent: 'center',
       padding: '20px', fontFamily: 'inherit'
     }}>
@@ -118,7 +118,7 @@ function SuccessContent() {
                   { n: '2', texte: 'Clique sur le lien pour créer ton mot de passe' },
                   { n: '3', texte: 'Connecte-toi et commence ton parcours' },
                 ].map(step => (
-                  <div key={step.n} style={{ display: 'flex', alignItems: 'center', gap: '14px', padding: '12px 16px', background: '#f7f5f0', borderRadius: '14px' }}>
+                  <div key={step.n} style={{ display: 'flex', alignItems: 'center', gap: '14px', padding: '12px 16px', background: '#F6F1E9', borderRadius: '14px' }}>
                     <div style={{ width: '28px', height: '28px', borderRadius: '50%', background: '#1e2535', color: '#fff', fontSize: '13px', fontWeight: 800, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                       {step.n}
                     </div>
@@ -127,7 +127,7 @@ function SuccessContent() {
                 ))}
               </div>
 
-              <a href="/login" style={{ display: 'block', background: '#1e2535', color: '#fff', padding: '14px', borderRadius: '32px', fontSize: '15px', fontWeight: 700, textDecoration: 'none' }}>
+              <a href="/login" style={{ display: 'block', background: '#1e2535', color: '#fff', padding: '14px', borderRadius:'14px', fontSize: '15px', fontWeight: 700, textDecoration: 'none' }}>
                 Aller à la connexion
               </a>
             </>
@@ -139,7 +139,7 @@ function SuccessContent() {
               <p style={{ color: '#4a5568', fontSize: '15px', lineHeight: 1.7, margin: '0 0 24px' }}>
                 Ton paiement a bien été reçu. L'email d'activation peut prendre quelques minutes. Si tu ne le reçois pas, écris-nous.
               </p>
-              <a href="mailto:hello@dadup.fr" style={{ display: 'block', background: '#1e2535', color: '#fff', padding: '14px', borderRadius: '32px', fontSize: '15px', fontWeight: 700, textDecoration: 'none' }}>
+              <a href="mailto:hello@dadup.fr" style={{ display: 'block', background: '#1e2535', color: '#fff', padding: '14px', borderRadius:'14px', fontSize: '15px', fontWeight: 700, textDecoration: 'none' }}>
                 Contacter le support
               </a>
             </>
@@ -160,7 +160,7 @@ function SuccessContent() {
 export default function SuccessPage() {
   return (
     <Suspense fallback={
-      <div style={{ minHeight: '100vh', background: '#f7f5f0', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      <div style={{ minHeight: '100vh', background: '#F6F1E9', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         <p style={{ color: '#56616B', fontSize: '14px' }}>Chargement...</p>
       </div>
     }>

@@ -4,8 +4,8 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
 const C = {
-  dark: '#1e2535', blue: '#2E5F8A', gold: '#c8a060',
-  white: '#ffffff', border: '#f0ede8', text: '#4a5568',
+  dark: '#15263A', blue: '#1A3D5C', gold: '#B4593A',
+  white: '#ffffff', border: '#f0ede8', text: '#15263A',
   textLight: '#56616B', cream: '#f7f5f0',
 };
 
@@ -121,7 +121,7 @@ export default function LoginPage() {
           </a>
         </div>
 
-        <div style={{background:C.white,borderRadius:'24px',padding:'32px',border:`1px solid ${C.border}`,boxShadow:'0 4px 24px rgba(0,0,0,0.06)'}}>
+        <div style={{background:C.white,borderRadius:'14px',padding:'32px',border:`1px solid ${C.border}`,boxShadow:'0 4px 24px rgba(0,0,0,0.06)'}}>
 
           {!showForgot ? (
             <>
@@ -169,7 +169,7 @@ export default function LoginPage() {
                 <button
                   type="submit"
                   disabled={loading || !email || !password}
-                  style={{background:loading||!email||!password?'#ccc':C.dark,color:C.white,border:'none',padding:'14px',borderRadius:'32px',fontSize:'15px',fontWeight:700,cursor:loading||!email||!password?'not-allowed':'pointer',marginTop:'4px',transition:'background 0.15s'}}
+                  style={{background:loading||!email||!password?'#ccc':C.dark,color:C.white,border:'none',padding:'14px',borderRadius:'14px',fontSize:'15px',fontWeight:700,cursor:loading||!email||!password?'not-allowed':'pointer',marginTop:'4px',transition:'background 0.15s'}}
                 >
                   {loading ? 'Connexion...' : 'Se connecter'}
                 </button>
@@ -204,7 +204,7 @@ export default function LoginPage() {
                     <button
                       type="submit"
                       disabled={forgotLoading || !forgotEmail}
-                      style={{background:forgotLoading||!forgotEmail?'#ccc':C.blue,color:C.white,border:'none',padding:'14px',borderRadius:'32px',fontSize:'15px',fontWeight:700,cursor:forgotLoading||!forgotEmail?'not-allowed':'pointer'}}
+                      style={{background:forgotLoading||!forgotEmail?'#ccc':C.blue,color:C.white,border:'none',padding:'14px',borderRadius:'14px',fontSize:'15px',fontWeight:700,cursor:forgotLoading||!forgotEmail?'not-allowed':'pointer'}}
                     >
                       {forgotLoading ? 'Envoi...' : 'Envoyer le lien'}
                     </button>

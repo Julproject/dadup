@@ -3,9 +3,9 @@
 import { useState, useEffect } from 'react';
 
 const C = {
-  dark: '#1e2535', gold: '#c8a060', cream: '#faf6f0', white: '#ffffff',
-  border: '#e8e0d0', text: '#4a5568', textLight: '#56616B',
-  blue: '#2E5F8A', red: '#FDECEA', redDark: '#A03030',
+  dark: '#15263A', gold: '#B4593A', cream: '#F6F1E9', white: '#ffffff',
+  border: '#E6E0D5', text: '#15263A', textLight: '#56616B',
+  blue: '#1A3D5C', red: '#FDECEA', redDark: '#A03030',
   green: '#E4F5EC', greenDark: '#0D6B40',
 };
 
@@ -65,7 +65,7 @@ export default function CancelPage() {
 
           {step === 'done' && result ? (
             /* Confirmation finale */
-            <div style={{ background: C.white, borderRadius: '24px', padding: '40px', textAlign: 'center', border: `1px solid ${C.border}` }}>
+            <div style={{ background: C.white, borderRadius:'14px', padding: '40px', textAlign: 'center', border: `1px solid ${C.border}` }}>
               <div style={{ width: '56px', height: '56px', borderRadius: '50%', background: C.green, display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px' }}>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={C.greenDark} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                   <polyline points="20 6 9 17 4 12"/>
@@ -80,14 +80,14 @@ export default function CancelPage() {
                   : "Ton accès a été résilié et ton compte est désactivé."}
               </p>
               <p style={{ color: C.textLight, fontSize: '13px', margin: '0 0 28px' }}>Un email de confirmation t'a été envoyé.</p>
-              <a href="/" style={{ display: 'inline-block', background: C.dark, color: C.white, padding: '12px 28px', borderRadius: '32px', fontSize: '14px', fontWeight: 700, textDecoration: 'none' }}>
+              <a href="/" style={{ display: 'inline-block', background: C.dark, color: C.white, padding: '12px 28px', borderRadius:'14px', fontSize: '14px', fontWeight: 700, textDecoration: 'none' }}>
                 Retour à l'accueil
               </a>
             </div>
 
           ) : step === 'confirm' ? (
             /* Etape confirmation */
-            <div style={{ background: C.white, borderRadius: '24px', padding: '36px', border: `1px solid ${C.border}` }}>
+            <div style={{ background: C.white, borderRadius:'14px', padding: '36px', border: `1px solid ${C.border}` }}>
               <div style={{ background: C.red, borderRadius: '14px', padding: '16px 18px', marginBottom: '24px' }}>
                 <p style={{ color: C.redDark, fontSize: '14px', fontWeight: 700, margin: '0 0 4px' }}>
                   {eligibleRemboursement ? 'Remboursement automatique inclus' : 'Aucun remboursement'}
@@ -113,14 +113,14 @@ export default function CancelPage() {
               <div style={{ display: 'flex', gap: '10px' }}>
                 <button
                   onClick={() => setStep('info')}
-                  style={{ flex: 1, padding: '13px', background: '#f7f5f0', border: 'none', borderRadius: '32px', fontSize: '14px', fontWeight: 700, color: C.textLight, cursor: 'pointer' }}
+                  style={{ flex: 1, padding: '13px', background: '#F6F1E9', border: 'none', borderRadius:'14px', fontSize: '14px', fontWeight: 700, color: C.textLight, cursor: 'pointer' }}
                 >
                   Annuler
                 </button>
                 <button
                   onClick={handleCancel}
                   disabled={loading}
-                  style={{ flex: 2, padding: '13px', background: loading ? '#ccc' : C.redDark, border: 'none', borderRadius: '32px', fontSize: '14px', fontWeight: 700, color: '#fff', cursor: loading ? 'not-allowed' : 'pointer' }}
+                  style={{ flex: 2, padding: '13px', background: loading ? '#ccc' : C.redDark, border: 'none', borderRadius:'14px', fontSize: '14px', fontWeight: 700, color: '#fff', cursor: loading ? 'not-allowed' : 'pointer' }}
                 >
                   {loading ? 'Traitement...' : 'Confirmer la résiliation'}
                 </button>
@@ -191,7 +191,7 @@ export default function CancelPage() {
 
               <button
                 onClick={() => setStep('confirm')}
-                style={{ width: '100%', padding: '14px', background: C.dark, border: 'none', borderRadius: '32px', fontSize: '15px', fontWeight: 700, color: C.white, cursor: 'pointer' }}
+                style={{ width: '100%', padding: '14px', background: C.dark, border: 'none', borderRadius:'14px', fontSize: '15px', fontWeight: 700, color: C.white, cursor: 'pointer' }}
               >
                 Continuer vers la résiliation
               </button>
