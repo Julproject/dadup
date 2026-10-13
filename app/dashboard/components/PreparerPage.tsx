@@ -64,7 +64,7 @@ const MAISON = [
     titre: 'Sommeil de bébé',
       couleur: '#E6F0FA',
     tc: '#1A4A7A',
-    info: `Bébé doit dormir sur le dos, dans son propre espace de sommeil, sans oreiller ni couette (recommandation HAS).`,
+    info: `Bébé doit dormir sur le dos, dans son propre espace de sommeil, sans oreiller ni couette.`,
     items: [
       { id:'m1',  label:`Lit cododo, berceau ou couffin installé et prêt` },
       { id:'m2',  label:`Draps et protège-matelas adaptés (au moins 3 de rechange)` },
@@ -403,8 +403,7 @@ export default function PreparerPage({C, valiseChecked, toggleV, achatChecked, t
                       {open && (
                         <div style={{padding:'14px 16px 16px',borderTop:'1px solid #ede8e0',background:'#F6F1E9'}}>
                           <p style={{color:C.text,fontSize:'14px',lineHeight:1.75,margin:'0 0 12px'}}>{item.detail}</p>
-                          <div style={{display:'flex',alignItems:'center',justifyContent:'space-between',flexWrap:'wrap' as const,gap:'8px'}}>
-                            <span style={{color:'#9aa0a8',fontSize:'12px'}}>Source : {item.source}</span>
+                          <div style={{display:'flex',alignItems:'center',justifyContent:'flex-end',flexWrap:'wrap' as const,gap:'8px'}}>
                             <button onClick={() => toggleAdminLu(item.id)} style={{background:lu?'rgba(0,0,0,0.05)':'linear-gradient(135deg,#0a1f32,#1A3D5C)',color:lu?'#6a7585':'#fff',border:'none',padding:'8px 16px',borderRadius:'20px',fontSize:'13px',fontWeight:700,cursor:'pointer'}}>
                               {lu ? 'Marquer non lu' : "✓ J'ai lu"}
                             </button>

@@ -47,7 +47,6 @@ export default function PlusPage({ setActiveTab }: any) {
     { titre: 'Nous contacter', detail: 'Une question ? On répond en moins de 24h', href: '/contact-app', icon: 'contact' },
   ];
   const infos: Ligne[] = [
-    { titre: 'Nos sources', detail: 'Les références médicales et officielles utilisées', href: '/sources', icon: 'sources' },
     { titre: 'Mentions légales', detail: 'Éditeur et hébergement du site', href: '/mentions-legales', icon: 'legal' },
     { titre: 'CGV', detail: 'Conditions générales de vente', href: '/cgv', icon: 'legal' },
     { titre: 'Confidentialité', detail: 'Ce que nous faisons de tes données', href: '/confidentialite', icon: 'legal' },

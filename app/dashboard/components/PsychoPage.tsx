@@ -62,7 +62,7 @@ export const SEMAINES: Semaine[] = [
     sa: 8, theme: 'lien',
     titre: "Bientôt, ton bébé entendra ta voix",
     intro: "À 8 SA, l'oreille de bébé est en pleine formation. Il ne t'entend pas encore, mais dans quelques mois, ta voix fera partie des sons qui l'accompagnent.",
-    corps: "Les premières réactions de bébé aux sons apparaissent vers 20 SA, d'abord pour les sons graves, puis son audition s'affine jusqu'à la fin de la grossesse. Les sons graves, comme une voix d'homme, traversent mieux la paroi du ventre que les sons aigus. Mais la voix que bébé entend le plus, c'est celle de sa mère, car elle lui parvient aussi de l'intérieur.\n\nUne expérience célèbre de DeCasper et Fifer (1980) a montré que des nouveau-nés de quelques jours préféraient la voix de leur mère à celle d'une autre femme : ils l'avaient mémorisée in utero. Pour la voix du père, les études n'ont pas retrouvé cette préférence à la naissance. En revanche, en fin de grossesse, le fœtus réagit déjà à ta voix. Et après la naissance, bébé apprend à la reconnaître au fil des semaines, grâce aux câlins, au peau à peau et aux moments où tu lui parles.",
+    corps: "Les premières réactions de bébé aux sons apparaissent vers 20 SA, d'abord pour les sons graves, puis son audition s'affine jusqu'à la fin de la grossesse. Les sons graves, comme une voix d'homme, traversent mieux la paroi du ventre que les sons aigus. Mais la voix que bébé entend le plus, c'est celle de sa mère, car elle lui parvient aussi de l'intérieur.\n\nUne expérience célèbre a montré que des nouveau-nés de quelques jours préféraient la voix de leur mère à celle d'une autre femme : ils l'avaient mémorisée in utero. Pour la voix du père, les études n'ont pas retrouvé cette préférence à la naissance. En revanche, en fin de grossesse, le fœtus réagit déjà à ta voix. Et après la naissance, bébé apprend à la reconnaître au fil des semaines, grâce aux câlins, au peau à peau et aux moments où tu lui parles.",
     conseil: "Commence maintenant, même si c'est tôt. Pose ta main sur le ventre le soir et parle-lui 5 minutes. Dis-lui ton prénom, ce que tu fais, ce que tu ressens. La régularité compte plus que le contenu.",
     source: "DeCasper & Fifer, 1980, Science. Lee & Kisilevsky, 2014, Developmental Psychobiology"
   },
@@ -86,7 +86,7 @@ export const SEMAINES: Semaine[] = [
     sa: 11, theme: 'couple',
     titre: "Son corps change, ton regard compte",
     intro: "Le ventre commence à s'arrondir. La peau change. Elle observe son corps se transformer et regarde ta réaction.",
-    corps: "Beaucoup de femmes enceintes disent que le regard de leur partenaire sur leur corps qui change compte pour leur bien-être. Une petite étude qualitative de Darvill, Skirton et Farrand (2010) souligne combien le soutien du partenaire aide les femmes à traverser les bouleversements de la première maternité.\n\nCe n'est pas de la coquetterie. C'est de la psychologie de l'attachement. Ton regard est un miroir. Ce qu'elle voit dans tes yeux quand elle se regarde, c'est ce qu'elle pense d'elle-même.",
+    corps: "Beaucoup de femmes enceintes disent que le regard de leur partenaire sur leur corps qui change compte pour leur bien-être. Une petite étude qualitative souligne combien le soutien du partenaire aide les femmes à traverser les bouleversements de la première maternité.\n\nCe n'est pas de la coquetterie. C'est de la psychologie de l'attachement. Ton regard est un miroir. Ce qu'elle voit dans tes yeux quand elle se regarde, c'est ce qu'elle pense d'elle-même.",
     conseil: "Évite les compliments à double tranchant du genre « tu es belle pour une femme enceinte ». Dis simplement : « tu es belle ». Point. La nuance est importante.",
     source: "Darvill, Skirton & Farrand, 2010, Midwifery"
   },
@@ -118,7 +118,7 @@ export const SEMAINES: Semaine[] = [
     sa: 15, theme: 'role',
     titre: "Se former pendant la grossesse aide après",
     intro: "Beaucoup de pères disent qu'ils se seraient sentis plus à l'aise après la naissance s'ils s'étaient davantage préparés pendant la grossesse.",
-    corps: "Une étude anglaise de Deave, Johnson et Ingram (2008), qui a interrogé de futurs parents avant et après la naissance, montre que la plupart se sentaient mal préparés à la vie avec un bébé. Les pères, en particulier, se sentaient souvent tenus à l'écart des cours et des informations, et auraient aimé en savoir plus.\n\nSe former ne signifie pas devenir expert. Ça signifie réduire l'inconnu. Et l'inconnu est la principale source d'anxiété paternelle.",
+    corps: "Une étude anglaise, qui a interrogé de futurs parents avant et après la naissance, montre que la plupart se sentaient mal préparés à la vie avec un bébé. Les pères, en particulier, se sentaient souvent tenus à l'écart des cours et des informations, et auraient aimé en savoir plus.\n\nSe former ne signifie pas devenir expert. Ça signifie réduire l'inconnu. Et l'inconnu est la principale source d'anxiété paternelle.",
     conseil: "Lis un article cette semaine sur le développement du nourrisson dans les 3 premiers mois. Pas pour mémoriser. Juste pour que la première semaine avec bébé ne soit pas totalement terra incognita.",
     source: "Deave, Johnson & Ingram, 2008, BMC Pregnancy and Childbirth"
   },
@@ -142,7 +142,7 @@ export const SEMAINES: Semaine[] = [
     sa: 18, theme: 'couple',
     titre: "Le mal de dos : ce que tu peux faire",
     intro: "Les douleurs de dos touchent plus d'une femme enceinte sur deux, souvent à partir du 2e trimestre. Ce n'est pas une fatalité. Tu peux aider.",
-    corps: "Le mal de dos pendant la grossesse est causé par le changement de centre de gravité, la relaxine (hormone qui assouplit les ligaments) et le poids croissant de l'utérus. Il s'intensifie en général au 3e trimestre.\n\nLes interventions les plus efficaces documentées : le massage par le partenaire (dans une étude de Tiffany Field, des massages faits par le conjoint ont diminué la douleur de dos et l'anxiété), la natation ou le yoga prénatal, le coussin de grossesse pour la nuit. Ce que tu peux faire : apprendre une technique de massage simple et l'appliquer régulièrement.",
+    corps: "Le mal de dos pendant la grossesse est causé par le changement de centre de gravité, la relaxine (hormone qui assouplit les ligaments) et le poids croissant de l'utérus. Il s'intensifie en général au 3e trimestre.\n\nLes interventions les plus efficaces documentées : le massage par le partenaire (dans une étude, des massages faits par le conjoint ont diminué la douleur de dos et l'anxiété), la natation ou le yoga prénatal, le coussin de grossesse pour la nuit. Ce que tu peux faire : apprendre une technique de massage simple et l'appliquer régulièrement.",
     conseil: "Regarde une vidéo de massage du dos prénatal ce soir (10 minutes sur YouTube). Puis applique-la. Ce n'est pas compliqué. C'est utile, concret, et ça crée de la connexion physique.",
     source: "Field et al., 2008, Journal of Bodywork and Movement Therapies"
   },
@@ -166,7 +166,7 @@ export const SEMAINES: Semaine[] = [
     sa: 21, theme: 'lien',
     titre: "Bébé commence à entendre",
     intro: "C'est à peu près maintenant que bébé commence à réagir aux sons. Les sons graves lui parviennent en premier.",
-    corps: "Vers 20 SA, bébé commence à réagir aux sons, d'abord aux plus graves. Les sons de l'extérieur lui arrivent atténués, mais les fréquences basses, comme une voix d'homme, passent plutôt bien. La voix qu'il entend le plus reste celle de sa mère.\n\nUne expérience classique de DeCasper et Fifer (1980) a montré que des nouveau-nés de quelques jours préféraient la voix de leur mère à celle d'une autre femme. Pour la voix du père, cette préférence n'a pas été retrouvée à la naissance : bébé l'apprend ensuite, au fil des semaines. Lui parler dès maintenant, c'est déjà créer une habitude à vous deux, et commencer à te sentir père.",
+    corps: "Vers 20 SA, bébé commence à réagir aux sons, d'abord aux plus graves. Les sons de l'extérieur lui arrivent atténués, mais les fréquences basses, comme une voix d'homme, passent plutôt bien. La voix qu'il entend le plus reste celle de sa mère.\n\nUne expérience classique a montré que des nouveau-nés de quelques jours préféraient la voix de leur mère à celle d'une autre femme. Pour la voix du père, cette préférence n'a pas été retrouvée à la naissance : bébé l'apprend ensuite, au fil des semaines. Lui parler dès maintenant, c'est déjà créer une habitude à vous deux, et commencer à te sentir père.",
     conseil: "Fixe un moment chaque soir, même 5 minutes. Parle-lui de ta journée, dis-lui ton prénom, lis quelques lignes à voix haute. La régularité compte plus que le contenu.",
     source: "DeCasper & Fifer, 1980, Science. Lee & Kisilevsky, 2014, Developmental Psychobiology"
   },
@@ -206,7 +206,7 @@ export const SEMAINES: Semaine[] = [
     sa: 26, theme: 'lien',
     titre: "Bébé réagit aux voix",
     intro: "À 26 SA, bébé ouvre les yeux pour la première fois. Ses sens se développent rapidement. Tu peux établir un contact réel.",
-    corps: "En fin de grossesse, le fœtus réagit déjà aux voix. Une expérience de Kisilevsky et al. (2003) a montré que chez des fœtus à terme, le rythme cardiaque accélérait en entendant la voix de leur mère, et ralentissait avec une voix inconnue.\n\nEt ta voix ? Une étude de Lee et Kisilevsky (2014) a montré qu'en fin de grossesse, le fœtus réagit aussi à la voix de son père. La préférence pour ta voix, elle, se construit après la naissance, au fil des semaines passées ensemble.",
+    corps: "En fin de grossesse, le fœtus réagit déjà aux voix. Une expérience a montré que chez des fœtus à terme, le rythme cardiaque accélérait en entendant la voix de leur mère, et ralentissait avec une voix inconnue.\n\nEt ta voix ? Une étude a montré qu'en fin de grossesse, le fœtus réagit aussi à la voix de son père. La préférence pour ta voix, elle, se construit après la naissance, au fil des semaines passées ensemble.",
     conseil: "Ce soir, pose ta main sur le ventre et parle-lui directement. Dis ton prénom, une chose que tu attends avec impatience. Attends une réponse (un mouvement). Si ça arrive, réponds par une pression douce.",
     source: "Kisilevsky et al., 2003, Psychological Science. Lee & Kisilevsky, 2014, Developmental Psychobiology"
   },
@@ -318,7 +318,7 @@ export const SEMAINES: Semaine[] = [
     sa: 40, theme: 'role',
     titre: "Ta présence compte",
     intro: "Le jour de l'accouchement, tu n'as pas à tout gérer. Tu as à être là.",
-    corps: "Les recherches de Marshall Klaus et John Kennell sur le soutien pendant l'accouchement sont parmi les plus citées en périnatalité. Leurs études portaient sur les doulas, des accompagnantes formées. Une grande synthèse Cochrane confirme qu'un soutien continu pendant l'accouchement raccourcit un peu le travail, diminue un peu le recours aux antalgiques et améliore le vécu de la naissance. Le soutien d'un proche choisi, comme toi, aide surtout la future maman à mieux vivre ce moment.\n\nTon rôle n'est pas médical. Il n'est pas logistique non plus. Il est de rester calme, d'être physiquement présent, de regarder ta partenaire dans les yeux quand c'est difficile. Ce regard, cette présence l'aident à se sentir en sécurité.",
+    corps: "Les recherches de Marshall Klaus et John Kennell sur le soutien pendant l'accouchement sont parmi les plus citées en périnatalité. Leurs études portaient sur les doulas, des accompagnantes formées. Une grande synthèse des études confirme qu'un soutien continu pendant l'accouchement raccourcit un peu le travail, diminue un peu le recours aux antalgiques et améliore le vécu de la naissance. Le soutien d'un proche choisi, comme toi, aide surtout la future maman à mieux vivre ce moment.\n\nTon rôle n'est pas médical. Il n'est pas logistique non plus. Il est de rester calme, d'être physiquement présent, de regarder ta partenaire dans les yeux quand c'est difficile. Ce regard, cette présence l'aident à se sentir en sécurité.",
     conseil: "Répète mentalement cette phrase jusqu'à la naissance : mon rôle est d'être là. Pas de tout gérer. Pas de tout savoir. Juste d'être là. C'est suffisant. C'est même beaucoup.",
     source: "Klaus, Kennell & Klaus, 1993, Mothering the Mother. Bohren et al., 2017, Cochrane"
   },

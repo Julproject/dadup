@@ -2,7 +2,7 @@ import type { MoisData } from '../../../data/types';
 
 export function getIdee(mois: number): string {
   const idees = [
-    "Fais une empreinte de sa main ou son pied cette semaine. Dans 10 ans, tu te souviendras de ce moment.",
+    "Fais une empreinte de sa main ou de son pied cette semaine. Dans 10 ans, tu te souviendras de ce moment.",
     "Filme-le qui babille. Ces sons disparaissent vite. Garde-les.",
     "Un selfie par semaine avec bébé, même angle, même endroit. Un an de photos, une vidéo de vie.",
     "Commence un carnet de ses premières fois : premier rire, premier retournement, premier mot.",
@@ -13,7 +13,7 @@ export function getIdee(mois: number): string {
     "Filme ses premiers pas. Même ratés. Surtout ratés.",
     "Enregistre une recette de ses purées préférées. Un jour, il voudra savoir.",
     "Organise une sortie spéciale pour ses 10 mois. Juste parce que.",
-    "Prépare quelque chose pour son premier anniversaire. Pas grand chose. Juste quelque chose qui vient de toi.",
+    "Prépare quelque chose pour son premier anniversaire. Pas grand-chose. Juste quelque chose qui vient de toi.",
   ];
   return idees[Math.min(mois, 11)] || idees[0];
 }
@@ -29,7 +29,7 @@ export const MOIS_DATA: Record<number, MoisData> = {
       },
       {
         titre: "Ce qu'il entend",
-        contenu: "L'audition est son sens le plus développé à la naissance. Il reconnaît surtout la voix de sa mère, entendue in utero. La tienne lui devient vite familière si tu lui parles souvent. Parle-lui normalement, pas en voix de bébé forcée. Source : Kisilevsky 2009."
+        contenu: "L'audition est son sens le plus développé à la naissance. Il reconnaît surtout la voix de sa mère, entendue in utero. La tienne lui devient vite familière si tu lui parles souvent. Parle-lui souvent, avec de vrais mots et une voix douce et chantante : c'est ce qui capte le mieux son attention."
       },
       {
         titre: "Ses réflexes primitifs",
@@ -37,7 +37,7 @@ export const MOIS_DATA: Record<number, MoisData> = {
       },
       {
         titre: "Ce qu'il aime dès les premiers jours",
-        contenu: "Le peau à peau : ton corps régule sa température, son rythme cardiaque et son stress. Être porté. Un bruit blanc doux. Être emmailloté, les bras calés contre son corps et les jambes libres de bouger. Ces besoins sont biologiques, pas des caprices. Source : Moore 2016."
+        contenu: "Le peau à peau : ton corps régule sa température, son rythme cardiaque et son stress. Être porté. Un bruit blanc doux. Être contenu, blotti dans tes bras ou enveloppé dans un lange, les bras calés contre son corps et les jambes libres de bouger. Ces besoins sont biologiques, pas des caprices."
       },
       {
         titre: "Le hoquet et les grimaces",
@@ -47,19 +47,23 @@ export const MOIS_DATA: Record<number, MoisData> = {
     sante: [
       {
         titre: "L'allaitement",
-        contenu: "8 à 12 tétées par 24h est normal. La montée de lait survient entre J2 et J4. Une bonne prise du sein : bouche grande ouverte, lèvres retroussées, menton contre le sein. Si douleur intense persistante : consulter une sage-femme ou une consultante IBCLC. Source : OMS."
+        contenu: "8 à 12 tétées par 24 heures, c'est normal. La montée de lait survient entre J2 et J4. Une bonne prise du sein : bouche grande ouverte, lèvres retroussées, menton contre le sein. Si douleur intense persistante : consulter une sage-femme ou une consultante IBCLC."
       },
       {
         titre: "Le cordon ombilical",
-        contenu: "Il tombe en général entre 5 et 15 jours. Nettoie-le à l'eau, avec un savon doux si besoin, sèche-le bien et laisse-le à l'air, hors de la couche. Ne cherche pas à l'enlever. C'est normal qu'il noircisse avant de tomber. Si rougeur autour, odeur forte ou écoulement : consulte le jour même. Source : SFN 2023."
+        contenu: "Il tombe en général entre 5 et 15 jours. Nettoie-le à l'eau, avec un savon doux si besoin, sèche-le bien et laisse-le à l'air, hors de la couche. Ne cherche pas à l'enlever. C'est normal qu'il noircisse avant de tomber. Si rougeur autour, odeur forte ou écoulement : consulte le jour même."
       },
       {
         titre: "Le poids",
-        contenu: "Une perte de poids allant jusqu'à 10% du poids de naissance est normale dans les premiers jours. La récupération du poids de naissance est attendue avant J10-J14. Source : HAS 2022."
+        contenu: "Une perte de poids allant jusqu'à 10 % du poids de naissance est normale dans les premiers jours. La récupération du poids de naissance est attendue avant J10-J14."
+      },
+      {
+        titre: "Les vitamines",
+        contenu: "La vitamine D se donne chaque jour dès la naissance, en gouttes, que bébé soit allaité ou nourri au lait infantile. La vitamine K est donnée à la maternité, avec une dose supplémentaire vers 1 mois si bébé est allaité. Note-le dans ton téléphone pour ne pas l'oublier."
       },
       {
         titre: "Le sommeil en sécurité",
-        contenu: "Sur le dos uniquement, dans son propre espace de sommeil, sans oreiller ni couette, sans tour de lit. La chambre partagée (pas le lit partagé) réduit le risque de mort subite. Source : HAS 2020."
+        contenu: "Sur le dos uniquement, dans son propre lit, sur un matelas ferme et bien ajusté, dans une gigoteuse à sa taille. Sans oreiller, couette, couverture, tour de lit ni peluche. Chambre à 18-20 °C, sans tabac. Partager la chambre (pas le lit) pendant les 6 premiers mois réduit le risque de mort subite."
       }
     ],
     papa: [
@@ -69,20 +73,20 @@ export const MOIS_DATA: Record<number, MoisData> = {
       },
       {
         titre: "Le baby blues : c'est réel",
-        contenu: "50 à 80% des femmes vivent un baby blues entre J3 et J5 : larmes soudaines, euphorie suivie d'effondrement, épuisement. C'est hormonal, normal, et ça passe en quelques jours. Si ça dure plus de deux semaines : consulter un médecin. Source : CNGOF."
+        contenu: "50 à 80 % des femmes vivent un baby blues entre J3 et J5 : larmes soudaines, euphorie suivie d'effondrement, épuisement. C'est hormonal, normal, et ça passe en quelques jours. Si ça dure plus de deux semaines : consulter un médecin."
       },
       {
         titre: "Ta propre santé mentale",
-        contenu: "Environ 1 père sur 10 traverse une dépression autour de la naissance, avec un pic entre 3 et 6 mois après l'arrivée de bébé. Signes : irritabilité, retrait, anxiété excessive, sentiment d'être inutile. En parler à un médecin est un signe de force, pas de faiblesse. Source : Paulson et Bazemore, JAMA 2010."
+        contenu: "Environ 1 père sur 10 traverse une dépression autour de la naissance, avec un pic entre 3 et 6 mois après l'arrivée de bébé. Signes : irritabilité, retrait, anxiété excessive, sentiment d'être inutile. En parler à un médecin est un signe de force, pas de faiblesse."
       },
       {
         titre: "Reconnais les signaux de faim",
-        contenu: "Bébé indique qu'il a faim avant de pleurer : il tourne la tête, ouvre la bouche, porte ses mains à sa bouche. Répondre à ces signaux précoces évite le cycle pleurs-stress-tétée difficile. Source : AAP 2022."
+        contenu: "Bébé indique qu'il a faim avant de pleurer : il tourne la tête, ouvre la bouche, porte ses mains à sa bouche. Répondre à ces signaux précoces évite le cycle pleurs-stress-tétée difficile."
       }
     ,
       {
         titre: "Fais-toi confiance",
-        contenu: "Bébé est là. Tu n'es pas prêt à 100% et personne ne l'est. Ce que tu ressens, l'amour mélangé à la peur, c'est exactement ce que doit ressentir un père qui s'implique. Tu es prêt. Fais-toi confiance."
+        contenu: "Bébé est là. Tu n'es pas prêt à 100 % et personne ne l'est. Ce que tu ressens, l'amour mélangé à la peur, c'est exactement ce que doit ressentir un père qui s'implique. Tu es prêt. Fais-toi confiance."
       },
       {
         titre: "Le rythme des nuits",
@@ -90,21 +94,21 @@ export const MOIS_DATA: Record<number, MoisData> = {
       }],
     activites: [
       { titre: "Le peau à peau", contenu: "30 minutes de peau à peau par jour, torse nu contre torse nu. Ça régule sa température, stabilise son rythme cardiaque et renforce ton lien avec lui. Tu peux faire ça en regardant un film ou en lisant." },
-      { titre: "Le bain du soir", contenu: "Eau à 37°C, 5 minutes maximum. Parle-lui doucement pendant tout le bain. Pas besoin de savon à chaque fois. Ce rituel quotidien l'apaise et t'appartient." },
+      { titre: "Le bain du soir", contenu: "Eau à 37 °C, 5 minutes maximum. Parle-lui doucement pendant tout le bain. Pas besoin de savon à chaque fois. Ce rituel quotidien l'apaise et t'appartient." },
       { titre: "Le massage bébé", contenu: "Après le bain, quelques minutes de massage doux sur ses jambes, son ventre et son dos. Des mouvements lents et réguliers. La chaleur de tes mains le rassure." }
     ],
     rdv: "Examen obligatoire dans les 8 jours, par un médecin (souvent à la maternité), qui remplit le 1er certificat de santé. Puis un examen au cours de la 2e semaine et un autre vers 1 mois. La sage-femme de ville peut faire des visites à domicile : demande-la avant la sortie de maternité.",
-    vaccins: "BCG si indiqué. Pas de vaccin obligatoire avant 2 mois.",
-    alerte: "Température de 38 °C ou plus avant 3 mois : urgences pédiatriques sans attendre. Refus de s'alimenter sur 2 tétées consécutives. Fontanelle bombée. Difficultés respiratoires : appeler le 15. Fais confiance à ton instinct : si quelque chose te semble anormal, appelle. Tu ne dérangeras jamais trop."
+    vaccins: "BCG seulement en cas de risque particulier de tuberculose. Pas de vaccin obligatoire avant 2 mois. Contre la bronchiolite, un anticorps protecteur en une injection (Beyfortus ou Enflonsia) est proposé aux bébés nés pendant la saison, de mi-septembre à fin février, souvent dès la maternité. Il n'est pas utile si la maman a reçu le vaccin contre le VRS pendant la grossesse, au moins 14 jours avant la naissance.",
+    alerte: "Température de 38 °C ou plus avant 3 mois : urgences pédiatriques sans attendre. Difficultés à respirer, teint gris ou bleuté, bébé très mou ou difficile à réveiller : appelle le 15. Fontanelle bombée, refus de s'alimenter sur 2 tétées consécutives : consulte en urgence. Jaunisse qui s'accentue ou dure plus de 2 semaines, selles décolorées : consulte rapidement. Fais confiance à ton instinct : si quelque chose te semble anormal, appelle. Tu ne dérangeras jamais trop."
   },
 
   1: {
     titre: "L'éveil",
-    intro: "Bébé commence à sourire pour de vrai. Pas le sourire du gaz du mois dernier : un sourire social, en réponse à ton visage. C'est le début d'une communication réelle.",
+    intro: "Bébé commence à sourire pour de vrai. Pas les sourires réflexes des premières semaines, souvent pendant le sommeil : un sourire social, en réponse à ton visage. C'est le début d'une communication réelle.",
     developpement: [
       {
         titre: "Le sourire social",
-        contenu: "Vers 6 semaines, bébé sourit en réponse à ton visage et ta voix. Ce n'est plus un réflexe : c'est une communication intentionnelle. Réponds toujours à son sourire par un sourire. Tu lui apprends que la communication fonctionne. Source : Brazelton 2006."
+        contenu: "Vers 6 semaines, bébé sourit en réponse à ton visage et ta voix. Ce n'est plus un réflexe : c'est une communication intentionnelle. Réponds toujours à son sourire par un sourire. Tu lui apprends que la communication fonctionne."
       },
       {
         titre: "Le contrôle de la tête",
@@ -112,7 +116,7 @@ export const MOIS_DATA: Record<number, MoisData> = {
       },
       {
         titre: "Les sons",
-        contenu: "Premiers sons voyelles. Il réagit aux voix familières en tournant la tête. Il répond dans une conversation en alternant. Parle-lui face à face en exagérant tes expressions. Son cerveau synchronise son activité avec la tienne. Source : Harvard CDC."
+        contenu: "Premières vocalises : a, o, eu. Il réagit aux voix familières en tournant la tête. Il répond dans une conversation en alternant. Parle-lui face à face en exagérant tes expressions. Son cerveau synchronise son activité avec la tienne."
       },
       {
         titre: "La vision",
@@ -126,21 +130,21 @@ export const MOIS_DATA: Record<number, MoisData> = {
     sante: [
       {
         titre: "Les coliques",
-        contenu: "Pleurs intenses plus de 3h par jour, plus de 3 jours par semaine, pendant plus de 3 semaines. Touchent 20% des bébés. Cause incertaine, disparaissent spontanément vers 3 mois. Le portage, la chaleur sur le ventre et le mouvement rythmé aident. Source : HAS 2021."
+        contenu: "Pleurs intenses plus de 3 heures par jour, plus de 3 jours par semaine, pendant plus de 3 semaines. Elles touchent environ 20 % des bébés. Cause incertaine, disparaissent spontanément vers 3 mois. Le portage, la chaleur sur le ventre et le mouvement rythmé aident."
       },
       {
         titre: "Les régurgitations",
-        contenu: "Normales si bébé grossit bien et n'a pas l'air douloureux. Signe de RGO pathologique : pleurs pendant la tétée, refus de manger, mauvaise prise de poids. Dans ce cas, consulter. Source : ESPGHAN 2018."
+        contenu: "Normales si bébé grossit bien et n'a pas l'air douloureux. Signes d'un reflux qui pose problème : pleurs pendant la tétée, refus de manger, mauvaise prise de poids. Dans ce cas, consulte. Vomissements verts, en jet ou avec du sang : consulte en urgence."
       }
     ],
     papa: [
       {
         titre: "Dépression post-partum paternelle",
-        contenu: "Environ 10 % des pères traversent une dépression entre la grossesse et la première année de bébé, et jusqu'à 1 sur 4 entre 3 et 6 mois après la naissance. Symptômes peu connus : irritabilité, retrait, anxiété excessive, prise de risques. En parler à un médecin change les choses. Source : Paulson et Bazemore, JAMA 2010."
+        contenu: "Environ 10 % des pères traversent une dépression entre la grossesse et la première année de bébé, et jusqu'à 1 sur 4 entre 3 et 6 mois après la naissance. Symptômes peu connus : irritabilité, retrait, anxiété excessive, prise de risques. En parler à un médecin change les choses."
       },
       {
         titre: "Parle-lui en faisant les choses",
-        contenu: "Là, je te mets ton pyjama, maintenant on va au bain, voilà ton biberon. Nommer chaque geste du quotidien construit le vocabulaire plus efficacement que les jeux éducatifs. Source : Hart et Risley 1995."
+        contenu: "« Maintenant, on va au bain. Là, je te mets ton pyjama. Voilà ton lait. » Nommer chaque geste du quotidien construit le vocabulaire plus efficacement que les jeux éducatifs."
       }
     ],
     activites: [
@@ -149,7 +153,7 @@ export const MOIS_DATA: Record<number, MoisData> = {
       { titre: "La danse", contenu: "Tiens-le contre toi et danse doucement. Il aime le mouvement, le rythme, ta chaleur. C'est du portage déguisé." }
     ],
     rdv: "Examen du 2e mois obligatoire. Début du calendrier vaccinal. Ne pas rater.",
-    vaccins: "À 2 mois : DTCaP-Hib-HepB (hexavalent) 1re dose + pneumocoque 1re dose (obligatoires). Rotavirus 1re dose par voie orale (recommandé). Source : calendrier des vaccinations 2025.",
+    vaccins: "À 2 mois : DTCaP-Hib-HepB (hexavalent) 1re dose + pneumocoque 1re dose (obligatoires). Rotavirus 1re dose par voie orale (recommandé).",
     alerte: "Absence de sourire à 2 mois ou absence de réaction aux sons : parles-en au pédiatre. Bébé très mou, comme une poupée de chiffon, ou qui perd du poids : consulte rapidement."
   },
 
@@ -175,13 +179,13 @@ export const MOIS_DATA: Record<number, MoisData> = {
       },
       {
         titre: "Le sommeil",
-        contenu: "Les nuits s'allongent progressivement. 4 à 6h de sommeil continu est possible. Expose-le à la lumière naturelle le matin pour l'aider à régler son horloge biologique. Source : Touchette 2005."
+        contenu: "Les nuits s'allongent progressivement. 4 à 6 heures de sommeil d'affilée, c'est possible. Expose-le à la lumière naturelle le matin pour l'aider à régler son horloge biologique."
       }
     ],
     sante: [
       {
         titre: "La diversification : pas encore",
-        contenu: "La diversification alimentaire ne commence pas avant 4 mois révolus (17 semaines). Le lait couvre tous les besoins. Introduire trop tôt augmente le risque d'allergies. Source : OMS / HAS."
+        contenu: "La diversification alimentaire ne commence pas avant 4 mois révolus (17 semaines). Le lait couvre tous les besoins. Avant, son système digestif et ses reins ne sont pas encore prêts."
       },
       {
         titre: "La régression du sommeil à 4 mois approche",
@@ -191,11 +195,11 @@ export const MOIS_DATA: Record<number, MoisData> = {
     papa: [
       {
         titre: "Le jeu : c'est ton domaine",
-        contenu: "Montre-lui des objets colorés, lis des livres cartonnés. Le jeu n'est pas un luxe : c'est le moteur principal du développement cognitif et émotionnel. Source : Ginsburg 2007."
+        contenu: "Montre-lui des objets colorés, lis des livres cartonnés. Le jeu n'est pas un luxe : c'est le moteur principal du développement cognitif et émotionnel."
       },
       {
         titre: "Reprendre une activité physique",
-        contenu: "3 mois de privation de sommeil et de stress ont un impact réel sur ton énergie et ton humeur. 30 minutes d'activité physique 3 fois par semaine améliore significativement les deux. Source : Inserm."
+        contenu: "3 mois de privation de sommeil et de stress ont un impact réel sur ton énergie et ton humeur. 30 minutes d'activité physique 3 fois par semaine améliorent nettement les deux."
       }
     ],
     activites: [
@@ -204,13 +208,13 @@ export const MOIS_DATA: Record<number, MoisData> = {
       { titre: "Le miroir", contenu: "Montre-lui son reflet. Il observe ce bébé qui l'imite avec fascination. Fais des grimaces ensemble. C'est l'un de ses jeux préférés ce mois-ci." }
     ],
     rdv: "Examen du 3e mois obligatoire. C'est aussi le moment des vaccins des 3 mois.",
-    vaccins: "À 3 mois : méningocoque B 1re dose (obligatoire). Rotavirus 2e dose (recommandé). Source : calendrier des vaccinations 2025.",
-    alerte: "Absence de rires ou de vocalises. Absence de suivi visuel. Pas de réaction aux sons forts. Raideur ou mollesse anormale des membres."
+    vaccins: "À 3 mois : méningocoque B 1re dose (obligatoire). Rotavirus 2e dose (recommandé).",
+    alerte: "Absence de sourires ou de vocalises. Absence de suivi visuel. Pas de réaction aux sons forts. Raideur ou mollesse anormale des membres."
   },
 
   3: {
     titre: "La régression du sommeil",
-    intro: "Les nuits s'amélioraient. Et là elles se dégradent. C'est la régression du sommeil à 4 mois. C'est normal, documenté, et temporaire. Ça ne veut pas dire que tu fais mal quelque chose.",
+    intro: "Les nuits s'amélioraient. Et là elles se dégradent. C'est la régression du sommeil à 4 mois. C'est normal, documenté, et temporaire. Ça ne veut pas dire que tu t'y prends mal.",
     developpement: [
       {
         titre: "La régression du sommeil",
@@ -226,13 +230,13 @@ export const MOIS_DATA: Record<number, MoisData> = {
       },
       {
         titre: "Les vocalises",
-        contenu: "Gazouillements variés, syllabes comme ba, da, ma. Il répond quand tu lui parles en alternant. C'est une conversation. Réponds à chaque son."
+        contenu: "Gazouillements variés, areuh, petits cris de joie, éclats de rire. Il répond quand tu lui parles en alternant. C'est une conversation. Réponds à chaque son."
       }
     ],
     sante: [
       {
         titre: "Début de diversification possible",
-        contenu: "Entre 17 et 26 semaines selon l'enfant. Commencer si bébé tient sa tête, montre de l'intérêt pour la nourriture, n'a plus le réflexe d'extrusion (ne repousse plus la cuillère avec la langue). Légumes en purée lisse, sans sel ni sucre. Source : HAS / PNNS 2023."
+        contenu: "Entre 17 et 26 semaines selon l'enfant. Commencer si bébé tient sa tête, montre de l'intérêt pour la nourriture, n'a plus le réflexe d'extrusion (ne repousse plus la cuillère avec la langue). Légumes en purée lisse, sans sel ni sucre."
       },
       {
         titre: "Sécuriser la table à langer",
@@ -242,7 +246,7 @@ export const MOIS_DATA: Record<number, MoisData> = {
     papa: [
       {
         titre: "La lecture quotidienne",
-        contenu: "Lire à voix haute chaque jour l'expose à beaucoup plus de mots : environ 290 000 mots de plus entendus à 5 ans avec un livre par jour. Choisis des livres avec peu de mots et des images contrastées. Source : Logan 2019."
+        contenu: "Lire à voix haute chaque jour l'expose à beaucoup plus de mots : environ 290 000 mots de plus entendus à 5 ans avec un livre par jour. Choisis des livres avec peu de mots et des images contrastées."
       },
       {
         titre: "Les rituels du coucher",
@@ -259,7 +263,7 @@ export const MOIS_DATA: Record<number, MoisData> = {
       { titre: "Le miroir à deux", contenu: "Assis face au miroir avec lui, montre-lui ton reflet et le sien. Nomme ce que tu vois. Montre-lui ton nez, puis le sien. Il commence à différencier les personnes." }
     ],
     rdv: "Examen du 4e mois obligatoire.",
-    vaccins: "À 4 mois : DTCaP-Hib-HepB 2e dose + pneumocoque 2e dose (obligatoires). 3e dose de rotavirus si le vaccin utilisé en prévoit trois. Source : calendrier des vaccinations 2025.",
+    vaccins: "À 4 mois : DTCaP-Hib-HepB 2e dose + pneumocoque 2e dose (obligatoires). 3e dose de rotavirus si le vaccin utilisé en prévoit trois.",
     alerte: "Si bébé n'attrape pas encore d'objets, ne gazouille pas ou présente des mouvements asymétriques, mentionne-le au pédiatre. Ce n'est pas forcément inquiétant, mais un regard médical est toujours utile."
   },
 
@@ -273,11 +277,11 @@ export const MOIS_DATA: Record<number, MoisData> = {
       },
       {
         titre: "La motricité",
-        contenu: "Se retourne dos-ventre. Peut se tenir assis avec appui. Attrape les objets à pleine main et les porte à la bouche. La pince pouce-index viendra plutôt vers 9 mois. Source : Denver II."
+        contenu: "Commence à se retourner, souvent du ventre vers le dos d'abord. Peut se tenir assis avec appui. Attrape les objets à pleine main et les porte à la bouche. La pince pouce-index viendra plutôt vers 9 mois."
       },
       {
         titre: "L'attachement préférentiel",
-        contenu: "Il manifeste une préférence claire pour ses figures d'attachement. Ne le force jamais à faire le beau avec quelqu'un qu'il ne connaît pas. Un attachement sécure est un facteur de protection important pour sa santé émotionnelle future. Source : Bowlby / Ainsworth."
+        contenu: "Il manifeste une préférence claire pour ses figures d'attachement. Ne le force jamais à faire le beau avec quelqu'un qu'il ne connaît pas. Un attachement sécure est un facteur de protection important pour sa santé émotionnelle future."
       },
       {
         titre: "Les premiers sons proto-linguistiques",
@@ -287,11 +291,11 @@ export const MOIS_DATA: Record<number, MoisData> = {
     sante: [
       {
         titre: "La diversification alimentaire",
-        contenu: "Si commencée, introduire les légumes un à un avec 4 à 7 jours entre chaque : carottes, courgettes, haricots verts, potiron. Purée lisse sans sel ni sucre. Source : PNNS / HAS."
+        contenu: "Si commencée, introduire les légumes un à un avec 4 à 7 jours entre chaque : carottes, courgettes, haricots verts, potiron. Purée lisse sans sel ni sucre."
       },
       {
         titre: "La dentition",
-        contenu: "Les premières dents (incisives inférieures) peuvent apparaître entre 5 et 8 mois. Signes : bave, irritabilité, besoin de mordre. La fièvre élevée n'est pas liée aux dents. Source : AAP."
+        contenu: "Les premières dents (incisives inférieures) sortent en général entre 6 et 10 mois, parfois plus tôt. Signes : bave, irritabilité, besoin de mordre. La fièvre élevée n'est pas liée aux dents."
       }
     ],
     papa: [
@@ -310,58 +314,58 @@ export const MOIS_DATA: Record<number, MoisData> = {
       { titre: "Cacher et retrouver", contenu: "Cache un jouet sous une couverture devant ses yeux. Laisse-le le chercher. C'est l'entraînement de la permanence de l'objet, une étape cognitive majeure." }
     ],
     rdv: "Examen du 5e mois obligatoire. Pense à faire le point sur la diversification si elle a commencé.",
-    vaccins: "Méningocoque B 2e dose (obligatoire). Source : calendrier des vaccinations 2025.",
+    vaccins: "Méningocoque B 2e dose (obligatoire).",
     alerte: "Asymétrie dans les mouvements. Absence de retournement. Perte d'acquis (régression)."
   },
 
   5: {
     titre: "La moitié de la première année",
-    intro: "Six mois. Bébé pèse environ le double de son poids de naissance. Il mange de la nourriture solide, rit, joue, vous reconnaît de loin.",
+    intro: "Six mois. Bébé pèse environ le double de son poids de naissance. Il découvre peut-être ses premières purées, rit, joue, vous reconnaît de loin.",
     developpement: [
       {
         titre: "Le langage",
-        contenu: "Syllabes redupliquées : bababa, mamama, dadada. Ce n'est pas encore du langage mais l'entraînement phonologique qui y conduit. Plus tu lui parles, plus son cerveau se structure. Réponds à ses syllabes comme si c'était une vraie conversation. Source : Kuhl 2007."
+        contenu: "Syllabes redupliquées : bababa, mamama, dadada. Ce n'est pas encore du langage mais l'entraînement phonologique qui y conduit. Plus tu lui parles, plus son cerveau se structure. Réponds à ses syllabes comme si c'était une vraie conversation."
       },
       {
         titre: "La position assise",
-        contenu: "Assis sans soutien pendant quelques secondes, puis de plus en plus longtemps. Transfert d'objet d'une main à l'autre. Ne mets pas de cale pour le maintenir assis : il doit trouver son équilibre seul. Source : Denver II."
+        contenu: "Assis sans soutien pendant quelques secondes, puis de plus en plus longtemps. Transfert d'objet d'une main à l'autre. Ne mets pas de cale pour le maintenir assis : il doit trouver son équilibre seul."
       },
       {
         titre: "La permanence de l'objet",
-        contenu: "Il cherche un objet qu'on vient de cacher sous un tissu devant lui. Il comprend que l'objet existe encore même s'il ne le voit plus. Étape majeure de Piaget. Joue à ce jeu régulièrement."
+        contenu: "Il cherche un jouet à moitié caché sous un tissu devant lui. Il commence à comprendre qu'un objet existe encore même s'il ne le voit plus. C'est une étape majeure de son développement. Joue à ce jeu régulièrement."
       },
       {
         titre: "La peur de l'étranger",
-        contenu: "Elle se renforce ce mois. Il peut pleurer avec des personnes qu'il ne voit pas régulièrement. Expositions régulières et progressives, sans forcer. Source : Ainsworth 1978."
+        contenu: "Elle se renforce ce mois. Il peut pleurer avec des personnes qu'il ne voit pas régulièrement. Expositions régulières et progressives, sans forcer."
       }
     ],
     sante: [
       {
-        titre: "La diversification a 6 mois",
-        contenu: "L'OMS recommande 6 mois d'allaitement exclusif. En France, la diversification peut commencer entre 4 et 6 mois révolus. Viande, poisson et œuf bien cuits peuvent être proposés dès le début, en petite quantité (environ 10 g par jour, soit 2 cuillères à café). Source : Santé publique France 2021."
+        titre: "La diversification à 6 mois",
+        contenu: "L'OMS recommande 6 mois d'allaitement exclusif. En France, la diversification peut commencer entre 4 et 6 mois révolus. Viande, poisson et œuf bien cuits peuvent être proposés dès le début, en petite quantité (environ 10 g par jour, soit 2 cuillères à café)."
       },
       {
         titre: "Introduction précoce des allergènes",
-        contenu: "Les allergènes majeurs (œuf, arachide, gluten, produits laitiers) sont à introduire dès le début de la diversification, entre 4 et 6 mois, même s'il y a des allergies dans la famille. L'arachide toujours en poudre ou en purée lisse, jamais de cacahuète entière (risque d'étouffement). Source : Santé publique France 2021."
+        contenu: "Les allergènes majeurs (œuf, arachide, gluten, produits laitiers) sont à introduire dès le début de la diversification, entre 4 et 6 mois, même s'il y a des allergies dans la famille. L'arachide toujours en poudre ou en purée lisse, jamais de cacahuète entière (risque d'étouffement)."
       },
       {
         titre: "Les premières dents",
-        contenu: "Les incisives centrales inférieures apparaissent généralement entre 6 et 10 mois. Une fois sorties, brosse-les matin et soir avec une brosse à dents adaptée et une trace de dentifrice fluoré à 1000 ppm. Source : UFSBD 2022."
+        contenu: "Les incisives centrales inférieures apparaissent généralement entre 6 et 10 mois. Une fois sorties, brosse-les matin et soir avec une brosse à dents adaptée et une trace de dentifrice fluoré à 1000 ppm."
       }
     ],
     papa: [
       {
         titre: "Motricité libre",
-        contenu: "Laisse bébé explorer le sol en sécurité, sans le mettre assis ou debout avant qu'il ne le fasse seul. Un bébé qui trouve seul sa position est plus habile qu'un bébé installé. Source : Pikler / Bernard-Bonnin 2012."
+        contenu: "Laisse bébé explorer le sol en sécurité, sans le mettre assis ou debout avant qu'il ne le fasse seul. Un bébé qui trouve seul sa position est plus habile qu'un bébé installé."
       },
       {
         titre: "L'examen du 6e mois",
-        contenu: "C'est l'un des examens pédiatriques les plus complets. Viens avec une liste de tes observations : comment il mange, dort, se déplace, réagit. Tu es un parent observateur si tu es présent au quotidien."
+        contenu: "C'est l'un des examens pédiatriques les plus complets. Viens avec une liste de tes observations : comment il mange, dort, se déplace, réagit. Présent au quotidien, tu es le mieux placé pour remarquer ces détails."
       }
     ,
       {
         titre: "La diversification alimentaire",
-        contenu: "À 6 mois révolus, bébé peut commencer à manger autre chose que du lait. La diversification menée par l'enfant (DME) consiste à proposer des morceaux adaptés qu'il attrape seul, sous surveillance constante. Purées et morceaux sont tous les deux valides : l'important est de varier les saveurs et les textures progressivement."
+        contenu: "Entre 4 et 6 mois révolus, bébé peut commencer à manger autre chose que du lait. La diversification menée par l'enfant (DME) consiste à proposer, vers 6 mois et quand il tient bien assis, des morceaux fondants qu'il attrape seul, sous surveillance constante. Purées et morceaux sont tous les deux valides : l'important est de varier les saveurs et les textures progressivement."
       },
       {
         titre: "La langue des signes bébé",
@@ -369,11 +373,11 @@ export const MOIS_DATA: Record<number, MoisData> = {
       }],
     activites: [
       { titre: "Le bain assis", contenu: "Installe-le assis dans le bain, une main toujours sur lui, et laisse-le taper dans l'eau. Ne le laisse jamais seul, même quelques secondes : quelques centimètres d'eau suffisent pour une noyade." },
-      { titre: "Les chansons avec gestes", contenu: "Les chansons avec des gestes (promenons-nous, une souris verte) renforcent la coordination et le langage en même temps. Répète les mêmes chansons : la répétition est de l'apprentissage." },
+      { titre: "Les chansons avec gestes", contenu: "Les chansons avec des gestes (« Promenons-nous dans les bois », « Une souris verte ») renforcent la coordination et le langage en même temps. Répète les mêmes chansons : la répétition est de l'apprentissage." },
       { titre: "L'exploration sensorielle", contenu: "Pose-le sur différentes surfaces : herbe, sable, moquette, carrelage. Chaque texture est une information nouvelle pour son cerveau." }
     ],
     rdv: "Examen du 6e mois obligatoire. Bilan complet : motricité, langage, vision, audition.",
-    vaccins: "Méningocoque ACWY 1re dose (obligatoire). Source : calendrier des vaccinations 2025.",
+    vaccins: "Méningocoque ACWY 1re dose (obligatoire).",
     alerte: "Absence de syllabes. Pas de tenue assise avec appui. Absence de sourire réciproque. Régressions notables."
   },
 
@@ -383,11 +387,11 @@ export const MOIS_DATA: Record<number, MoisData> = {
     developpement: [
       {
         titre: "Déplacement",
-        contenu: "Rampement, 4 pattes ou retournements successifs. Chaque bébé trouve sa technique. Le 4 pattes croisé (bras gauche + jambe droite) est idéal neurologiquement mais pas obligatoire. Les chutes font partie de l'apprentissage. Source : AAP 2022."
+        contenu: "Rampement, 4 pattes ou retournements successifs. Chaque bébé trouve sa technique. Le 4 pattes croisé (bras gauche + jambe droite) est idéal neurologiquement mais pas obligatoire. Les chutes font partie de l'apprentissage."
       },
       {
         titre: "Permanence de l'objet renforcée",
-        contenu: "Bébé comprend qu'un objet caché existe encore et le cherche activement. Base de la pensée abstraite. Cache un jouet sous une couverture devant lui et laisse-le chercher. Source : Piaget 1954."
+        contenu: "Bébé comprend qu'un objet caché existe encore et le cherche activement. Base de la pensée abstraite. Cache un jouet sous une couverture devant lui et laisse-le chercher."
       },
       {
         titre: "La communication gestuelle",
@@ -397,21 +401,21 @@ export const MOIS_DATA: Record<number, MoisData> = {
     sante: [
       {
         titre: "Sécurisation du domicile",
-        contenu: "Bloquer les prises électriques, sécuriser les coins de table, installer des barrières d'escalier. Placer tous les produits ménagers hors de portée. Attacher les meubles lourds aux murs. La chute est la 1re cause d'accident à cet âge. Source : Santé Publique France."
+        contenu: "Bloquer les prises électriques, sécuriser les coins de table, installer des barrières d'escalier. Placer tous les produits ménagers hors de portée. Attacher les meubles lourds aux murs. La chute est la 1re cause d'accident à cet âge."
       },
       {
         titre: "Alimentation à 7 mois",
-        contenu: "Viande, poisson ou œuf bien cuits : environ 10 g par jour. Légumes et fruits bien acceptés. Continuer le lait en parallèle. Éviter sel, sucre, miel. Source : Santé publique France 2021."
+        contenu: "Viande, poisson ou œuf bien cuits : environ 10 g par jour. Légumes et fruits bien acceptés. Continuer le lait en parallèle. Éviter sel, sucre, miel."
       }
     ],
     papa: [
       {
         titre: "Cache-cache",
-        contenu: "Se cacher derrière tes mains puis réapparaître est bien plus qu'un jeu : c'est l'entraînement de la permanence de l'objet et de la gestion émotionnelle de la séparation. Bébé apprend que tu reviens toujours. Source : Stern 1985."
+        contenu: "Te cacher derrière tes mains puis réapparaître est bien plus qu'un jeu : c'est l'entraînement de la permanence de l'objet et de la gestion émotionnelle de la séparation. Bébé apprend que tu reviens toujours."
       },
       {
         titre: "Sécuriser sans surprotéger",
-        contenu: "Sécurise l'environnement mais laisse-le explorer. Un bébé qui ne tombe jamais n'apprend pas à gérer les risques. L'objectif : un environnement sûr dans lequel il peut prendre des petits risques. Source : Adolph 2012."
+        contenu: "Sécurise l'environnement mais laisse-le explorer. Un bébé qui ne tombe jamais n'apprend pas à gérer les risques. L'objectif : un environnement sûr dans lequel il peut prendre des petits risques."
       }
     ],
     activites: [
@@ -421,7 +425,7 @@ export const MOIS_DATA: Record<number, MoisData> = {
     ],
     rdv: "Pas de rendez-vous obligatoire ce mois.",
     vaccins: "Pas de vaccin ce mois.",
-    alerte: "Absence de déplacement. Asymétrie motrice. Absence de permanence de l'objet."
+    alerte: "Ne tient pas assis, même avec appui. N'attrape pas les objets. Asymétrie motrice. Perte d'acquis."
   },
 
   7: {
@@ -430,31 +434,31 @@ export const MOIS_DATA: Record<number, MoisData> = {
     developpement: [
       {
         titre: "Angoisse du 8e mois",
-        contenu: "Normale et attendue entre 6 et 12 mois. Bébé prend conscience qu'il est séparé de ses parents et que tu peux partir. Un attachement sécure est la meilleure protection contre l'anxiété future. Source : Ainsworth 1978."
+        contenu: "Normale et attendue entre 6 et 12 mois. Bébé prend conscience qu'il est séparé de ses parents et que tu peux partir. Un attachement sécure est la meilleure protection contre l'anxiété future."
       },
       {
         titre: "Compréhension du langage",
-        contenu: "Non, donne, bravo, viens. Bébé commence à comprendre des mots simples avant de les parler. Son vocabulaire de compréhension est bien supérieur à ce qu'il peut dire. Continue à lui parler souvent et normalement. Source : Bates 1976."
+        contenu: "Non, donne, bravo, viens. Bébé commence à comprendre des mots simples avant de les parler. Son vocabulaire de compréhension est bien supérieur à ce qu'il peut dire. Continue à lui parler souvent et normalement."
       },
       {
         titre: "La pince pouce-index débute",
-        contenu: "Il commence à saisir de petits objets avec précision. Signe de maturation neurologique fine. Attention aux petits objets qui peuvent être avalés. Source : Denver II."
+        contenu: "Il commence à saisir de petits objets avec précision. Signe de maturation neurologique fine. Attention aux petits objets qui peuvent être avalés."
       }
     ],
     sante: [
       {
         titre: "Alimentation à 8 mois",
-        contenu: "Texture : purées avec petits morceaux mous. Viande ou poisson : 10g par jour. Introduire progressivement les textures pour prévenir le refus alimentaire futur. Éviter sel, sucre, miel. Source : HAS / PNNS."
+        contenu: "Texture : purées avec petits morceaux mous. Viande ou poisson : 10 g par jour. Introduire progressivement les textures pour prévenir le refus alimentaire futur. Éviter sel, sucre, miel."
       },
       {
         titre: "Sommeil",
-        contenu: "Régression du sommeil fréquente au 8e mois liée à l'angoisse de séparation. Un rituel du coucher stable et prévisible est la meilleure réponse. La constance te protège autant que lui. Source : HAS 2017."
+        contenu: "Régression du sommeil fréquente au 8e mois liée à l'angoisse de séparation. Un rituel du coucher stable et prévisible est la meilleure réponse. La constance te protège autant que lui."
       }
     ],
     papa: [
       {
         titre: "Dire au revoir correctement",
-        contenu: "Toujours dire au revoir quand tu pars, même si bébé pleure, plutôt que de partir en douce. Les départs discrets augmentent l'anxiété. Bébé ne comprend pas pourquoi tu as disparu. Un vrai au revoir lui dit : tu pars, mais tu reviens. Source : Bowlby."
+        contenu: "Toujours dire au revoir quand tu pars, même si bébé pleure, plutôt que de partir en douce. Les départs discrets augmentent l'anxiété. Bébé ne comprend pas pourquoi tu as disparu. Un vrai au revoir lui dit : tu pars, mais tu reviens."
       },
       {
         titre: "Rituel du coucher",
@@ -463,12 +467,12 @@ export const MOIS_DATA: Record<number, MoisData> = {
     ],
     activites: [
       { titre: "Les jeux de cache-cache", contenu: "Cache-toi derrière un meuble et réapparais. Bébé rit à chaque fois. Ce n'est pas juste du fun : il entraîne sa gestion de la séparation et la permanence de l'objet." },
-      { titre: "Les empilements", contenu: "Des gros cubes qu'il peut empiler et renverser. Il adore surtout les renverser. Laisse-le faire : c'est de la physique appliquée." },
+      { titre: "Les empilements", contenu: "De gros cubes qu'il peut empiler et renverser. Il adore surtout les renverser. Laisse-le faire : c'est de la physique appliquée." },
       { titre: "L'eau au bain", contenu: "Des petits contenants : gobelet, écumoire, arrosoir. Vider, remplir, renverser. Il peut rester 20 minutes dans le bain avec ça. Reste avec lui." }
     ],
     rdv: "Pas d'examen obligatoire ce mois. Le prochain a lieu au cours du 9e mois, avec le 2e certificat de santé.",
     vaccins: "Grippe si indiqué (prématurés, pathologies chroniques).",
-    alerte: "Absence de réaction à son prénom. Pas de syllabes variées. Absence de geste au revoir. Régression importante."
+    alerte: "Absence de réaction à son prénom. Pas de syllabes variées. Pas d'intérêt pour les jeux d'échange (coucou, sourires). Régression importante."
   },
 
   8: {
@@ -477,31 +481,31 @@ export const MOIS_DATA: Record<number, MoisData> = {
     developpement: [
       {
         titre: "Premiers mots signifiants",
-        contenu: "Les premiers mots apparaissent entre 9 et 14 mois. Mama et dada associés à la bonne personne. Réponds à chaque tentative de communication. Le vocabulaire expressif à 12 mois prédit le développement du langage à 2 ans. Source : Fenson 1994."
+        contenu: "Les premiers mots apparaissent entre 9 et 14 mois. Mama et dada associés à la bonne personne. Réponds à chaque tentative de communication. Le vocabulaire expressif à 12 mois prédit le développement du langage à 2 ans."
       },
       {
         titre: "Le pointage proto-déclaratif",
-        contenu: "Bébé pointe du doigt un objet, te regarde pour partager sa découverte, puis regarde l'objet. Ce geste dit : regarde ça avec moi. C'est le partage d'attention conjointe, précurseur essentiel du langage. Source : Bates 1976."
+        contenu: "Bébé pointe du doigt un objet, te regarde pour partager sa découverte, puis regarde l'objet. Ce geste dit : regarde ça avec moi. C'est le partage d'attention conjointe, précurseur essentiel du langage."
       },
       {
         titre: "La pince pouce-index",
-        contenu: "Bébé peut saisir de très petits objets avec précision. Signe de maturation neurologique fine. Attention aux petits objets qui peuvent être avalés. Source : Denver II."
+        contenu: "Bébé peut saisir de très petits objets avec précision. Signe de maturation neurologique fine. Attention aux petits objets qui peuvent être avalés."
       }
     ],
     sante: [
       {
         titre: "Alimentation à 9 mois",
-        contenu: "3 repas et 2 laitages par jour. Introduire les féculents et légumineuses. Éviter sel, sucre ajouté, miel avant 1 an, charcuterie. Aucun jus de fruits avant 1 an. Les morceaux mous sont maintenant la norme. Source : PNNS / HAS 2021."
+        contenu: "4 repas par jour : petit-déjeuner, déjeuner, goûter et dîner. Féculents et légumineuses (lentilles, pois chiches) font déjà partie de ses repas, en purée ou bien écrasés. Éviter sel, sucre ajouté, miel avant 1 an, charcuterie. Aucun jus de fruits avant 1 an. Les morceaux mous sont maintenant la norme."
       },
       {
         titre: "Le brossage des dents",
-        contenu: "Dès la première dent : brosse matin et soir avec une brosse à dents adaptée et une trace de dentifrice fluoré à 1000 ppm. Source : UFSBD 2022."
+        contenu: "Dès la première dent : brosse matin et soir avec une brosse à dents adaptée et une trace de dentifrice fluoré à 1000 ppm."
       }
     ],
     papa: [
       {
         titre: "Lire chaque soir",
-        contenu: "10 minutes de lecture à voix haute chaque soir, c'est l'une des habitudes les plus utiles pour son langage. Un enfant à qui on lit un livre par jour aura entendu environ 290 000 mots de plus à 5 ans, et jusqu'à 1,4 million avec 5 livres par jour. Source : Logan 2019."
+        contenu: "10 minutes de lecture à voix haute chaque soir, c'est l'une des habitudes les plus utiles pour son langage. Un enfant à qui on lit un livre par jour aura entendu environ 290 000 mots de plus à 5 ans, et jusqu'à 1,4 million avec 5 livres par jour."
       },
       {
         titre: "Répondre au pointage",
@@ -510,7 +514,7 @@ export const MOIS_DATA: Record<number, MoisData> = {
     ],
     activites: [
       { titre: "Les escaliers en sécurité", contenu: "Apprends-lui à monter et descendre à reculons. Montre-lui le geste en premier. C'est une compétence motrice utile qu'il peut apprendre maintenant." },
-      { titre: "Les premiers gribouillis", contenu: "Des gros crayons de cire sur du papier épais. Il ne dessine pas encore, mais il adore laisser une trace. Valorise chaque gribouillis." },
+      { titre: "Les premiers gribouillis", contenu: "De gros crayons de cire sur du papier épais. Il ne dessine pas encore, mais il adore laisser une trace. Valorise chaque gribouillis." },
       { titre: "La récré dehors", contenu: "Herbe, sable, graviers, flaques d'eau. Les textures naturelles sont irremplaçables. Laisse-le salir. L'exploration sensorielle extérieure est fondamentale." }
     ],
     rdv: "Examen du 9e mois obligatoire, avec le 2e certificat de santé. Motricité, langage, vision, audition. Prépare tes questions.",
@@ -524,11 +528,11 @@ export const MOIS_DATA: Record<number, MoisData> = {
     developpement: [
       {
         titre: "Debout et premiers pas",
-        contenu: "Bébé se met debout en s'aidant des meubles. Marche en se tenant. Les premières chutes font partie de l'apprentissage : ne pas surréagir. Il tombe, il se relève, il recommence. Source : Adolph 2012."
+        contenu: "Bébé se met debout en s'aidant des meubles. Marche en se tenant. Les premières chutes font partie de l'apprentissage : ne pas surréagir. Il tombe, il se relève, il recommence."
       },
       {
         titre: "Imitation",
-        contenu: "Il imite gestes et sons volontairement : taper des mains, faire coucou, souffler. L'imitation est le moteur principal de l'apprentissage du langage et des comportements sociaux. Joue à l'imiter et laisse-le t'imiter. Source : Meltzoff 2002."
+        contenu: "Il imite gestes et sons volontairement : taper des mains, faire coucou, souffler. L'imitation est le moteur principal de l'apprentissage du langage et des comportements sociaux. Joue à l'imiter et laisse-le t'imiter."
       },
       {
         titre: "Les limites",
@@ -538,7 +542,7 @@ export const MOIS_DATA: Record<number, MoisData> = {
     sante: [
       {
         titre: "Alimentation autonome",
-        contenu: "Propose des morceaux qu'il peut saisir seul : légumes cuits mous, fruits mous, pain. Le manger-main développe l'autonomie et la motricité fine. Surveille mais n'interviens pas à chaque bouchée. Source : HAS."
+        contenu: "Propose des morceaux qu'il peut saisir seul : légumes cuits mous, fruits mous, pain. Le manger-main développe l'autonomie et la motricité fine. Surveille mais n'interviens pas à chaque bouchée."
       }
     ],
     papa: [
@@ -548,11 +552,11 @@ export const MOIS_DATA: Record<number, MoisData> = {
       },
       {
         titre: "Exploration sécurisée",
-        contenu: "Laisse-le explorer au sol, en extérieur, dans la boue si besoin. Les textures naturelles sont irremplaçables pour le développement sensoriel. Un enfant qui explore apprend. Source : Adolph 2012."
+        contenu: "Laisse-le explorer au sol, en extérieur, dans la boue si besoin. Les textures naturelles sont irremplaçables pour le développement sensoriel. Un enfant qui explore apprend."
       }
     ],
     activites: [
-      { titre: "Les premières chutes encouragées", contenu: "Quand il tombe, ne pas dramatiser. Un 'Oupsss, tu t'es levé !' plutôt qu'un cri de frayeur. Ta réaction détermine la sienne." },
+      { titre: "Les premières chutes encouragées", contenu: "Quand il tombe, ne pas dramatiser. Un « Oups ! Allez, on se relève ! » plutôt qu'un cri de frayeur. Ta réaction détermine la sienne." },
       { titre: "Tri et classement", contenu: "Des objets de différentes couleurs ou tailles à trier dans des bols. Il ne classe pas encore vraiment, mais il manipule et explore. C'est suffisant." },
       { titre: "La lecture participative", contenu: "Pose des questions sur les images. Où est le chien ? Il cherche avec son doigt. Cette interaction booste son langage." }
     ],
@@ -567,11 +571,11 @@ export const MOIS_DATA: Record<number, MoisData> = {
     developpement: [
       {
         titre: "Marche",
-        contenu: "Bébé marche en se tenant aux meubles. Certains font leurs premiers pas seuls ce mois, d'autres attendront encore. Les premiers pas entre 9 et 18 mois sont tous normaux. Source : Denver II."
+        contenu: "Bébé marche en se tenant aux meubles. Certains font leurs premiers pas seuls ce mois, d'autres attendront encore. Les premiers pas entre 9 et 18 mois sont tous normaux."
       },
       {
         titre: "Langage expressif",
-        contenu: "2 à 5 mots signifiants en moyenne à 12 mois. Mais la variabilité est énorme. L'essentiel : comprend-il ce qu'on lui dit ? Si oui, le langage expressif suivra. Source : Fenson 1994."
+        contenu: "2 à 5 mots signifiants en moyenne à 12 mois. Mais la variabilité est énorme. L'essentiel : comprend-il ce qu'on lui dit ? Si oui, le langage expressif suivra."
       },
       {
         titre: "Le jeu symbolique naissant",
@@ -581,13 +585,13 @@ export const MOIS_DATA: Record<number, MoisData> = {
     sante: [
       {
         titre: "Alimentation à 11 mois",
-        contenu: "Repas de plus en plus proches des repas familiaux, sans sel ajouté. Les légumineuses (lentilles, pois chiches) sont une excellente source de protéines et de fer. Varier les textures et les couleurs. Source : PNNS 2023."
+        contenu: "Repas de plus en plus proches des repas familiaux, sans sel ajouté. Les légumineuses (lentilles, pois chiches) sont une excellente source de protéines et de fer. Varier les textures et les couleurs."
       }
     ],
     papa: [
       {
         titre: "Lâche-le",
-        contenu: "Quand il essaie de marcher, résiste à l'envie de le tenir. Laisse-le trouver son équilibre seul. Les chutes maîtrisées lui apprennent à gérer son corps. Source : Adolph 2012."
+        contenu: "Quand il essaie de marcher, résiste à l'envie de le tenir. Laisse-le trouver son équilibre seul. Les chutes maîtrisées lui apprennent à gérer son corps."
       },
       {
         titre: "Ton bilan de 11 mois",
@@ -596,12 +600,12 @@ export const MOIS_DATA: Record<number, MoisData> = {
     ],
     activites: [
       { titre: "Les premiers pas encouragés", contenu: "Tends les mains à 50 cm de lui et encourage-le à venir vers toi. Pas trop loin pour ne pas frustrer. Chaque pas est une victoire à célébrer clairement." },
-      { titre: "Tri et classement", contenu: "Des objets de différentes couleurs ou tailles à trier dans des bols. Il ne classe pas encore vraiment, mais il manipule, transvase, explore." },
-      { titre: "La lecture participative", contenu: "Pose des questions sur les images. Où est le chien ? Il cherche avec son doigt. Cette interaction booste son langage plus que la lecture passive." }
+      { titre: "La boîte à formes", contenu: "Une boîte avec des trous de formes différentes et les pièces qui vont avec. Montre-lui une fois, puis laisse-le chercher. Il se trompe souvent, et c'est comme ça qu'il apprend." },
+      { titre: "Mettre et sortir", contenu: "Un panier et quelques objets assez gros pour ne pas être avalés. Il les met dedans, les ressort, recommence. Nomme chaque objet qu'il attrape." }
     ],
     rdv: "Pas de rendez-vous obligatoire ce mois.",
-    vaccins: "À 11 mois : rappels DTCaP-Hib-HepB et pneumocoque (obligatoires). Source : calendrier des vaccinations 2025.",
-    alerte: "Absence de mise debout. Pas de mots signifiants. Régression d'acquis. Absence d'intérêt pour les autres."
+    vaccins: "À 11 mois : rappels DTCaP-Hib-HepB et pneumocoque (obligatoires).",
+    alerte: "Absence de mise debout. Ne babille pas. Ne comprend aucun mot simple. Régression d'acquis. Absence d'intérêt pour les autres."
   },
 
   11: {
@@ -614,7 +618,7 @@ export const MOIS_DATA: Record<number, MoisData> = {
       },
       {
         titre: "Le langage",
-        contenu: "2 à 5 mots significatifs en moyenne à 12 mois. La compréhension est bien plus développée que la production. L'important : bébé comprend-il ce qu'on lui dit ? Source : Fenson 1994."
+        contenu: "2 à 5 mots signifiants en moyenne à 12 mois. La compréhension est bien plus développée que la production. L'important : bébé comprend-il ce qu'on lui dit ?"
       },
       {
         titre: "Le jeu symbolique",
@@ -622,23 +626,23 @@ export const MOIS_DATA: Record<number, MoisData> = {
       },
       {
         titre: "L'attachement sécure construit",
-        contenu: "Un bébé qui explore librement, utilise ses parents comme base de sécurité, est perturbé par les séparations mais se rassure rapidement au retour : cet attachement se construit sur 12 mois de réponses cohérentes. Source : Ainsworth."
+        contenu: "Un bébé qui explore librement, utilise ses parents comme base de sécurité, est perturbé par les séparations mais se rassure rapidement au retour : cet attachement se construit sur 12 mois de réponses cohérentes."
       }
     ],
     sante: [
       {
         titre: "L'alimentation à 1 an",
-        contenu: "Après 1 an, le lait de croissance est conseillé jusqu'à 3 ans, en alternance possible avec du lait de vache entier UHT (jamais écrémé ni demi-écrémé, pas de lait cru avant 5 ans). Compte environ 500 ml de produits laitiers par jour. Alimentation variée, 4 repas par jour. Source : Santé publique France 2021."
+        contenu: "Après 1 an, le lait de croissance est conseillé jusqu'à 3 ans, en alternance possible avec du lait de vache entier (jamais écrémé ni demi-écrémé, pas de lait cru avant 5 ans). Compte environ 500 ml de produits laitiers par jour. Alimentation variée, 4 repas par jour."
       },
       {
         titre: "Le dentiste",
-        contenu: "Consultation recommandée dès 1 an. Première visite de repérage, pas de soin. Ça habitue bébé et permet au dentiste de dépister tôt. Source : UFSBD."
+        contenu: "Consultation recommandée dès 1 an. Première visite de repérage, pas de soin. Ça habitue bébé et permet au dentiste de dépister tôt."
       }
     ],
     papa: [
       {
         titre: "Ce que tu lui as donné cette année",
-        contenu: "Une présence stable. Des rituels. Un regard bienveillant. La sécurité de savoir qu'il peut explorer parce que tu es là quand il revient. Les pères qui s'impliquent activement la première année ont des enfants avec une meilleure régulation émotionnelle à 5 ans. Source : Feldman 2010."
+        contenu: "Une présence stable. Des rituels. Un regard bienveillant. La sécurité de savoir qu'il peut explorer parce que tu es là quand il revient. Les pères qui s'impliquent activement la première année ont des enfants avec une meilleure régulation émotionnelle à 5 ans."
       },
       {
         titre: "Toi, un an après",
@@ -651,7 +655,7 @@ export const MOIS_DATA: Record<number, MoisData> = {
       { titre: "Cuisiner ensemble", contenu: "Assis dans sa chaise haute, donne-lui un bol et une cuillère pendant que tu prépares à manger. Il imite, il explore. C'est son premier cours de cuisine." }
     ],
     rdv: "Examen des 12 mois obligatoire. Bilan complet : motricité, langage, vision, audition. Prépare tes questions. Signale tout ce qui t'inquiète, même si ça te semble léger.",
-    vaccins: "À 12 mois : ROR (rougeole, oreillons, rubéole) 1re dose + rappels méningocoque B et méningocoque ACWY (obligatoires). La 2e dose de ROR suit entre 16 et 18 mois. Source : calendrier des vaccinations 2025.",
+    vaccins: "À 12 mois : ROR (rougeole, oreillons, rubéole) 1re dose + rappels méningocoque B et méningocoque ACWY (obligatoires). La 2e dose de ROR suit entre 16 et 18 mois.",
     alerte: "Absence de mots. Pas de pointage. Absence de marche ou déplacement efficace. Pas de jeu d'imitation. La perte de compétences déjà acquises mérite toujours une consultation."
   }
 };

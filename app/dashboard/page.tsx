@@ -319,7 +319,7 @@ function DashboardContent() {
       />
 
       <div className="dd-c">
-        {activeTab === 'home'    && (isPost ? <PostAccueil  {...shared}/> : <Accueil      {...shared} setActiveTab={setActiveTab}/>)}
+        {activeTab === 'home'    && (isPost ? <PostAccueil  {...shared} setActiveTab={setActiveTab}/> : <Accueil      {...shared} setActiveTab={setActiveTab}/>)}
         {activeTab === 'bebe'    && (isPost ? <PostBebe     {...shared}/> : <BebePage     {...shared}/>)}
         {isPost  && activeTab === 'rdv'       && <PostRDV      {...shared}/>}
         {!isPost && PREPARER_TABS.includes(activeTab) && <PreparerHub {...shared} activeTab={activeTab} setActiveTab={setActiveTab}/>}

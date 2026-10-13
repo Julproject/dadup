@@ -1,59 +1,26 @@
 'use client';
+import { STYLES, EnTete, Section, Accordeons, CarteInfo } from './ui';
 
-export default function PostRDV({C, moisBebe, dataBebe}: any) {
+export default function PostRDV({ moisBebe, dataBebe }: any) {
   if (!dataBebe) return null;
-  const sante = (dataBebe.sante || []).slice(0, 3);
+  const sante = dataBebe.sante || [];
 
   return (
-    <div style={{display:'flex', flexDirection:'column', gap:'24px'}}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+      <style>{STYLES}</style>
 
-      {/* HERO */}
-      <div style={{background:'linear-gradient(135deg,#0a1f32,#1A3D5C)', borderRadius:'20px', padding:'24px 26px'}}>
-        <p style={{color:'rgba(200,220,240,0.5)', fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase' as const, margin:'0 0 6px'}}>
-          Santé & RDV · Mois {moisBebe + 1}
-        </p>
-        <p style={{color:'#fff', fontSize:'22px', fontWeight:800, margin:0}}>Ce mois-ci côté santé</p>
-      </div>
+      <EnTete label={`Santé et rendez-vous · mois ${(moisBebe || 0) + 1}`} titre="Ce mois-ci côté santé" />
 
-      {/* RDV */}
-      {dataBebe.rdv && (
-        <div style={{background:'rgba(242,218,203,0.45)', borderRadius:'16px', padding:'18px 20px'}}>
-          <p style={{color:'#8A6010', fontSize:'11px', fontWeight:700, letterSpacing:'2.5px', textTransform:'uppercase' as const, margin:'0 0 8px'}}>Rendez-vous médical</p>
-          <p style={{color:'#3A2800', fontSize:'14px', lineHeight:1.7, margin:0}}>{dataBebe.rdv}</p>
-        </div>
-      )}
+      {dataBebe.rdv && <CarteInfo icone="rdv" label="Rendez-vous médical" texte={dataBebe.rdv} />}
+      {dataBebe.vaccins && <CarteInfo icone="vaccin" label="Vaccins" texte={dataBebe.vaccins} ton="sauge" />}
 
-      {/* VACCINS */}
-      {dataBebe.vaccins && (
-        <div style={{background:'rgba(200,232,255,0.3)', borderRadius:'16px', padding:'18px 20px'}}>
-          <p style={{color:'#1A4A7A', fontSize:'11px', fontWeight:700, letterSpacing:'2.5px', textTransform:'uppercase' as const, margin:'0 0 8px'}}>Vaccins</p>
-          <p style={{color:'#0A2A5A', fontSize:'14px', lineHeight:1.7, margin:0}}>{dataBebe.vaccins}</p>
-        </div>
-      )}
-
-      {/* SANTÉ MAMAN */}
       {sante.length > 0 && (
-        <div>
-          <p style={{color:'#C04A1A', fontSize:'11px', fontWeight:700, letterSpacing:'2.5px', textTransform:'uppercase' as const, margin:'0 0 12px'}}>Points de santé</p>
-          <div style={{display:'flex', flexDirection:'column', gap:'10px'}}>
-            {sante.map((item: any, i: number) => (
-              <div key={i} style={{borderLeft:'3px solid #FFA07A', paddingLeft:'14px'}}>
-                <p style={{color:'#1e2535', fontSize:'14px', fontWeight:700, margin:'0 0 4px'}}>{item.titre}</p>
-                <p style={{color:'#5a6170', fontSize:'14px', lineHeight:1.65, margin:0}}>{item.contenu}</p>
-              </div>
-            ))}
-          </div>
-        </div>
+        <Section titre="Points de santé">
+          <Accordeons items={sante} icone="sante" />
+        </Section>
       )}
 
-      {/* QUAND CONSULTER */}
-      {dataBebe.alerte && (
-        <div style={{background:'#F6F1E9', borderRadius:'16px', padding:'16px 18px'}}>
-          <p style={{color:'#8A6010', fontSize:'11px', fontWeight:700, letterSpacing:'2.5px', textTransform:'uppercase' as const, margin:'0 0 8px'}}>Quand consulter</p>
-          <p style={{color:'#3a4a5a', fontSize:'14px', lineHeight:1.7, margin:0}}>{dataBebe.alerte}</p>
-        </div>
-      )}
-
+      {dataBebe.alerte && <CarteInfo icone="alerte" label="Quand consulter" texte={dataBebe.alerte} ton="terra" />}
     </div>
   );
 }

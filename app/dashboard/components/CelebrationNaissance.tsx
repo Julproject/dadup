@@ -31,7 +31,7 @@ export default function CelebrationNaissance({ prenom, onClose }: Props) {
         </p>
 
         <h2 style={{ color: '#C9D8C4', fontSize: '42px', fontWeight: 800, margin: '0 0 16px', lineHeight: 1.15 }}>
-          Tu es papa !
+          Tu es papa&nbsp;!
         </h2>
 
         <p style={{ color: '#1e2535', fontSize: '18px', fontWeight: 700, margin: '0 0 20px', lineHeight: 1.5 }}>
