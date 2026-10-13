@@ -17,7 +17,7 @@ export default function CelebrationNaissance({ prenom, onClose }: Props) {
       position: 'fixed', inset: 0, zIndex: 999,
       background: 'rgba(0,0,0,0.55)',
       display: 'flex', alignItems: 'center', justifyContent: 'center',
-      fontFamily: "'Manrope',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif",
+      fontFamily: 'inherit',
       padding: '20px',
     }}>
       <div style={{

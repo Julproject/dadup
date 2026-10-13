@@ -44,7 +44,7 @@ export default function TarifsPage() {
   const goToStripe = () => setShowModal(true);
 
   return (
-    <main style={{ minHeight: '100vh', background: '#faf6f0', fontFamily: "-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" }}>
+    <main style={{ minHeight: '100vh', background: '#faf6f0', fontFamily: 'inherit' }}>
       <style>{`
         *{box-sizing:border-box;margin:0;padding:0;}
         .nl{display:flex;}.nc{display:flex;}

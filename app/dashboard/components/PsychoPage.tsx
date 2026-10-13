@@ -355,7 +355,7 @@ export default function PsychoPage({ C: propC, saReelle }: any) {
   const paragraphes = semaine.corps.split('\n\n');
 
   return (
-    <div style={{display:'flex',flexDirection:'column',gap:'16px',fontFamily:"'Manrope',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"}}>
+    <div style={{display:'flex',flexDirection:'column',gap:'16px',fontFamily:'inherit'}}>
 
       <div style={{background:'linear-gradient(135deg,#0a1f32,#1A3D5C)',borderRadius:'20px',padding:'22px 24px',position:'relative',overflow:'hidden'}}>
         <div style={{position:'absolute',top:'-30px',right:'-30px',width:'150px',height:'150px',borderRadius:'50%',background:'radial-gradient(circle,rgba(157,176,154,0.18) 0%,transparent 65%)',pointerEvents:'none'}}></div>

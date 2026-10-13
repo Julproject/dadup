@@ -11,7 +11,7 @@ export default function Onboarding({onSave}:{onSave:(d:string,p:string)=>void}) 
   const [dpa,setDpa]=useState('');
   const [prenom,setPrenom]=useState('');
   return(
-    <main style={{minHeight:'100vh',background:'#F6F1E9',display:'flex',alignItems:'center',justifyContent:'center',padding:'20px',fontFamily:"'Manrope',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"}}>
+    <main style={{minHeight:'100vh',background:'#F6F1E9',display:'flex',alignItems:'center',justifyContent:'center',padding:'20px',fontFamily:'inherit'}}>
       <div style={{maxWidth:'420px',width:'100%'}}>
         <div style={{display:'flex',justifyContent:'center',marginBottom:'28px'}}>
           <svg viewBox="0 0 300 300" width="64" height="64">

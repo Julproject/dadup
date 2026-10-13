@@ -178,7 +178,7 @@ export default function AtelierBebe({C: propC}: any) {
   const atelier = ATELIERS.find(a => a.id === atelierActif) || ATELIERS[0];
 
   return (
-    <div style={{display:'flex', flexDirection:'column', gap:'20px', fontFamily:"'Manrope',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"}}>
+    <div style={{display:'flex', flexDirection:'column', gap:'20px', fontFamily:'inherit'}}>
 
       <div style={{background:'linear-gradient(135deg,#0a1f32,#1A3D5C)', borderRadius:'20px', padding:'22px 24px'}}>
         <p style={{color:'rgba(200,220,240,0.5)', fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase' as const, margin:'0 0 6px'}}>Atelier pratique</p>

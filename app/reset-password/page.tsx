@@ -123,7 +123,7 @@ function ResetForm() {
 
 export default function ResetPasswordPage() {
   return (
-    <main style={{minHeight:'100vh',background:'#f7f5f0',display:'flex',alignItems:'center',justifyContent:'center',padding:'20px',fontFamily:"-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"}}>
+    <main style={{minHeight:'100vh',background:'#f7f5f0',display:'flex',alignItems:'center',justifyContent:'center',padding:'20px',fontFamily:'inherit'}}>
       <div style={{maxWidth:'400px',width:'100%'}}>
         <div style={{display:'flex',justifyContent:'center',marginBottom:'32px'}}>
           <a href="/" style={{display:'flex',alignItems:'center',gap:'10px',textDecoration:'none'}}>

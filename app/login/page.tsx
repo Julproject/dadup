@@ -104,7 +104,7 @@ export default function LoginPage() {
           .footer-section{padding:24px 16px!important;}
         }
       `}</style>
-      <main style={{minHeight:'100vh',background:C.cream,display:'flex',alignItems:'center',justifyContent:'center',padding:'20px',fontFamily:"-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"}}>
+      <main style={{minHeight:'100vh',background:C.cream,display:'flex',alignItems:'center',justifyContent:'center',padding:'20px',fontFamily:'inherit'}}>
       <div style={{maxWidth:'400px',width:'100%'}}>
 
         <div style={{display:'flex',justifyContent:'center',marginBottom:'32px'}}>

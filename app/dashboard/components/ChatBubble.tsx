@@ -37,7 +37,7 @@ export default function ChatBubble() {
   };
 
   return (
-    <div className="dd-chat" style={{ position: 'fixed', bottom: '24px', right: '24px', zIndex: 999, fontFamily: "'Manrope',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" }}>
+    <div className="dd-chat" style={{ position: 'fixed', bottom: '24px', right: '24px', zIndex: 999, fontFamily: 'inherit' }}>
       <style>{`@media(max-width:860px){.dd-chat{bottom:calc(84px + env(safe-area-inset-bottom))!important;right:16px!important;}}`}</style>
 
       {/* Panneau ouvert */}

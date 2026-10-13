@@ -51,7 +51,7 @@ export default function ContactPage() {
   };
 
   return (
-    <main style={{minHeight:'100vh', background:C.cream, fontFamily:"-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif", display:'flex', flexDirection:'column'}}>
+    <main style={{minHeight:'100vh', background:C.cream, fontFamily:'inherit', display:'flex', flexDirection:'column'}}>
 
       {/* NAV app — retour dashboard uniquement */}
       <nav style={{background:C.white, borderBottom:`1px solid ${C.border}`, padding:'0 28px', display:'flex', alignItems:'center', height:'60px'}}>

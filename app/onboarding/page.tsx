@@ -38,7 +38,7 @@ export default function OnboardingPage() {
   };
 
   return (
-    <main style={{minHeight:'100vh', background:C.cream, display:'flex', alignItems:'center', justifyContent:'center', padding:'16px', fontFamily:'sans-serif'}}>
+    <main style={{minHeight:'100vh', background:C.cream, display:'flex', alignItems:'center', justifyContent:'center', padding:'16px', fontFamily:'inherit'}}>
       <div style={{maxWidth:'480px', width:'100%'}}>
 
         <div style={{textAlign:'center', marginBottom:'32px'}}>
@@ -50,7 +50,7 @@ export default function OnboardingPage() {
             <ellipse cx="150" cy="196" rx="27" ry="31" fill="#faf6f0"/>
             <circle cx="150" cy="128" r="26" fill="#faf6f0"/>
           </svg>
-          <h1 style={{fontSize:'28px', fontWeight:800, color:C.dark, margin:'0 0 8px', fontFamily:'Georgia,serif'}}>Bienvenue sur DadUp</h1>
+          <h1 style={{fontSize:'28px', fontWeight:800, color:C.dark, margin:'0 0 8px', fontFamily:'inherit'}}>Bienvenue sur DadUp</h1>
           <p style={{color:C.text, fontSize:'15px', margin:0, lineHeight:1.6}}>Deux infos pour personnaliser<br/>ton espace du papa.</p>
         </div>
 
@@ -65,7 +65,7 @@ export default function OnboardingPage() {
                 placeholder="Thomas, Julien, Marc..."
                 value={prenom}
                 onChange={e => setPrenom(e.target.value)}
-                style={{width:'100%', background:C.cream, border:`1px solid ${C.border}`, borderRadius:'12px', padding:'14px 16px', fontSize:'15px', color:C.dark, boxSizing:'border-box' as const, fontFamily:'sans-serif', outline:'none'}}
+                style={{width:'100%', background:C.cream, border:`1px solid ${C.border}`, borderRadius:'12px', padding:'14px 16px', fontSize:'15px', color:C.dark, boxSizing:'border-box' as const, fontFamily:'inherit', outline:'none'}}
               />
             </div>
 
@@ -75,7 +75,7 @@ export default function OnboardingPage() {
                 type="date"
                 value={dpa}
                 onChange={e => setDpa(e.target.value)}
-                style={{width:'100%', background:C.cream, border:`1px solid ${C.border}`, borderRadius:'12px', padding:'14px 16px', fontSize:'15px', color:C.dark, boxSizing:'border-box' as const, fontFamily:'sans-serif', outline:'none'}}
+                style={{width:'100%', background:C.cream, border:`1px solid ${C.border}`, borderRadius:'12px', padding:'14px 16px', fontSize:'15px', color:C.dark, boxSizing:'border-box' as const, fontFamily:'inherit', outline:'none'}}
               />
               <p style={{color:C.textLight, fontSize:'12px', margin:'6px 0 0'}}>Cette date personalise tout ton espace — calendrier RDV, suivi bebe, compte a rebours.</p>
             </div>
@@ -83,7 +83,7 @@ export default function OnboardingPage() {
             <button
               onClick={save}
               disabled={!dpa || loading}
-              style={{background: dpa ? C.dark : '#ccc', color: dpa ? C.white : C.white, border:'none', borderRadius:'24px', padding:'16px', fontSize:'15px', fontWeight:700, cursor: dpa ? 'pointer' : 'not-allowed', fontFamily:'sans-serif', marginTop:'8px', transition:'background 0.2s'}}
+              style={{background: dpa ? C.dark : '#ccc', color: dpa ? C.white : C.white, border:'none', borderRadius:'24px', padding:'16px', fontSize:'15px', fontWeight:700, cursor: dpa ? 'pointer' : 'not-allowed', fontFamily:'inherit', marginTop:'8px', transition:'background 0.2s'}}
             >
               {loading ? 'Enregistrement...' : 'Acceder a mon espace →'}
             </button>

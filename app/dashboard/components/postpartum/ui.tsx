@@ -1,16 +1,17 @@
 'use client';
 import { useState } from 'react';
+import { COULEURS } from '../../../theme';
 
 // ── Système visuel partagé du post-partum (identique à la partie grossesse) ──
-export const NAVY = '#15263A';
-export const NAVY_GRAD = 'linear-gradient(160deg,#0c1d2e,#1A3D5C 70%,#24507a)';
-export const SAUGE = '#DCE5D7';
-export const SAUGE_BORD = '#C9D8C4';
-export const FORET = '#2F4F3E';
-export const TERRA = '#B4593A';
-export const TERRA_CLAIR = '#F2DACB';
-export const GRIS = '#5f6b72';
-export const BORD = '#E6E0D5';
+export const NAVY = COULEURS.navy800;
+export const NAVY_GRAD = COULEURS.navyGrad;
+export const SAUGE = COULEURS.sauge;
+export const SAUGE_BORD = COULEURS.saugeBord;
+export const FORET = COULEURS.foret;
+export const TERRA = COULEURS.terra;
+export const TERRA_CLAIR = COULEURS.terraClair;
+export const GRIS = COULEURS.texte2;
+export const BORD = COULEURS.bord;
 
 export const LABEL = { fontSize: '11px', fontWeight: 800, letterSpacing: '1.5px', textTransform: 'uppercase' as const, margin: 0 };
 export const TEXTE = { fontSize: '14px', color: NAVY, lineHeight: 1.7, margin: 0 };
