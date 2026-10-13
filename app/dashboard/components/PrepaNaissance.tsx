@@ -1,11 +1,5 @@
 'use client';
-import { useState } from 'react';
-
-type Section = {
-  id: string;
-  titre: string;
-  contenu: React.ReactNode;
-};
+import { NAVY, NAVY_GRAD, SAUGE, SAUGE_BORD, FORET, TERRA, TERRA_CLAIR, TERRA_TEXTE, GRIS, BORD, LABEL, TEXTE, CARTE, STYLES, TuileIcone, Accordeons } from './postpartum/ui';
 
 const CHECKLIST_VALISE = [
   "Carte Vitale + carte mutuelle + carnet de maternité",
@@ -31,195 +25,168 @@ const CHECKLIST_BEBE = [
   "Siège auto installé et vérifié dans la voiture",
 ];
 
-export default function PrepaNaissance({ C, saReelle }: { C: any; saReelle: number }) {
-  const [ouvert, setOuvert] = useState<string | null>(null);
+const ALERTE = '#B42318';
 
-  const sections: Section[] = [
+const PARTIR = [
+  'La poche des eaux se rompt (liquide clair, rosé ou verdâtre)',
+  'Saignements rouges abondants',
+  'Douleur abdominale continue sans relâchement',
+  "Bébé bouge moins que d'habitude, ou plus du tout",
+];
+
+const ROLE = [
+  {
+    phase: 'Pendant le travail',
+    desc: `Reste proche physiquement. Tiens-lui la main quand elle en a besoin, mais ne la force pas. Aide-la à changer de position (debout, à quatre pattes, assise sur le ballon). Rappelle-lui de respirer lentement à l'expiration. Parle peu, mais dis-lui que tu es là.`,
+  },
+  {
+    phase: 'Pendant les contractions',
+    desc: `Ne dis pas "courage" ou "c'est bientôt fini" si tu n'en sais rien. Dis : "Tu gères. Je suis là." La pression dans le bas du dos pendant une contraction peut être soulagée par tes mains appliquées fermement.`,
+  },
+  {
+    phase: `Avec l'équipe médicale`,
+    desc: `Parle à l'équipe si elle ne peut pas le faire. "Elle a mal, peut-on réévaluer la péridurale ?" ou "Qu'est-ce qui se passe maintenant ?" Tu es son avocat dans la salle.`,
+  },
+  {
+    phase: 'Au moment de la naissance',
+    desc: `Couper le cordon est un choix, pas une obligation. Être présent à la tête du lit pendant une césarienne est généralement possible. Les premières secondes après la naissance : regarde-la, dis-lui quelque chose. Ce moment ne reviendra pas.`,
+  },
+  {
+    phase: 'Si tu perds pied',
+    desc: `Si tu te sens mal (c'est possible et normal), dis-le à la sage-femme ou à l'auxiliaire de puériculture. Sors 2 minutes, respire, reviens. Elle a besoin que tu sois stable, pas que tu joues au super-héros.`,
+  },
+];
+
+const CESARIENNE = [
+  {
+    titre: 'Césarienne programmée',
+    texte: `Elle est prévue à l'avance pour des raisons médicales (présentation du siège, placenta praevia, antécédent de césarienne, etc.). La date est généralement fixée à partir de 39 SA. Tu as le temps de te préparer avec elle.`,
+  },
+  {
+    titre: 'Césarienne en urgence',
+    texte: `Elle peut être décidée rapidement pendant le travail si bébé montre des signes de souffrance ou si le travail ne progresse pas. La vitesse peut être déstabilisante. Reste calme, suis les instructions de l'équipe, reste présent.`,
+  },
+  {
+    titre: `Pendant l'intervention`,
+    texte: `Pour une césarienne programmée, tu peux en général rester assis à sa tête, derrière le champ opératoire. Elle est consciente (péridurale ou rachianesthésie). En cas de grande urgence sous anesthésie générale, on te demandera souvent d'attendre dehors : ce n'est pas contre toi, c'est pour aller vite. Parle-lui, tiens sa main. L'intervention dure environ 30 à 45 minutes.`,
+  },
+  {
+    titre: `Juste après la naissance`,
+    texte: `Bébé est souvent sorti rapidement (en quelques minutes après l'incision). Si tout va bien, il peut être posé sur sa poitrine ou dans tes bras pendant que l'équipe suture. Le peau à peau immédiat avec toi est possible et précieux si elle ne peut pas le faire.`,
+  },
+  {
+    titre: `Les suites pour elle`,
+    texte: `La récupération est plus longue qu'après un accouchement voie basse : 3 à 5 jours d'hospitalisation, douleur à la cicatrice pendant 2 à 4 semaines, pas de port de charges lourdes. Ton soutien physique et logistique au retour est encore plus important après une césarienne.`,
+  },
+];
+
+// Message d'en-tête selon l'avancée de la grossesse
+function phase(sa: number) {
+  if (sa >= 37) return { titre: 'Bébé peut arriver à tout moment', texte: 'Tu es à terme. Garde ton téléphone chargé et la valise près de la porte.' };
+  if (sa >= 32) return { titre: 'Le Jour J se rapproche', texte: 'Valise, trajet, ton rôle en salle : c’est le bon moment pour tout caler.' };
+  return { titre: 'Le Jour J se prépare', texte: 'Rien d’urgent. Lis à ton rythme, tu seras prêt le moment venu.' };
+}
+
+const PUCE = { width: '6px', height: '6px', borderRadius: '50%', flexShrink: 0, marginTop: '9px' } as const;
+
+function Liste({ items, couleur }: { items: string[]; couleur: string }) {
+  return (
+    <ul style={{ listStyle: 'none', margin: 0, padding: 0, display: 'flex', flexDirection: 'column', gap: '8px' }}>
+      {items.map((t, i) => (
+        <li key={i} style={{ display: 'flex', gap: '10px', alignItems: 'flex-start' }}>
+          <span aria-hidden="true" style={{ ...PUCE, background: couleur }} />
+          <span style={TEXTE}>{t}</span>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+export default function PrepaNaissance({ saReelle }: { C?: any; saReelle: number }) {
+  const sa = saReelle || 0;
+  const ph = phase(sa);
+
+  const accordeons = [
     {
-      id: 'contractions',
       titre: 'Reconnaître les vraies contractions',
+      icone: 'chrono',
       contenu: (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-          <p style={{ color: '#3a4a5a', fontSize: '14px', lineHeight: 1.75, margin: 0 }}>
+          <p style={TEXTE}>
             Les contractions de travail sont régulières, progressivement plus intenses, plus longues et plus rapprochées. Elles ne passent pas avec le mouvement ou le repos.
           </p>
-
-          <div style={{ background: 'rgba(184,240,216,0.3)', borderRadius: '12px', padding: '14px 16px' }}>
-            <p style={{ color: '#0D6B40', fontSize: '13px', fontWeight: 700, letterSpacing: '1px', textTransform: 'uppercase' as const, margin: '0 0 8px' }}>La règle 5-1-1</p>
-            <p style={{ color: '#0A3020', fontSize: '14px', lineHeight: 1.7, margin: 0 }}>
-              Contractions toutes les <strong>5 minutes</strong>, qui durent <strong>1 minute</strong>, depuis <strong>1 heure</strong> minimum. À ce stade, appelle la maternité avant de partir. Si ce n'est pas votre premier bébé ou si la maternité est loin, appelle plus tôt.
-            </p>
-          </div>
-
-          <div>
-            <p style={{ color: '#1e2535', fontSize: '14px', fontWeight: 700, margin: '0 0 8px' }}>Vraies contractions vs fausses (Braxton-Hicks)</p>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '10px' }}>
-              <div style={{ background: 'rgba(184,240,216,0.3)', borderRadius: '10px', padding: '12px' }}>
-                <p style={{ color: '#0D6B40', fontSize: '13px', fontWeight: 700, margin: '0 0 6px' }}>Vraies contractions</p>
-                <ul style={{ color: '#0A3020', fontSize: '13px', lineHeight: 1.7, margin: 0, paddingLeft: '14px' }}>
-                  <li>Régulières</li>
-                  <li>S'intensifient</li>
-                  <li>Durée croissante</li>
-                  <li>Irradient dans le dos</li>
-                  <li>Ne passent pas au repos</li>
-                </ul>
-              </div>
-              <div style={{ background: '#F6F1E9', borderRadius: '10px', padding: '12px' }}>
-                <p style={{ color: '#8A6010', fontSize: '13px', fontWeight: 700, margin: '0 0 6px' }}>Braxton-Hicks</p>
-                <ul style={{ color: '#5a4010', fontSize: '13px', lineHeight: 1.7, margin: 0, paddingLeft: '14px' }}>
-                  <li>Irrégulières</li>
-                  <li>Intensité stable</li>
-                  <li>Passent au repos</li>
-                  <li>Localisées au ventre</li>
-                  <li>Courtes</li>
-                </ul>
-              </div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '10px' }}>
+            <div style={{ background: SAUGE, border: `1px solid ${SAUGE_BORD}`, borderRadius: '14px', padding: '14px' }}>
+              <p style={{ ...LABEL, color: FORET, marginBottom: '8px' }}>Vraies contractions</p>
+              <Liste couleur={FORET} items={['Régulières', "S'intensifient", 'Durée croissante', 'Irradient dans le dos', 'Ne passent pas au repos']} />
+            </div>
+            <div style={{ background: '#F6F1E9', border: `1px solid ${BORD}`, borderRadius: '14px', padding: '14px' }}>
+              <p style={{ ...LABEL, color: GRIS, marginBottom: '8px' }}>Fausses (Braxton-Hicks)</p>
+              <Liste couleur={GRIS} items={['Irrégulières', 'Intensité stable', 'Passent au repos', 'Localisées au ventre', 'Courtes']} />
             </div>
           </div>
-
-          <div style={{ background: 'rgba(220,229,215,0.6)', borderRadius: '12px', padding: '14px 16px' }}>
-            <p style={{ color: '#8A0000', fontSize: '13px', fontWeight: 700, margin: '0 0 6px' }}>Partir immédiatement si</p>
-            <ul style={{ color: '#6A0000', fontSize: '14px', lineHeight: 1.7, margin: 0, paddingLeft: '16px' }}>
-              <li>La poche des eaux se rompt (liquide clair, rosé ou verdâtre)</li>
-              <li>Saignements rouges abondants</li>
-              <li>Douleur abdominale continue sans relâchement</li>
-              <li>Bébé bouge moins que d'habitude, ou plus du tout</li>
-            </ul>
-          </div>
-
-          <p style={{ color: '#56616B', fontSize: '13px', fontStyle: 'italic', margin: 0 }}>
-            En cas de doute : appelle la maternité. Ils ne t'en voudront jamais d'appeler pour rien.
-          </p>
         </div>
       ),
     },
     {
-      id: 'valise',
       titre: 'Checklist valise maternité',
+      icone: 'valise',
       contenu: (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
           <div>
-            <p style={{ color: '#2E5F8A', fontSize: '13px', fontWeight: 700, letterSpacing: '1px', textTransform: 'uppercase' as const, margin: '0 0 10px' }}>Pour elle</p>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-              {CHECKLIST_VALISE.map((item, i) => (
-                <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
-                  <div style={{ width: '18px', height: '18px', borderRadius: '4px', background: '#C8E8FF', border: '1.5px solid rgba(46,95,138,0.3)', flexShrink: 0, marginTop: '1px' }} />
-                  <p style={{ color: '#1e2535', fontSize: '14px', lineHeight: 1.5, margin: 0 }}>{item}</p>
-                </div>
-              ))}
-            </div>
+            <p style={{ ...LABEL, color: NAVY, marginBottom: '10px' }}>Pour elle</p>
+            <Liste couleur={NAVY} items={CHECKLIST_VALISE} />
           </div>
           <div>
-            <p style={{ color: '#0D6B40', fontSize: '13px', fontWeight: 700, letterSpacing: '1px', textTransform: 'uppercase' as const, margin: '0 0 10px' }}>Pour bébé</p>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-              {CHECKLIST_BEBE.map((item, i) => (
-                <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
-                  <div style={{ width: '18px', height: '18px', borderRadius: '4px', background: 'rgba(184,240,216,0.3)', border: '1.5px solid rgba(13,107,64,0.3)', flexShrink: 0, marginTop: '1px' }} />
-                  <p style={{ color: '#1e2535', fontSize: '14px', lineHeight: 1.5, margin: 0 }}>{item}</p>
-                </div>
-              ))}
-            </div>
+            <p style={{ ...LABEL, color: FORET, marginBottom: '10px' }}>Pour bébé</p>
+            <Liste couleur={FORET} items={CHECKLIST_BEBE} />
           </div>
-          <div style={{ background: 'rgba(242,218,203,0.45)', borderRadius: '12px', padding: '12px 14px' }}>
-            <p style={{ color: '#8A6010', fontSize: '13px', fontWeight: 700, margin: '0 0 4px' }}>Toi aussi tu prépares ta valise</p>
-            <p style={{ color: '#5a4010', fontSize: '13px', lineHeight: 1.6, margin: 0 }}>
-              Vêtements confortables, chargeur, en-cas, livre ou série sur le téléphone. Le travail peut durer plusieurs heures.
-            </p>
+          <div style={{ background: '#F8E9DF', border: `1px solid ${TERRA_CLAIR}`, borderRadius: '14px', padding: '14px 16px' }}>
+            <p style={{ fontSize: '14px', fontWeight: 800, color: TERRA_TEXTE, margin: '0 0 4px' }}>Toi aussi tu prépares ta valise</p>
+            <p style={TEXTE}>Vêtements confortables, chargeur, en-cas, livre ou série sur le téléphone. Le travail peut durer plusieurs heures.</p>
           </div>
         </div>
       ),
     },
     {
-      id: 'salle',
       titre: 'Ton rôle précis en salle de naissance',
+      icone: 'coeur',
       contenu: (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-          <p style={{ color: '#3a4a5a', fontSize: '14px', lineHeight: 1.75, margin: 0 }}>
-            Ton rôle n'est pas médical. Il est humain. Et c'est exactement ce dont elle a besoin.
-          </p>
-
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-            {[
-              {
-                phase: 'Pendant le travail',
-                desc: `Reste proche physiquement. Tiens-lui la main quand elle en a besoin, mais ne la force pas. Aide-la à changer de position (debout, à quatre pattes, assise sur le ballon). Rappelle-lui de respirer lentement à l'expiration. Parle peu, mais dis-lui que tu es là.`,
-              },
-              {
-                phase: 'Pendant les contractions',
-                desc: `Ne dis pas "courage" ou "c'est bientôt fini" si tu n'en sais rien. Dis : "Tu gères. Je suis là." La pression dans le bas du dos pendant une contraction peut être soulagée par tes mains appliquées fermement.`,
-              },
-              {
-                phase: `Avec l'équipe médicale`,
-                desc: `Parle à l'équipe si elle ne peut pas le faire. "Elle a mal, peut-on réévaluer la péridurale ?" ou "Qu'est-ce qui se passe maintenant ?" Tu es son avocat dans la salle.`,
-              },
-              {
-                phase: 'Au moment de la naissance',
-                desc: `Couper le cordon est un choix, pas une obligation. Être présent à la tête du lit pendant une césarienne est généralement possible. Les premières secondes après la naissance : regarde-la, dis-lui quelque chose. Ce moment ne reviendra pas.`,
-              },
-              {
-                phase: 'Si tu perds pied',
-                desc: `Si tu te sens mal (c'est possible et normal), dis-le à la sage-femme ou à l'auxiliaire de puériculture. Sors 2 minutes, respire, reviens. Elle a besoin que tu sois stable, pas que tu joues au super-héros.`,
-              },
-            ].map((item, i) => (
-              <div key={i} style={{ borderLeft: '3px solid #2E5F8A', paddingLeft: '14px' }}>
-                <p style={{ color: '#1A3D5C', fontSize: '14px', fontWeight: 700, margin: '0 0 4px' }}>{item.phase}</p>
-                <p style={{ color: '#3a4a5a', fontSize: '14px', lineHeight: 1.65, margin: 0 }}>{item.desc}</p>
-              </div>
-            ))}
-          </div>
-
-          <div style={{ background: '#1e2535', borderRadius: '12px', padding: '14px 16px' }}>
-            <p style={{ color: '#C9D8C4', fontSize: '13px', fontWeight: 700, margin: '0 0 6px' }}>À retenir</p>
-            <p style={{ color: '#fff', fontSize: '14px', lineHeight: 1.7, margin: 0 }}>
-              Les études montrent qu'un soutien continu pendant l'accouchement aide la future maman à mieux vivre ce moment, et peut même raccourcir un peu le travail. Ta présence compte vraiment.
+          <p style={TEXTE}>Ton rôle n&apos;est pas médical. Il est humain. Et c&apos;est exactement ce dont elle a besoin.</p>
+          {ROLE.map((r, i) => (
+            <div key={i} style={{ borderLeft: `3px solid ${TERRA}`, paddingLeft: '14px' }}>
+              <p style={{ fontSize: '14px', fontWeight: 800, color: NAVY, margin: '0 0 4px' }}>{r.phase}</p>
+              <p style={TEXTE}>{r.desc}</p>
+            </div>
+          ))}
+          <div style={{ background: NAVY_GRAD, borderRadius: '14px', padding: '14px 16px' }}>
+            <p style={{ ...LABEL, color: SAUGE_BORD, marginBottom: '6px' }}>À retenir</p>
+            <p style={{ ...TEXTE, color: '#ffffff' }}>
+              Les études montrent qu&apos;un soutien continu pendant l&apos;accouchement aide la future maman à mieux vivre ce moment, et peut même raccourcir un peu le travail. Ta présence compte vraiment.
             </p>
           </div>
         </div>
       ),
     },
     {
-      id: 'cesarienne',
-      titre: `Césarienne : ce qu'il faut savoir`,
+      titre: 'Césarienne : ce qu’il faut savoir',
+      icone: 'sante',
       contenu: (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-          <p style={{ color: '#3a4a5a', fontSize: '14px', lineHeight: 1.75, margin: 0 }}>
+          <p style={TEXTE}>
             1 naissance sur 5 en France se fait par césarienne. Elle peut être programmée ou décidée en urgence pendant le travail. Dans les deux cas, ton rôle est crucial.
           </p>
-
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-            {[
-              {
-                titre: 'Césarienne programmée',
-                texte: `Elle est prévue à l'avance pour des raisons médicales (présentation du siège, placenta praevia, antécédent de césarienne, etc.). La date est généralement fixée à partir de 39 SA. Tu as le temps de te préparer avec elle.`,
-              },
-              {
-                titre: 'Césarienne en urgence',
-                texte: `Elle peut être décidée rapidement pendant le travail si bébé montre des signes de souffrance ou si le travail ne progresse pas. La vitesse peut être déstabilisante. Reste calme, suis les instructions de l'équipe, reste présent.`,
-              },
-              {
-                titre: `Pendant l'intervention`,
-                texte: `Pour une césarienne programmée, tu peux en général rester assis à sa tête, derrière le champ opératoire. Elle est consciente (péridurale ou rachianesthésie). En cas de grande urgence sous anesthésie générale, on te demandera souvent d'attendre dehors : ce n'est pas contre toi, c'est pour aller vite. Parle-lui, tiens sa main. L'intervention dure environ 30 à 45 minutes.`,
-              },
-              {
-                titre: `Juste après la naissance`,
-                texte: `Bébé est souvent sorti rapidement (en quelques minutes après l'incision). Si tout va bien, il peut être posé sur sa poitrine ou dans tes bras pendant que l'équipe suture. Le peau à peau immédiat avec toi est possible et précieux si elle ne peut pas le faire.`,
-              },
-              {
-                titre: `Les suites pour elle`,
-                texte: `La récupération est plus longue qu'après un accouchement voie basse : 3 à 5 jours d'hospitalisation, douleur à la cicatrice pendant 2 à 4 semaines, pas de port de charges lourdes. Ton soutien physique et logistique au retour est encore plus important après une césarienne.`,
-              },
-            ].map((item, i) => (
-              <div key={i} style={{ borderLeft: '3px solid #6B4FBB', paddingLeft: '14px' }}>
-                <p style={{ color: '#7A1A00', fontSize: '14px', fontWeight: 700, margin: '0 0 4px' }}>{item.titre}</p>
-                <p style={{ color: '#3a4a5a', fontSize: '14px', lineHeight: 1.65, margin: 0 }}>{item.texte}</p>
-              </div>
-            ))}
-          </div>
-
-          <div style={{ background: '#FFF0E6', borderRadius: '12px', padding: '14px 16px' }}>
-            <p style={{ color: '#6B4FBB', fontSize: '13px', fontWeight: 700, margin: '0 0 6px' }}>Ce qui ne change pas</p>
-            <p style={{ color: '#5A2000', fontSize: '14px', lineHeight: 1.7, margin: 0 }}>
-              Voie basse ou césarienne, bébé arrive. La façon dont il naît ne définit pas la qualité de ton accueil ni de ta parentalité. Certaines mamans vivent la césarienne comme un deuil de l'accouchement prévu : accueille ce ressenti avec bienveillance, sans minimiser.
+          {CESARIENNE.map((c, i) => (
+            <div key={i} style={{ borderLeft: `3px solid ${SAUGE_BORD}`, paddingLeft: '14px' }}>
+              <p style={{ fontSize: '14px', fontWeight: 800, color: NAVY, margin: '0 0 4px' }}>{c.titre}</p>
+              <p style={TEXTE}>{c.texte}</p>
+            </div>
+          ))}
+          <div style={{ background: SAUGE, border: `1px solid ${SAUGE_BORD}`, borderRadius: '14px', padding: '14px 16px' }}>
+            <p style={{ ...LABEL, color: FORET, marginBottom: '6px' }}>Ce qui ne change pas</p>
+            <p style={TEXTE}>
+              Voie basse ou césarienne, bébé arrive. La façon dont il naît ne définit pas la qualité de ton accueil ni de ta parentalité. Certaines mamans vivent la césarienne comme un deuil de l&apos;accouchement prévu : accueille ce ressenti avec bienveillance, sans minimiser.
             </p>
           </div>
         </div>
@@ -228,63 +195,64 @@ export default function PrepaNaissance({ C, saReelle }: { C: any; saReelle: numb
   ];
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+      <style>{STYLES}</style>
 
-      {/* En-tête */}
-      <div style={{ background: '#1A3D5C', borderRadius: '20px', padding: '18px 20px' }}>
-        <p style={{ color: '#C9D8C4', fontSize: '12px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase' as const, margin: '0 0 5px' }}>
-          SA {saReelle} · Préparation
-        </p>
-        <p style={{ color: '#fff', fontSize: '18px', fontWeight: 800, margin: 0 }}>
-          L'accouchement approche
-        </p>
+      {/* EN-TÊTE */}
+      <div style={{ background: NAVY_GRAD, borderRadius: '22px', padding: '22px', boxShadow: '0 10px 26px rgba(12,29,46,0.22)' }}>
+        <p style={{ ...LABEL, color: SAUGE_BORD, marginBottom: '8px' }}>SA {sa} · Jour J</p>
+        <h2 style={{ fontSize: '24px', fontWeight: 800, color: '#ffffff', margin: '0 0 6px', lineHeight: 1.25, letterSpacing: '-0.4px' }}>{ph.titre}</h2>
+        <p style={{ fontSize: '14px', color: 'rgba(255,255,255,0.82)', margin: 0, lineHeight: 1.6 }}>{ph.texte}</p>
       </div>
 
-      {/* Accordéon */}
-      {sections.map(section => {
-        const isOpen = ouvert === section.id;
-        return (
-          <div key={section.id} style={{
-            borderRadius: '16px',
-            border: isOpen ? '1.5px solid #2E5F8A' : '1.5px solid #f0ede8',
-            overflow: 'hidden',
-            background: '#fff',
-          }}>
-            <button
-              onClick={() => setOuvert(isOpen ? null : section.id)}
-              style={{
-                width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-                gap: '12px', padding: '15px 18px', background: 'none', border: 'none',
-                cursor: 'pointer', textAlign: 'left' as const,
-              }}
-            >
-              <span style={{ color: isOpen ? '#2E5F8A' : '#1e2535', fontSize: '14px', fontWeight: 700, lineHeight: 1.3 }}>
-                {section.titre}
-              </span>
-              <span style={{ color: '#56616B', fontSize: '18px', flexShrink: 0 }}>{isOpen ? '−' : '+'}</span>
-            </button>
-            {isOpen && (
-              <div style={{ padding: '0 18px 18px' }}>
-                {section.contenu}
-              </div>
-            )}
-          </div>
-        );
-      })}
+      {/* PARTIR IMMÉDIATEMENT */}
+      <section aria-labelledby="jj-partir" style={{ background: '#ffffff', border: `2px solid ${ALERTE}`, borderRadius: '22px', padding: '20px', display: 'flex', flexDirection: 'column', gap: '14px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+          <span style={{ width: '44px', height: '44px', borderRadius: '12px', background: '#FDECEA', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={ALERTE} strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M12 3l9 16H3zM12 10v4M12 17h.01" /></svg>
+          </span>
+          <h3 id="jj-partir" style={{ fontSize: '18px', fontWeight: 800, color: ALERTE, margin: 0 }}>Partir immédiatement si</h3>
+        </div>
+        <Liste couleur={ALERTE} items={PARTIR} />
+        <a href="tel:15" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px', minHeight: '52px', background: ALERTE, color: '#ffffff', borderRadius: '14px', fontSize: '16px', fontWeight: 800, textDecoration: 'none' }}>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z" /></svg>
+          Appeler le 15
+        </a>
+        <p style={{ fontSize: '13px', color: GRIS, margin: 0, lineHeight: 1.6 }}>
+          En cas de doute, appelle la maternité. Ils ne t&apos;en voudront jamais d&apos;appeler pour rien.
+        </p>
+      </section>
 
-      {/* BOUTON BÉBÉ EST NÉ */}
-      <div style={{ background: 'rgba(220,229,215,0.6)', borderRadius: '16px', padding: '20px 24px', marginTop: '24px', textAlign: 'center' as const }}>
-        <p style={{ color: '#6B4FBB', fontSize: '14px', margin: '0 0 12px', lineHeight: 1.6 }}>
-          Bébé est là ? Bascule en mode post-partum pour accéder au contenu de la première année.
+      {/* RÈGLE 5-1-1 */}
+      <div style={{ background: SAUGE, border: `1px solid ${SAUGE_BORD}`, borderRadius: '22px', padding: '20px', display: 'flex', gap: '14px', alignItems: 'flex-start' }}>
+        <TuileIcone nom="chrono" />
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', minWidth: 0 }}>
+          <p style={{ ...LABEL, color: FORET }}>Quand partir : la règle 5-1-1</p>
+          <p style={TEXTE}>
+            Contractions toutes les <strong>5 minutes</strong>, qui durent <strong>1 minute</strong>, depuis <strong>1 heure</strong> minimum. À ce stade, appelle la maternité avant de partir. Si ce n&apos;est pas votre premier bébé ou si la maternité est loin, appelle plus tôt.
+          </p>
+        </div>
+      </div>
+
+      {/* POUR BIEN SE PRÉPARER */}
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+        <p style={{ ...LABEL, color: GRIS, margin: '6px 0 0' }}>Pour bien te préparer</p>
+        <Accordeons items={accordeons} icone="coeur" premierOuvert={false} />
+      </div>
+
+      {/* BÉBÉ EST NÉ */}
+      <div style={{ ...CARTE, padding: '22px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '14px', textAlign: 'center' as const, marginTop: '8px' }}>
+        <TuileIcone nom="naissance" />
+        <p style={{ ...TEXTE, maxWidth: '420px' }}>
+          Bébé est là ? Bascule en mode post-partum pour accéder au contenu de sa première année.
         </p>
         <button
           onClick={() => window.dispatchEvent(new CustomEvent('dadup:declareNaissance'))}
-          style={{ background: '#6B4FBB', color: '#fff', border: 'none', padding: '12px 28px', borderRadius: '32px', fontSize: '14px', fontWeight: 700, cursor: 'pointer' }}
+          style={{ background: NAVY_GRAD, color: '#ffffff', border: 'none', minHeight: '48px', padding: '12px 28px', borderRadius: '14px', fontSize: '15px', fontWeight: 800, cursor: 'pointer' }}
         >
-          Bébé est né !
+          Bébé est né
         </button>
       </div>
-
     </div>
   );
 }

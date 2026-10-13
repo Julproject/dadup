@@ -337,14 +337,16 @@ function DashboardContent() {
 
       {/* MODALE CONFIRMATION NAISSANCE */}
       {showConfirmNaissance && (
-        <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.5)', zIndex: 100, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px' }} onClick={() => setShowConfirmNaissance(false)}>
+        <div role="dialog" aria-modal="true" aria-labelledby="dlg-naissance" style={{ position: 'fixed', inset: 0, background: 'rgba(12,29,46,0.6)', zIndex: 1500, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px' }} onClick={() => setShowConfirmNaissance(false)}>
           <div style={{ background: '#fff', borderRadius: '24px', padding: '32px', width: '100%', maxWidth: '360px', textAlign: 'center', boxShadow: '0 8px 40px rgba(0,0,0,0.15)' }} onClick={e => e.stopPropagation()}>
-            <p style={{ fontSize: '48px', margin: '0 0 16px' }}>{isPost ? '🤰' : '👶'}</p>
-            <h3 style={{ color: '#1e2535', fontSize: '20px', fontWeight: 800, margin: '0 0 10px' }}>{isPost ? 'Retour en mode grossesse ?' : 'Félicitations !'}</h3>
+            <div style={{ width: '56px', height: '56px', borderRadius: '16px', background: 'linear-gradient(160deg,#0C1D2E,#1A3D5C 70%,#24507A)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px' }}>
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#DCE5D7" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d={isPost ? 'M3 12a9 9 0 1 0 3-6.7L3 8M3 3v5h5' : 'M12 3l1.8 4.6L18 9l-4.2 1.4L12 15l-1.8-4.6L6 9l4.2-1.4zM19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z'} /></svg>
+            </div>
+            <h3 id="dlg-naissance" style={{ color: '#15263A', fontSize: '20px', fontWeight: 800, margin: '0 0 10px' }}>{isPost ? 'Retour en mode grossesse ?' : 'Bébé est né ?'}</h3>
             <p style={{ color: '#56616B', fontSize: '14px', lineHeight: 1.7, margin: '0 0 24px' }}>{isPost ? 'Tu reviendras à la dernière semaine de grossesse enregistrée. Ton suivi post-partum sera conservé.' : 'En confirmant, ton application bascule en mode post-naissance. Tu pourras suivre le développement de bébé mois par mois.'}</p>
             <div style={{ display: 'flex', gap: '10px' }}>
-              <button onClick={() => setShowConfirmNaissance(false)} style={{ flex: 1, padding: '13px', background: '#f7f5f0', border: 'none', borderRadius: '32px', fontSize: '14px', fontWeight: 700, color: '#56616B', cursor: 'pointer' }}>Annuler</button>
-              <button onClick={declareNaissance} style={{ flex: 2, padding: '13px', background: '#1e2535', border: 'none', borderRadius: '32px', fontSize: '14px', fontWeight: 700, color: '#fff', cursor: 'pointer' }}>{isPost ? 'Revenir en mode grossesse' : 'Bébé est né !'}</button>
+              <button onClick={() => setShowConfirmNaissance(false)} style={{ flex: 1, minHeight: '48px', padding: '13px', background: '#F6F1E9', border: '1px solid #E6E0D5', borderRadius: '14px', fontSize: '14px', fontWeight: 700, color: '#15263A', cursor: 'pointer' }}>Annuler</button>
+              <button onClick={declareNaissance} style={{ flex: 2, minHeight: '48px', padding: '13px', background: 'linear-gradient(160deg,#0C1D2E,#1A3D5C 70%,#24507A)', border: 'none', borderRadius: '14px', fontSize: '14px', fontWeight: 800, color: '#fff', cursor: 'pointer' }}>{isPost ? 'Revenir en mode grossesse' : 'Oui, bébé est né'}</button>
             </div>
           </div>
         </div>
