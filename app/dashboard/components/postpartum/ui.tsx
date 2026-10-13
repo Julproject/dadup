@@ -60,6 +60,22 @@ export function Section({ titre, children }: { titre: string; children: React.Re
   );
 }
 
+// Case à cocher commune (missions, valise, maison, administratif)
+export function Case({ coche }: { coche: boolean }) {
+  return (
+    <span aria-hidden="true" style={{ width: '22px', height: '22px', borderRadius: '7px', border: coche ? 'none' : '2px solid #8A9298', background: coche ? FORET : 'transparent', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, boxSizing: 'border-box' as const, transition: 'background .15s ease' }}>
+      {coche && <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12l5 5 9-10" /></svg>}
+    </span>
+  );
+}
+
+// Chevron commun des cartes dépliables
+export function Chevron({ ouvert }: { ouvert: boolean }) {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1A3D5C" strokeWidth="2.5" strokeLinecap="round" aria-hidden="true" style={{ flexShrink: 0, transform: ouvert ? 'rotate(180deg)' : 'none', transition: 'transform .2s' }}><path d="M6 9l6 6 6-6" /></svg>
+  );
+}
+
 type Item = { titre: string; contenu: React.ReactNode; icone?: string };
 
 // Liste de cartes dépliables : la première est ouverte par défaut

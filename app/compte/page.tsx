@@ -4,9 +4,9 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 
 const C = {
-  dark: '#1e2535', gold: '#c8a060', cream: '#faf6f0', white: '#ffffff',
-  border: '#e8e0d0', text: '#4a5568', textLight: '#56616B',
-  blue: '#2E5F8A', blueDark: '#1A3D5C', green: '#0D6B40', greenPale: '#E4F5EC',
+  dark: '#15263A', gold: '#B4593A', cream: '#F6F1E9', white: '#ffffff',
+  border: '#E6E0D5', text: '#15263A', textLight: '#56616B',
+  blue: '#1A3D5C', blueDark: '#1A3D5C', green: '#2F4F3E', greenPale: '#E4F5EC',
 };
 
 function parseLocalDate(s: string) {
@@ -16,7 +16,7 @@ function parseLocalDate(s: string) {
 
 function inputStyle(disabled = false) {
   return {
-    width: '100%', background: disabled ? '#f0ede8' : C.cream,
+    width: '100%', background: disabled ? '#EDE8E0' : C.cream,
     border: `1.5px solid ${C.border}`, borderRadius: '12px',
     padding: '12px 16px', fontSize: '14px', color: disabled ? C.textLight : C.dark,
     outline: 'none', fontFamily: 'inherit', cursor: disabled ? 'not-allowed' : 'text',
@@ -187,14 +187,14 @@ export default function ComptePage() {
           <svg viewBox="0 0 300 300" width="30" height="30"><circle cx="150" cy="150" r="145" fill="#1A3D5C"/><circle cx="150" cy="150" r="122" fill="#2E5F8A"/><ellipse cx="150" cy="205" rx="58" ry="54" fill="#c8a060"/><circle cx="150" cy="112" r="40" fill="#c8a060"/><ellipse cx="150" cy="196" rx="27" ry="31" fill="#F7FAFC"/><circle cx="150" cy="128" r="26" fill="#F7FAFC"/></svg>
           <span style={{ fontWeight: 800, color: C.dark, fontSize: '18px' }}>DadUp</span>
         </a>
-        <a href="/dashboard" style={{ color: C.textLight, fontSize: '13px', textDecoration: 'none' }}>← Retour à l'accueil</a>
+        <a href="/dashboard" style={{ color: C.textLight, fontSize: '14px', fontWeight: 700, textDecoration: 'none', minHeight: '44px', display: 'flex', alignItems: 'center' }}>← Retour à l'accueil</a>
       </nav>
 
       <div style={{ maxWidth: '600px', margin: '0 auto', padding: '32px 20px 60px' }}>
 
         {/* HEADER AVATAR */}
         <div style={{ background: C.white, borderRadius: '20px', padding: '24px', border: `1px solid ${C.border}`, marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '16px' }}>
-          <div style={{ width: '56px', height: '56px', borderRadius: '50%', background: C.blueDark, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '22px', fontWeight: 700, color: C.gold, flexShrink: 0 }}>
+          <div style={{ width: '56px', height: '56px', borderRadius: '50%', background: 'linear-gradient(160deg,#0C1D2E,#1A3D5C 70%,#24507A)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '22px', fontWeight: 800, color: '#ffffff', flexShrink: 0 }}>
             {prenom ? prenom[0].toUpperCase() : 'D'}
           </div>
           <div>
@@ -213,16 +213,16 @@ export default function ComptePage() {
                 <p style={{ fontSize: '12px', color: C.textLight, margin: '4px 0 0' }}>{isPost ? 'Bébé est né' : `Trimestre ${tri}`}</p>
               </div>
               <div style={{ textAlign: 'right' }}>
-                <p style={{ fontSize: '22px', fontWeight: 700, color: C.gold, margin: 0 }}>{isPost ? 'Terminé' : `${joursRestants} jours`}</p>
+                <p className="tabular" style={{ fontSize: '22px', fontWeight: 800, color: C.dark, margin: 0 }}>{isPost ? 'Terminé' : `${joursRestants} jours`}</p>
                 <p style={{ fontSize: '12px', color: C.textLight, margin: '4px 0 0' }}>{isPost ? '' : 'avant la DPA'}</p>
               </div>
             </div>
-            <div style={{ background: '#f0ede8', borderRadius: '99px', height: '8px', overflow: 'hidden' }}>
-              <div style={{ background: C.gold, width: `${prog}%`, height: '100%', borderRadius: '99px', transition: 'width 0.5s' }}></div>
+            <div style={{ background: '#E8EEE5', borderRadius: '99px', height: '10px', overflow: 'hidden' }}>
+              <div style={{ background: 'linear-gradient(90deg,#1A3D5C,#24507A)', width: `${prog}%`, height: '100%', borderRadius: '99px', transition: 'width 0.5s' }}></div>
             </div>
             <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '6px' }}>
               <span style={{ fontSize: '12px', color: C.textLight }}>SA 3</span>
-              <span style={{ fontSize: '12px', color: C.gold, fontWeight: 700 }}>{prog}%</span>
+              <span style={{ fontSize: '12px', color: C.dark, fontWeight: 800 }}>{prog} %</span>
               <span style={{ fontSize: '12px', color: C.textLight }}>SA 41</span>
             </div>
           </div>
@@ -235,7 +235,7 @@ export default function ComptePage() {
             <p style={{ fontSize: '12px', color: C.textLight, margin: '4px 0 0' }}>missions complétées</p>
           </div>
           <div style={{ background: C.white, borderRadius: '16px', padding: '16px', border: `1px solid ${C.border}`, textAlign: 'center' }}>
-            <p style={{ fontSize: '28px', fontWeight: 800, color: C.blue, margin: 0 }}>{rdvCount}</p>
+            <p style={{ fontSize: '28px', fontWeight: 800, color: C.blueDark, margin: 0 }}>{rdvCount}</p>
             <p style={{ fontSize: '12px', color: C.textLight, margin: '4px 0 0' }}>rendez-vous notés</p>
           </div>
         </div>
@@ -271,9 +271,9 @@ export default function ComptePage() {
             </div>
           </div>
 
-          {infoMsg && <p style={{ color: '#c04a1a', fontSize: '13px', margin: '12px 0 0' }}>{infoMsg}</p>}
+          {infoMsg && <p style={{ color: '#B42318', fontSize: '13px', margin: '12px 0 0' }}>{infoMsg}</p>}
 
-          <button onClick={saveInfos} disabled={saving} style={{ marginTop: '20px', background: C.dark, color: C.white, border: 'none', padding: '14px', borderRadius: '32px', fontSize: '14px', fontWeight: 700, cursor: 'pointer', width: '100%' }}>
+          <button onClick={saveInfos} disabled={saving} style={{ marginTop: '20px', background: 'linear-gradient(160deg,#0C1D2E,#1A3D5C 70%,#24507A)', color: C.white, border: 'none', minHeight: '48px', padding: '14px', borderRadius:'14px', fontSize: '14px', fontWeight: 700, cursor: 'pointer', width: '100%' }}>
             {saving ? 'Sauvegarde...' : saved ? 'Sauvegardé ✓' : 'Enregistrer'}
           </button>
         </div>
@@ -295,8 +295,8 @@ export default function ComptePage() {
               <input type="password" aria-label="Confirme le nouveau mot de passe" value={newPwd2} onChange={e => setNewPwd2(e.target.value)} style={inputStyle()} />
             </div>
           </div>
-          {pwdMsg && <p style={{ color: pwdMsg.includes('jour') ? C.green : '#c04a1a', fontSize: '13px', margin: '12px 0 0' }}>{pwdMsg}</p>}
-          <button onClick={changePassword} disabled={pwdLoading} style={{ marginTop: '20px', background: C.dark, color: C.white, border: 'none', padding: '14px', borderRadius: '32px', fontSize: '14px', fontWeight: 700, cursor: 'pointer', width: '100%' }}>
+          {pwdMsg && <p style={{ color: pwdMsg.includes('jour') ? C.green : '#B42318', fontSize: '13px', margin: '12px 0 0' }}>{pwdMsg}</p>}
+          <button onClick={changePassword} disabled={pwdLoading} style={{ marginTop: '20px', background: 'linear-gradient(160deg,#0C1D2E,#1A3D5C 70%,#24507A)', color: C.white, border: 'none', minHeight: '48px', padding: '14px', borderRadius:'14px', fontSize: '14px', fontWeight: 700, cursor: 'pointer', width: '100%' }}>
             {pwdLoading ? 'Mise à jour...' : 'Changer le mot de passe'}
           </button>
         </div>
@@ -310,14 +310,14 @@ export default function ComptePage() {
           </p>
           <button
             onClick={declareNaissance}
-            style={{ background: isPost ? '#E4F5EC' : '#EDE8FF', color: isPost ? '#0D6B40' : '#6B4FBB', border: 'none', padding: '14px', borderRadius: '32px', fontSize: '14px', fontWeight: 700, cursor: 'pointer', width: '100%' }}
+            style={{ background: '#F6F1E9', color: '#15263A', border: '1px solid #E6E0D5', minHeight: '48px', padding: '14px', borderRadius:'14px', fontSize: '14px', fontWeight: 700, cursor: 'pointer', width: '100%' }}
           >
-            {isPost ? 'Revenir en mode grossesse' : 'Bébé est né !'}
+            {isPost ? 'Revenir en mode grossesse' : 'Bébé est né'}
           </button>
         </div>
         {/* DECONNEXION */}
         <div style={{ textAlign: 'center', padding: '8px 0' }}>
-          <button onClick={logout} style={{ background: 'none', border: 'none', color: C.textLight, fontSize: '13px', cursor: 'pointer' }}>
+          <button onClick={logout} style={{ background: 'none', border: 'none', color: C.textLight, fontSize: '14px', cursor: 'pointer', minHeight: '44px', padding: '10px 16px' }}>
             Se déconnecter
           </button>
         </div>

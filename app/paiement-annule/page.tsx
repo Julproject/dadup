@@ -1,9 +1,9 @@
 'use client';
 
 const C = {
-  dark: '#1e2535', gold: '#c8a060', cream: '#faf6f0', white: '#ffffff',
-  border: '#e8e0d0', text: '#4a5568', textLight: '#56616B',
-  blue: '#2E5F8A', blueDark: '#1A3D5C',
+  dark: '#15263A', gold: '#B4593A', cream: '#F6F1E9', white: '#ffffff',
+  border: '#E6E0D5', text: '#15263A', textLight: '#56616B',
+  blue: '#1A3D5C', blueDark: '#1A3D5C',
   orange: '#FFF0E6', orangeDark: '#C04A1A',
 };
 
@@ -83,7 +83,7 @@ export default function PaiementAnnulePage() {
           {/* CTA principal */}
           <button
             onClick={goToStripe}
-            style={{ display: 'block', width: '100%', background: C.dark, color: C.white, border: 'none', padding: '15px', borderRadius: '32px', fontSize: '15px', fontWeight: 700, cursor: 'pointer', marginBottom: '12px' }}
+            style={{ display: 'block', width: '100%', background: C.dark, color: C.white, border: 'none', padding: '15px', borderRadius:'14px', fontSize: '15px', fontWeight: 700, cursor: 'pointer', marginBottom: '12px' }}
           >
             Réessayer le paiement
           </button>

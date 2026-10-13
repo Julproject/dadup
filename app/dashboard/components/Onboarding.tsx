@@ -29,18 +29,18 @@ export default function Onboarding({onSave}:{onSave:(d:string,p:string)=>void}) 
           <div style={{display:'flex',flexDirection:'column',gap:'14px'}}>
             <div>
               <label style={{display:'block',color:C.dark,fontSize:'12px',fontWeight:600,marginBottom:'7px'}}>Ton prénom</label>
-              <input type="text" placeholder="Thomas, Julien, Marc..." value={prenom} onChange={e=>setPrenom(e.target.value)} style={{width:'100%',background:'#F6F1E9',border:`1px solid ${C.border}`,borderRadius:'10px',padding:'12px 14px',fontSize:'14px',color:C.dark,outline:'none'}}/>
+              <input type="text" aria-label="Ton prénom" placeholder="Thomas, Julien, Marc…" value={prenom} onChange={e=>setPrenom(e.target.value)} style={{width:'100%',background:'#F6F1E9',border:`1px solid ${C.border}`,borderRadius:'10px',padding:'12px 14px',fontSize:'14px',color:C.dark,outline:'none'}}/>
             </div>
             <div>
               <label style={{display:'block',color:C.dark,fontSize:'12px',fontWeight:600,marginBottom:'7px'}}>Date d'accouchement prévue</label>
-              <input type="date" value={dpa} onChange={e=>setDpa(e.target.value)} style={{width:'100%',background:'#F6F1E9',border:`1px solid ${C.border}`,borderRadius:'10px',padding:'12px 14px',fontSize:'14px',color:C.dark,outline:'none'}}/>
+              <input type="date" aria-label="Date d'accouchement prévue" value={dpa} onChange={e=>setDpa(e.target.value)} style={{width:'100%',background:'#F6F1E9',border:`1px solid ${C.border}`,borderRadius:'10px',padding:'12px 14px',fontSize:'14px',color:C.dark,outline:'none'}}/>
             </div>
-            <button onClick={()=>dpa&&onSave(dpa,prenom)} disabled={!dpa} style={{background:dpa?C.dark:'#ccc',color:C.white,border:'none',padding:'14px',borderRadius:'32px',fontSize:'15px',fontWeight:700,cursor:dpa?'pointer':'not-allowed',marginTop:'4px'}}>
+            <button onClick={()=>dpa&&onSave(dpa,prenom)} disabled={!dpa} style={{background:dpa?'linear-gradient(160deg,#0C1D2E,#1A3D5C 70%,#24507A)':'#C9CDD1',color:C.white,border:'none',minHeight:'52px',padding:'14px',borderRadius:'14px',fontSize:'15px',fontWeight:700,cursor:dpa?'pointer':'not-allowed',marginTop:'4px'}}>
               Accéder à mon espace
             </button>
           </div>
         </div>
-        <p style={{textAlign:'center',color:C.textLight,fontSize:'12px',marginTop:'14px'}}>Aucune donnée personnelle stockée en ligne.</p>
+        <p style={{textAlign:'center',color:C.textLight,fontSize:'12px',marginTop:'14px'}}>Tes données restent privées. Aucune revente, aucun spam.</p>
       </div>
     </main>
   );

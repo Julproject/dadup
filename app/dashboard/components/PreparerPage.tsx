@@ -1,4 +1,5 @@
 'use client';
+import { Case, Chevron } from './postpartum/ui';
 import { useState, useEffect } from 'react';
 
 // ── Données Valise ────────────────────────────────────────────────────────────
@@ -299,10 +300,10 @@ export default function PreparerPage({C, valiseChecked, toggleV, achatChecked, t
       {/* PROGRESSION */}
       {onglet !== 'conge' && (
         <div style={{display:'flex',alignItems:'center',gap:'12px'}}>
-          <div style={{flex:1,background:'#f0ede8',borderRadius:'6px',height:'8px'}}>
-            <div style={{background:pct===100?'#0D6B40':'linear-gradient(to right,#1A3D5C,#24507a)',height:'8px',borderRadius:'6px',width:pct+'%',transition:'width 0.4s'}}/>
+          <div style={{flex:1,background:'#E8EEE5',borderRadius:'99px',height:'10px'}}>
+            <div style={{background:pct===100?'#2F4F3E':'linear-gradient(90deg,#1A3D5C,#24507A)',height:'10px',borderRadius:'99px',width:pct+'%',transition:'width 0.4s'}}/>
           </div>
-          <span style={{fontSize:'12px',fontWeight:800,color:pct===100?'#2F4F3E':'#9C4A2E',flexShrink:0}}>{done}/{total}</span>
+          <span className="tabular" style={{fontSize:'13px',fontWeight:800,color:'#15263A',flexShrink:0}}>{done}/{total}</span>
         </div>
       )}
 
@@ -347,15 +348,7 @@ export default function PreparerPage({C, valiseChecked, toggleV, achatChecked, t
                         borderRadius: idx===0?'12px 12px 0 0' : idx===groupe.items.length-1?'0 0 12px 12px':'0',
                       }}
                     >
-                      <div style={{
-                        width:'22px',height:'22px',borderRadius:'7px',flexShrink:0,
-                        background:isChecked?'#0D6B40':'transparent',
-                        border:isChecked?'none':'2px solid #d8d0c8',
-                        display:'flex',alignItems:'center',justifyContent:'center',
-                        transition:'all 0.15s',
-                      }}>
-                        {isChecked && <span style={{color:'#fff',fontSize:'12px',fontWeight:700}}>✓</span>}
-                      </div>
+                      <Case coche={!!isChecked} />
                       <span style={{
                         fontSize:'14px',lineHeight:1.5,
                         color:isChecked?'#0D6B40':C.dark,
@@ -376,10 +369,10 @@ export default function PreparerPage({C, valiseChecked, toggleV, achatChecked, t
       {onglet === 'conge' && (
         <div>
           <div style={{display:'flex',alignItems:'center',gap:'12px',marginBottom:'20px'}}>
-            <div style={{flex:1,background:'rgba(0,0,0,0.05)',borderRadius:'6px',height:'8px'}}>
-              <div style={{background:'linear-gradient(to right,#2E5F8A,#1A3D5C)',borderRadius:'6px',height:'8px',width:`${Math.round(adminLu.length/ADMIN.length*100)}%`,transition:'width .3s'}}></div>
+            <div style={{flex:1,background:'#E8EEE5',borderRadius:'99px',height:'10px'}}>
+              <div style={{background:adminLu.length===ADMIN.length?'#2F4F3E':'linear-gradient(90deg,#1A3D5C,#24507A)',borderRadius:'99px',height:'10px',width:`${Math.round(adminLu.length/ADMIN.length*100)}%`,transition:'width .3s'}}></div>
             </div>
-            <span style={{fontSize:'14px',fontWeight:800,color:C.dark,minWidth:'36px',textAlign:'right' as const}}>{Math.round(adminLu.length/ADMIN.length*100)}%</span>
+            <span className="tabular" style={{fontSize:'13px',fontWeight:800,color:'#15263A',flexShrink:0}}>{adminLu.length}/{ADMIN.length}</span>
           </div>
           {['Pendant la grossesse','À la naissance','Congé paternité'].map(phase => (
             <div key={phase} style={{marginBottom:'20px'}}>
@@ -392,15 +385,13 @@ export default function PreparerPage({C, valiseChecked, toggleV, achatChecked, t
                     <div key={item.id} style={{borderRadius:'16px',overflow:'hidden',border:'1px solid #ede8e0',background:'#fff',boxShadow:'0 2px 8px rgba(0,0,0,0.04)'}}>
                       <div onClick={() => setAdminOuvert(open ? null : item.id)} style={{background:open?'rgba(200,232,255,0.3)':'#fff',padding:'14px 16px',cursor:'pointer',display:'flex',alignItems:'center',gap:'12px'}}>
                         <button onClick={e => { e.stopPropagation(); toggleAdminLu(item.id); }} aria-label={lu ? `${item.titre} : marquer comme non lu` : `${item.titre} : marquer comme lu`} aria-pressed={lu} style={{width:'44px',height:'44px',margin:'-10px',background:'transparent',border:'none',display:'flex',alignItems:'center',justifyContent:'center',flexShrink:0,cursor:'pointer',padding:0}}>
-                          <span style={{width:'24px',height:'24px',borderRadius:'50%',border:lu?'none':'2px solid #8A9298',background:lu?'#1A3D5C':'transparent',display:'flex',alignItems:'center',justifyContent:'center'}}>
-                            {lu && <span style={{color:'#fff',fontSize:'12px',fontWeight:800}}>✓</span>}
-                          </span>
+                          <Case coche={!!lu} />
                         </button>
                         <div style={{flex:1,minWidth:0}}>
                           <p style={{color:lu?'#56616B':C.dark,fontSize:'14px',fontWeight:700,margin:'0 0 2px',textDecoration:lu?'line-through':'none'}}>{item.titre}</p>
                           <p style={{color:'#56616B',fontSize:'13px',margin:0,lineHeight:1.4}}>{item.resume}</p>
                         </div>
-                        <span style={{color:'#56616B',fontSize:'12px',flexShrink:0}}>{open?'▲':'▼'}</span>
+                        <Chevron ouvert={open} />
                       </div>
                       {open && (
                         <div style={{padding:'14px 16px 16px',borderTop:'1px solid #ede8e0',background:'#F6F1E9'}}>

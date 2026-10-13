@@ -64,8 +64,8 @@ export default function PWABanner() {
       maxWidth: '480px', margin: '0 auto',
     }}>
       <svg viewBox="0 0 300 300" width="40" height="40" style={{ flexShrink: 0, marginTop: '2px' }}>
-        <circle cx="150" cy="150" r="145" fill="#3a4f6e"/>
-        <circle cx="150" cy="150" r="122" fill="#4a6080"/>
+        <circle cx="150" cy="150" r="145" fill="#1A3D5C"/>
+        <circle cx="150" cy="150" r="122" fill="#2E5F8A"/>
         <ellipse cx="150" cy="205" rx="58" ry="54" fill="#c8a060"/>
         <circle cx="150" cy="112" r="40" fill="#c8a060"/>
         <ellipse cx="150" cy="196" rx="27" ry="31" fill="#F7FAFC"/>

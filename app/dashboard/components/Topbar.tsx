@@ -52,7 +52,7 @@ export default function Topbar({ prenom, dpa, saReelle, tri, prog, isPost, moisB
   activeTab: string; setActiveTab: (t: string) => void;
   onDeclareNaissance: () => void;
 }) {
-  const tabs = isPost ? NAV_POST : NAV_GROSSESSE;
+  const tabs = isPost ? NAV_POST.filter(n => n.id !== 'suivi' || (moisBebe || 0) === 0) : NAV_GROSSESSE;
   const isOn = (n: NavItem) => n.covers.includes(activeTab);
 
   return (

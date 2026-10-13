@@ -38,7 +38,7 @@ const PREPARER_TABS = ['rdv', 'pratique', 'valise', 'maison', 'admin', 'jourj'];
 // ── Palette ───────────────────────────────────────────────────────────────────
 const C = {
   dark:'#15263A', blue:'#2E5F8A', blueDark:'#1A3D5C', gold:'#C9D8C4',
-  white:'#ffffff', border:'#f0ede8', text:'#1e2535', textLight:'#6B8FA8',
+  white:'#ffffff', border:'#E6E0D5', text:'#15263A', textLight:'#56616B',
   muted:'#56616B', orange:'#FFF0E6', green:'#E4F5EC', amber:'#FFF7E0',
   teal:'#E0F5F0', coral:'#FDECEA', blueLight:'#E6F0FA', cream:'#F6F1E9',
 };
