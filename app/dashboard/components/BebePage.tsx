@@ -5,7 +5,7 @@ export default function BebePage({C,saReelle,sa,data,dataR,avance,setAvance,dpa}
   
   const TITRE_STYLE = {color:C.dark, fontSize:'16px', fontWeight:800, margin:0};
   const TEXTE_STYLE = {color:C.text, fontSize:'14px', lineHeight:1.75, margin:0};
-  const LABEL_STYLE = {color:'#6a7585', fontSize:'11px', fontWeight:700, letterSpacing:'2px', textTransform:'uppercase' as const, margin:'0 0 6px'};
+  const LABEL_STYLE = {color:'#56616B', fontSize:'12px', fontWeight:700, letterSpacing:'2px', textTransform:'uppercase' as const, margin:'0 0 6px'};
 
   return (
     <div style={{display:'flex',flexDirection:'column',gap:'16px'}}>
@@ -17,18 +17,18 @@ export default function BebePage({C,saReelle,sa,data,dataR,avance,setAvance,dpa}
           <h2 style={{color:C.dark,fontSize:'26px',fontWeight:800,margin:0}}>{sa} semaines</h2>
         </div>
         <div style={{display:'flex',gap:'8px'}}>
-          <button onClick={()=>setAvance((a:number)=>Math.max(-1,a-1))} disabled={avance<=-1} style={{fontSize:'12px',padding:'8px 16px',borderRadius:'20px',cursor:'pointer',background:'rgba(200,232,255,0.3)',color:'#0A2847',border:'1px solid rgba(46,95,138,0.15)',fontWeight:700,opacity:avance<=-1?0.4:1}}>← Précédente</button>
-          <button onClick={()=>setAvance((a:number)=>Math.min(1,a+1))} disabled={avance>=1} style={{fontSize:'12px',padding:'8px 16px',borderRadius:'20px',cursor:'pointer',background:'rgba(200,232,255,0.3)',color:'#0A2847',border:'1px solid rgba(46,95,138,0.15)',fontWeight:700,opacity:avance>=1?0.4:1}}>Suivante →</button>
+          <button onClick={()=>setAvance((a:number)=>Math.max(-1,a-1))} disabled={avance<=-1} style={{fontSize:'13px',minHeight:'44px',padding:'10px 16px',borderRadius:'22px',cursor:'pointer',background:'rgba(200,232,255,0.3)',color:'#0A2847',border:'1px solid rgba(46,95,138,0.15)',fontWeight:700,opacity:avance<=-1?0.4:1}}>← Précédente</button>
+          <button onClick={()=>setAvance((a:number)=>Math.min(1,a+1))} disabled={avance>=1} style={{fontSize:'13px',minHeight:'44px',padding:'10px 16px',borderRadius:'22px',cursor:'pointer',background:'rgba(200,232,255,0.3)',color:'#0A2847',border:'1px solid rgba(46,95,138,0.15)',fontWeight:700,opacity:avance>=1?0.4:1}}>Suivante →</button>
         </div>
       </div>
 
       {/* HERO BÉBÉ */}
       <div style={{background:'linear-gradient(135deg,#0a1f32 0%,#1A3D5C 50%,#1d4d72 100%)',borderRadius:'20px',overflow:'hidden',position:'relative'}}>
         <div style={{padding:'28px',position:'relative'}}>
-          <p style={{color:'rgba(157,176,154,0.7)',fontSize:'10px',letterSpacing:'3px',textTransform:'uppercase' as const,margin:'0 0 8px',fontWeight:700}}>{sa} SA</p>
+          <p style={{color:'#C9D8C4',fontSize:'12px',letterSpacing:'3px',textTransform:'uppercase' as const,margin:'0 0 8px',fontWeight:700}}>{sa} SA</p>
           <p style={{color:C.white,fontSize:'18px',fontWeight:800,margin:'0 0 6px'}}>{data.titre}</p>
           <p style={{color:C.gold,fontSize:'56px',fontWeight:900,margin:0,lineHeight:1}}>{data.taille}</p>
-          <p style={{color:'rgba(255,255,255,0.45)',fontSize:'14px',margin:'6px 0 0'}}>environ {data.poids}</p>
+          <p style={{color:'rgba(255,255,255,0.78)',fontSize:'14px',margin:'6px 0 0'}}>environ {data.poids}</p>
         </div>
       </div>
 
@@ -59,7 +59,7 @@ export default function BebePage({C,saReelle,sa,data,dataR,avance,setAvance,dpa}
       {/* LE SAVAIS-TU */}
       <div style={{background:'linear-gradient(135deg,#0a1f32,#1A3D5C)',borderRadius:'20px',padding:'22px 24px',position:'relative',overflow:'hidden'}}>
         <div style={{position:'absolute',top:'-20px',right:'-20px',width:'100px',height:'100px',borderRadius:'50%',background:'radial-gradient(circle,rgba(157,176,154,0.15) 0%,transparent 65%)'}}></div>
-        <p style={{...LABEL_STYLE, color:'rgba(157,176,154,0.7)', marginBottom:'10px'}}>Le savais-tu ?</p>
+        <p style={{...LABEL_STYLE, color:'#C9D8C4', marginBottom:'10px'}}>Le savais-tu ?</p>
         <p style={{color:C.white,fontSize:'14px',fontWeight:600,lineHeight:1.75,margin:0}}>{data.savistu}</p>
       </div>
 

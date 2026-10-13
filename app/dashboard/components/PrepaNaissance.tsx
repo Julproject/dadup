@@ -87,7 +87,7 @@ export default function PrepaNaissance({ C, saReelle }: { C: any; saReelle: numb
             </ul>
           </div>
 
-          <p style={{ color: '#6a7585', fontSize: '13px', fontStyle: 'italic', margin: 0 }}>
+          <p style={{ color: '#56616B', fontSize: '13px', fontStyle: 'italic', margin: 0 }}>
             En cas de doute : appelle la maternité. Ils ne t'en voudront jamais d'appeler pour rien.
           </p>
         </div>
@@ -232,7 +232,7 @@ export default function PrepaNaissance({ C, saReelle }: { C: any; saReelle: numb
 
       {/* En-tête */}
       <div style={{ background: '#1A3D5C', borderRadius: '20px', padding: '18px 20px' }}>
-        <p style={{ color: '#C9D8C4', fontSize: '11px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase' as const, margin: '0 0 5px' }}>
+        <p style={{ color: '#C9D8C4', fontSize: '12px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase' as const, margin: '0 0 5px' }}>
           SA {saReelle} · Préparation
         </p>
         <p style={{ color: '#fff', fontSize: '18px', fontWeight: 800, margin: 0 }}>
@@ -261,7 +261,7 @@ export default function PrepaNaissance({ C, saReelle }: { C: any; saReelle: numb
               <span style={{ color: isOpen ? '#2E5F8A' : '#1e2535', fontSize: '14px', fontWeight: 700, lineHeight: 1.3 }}>
                 {section.titre}
               </span>
-              <span style={{ color: '#ccc', fontSize: '18px', flexShrink: 0 }}>{isOpen ? '−' : '+'}</span>
+              <span style={{ color: '#56616B', fontSize: '18px', flexShrink: 0 }}>{isOpen ? '−' : '+'}</span>
             </button>
             {isOpen && (
               <div style={{ padding: '0 18px 18px' }}>

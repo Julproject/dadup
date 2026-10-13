@@ -1,6 +1,6 @@
 'use client';
 
-const LABEL = { fontSize: '11px', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase' as const, color: '#5f6b72', margin: '0 0 8px' };
+const LABEL = { fontSize: '12px', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase' as const, color: '#5f6b72', margin: '0 0 8px' };
 
 type Ligne = { titre: string; detail: string; href?: string; onClick?: () => void; icon: string };
 
@@ -21,7 +21,7 @@ function Rangee({ l }: { l: Ligne }) {
       </span>
       <span style={{ display: 'flex', flexDirection: 'column', gap: '2px', flex: 1, minWidth: 0, textAlign: 'left' as const }}>
         <span style={{ fontSize: '15px', fontWeight: 800, color: '#1e2535' }}>{l.titre}</span>
-        <span style={{ fontSize: '13px', color: '#6a7585', lineHeight: 1.5 }}>{l.detail}</span>
+        <span style={{ fontSize: '13px', color: '#56616B', lineHeight: 1.5 }}>{l.detail}</span>
       </span>
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1A3D5C" strokeWidth="2.5" strokeLinecap="round" aria-hidden="true" style={{ flexShrink: 0 }}><path d="M9 6l6 6-6 6" /></svg>
     </>

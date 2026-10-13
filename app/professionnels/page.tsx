@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 const C = {
   dark: '#1e2535', gold: '#c8a060', cream: '#faf6f0', white: '#ffffff',
-  border: '#e8e0d0', text: '#4a5568', textLight: '#9aa0a8',
+  border: '#e8e0d0', text: '#4a5568', textLight: '#56616B',
   blue: '#2E5F8A', bluePale: '#E6F0FA',
 };
 
@@ -76,11 +76,11 @@ export default function ProfessionnelsPage() {
         <div style={{ maxWidth: '900px', margin: '0 auto' }}>
           <div className="hero-grid">
             <div>
-              <p style={{ color: C.gold, fontSize: '11px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase' as const, margin: '0 0 20px' }}>Professionnels de santé</p>
+              <p style={{ color: C.gold, fontSize: '12px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase' as const, margin: '0 0 20px' }}>Professionnels de santé</p>
               <h1 style={{ color: C.white, fontSize: '42px', fontWeight: 800, margin: '0 0 20px', lineHeight: 1.15 }}>
                 Un outil pour les pères que vous accompagnez.
               </h1>
-              <p style={{ color: '#6a7585', fontSize: '16px', lineHeight: 1.8, margin: 0 }}>
+              <p style={{ color: 'rgba(255,255,255,0.78)', fontSize: '16px', lineHeight: 1.8, margin: 0 }}>
                 Vous accompagnez des couples pendant la grossesse ou la naissance, que ce soit en tant que professionnel de santé ou d'accompagnement. DadUp apporte aux futurs pères un suivi structuré, semaine par semaine, fondé sur les recommandations HAS et OMS.
               </p>
             </div>
@@ -105,7 +105,7 @@ export default function ProfessionnelsPage() {
 
       {/* POURQUOI RECOMMANDER */}
       <section className="sp" style={{ padding: '72px 40px', maxWidth: '900px', margin: '0 auto' }}>
-        <p style={{ color: C.blue, fontSize: '11px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase' as const, margin: '0 0 20px' }}>Pourquoi le recommander</p>
+        <p style={{ color: C.blue, fontSize: '12px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase' as const, margin: '0 0 20px' }}>Pourquoi le recommander</p>
         <h2 style={{ color: C.dark, fontSize: '30px', fontWeight: 800, margin: '0 0 40px' }}>Les pères cherchent à s'impliquer. Ils manquent souvent d'information structurée.</h2>
         <div className="atouts-grid">
           {[
@@ -134,7 +134,7 @@ export default function ProfessionnelsPage() {
       {/* FORMULAIRE CONTACT */}
       <section style={{ background: C.white, padding: '72px 40px', borderTop: `1px solid ${C.border}` }}>
         <div style={{ maxWidth: '600px', margin: '0 auto' }}>
-          <p style={{ color: C.blue, fontSize: '11px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase' as const, margin: '0 0 16px' }}>Nous contacter</p>
+          <p style={{ color: C.blue, fontSize: '12px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase' as const, margin: '0 0 16px' }}>Nous contacter</p>
           <h2 style={{ color: C.dark, fontSize: '28px', fontWeight: 800, margin: '0 0 12px' }}>Vous souhaitez en savoir plus ?</h2>
           <p style={{ color: C.text, fontSize: '15px', lineHeight: 1.75, margin: '0 0 36px' }}>
             Écrivez-nous pour obtenir des informations sur DadUp, discuter d'un partenariat ou proposer DadUp à vos patients.
@@ -211,21 +211,21 @@ export default function ProfessionnelsPage() {
               <span style={{ color: C.white, fontSize: '16px', fontWeight: 700 }}>DadUp</span>
             </div>
             <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' as const }}>
-              <a href="/pourquoi" style={{ color: '#6a7585', fontSize: '13px', textDecoration: 'none' }}>Pourquoi DadUp</a>
-              <a href="/inclus" style={{ color: '#6a7585', fontSize: '13px', textDecoration: 'none' }}>Ce qui est inclus</a>
-              <a href="/tarifs" style={{ color: '#6a7585', fontSize: '13px', textDecoration: 'none' }}>Tarifs</a>
-              <a href="/professionnels" style={{ color: '#6a7585', fontSize: '13px', textDecoration: 'none' }}>Professionnels</a>
-              <a href="/sources" style={{ color: '#6a7585', fontSize: '13px', textDecoration: 'none' }}>Sources</a>
-              <a href="/contact" style={{ color: '#6a7585', fontSize: '13px', textDecoration: 'none' }}>Contactez-nous</a>
+              <a href="/pourquoi" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '13px', textDecoration: 'none' }}>Pourquoi DadUp</a>
+              <a href="/inclus" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '13px', textDecoration: 'none' }}>Ce qui est inclus</a>
+              <a href="/tarifs" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '13px', textDecoration: 'none' }}>Tarifs</a>
+              <a href="/professionnels" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '13px', textDecoration: 'none' }}>Professionnels</a>
+              <a href="/sources" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '13px', textDecoration: 'none' }}>Sources</a>
+              <a href="/contact" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '13px', textDecoration: 'none' }}>Contactez-nous</a>
             </div>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap' as const, gap: '12px', paddingTop: '12px', borderTop: '1px solid #2e3848' }}>
             <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' as const }}>
-              <a href="/cgv" style={{ color: '#3d4f6a', fontSize: '12px', textDecoration: 'none' }}>CGV</a>
-              <a href="/confidentialite" style={{ color: '#3d4f6a', fontSize: '12px', textDecoration: 'none' }}>Confidentialité</a>
-              <a href="/mentions-legales" style={{ color: '#3d4f6a', fontSize: '12px', textDecoration: 'none' }}>Mentions légales</a>
+              <a href="/cgv" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '12px', textDecoration: 'none' }}>CGV</a>
+              <a href="/confidentialite" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '12px', textDecoration: 'none' }}>Confidentialité</a>
+              <a href="/mentions-legales" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '12px', textDecoration: 'none' }}>Mentions légales</a>
             </div>
-            <p style={{ color: '#3d4f6a', fontSize: '12px', margin: 0 }}>Il ne remplace pas l&apos;avis d&apos;un médecin.</p>
+            <p style={{ color: 'rgba(255,255,255,0.75)', fontSize: '12px', margin: 0 }}>Il ne remplace pas l&apos;avis d&apos;un médecin.</p>
           </div>
         </div>
       </footer>

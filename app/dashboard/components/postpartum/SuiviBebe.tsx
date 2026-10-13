@@ -113,7 +113,7 @@ export default function SuiviBebe({C}: any) {
 
   const inputStyle = {
     background:'#F6F1E9', border:'1.5px solid #f0ede8', borderRadius:'10px',
-    padding:'8px 12px', fontSize:'14px', color:'#1e2535', outline:'none',
+    padding:'10px 12px', minHeight:'44px', fontSize:'16px', color:'#1e2535',
     width:'100%', fontFamily:'inherit',
   };
 
@@ -122,9 +122,9 @@ export default function SuiviBebe({C}: any) {
 
       {/* EN-TÊTE */}
       <div style={{background:'linear-gradient(160deg,#0c1d2e,#1A3D5C 70%,#24507a)',borderRadius:'20px',padding:'22px 24px'}}>
-        <p style={{color:'#C9D8C4',fontSize:'11px',fontWeight:700,letterSpacing:'3px',textTransform:'uppercase' as const,margin:'0 0 6px'}}>Suivi des 7 premiers jours</p>
+        <p style={{color:'#C9D8C4',fontSize:'12px',fontWeight:700,letterSpacing:'3px',textTransform:'uppercase' as const,margin:'0 0 6px'}}>Suivi des 7 premiers jours</p>
         <p style={{color:'#fff',fontSize:'18px',fontWeight:800,margin:'0 0 4px'}}>Carnet de bord de bébé</p>
-        <p style={{color:'rgba(255,255,255,0.5)',fontSize:'14px',margin:0}}>Tétées, urines, selles et notes.</p>
+        <p style={{color:'rgba(255,255,255,0.78)',fontSize:'14px',margin:0}}>Tétées, urines, selles et notes.</p>
       </div>
 
       {/* MODE */}
@@ -156,7 +156,7 @@ export default function SuiviBebe({C}: any) {
               fontSize:'14px', fontWeight:800,
             }}>
               {label}
-              {hasData && jourActif!==i && <span style={{display:'block',fontSize:'9px',marginTop:'1px'}}>✓</span>}
+              {hasData && jourActif!==i && <span style={{display:'block',fontSize:'12px',marginTop:'1px'}}>✓</span>}
             </button>
           );
         })}
@@ -168,11 +168,12 @@ export default function SuiviBebe({C}: any) {
         <input
           type="number"
           placeholder="ex. : 3420"
+          aria-label="Poids ce jour, en grammes"
           value={jour.poids}
           onChange={e=>updateJour(j=>({...j,poids:e.target.value}))}
           style={{...inputStyle,width:'120px'}}
         />
-        <span style={{fontSize:'14px',color:'#9aa0a8'}}>g</span>
+        <span style={{fontSize:'14px',color:'#56616B'}}>g</span>
       </div>
 
       {/* RÉSUMÉ DU JOUR */}
@@ -184,14 +185,14 @@ export default function SuiviBebe({C}: any) {
         ].map(s=>(
           <div key={s.label} style={{background:s.color,border:'1px solid #E6E0D5',borderRadius:'18px',padding:'14px 12px',textAlign:'center' as const}}>
             <p style={{color:s.tc,fontSize:'26px',fontWeight:800,margin:'0 0 3px'}}>{s.val}</p>
-            <p style={{color:s.lc,fontSize:'11px',fontWeight:800,letterSpacing:'1px',textTransform:'uppercase' as const,margin:0}}>{s.label}</p>
+            <p style={{color:s.lc,fontSize:'12px',fontWeight:800,letterSpacing:'1px',textTransform:'uppercase' as const,margin:0}}>{s.label}</p>
           </div>
         ))}
       </div>
 
       {/* LISTE DES ENTRÉES */}
       <div>
-        <p style={{color:'#5f6b72',fontSize:'11px',fontWeight:800,letterSpacing:'1.5px',textTransform:'uppercase' as const,margin:'0 0 12px'}}>
+        <p style={{color:'#5f6b72',fontSize:'12px',fontWeight:800,letterSpacing:'1.5px',textTransform:'uppercase' as const,margin:'0 0 12px'}}>
           Enregistrements {jour.entrees.length > 0 ? `(${jour.entrees.length})` : ''}
         </p>
 
@@ -217,15 +218,15 @@ export default function SuiviBebe({C}: any) {
                       <span style={{
                         width:'28px',height:'28px',borderRadius:'50%',
                         background: remplie ? '#1e2535' : '#f0ede8',
-                        color: remplie ? '#fff' : '#9aa0a8',
+                        color: remplie ? '#fff' : '#56616B',
                         display:'flex',alignItems:'center',justifyContent:'center',
-                        fontSize:'11px',fontWeight:700,flexShrink:0,
+                        fontSize:'12px',fontWeight:700,flexShrink:0,
                       }}>{idx+1}</span>
-                      <span style={{color: remplie ? '#1e2535' : '#9aa0a8', fontSize:'14px', fontWeight: remplie ? 600 : 400}}>
+                      <span style={{color: remplie ? '#1e2535' : '#56616B', fontSize:'14px', fontWeight: remplie ? 600 : 400}}>
                         {remplie ? resumeEntree(entree, modeAllaitement) : 'Nouvelle entrée...'}
                       </span>
                     </div>
-                    <span style={{color:'#9aa0a8',fontSize:'16px'}}>✎</span>
+                    <span style={{color:'#56616B',fontSize:'16px'}}>✎</span>
                   </button>
                 ) : (
                   /* FORMULAIRE OUVERT */
@@ -249,7 +250,7 @@ export default function SuiviBebe({C}: any) {
 
                     {/* HEURE */}
                     <div style={{marginBottom:'12px'}}>
-                      <label style={{display:'block',fontSize:'11px',fontWeight:700,color:'#9aa0a8',marginBottom:'5px'}}>Heure</label>
+                      <label style={{display:'block',fontSize:'12px',fontWeight:700,color:'#56616B',marginBottom:'5px'}}>Heure</label>
                       <input
                         type="time"
                         value={entree.heure}
@@ -261,7 +262,7 @@ export default function SuiviBebe({C}: any) {
                     {/* ALLAITEMENT ou BIBERON */}
                     {modeAllaitement==='allaitement' ? (
                       <div style={{marginBottom:'12px'}}>
-                        <label style={{display:'block',fontSize:'11px',fontWeight:700,color:'#9aa0a8',marginBottom:'7px'}}>Sein(s)</label>
+                        <label style={{display:'block',fontSize:'12px',fontWeight:700,color:'#56616B',marginBottom:'7px'}}>Sein(s)</label>
                         <div style={{display:'flex',gap:'8px'}}>
                           {(['G','D'] as const).map(s=>{
                             const active = entree.seins.includes(s);
@@ -270,10 +271,10 @@ export default function SuiviBebe({C}: any) {
                                 flex:1, padding:'10px', border:'none', borderRadius:'12px', cursor:'pointer',
                                 fontWeight:800, fontSize:'16px',
                                 background: active ? '#1e2535' : '#F6F1E9',
-                                color: active ? '#fff' : '#9aa0a8',
+                                color: active ? '#fff' : '#56616B',
                               }}>
                                 {s}
-                                {active && <span style={{fontSize:'11px',display:'block',fontWeight:600,marginTop:'2px'}}>{s==='G'?'Gauche':'Droit'}</span>}
+                                {active && <span style={{fontSize:'12px',display:'block',fontWeight:600,marginTop:'2px'}}>{s==='G'?'Gauche':'Droit'}</span>}
                               </button>
                             );
                           })}
@@ -284,10 +285,11 @@ export default function SuiviBebe({C}: any) {
                       </div>
                     ) : (
                       <div style={{marginBottom:'12px'}}>
-                        <label style={{display:'block',fontSize:'11px',fontWeight:700,color:'#9aa0a8',marginBottom:'5px'}}>Quantité (ml)</label>
+                        <label style={{display:'block',fontSize:'12px',fontWeight:700,color:'#56616B',marginBottom:'5px'}}>Quantité (ml)</label>
                         <input
                           type="number"
                           placeholder="ex. : 60"
+                          aria-label="Quantité de lait, en millilitres"
                           value={entree.ml}
                           onChange={e=>updateEntree(idx,e2=>({...e2,ml:e.target.value}))}
                           style={{...inputStyle,width:'120px'}}
@@ -304,7 +306,7 @@ export default function SuiviBebe({C}: any) {
                         <button key={btn.key} onClick={()=>updateEntree(idx,e=>({...e,[btn.key]:!e[btn.key]}))} style={{
                           padding:'10px', border:'none', borderRadius:'12px', cursor:'pointer',
                           background: entree[btn.key] ? btn.color : '#F6F1E9',
-                          color: entree[btn.key] ? btn.tc : '#9aa0a8',
+                          color: entree[btn.key] ? btn.tc : '#56616B',
                           fontWeight:700, fontSize:'14px',
                         }}>
                           {entree[btn.key] ? '✓ ' : ''}{btn.label}
@@ -314,10 +316,11 @@ export default function SuiviBebe({C}: any) {
 
                     {/* NOTE */}
                     <div>
-                      <label style={{display:'block',fontSize:'11px',fontWeight:700,color:'#9aa0a8',marginBottom:'5px'}}>Note (facultatif)</label>
+                      <label style={{display:'block',fontSize:'12px',fontWeight:700,color:'#56616B',marginBottom:'5px'}}>Note (facultatif)</label>
                       <input
                         type="text"
                         placeholder="Coliques, régurgitations, peau à peau…"
+                        aria-label="Note"
                         value={entree.note}
                         onChange={e=>updateEntree(idx,e2=>({...e2,note:e.target.value}))}
                         style={inputStyle}
@@ -336,7 +339,7 @@ export default function SuiviBebe({C}: any) {
           width:'100%', marginTop:'10px', padding:'13px',
           background:'none', border:'2px dashed #f0ede8',
           borderRadius:'16px', cursor:'pointer',
-          color:'#9aa0a8', fontSize:'14px', fontWeight:700,
+          color:'#56616B', fontSize:'14px', fontWeight:700,
         }}>
           + Ajouter une entrée
         </button>
@@ -344,7 +347,7 @@ export default function SuiviBebe({C}: any) {
 
       {/* INFO */}
       <div style={{background:'#F6F1E9',borderRadius:'16px',padding:'16px 18px'}}>
-        <p style={{color:'#9aa0a8',fontSize:'14px',lineHeight:1.7,margin:0}}>
+        <p style={{color:'#56616B',fontSize:'14px',lineHeight:1.7,margin:0}}>
           Les premiers jours, bébé mouille de plus en plus de couches. À partir du 5e jour, compte au moins 6 couches bien mouillées par jour et, s'il est allaité, au moins 3 selles jaunes. Ces chiffres permettent de vérifier que bébé s'hydrate et s'alimente correctement. En cas de doute, appelle la sage-femme ou le pédiatre.
         </p>
       </div>

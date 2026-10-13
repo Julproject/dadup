@@ -4,7 +4,7 @@ import CheckoutModal from '@/app/components/CheckoutModal';
 
 const C = {
   dark: '#1e2535', gold: '#c8a060', cream: '#faf6f0', white: '#ffffff',
-  border: '#e8e0d0', text: '#4a5568', textLight: '#9aa0a8',
+  border: '#e8e0d0', text: '#4a5568', textLight: '#56616B',
   blue: '#2E5F8A', bluePale: '#E6F0FA', blueDark: '#1A3D5C',
 };
 
@@ -91,7 +91,7 @@ export default function TarifsPage() {
           <a href="/login" style={{color:C.dark, fontSize:'14px', fontWeight:600, textDecoration:'none'}}>Se connecter</a>
           <button onClick={goToStripe} style={{background:'#1e2535', color:'#ffffff', border:'none', padding:'11px 22px', borderRadius:'32px', fontSize:'13px', fontWeight:700, cursor:'pointer'}}>Commencer</button>
         </div>
-        <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)} style={{display:'none', background:'none', border:`1px solid ${C.border}`, padding:'8px 12px', borderRadius:'8px', cursor:'pointer'}}>
+        <button className="hamburger" aria-label={menuOpen ? "Fermer le menu" : "Ouvrir le menu"} aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)} style={{display:'none', minWidth:'44px', minHeight:'44px', background:'none', border:`1px solid ${C.border}`, padding:'8px 12px', borderRadius:'8px', cursor:'pointer'}}>
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
             {menuOpen ? <path d="M4 4L16 16M16 4L4 16" stroke={C.dark} strokeWidth="2" strokeLinecap="round"/> : <path d="M3 5h14M3 10h14M3 15h14" stroke={C.dark} strokeWidth="2" strokeLinecap="round"/>}
           </svg>
@@ -110,11 +110,11 @@ export default function TarifsPage() {
       {/* HERO */}
       <section className="hero" style={{ background: 'linear-gradient(135deg,#0a1f32 0%,#1A3D5C 50%,#1d4d72 100%)', padding: '72px 40px' }}>
         <div style={{ maxWidth: '760px', margin: '0 auto', textAlign: 'center' }}>
-          <p style={{ color: C.gold, fontSize: '11px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase', margin: '0 0 20px' }}>Tarifs</p>
+          <p style={{ color: C.gold, fontSize: '12px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase', margin: '0 0 20px' }}>Tarifs</p>
           <h1 style={{ color: C.white, fontSize: '44px', fontWeight: 800, margin: '0 0 16px', lineHeight: 1.1 }}>
             Une offre claire, <span style={{ color: C.gold }}>un prix unique</span>
           </h1>
-          <p style={{ color: '#6a7585', fontSize: '17px', lineHeight: 1.7, margin: 0 }}>Tout est inclus. Rien de caché</p>
+          <p style={{ color: 'rgba(255,255,255,0.78)', fontSize: '17px', lineHeight: 1.7, margin: 0 }}>Tout est inclus. Rien de caché</p>
         </div>
       </section>
 
@@ -126,7 +126,7 @@ export default function TarifsPage() {
           <div style={{ background: 'linear-gradient(135deg,#0a1f32 0%,#1A3D5C 50%,#1d4d72 100%)', borderRadius: '24px', padding: '40px', display: 'flex', flexDirection: 'column', height: '100%', position: 'relative', overflow: 'hidden' }}>
             <div style={{ position: 'absolute', top: '-40px', right: '-40px', width: '200px', height: '200px', borderRadius: '50%', background: 'radial-gradient(circle,rgba(200,160,96,0.25) 0%,transparent 65%)', pointerEvents: 'none' }}></div>
             <div style={{ position: 'absolute', bottom: '-40px', left: '-20px', width: '180px', height: '180px', borderRadius: '50%', background: 'radial-gradient(circle,rgba(100,200,160,0.12) 0%,transparent 70%)', pointerEvents: 'none' }}></div>
-            <p style={{ color: C.gold, fontSize: '11px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase', margin: '0 0 20px', position: 'relative', zIndex: 1 }}>Accès annuel complet</p>
+            <p style={{ color: C.gold, fontSize: '12px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase', margin: '0 0 20px', position: 'relative', zIndex: 1 }}>Accès annuel complet</p>
             <div style={{ marginBottom: '6px', position: 'relative', zIndex: 1 }}>
               <span style={{ color: C.white, fontSize: '68px', fontWeight: 800, lineHeight: 1 }}>49,99€</span>
             </div>
@@ -135,7 +135,7 @@ export default function TarifsPage() {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '36px', flex: 1 }}>
               {FEATURES.map(f => (
                 <div key={f} style={{ display: 'flex', gap: '10px', alignItems: 'flex-start' }}>
-                  <div style={{ width: '20px', height: '20px', borderRadius: '50%', background: 'rgba(184,240,216,0.25)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}><span style={{ color: '#96F0C8', fontSize: '11px', fontWeight: 800 }}>✓</span></div>
+                  <div style={{ width: '20px', height: '20px', borderRadius: '50%', background: 'rgba(184,240,216,0.25)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}><span style={{ color: '#96F0C8', fontSize: '12px', fontWeight: 800 }}>✓</span></div>
                   <p style={{ color: 'rgba(255,255,255,0.9)', fontSize: '15px', fontWeight: 600, margin: 0, lineHeight: 1.55 }}>{f}</p>
                 </div>
               ))}
@@ -153,14 +153,14 @@ export default function TarifsPage() {
 
             {/* À SAVOIR */}
             <div style={{ background: 'rgba(200,232,255,0.3)', borderRadius: '24px', padding: '36px', boxShadow: '0 12px 40px rgba(46,95,138,0.15)', border: '1px solid rgba(46,95,138,0.15)' }}>
-              <p style={{ color: '#1A3D5C', fontSize: '11px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase', margin: '0 0 16px' }}>À savoir</p>
+              <p style={{ color: '#1A3D5C', fontSize: '12px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase', margin: '0 0 16px' }}>À savoir</p>
               <p style={{ color: '#0a1f32', fontSize: '17px', fontWeight: 800, margin: '0 0 12px', lineHeight: 1.4 }}>DadUp ne remplace pas ton médecin ni ta sage-femme</p>
               <p style={{ color: '#1A3D5C', fontSize: '15px', lineHeight: 1.75, margin: 0 }}>C&apos;est un outil de préparation et d&apos;information, conçu pour que tu arrives à chaque étape en sachant ce qui t&apos;attend</p>
             </div>
 
             {/* INFOS PRATIQUES */}
             <div style={{ background: 'rgba(200,232,255,0.2)', borderRadius: '24px', padding: '36px', boxShadow: '0 12px 40px rgba(46,95,138,0.12)', border: '1px solid rgba(46,95,138,0.12)', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
-              <p style={{ color: '#1A3D5C', fontSize: '11px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase', margin: '0 0 20px' }}>Informations pratiques</p>
+              <p style={{ color: '#1A3D5C', fontSize: '12px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase', margin: '0 0 20px' }}>Informations pratiques</p>
               <div style={{ display: 'flex', flexDirection: 'column' }}>
                 {[
                   { label: "Accès", val: "Disponible sur web + mobile (PWA)" },
@@ -183,7 +183,7 @@ export default function TarifsPage() {
 
       {/* FAQ */}
       <section style={{ maxWidth: '760px', margin: '0 auto', padding: '72px 40px 80px' }}>
-        <p style={{ color: C.blue, fontSize: '11px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase' as const, margin: '0 0 20px' }}>Questions fréquentes</p>
+        <p style={{ color: C.blue, fontSize: '12px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase' as const, margin: '0 0 20px' }}>Questions fréquentes</p>
         <h2 style={{ color: C.dark, fontSize: '30px', fontWeight: 800, margin: '0 0 40px' }}>Tout ce qu&apos;il faut savoir</h2>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
           {[
@@ -249,21 +249,21 @@ export default function TarifsPage() {
               <span style={{ color: C.white, fontSize: '16px', fontWeight: 700 }}>DadUp</span>
             </div>
             <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' as const }}>
-              <a href="/pourquoi" style={{ color: '#6a7585', fontSize: '13px', textDecoration: 'none' }}>Pourquoi DadUp</a>
-              <a href="/inclus" style={{ color: '#6a7585', fontSize: '13px', textDecoration: 'none' }}>Ce qui est inclus</a>
-              <a href="/tarifs" style={{ color: '#6a7585', fontSize: '13px', textDecoration: 'none' }}>Tarifs</a>
-              <a href="/professionnels" style={{ color: '#6a7585', fontSize: '13px', textDecoration: 'none' }}>Professionnels</a>
-              <a href="/sources" style={{ color: '#6a7585', fontSize: '13px', textDecoration: 'none' }}>Sources</a>
-              <a href="/contact" style={{ color: '#6a7585', fontSize: '13px', textDecoration: 'none' }}>Contact</a>
+              <a href="/pourquoi" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '13px', textDecoration: 'none' }}>Pourquoi DadUp</a>
+              <a href="/inclus" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '13px', textDecoration: 'none' }}>Ce qui est inclus</a>
+              <a href="/tarifs" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '13px', textDecoration: 'none' }}>Tarifs</a>
+              <a href="/professionnels" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '13px', textDecoration: 'none' }}>Professionnels</a>
+              <a href="/sources" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '13px', textDecoration: 'none' }}>Sources</a>
+              <a href="/contact" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '13px', textDecoration: 'none' }}>Contact</a>
             </div>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap' as const, gap: '12px', paddingTop: '12px', borderTop: '1px solid #2e3848' }}>
             <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' as const }}>
-              <a href="/cgv" style={{ color: '#3d4f6a', fontSize: '12px', textDecoration: 'none' }}>CGV</a>
-              <a href="/confidentialite" style={{ color: '#3d4f6a', fontSize: '12px', textDecoration: 'none' }}>Confidentialité</a>
-              <a href="/mentions-legales" style={{ color: '#3d4f6a', fontSize: '12px', textDecoration: 'none' }}>Mentions légales</a>
+              <a href="/cgv" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '12px', textDecoration: 'none' }}>CGV</a>
+              <a href="/confidentialite" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '12px', textDecoration: 'none' }}>Confidentialité</a>
+              <a href="/mentions-legales" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '12px', textDecoration: 'none' }}>Mentions légales</a>
             </div>
-            <p style={{ color: '#3d4f6a', fontSize: '12px', margin: 0 }}>Il ne remplace pas l&apos;avis d&apos;un médecin</p>
+            <p style={{ color: 'rgba(255,255,255,0.75)', fontSize: '12px', margin: 0 }}>Il ne remplace pas l&apos;avis d&apos;un médecin</p>
           </div>
         </div>
       </footer>

@@ -92,7 +92,7 @@ function SuccessContent() {
               </div>
               <style>{`@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }`}</style>
               <h1 style={{ color: '#1e2535', fontSize: '22px', fontWeight: 900, margin: '0 0 10px' }}>Activation en cours...</h1>
-              <p style={{ color: '#9aa0a8', fontSize: '14px', margin: 0 }}>
+              <p style={{ color: '#56616B', fontSize: '14px', margin: 0 }}>
                 On prépare ton espace...
               </p>
             </>
@@ -147,7 +147,7 @@ function SuccessContent() {
 
         </div>
 
-        <p style={{ color: '#9aa0a8', fontSize: '13px', marginTop: '20px', lineHeight: 1.6 }}>
+        <p style={{ color: '#56616B', fontSize: '13px', marginTop: '20px', lineHeight: 1.6 }}>
           Le lien expire dans 7 jours.<br/>
           Un probleme ? <a href="mailto:hello@dadup.fr" style={{ color: '#2E5F8A', fontWeight: 600 }}>hello@dadup.fr</a>
         </p>
@@ -161,7 +161,7 @@ export default function SuccessPage() {
   return (
     <Suspense fallback={
       <div style={{ minHeight: '100vh', background: '#f7f5f0', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        <p style={{ color: '#9aa0a8', fontSize: '14px' }}>Chargement...</p>
+        <p style={{ color: '#56616B', fontSize: '14px' }}>Chargement...</p>
       </div>
     }>
       <SuccessContent />

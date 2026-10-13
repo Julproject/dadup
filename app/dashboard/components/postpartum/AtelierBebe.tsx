@@ -181,7 +181,7 @@ export default function AtelierBebe({C: propC}: any) {
     <div style={{display:'flex', flexDirection:'column', gap:'20px', fontFamily:'inherit'}}>
 
       <div style={{background:'linear-gradient(135deg,#0a1f32,#1A3D5C)', borderRadius:'20px', padding:'22px 24px'}}>
-        <p style={{color:'rgba(200,220,240,0.5)', fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase' as const, margin:'0 0 6px'}}>Atelier pratique</p>
+        <p style={{color:'rgba(255,255,255,0.78)', fontSize:'12px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase' as const, margin:'0 0 6px'}}>Atelier pratique</p>
         <p style={{color:'#fff', fontSize:'20px', fontWeight:800, margin:'0 0 4px'}}>Les gestes qui comptent</p>
       </div>
 
@@ -225,7 +225,7 @@ export default function AtelierBebe({C: propC}: any) {
                   background: ouvert ? 'linear-gradient(160deg,#0c1d2e,#1A3D5C)' : '#EEF1EC',
                   color: ouvert ? '#fff' : '#2F4F3E',
                   display:'flex', alignItems:'center', justifyContent:'center',
-                  fontSize:'11px', fontWeight:800,
+                  fontSize:'12px', fontWeight:800,
                 }}>{idx + 1}</span>
                 <span style={{color:'#15263A', fontSize:'15px', fontWeight:800, flex:1, lineHeight:1.3}}>{etape.titre}</span>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1A3D5C" strokeWidth="2.5" strokeLinecap="round" aria-hidden="true" style={{flexShrink:0, transform: ouvert ? 'rotate(180deg)' : 'none', transition:'transform .2s'}}><path d="M6 9l6 6 6-6" /></svg>
@@ -242,7 +242,7 @@ export default function AtelierBebe({C: propC}: any) {
 
       {atelier.conseil && (
         <div style={{background:'linear-gradient(160deg,#0c1d2e,#1A3D5C 70%,#24507a)', borderRadius:'20px', padding:'18px 20px'}}>
-          <p style={{color:'#C9D8C4', fontSize:'11px', fontWeight:700, letterSpacing:'2px', textTransform:'uppercase' as const, margin:'0 0 7px'}}>À retenir</p>
+          <p style={{color:'#C9D8C4', fontSize:'12px', fontWeight:700, letterSpacing:'2px', textTransform:'uppercase' as const, margin:'0 0 7px'}}>À retenir</p>
           <p style={{color:'#fff', fontSize:'14px', lineHeight:1.7, margin:0}}>{atelier.conseil}</p>
         </div>
       )}

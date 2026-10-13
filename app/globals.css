@@ -13,10 +13,11 @@
   --foret: #2F4F3E;
   --terra: #B4593A;
   --terra-clair: #F2DACB;
+  --terra-texte: #9C4A2E;
   --creme: #F6F1E9;
   --blanc: #FFFFFF;
   --texte: #15263A;
-  --texte-2: #5F6B72;
+  --texte-2: #56616B;
   --bord: #E6E0D5;
   --alerte: #B42318;
 
@@ -56,4 +57,36 @@ button, input, select, textarea, optgroup {
 /* Chiffres alignés pour les compteurs */
 .tabular {
   font-variant-numeric: tabular-nums;
+}
+
+/* Contour visible au clavier, partout (prend le pas sur les outline:none en ligne) */
+:focus-visible {
+  outline: 3px solid var(--terra) !important;
+  outline-offset: 2px !important;
+  border-radius: 6px;
+}
+
+/* Lien d'évitement : visible seulement au clavier */
+.skip-link {
+  position: absolute;
+  left: 12px;
+  top: -60px;
+  z-index: 2000;
+  background: var(--navy-800);
+  color: #fff;
+  padding: 12px 18px;
+  border-radius: var(--r-sm);
+  font-weight: 700;
+  text-decoration: none;
+}
+.skip-link:focus { top: 12px; }
+
+/* Respect du réglage « réduire les animations » */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

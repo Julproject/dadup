@@ -10,10 +10,11 @@ export const SAUGE_BORD = COULEURS.saugeBord;
 export const FORET = COULEURS.foret;
 export const TERRA = COULEURS.terra;
 export const TERRA_CLAIR = COULEURS.terraClair;
+export const TERRA_TEXTE = COULEURS.terraTexte;
 export const GRIS = COULEURS.texte2;
 export const BORD = COULEURS.bord;
 
-export const LABEL = { fontSize: '11px', fontWeight: 800, letterSpacing: '1.5px', textTransform: 'uppercase' as const, margin: 0 };
+export const LABEL = { fontSize: '12px', fontWeight: 800, letterSpacing: '1.5px', textTransform: 'uppercase' as const, margin: 0 };
 export const TEXTE = { fontSize: '14px', color: NAVY, lineHeight: 1.7, margin: 0 };
 export const CARTE = { background: '#ffffff', borderRadius: '20px', boxShadow: '0 6px 20px rgba(21,38,58,0.06)' };
 
@@ -87,7 +88,7 @@ export function Accordeons({ items, icone, premierOuvert = true }: { items: Item
 export function CarteInfo({ icone, label, texte, ton = 'blanc' }: { icone: string; label: string; texte: string; ton?: 'blanc' | 'sauge' | 'terra' }) {
   const fond = ton === 'sauge' ? SAUGE : ton === 'terra' ? '#F8E9DF' : '#ffffff';
   const bord = ton === 'sauge' ? SAUGE_BORD : ton === 'terra' ? TERRA_CLAIR : BORD;
-  const couleurLabel = ton === 'sauge' ? FORET : ton === 'terra' ? TERRA : GRIS;
+  const couleurLabel = ton === 'sauge' ? FORET : ton === 'terra' ? TERRA_TEXTE : GRIS;
   return (
     <div style={{ background: fond, border: `1px solid ${bord}`, borderRadius: '20px', padding: '18px', display: 'flex', gap: '14px', alignItems: 'flex-start', boxShadow: ton === 'blanc' ? '0 6px 20px rgba(21,38,58,0.06)' : 'none' }}>
       <TuileIcone nom={icone} />

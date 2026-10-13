@@ -4,7 +4,7 @@ import CheckoutModal from '@/app/components/CheckoutModal';
 
 const C = {
   dark: '#1e2535', gold: '#c8a060', cream: '#faf6f0', white: '#ffffff',
-  border: '#e8e0d0', text: '#4a5568', textLight: '#9aa0a8',
+  border: '#e8e0d0', text: '#4a5568', textLight: '#56616B',
   blue: '#2E5F8A', bluePale: '#E6F0FA', blueDark: '#1A3D5C',
 };
 
@@ -52,7 +52,7 @@ export default function PourquoiPage() {
           <a href="/login" style={{color:C.dark, fontSize:'14px', fontWeight:600, textDecoration:'none'}}>Se connecter</a>
           <button onClick={() => setShowModal(true)} style={{background:'#1e2535', color:'#ffffff', border:'none', padding:'11px 22px', borderRadius:'32px', fontSize:'13px', fontWeight:700, cursor:'pointer'}}>Commencer</button>
         </div>
-        <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)} style={{display:'none', background:'none', border:`1px solid ${C.border}`, padding:'8px 12px', borderRadius:'8px', cursor:'pointer'}}>
+        <button className="hamburger" aria-label={menuOpen ? "Fermer le menu" : "Ouvrir le menu"} aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)} style={{display:'none', minWidth:'44px', minHeight:'44px', background:'none', border:`1px solid ${C.border}`, padding:'8px 12px', borderRadius:'8px', cursor:'pointer'}}>
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
             {menuOpen ? <path d="M4 4L16 16M16 4L4 16" stroke={C.dark} strokeWidth="2" strokeLinecap="round"/> : <path d="M3 5h14M3 10h14M3 15h14" stroke={C.dark} strokeWidth="2" strokeLinecap="round"/>}
           </svg>
@@ -74,7 +74,7 @@ export default function PourquoiPage() {
         <div style={{maxWidth:'800px', margin:'0 auto', textAlign:'center' as const, position:'relative', zIndex:1}}>
           <div style={{display:'inline-flex', alignItems:'center', gap:'8px', background:'rgba(200,160,96,0.18)', border:'1px solid rgba(200,160,96,0.5)', borderRadius:'20px', padding:'5px 14px', marginBottom:'24px'}}>
             <div style={{width:'7px', height:'7px', borderRadius:'50%', background:'#c8a060', boxShadow:'0 0 8px rgba(200,160,96,0.9)'}}></div>
-            <span style={{color:'#e0b870', fontSize:'11px', fontWeight:700, letterSpacing:'1px'}}>Pourquoi DadUp</span>
+            <span style={{color:'#e0b870', fontSize:'12px', fontWeight:700, letterSpacing:'1px'}}>Pourquoi DadUp</span>
           </div>
           <h1 style={{color:C.white, fontSize:'44px', fontWeight:800, margin:'0 0 20px', lineHeight:1.1}}>
             Être père,<br/><span style={{color:'#e0b870'}}>ça se prépare</span>
@@ -89,7 +89,7 @@ export default function PourquoiPage() {
       <section style={{padding:'80px 40px', maxWidth:'1200px', margin:'0 auto'}}>
         <div style={{textAlign:'center' as const, marginBottom:'48px'}}>
           <h2 style={{fontSize:'36px', fontWeight:800, color:C.dark, margin:'0 0 12px'}}>Deux façons de vivre la grossesse</h2>
-          <p style={{color:C.blue, fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase' as const, margin:0}}>Ce que DadUp change</p>
+          <p style={{color:C.blue, fontSize:'12px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase' as const, margin:0}}>Ce que DadUp change</p>
         </div>
         <div style={{display:'flex', flexDirection:'column' as const, gap:'10px'}}>
           {[
@@ -122,7 +122,7 @@ export default function PourquoiPage() {
       <section style={{background:C.cream, padding:'72px 40px'}}>
         <div style={{maxWidth:'900px', margin:'0 auto'}}>
           <div style={{textAlign:'center' as const, marginBottom:'40px'}}>
-            <p style={{color:C.blue, fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase' as const, margin:'0 0 16px'}}>Nos références</p>
+            <p style={{color:C.blue, fontSize:'12px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase' as const, margin:'0 0 16px'}}>Nos références</p>
             <h2 style={{color:C.dark, fontSize:'32px', fontWeight:800, margin:'0 0 12px'}}>Un contenu sourcé et vérifié</h2>
             <p style={{color:C.textLight, fontSize:'15px', margin:0, lineHeight:1.7}}>Chaque information s&apos;appuie sur des recommandations médicales publiées par des institutions reconnues.</p>
           </div>
@@ -155,7 +155,7 @@ export default function PourquoiPage() {
           <div style={{position:'relative', zIndex:1}}>
             <div style={{display:'inline-flex', alignItems:'center', gap:'8px', background:'rgba(200,160,96,0.18)', border:'1px solid rgba(200,160,96,0.5)', borderRadius:'20px', padding:'5px 14px', marginBottom:'24px'}}>
               <div style={{width:'7px', height:'7px', borderRadius:'50%', background:'#c8a060', boxShadow:'0 0 8px rgba(200,160,96,0.9)'}}></div>
-              <span style={{color:'#e0b870', fontSize:'11px', fontWeight:700, letterSpacing:'1px'}}>Accès immédiat</span>
+              <span style={{color:'#e0b870', fontSize:'12px', fontWeight:700, letterSpacing:'1px'}}>Accès immédiat</span>
             </div>
             <h2 style={{color:C.white, fontSize:'48px', fontWeight:800, margin:'0 0 8px', lineHeight:1.1}}>
               Ton bébé arrive<br/><span style={{color:'#e0b870'}}>Commence maintenant</span>

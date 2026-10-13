@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 const C = {
   dark: '#1e2535', gold: '#c8a060', cream: '#faf6f0', white: '#ffffff',
-  border: '#e8e0d0', text: '#4a5568', textLight: '#9aa0a8',
+  border: '#e8e0d0', text: '#4a5568', textLight: '#56616B',
   blue: '#2E5F8A', blueDark: '#1A3D5C',
 };
 
@@ -65,7 +65,7 @@ export default function ContactPage() {
           <a href="/login" style={{color:C.dark, fontSize:'14px', fontWeight:600, textDecoration:'none'}}>Se connecter</a>
           <a href="/tarifs" style={{background:'#1e2535', color:'#fff', border:'none', padding:'11px 22px', borderRadius:'32px', fontSize:'13px', fontWeight:700, cursor:'pointer', textDecoration:'none'}}>Commencer</a>
         </div>
-        <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)} style={{display:'none', background:'none', border:`1px solid ${C.border}`, padding:'8px 12px', borderRadius:'8px', cursor:'pointer'}}>
+        <button className="hamburger" aria-label={menuOpen ? "Fermer le menu" : "Ouvrir le menu"} aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)} style={{display:'none', minWidth:'44px', minHeight:'44px', background:'none', border:`1px solid ${C.border}`, padding:'8px 12px', borderRadius:'8px', cursor:'pointer'}}>
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
             {menuOpen ? <path d="M4 4L16 16M16 4L4 16" stroke={C.dark} strokeWidth="2" strokeLinecap="round"/> : <path d="M3 5h14M3 10h14M3 15h14" stroke={C.dark} strokeWidth="2" strokeLinecap="round"/>}
           </svg>
@@ -87,7 +87,7 @@ export default function ContactPage() {
         <div style={{maxWidth:'800px', margin:'0 auto', textAlign:'center' as const, position:'relative', zIndex:1}}>
           <div style={{display:'inline-flex', alignItems:'center', gap:'8px', background:'rgba(200,160,96,0.18)', border:'1px solid rgba(200,160,96,0.5)', borderRadius:'20px', padding:'5px 14px', marginBottom:'24px'}}>
             <div style={{width:'7px', height:'7px', borderRadius:'50%', background:'#c8a060', boxShadow:'0 0 8px rgba(200,160,96,0.9)'}}></div>
-            <span style={{color:'#e0b870', fontSize:'11px', fontWeight:700, letterSpacing:'1px'}}>Support</span>
+            <span style={{color:'#e0b870', fontSize:'12px', fontWeight:700, letterSpacing:'1px'}}>Support</span>
           </div>
           <h1 style={{color:C.white, fontSize:'44px', fontWeight:800, margin:'0 0 16px', lineHeight:1.1}}>
             On est là<br/><span style={{color:'#e0b870'}}>pour toi</span>
@@ -156,7 +156,7 @@ export default function ContactPage() {
                   {item.icon}
                 </div>
                 <div>
-                  <p style={{color:item.dc, fontSize:'11px', fontWeight:700, letterSpacing:'2px', textTransform:'uppercase' as const, margin:'0 0 4px'}}>{item.titre}</p>
+                  <p style={{color:item.dc, fontSize:'12px', fontWeight:700, letterSpacing:'2px', textTransform:'uppercase' as const, margin:'0 0 4px'}}>{item.titre}</p>
                   <p style={{color:item.tc, fontSize:'17px', fontWeight:800, margin:'0 0 2px'}}>{item.desc}</p>
                   <p style={{color:item.dc, fontSize:'13px', margin:0}}>{item.sub}</p>
                 </div>

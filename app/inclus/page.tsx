@@ -4,7 +4,7 @@ import CheckoutModal from '@/app/components/CheckoutModal';
 
 const C = {
   dark: '#1e2535', gold: '#c8a060', cream: '#faf6f0', white: '#ffffff',
-  border: '#e8e0d0', text: '#4a5568', textLight: '#9aa0a8',
+  border: '#e8e0d0', text: '#4a5568', textLight: '#56616B',
   blue: '#2E5F8A', blueDark: '#1A3D5C',
 };
 
@@ -64,7 +64,7 @@ export default function InclusPage() {
           <a href="/login" style={{color:C.dark, fontSize:'14px', fontWeight:600, textDecoration:'none'}}>Se connecter</a>
           <button onClick={() => setShowModal(true)} style={{background:'#1e2535', color:'#ffffff', border:'none', padding:'11px 22px', borderRadius:'32px', fontSize:'13px', fontWeight:700, cursor:'pointer'}}>Commencer</button>
         </div>
-        <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)} style={{display:'none', background:'none', border:`1px solid ${C.border}`, padding:'8px 12px', borderRadius:'8px', cursor:'pointer'}}>
+        <button className="hamburger" aria-label={menuOpen ? "Fermer le menu" : "Ouvrir le menu"} aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)} style={{display:'none', minWidth:'44px', minHeight:'44px', background:'none', border:`1px solid ${C.border}`, padding:'8px 12px', borderRadius:'8px', cursor:'pointer'}}>
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
             {menuOpen ? <path d="M4 4L16 16M16 4L4 16" stroke={C.dark} strokeWidth="2" strokeLinecap="round"/> : <path d="M3 5h14M3 10h14M3 15h14" stroke={C.dark} strokeWidth="2" strokeLinecap="round"/>}
           </svg>
@@ -86,7 +86,7 @@ export default function InclusPage() {
         <div style={{maxWidth:'800px', margin:'0 auto', textAlign:'center' as const, position:'relative', zIndex:1}}>
           <div style={{display:'inline-flex', alignItems:'center', gap:'8px', background:'rgba(200,160,96,0.18)', border:'1px solid rgba(200,160,96,0.5)', borderRadius:'20px', padding:'5px 14px', marginBottom:'24px'}}>
             <div style={{width:'7px', height:'7px', borderRadius:'50%', background:'#c8a060', boxShadow:'0 0 8px rgba(200,160,96,0.9)'}}></div>
-            <span style={{color:'#e0b870', fontSize:'11px', fontWeight:700, letterSpacing:'1px'}}>Ce qui est inclus</span>
+            <span style={{color:'#e0b870', fontSize:'12px', fontWeight:700, letterSpacing:'1px'}}>Ce qui est inclus</span>
           </div>
           <h1 style={{color:C.white, fontSize:'44px', fontWeight:800, margin:'0 0 20px', lineHeight:1.1, whiteSpace:'nowrap' as const}}>
             Tout ça, <span style={{color:'#e0b870'}}>au bon moment</span>
@@ -146,7 +146,7 @@ export default function InclusPage() {
                   <div style={{padding:'7px 8px', display:'flex', flexDirection:'column' as const, gap:'4px', flex:1}}>
                     <div style={{background:'linear-gradient(135deg,#0a1f32,#1A3D5C)', borderRadius:'11px', padding:'9px 11px', flexShrink:0}}>
                       <p style={{color:C.gold, fontSize:'6.5px', fontWeight:700, letterSpacing:'1.5px', textTransform:'uppercase' as const, margin:'0 0 2px'}}>Semaine 20 · T2</p>
-                      <p style={{color:'#fff', fontSize:'11px', fontWeight:800, margin:'0 0 2px'}}>La mi-grossesse</p>
+                      <p style={{color:'#fff', fontSize:'12px', fontWeight:800, margin:'0 0 2px'}}>La mi-grossesse</p>
                       <p style={{color:'rgba(255,255,255,0.5)', fontSize:'7px', margin:0}}>16,4 cm · 300 g</p>
                     </div>
                     <div style={{background:'#C8E8FF', borderRadius:'8px', padding:'9px 11px', flexShrink:0}}>
@@ -170,7 +170,7 @@ export default function InclusPage() {
                         <p style={{color:C.textLight, fontSize:'6px', fontWeight:700, textTransform:'uppercase' as const, letterSpacing:'1px', margin:'0 0 2px'}}>Prochain RDV</p>
                         <p style={{color:C.dark, fontSize:'8px', fontWeight:700, margin:0}}>Échographie T2 · SA 22</p>
                       </div>
-                      <span style={{color:C.gold, fontSize:'10px'}}>→</span>
+                      <span style={{color:C.gold, fontSize:'12px'}}>→</span>
                     </div>
                   </div>
                   <div style={{display:'flex', justifyContent:'center', padding:'5px 0', flexShrink:0}}>

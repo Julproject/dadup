@@ -26,7 +26,7 @@ export default function CelebrationNaissance({ prenom, onClose }: Props) {
         textAlign: 'center', border: '1px solid #e8e0d0',
       }}>
 
-        <p style={{ color: '#9aa0a8', fontSize: '12px', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase' as const, margin: '0 0 12px' }}>
+        <p style={{ color: '#56616B', fontSize: '12px', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase' as const, margin: '0 0 12px' }}>
           Félicitations
         </p>
 
@@ -38,12 +38,12 @@ export default function CelebrationNaissance({ prenom, onClose }: Props) {
           Bienvenue dans la plus belle aventure de ta vie.
         </p>
 
-        <p style={{ color: '#6a7585', fontSize: '14px', lineHeight: 1.8, margin: '0 0 32px' }}>
+        <p style={{ color: '#56616B', fontSize: '14px', lineHeight: 1.8, margin: '0 0 32px' }}>
           Tout ce que tu as préparé ces derniers mois, c&apos;était pour ce moment. Tu es prêt, même si tu ne le sens pas encore.
         </p>
 
         <div style={{ background: '#E6F0FA', borderRadius: '12px', padding: '20px', marginBottom: '28px' }}>
-          <p style={{ color: '#2E5F8A', fontSize: '11px', fontWeight: 700, letterSpacing: '1px', textTransform: 'uppercase' as const, margin: '0 0 8px' }}>
+          <p style={{ color: '#2E5F8A', fontSize: '12px', fontWeight: 700, letterSpacing: '1px', textTransform: 'uppercase' as const, margin: '0 0 8px' }}>
             Ce qui t&apos;attend
           </p>
           <p style={{ color: '#1A3D5C', fontSize: '16px', fontWeight: 700, margin: 0 }}>

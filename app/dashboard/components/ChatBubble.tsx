@@ -48,9 +48,9 @@ export default function ChatBubble() {
           <div style={{ background: 'linear-gradient(135deg,#0a1f32,#1A3D5C)', padding: '16px 20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
             <div>
               <p style={{ color: '#fff', fontSize: '14px', fontWeight: 700, margin: 0 }}>Une question ?</p>
-              <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '12px', margin: '2px 0 0' }}>On répond en moins de 24h</p>
+              <p style={{ color: 'rgba(255,255,255,0.78)', fontSize: '12px', margin: '2px 0 0' }}>On répond en moins de 24h</p>
             </div>
-            <button onClick={() => setOpen(false)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#6a7585', fontSize: '18px', lineHeight: 1, padding: 0 }}>×</button>
+            <button onClick={() => setOpen(false)} aria-label="Fermer" style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#56616B', fontSize: '22px', lineHeight: 1, padding: 0, width: '44px', height: '44px', margin: '-12px -12px -12px 0' }}>×</button>
           </div>
 
           {/* Corps */}
@@ -78,7 +78,7 @@ export default function ChatBubble() {
                   <span style={{ color: '#C9D8C4', fontSize: '20px', fontWeight: 800 }}>✓</span>
                 </div>
                 <p style={{ color: '#1e2535', fontSize: '14px', fontWeight: 800, margin: '0 0 4px' }}>Message reçu</p>
-                <p style={{ color: '#9aa0a8', fontSize: '12px', margin: 0 }}>On te répond en moins de 24h</p>
+                <p style={{ color: '#56616B', fontSize: '12px', margin: 0 }}>On te répond en moins de 24h</p>
               </div>
             )}
           </div>
@@ -88,6 +88,8 @@ export default function ChatBubble() {
       {/* Bulle */}
       <button
         onClick={() => { setOpen(!open); if (sent) { setSent(false); setMsg(''); } }}
+        aria-label={open ? 'Fermer la discussion' : 'Nous écrire'}
+        aria-expanded={open}
         style={{ width: '52px', height: '52px', borderRadius: '50%', background: 'linear-gradient(135deg,#0a1f32,#1A3D5C)', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 4px 20px rgba(26,61,92,0.4), 0 0 0 3px rgba(157,176,154,0.2)', transition: 'transform 0.15s', marginLeft: 'auto' }}
       >
         {open ? (

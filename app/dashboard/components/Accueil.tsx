@@ -11,7 +11,7 @@ const TERRA = '#B4593A';
 const TERRA_CLAIR = '#F2DACB';
 const GRIS = '#5f6b72';
 
-const LABEL = { fontSize: '11px', fontWeight: 800, letterSpacing: '1.5px', textTransform: 'uppercase' as const, margin: 0 };
+const LABEL = { fontSize: '12px', fontWeight: 800, letterSpacing: '1.5px', textTransform: 'uppercase' as const, margin: 0 };
 
 const ICONES: Record<string, string> = {
   rdv:    'M3 7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2zM3 10h18M8 3v4M16 3v4',

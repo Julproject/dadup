@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 const C = {
   dark: '#1e2535', gold: '#c8a060', cream: '#faf6f0', white: '#ffffff',
-  border: '#e8e0d0', text: '#4a5568', textLight: '#9aa0a8',
+  border: '#e8e0d0', text: '#4a5568', textLight: '#56616B',
   blue: '#2E5F8A', bluePale: '#E6F0FA', blueDark: '#1A3D5C',
   green: '#E4F5EC', greenDark: '#0D6B40',
 };
@@ -88,7 +88,7 @@ export default function ContactPage() {
             <div>
               {/* En-tête */}
               <div style={{textAlign:'center', marginBottom:'32px'}}>
-                <p style={{color:C.blue, fontSize:'11px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase', margin:'0 0 12px'}}>Support</p>
+                <p style={{color:C.blue, fontSize:'12px', fontWeight:700, letterSpacing:'3px', textTransform:'uppercase', margin:'0 0 12px'}}>Support</p>
                 <h1 style={{color:C.dark, fontSize:'32px', fontWeight:800, margin:'0 0 12px'}}>On est là.</h1>
                 <p style={{color:C.textLight, fontSize:'15px', margin:0, lineHeight:1.6}}>
                   Un problème, une question, une idée. On répond sous 24h.

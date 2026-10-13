@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 
 const C = {
   dark: '#1e2535', gold: '#c8a060', cream: '#faf6f0', white: '#ffffff',
-  border: '#e8e0d0', text: '#4a5568', textLight: '#9aa0a8',
+  border: '#e8e0d0', text: '#4a5568', textLight: '#56616B',
   blue: '#2E5F8A', blueDark: '#1A3D5C', green: '#0D6B40', greenPale: '#E4F5EC',
 };
 
@@ -206,7 +206,7 @@ export default function ComptePage() {
         {/* PROGRESSION */}
         {dpa && (
           <div style={{ background: C.white, borderRadius: '20px', padding: '24px', border: `1px solid ${C.border}`, marginBottom: '16px' }}>
-            <p style={{ color: C.textLight, fontSize: '10px', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase' as const, margin: '0 0 16px' }}>Progression</p>
+            <p style={{ color: C.textLight, fontSize: '12px', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase' as const, margin: '0 0 16px' }}>Progression</p>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '12px' }}>
               <div>
                 <p style={{ fontSize: '32px', fontWeight: 800, color: C.dark, margin: 0, lineHeight: 1 }}>{isPost ? 'Post-partum' : `SA ${saReelle}`}</p>
@@ -221,9 +221,9 @@ export default function ComptePage() {
               <div style={{ background: C.gold, width: `${prog}%`, height: '100%', borderRadius: '99px', transition: 'width 0.5s' }}></div>
             </div>
             <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '6px' }}>
-              <span style={{ fontSize: '11px', color: C.textLight }}>SA 3</span>
-              <span style={{ fontSize: '11px', color: C.gold, fontWeight: 700 }}>{prog}%</span>
-              <span style={{ fontSize: '11px', color: C.textLight }}>SA 41</span>
+              <span style={{ fontSize: '12px', color: C.textLight }}>SA 3</span>
+              <span style={{ fontSize: '12px', color: C.gold, fontWeight: 700 }}>{prog}%</span>
+              <span style={{ fontSize: '12px', color: C.textLight }}>SA 41</span>
             </div>
           </div>
         )}
@@ -232,26 +232,26 @@ export default function ComptePage() {
         <div className="g2" style={{ marginBottom: '16px' }}>
           <div style={{ background: C.white, borderRadius: '16px', padding: '16px', border: `1px solid ${C.border}`, textAlign: 'center' }}>
             <p style={{ fontSize: '28px', fontWeight: 800, color: C.green, margin: 0 }}>{missionsCount}</p>
-            <p style={{ fontSize: '11px', color: C.textLight, margin: '4px 0 0' }}>missions complétées</p>
+            <p style={{ fontSize: '12px', color: C.textLight, margin: '4px 0 0' }}>missions complétées</p>
           </div>
           <div style={{ background: C.white, borderRadius: '16px', padding: '16px', border: `1px solid ${C.border}`, textAlign: 'center' }}>
             <p style={{ fontSize: '28px', fontWeight: 800, color: C.blue, margin: 0 }}>{rdvCount}</p>
-            <p style={{ fontSize: '11px', color: C.textLight, margin: '4px 0 0' }}>rendez-vous notés</p>
+            <p style={{ fontSize: '12px', color: C.textLight, margin: '4px 0 0' }}>rendez-vous notés</p>
           </div>
         </div>
 
         {/* INFORMATIONS PERSONNELLES */}
         <div style={{ background: C.white, borderRadius: '20px', padding: '24px', border: `1px solid ${C.border}`, marginBottom: '16px' }}>
-          <p style={{ color: C.textLight, fontSize: '10px', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase' as const, margin: '0 0 20px' }}>Informations personnelles</p>
+          <p style={{ color: C.textLight, fontSize: '12px', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase' as const, margin: '0 0 20px' }}>Informations personnelles</p>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
             <div>
               <label style={{ display: 'block', fontSize: '12px', fontWeight: 700, color: C.dark, marginBottom: '6px' }}>Prénom</label>
-              <input type="text" value={prenom} onChange={e => setPrenom(e.target.value)} style={inputStyle()} />
+              <input type="text" aria-label="Prénom" value={prenom} onChange={e => setPrenom(e.target.value)} style={inputStyle()} />
             </div>
             <div>
               <label style={{ display: 'block', fontSize: '12px', fontWeight: 700, color: C.dark, marginBottom: '6px' }}>Adresse email</label>
-              <input type="email" value={email} onChange={e => setEmail(e.target.value)} style={inputStyle()} />
+              <input type="email" aria-label="Email" value={email} onChange={e => setEmail(e.target.value)} style={inputStyle()} />
             </div>
             <div>
               <label style={{ display: 'block', fontSize: '12px', fontWeight: 700, color: C.dark, marginBottom: '6px' }}>
@@ -260,13 +260,13 @@ export default function ComptePage() {
               </label>
               {false ? (
                 <div>
-                  <input type="date" value={dpa} disabled style={inputStyle(true)} />
+                  <input type="date" aria-label="Date prévue d'accouchement" value={dpa} disabled style={inputStyle(true)} />
                   <p style={{ color: C.textLight, fontSize: '12px', margin: '6px 0 0', lineHeight: 1.5 }}>
                     Tu as déjà modifié ta DPA. Pour toute correction, écris-nous à <a href="mailto:hello@dadup.fr" style={{ color: C.blue }}>hello@dadup.fr</a>
                   </p>
                 </div>
               ) : (
-                <input type="date" value={dpa} onChange={e => setDpa(e.target.value)} style={inputStyle()} />
+                <input type="date" aria-label="Date prévue d'accouchement" value={dpa} onChange={e => setDpa(e.target.value)} style={inputStyle()} />
               )}
             </div>
           </div>
@@ -280,19 +280,19 @@ export default function ComptePage() {
 
         {/* MOT DE PASSE */}
         <div style={{ background: C.white, borderRadius: '20px', padding: '24px', border: `1px solid ${C.border}`, marginBottom: '16px' }}>
-          <p style={{ color: C.textLight, fontSize: '10px', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase' as const, margin: '0 0 20px' }}>Changer le mot de passe</p>
+          <p style={{ color: C.textLight, fontSize: '12px', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase' as const, margin: '0 0 20px' }}>Changer le mot de passe</p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
             <div>
               <label style={{ display: 'block', fontSize: '12px', fontWeight: 700, color: C.dark, marginBottom: '6px' }}>Mot de passe actuel</label>
-              <input type="password" value={oldPwd} onChange={e => setOldPwd(e.target.value)} style={inputStyle()} />
+              <input type="password" aria-label="Mot de passe actuel" value={oldPwd} onChange={e => setOldPwd(e.target.value)} style={inputStyle()} />
             </div>
             <div>
               <label style={{ display: 'block', fontSize: '12px', fontWeight: 700, color: C.dark, marginBottom: '6px' }}>Nouveau mot de passe</label>
-              <input type="password" value={newPwd} onChange={e => setNewPwd(e.target.value)} placeholder="8 caractères minimum" style={inputStyle()} />
+              <input type="password" aria-label="Nouveau mot de passe" value={newPwd} onChange={e => setNewPwd(e.target.value)} placeholder="8 caractères minimum" style={inputStyle()} />
             </div>
             <div>
               <label style={{ display: 'block', fontSize: '12px', fontWeight: 700, color: C.dark, marginBottom: '6px' }}>Confirmer le nouveau mot de passe</label>
-              <input type="password" value={newPwd2} onChange={e => setNewPwd2(e.target.value)} style={inputStyle()} />
+              <input type="password" aria-label="Confirme le nouveau mot de passe" value={newPwd2} onChange={e => setNewPwd2(e.target.value)} style={inputStyle()} />
             </div>
           </div>
           {pwdMsg && <p style={{ color: pwdMsg.includes('jour') ? C.green : '#c04a1a', fontSize: '13px', margin: '12px 0 0' }}>{pwdMsg}</p>}
@@ -304,7 +304,7 @@ export default function ComptePage() {
 
         {/* DÉCLARER LA NAISSANCE */}
         <div style={{ background: C.white, borderRadius: '20px', padding: '24px', border: `1px solid ${C.border}`, marginBottom: '16px' }}>
-          <p style={{ color: C.textLight, fontSize: '10px', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase' as const, margin: '0 0 12px' }}>Étape importante</p>
+          <p style={{ color: C.textLight, fontSize: '12px', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase' as const, margin: '0 0 12px' }}>Étape importante</p>
           <p style={{ color: C.dark, fontSize: '14px', margin: '0 0 16px', lineHeight: 1.6 }}>
             {isPost ? 'Tu es en mode post-partum. Tu peux revenir en mode grossesse si besoin.' : 'Quand bébé arrive, indique-le ici pour accéder au contenu de la première année.'}
           </p>

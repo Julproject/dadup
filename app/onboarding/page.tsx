@@ -10,7 +10,7 @@ const C = {
   white: '#ffffff',
   border: '#e8e0d0',
   text: '#4a5568',
-  textLight: '#9aa0a8',
+  textLight: '#56616B',
 };
 
 export default function OnboardingPage() {
@@ -97,7 +97,7 @@ export default function OnboardingPage() {
           <p style={{color:C.text, fontSize:'13px', margin:0, lineHeight:1.5}}>Tes donnees restent privees. On stocke uniquement ton prenom et ta DPA pour personnaliser ton experience. Aucune revente, aucun spam.</p>
         </div>
 
-        <p style={{textAlign:'center', color:C.textLight, fontSize:'11px', marginTop:'16px'}}>
+        <p style={{textAlign:'center', color:C.textLight, fontSize:'12px', marginTop:'16px'}}>
           Tu pourras modifier ces informations depuis ton espace.
         </p>
 

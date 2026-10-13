@@ -4,7 +4,7 @@ import CheckoutModal from '@/app/components/CheckoutModal';
 
 const C = {
   dark: '#1e2535', gold: '#c8a060', cream: '#faf6f0', white: '#ffffff',
-  border: '#e8e0d0', text: '#4a5568', textLight: '#9aa0a8',
+  border: '#e8e0d0', text: '#4a5568', textLight: '#56616B',
   blue: '#2E5F8A', bluePale: '#E6F0FA', blueDark: '#1A3D5C',
 };
 
@@ -57,7 +57,7 @@ export default function TemoignagesPage() {
           <a href="/login" style={{ color: C.dark, fontSize: '14px', fontWeight: 600, textDecoration: 'none' }}>Se connecter</a>
           <a href="/tarifs" style={{ background: C.dark, color: C.white, padding: '11px 22px', borderRadius: '32px', fontSize: '13px', fontWeight: 700, textDecoration: 'none' }}>Commencer</a>
         </div>
-        <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)} style={{ display: 'none', background: 'none', border: `1px solid ${C.border}`, padding: '8px 12px', borderRadius: '8px', cursor: 'pointer' }}>
+        <button className="hamburger" aria-label={menuOpen ? "Fermer le menu" : "Ouvrir le menu"} aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)} style={{ display: 'none', background: 'none', border: `1px solid ${C.border}`, padding: '8px 12px', borderRadius: '8px', cursor: 'pointer' }}>
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
             {menuOpen ? <path d="M4 4L16 16M16 4L4 16" stroke={C.dark} strokeWidth="2" strokeLinecap="round"/> : <path d="M3 5h14M3 10h14M3 15h14" stroke={C.dark} strokeWidth="2" strokeLinecap="round"/>}
           </svg>
@@ -77,11 +77,11 @@ export default function TemoignagesPage() {
       {/* HERO */}
       <section className="hero" style={{ background: C.dark, padding: '80px 40px' }}>
         <div style={{ maxWidth: '680px', margin: '0 auto', textAlign: 'center' }}>
-          <p style={{ color: C.gold, fontSize: '11px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase', margin: '0 0 20px' }}>Lancement</p>
+          <p style={{ color: C.gold, fontSize: '12px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase', margin: '0 0 20px' }}>Lancement</p>
           <h1 style={{ color: C.white, fontSize: '44px', fontWeight: 800, margin: '0 0 20px', lineHeight: 1.15 }}>
             DadUp vient de<br /><span style={{ color: C.gold }}>démarrer.</span>
           </h1>
-          <p style={{ color: '#6a7585', fontSize: '17px', lineHeight: 1.75, margin: 0 }}>
+          <p style={{ color: 'rgba(255,255,255,0.78)', fontSize: '17px', lineHeight: 1.75, margin: 0 }}>
             Les premiers papas utilisent DadUp en ce moment. Les témoignages arrivent bientôt.
           </p>
         </div>
@@ -92,7 +92,7 @@ export default function TemoignagesPage() {
 
         {/* CE QU'ON CONSTRUIT */}
         <div style={{ marginBottom: '64px' }}>
-          <p style={{ color: C.blue, fontSize: '11px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase', margin: '0 0 20px' }}>Ce qu&apos;on construit</p>
+          <p style={{ color: C.blue, fontSize: '12px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase', margin: '0 0 20px' }}>Ce qu&apos;on construit</p>
           <div className='tem-grid' style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '16px' }}>
             {[
               { num: '41', label: 'semaines de contenu', desc: 'De la SA 3 à la SA 41, chaque semaine couverte.' },
@@ -110,7 +110,7 @@ export default function TemoignagesPage() {
 
         {/* EN ATTENDANT */}
         <div>
-          <p style={{ color: C.blue, fontSize: '11px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase', margin: '0 0 20px' }}>En attendant</p>
+          <p style={{ color: C.blue, fontSize: '12px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase', margin: '0 0 20px' }}>En attendant</p>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
             {[
               { titre: 'Voir ce qui est inclus', desc: 'Découvre les 6 modules qui couvrent toute la grossesse.', href: '/inclus', cta: 'Voir le contenu' },
@@ -136,20 +136,20 @@ export default function TemoignagesPage() {
               <span style={{ color: C.white, fontSize: '16px', fontWeight: 700 }}>DadUp</span>
             </div>
             <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' as const }}>
-              <a href="/pourquoi" style={{ color: '#6a7585', fontSize: '13px', textDecoration: 'none' }}>Pourquoi DadUp</a>
-              <a href="/inclus" style={{ color: '#6a7585', fontSize: '13px', textDecoration: 'none' }}>Ce qui est inclus</a>
-              <a href="/tarifs" style={{ color: '#6a7585', fontSize: '13px', textDecoration: 'none' }}>Tarifs</a>
-              <a href="/temoignages" style={{ color: '#6a7585', fontSize: '13px', textDecoration: 'none' }}>Témoignages</a>
-              <a href="/contact" style={{ color: '#6a7585', fontSize: '13px', textDecoration: 'none' }}>Contactez-nous</a>
+              <a href="/pourquoi" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '13px', textDecoration: 'none' }}>Pourquoi DadUp</a>
+              <a href="/inclus" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '13px', textDecoration: 'none' }}>Ce qui est inclus</a>
+              <a href="/tarifs" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '13px', textDecoration: 'none' }}>Tarifs</a>
+              <a href="/temoignages" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '13px', textDecoration: 'none' }}>Témoignages</a>
+              <a href="/contact" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '13px', textDecoration: 'none' }}>Contactez-nous</a>
             </div>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap' as const, gap: '12px', paddingTop: '12px', borderTop: '1px solid #2e3848' }}>
             <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' as const }}>
-              <a href="/cgv" style={{ color: '#3d4f6a', fontSize: '12px', textDecoration: 'none' }}>CGV</a>
-              <a href="/confidentialite" style={{ color: '#3d4f6a', fontSize: '12px', textDecoration: 'none' }}>Confidentialité</a>
-              <a href="/mentions-legales" style={{ color: '#3d4f6a', fontSize: '12px', textDecoration: 'none' }}>Mentions légales</a>
+              <a href="/cgv" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '12px', textDecoration: 'none' }}>CGV</a>
+              <a href="/confidentialite" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '12px', textDecoration: 'none' }}>Confidentialité</a>
+              <a href="/mentions-legales" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '12px', textDecoration: 'none' }}>Mentions légales</a>
             </div>
-            <p style={{ color: '#3d4f6a', fontSize: '12px', margin: 0 }}>Il ne remplace pas l&apos;avis d&apos;un médecin.</p>
+            <p style={{ color: 'rgba(255,255,255,0.75)', fontSize: '12px', margin: 0 }}>Il ne remplace pas l&apos;avis d&apos;un médecin.</p>
           </div>
         </div>
       </footer>
