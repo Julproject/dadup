@@ -7,7 +7,7 @@ const THEME_COLORS: Record<string,{bg:string;tc:string;accent:string}> = {
   role:   { bg:'#E3EBF3', tc:'#1A3D5C', accent:'#1A3D5C' },
 };
 
-type Semaine = {
+export type Semaine = {
   sa: number;
   theme: 'peur' | 'couple' | 'lien' | 'role';
   titre: string;
@@ -17,7 +17,7 @@ type Semaine = {
   source: string;
 };
 
-const SEMAINES: Semaine[] = [
+export const SEMAINES: Semaine[] = [
   {
     sa: 3, theme: 'peur',
     titre: "L'annonce, et le choc qui va avec",

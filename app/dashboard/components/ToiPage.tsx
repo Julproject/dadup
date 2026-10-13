@@ -1,8 +1,6 @@
 'use client';
 import { useState } from 'react';
-import dynamic from 'next/dynamic';
-
-const PsychoPage = dynamic(() => import('./PsychoPage'));
+import { SEMAINES } from './PsychoPage';
 
 // ── Styles partagés (système unifié du dashboard) ─────────────────────────────
 const LABEL = { fontSize: '11px', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase' as const, color: '#6a7585', margin: '0 0 8px' };
@@ -54,6 +52,9 @@ const FICHES = [
   },
 ];
 
+const ICON_POURQUOI = 'M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2zM4 19V5M8 7h7M8 11h5';
+const ICON_FAIRE = 'M9 11l3 3 8-8M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9';
+
 export default function ToiPage({ C, saReelle }: any) {
   const sa = saReelle || 20;
   const defi = DEFIS[sa % DEFIS.length];
@@ -63,7 +64,14 @@ export default function ToiPage({ C, saReelle }: any) {
     if (typeof window === 'undefined') return {};
     try { return JSON.parse(localStorage.getItem('dadup_defis') || '{}'); } catch { return {}; }
   });
-  const [ouverte, setOuverte] = useState<string | null>(null);
+  const [ouverte, setOuverte] = useState<string | null>('faire');
+
+  const semaine = SEMAINES.find(s => s.sa === sa)
+    || SEMAINES.reduce((p, c) => Math.abs(c.sa - sa) < Math.abs(p.sa - sa) ? c : p, SEMAINES[0]);
+  const fichesSemaine = semaine ? [
+    { id: 'faire', icon: ICON_FAIRE, titre: 'Ce que tu peux faire cette semaine', texte: semaine.conseil, source: '' },
+    { id: 'pourquoi', icon: ICON_POURQUOI, titre: 'Pourquoi tu ressens ça', texte: semaine.corps, source: semaine.source },
+  ] : [];
 
   const toggleDefi = () => {
     const next = { ...defisFaits, [cleDefi]: !defisFaits[cleDefi] };
@@ -100,9 +108,44 @@ export default function ToiPage({ C, saReelle }: any) {
         </div>
       </div>
 
-      {/* CE QUE TU RESSENS */}
+      {/* CE QUE TU RESSENS CETTE SEMAINE */}
+      {semaine && (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+          <p style={{ ...LABEL, margin: '8px 0 0' }}>Ce que tu ressens cette semaine</p>
+          <div style={{ background: '#ffffff', border: '1px solid #E6E0D5', borderRadius: '20px', padding: '22px 24px', boxShadow: '0 6px 20px rgba(21,38,58,0.05)', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+            <span style={{ alignSelf: 'flex-start', background: 'linear-gradient(160deg,#0c1d2e,#1A3D5C)', color: '#ffffff', borderRadius: '8px', padding: '4px 10px', fontSize: '12px', fontWeight: 800 }}>SA {semaine.sa}</span>
+            <p style={{ fontSize: '20px', fontWeight: 800, color: '#15263A', margin: 0, lineHeight: 1.3, letterSpacing: '-0.3px' }}>{semaine.titre}</p>
+            <p style={TEXTE}>{semaine.intro}</p>
+          </div>
+          {fichesSemaine.map(f => {
+            const open = ouverte === f.id;
+            return (
+            <div key={f.id} style={{ background: '#ffffff', border: '1px solid #E6E0D5', borderRadius: '20px', overflow: 'hidden', boxShadow: '0 6px 20px rgba(21,38,58,0.05)' }}>
+              <button onClick={() => setOuverte(open ? null : f.id)} aria-expanded={open} style={{
+                width: '100%', minHeight: '56px', background: 'none', border: 'none', cursor: 'pointer', textAlign: 'left' as const,
+                padding: '14px 18px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '14px',
+              }}>
+                <span style={{ width: '46px', height: '46px', borderRadius: '12px', background: 'linear-gradient(160deg,#0c1d2e,#1A3D5C)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#DCE5D7" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d={f.icon} /></svg>
+                </span>
+                <span style={{ ...TITRE, flex: 1 }}>{f.titre}</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1A3D5C" strokeWidth="2.5" strokeLinecap="round" aria-hidden="true" style={{ flexShrink: 0, transform: open ? 'rotate(180deg)' : 'none', transition: 'transform .2s' }}><path d="M6 9l6 6 6-6" /></svg>
+              </button>
+              {open && (
+                <div style={{ padding: '0 18px 18px 78px' }}>
+                  {f.texte.split('\n\n').map((para: string, i: number) => <p key={i} style={{ ...TEXTE, marginTop: i ? '12px' : 0 }}>{para}</p>)}
+                  {f.source && <p style={SOURCE}>Source : {f.source}</p>}
+                </div>
+              )}
+            </div>
+            );
+          })}
+        </div>
+      )}
+
+      {/* LES GRANDES QUESTIONS */}
       <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-        <p style={{ ...LABEL, margin: '8px 0 0' }}>Ce que tu ressens</p>
+        <p style={{ ...LABEL, margin: '8px 0 0' }}>Les grandes questions</p>
         {FICHES.map(f => {
           const open = ouverte === f.id;
           return (
@@ -119,8 +162,8 @@ export default function ToiPage({ C, saReelle }: any) {
               </button>
               {open && (
                 <div style={{ padding: '0 18px 18px 78px' }}>
-                  <p style={TEXTE}>{f.texte}</p>
-                  <p style={SOURCE}>Source : {f.source}</p>
+                  {f.texte.split('\n\n').map((para: string, i: number) => <p key={i} style={{ ...TEXTE, marginTop: i ? '12px' : 0 }}>{para}</p>)}
+                  {f.source && <p style={SOURCE}>Source : {f.source}</p>}
                 </div>
               )}
             </div>
@@ -138,10 +181,13 @@ export default function ToiPage({ C, saReelle }: any) {
           <li style={TEXTE}>Un psychologue, avec des séances remboursées grâce au dispositif Mon soutien psy</li>
         </ul>
         <p style={SOURCE}>Source : info.gouv.fr, dispositif Mon soutien psy (12 séances remboursées par an)</p>
+        <a href="https://www.doctolib.fr/psychologue" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', minHeight: '44px', marginTop: '14px', background: 'linear-gradient(160deg,#0c1d2e,#1A3D5C)', color: '#ffffff', padding: '11px 20px', borderRadius: '12px', fontSize: '14px', fontWeight: 800, textDecoration: 'none' }}>Trouver un psychologue sur Doctolib</a>
       </div>
 
-      {/* PSYCHO DE LA SEMAINE */}
-      <PsychoPage C={C} saReelle={saReelle} />
+      {/* MENTION MÉDICALE */}
+      <div style={{ background: '#ffffff', borderRadius: '14px', padding: '12px 16px', border: '1px solid #E6E0D5' }}>
+        <p style={{ color: '#5f6b72', fontSize: '13px', lineHeight: 1.6, margin: 0 }}>DadUp ne remplace pas l&apos;avis d&apos;un professionnel. Si tu traverses quelque chose de difficile, parles-en à ton médecin.</p>
+      </div>
     </div>
   );
 }
