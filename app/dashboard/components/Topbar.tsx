@@ -94,7 +94,7 @@ export default function Topbar({ prenom, dpa, saReelle, tri, prog, isPost, moisB
               return (
                 <button key={n.id} onClick={() => setActiveTab(n.target)} aria-current={on ? 'page' : undefined} className="tab-btn" style={{
                   padding: '12px 16px 11px', fontSize: '14px', fontWeight: on ? 800 : 700, border: 'none',
-                  borderBottom: on ? '3px solid #C96F4A' : '3px solid transparent',
+                  borderBottom: on ? '3px solid #B4593A' : '3px solid transparent',
                   cursor: 'pointer', whiteSpace: 'nowrap' as const, flexShrink: 0, background: 'transparent',
                   color: on ? '#15263A' : '#5f6b72',
                 }}>{n.label}</button>
@@ -117,7 +117,7 @@ export default function Topbar({ prenom, dpa, saReelle, tri, prog, isPost, moisB
           return (
             <button key={n.id} onClick={() => setActiveTab(n.target)} aria-current={on ? 'page' : undefined} style={{
               flex: 1, minWidth: 0, minHeight: '50px', background: 'none', border: 'none', cursor: 'pointer',
-              borderTop: on ? '3px solid #C96F4A' : '3px solid transparent',
+              borderTop: on ? '3px solid #B4593A' : '3px solid transparent',
               display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '3px', padding: '4px 0 0',
             }}>
               <Icon name={n.icon} color={on ? '#15263A' : '#8b949a'} />

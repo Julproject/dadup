@@ -27,7 +27,7 @@ export default function PaiementAnnulePage() {
     <main style={{
       minHeight: '100vh', background: C.cream,
       display: 'flex', alignItems: 'center', justifyContent: 'center',
-      padding: '20px', fontFamily: "-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"
+      padding: '20px', fontFamily: 'inherit'
     }}>
       <div style={{ maxWidth: '480px', width: '100%', textAlign: 'center' }}>
 

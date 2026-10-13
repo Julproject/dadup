@@ -110,8 +110,8 @@ export default function Accueil({C,dpa,prenom,saReelle,joursRestants,prog,tri,id
           <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
             <div style={{ width: '84px', height: '84px', borderRadius: '50%', background: TERRA_CLAIR, boxShadow: 'inset 0 0 0 8px #F8E9DF', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
               <svg viewBox="0 0 100 100" width="48" height="48" role="img" aria-label={`Bébé à ${saReelle} SA`}>
-                <path d="M50 22 C68 22 76 36 74 50 C72 64 62 72 52 75 C42 78 34 74 32 66 C30 58 36 52 42 50" stroke="#C96F4A" strokeWidth="11" strokeLinecap="round" fill="none"/>
-                <circle cx="52" cy="28" r="13" fill="#C96F4A"/>
+                <path d="M50 22 C68 22 76 36 74 50 C72 64 62 72 52 75 C42 78 34 74 32 66 C30 58 36 52 42 50" stroke="#B4593A" strokeWidth="11" strokeLinecap="round" fill="none"/>
+                <circle cx="52" cy="28" r="13" fill="#B4593A"/>
               </svg>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column' as const, gap: '4px', minWidth: 0 }}>

@@ -1,4 +1,6 @@
 import type { Metadata } from 'next';
+import '@fontsource-variable/manrope';
+import './globals.css';
 
 export const metadata: Metadata = {
   verification: {
@@ -47,10 +49,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="fr">
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="manifest" href="/manifest.json" />
-        <meta name="theme-color" content="#1e2535" />
+        <meta name="theme-color" content="#0C1D2E" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <script dangerouslySetInnerHTML={{__html: `
           if ('serviceWorker' in navigator) {

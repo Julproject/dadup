@@ -178,7 +178,7 @@ export default function ComptePage() {
   );
 
   return (
-    <div style={{ minHeight: '100vh', background: C.cream, fontFamily: "-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" }}>
+    <div style={{ minHeight: '100vh', background: C.cream, fontFamily: 'inherit' }}>
       <style>{`*{box-sizing:border-box;margin:0;padding:0;} .g2{display:grid;grid-template-columns:1fr 1fr;gap:12px;} @media(max-width:600px){.g2{grid-template-columns:1fr!important;}}`}</style>
 
       {/* NAV */}

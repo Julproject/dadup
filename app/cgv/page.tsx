@@ -33,7 +33,7 @@ export default function CGVPage() {
           .footer-section{padding:24px 16px!important;}
         }
       `}</style>
-      <main style={{ minHeight: '100vh', background: '#faf6f0', fontFamily: "-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif", color: '#4a5568' }}>
+      <main style={{ minHeight: '100vh', background: '#faf6f0', fontFamily: 'inherit', color: '#4a5568' }}>
 
       <nav style={{ background: '#ffffff', borderBottom: '1px solid #e8e0d0', padding: '0 40px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '64px' }}>
         <a href="/" style={{ display: 'flex', alignItems: 'center', gap: '8px', textDecoration: 'none' }}>

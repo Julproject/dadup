@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function NotFound() {
   return (
-    <main style={{ minHeight: '100vh', background: '#faf6f0', fontFamily: "-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif", display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '24px' }}>
+    <main style={{ minHeight: '100vh', background: '#faf6f0', fontFamily: 'inherit', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '24px' }}>
       <div style={{ textAlign: 'center', maxWidth: '480px' }}>
 
         <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '32px' }}>

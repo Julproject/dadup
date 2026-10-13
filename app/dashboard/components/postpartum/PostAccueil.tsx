@@ -49,7 +49,7 @@ export default function PostAccueil({ moisBebe, dataBebe, joursRestants, prenom,
       <div style={{ ...CARTE, padding: '18px', display: 'flex', flexDirection: 'column', gap: '14px' }}>
         <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
           <div style={{ width: '72px', height: '72px', borderRadius: '50%', background: TERRA_CLAIR, boxShadow: 'inset 0 0 0 7px #F8E9DF', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#C96F4A" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM5 21a7 7 0 0 1 14 0" /></svg>
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#B4593A" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM5 21a7 7 0 0 1 14 0" /></svg>
           </div>
           <div style={{ minWidth: 0 }}>
             <p style={{ ...LABEL, color: FORET, marginBottom: '4px' }}>Bébé ce mois-ci</p>
