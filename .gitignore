@@ -3,3 +3,9 @@
 .env*.local
 node_modules/
 .next/
+
+# Tests
+tests/.outbox.jsonl
+tests/.*.log
+__pycache__/
+.pytest_cache/

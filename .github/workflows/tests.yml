@@ -1,0 +1,38 @@
+name: Tests
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  e2e:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Dépendances
+        run: |
+          npm ci
+          pip install pytest playwright
+          python -m playwright install --with-deps chromium
+
+      - name: Build et démarrage de l'environnement simulé
+        run: tests/outils/demarrer.sh --build
+
+      - name: Tests
+        run: python -m pytest -q tests/e2e
+
+      - name: Journaux en cas d'échec
+        if: failure()
+        run: tail -n 100 tests/.serveur.log || true
