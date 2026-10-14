@@ -5,12 +5,10 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, { apiVersion: '2023-10
 
 export async function POST(req: NextRequest) {
   try {
-    const { priceId } = await req.json();
-
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
       line_items: [{
-        price: priceId || process.env.STRIPE_PRICE_ID!,
+        price: process.env.STRIPE_PRICE_ID!, // prix fixé côté serveur uniquement
         quantity: 1,
       }],
       mode: 'payment',

@@ -83,7 +83,7 @@ export default function ComptePage() {
     setSaving(true);
     setInfoMsg('');
     try {
-      const body: Record<string, string> = { prenom, email };
+      const body: Record<string, string> = { prenom };
       if (dpa) {
         body.dpa = dpa;
         body.dpa_originale = dpa;
@@ -129,9 +129,6 @@ export default function ComptePage() {
   const declareNaissance = async () => {
     if (!isPost) {
       // Bascule en post-partum
-      const accessUntil = new Date();
-      accessUntil.setFullYear(accessUntil.getFullYear() + 1);
-      const accessUntilStr = accessUntil.toISOString().split('T')[0];
 
       // DPA post-partum = aujourd'hui - 2 jours
       const dpaPost = new Date();
@@ -144,7 +141,7 @@ export default function ComptePage() {
       await fetch('/api/auth/save', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ dpa: dpaPostStr, dpa_originale: dpa || '', access_until: accessUntilStr }),
+        body: JSON.stringify({ dpa: dpaPostStr, dpa_originale: dpa || '', naissance_count_increment: true }),
       });
       setIsPost(true);
     } else {
@@ -251,7 +248,8 @@ export default function ComptePage() {
             </div>
             <div>
               <label style={{ display: 'block', fontSize: '12px', fontWeight: 700, color: C.dark, marginBottom: '6px' }}>Adresse email</label>
-              <input type="email" aria-label="Email" value={email} onChange={e => setEmail(e.target.value)} style={inputStyle()} />
+              <input type="email" aria-label="Email" value={email} readOnly disabled style={inputStyle(true)} />
+              <p style={{ color: C.textLight, fontSize: '12px', margin: '6px 0 0', lineHeight: 1.5 }}>Pour changer d&apos;adresse email, écris-nous à <a href="mailto:hello@dadup.fr" style={{ color: C.blue }}>hello@dadup.fr</a>.</p>
             </div>
             <div>
               <label style={{ display: 'block', fontSize: '12px', fontWeight: 700, color: C.dark, marginBottom: '6px' }}>

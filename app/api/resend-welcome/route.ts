@@ -36,8 +36,10 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ status: 'pending' });
     }
 
+    // Un compte désactivé (résilié, remboursé) n'est jamais réactivé ici :
+    // seule une nouvelle confirmation de paiement Stripe (webhook) peut le réactiver.
     if (!user.actif) {
-      await supabase.from('users').update({ actif: true }).eq('id', user.id);
+      return NextResponse.json({ status: 'inactive' });
     }
 
     const tokenValide = user.reset_token && user.reset_token_expires
