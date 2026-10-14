@@ -1,23 +1,16 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 import Stripe from 'stripe';
+import { utilisateurDeSession } from '../../../lib/session';
 
 const stripe  = new Stripe(process.env.STRIPE_SECRET_KEY!, { apiVersion: '2023-10-16' });
 const supabase = createClient(process.env.SUPABASE_URL!, process.env.SUPABASE_SERVICE_ROLE_KEY!);
 
 export async function POST(req: NextRequest) {
   try {
-    const sessionId = req.cookies.get('dadup_session')?.value;
-    if (!sessionId) return NextResponse.json({ error: 'Non connecté.' }, { status: 401 });
-
-    // Récupérer l'utilisateur
-    const { data: user, error } = await supabase
-      .from('users')
-      .select('id, email, actif, created_at, stripe_customer_id, stripe_subscription_id')
-      .eq('id', sessionId)
-      .single();
-
-    if (error || !user) return NextResponse.json({ error: 'Utilisateur introuvable.' }, { status: 404 });
+    const { user } = await utilisateurDeSession<{ email: string; actif: boolean; created_at: string; stripe_customer_id: string | null; stripe_subscription_id: string | null }>(
+      req, supabase, 'id, email, actif, created_at, stripe_customer_id, stripe_subscription_id');
+    if (!user) return NextResponse.json({ error: 'Non connecté.' }, { status: 401 });
     if (!user.actif)    return NextResponse.json({ error: 'Compte déjà désactivé.' },    { status: 400 });
 
     const joursDepuisInscription = Math.floor(

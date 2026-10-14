@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 import bcrypt from 'bcryptjs';
+import { poserSession } from '../../../../lib/session';
 
 const supabase = createClient(
   process.env.SUPABASE_URL!,
@@ -55,14 +56,8 @@ export async function POST(req: NextRequest) {
       }
     });
 
-    // Cookie permanent (10 ans) — l'utilisateur reste connecté jusqu'à déconnexion manuelle
-    res.cookies.set('dadup_session', user.id, {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
-      sameSite: 'lax',
-      path: '/',
-      maxAge: 60 * 60 * 24 * 365 * 10, // 10 ans
-    });
+    // Session signée (90 jours, renouvelée tant que l'utilisateur revient)
+    poserSession(res, user);
 
     return res;
   } catch (err) {

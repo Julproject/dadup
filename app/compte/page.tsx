@@ -55,14 +55,15 @@ export default function ComptePage() {
       setEmail(user.email || '');
       setDpa(user.dpa || '');
       setDpaOriginale(user.dpa_originale || '');
+      // Naissance déclarée = dpa_originale renseignée en base
+      setIsPost(!!user.dpa_originale);
 
 
 
       if (user.dpa) {
         const jr = Math.round((parseLocalDate(user.dpa).setHours(0,0,0,0) - new Date().setHours(0,0,0,0)) / (1000*60*60*24));
         setJoursRestants(jr);
-        const post = localStorage.getItem('dadup_is_post') === '1';
-        if (!post) setSaReelle(Math.max(3, Math.min(41, Math.round(41 - jr / 7))));
+        if (!user.dpa_originale) setSaReelle(Math.max(3, Math.min(41, Math.round(41 - jr / 7))));
       }
 
       const missions = JSON.parse(localStorage.getItem('dadup_missions') || '{}');
@@ -71,7 +72,7 @@ export default function ComptePage() {
       const rdvDates = JSON.parse(localStorage.getItem('dadup_rdv_dates') || '{}');
       setRdvCount(Object.keys(rdvDates).length);
 
-      // isPost basé sur flag localStorage, pas sur la DPA
+      // isPost vient du compte (dpa_originale), voir plus haut
       setLoading(false);
     }).catch(() => router.push('/login'));
   }, []);
@@ -86,7 +87,6 @@ export default function ComptePage() {
       const body: Record<string, string> = { prenom };
       if (dpa) {
         body.dpa = dpa;
-        body.dpa_originale = dpa;
         body.dpa_modif_increment = 'true';
       }
       const res = await fetch('/api/auth/save', {
@@ -126,40 +126,9 @@ export default function ComptePage() {
     finally { setPwdLoading(false); }
   };
 
-  const declareNaissance = async () => {
-    if (!isPost) {
-      // Bascule en post-partum
-
-      // DPA post-partum = aujourd'hui - 2 jours
-      const dpaPost = new Date();
-      dpaPost.setDate(dpaPost.getDate() - 2);
-      const dpaPostStr = dpaPost.toISOString().split('T')[0];
-
-      localStorage.setItem('dadup_is_post', '1');
-      localStorage.setItem('dadup_dpa', dpaPostStr);
-
-      await fetch('/api/auth/save', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ dpa: dpaPostStr, dpa_originale: dpa || '', naissance_count_increment: true }),
-      });
-      setIsPost(true);
-    } else {
-      // Retour en mode grossesse
-      localStorage.removeItem('dadup_is_post');
-      const dpaOri = localStorage.getItem('dadup_dpa_originale') || dpa;
-      if (dpaOri) localStorage.setItem('dadup_dpa', dpaOri);
-      localStorage.removeItem('dadup_dpa_originale');
-      setIsPost(false);
-      // Sauvegarder en Supabase
-      await fetch('/api/auth/save', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ dpa: dpaOri, dpa_originale: null }),
-      });
-    }
-
-    window.location.href = '/dashboard';
+  // La déclaration (et le retour en mode grossesse) se fait dans la fenêtre du tableau de bord
+  const declareNaissance = () => {
+    window.location.href = '/dashboard?tab=home&naissance=1';
   };
 
   const logout = async () => {
