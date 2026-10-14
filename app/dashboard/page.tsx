@@ -237,11 +237,7 @@ function DashboardContent() {
       localStorage.setItem('dadup_dpa', dpaPostPartum);
       localStorage.setItem('dadup_is_post', '1');
       setIsPostFlag(true);
-      // Calculer access_until = aujourd'hui + 12 mois (basé sur le dernier clic)
-      const accessUntil = new Date();
-      accessUntil.setFullYear(accessUntil.getFullYear() + 1);
-      const accessUntilStr = accessUntil.toISOString().split('T')[0];
-      await saveData({ dpa: dpaPostPartum, dpa_originale: dpaCourante, access_until: accessUntilStr, naissance_count_increment: true });
+      await saveData({ dpa: dpaPostPartum, dpa_originale: dpaCourante, naissance_count_increment: true });
       setShowCelebration(true);
       setActiveTab('home');
     }
