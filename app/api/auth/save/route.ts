@@ -48,7 +48,10 @@ async function alerteInterne(sujet: string, html: string) {
 
 export async function POST(req: NextRequest) {
   try {
-    const { user: session } = await utilisateurDeSession(req, supabase, 'id, actif');
+    const { user: session, erreurBase } = await utilisateurDeSession(req, supabase, 'id, actif');
+    if (erreurBase) {
+      return NextResponse.json({ error: 'DadUp est momentanément indisponible.' }, { status: 503 });
+    }
     if (!session || !session.actif) {
       return NextResponse.json({ error: 'Non connecté.' }, { status: 401 });
     }

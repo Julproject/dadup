@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 import { utilisateurDeSession, effacerSession } from '../../../../lib/session';
+import { accesTermine } from '../../../../lib/acces';
 
 const supabase = createClient(
   process.env.SUPABASE_URL!,
@@ -25,14 +26,14 @@ export async function GET(req: NextRequest) {
       'id, email, prenom, dpa, dpa_originale, actif, access_until, valise_checked, missions_checked, achats_checked, rdv_dates, next_rdv',
     );
 
+    // Base injoignable : on garde la session (l'app affiche ses données locales et réessaie)
     if (erreurBase) {
-      // Comportement inchangé pour l'instant (évite une boucle /login ↔ /dashboard) ; à revoir au lot D
       console.error('Supabase me error');
-      return noUser(401);
+      return NextResponse.json({ user: null, indisponible: true }, { status: 503 });
     }
     if (!user || !user.actif) return noUser(401);
 
-    if (user.access_until && new Date() > new Date(user.access_until)) {
+    if (accesTermine(user as { access_until?: string | null; dpa?: string | null; dpa_originale?: string | null })) {
       return noUser(403, { expired: true });
     }
 

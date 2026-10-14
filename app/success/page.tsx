@@ -51,7 +51,7 @@ function SuccessContent() {
       await fetch('/api/resend-welcome', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ sessionId }),
+        body: JSON.stringify({ session_id: sessionId, manuel: true }),
       });
       setResent(true);
     } catch {

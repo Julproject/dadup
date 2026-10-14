@@ -99,6 +99,17 @@ function DashboardContent() {
   const [dpaOriginale,         setDpaOriginale]       = useState(() => readLS('dadup_dpa_originale'));
   const [dateNaissance,        setDateNaissance]      = useState(() => isoLocal(new Date()));
 
+  // Synchronisation : 'attente' = modifications pas encore enregistrées ; 'indisponible' = serveur injoignable
+  const [etatSync,             setEtatSync]           = useState<'ok' | 'attente' | 'indisponible'>('ok');
+  const [erreurChargement,     setErreurChargement]   = useState(false);
+
+  // Bouton retour / suivant du navigateur : l'onglet suit l'adresse
+  useEffect(() => {
+    const onPop = () => setActiveTabRaw(new URLSearchParams(window.location.search).get('tab') || 'home');
+    window.addEventListener('popstate', onPop);
+    return () => window.removeEventListener('popstate', onPop);
+  }, []);
+
   // Routing par URL
   const setActiveTab = (tab: string) => {
     setActiveTabRaw(tab);
@@ -115,12 +126,22 @@ function DashboardContent() {
     if (tabFromUrl) setActiveTabRaw(tabFromUrl);
     if (params.get('naissance') === '1') setShowConfirmNaissance(true);
 
+    const serveurInjoignable = () => {
+      // On reste connecté : l'utilisateur voit ses données locales, l'app réessaiera
+      setEtatSync('indisponible');
+      if (!readLS('dadup_dpa') && !readLS('dadup_prenom')) setErreurChargement(true);
+    };
+
     fetch('/api/auth/me')
-      .then(r => r.json())
-      .then(({ user }) => {
+      .then(async r => {
+        if (r.status >= 500) { serveurInjoignable(); return; }
+        const { user } = await r.json();
         if (!user) { window.location.href = '/login'; return; }
-        const p = user.prenom || '';
-        const d = user.dpa    || '';
+        // Les modifications locales pas encore enregistrées sont plus récentes que la base
+        const enAttente = lireEnAttente();
+        const val = (cle: string) => (cle in enAttente ? enAttente[cle] : user[cle]) as any;
+        const p = val('prenom') || '';
+        const d = val('dpa')    || '';
 
         // Mettre à jour l'état ET le localStorage avec les données Supabase (source de vérité)
         setPrenom(p);
@@ -130,11 +151,11 @@ function DashboardContent() {
         else   localStorage.removeItem('dadup_dpa');
 
         // Données étendues
-        const vc = user.valise_checked    || {};
-        const mc = user.missions_checked  || {};
-        const rd = user.rdv_dates         || {};
-        const nr = user.next_rdv          || '';
-        const ac = user.achats_checked    || {};
+        const vc = val('valise_checked')    || {};
+        const mc = val('missions_checked')  || {};
+        const rd = val('rdv_dates')         || {};
+        const nr = val('next_rdv')          || '';
+        const ac = val('achats_checked')    || {};
         setValiseChecked(vc);
         setMissionsChecked(mc);
         setRdvDates(rd);
@@ -147,11 +168,12 @@ function DashboardContent() {
         localStorage.setItem('dadup_achats',    JSON.stringify(ac));
 
         // Naissance déclarée = dpa_originale renseignée en base (source de vérité, tous appareils)
-        const naissanceDeclaree = !!user.dpa_originale;
-        setDpaOriginale(user.dpa_originale || '');
+        const dpaOri = val('dpa_originale') || '';
+        const naissanceDeclaree = !!dpaOri;
+        setDpaOriginale(dpaOri);
         setIsPostFlag(naissanceDeclaree);
         if (naissanceDeclaree) {
-          localStorage.setItem('dadup_dpa_originale', user.dpa_originale);
+          localStorage.setItem('dadup_dpa_originale', dpaOri);
           localStorage.setItem('dadup_is_post', '1');
         } else {
           localStorage.removeItem('dadup_dpa_originale');
@@ -160,24 +182,57 @@ function DashboardContent() {
 
         // Onboarding seulement si vraiment pas de DPA en base ET pas en local
         if (!d && !readLS('dadup_dpa')) setShowOnboarding(true);
+
+        setEtatSync('ok');
+        rejouerEnAttente();
       })
-      .catch(() => {
-        // Si Supabase échoue mais qu'on a des données en local, on reste connecté
-        const localDpa    = readLS('dadup_dpa');
-        const localPrenom = readLS('dadup_prenom');
-        if (!localDpa && !localPrenom) {
-          window.location.href = '/login';
-        }
-        // Sinon on garde ce qu'on a en local, l'utilisateur voit son contenu
-      });
+      .catch(serveurInjoignable);
+
+    // Retour du réseau ou de l'app au premier plan : on renvoie ce qui est en attente
+    const relancer = () => { if (Object.keys(lireEnAttente()).length) rejouerEnAttente(); };
+    window.addEventListener('online', relancer);
+    document.addEventListener('visibilitychange', relancer);
+    return () => {
+      window.removeEventListener('online', relancer);
+      document.removeEventListener('visibilitychange', relancer);
+    };
   }, []);
 
-  const saveData = async (patch: Record<string, unknown>) => {
-    await fetch('/api/auth/save', {
+  // ── Sauvegarde fiable ──────────────────────────────────────────────────────
+  // Chaque modification est d'abord gardée sur l'appareil (dadup_en_attente), puis envoyée.
+  // Si l'envoi échoue, elle reste en attente et sera renvoyée automatiquement.
+  const envoyer = async (patch: Record<string, unknown>): Promise<boolean> => {
+    const r = await fetch('/api/auth/save', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(patch),
     });
+    if (r.status === 401) { window.location.href = '/login'; return false; }
+    return r.ok;
+  };
+
+  function lireEnAttente(): Record<string, unknown> {
+    return readLSJson<Record<string, unknown>>('dadup_en_attente', {});
+  }
+
+  async function rejouerEnAttente() {
+    const enAttente = lireEnAttente();
+    if (!Object.keys(enAttente).length) return;
+    try {
+      if (await envoyer(enAttente)) {
+        // On ne supprime que si rien de nouveau n'a été ajouté entre-temps
+        if (JSON.stringify(lireEnAttente()) === JSON.stringify(enAttente)) localStorage.removeItem('dadup_en_attente');
+        setEtatSync('ok');
+        return;
+      }
+    } catch {}
+    setEtatSync('attente');
+  }
+
+  const saveData = async (patch: Record<string, unknown>) => {
+    const enAttente = { ...lireEnAttente(), ...patch };
+    try { localStorage.setItem('dadup_en_attente', JSON.stringify(enAttente)); } catch {}
+    await rejouerEnAttente();
   };
 
   const toggleV = (id: string) => {
@@ -284,6 +339,18 @@ function DashboardContent() {
     MOIS_DATA, PARTENAIRES, RDV_LIST, SD,
   };
 
+  if (erreurChargement) {
+    return (
+      <main style={{ minHeight: '100vh', background: '#F6F1E9', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px' }}>
+        <div role="alert" style={{ background: '#fff', borderRadius: '22px', padding: '28px', maxWidth: '380px', textAlign: 'center', boxShadow: '0 6px 20px rgba(21,38,58,0.06)' }}>
+          <h1 style={{ fontSize: '20px', fontWeight: 800, color: '#15263A', margin: '0 0 10px' }}>Impossible de joindre DadUp</h1>
+          <p style={{ fontSize: '14px', color: '#56616B', lineHeight: 1.6, margin: '0 0 20px' }}>Vérifie ta connexion, puis réessaie. Tes données ne sont pas perdues.</p>
+          <button onClick={() => window.location.reload()} style={{ minHeight: '48px', padding: '12px 28px', background: 'linear-gradient(160deg,#0C1D2E,#1A3D5C 70%,#24507A)', color: '#fff', border: 'none', borderRadius: '14px', fontSize: '15px', fontWeight: 800, cursor: 'pointer' }}>Réessayer</button>
+        </div>
+      </main>
+    );
+  }
+
   if (showOnboarding) {
     return <Onboarding onSave={(d, p) => {
       localStorage.setItem('dadup_dpa', d);
@@ -365,6 +432,14 @@ function DashboardContent() {
         </div>
       )}
     </div>
+    {etatSync !== 'ok' && (
+      <div role="status" className="dd-sync" style={{ position: 'fixed', left: '50%', transform: 'translateX(-50%)', bottom: '24px', zIndex: 900, width: 'min(560px, calc(100% - 32px))', background: '#15263A', color: '#fff', borderRadius: '14px', padding: '12px 16px', fontSize: '14px', lineHeight: 1.45, boxShadow: '0 10px 26px rgba(12,29,46,0.3)' }}>
+        <style>{`@media(max-width:860px){.dd-sync{bottom:calc(84px + env(safe-area-inset-bottom))!important;}}`}</style>
+        {etatSync === 'attente'
+          ? 'Modifications pas encore enregistrées. DadUp réessaie automatiquement dès que la connexion revient.'
+          : 'DadUp est momentanément injoignable : tu vois les dernières données enregistrées sur cet appareil.'}
+      </div>
+    )}
     <ChatBubble />
     {showCelebration && <CelebrationNaissance prenom={prenom} onClose={() => setShowCelebration(false)} />}
     </>

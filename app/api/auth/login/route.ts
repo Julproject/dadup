@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 import bcrypt from 'bcryptjs';
 import { poserSession } from '../../../../lib/session';
+import { accesTermine, dateFinLisible } from '../../../../lib/acces';
 
 const supabase = createClient(
   process.env.SUPABASE_URL!,
@@ -12,7 +13,7 @@ export async function POST(req: NextRequest) {
   try {
     const { email, password } = await req.json();
 
-    if (!email || !password) {
+    if (typeof email !== 'string' || typeof password !== 'string' || !email || !password) {
       return NextResponse.json({ error: 'Email et mot de passe requis.' }, { status: 400 });
     }
 
@@ -21,9 +22,15 @@ export async function POST(req: NextRequest) {
       .from('users')
       .select('*')
       .eq('email', email.toLowerCase().trim())
-      .single();
+      .maybeSingle();
 
-    if (error || !user) {
+    // Base injoignable : on le dit, plutôt que « mot de passe incorrect »
+    if (error) {
+      console.error('Login DB error:', JSON.stringify(error));
+      return NextResponse.json({ error: 'DadUp est momentanément indisponible. Réessaie dans quelques minutes.' }, { status: 503 });
+    }
+
+    if (!user) {
       return NextResponse.json({ error: 'Email ou mot de passe incorrect.' }, { status: 401 });
     }
 
@@ -36,6 +43,11 @@ export async function POST(req: NextRequest) {
     // Vérifier que le compte est actif (paiement validé)
     if (!user.actif) {
       return NextResponse.json({ error: 'Ton compte n\'est pas encore activé. Vérifie ton email ou contacte le support.' }, { status: 403 });
+    }
+
+    // Accès terminé (CGV : jusqu'au premier anniversaire de bébé)
+    if (accesTermine(user)) {
+      return NextResponse.json({ error: `Ton accès DadUp est terminé depuis le ${dateFinLisible(user)}. Pour toute question, écris-nous à hello@dadup.fr.`, expired: true }, { status: 403 });
     }
 
     // Mettre à jour last_login

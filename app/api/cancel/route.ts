@@ -8,8 +8,9 @@ const supabase = createClient(process.env.SUPABASE_URL!, process.env.SUPABASE_SE
 
 export async function POST(req: NextRequest) {
   try {
-    const { user } = await utilisateurDeSession<{ email: string; actif: boolean; created_at: string; stripe_customer_id: string | null; stripe_subscription_id: string | null }>(
+    const { user, erreurBase } = await utilisateurDeSession<{ email: string; actif: boolean; created_at: string; stripe_customer_id: string | null; stripe_subscription_id: string | null }>(
       req, supabase, 'id, email, actif, created_at, stripe_customer_id, stripe_subscription_id');
+    if (erreurBase) return NextResponse.json({ error: 'DadUp est momentanément indisponible.' }, { status: 503 });
     if (!user) return NextResponse.json({ error: 'Non connecté.' }, { status: 401 });
     if (!user.actif)    return NextResponse.json({ error: 'Compte déjà désactivé.' },    { status: 400 });
 
