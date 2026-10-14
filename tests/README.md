@@ -12,7 +12,7 @@ Aucune vraie base, aucun vrai email, aucun vrai paiement.
 
 ```bash
 npm ci
-pip install pytest playwright && python3 -m playwright install chromium
+pip install pytest playwright requests && python3 -m playwright install chromium
 SUPABASE_URL=http://127.0.0.1:54321 SUPABASE_SERVICE_ROLE_KEY=qa-service-key \
   STRIPE_SECRET_KEY=sk_test_qa STRIPE_WEBHOOK_SECRET=whsec_qa_secret STRIPE_PRICE_ID=price_qa \
   BREVO_API_KEY=qa-brevo NEXT_PUBLIC_URL=http://localhost:3100 npx next build

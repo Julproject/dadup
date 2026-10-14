@@ -24,7 +24,7 @@ jobs:
       - name: Dépendances
         run: |
           npm ci
-          pip install pytest playwright
+          pip install pytest playwright requests
           python -m playwright install --with-deps chromium
 
       - name: Build et démarrage de l'environnement simulé
