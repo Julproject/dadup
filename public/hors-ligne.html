@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#F6F1E9">
+<title>DadUp : pas de connexion</title>
+<style>
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%}
+  body{background:#F6F1E9;color:#15263A;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+    display:flex;align-items:center;justify-content:center;
+    padding:calc(24px + env(safe-area-inset-top)) 24px calc(24px + env(safe-area-inset-bottom));-webkit-font-smoothing:antialiased}
+  main{max-width:360px;text-align:center}
+  .logo{width:64px;height:64px;margin:0 auto 22px;display:block}
+  h1{font-size:22px;line-height:1.25;margin:0 0 10px;font-weight:800}
+  p{font-size:16px;line-height:1.55;color:#56616B;margin:0 0 26px}
+  button{font:inherit;font-size:16px;font-weight:800;color:#fff;background:#B4593A;border:0;border-radius:14px;min-height:52px;padding:0 30px;cursor:pointer}
+  button:focus-visible{outline:3px solid #15263A;outline-offset:3px}
+</style>
+</head>
+<body>
+<main>
+  <svg class="logo" viewBox="0 0 300 300" aria-hidden="true">
+    <circle cx="150" cy="150" r="145" fill="#1A3D5C"/><circle cx="150" cy="150" r="122" fill="#2E5F8A"/>
+    <ellipse cx="150" cy="205" rx="58" ry="54" fill="#c8a060"/><circle cx="150" cy="112" r="40" fill="#c8a060"/>
+    <ellipse cx="150" cy="196" rx="27" ry="31" fill="#F6F1E9"/><circle cx="150" cy="128" r="26" fill="#F6F1E9"/>
+  </svg>
+  <h1>Pas de connexion internet</h1>
+  <p>DadUp a besoin d'internet pour s'ouvrir. Tes coches et tes dates sont gardées : elles seront là dès que le réseau revient.</p>
+  <button type="button" onclick="location.reload()">Réessayer</button>
+</main>
+<script>window.addEventListener('online',function(){location.reload()});</script>
+</body>
+</html>

@@ -1,8 +1,29 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import '@fontsource-variable/manrope';
 import './globals.css';
 
+// viewport-fit=cover : indispensable sur iPhone pour que env(safe-area-inset-*) renvoie la vraie
+// hauteur de la barre d'accueil (sinon 0, et la barre du bas de l'app passe dessous).
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  viewportFit: 'cover',
+  themeColor: '#F6F1E9',
+  colorScheme: 'light',
+};
+
 export const metadata: Metadata = {
+  applicationName: 'DadUp',
+  manifest: '/manifest.json',
+  appleWebApp: { capable: true, title: 'DadUp', statusBarStyle: 'default' },
+  formatDetection: { telephone: false },
+  icons: {
+    icon: [
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/favicon-96.png', sizes: '96x96', type: 'image/png' },
+    ],
+    apple: [{ url: '/apple-touch-icon.png', sizes: '180x180' }],
+  },
   verification: {
     google: 'UYNGp5GswFiXJc6l-VEwhnLifvDt-60HZMmU7mv_Nns',
   },
@@ -49,9 +70,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="fr">
       <head>
-        <link rel="manifest" href="/manifest.json" />
-        <meta name="theme-color" content="#0C1D2E" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <script dangerouslySetInnerHTML={{__html: `
           if ('serviceWorker' in navigator) {
             window.addEventListener('load', function() {

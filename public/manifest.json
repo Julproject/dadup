@@ -1,14 +1,16 @@
 {
-  "name": "DadUp — L'app des futurs papas",
+  "id": "/dashboard",
+  "name": "DadUp, l'app des futurs papas",
   "short_name": "DadUp",
   "description": "Suivi de grossesse et première année de bébé, conçu pour les pères.",
-  "start_url": "/dashboard",
-  "display": "standalone",
-  "background_color": "#faf6f0",
-  "theme_color": "#1e2535",
-  "orientation": "portrait",
   "lang": "fr",
   "dir": "ltr",
+  "start_url": "/dashboard",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#F6F1E9",
+  "theme_color": "#F6F1E9",
   "categories": [
     "lifestyle",
     "health"
@@ -42,13 +44,6 @@
       "src": "/apple-touch-icon.png",
       "sizes": "180x180",
       "type": "image/png"
-    }
-  ],
-  "shortcuts": [
-    {
-      "name": "Mon tableau de bord",
-      "url": "/dashboard",
-      "description": "Accéder à mon espace DadUp"
     }
   ]
 }

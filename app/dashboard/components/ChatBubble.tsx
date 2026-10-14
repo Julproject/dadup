@@ -54,7 +54,7 @@ export default function ChatBubble() {
 
   return (
     <div className="dd-chat" style={{ position: 'fixed', bottom: '24px', right: '24px', zIndex: 999, fontFamily: 'inherit', transition: 'transform .25s ease, opacity .25s ease', transform: cache && !open ? 'translateY(140px)' : 'none', opacity: cache && !open ? 0 : 1, pointerEvents: cache && !open ? 'none' : 'auto' }}>
-      <style>{`@media(max-width:860px){.dd-chat{bottom:calc(84px + env(safe-area-inset-bottom))!important;right:16px!important;}}`}</style>
+      <style>{`@media(max-width:860px){.dd-chat{bottom:calc(var(--nav-h) + var(--safe-bas) + 16px)!important;right:16px!important;}}`}</style>
 
       {/* Panneau ouvert */}
       {open && (

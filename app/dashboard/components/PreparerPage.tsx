@@ -218,10 +218,21 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#1
   </div>
 </body></html>`;
 
-  const blob = new Blob([html], {type:'text/html;charset=utf-8'});
-  const url = URL.createObjectURL(blob);
-  const w = window.open(url, '_blank');
-  if (w) setTimeout(() => w.print(), 600);
+  // Impression dans un cadre invisible de la page : fonctionne aussi dans l'app installée
+  // (une nouvelle fenêtre y est bloquée ou s'ouvre hors de l'app)
+  const ancien = document.getElementById('dd-impression');
+  if (ancien) ancien.remove();
+  const cadre = document.createElement('iframe');
+  cadre.id = 'dd-impression';
+  cadre.setAttribute('aria-hidden', 'true');
+  cadre.style.cssText = 'position:fixed;right:0;bottom:0;width:0;height:0;border:0;';
+  cadre.onload = () => {
+    setTimeout(() => {
+      try { cadre.contentWindow?.focus(); cadre.contentWindow?.print(); } catch (e) { console.error('Impression :', e); }
+    }, 300);
+  };
+  cadre.srcdoc = html;
+  document.body.appendChild(cadre);
 }
 
 // ── Données Congé Paternité ───────────────────────────────────────────────────

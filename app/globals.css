@@ -90,3 +90,41 @@ button, input, select, textarea, optgroup {
     scroll-behavior: auto !important;
   }
 }
+
+/* ── Application mobile et PWA installée ── */
+:root {
+  /* Hauteur de la barre de navigation du bas, hors zone de la barre d'accueil de l'iPhone */
+  --nav-h: 64px;
+  --safe-bas: env(safe-area-inset-bottom, 0px);
+}
+
+/* Pas de flash gris au toucher sur iPhone : chaque bouton a déjà son propre retour visuel */
+button, a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media (max-width: 860px) {
+  /* Sous 16px, iPhone zoome sur le champ au toucher et l'app reste zoomée */
+  input, select, textarea {
+    font-size: 16px !important;
+  }
+  /* Clavier ouvert : la barre du bas se masque pour laisser la place au champ */
+  body:has(input:focus, textarea:focus, select:focus) .dd-bottomnav {
+    display: none !important;
+  }
+}
+
+/* App installée : pas de rebond qui fait glisser toute l'interface */
+@media (display-mode: standalone) {
+  html, body {
+    overscroll-behavior-y: none;
+  }
+}
+
+/* App installée sur iPhone : si la barre d'état recouvre la page, on la décale
+   (le tableau de bord gère lui-même ce décalage dans sa barre du haut) */
+@media (display-mode: standalone) {
+  body:not(:has(.dd-topbar)) {
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+}

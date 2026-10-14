@@ -363,7 +363,7 @@ function DashboardContent() {
 
   return (
     <>
-    <div style={{ minHeight: '100vh', background: '#F6F1E9', color: '#15263A', fontFamily: 'inherit' }}>
+    <div style={{ minHeight: '100dvh', background: '#F6F1E9', color: '#15263A', fontFamily: 'inherit' }}>
       <style>{`
         *{box-sizing:border-box;margin:0;padding:0;}
         input[type=date]{-webkit-appearance:none;appearance:none;display:block;width:100%;max-width:100%;min-width:0;min-height:44px;text-align:left;}
@@ -378,7 +378,7 @@ function DashboardContent() {
           .dd-g2col,.dd-mg{grid-template-columns:1fr!important;}
           .dd-g3col{grid-template-columns:1fr 1fr!important;}
           .dd-stats{display:flex!important;flex-direction:row!important;border-radius:12px!important;overflow:hidden!important;}
-          .dd-c{padding:16px 16px 110px!important;}
+          .dd-c{padding:16px 16px calc(var(--nav-h) + var(--safe-bas) + 48px)!important;}
           .dd-g2col,.dd-mg{grid-template-columns:1fr!important;}
         }
       `}</style>
@@ -434,7 +434,7 @@ function DashboardContent() {
     </div>
     {etatSync !== 'ok' && (
       <div role="status" className="dd-sync" style={{ position: 'fixed', left: '50%', transform: 'translateX(-50%)', bottom: '24px', zIndex: 900, width: 'min(560px, calc(100% - 32px))', background: '#15263A', color: '#fff', borderRadius: '14px', padding: '12px 16px', fontSize: '14px', lineHeight: 1.45, boxShadow: '0 10px 26px rgba(12,29,46,0.3)' }}>
-        <style>{`@media(max-width:860px){.dd-sync{bottom:calc(84px + env(safe-area-inset-bottom))!important;}}`}</style>
+        <style>{`@media(max-width:860px){.dd-sync{bottom:calc(var(--nav-h) + var(--safe-bas) + 16px)!important;}}`}</style>
         {etatSync === 'attente'
           ? 'Modifications pas encore enregistrées. DadUp réessaie automatiquement dès que la connexion revient.'
           : 'DadUp est momentanément injoignable : tu vois les dernières données enregistrées sur cet appareil.'}
