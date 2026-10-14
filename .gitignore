@@ -9,3 +9,4 @@ tests/.outbox.jsonl
 tests/.*.log
 __pycache__/
 .pytest_cache/
+tests/.resultat.txt
