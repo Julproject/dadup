@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
+import { utilisateurDeSession } from '../../../../lib/session';
 
 const supabase = createClient(
   process.env.SUPABASE_URL!,
@@ -47,10 +48,11 @@ async function alerteInterne(sujet: string, html: string) {
 
 export async function POST(req: NextRequest) {
   try {
-    const sessionId = req.cookies.get('dadup_session')?.value;
-    if (!sessionId) {
+    const { user: session } = await utilisateurDeSession(req, supabase, 'id, actif');
+    if (!session || !session.actif) {
       return NextResponse.json({ error: 'Non connecté.' }, { status: 401 });
     }
+    const sessionId = session.id;
 
     const body = await req.json();
     if (!estObjet(body)) {

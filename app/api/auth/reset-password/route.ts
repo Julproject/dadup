@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 import bcrypt from 'bcryptjs';
+import { poserSession } from '../../../../lib/session';
 
 const supabase = createClient(
   process.env.SUPABASE_URL!,
@@ -44,13 +45,8 @@ export async function POST(req: NextRequest) {
 
     // Connecter directement l'utilisateur en posant le cookie de session
     const res = NextResponse.json({ ok: true });
-    res.cookies.set('dadup_session', user.id, {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
-      sameSite: 'lax',
-      path: '/',
-      maxAge: 60 * 60 * 24 * 365 * 10,
-    });
+    // Le nouveau mot de passe change la signature : les anciennes sessions sont invalidées
+    poserSession(res, { id: user.id, password_hash });
 
     return res;
   } catch (err) {
