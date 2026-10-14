@@ -17,11 +17,8 @@ def test_F1_photo_accueil_legere(pw):
     assert total["n"] < 600 * 1024, total
 
 
-def test_F2_temoignages_sans_debordement_tablette(pw):
-    c = pw.new_context(viewport={"width": 820, "height": 1180}); page = c.new_page()
-    page.goto(APP + "/temoignages"); page.wait_for_load_state("networkidle")
-    sw = page.evaluate("document.documentElement.scrollWidth"); c.close()
-    assert sw <= 820
+def test_F2_page_temoignages_supprimee():
+    assert requests.get(APP + "/temoignages").status_code == 404
 
 
 def test_F3_onboarding_refuse_une_dpa_aberrante(ctx):

@@ -35,7 +35,7 @@ python3 -m pytest -q tests/e2e
 | `test_12_lotC.py` | Naissance (avant/après la DPA, date saisie, retour en grossesse) |
 | `test_13_lotD.py` | Fin d'accès, sauvegardes en panne, bouton retour, Maison, email unique |
 | `test_14_lotE.py` | Contact, en-têtes, taille des données, mot de passe oublié |
-| `test_15_lotF.py` | Poids de l'accueil, Témoignages sur tablette, DPA aberrante, versions figées |
+| `test_15_lotF.py` | Poids de l'accueil, page Témoignages supprimée, DPA aberrante, versions figées |
 
 ## Ce qui n'est pas testé ici
 
