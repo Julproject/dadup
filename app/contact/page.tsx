@@ -15,19 +15,25 @@ export default function ContactPage() {
   const [message, setMessage] = useState('');
   const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [erreur, setErreur] = useState('');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email || !sujet || !message) return;
     setLoading(true);
+    setErreur('');
     try {
-      await fetch('/api/contact', {
+      const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ prenom, email, sujet, message }),
       });
-      setSent(true);
-    } catch {}
+      const data = await res.json().catch(() => ({}));
+      if (res.ok) setSent(true);
+      else setErreur(data.error || "Le message n'a pas pu être envoyé. Réessaie ou écris-nous à hello@dadup.fr.");
+    } catch {
+      setErreur("Le message n'a pas pu être envoyé. Vérifie ta connexion ou écris-nous à hello@dadup.fr.");
+    }
     setLoading(false);
   };
 
@@ -136,6 +142,7 @@ export default function ContactPage() {
                     <p style={{color:C.dark, fontSize:'13px', fontWeight:700, margin:'0 0 6px'}}>Message <span style={{color:'#B42318'}}>*</span></p>
                     <textarea className="inp" aria-label="Ton message" value={message} onChange={e => setMessage(e.target.value)} required rows={5} placeholder="Décris ta question ou ton problème..." style={{width:'100%', background:C.cream, border:`1.5px solid ${C.border}`, borderRadius:'12px', padding:'12px 14px', fontSize:'14px', color:C.dark, resize:'vertical' as any, fontFamily:'inherit', transition:'border-color .2s'}}/>
                   </div>
+                  {erreur && <p role="alert" style={{color:'#B42318', fontSize:'14px', lineHeight:1.5, margin:0}}>{erreur}</p>}
                   <button type="submit" disabled={loading || !email || !sujet || !message} style={{background:'#B4593A', color:'#ffffff', border:'none', padding:'16px 32px', borderRadius:'32px', fontSize:'15px', fontWeight:800, cursor:'pointer', boxShadow:'0 6px 20px rgba(157,176,154,0.4)', opacity:(!email||!sujet||!message)?0.5:1}}>
                     {loading ? 'Envoi...' : 'Envoyer'}
                   </button>

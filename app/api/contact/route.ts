@@ -1,74 +1,86 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { limiteAtteinte, compter, ipDe } from '../../../lib/limite';
+
+const EMAIL_RE = /^[^\s@<>"']+@[^\s@<>"']+\.[^\s@<>"']{2,}$/;
+
+function echapper(s: unknown): string {
+  return String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]!));
+}
+
+async function envoyer(to: string, subject: string, html: string, replyTo?: string) {
+  const res = await fetch('https://api.brevo.com/v3/smtp/email', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'api-key': process.env.BREVO_API_KEY! },
+    body: JSON.stringify({
+      sender: { name: 'DadUp', email: 'hello@dadup.fr' },
+      to: [{ email: to }],
+      ...(replyTo ? { replyTo: { email: replyTo } } : {}),
+      subject,
+      htmlContent: html,
+    }),
+  });
+  return res.ok;
+}
 
 export async function POST(req: NextRequest) {
   try {
-    const body = await req.json();
-    const { prenom, email, sujet, message } = body;
-
-    console.log('Contact recu:', { email, sujet, messageLen: message?.length });
-
-    if (!email) {
-      return NextResponse.json({ error: 'Email requis.' }, { status: 400 });
+    // 5 messages par heure et par adresse IP
+    const cleIp = 'contact-ip:' + ipDe(req);
+    if (limiteAtteinte(cleIp, 5, 60 * 60 * 1000)) {
+      return NextResponse.json({ error: 'Trop de messages envoyés. Réessaie dans un moment ou écris à hello@dadup.fr.' }, { status: 429 });
     }
-    if (!message || message.trim().length === 0) {
+
+    const { prenom, email, sujet, message } = await req.json();
+
+    if (typeof email !== 'string' || !EMAIL_RE.test(email.trim()) || email.length > 200) {
+      return NextResponse.json({ error: 'Adresse email invalide.' }, { status: 400 });
+    }
+    if (typeof message !== 'string' || !message.trim()) {
       return NextResponse.json({ error: 'Message vide.' }, { status: 400 });
     }
+    if (message.length > 5000) {
+      return NextResponse.json({ error: 'Message trop long (5 000 caractères maximum).' }, { status: 400 });
+    }
+    compter(cleIp, 60 * 60 * 1000);
 
-    const sujetFinal = sujet?.trim() || 'Autre';
-    const expediteur = prenom?.trim() ? `${prenom.trim()} (${email})` : email;
-    const dateHeure  = new Date().toLocaleString('fr-FR', { timeZone: 'Europe/Paris' });
+    const adresse = email.trim();
+    const sujetFinal = (typeof sujet === 'string' && sujet.trim() ? sujet.trim() : 'Autre').slice(0, 120);
+    const nom = typeof prenom === 'string' ? prenom.trim().slice(0, 60) : '';
+    const expediteur = nom ? `${nom} (${adresse})` : adresse;
+    const dateHeure = new Date().toLocaleString('fr-FR', { timeZone: 'Europe/Paris' });
 
-    const sendEmail = async (to: string, subject: string, html: string) => {
-      const res = await fetch('https://api.brevo.com/v3/smtp/email', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'api-key': process.env.BREVO_API_KEY!,
-        },
-        body: JSON.stringify({
-          sender: { name: 'DadUp', email: 'hello@dadup.fr' },
-          to: [{ email: to }],
-          replyTo: { email: email },
-          subject,
-          htmlContent: html,
-        }),
-      });
-      const text = await res.text();
-      console.log(`Email to ${to}: ${res.status} ${text}`);
-      return res.ok;
-    };
-
-    // await les deux — Vercel ne tue pas la fonction avant la réponse
-    await sendEmail(
+    // Email interne : tout le contenu est échappé
+    const okInterne = await envoyer(
       'hello@dadup.fr',
       `[Contact DadUp] ${sujetFinal} - ${expediteur}`,
-      `<div style="font-family:sans-serif;padding:24px;background:#f7f5f0;">
-        <h2 style="color:#1e2535;">Nouveau message DadUp</h2>
-        <p><strong>De :</strong> ${expediteur}</p>
-        <p><strong>Sujet :</strong> ${sujetFinal}</p>
-        <p><strong>Date :</strong> ${dateHeure}</p>
+      `<div style="font-family:sans-serif;padding:24px;background:#F6F1E9;">
+        <h2 style="color:#15263A;">Nouveau message DadUp</h2>
+        <p><strong>De :</strong> ${echapper(expediteur)}</p>
+        <p><strong>Sujet :</strong> ${echapper(sujetFinal)}</p>
+        <p><strong>Date :</strong> ${echapper(dateHeure)}</p>
         <hr/>
-        <p style="white-space:pre-wrap;">${message.trim()}</p>
-        <a href="mailto:${email}" style="display:inline-block;margin-top:16px;background:#1e2535;color:#fff;padding:10px 22px;border-radius:32px;font-size:13px;font-weight:700;text-decoration:none;">Repondre a ${prenom || email}</a>
-      </div>`
+        <p style="white-space:pre-wrap;">${echapper(message.trim())}</p>
+      </div>`,
+      adresse,
     );
+    if (!okInterne) {
+      return NextResponse.json({ error: "Le message n'a pas pu être envoyé. Réessaie ou écris à hello@dadup.fr." }, { status: 502 });
+    }
 
-    await sendEmail(
-      email,
-      'Ton message a bien ete recu - DadUp',
-      `<div style="font-family:sans-serif;padding:24px;background:#f7f5f0;">
-        <h2 style="color:#1e2535;">Message recu !</h2>
-        <p>Bonjour ${prenom || 'Papa'},</p>
-        <p>On a bien recu ton message concernant <strong>${sujetFinal}</strong>. On te repond sous 24h.</p>
-        <div style="background:#fff;padding:12px;border-radius:8px;border-left:4px solid #c8a060;margin:16px 0;">
-          <p style="white-space:pre-wrap;margin:0;">${message.trim()}</p>
-        </div>
-        <p style="color:#9aa0a8;font-size:12px;">DadUp · hello@dadup.fr</p>
-      </div>`
+    // Accusé de réception : texte fixe, sans recopier le contenu saisi
+    // (évite que le formulaire serve à envoyer des messages à n'importe qui)
+    await envoyer(
+      adresse,
+      'Ton message a bien été reçu - DadUp',
+      `<div style="font-family:sans-serif;padding:24px;background:#F6F1E9;">
+        <h2 style="color:#15263A;">Message reçu</h2>
+        <p>Bonjour,</p>
+        <p>On a bien reçu ton message et on te répond au plus vite.</p>
+        <p style="color:#56616B;font-size:12px;">DadUp · hello@dadup.fr</p>
+      </div>`,
     );
 
     return NextResponse.json({ ok: true });
-
   } catch (err) {
     console.error('Contact error:', err);
     return NextResponse.json({ error: 'Erreur serveur.' }, { status: 500 });

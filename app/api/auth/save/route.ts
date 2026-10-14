@@ -57,7 +57,12 @@ export async function POST(req: NextRequest) {
     }
     const sessionId = session.id;
 
-    const body = await req.json();
+    const brut = await req.text();
+    if (brut.length > 64 * 1024) {
+      return NextResponse.json({ error: 'Données trop volumineuses.' }, { status: 413 });
+    }
+    let body: unknown;
+    try { body = JSON.parse(brut); } catch { return NextResponse.json({ error: 'Requête invalide.' }, { status: 400 }); }
     if (!estObjet(body)) {
       return NextResponse.json({ error: 'Requête invalide.' }, { status: 400 });
     }
