@@ -77,6 +77,11 @@ export async function POST(req: NextRequest) {
     }
     if (body.dpa !== undefined) {
       if (body.dpa && !estDate(body.dpa)) return NextResponse.json({ error: 'Date invalide.' }, { status: 400 });
+      // Plage de sécurité : de 16 mois dans le passé (date de naissance) à 10 mois dans le futur (DPA)
+      if (body.dpa) {
+        const t = new Date(body.dpa as string).getTime(), mois = 30.5 * 24 * 60 * 60 * 1000;
+        if (t < Date.now() - 16 * mois || t > Date.now() + 10 * mois) return NextResponse.json({ error: 'Date hors limites.' }, { status: 400 });
+      }
       update.dpa = body.dpa || null;
     }
     if (body.dpa_originale !== undefined) {

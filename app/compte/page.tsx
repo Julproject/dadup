@@ -86,6 +86,14 @@ export default function ComptePage() {
     try {
       const body: Record<string, string> = { prenom };
       if (dpa) {
+        // Grossesse : DPA dans les 10 prochains mois (1 mois de marge) ; post-partum : date de naissance des 13 derniers mois
+        const iso = (d: Date) => `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+        const decaler = (m: number) => { const d = new Date(); d.setMonth(d.getMonth() + m); return iso(d); };
+        const [min, max] = isPost ? [decaler(-13), iso(new Date())] : [decaler(-1), decaler(10)];
+        if (dpa < min || dpa > max) {
+          setInfoMsg(isPost ? 'La date de naissance doit se situer dans les 13 derniers mois.' : 'La DPA doit se situer dans les 10 prochains mois.');
+          return;
+        }
         body.dpa = dpa;
         body.dpa_modif_increment = 'true';
       }

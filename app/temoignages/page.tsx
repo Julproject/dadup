@@ -16,8 +16,14 @@ export default function TemoignagesPage() {
       <style>{`
         *{box-sizing:border-box;margin:0;padding:0;}
         .nl{display:flex;}.nc{display:flex;}
-        @media(max-width:768px){
+        .hamburger{display:none;}
+        .mobile-nav{display:none;}
+        @media(max-width:900px){
           .nl{display:none!important;}.nc{display:none!important;}
+          .hamburger{display:flex!important;}
+          .mobile-nav{display:flex!important;}
+        }
+        @media(max-width:768px){
           nav{padding:0 16px!important;}
           h1{font-size:28px!important;}
           .hero{padding:48px 20px!important;}
@@ -25,17 +31,6 @@ export default function TemoignagesPage() {
           .tem-grid{grid-template-columns:1fr!important;}
           h2{font-size:22px!important;}
         }
-      
-        .hamburger{display:none;}
-        .mobile-nav{display:none;}
-        @media(max-width:768px){
-          .hamburger{display:flex!important;}
-          .mobile-nav{display:flex!important;}
-        }
-      
-        .hamburger{display:none;}
-        .mobile-nav{display:none;}
-        @media(max-width:768px){.hamburger{display:flex!important;}.mobile-nav{display:flex!important;}}
       `}</style>
 
       {/* NAV */}

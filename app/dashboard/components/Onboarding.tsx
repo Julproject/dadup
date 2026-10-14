@@ -7,9 +7,16 @@ const C = {
   textLight:'#56616B', cream:'#F6F1E9',
 };
 
+// Une DPA plausible : entre 1 mois dans le passé et 10 mois dans le futur
+function iso(d: Date) { return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`; }
+function decaler(mois: number) { const d = new Date(); d.setMonth(d.getMonth() + mois); return iso(d); }
+const DPA_MIN = decaler(-1);
+const DPA_MAX = decaler(10);
+
 export default function Onboarding({onSave}:{onSave:(d:string,p:string)=>void}) {
   const [dpa,setDpa]=useState('');
   const [prenom,setPrenom]=useState('');
+  const dpaValide = !!dpa && dpa >= DPA_MIN && dpa <= DPA_MAX;
   return(
     <main style={{minHeight:'100vh',background:'#F6F1E9',display:'flex',alignItems:'center',justifyContent:'center',padding:'20px',fontFamily:'inherit'}}>
       <div style={{maxWidth:'420px',width:'100%'}}>
@@ -33,9 +40,10 @@ export default function Onboarding({onSave}:{onSave:(d:string,p:string)=>void}) 
             </div>
             <div>
               <label style={{display:'block',color:C.dark,fontSize:'12px',fontWeight:600,marginBottom:'7px'}}>Date d'accouchement prévue</label>
-              <input type="date" aria-label="Date d'accouchement prévue" value={dpa} onChange={e=>setDpa(e.target.value)} style={{width:'100%',background:'#F6F1E9',border:`1px solid ${C.border}`,borderRadius:'10px',padding:'12px 14px',fontSize:'14px',color:C.dark,outline:'none'}}/>
+              <input type="date" aria-label="Date d'accouchement prévue" min={DPA_MIN} max={DPA_MAX} value={dpa} onChange={e=>setDpa(e.target.value)} style={{width:'100%',background:'#F6F1E9',border:`1px solid ${C.border}`,borderRadius:'10px',padding:'12px 14px',fontSize:'14px',color:C.dark,outline:'none'}}/>
             </div>
-            <button onClick={()=>dpa&&onSave(dpa,prenom)} disabled={!dpa} style={{background:dpa?'linear-gradient(160deg,#0C1D2E,#1A3D5C 70%,#24507A)':'#C9CDD1',color:C.white,border:'none',minHeight:'52px',padding:'14px',borderRadius:'14px',fontSize:'15px',fontWeight:700,cursor:dpa?'pointer':'not-allowed',marginTop:'4px'}}>
+            {dpa && !dpaValide && <p role="alert" style={{color:'#B42318',fontSize:'13px',margin:'-4px 0 0',lineHeight:1.5}}>Cette date ne semble pas correcte : la DPA doit se situer dans les 10 prochains mois.</p>}
+            <button onClick={()=>dpaValide&&onSave(dpa,prenom)} disabled={!dpaValide} style={{background:dpaValide?'linear-gradient(160deg,#0C1D2E,#1A3D5C 70%,#24507A)':'#C9CDD1',color:C.white,border:'none',minHeight:'52px',padding:'14px',borderRadius:'14px',fontSize:'15px',fontWeight:700,cursor:dpaValide?'pointer':'not-allowed',marginTop:'4px'}}>
               Accéder à mon espace
             </button>
           </div>
