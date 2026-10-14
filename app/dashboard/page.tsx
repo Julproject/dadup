@@ -50,6 +50,11 @@ function parseLocalDate(dateStr: string): Date {
 }
 
 // Nombre de jours entre aujourd'hui (minuit local) et la DPA (minuit local)
+// Date du jour (ou donnée) au format AAAA-MM-JJ, en heure locale
+function isoLocal(d: Date): string {
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+}
+
 function joursAvantDpa(dateStr: string): number {
   const dpaLocal = parseLocalDate(dateStr);
   const aujourdhuiLocal = new Date();
@@ -92,6 +97,7 @@ function DashboardContent() {
   const [showConfirmNaissance, setShowConfirmNaissance] = useState(false);
   const [showCelebration, setShowCelebration] = useState(false);
   const [dpaOriginale,         setDpaOriginale]       = useState(() => readLS('dadup_dpa_originale'));
+  const [dateNaissance,        setDateNaissance]      = useState(() => isoLocal(new Date()));
 
   // Routing par URL
   const setActiveTab = (tab: string) => {
@@ -107,6 +113,7 @@ function DashboardContent() {
     const params = new URLSearchParams(window.location.search);
     const tabFromUrl = params.get('tab');
     if (tabFromUrl) setActiveTabRaw(tabFromUrl);
+    if (params.get('naissance') === '1') setShowConfirmNaissance(true);
 
     fetch('/api/auth/me')
       .then(r => r.json())
@@ -139,9 +146,16 @@ function DashboardContent() {
         localStorage.setItem('dadup_next_rdv',  nr);
         localStorage.setItem('dadup_achats',    JSON.stringify(ac));
 
-        if (user.dpa_originale) {
-          setDpaOriginale(user.dpa_originale);
+        // Naissance déclarée = dpa_originale renseignée en base (source de vérité, tous appareils)
+        const naissanceDeclaree = !!user.dpa_originale;
+        setDpaOriginale(user.dpa_originale || '');
+        setIsPostFlag(naissanceDeclaree);
+        if (naissanceDeclaree) {
           localStorage.setItem('dadup_dpa_originale', user.dpa_originale);
+          localStorage.setItem('dadup_is_post', '1');
+        } else {
+          localStorage.removeItem('dadup_dpa_originale');
+          localStorage.removeItem('dadup_is_post');
         }
 
         // Onboarding seulement si vraiment pas de DPA en base ET pas en local
@@ -198,10 +212,7 @@ function DashboardContent() {
   const declareNaissance = async () => {
     setShowConfirmNaissance(false);
 
-    // On recalcule isPost localement ici pour être sûr
-    const isPostNow = dpa ? joursAvantDpa(dpa) < 0 : false;
-
-    if (isPostNow) {
+    if (isPost) {
       // ── RETOUR EN MODE GROSSESSE ──────────────────────────────────────────
       const dpaRestore = dpaOriginale
         || localStorage.getItem('dadup_dpa_originale')
@@ -223,15 +234,14 @@ function DashboardContent() {
 
     } else {
       // ── BASCULE EN POST-PARTUM ────────────────────────────────────────────
-      const dpaCourante = dpa;
+      // La date de naissance devient la référence du post-partum ;
+      // la DPA est gardée dans dpa_originale (ce qui marque aussi la naissance comme déclarée)
+      const aujourdhui = isoLocal(new Date());
+      const dpaPostPartum = dateNaissance && dateNaissance <= aujourdhui ? dateNaissance : aujourdhui;
+      const dpaCourante = dpa || dpaPostPartum;
       setDpaOriginale(dpaCourante);
       localStorage.setItem('dadup_dpa_originale', dpaCourante);
       localStorage.setItem('dadup_dpa_backup', dpaCourante);
-
-      // DPA = il y a 2 jours → joursAvantDpa = -2 → isPost = true à coup sûr
-      const ilYa2Jours = new Date();
-      ilYa2Jours.setDate(ilYa2Jours.getDate() - 2);
-      const dpaPostPartum = `${ilYa2Jours.getFullYear()}-${String(ilYa2Jours.getMonth()+1).padStart(2,'0')}-${String(ilYa2Jours.getDate()).padStart(2,'0')}`;
 
       setDpa(dpaPostPartum);
       localStorage.setItem('dadup_dpa', dpaPostPartum);
@@ -339,7 +349,14 @@ function DashboardContent() {
               <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#DCE5D7" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d={isPost ? 'M3 12a9 9 0 1 0 3-6.7L3 8M3 3v5h5' : 'M12 3l1.8 4.6L18 9l-4.2 1.4L12 15l-1.8-4.6L6 9l4.2-1.4zM19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z'} /></svg>
             </div>
             <h3 id="dlg-naissance" style={{ color: '#15263A', fontSize: '20px', fontWeight: 800, margin: '0 0 10px' }}>{isPost ? 'Retour en mode grossesse ?' : 'Bébé est né ?'}</h3>
-            <p style={{ color: '#56616B', fontSize: '14px', lineHeight: 1.7, margin: '0 0 24px' }}>{isPost ? 'Tu reviendras à la dernière semaine de grossesse enregistrée. Ton suivi post-partum sera conservé.' : 'En confirmant, ton application bascule en mode post-naissance. Tu pourras suivre le développement de bébé mois par mois.'}</p>
+            <p style={{ color: '#56616B', fontSize: '14px', lineHeight: 1.7, margin: isPost ? '0 0 24px' : '0 0 16px' }}>{isPost ? 'Tu reviendras à la dernière semaine de grossesse enregistrée. Ton suivi post-partum sera conservé.' : 'En confirmant, ton application bascule en mode post-naissance. Tu pourras suivre le développement de bébé mois par mois.'}</p>
+            {!isPost && (
+              <div style={{ textAlign: 'left', margin: '0 0 22px' }}>
+                <label htmlFor="date-naissance" style={{ display: 'block', fontSize: '13px', fontWeight: 700, color: '#15263A', marginBottom: '6px' }}>Date de naissance</label>
+                <input id="date-naissance" type="date" value={dateNaissance} max={isoLocal(new Date())} onChange={e => setDateNaissance(e.target.value)}
+                  style={{ width: '100%', background: '#F6F1E9', border: '1px solid #E6E0D5', borderRadius: '12px', padding: '12px 14px', fontSize: '16px', color: '#15263A' }} />
+              </div>
+            )}
             <div style={{ display: 'flex', gap: '10px' }}>
               <button onClick={() => setShowConfirmNaissance(false)} style={{ flex: 1, minHeight: '48px', padding: '13px', background: '#F6F1E9', border: '1px solid #E6E0D5', borderRadius: '14px', fontSize: '14px', fontWeight: 700, color: '#15263A', cursor: 'pointer' }}>Annuler</button>
               <button onClick={declareNaissance} style={{ flex: 2, minHeight: '48px', padding: '13px', background: 'linear-gradient(160deg,#0C1D2E,#1A3D5C 70%,#24507A)', border: 'none', borderRadius: '14px', fontSize: '14px', fontWeight: 800, color: '#fff', cursor: 'pointer' }}>{isPost ? 'Revenir en mode grossesse' : 'Oui, bébé est né'}</button>
