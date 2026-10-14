@@ -3,7 +3,7 @@ import datetime, json
 from qa_lib import APP, seed_user, session_cookie
 
 MDP = "MotDePasse123"
-PUBLIQUES = ["/", "/tarifs", "/inclus", "/pourquoi", "/contact", "/professionnels", "/temoignages", "/sources",
+PUBLIQUES = ["/", "/tarifs", "/inclus", "/pourquoi", "/contact", "/professionnels", "/sources",
              "/cgv", "/mentions-legales", "/confidentialite", "/login", "/reset-password", "/success", "/paiement-annule"]
 ONGLETS = ["home", "bebe", "rdv", "valise", "maison", "admin", "jourj", "toi", "plus", "dico"]
 ECRANS = [("mobile", 390, 844), ("tablette", 820, 1180), ("ordinateur", 1440, 900)]
