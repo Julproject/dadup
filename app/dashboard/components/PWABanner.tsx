@@ -57,7 +57,7 @@ export default function PWABanner() {
 
   return (
     <div style={{
-      position: 'fixed', bottom: '80px', left: '16px', right: '16px',
+      position: 'fixed', bottom: 'calc(var(--nav-h) + var(--safe-bas) + 16px)', left: '16px', right: '16px',
       background: C.dark, borderRadius: '20px', padding: '16px 20px',
       display: 'flex', alignItems: 'flex-start', gap: '14px',
       zIndex: 100, boxShadow: '0 8px 32px rgba(0,0,0,0.3)',

@@ -2,7 +2,8 @@
 
 const LABEL = { fontSize: '12px', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase' as const, color: '#5f6b72', margin: '0 0 8px' };
 
-type Ligne = { titre: string; detail: string; href?: string; onClick?: () => void; icon: string };
+// externe : page hors de l'app (textes légaux), ouverte par-dessus l'app installée pour pouvoir revenir
+type Ligne = { titre: string; detail: string; href?: string; externe?: boolean; onClick?: () => void; icon: string };
 
 const ICONS: Record<string, string> = {
   dico:    'M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2zM4 19V5M8 7h7',
@@ -28,7 +29,7 @@ function Rangee({ l }: { l: Ligne }) {
   );
   const style = { display: 'flex', alignItems: 'center', gap: '14px', width: '100%', minHeight: '64px', padding: '14px 18px', background: '#ffffff', border: 'none', borderRadius: '20px', cursor: 'pointer', textDecoration: 'none', boxShadow: '0 2px 12px rgba(26,61,92,0.06)' };
   return l.href
-    ? <a href={l.href} style={style}>{contenu}</a>
+    ? <a href={l.href} style={style} {...(l.externe ? { target: '_blank', rel: 'noopener' } : {})}>{contenu}</a>
     : <button onClick={l.onClick} style={style}>{contenu}</button>;
 }
 
@@ -47,9 +48,9 @@ export default function PlusPage({ setActiveTab }: any) {
     { titre: 'Nous contacter', detail: 'Une question ? On répond en moins de 24h', href: '/contact-app', icon: 'contact' },
   ];
   const infos: Ligne[] = [
-    { titre: 'Mentions légales', detail: 'Éditeur et hébergement du site', href: '/mentions-legales', icon: 'legal' },
-    { titre: 'CGV', detail: 'Conditions générales de vente', href: '/cgv', icon: 'legal' },
-    { titre: 'Confidentialité', detail: 'Ce que nous faisons de tes données', href: '/confidentialite', icon: 'legal' },
+    { titre: 'Mentions légales', detail: 'Éditeur et hébergement du site', href: '/mentions-legales', externe: true, icon: 'legal' },
+    { titre: 'CGV', detail: 'Conditions générales de vente', href: '/cgv', externe: true, icon: 'legal' },
+    { titre: 'Confidentialité', detail: 'Ce que nous faisons de tes données', href: '/confidentialite', externe: true, icon: 'legal' },
   ];
 
   return (

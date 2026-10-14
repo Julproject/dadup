@@ -78,7 +78,7 @@ export default function ContactPage() {
               <p style={{color:C.text, fontSize:'15px', lineHeight:1.7, margin:'0 0 32px'}}>
                 On te répond en général sous 24h, souvent bien moins. Tu recevras la réponse sur <strong>{email}</strong>.
               </p>
-              <a href="/" style={{display:'inline-block', background:C.dark, color:C.white, padding:'13px 32px', borderRadius:'14px', fontSize:'14px', fontWeight:700, textDecoration:'none'}}>
+              <a href="/dashboard" style={{display:'inline-block', background:C.dark, color:C.white, padding:'13px 32px', borderRadius:'14px', fontSize:'14px', fontWeight:700, textDecoration:'none'}}>
                 Retour à l'accueil
               </a>
             </div>

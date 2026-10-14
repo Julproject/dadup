@@ -40,7 +40,7 @@ const NAV_POST: NavItem[] = [
 
 function Icon({ name, color }: { name: string; color: string }) {
   return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={name === 'plus' ? 3.2 : 2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
       <path d={ICONS[name]} />
     </svg>
   );
@@ -57,12 +57,16 @@ export default function Topbar({ prenom, dpa, saReelle, tri, prog, isPost, moisB
 
   return (
     <>
-      <div style={{ background: C.cream, position: 'sticky', top: 0, zIndex: 40, borderBottom: '1px solid #E6E0D5' }}>
+      <div className="dd-topbar" style={{ background: C.cream, position: 'sticky', top: 0, zIndex: 40, borderBottom: '1px solid #E6E0D5' }}>
         <style>{`
           .dd-tabs::-webkit-scrollbar{display:none;}
           .tab-btn{transition:transform .15s ease,box-shadow .15s ease;}
           .tab-btn:hover{color:#15263A!important;}
           .dd-bottomnav{display:none;}
+          @media (display-mode: standalone){.dd-topbar{padding-top:env(safe-area-inset-top,0px);}}
+          .dd-bn-btn{transition:color .15s ease;}
+          .dd-bn-btn:active .dd-bn-ic{transform:scale(.9);}
+          .dd-bn-ic{display:flex;transition:transform .12s ease;}
           @media(max-width:640px){.tb-prenom{display:none!important;}}
           @media(max-width:860px){
             .dd-toptabs{display:none!important;}
@@ -109,19 +113,20 @@ export default function Topbar({ prenom, dpa, saReelle, tri, prog, isPost, moisB
         position: 'fixed', left: 0, right: 0, bottom: 0, zIndex: 60,
         background: '#ffffff', borderTop: '1px solid #E6E0D5',
         boxShadow: '0 -4px 20px rgba(26,61,92,0.06)',
-        padding: '0 6px calc(8px + env(safe-area-inset-bottom))',
-        justifyContent: 'space-around',
+        height: 'calc(var(--nav-h) + var(--safe-bas))',
+        padding: '0 max(4px, env(safe-area-inset-right)) var(--safe-bas) max(4px, env(safe-area-inset-left))',
+        justifyContent: 'space-around', alignItems: 'stretch',
       }}>
         {tabs.map(n => {
           const on = isOn(n);
           return (
-            <button key={n.id} onClick={() => setActiveTab(n.target)} aria-current={on ? 'page' : undefined} style={{
-              flex: 1, minWidth: 0, minHeight: '50px', background: 'none', border: 'none', cursor: 'pointer',
+            <button key={n.id} onClick={() => setActiveTab(n.target)} aria-current={on ? 'page' : undefined} className="dd-bn-btn" style={{
+              flex: 1, minWidth: 0, height: '100%', background: 'none', border: 'none', cursor: 'pointer',
               borderTop: on ? '3px solid #B4593A' : '3px solid transparent',
-              display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '3px', padding: '4px 0 0',
+              display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '4px', padding: '2px 0 4px',
             }}>
-              <Icon name={n.icon} color={on ? '#15263A' : '#8b949a'} />
-              <span style={{ fontSize: '12px', fontWeight: on ? 800 : 700, color: on ? '#15263A' : '#5f6b72', whiteSpace: 'nowrap' as const }}>{n.short}</span>
+              <span className="dd-bn-ic"><Icon name={n.icon} color={on ? '#15263A' : '#6b757b'} /></span>
+              <span style={{ fontSize: '12px', lineHeight: 1.1, fontWeight: on ? 800 : 700, color: on ? '#15263A' : '#56616B', whiteSpace: 'nowrap' as const }}>{n.short}</span>
             </button>
           );
         })}

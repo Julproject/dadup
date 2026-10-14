@@ -12,7 +12,7 @@ Aucune vraie base, aucun vrai email, aucun vrai paiement.
 
 ```bash
 npm ci
-pip install pytest playwright requests && python3 -m playwright install chromium
+pip install pytest playwright requests pillow && python3 -m playwright install chromium
 SUPABASE_URL=http://127.0.0.1:54321 SUPABASE_SERVICE_ROLE_KEY=qa-service-key \
   STRIPE_SECRET_KEY=sk_test_qa STRIPE_WEBHOOK_SECRET=whsec_qa_secret STRIPE_PRICE_ID=price_qa \
   BREVO_API_KEY=qa-brevo NEXT_PUBLIC_URL=http://localhost:3100 npx next build
@@ -36,6 +36,7 @@ python3 -m pytest -q tests/e2e
 | `test_13_lotD.py` | Fin d'accès, sauvegardes en panne, bouton retour, Maison, email unique |
 | `test_14_lotE.py` | Contact, en-têtes, taille des données, mot de passe oublié |
 | `test_15_lotF.py` | Poids de l'accueil, page Témoignages supprimée, DPA aberrante, versions figées |
+| `test_16_pwa.py` | App installée : barre du bas et barre d'accueil de l'iPhone, manifeste, icône, champs sans zoom, page hors ligne |
 
 ## Ce qui n'est pas testé ici
 
