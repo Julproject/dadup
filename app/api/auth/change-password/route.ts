@@ -7,7 +7,8 @@ const supabase = createClient(process.env.SUPABASE_URL!, process.env.SUPABASE_SE
 
 export async function POST(req: NextRequest) {
   try {
-    const { user } = await utilisateurDeSession<{ password_hash: string }>(req, supabase, 'id, password_hash');
+    const { user, erreurBase } = await utilisateurDeSession<{ password_hash: string }>(req, supabase, 'id, password_hash');
+    if (erreurBase) return NextResponse.json({ error: 'DadUp est momentanément indisponible.' }, { status: 503 });
     if (!user) return NextResponse.json({ error: 'Non connecté.' }, { status: 401 });
 
     const { oldPassword, newPassword } = await req.json();

@@ -243,18 +243,14 @@ const ADMIN = [
 export default function PreparerPage({C, valiseChecked, toggleV, achatChecked, toggleA, ongletForce}: any) {
   const [ongletState, setOnglet] = useState<'valise'|'maison'|'conge'>('valise');
   const onglet: 'valise'|'maison'|'conge' = ongletForce || ongletState;
-  const [adminLu, setAdminLu] = useState<string[]>(() => {
-    if (typeof window === 'undefined') return [];
-    try { return JSON.parse(localStorage.getItem('dadup_admin_lu') || '[]'); } catch { return []; }
-  });
+  // Cases « lu » de l'Administratif et checklist Maison : enregistrées dans le compte (achats_checked).
+  // Les cases « lu » utilisent des clés préfixées « admin: » pour ne pas se mélanger aux éléments de la maison.
+  const achats: Record<string, boolean> = achatChecked || {};
+  const adminLu: string[] = Object.keys(achats).filter(k => k.startsWith('admin:') && achats[k]).map(k => k.slice(6));
   const [adminOuvert, setAdminOuvert] = useState<string|null>(null);
-  const toggleAdminLu = (id: string) => {
-    const next = adminLu.includes(id) ? adminLu.filter(c => c !== id) : [...adminLu, id];
-    setAdminLu(next);
-    localStorage.setItem('dadup_admin_lu', JSON.stringify(next));
-  };
-  const [maisonChecked, setMaisonChecked] = useState<Record<string,boolean>>({});
-  const toggleM = (id: string) => setMaisonChecked(u => ({...u, [id]: !u[id]}));
+  const toggleAdminLu = (id: string) => toggleA(`admin:${id}`);
+  const maisonChecked = achats;
+  const toggleM = (id: string) => toggleA(id);
 
   const allValise = VALISE.flatMap(g => g.items);
   const doneV = allValise.filter(i => valiseChecked[i.id]).length;

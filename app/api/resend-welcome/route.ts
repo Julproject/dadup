@@ -8,7 +8,7 @@ const EMAIL_HTML = (createPasswordUrl: string, email: string) => `<!DOCTYPE html
 
 export async function POST(req: NextRequest) {
   try {
-    const { session_id } = await req.json();
+    const { session_id, manuel } = await req.json();
     if (!session_id) return NextResponse.json({ error: 'session_id requis' }, { status: 400 });
 
     const stripeRes = await fetch(
@@ -44,6 +44,14 @@ export async function POST(req: NextRequest) {
 
     const tokenValide = user.reset_token && user.reset_token_expires
       && new Date(user.reset_token_expires) > new Date();
+
+    // Le webhook vient d'envoyer l'email de bienvenue (lien valable 7 jours créé il y a moins de 15 min) :
+    // on n'en renvoie pas un second
+    const envoyeRecemment = tokenValide
+      && new Date(user.reset_token_expires).getTime() > Date.now() + 7 * 24 * 60 * 60 * 1000 - 15 * 60 * 1000;
+    if (envoyeRecemment && manuel !== true) {
+      return NextResponse.json({ status: 'sent', email });
+    }
 
     let resetToken = user.reset_token;
 
