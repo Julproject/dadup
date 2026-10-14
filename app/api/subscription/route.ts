@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
+import { utilisateurDeSession } from '../../../lib/session';
 
 const supabase = createClient(
   process.env.SUPABASE_URL!,
@@ -8,14 +9,8 @@ const supabase = createClient(
 
 export async function GET(req: NextRequest) {
   try {
-    const sessionId = req.cookies.get('dadup_session')?.value;
-    if (!sessionId) return NextResponse.json({ endDate: null }, { status: 401 });
-
-    const { data: user } = await supabase
-      .from('users')
-      .select('stripe_subscription_id')
-      .eq('id', sessionId)
-      .single();
+    const { user } = await utilisateurDeSession<{ stripe_subscription_id: string | null }>(req, supabase, 'id, stripe_subscription_id');
+    if (!user) return NextResponse.json({ endDate: null }, { status: 401 });
 
     if (!user?.stripe_subscription_id) {
       return NextResponse.json({ endDate: null });
