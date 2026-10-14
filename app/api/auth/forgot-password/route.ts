@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 import crypto from 'crypto';
+import { limiteAtteinte, compter, ipDe } from '../../../../lib/limite';
 
 const supabase = createClient(
   process.env.SUPABASE_URL!,
@@ -10,16 +11,28 @@ const supabase = createClient(
 export async function POST(req: NextRequest) {
   try {
     const { email } = await req.json();
-    if (!email) return NextResponse.json({ error: 'Email requis.' }, { status: 400 });
+    if (typeof email !== 'string' || !email) return NextResponse.json({ error: 'Email requis.' }, { status: 400 });
+
+    const cleIp = 'forgot-ip:' + ipDe(req);
+    if (limiteAtteinte(cleIp, 10, 60 * 60 * 1000)) {
+      return NextResponse.json({ error: 'Trop de demandes. Réessaie dans un moment.' }, { status: 429 });
+    }
+    compter(cleIp, 60 * 60 * 1000);
 
     const { data: user } = await supabase
       .from('users')
-      .select('id, email, prenom')
+      .select('id, email, prenom, reset_token_expires')
       .eq('email', email.toLowerCase().trim())
       .single();
 
     // Toujours répondre OK pour ne pas révéler si l'email existe
     if (!user) return NextResponse.json({ ok: true });
+
+    // Un lien vient déjà d'être envoyé (il y a moins de 2 minutes) : on n'en renvoie pas
+    if (user.reset_token_expires) {
+      const restant = new Date(user.reset_token_expires).getTime() - Date.now();
+      if (restant > 58 * 60 * 1000 && restant <= 60 * 60 * 1000) return NextResponse.json({ ok: true });
+    }
 
     // Générer un token sécurisé valable 1h
     const token = crypto.randomBytes(32).toString('hex');

@@ -3,6 +3,10 @@ import { createClient } from '@supabase/supabase-js';
 import bcrypt from 'bcryptjs';
 import { poserSession } from '../../../../lib/session';
 import { accesTermine, dateFinLisible } from '../../../../lib/acces';
+import { limiteAtteinte, compter, effacer, ipDe } from '../../../../lib/limite';
+
+// Après 5 échecs pour un même compte (ou 20 depuis une même adresse IP), pause de 15 minutes
+const FENETRE = 15 * 60 * 1000;
 
 const supabase = createClient(
   process.env.SUPABASE_URL!,
@@ -17,6 +21,17 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Email et mot de passe requis.' }, { status: 400 });
     }
 
+    const cleCompte = 'login:' + email.toLowerCase().trim();
+    const cleIp = 'login-ip:' + ipDe(req);
+    if (limiteAtteinte(cleCompte, 5, FENETRE) || limiteAtteinte(cleIp, 20, FENETRE)) {
+      return NextResponse.json({ error: 'Trop de tentatives. Réessaie dans 15 minutes, ou utilise « Mot de passe oublié ».' }, { status: 429 });
+    }
+    const echec = () => {
+      compter(cleCompte, FENETRE);
+      compter(cleIp, FENETRE);
+      return NextResponse.json({ error: 'Email ou mot de passe incorrect.' }, { status: 401 });
+    };
+
     // Chercher l'utilisateur
     const { data: user, error } = await supabase
       .from('users')
@@ -30,15 +45,12 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'DadUp est momentanément indisponible. Réessaie dans quelques minutes.' }, { status: 503 });
     }
 
-    if (!user) {
-      return NextResponse.json({ error: 'Email ou mot de passe incorrect.' }, { status: 401 });
-    }
+    if (!user) return echec();
 
     // Vérifier le mot de passe
     const valid = await bcrypt.compare(password, user.password_hash);
-    if (!valid) {
-      return NextResponse.json({ error: 'Email ou mot de passe incorrect.' }, { status: 401 });
-    }
+    if (!valid) return echec();
+    effacer(cleCompte);
 
     // Vérifier que le compte est actif (paiement validé)
     if (!user.actif) {

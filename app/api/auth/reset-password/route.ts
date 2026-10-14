@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 import bcrypt from 'bcryptjs';
 import { poserSession } from '../../../../lib/session';
+import { limiteAtteinte, compter, ipDe } from '../../../../lib/limite';
 
 const supabase = createClient(
   process.env.SUPABASE_URL!,
@@ -12,7 +13,13 @@ export async function POST(req: NextRequest) {
   try {
     const { token, password } = await req.json();
 
-    if (!token || !password) {
+    const cleIp = 'reset-ip:' + ipDe(req);
+    if (limiteAtteinte(cleIp, 20, 60 * 60 * 1000)) {
+      return NextResponse.json({ error: 'Trop de tentatives. Réessaie dans un moment.' }, { status: 429 });
+    }
+    compter(cleIp, 60 * 60 * 1000);
+
+    if (typeof token !== 'string' || typeof password !== 'string' || !token || !password) {
       return NextResponse.json({ error: 'Token et mot de passe requis.' }, { status: 400 });
     }
 

@@ -44,7 +44,7 @@ export default function ContactPage() {
       if (!res.ok) throw new Error(data.error || 'Erreur');
       setSent(true);
     } catch (err: any) {
-      setError('Une erreur est survenue. Réessaie ou écris-nous à hello@dadup.fr');
+      setError(err?.message && err.message !== 'Erreur' ? err.message : 'Une erreur est survenue. Réessaie ou écris-nous à hello@dadup.fr');
     } finally {
       setLoading(false);
     }
