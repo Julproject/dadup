@@ -1,6 +1,7 @@
 'use client';
 import CheckoutModal from '@/app/components/CheckoutModal';
 import { useState } from 'react';
+import TelephoneRealiste from '@/app/components/TelephoneRealiste';
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -106,29 +107,60 @@ export default function Home() {
           .hero-chips{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:26px auto 0;max-width:860px;}
           .hero-chip{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.16);border-radius:99px;padding:8px 14px;color:#fff;font-size:13px;font-weight:700;}
           .hero-phones{position:relative;width:min(880px,100%);height:420px;margin:48px auto 0;}
-          .hero-phone{position:absolute;background:#0B1118;box-shadow:0 30px 60px rgba(0,0,0,0.35);}
-          .hero-phone img{display:block;width:100%;height:auto;}
-          .hp-c{left:50%;top:0;transform:translateX(-50%);width:270px;padding:10px;border-radius:52px;z-index:2;box-shadow:0 40px 80px rgba(0,0,0,0.45);}
-          .hp-c img{border-radius:43px;}
-          .hp-l,.hp-r{top:90px;width:236px;padding:9px;border-radius:46px;}
-          .hp-l img,.hp-r img{border-radius:38px;}
+          .hero-a > *{position:relative;z-index:1;}
+          .hero-a > .hero-deco{position:absolute;z-index:0;pointer-events:none;}
+          .hero-phones .hp{position:absolute;}
+          .hp-c{left:50%;top:0;transform:translateX(-50%);width:270px;z-index:2;}
+          .hp-l,.hp-r{top:90px;width:236px;}
           .hp-l{left:70px;transform:rotate(-7deg);}
           .hp-r{right:70px;transform:rotate(7deg);}
+          .deco-ventre{top:0;right:0;height:100%;width:min(38%,460px);}
+          .deco-coeur{top:120px;left:6%;width:56px;filter:drop-shadow(0 0 6px rgba(227,138,85,.75));overflow:visible;}
+          .deco-pieds{bottom:130px;left:8%;width:78px;filter:drop-shadow(0 0 5px rgba(227,138,85,.7));overflow:visible;}
+          .deco-etoiles{top:40px;left:22%;width:120px;}
           @media (max-width:768px){
             .hero-a{padding:44px 20px 0;}
             .hero-a h1{letter-spacing:-0.6px;}
             .hero-chips{gap:6px;margin-top:20px;}
             .hero-chip{font-size:12px;padding:6px 11px;}
             .hero-phones{height:300px;margin-top:36px;}
-            .hp-c{width:176px;padding:7px;border-radius:34px;}
-            .hp-c img{border-radius:28px;}
-            .hp-l,.hp-r{top:64px;width:146px;padding:6px;border-radius:30px;}
-            .hp-l img,.hp-r img{border-radius:25px;}
+            .hp-c{width:176px;}
+            .hp-l,.hp-r{top:64px;width:146px;}
             .hp-l{left:-6px;transform:rotate(-8deg);}
             .hp-r{right:-6px;transform:rotate(8deg);}
+            .deco-ventre{top:auto;bottom:0;height:46%;width:60%;opacity:.6;}
+            .deco-coeur,.deco-pieds,.deco-etoiles{display:none;}
           }
         `}</style>
         <div className="hero-a">
+          {/* Décor lumineux : ventre de future maman, cœur, petits pieds, étincelles */}
+          <svg className="hero-deco deco-ventre" viewBox="0 0 400 700" preserveAspectRatio="xMaxYMin meet" aria-hidden="true">
+            <defs>
+              <linearGradient id="dd-lueur" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stopColor="#F2B27E" stopOpacity="0" />
+                <stop offset="0.25" stopColor="#E38A55" />
+                <stop offset="0.6" stopColor="#F2B27E" />
+                <stop offset="1" stopColor="#B4593A" stopOpacity="0" />
+              </linearGradient>
+              <filter id="dd-flou" x="-50%" y="-20%" width="200%" height="140%"><feGaussianBlur stdDeviation="9" /></filter>
+            </defs>
+            <path d="M380 -10 C352 70 300 120 292 205 C286 262 250 290 214 352 C168 432 186 548 262 586 C310 610 330 650 336 712" fill="none" stroke="url(#dd-lueur)" strokeWidth="14" filter="url(#dd-flou)" opacity="0.7" />
+            <path d="M380 -10 C352 70 300 120 292 205 C286 262 250 290 214 352 C168 432 186 548 262 586 C310 610 330 650 336 712" fill="none" stroke="url(#dd-lueur)" strokeWidth="2.4" strokeLinecap="round" />
+          </svg>
+          <svg className="hero-deco deco-coeur" viewBox="0 0 48 44" aria-hidden="true">
+            <path d="M24 40S4 28 4 14A10 10 0 0 1 24 9a10 10 0 0 1 20 5c0 14-20 26-20 26z" fill="none" stroke="#F2B27E" strokeWidth="1.6" strokeLinejoin="round" opacity="0.85" />
+          </svg>
+          <svg className="hero-deco deco-pieds" viewBox="0 0 70 64" aria-hidden="true" fill="none" stroke="#F2B27E" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M15 50c-5 0-7.5-4.5-6.5-10.5C9.5 33 12.5 27 18 26.5c5-.5 7 3.5 6 8.5-.7 3.7-2.8 5.8-3 9.6-.2 3.4-2 5.4-6 5.4z" />
+            <circle cx="10.5" cy="20.5" r="2.1" /><circle cx="15.5" cy="17.6" r="1.8" /><circle cx="20" cy="17.4" r="1.6" /><circle cx="23.8" cy="19" r="1.4" /><circle cx="26.6" cy="21.8" r="1.2" />
+            <path d="M50 40c5 0 7.5-4.5 6.5-10.5C55.5 23 52.5 17 47 16.5c-5-.5-7 3.5-6 8.5.7 3.7 2.8 5.8 3 9.6.2 3.4 2 5.4 6 5.4z" />
+            <circle cx="54.5" cy="10.5" r="2.1" /><circle cx="49.5" cy="7.6" r="1.8" /><circle cx="45" cy="7.4" r="1.6" /><circle cx="41.2" cy="9" r="1.4" /><circle cx="38.4" cy="11.8" r="1.2" />
+          </svg>
+          <svg className="hero-deco deco-etoiles" viewBox="0 0 120 60" aria-hidden="true" fill="#F2B27E">
+            <path d="M18 14l1.6 4.4L24 20l-4.4 1.6L18 26l-1.6-4.4L12 20l4.4-1.6z" opacity="0.8" />
+            <circle cx="62" cy="40" r="1.6" opacity="0.6" /><circle cx="96" cy="12" r="1.3" opacity="0.5" />
+            <path d="M104 40l1 2.8 2.8 1-2.8 1-1 2.8-1-2.8-2.8-1 2.8-1z" opacity="0.6" />
+          </svg>
           <div style={{display:'inline-flex', alignItems:'center', gap:'8px', background:'rgba(157,176,154,0.18)', border:'1px solid rgba(157,176,154,0.45)', borderRadius:'20px', padding:'5px 14px', marginBottom:'22px'}}>
             <div style={{width:'6px', height:'6px', borderRadius:'50%', background:'#9DB09A'}}></div>
             <span style={{color:'#C9D8C4', fontSize:'12px', fontWeight:700, letterSpacing:'1px'}}>Conçu pour les futurs pères</span>
@@ -159,9 +191,9 @@ export default function Home() {
           </ul>
 
           <div className="hero-phones">
-            <div className="hero-phone hp-l"><img src="/apercu-bebe.webp" alt="Écran Bébé de DadUp : le développement de bébé semaine après semaine" width={585} height={1266} loading="lazy" /></div>
-            <div className="hero-phone hp-r"><img src="/apercu-jourj.webp" alt="Écran Jour J de DadUp : quand partir et qui appeler" width={585} height={1266} loading="lazy" /></div>
-            <div className="hero-phone hp-c"><img src="/apercu-accueil.webp" alt="Écran d'accueil de DadUp : compte à rebours, semaine de grossesse et bébé cette semaine" width={585} height={1266} fetchPriority="high" /></div>
+            <TelephoneRealiste className="hp hp-l" src="/apercu-bebe.webp" alt="Écran Bébé de DadUp : le développement de bébé semaine après semaine" />
+            <TelephoneRealiste className="hp hp-r" src="/apercu-jourj.webp" alt="Écran Jour J de DadUp : quand partir et qui appeler" />
+            <TelephoneRealiste className="hp hp-c" src="/apercu-accueil.webp" alt="Écran d'accueil de DadUp : compte à rebours, semaine de grossesse et bébé cette semaine" prioritaire />
           </div>
         </div>
       </section>
@@ -175,13 +207,18 @@ export default function Home() {
           </div>
           <div className="stats-4col">
             {[
-              {border:'rgba(180,220,255,0.25)', label:'La grossesse', lc:'#7ab8f0', title:'De la 3e à la 41e semaine', tc:'#B8DCFF', desc:"Chaque semaine expliquée côté papa : développement de bébé, ton rôle, ce qu'elle vit.", dc:'rgba(180,220,255,0.6)'},
-              {border:'rgba(150,240,200,0.2)', label:"L'après-naissance", lc:'#5dd4a0', title:"Jusqu'au 1er anniversaire de bébé", tc:'#96F0C8', desc:'Les premiers mois, le développement de bébé, le baby blues, le couple. Tout est inclus.', dc:'rgba(150,240,200,0.6)'},
-              {border:'rgba(200,170,255,0.2)', label:'Calendrier médical', lc:'#a888f0', title:'Chaque consultation préparée', tc:'#C8AAFF', desc:"Ce qu'on cherche à chaque rendez-vous, les bonnes questions à poser, comment être vraiment présent.", dc:'rgba(200,170,255,0.6)'},
-              {border:'rgba(255,240,160,0.25)', label:'Paiement unique', lc:'#C9D8C4', title:'Sans abonnement', tc:'#FFF0A0', desc:"Tu paies une fois, tu accèdes jusqu'au premier anniversaire de bébé. Pas de surprise.", dc:'rgba(255,240,160,0.6)'},
+              {border:'rgba(180,220,255,0.25)', ic:'M12 21v-8M12 13c0-4.4 3.2-7.6 8-7.6 0 4.4-3.2 7.6-8 7.6zM12 15.5c0-3.6-2.6-6.3-7-6.3 0 3.6 2.6 6.3 7 6.3z', label:'La grossesse', lc:'#7ab8f0', title:'De la 3e à la 41e semaine', tc:'#B8DCFF', desc:"Chaque semaine expliquée côté papa : développement de bébé, ton rôle, ce qu'elle vit.", dc:'rgba(180,220,255,0.6)'},
+              {border:'rgba(150,240,200,0.2)', ic:'M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.5-7 10-7 10z', label:"L'après-naissance", lc:'#5dd4a0', title:"Jusqu'au 1er anniversaire de bébé", tc:'#96F0C8', desc:'Les premiers mois, le développement de bébé, le baby blues, le couple. Tout est inclus.', dc:'rgba(150,240,200,0.6)'},
+              {border:'rgba(200,170,255,0.2)', ic:'M4 7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zM4 10h16M9 3v4M15 3v4', label:'Calendrier médical', lc:'#a888f0', title:'Chaque consultation préparée', tc:'#C8AAFF', desc:"Ce qu'on cherche à chaque rendez-vous, les bonnes questions à poser, comment être vraiment présent.", dc:'rgba(200,170,255,0.6)'},
+              {border:'rgba(255,240,160,0.25)', ic:'M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zM8.5 12.2l2.4 2.4 4.6-5.1', label:'Paiement unique', lc:'#C9D8C4', title:'Sans abonnement', tc:'#FFF0A0', desc:"Tu paies une fois, tu accèdes jusqu'au premier anniversaire de bébé. Pas de surprise.", dc:'rgba(255,240,160,0.6)'},
             ].map((s,i) => (
               <div key={i} style={{background:'#ffffff', borderRadius:'20px', padding:'28px 32px', boxShadow:'0 8px 32px rgba(0,0,0,0.08)', border:'none'}}>
-                <p style={{color:'#9C4A2E', fontSize:'12px', fontWeight:700, letterSpacing:'2px', textTransform:'uppercase' as const, margin:'0 0 10px'}}>{s.label}</p>
+                <div style={{display:'flex', alignItems:'center', gap:'12px', margin:'0 0 12px'}}>
+                  <span style={{width:'42px', height:'42px', borderRadius:'50%', background:'#F8E9DF', boxShadow:'0 0 0 6px rgba(242,218,203,0.35)', display:'flex', alignItems:'center', justifyContent:'center', flexShrink:0}}>
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#B4593A" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d={s.ic} /></svg>
+                  </span>
+                  <p style={{color:'#9C4A2E', fontSize:'12px', fontWeight:700, letterSpacing:'2px', textTransform:'uppercase' as const, margin:0}}>{s.label}</p>
+                </div>
                 <p style={{color:'#15263A', fontSize:'15px', fontWeight:700, margin:'0 0 8px'}}>{s.title}</p>
                 <p style={{color:'#56616B', fontSize:'13px', margin:0, lineHeight:1.65}}>{s.desc}</p>
               </div>
