@@ -38,7 +38,7 @@ export default function ConfidentialitePage() {
 
       <nav style={{ background: '#ffffff', borderBottom: '1px solid #e8e0d0', padding: '0 clamp(16px, 5vw, 40px)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '12px', minHeight: '64px', paddingTop: '8px', paddingBottom: '8px' }}>
         <a href="/" style={{ display: 'flex', alignItems: 'center', gap: '8px', textDecoration: 'none' }}>
-          <Logo fond="creme" hauteur={26} />
+          <Logo fond="creme" hauteur={22} />
         </a>
         <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'flex-end', columnGap: 'clamp(10px, 3vw, 20px)', rowGap: '2px', fontSize: '14px', minWidth: 0 }}>
           <a href="/cgv" style={{ color: '#56616B', textDecoration: 'none' }}>CGV</a>

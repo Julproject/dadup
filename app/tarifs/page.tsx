@@ -71,7 +71,7 @@ export default function TarifsPage() {
       <nav style={{background:'#F6F1E9', borderBottom:'none', position:'sticky', top:0, zIndex:50, padding:'0 40px', display:'flex', alignItems:'center', justifyContent:'space-between', height:'68px'}}>
         <div style={{display:'flex', alignItems:'center', gap:'48px'}}>
           <a href="/" style={{display:'flex', alignItems:'center', gap:'10px', textDecoration:'none'}}>
-            <Logo fond="creme" hauteur={30} />
+            <Logo fond="creme" hauteur={24} />
           </a>
           <div className="nl" style={{gap:'4px'}}>
             <a href="/pourquoi" style={{color:C.dark, fontSize:'14px', fontWeight:700, padding:'8px 14px', borderRadius:'8px', textDecoration:'none'}}>Pourquoi DadUp</a>
@@ -238,7 +238,7 @@ export default function TarifsPage() {
         <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '16px' }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap' as const, gap: '16px' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <Logo fond="marine" hauteur={26} />
+              <Logo fond="marine" hauteur={22} />
             </div>
             <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' as const }}>
               <a href="/pourquoi" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '13px', textDecoration: 'none' }}>Pourquoi DadUp</a>
