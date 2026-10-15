@@ -1,4 +1,5 @@
 'use client';
+import { Logo } from '../../components/Logo';
 
 const C = {
   dark: '#1e2535', blue: '#2E5F8A', blueDark: '#1A3D5C', gold:'#C9D8C4',
@@ -77,15 +78,7 @@ export default function Topbar({ prenom, dpa, saReelle, tri, prog, isPost, moisB
         {/* Ligne 1 : logo + profil */}
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '12px 20px', maxWidth: '1180px', margin: '0 auto' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-            <svg viewBox="0 0 300 300" width="36" height="36" aria-hidden="true">
-              <circle cx="150" cy="150" r="145" fill="#1A3D5C" />
-              <circle cx="150" cy="150" r="122" fill="#2E5F8A" />
-              <ellipse cx="150" cy="205" rx="58" ry="54" fill="#c8a060" />
-              <circle cx="150" cy="112" r="40" fill="#c8a060" />
-              <ellipse cx="150" cy="196" rx="27" ry="31" fill="#F6F1E9" />
-              <circle cx="150" cy="128" r="26" fill="#F6F1E9" />
-            </svg>
-            <span style={{ fontSize: '20px', fontWeight: 900, color: C.dark, letterSpacing: '-0.3px' }}>DadUp</span>
+            <Logo fond="creme" hauteur={30} />
           </div>
 
         </div>

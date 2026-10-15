@@ -1,6 +1,7 @@
 'use client';
 import React, { useState } from 'react';
 import CheckoutModal from '@/app/components/CheckoutModal';
+import { Logo } from '../components/Logo';
 
 const C = {
   dark: '#15263A', gold: '#B4593A', cream: '#F6F1E9', white: '#ffffff',
@@ -70,15 +71,7 @@ export default function TarifsPage() {
       <nav style={{background:'#F6F1E9', borderBottom:'none', position:'sticky', top:0, zIndex:50, padding:'0 40px', display:'flex', alignItems:'center', justifyContent:'space-between', height:'68px'}}>
         <div style={{display:'flex', alignItems:'center', gap:'48px'}}>
           <a href="/" style={{display:'flex', alignItems:'center', gap:'10px', textDecoration:'none'}}>
-            <svg viewBox="0 0 300 300" width="34" height="34">
-              <circle cx="150" cy="150" r="145" fill="#3a4f6e"/>
-              <circle cx="150" cy="150" r="122" fill="#4a6080"/>
-              <ellipse cx="150" cy="205" rx="58" ry="54" fill="#c8a060"/>
-              <circle cx="150" cy="112" r="40" fill="#c8a060"/>
-              <ellipse cx="150" cy="196" rx="27" ry="31" fill="#faf6f0"/>
-              <circle cx="150" cy="128" r="26" fill="#faf6f0"/>
-            </svg>
-            <span style={{fontWeight:800, color:C.dark, fontSize:'20px'}}>DadUp</span>
+            <Logo fond="creme" hauteur={30} />
           </a>
           <div className="nl" style={{gap:'4px'}}>
             <a href="/pourquoi" style={{color:C.dark, fontSize:'14px', fontWeight:700, padding:'8px 14px', borderRadius:'8px', textDecoration:'none'}}>Pourquoi DadUp</a>
@@ -245,8 +238,7 @@ export default function TarifsPage() {
         <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '16px' }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap' as const, gap: '16px' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <svg viewBox="0 0 300 300" width="28" height="28"><circle cx="150" cy="150" r="145" fill="#3a4f6e"/><circle cx="150" cy="150" r="122" fill="#4a6080"/><ellipse cx="150" cy="205" rx="58" ry="54" fill="#c8a060"/><circle cx="150" cy="112" r="40" fill="#c8a060"/><ellipse cx="150" cy="196" rx="27" ry="31" fill="#faf6f0"/><circle cx="150" cy="128" r="26" fill="#faf6f0"/></svg>
-              <span style={{ color: C.white, fontSize: '16px', fontWeight: 700 }}>DadUp</span>
+              <Logo fond="marine" hauteur={26} />
             </div>
             <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' as const }}>
               <a href="/pourquoi" style={{ color: 'rgba(255,255,255,0.75)', fontSize: '13px', textDecoration: 'none' }}>Pourquoi DadUp</a>

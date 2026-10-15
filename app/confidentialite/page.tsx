@@ -1,4 +1,5 @@
 'use client';
+import { Logo } from '../components/Logo';
 
 export default function ConfidentialitePage() {
   return (
@@ -35,12 +36,11 @@ export default function ConfidentialitePage() {
       `}</style>
       <main style={{ minHeight: '100vh', background: '#faf6f0', fontFamily: 'inherit', color: '#4a5568' }}>
 
-      <nav style={{ background: '#ffffff', borderBottom: '1px solid #e8e0d0', padding: '0 40px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '64px' }}>
+      <nav style={{ background: '#ffffff', borderBottom: '1px solid #e8e0d0', padding: '0 clamp(16px, 5vw, 40px)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '12px', minHeight: '64px', paddingTop: '8px', paddingBottom: '8px' }}>
         <a href="/" style={{ display: 'flex', alignItems: 'center', gap: '8px', textDecoration: 'none' }}>
-          <svg viewBox="0 0 300 300" width="30" height="30"><circle cx="150" cy="150" r="145" fill="#1A3D5C"/><circle cx="150" cy="150" r="122" fill="#2E5F8A"/><ellipse cx="150" cy="205" rx="58" ry="54" fill="#c8a060"/><circle cx="150" cy="112" r="40" fill="#c8a060"/><ellipse cx="150" cy="196" rx="27" ry="31" fill="#F7FAFC"/><circle cx="150" cy="128" r="26" fill="#F7FAFC"/></svg>
-          <span style={{ fontWeight: 800, color: '#1e2535', fontSize: '17px' }}>DadUp</span>
+          <Logo fond="creme" hauteur={26} />
         </a>
-        <div style={{ display: 'flex', gap: '20px' }}>
+        <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'flex-end', columnGap: 'clamp(10px, 3vw, 20px)', rowGap: '2px', fontSize: '14px', minWidth: 0 }}>
           <a href="/cgv" style={{ color: '#56616B', textDecoration: 'none' }}>CGV</a>
           <a href="/mentions-legales" style={{ color: '#56616B', textDecoration: 'none' }}>Mentions légales</a>
           <a href="/" style={{ color: '#56616B', textDecoration: 'none', fontWeight: 600 }}>← Retour</a>

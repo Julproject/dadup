@@ -1,4 +1,5 @@
 'use client';
+import { IconeDadUp } from '../components/Logo';
 
 const C = {
   dark: '#15263A', gold: '#B4593A', cream: '#F6F1E9', white: '#ffffff',
@@ -33,14 +34,7 @@ export default function PaiementAnnulePage() {
 
         {/* Logo */}
         <div style={{ marginBottom: '32px' }}>
-          <svg viewBox="0 0 300 300" width="56" height="56" style={{ margin: '0 auto', display: 'block' }}>
-            <circle cx="150" cy="150" r="145" fill="#1A3D5C"/>
-            <circle cx="150" cy="150" r="122" fill="#2E5F8A"/>
-            <ellipse cx="150" cy="205" rx="58" ry="54" fill="#c8a060"/>
-            <circle cx="150" cy="112" r="40" fill="#c8a060"/>
-            <ellipse cx="150" cy="196" rx="27" ry="31" fill="#F7FAFC"/>
-            <circle cx="150" cy="128" r="26" fill="#F7FAFC"/>
-          </svg>
+          <IconeDadUp taille={56} style={{ margin: '0 auto' }} />
         </div>
 
         <div style={{ background: C.white, borderRadius: '28px', padding: '40px 36px', border: `1px solid ${C.border}`, boxShadow: '0 4px 32px rgba(0,0,0,0.06)' }}>

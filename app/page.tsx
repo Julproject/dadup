@@ -2,6 +2,7 @@
 import CheckoutModal from '@/app/components/CheckoutModal';
 import { useState } from 'react';
 import TelephoneRealiste from '@/app/components/TelephoneRealiste';
+import { Logo } from './components/Logo';
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -59,15 +60,7 @@ export default function Home() {
       <nav style={{background:'#F6F1E9', borderBottom:'none', position:'sticky', top:0, zIndex:50, padding:'0 40px', display:'flex', alignItems:'center', justifyContent:'space-between', height:'68px'}}>
         <div style={{display:'flex', alignItems:'center', gap:'48px'}}>
           <a href="/" style={{display:'flex', alignItems:'center', gap:'10px', textDecoration:'none'}}>
-            <svg viewBox="0 0 300 300" width="34" height="34">
-              <circle cx="150" cy="150" r="145" fill="#3a4f6e"/>
-              <circle cx="150" cy="150" r="122" fill="#4a6080"/>
-              <ellipse cx="150" cy="205" rx="58" ry="54" fill="#c8a060"/>
-              <circle cx="150" cy="112" r="40" fill="#c8a060"/>
-              <ellipse cx="150" cy="196" rx="27" ry="31" fill="#faf6f0"/>
-              <circle cx="150" cy="128" r="26" fill="#faf6f0"/>
-            </svg>
-            <span style={{fontWeight:800, color:C.dark, fontSize:'20px'}}>DadUp</span>
+            <Logo fond="creme" hauteur={30} />
           </a>
           <div className="nav-links">
             <a href="/pourquoi" style={{color:C.dark, fontSize:'14px', fontWeight:700, padding:'8px 14px', borderRadius:'8px', textDecoration:'none'}}>Pourquoi DadUp</a>
@@ -299,7 +292,7 @@ export default function Home() {
               <span style={{color:'#C9D8C4', fontSize:'12px', fontWeight:700, letterSpacing:'1px'}}>Accès immédiat</span>
             </div>
 <p style={{color:'rgba(255,255,255,0.9)', fontSize:'28px', fontWeight:800, margin:'0 0 32px', lineHeight:1.3}}>
-              À deux, dès le premier jour
+              À tes côtés, dès le début
             </p>
             <button onClick={goToStripe} style={{background:'#B4593A', color:'#ffffff', border:'none', padding:'20px 56px', borderRadius:'32px', fontSize:'18px', fontWeight:800, cursor:'pointer', display:'block', margin:'0 auto 14px', boxShadow:'0 8px 32px rgba(157,176,154,0.5), 0 2px 8px rgba(0,0,0,0.2)'}}>
               Commencer
@@ -313,13 +306,8 @@ export default function Home() {
       <footer style={{background:'#1A3D5C', borderTop:'none', padding:'40px'}}>
         <div style={{maxWidth:'1200px', margin:'0 auto', display:'flex', alignItems:'center', justifyContent:'space-between', flexWrap:'wrap' as const, gap:'20px'}}>
           <div style={{display:'flex', alignItems:'center', gap:'8px'}}>
-            <svg viewBox="0 0 300 300" width="28" height="28">
-              <circle cx="150" cy="150" r="145" fill="#3a4f6e"/><circle cx="150" cy="150" r="122" fill="#4a6080"/>
-              <ellipse cx="150" cy="205" rx="58" ry="54" fill="#c8a060"/><circle cx="150" cy="112" r="40" fill="#c8a060"/>
-              <ellipse cx="150" cy="196" rx="27" ry="31" fill="#faf6f0"/><circle cx="150" cy="128" r="26" fill="#faf6f0"/>
-            </svg>
-            <span style={{color:'rgba(255,255,255,0.9)', fontSize:'16px', fontWeight:700}}>DadUp</span>
-            <span style={{color:'rgba(255,255,255,0.78)', fontSize:'13px', marginLeft:'12px', fontStyle:'italic' as const}}>À deux, dès le premier jour</span>
+            <Logo fond="marine" hauteur={26} />
+            <span style={{color:'rgba(255,255,255,0.78)', fontSize:'13px', marginLeft:'12px', fontStyle:'italic' as const}}>À tes côtés, dès le début</span>
           </div>
           <div style={{display:'flex', gap:'20px', flexWrap:'wrap' as const}}>
             {[['Pourquoi DadUp','/pourquoi'],['Ce qui est inclus','/inclus'],['Tarifs','/tarifs'],['Professionnels','/professionnels'],['Sources','/sources'],['Contact','/contact']].map(([label,href]) => (
