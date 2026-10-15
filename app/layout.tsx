@@ -13,6 +13,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.dadup.fr'),
   applicationName: 'DadUp',
   manifest: '/manifest.json',
   appleWebApp: { capable: true, title: 'DadUp', statusBarStyle: 'default' },
@@ -59,9 +60,11 @@ export const metadata: Metadata = {
     siteName: 'DadUp',
     locale: 'fr_FR',
     type: 'website',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'DadUp, à deux dès le premier jour' }],
   },
   twitter: {
     card: 'summary_large_image',
+    images: ['/og-image.png'],
     title: "DadUp : l'application grossesse pour les papas",
     description: "DadUp accompagne les futurs pères semaine par semaine pendant la grossesse et la première année de bébé.",
   },
