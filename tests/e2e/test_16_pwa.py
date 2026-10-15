@@ -158,3 +158,15 @@ def test_service_worker_jamais_garde_en_cache():
     assert r.status_code == 200
     assert "no-cache" in r.headers.get("cache-control", "")
     assert "api" in r.text and "navigate" in r.text
+
+
+def test_icones_png_dessinent_bien_le_logo():
+    # Chaque icône doit contenir le marine du fond ET le crème du D (pas une image vide ou cassée)
+    from PIL import Image
+    for nom in ["icon-192.png", "icon-512.png", "icon-192-maskable.png", "icon-512-maskable.png",
+                "apple-touch-icon.png", "favicon-96.png", "logo-email.png"]:
+        im = Image.open(os.path.join(RACINE, nom)).convert("RGB").resize((64, 64))
+        px = list(im.getdata())
+        marine = sum(1 for r, g, b in px if r < 40 and 25 < g < 55 and 45 < b < 75)
+        creme = sum(1 for r, g, b in px if r > 235 and g > 230 and b > 220)
+        assert marine > 300 and creme > 100, f"{nom} : marine={marine} crème={creme}"
