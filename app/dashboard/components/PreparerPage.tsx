@@ -169,8 +169,7 @@ function genererPDF(valiseChecked: Record<string,boolean>, maisonChecked: Record
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#1e2535;background:#F6F1E9;padding:0;max-width:720px;margin:0 auto;}
 .hero{background:linear-gradient(135deg,#0a1f32 0%,#1A3D5C 100%);padding:40px 36px 32px;text-align:center;position:relative;overflow:hidden;}
 .hero::before{content:'';position:absolute;top:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(157,176,154,0.15) 0%,transparent 65%);}
-.logo{font-size:26px;font-weight:900;color:#fff;margin-bottom:4px;letter-spacing:-0.5px;}
-.logo span{color:#B4593A;}
+.logo{display:block;height:34px;width:auto;margin:0 auto 10px;}
 .hero-sub{font-size:14px;color:rgba(255,255,255,0.6);margin-bottom:24px;}
 .hero-date{font-size:12px;color:rgba(255,255,255,0.35);}
 .stats{display:flex;gap:12px;padding:24px 36px;background:#fff;border-bottom:1px solid #ede8e0;}
@@ -197,7 +196,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#1
 @media print{body{background:white;}.hero{-webkit-print-color-adjust:exact;print-color-adjust:exact;}.items{box-shadow:none;}}
 </style></head><body>
   <div class="hero">
-    <div class="logo">Dad<span>Up</span></div>
+    <img class="logo" src="${location.origin}/logo-sur-marine.svg" alt="DadUp">
     <div class="hero-sub">Notre checklist pour accueillir bébé</div>
     <div class="hero-date">Préparée le ${new Date().toLocaleDateString('fr-FR',{day:'numeric',month:'long',year:'numeric'})}</div>
   </div>
@@ -214,7 +213,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#1
   </div>
   <div class="footer">
     <div class="footer-text">dadup.fr · Préparé avec amour</div>
-    <div class="footer-slogan">À deux, dès le premier jour</div>
+    <div class="footer-slogan">À tes côtés, dès le début</div>
   </div>
 </body></html>`;
 

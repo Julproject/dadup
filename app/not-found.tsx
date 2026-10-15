@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { IconeDadUp } from './components/Logo';
 
 export default function NotFound() {
   return (
@@ -6,14 +7,7 @@ export default function NotFound() {
       <div style={{ textAlign: 'center', maxWidth: '480px' }}>
 
         <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '32px' }}>
-          <svg viewBox="0 0 300 300" width="64" height="64">
-            <circle cx="150" cy="150" r="145" fill="#1A3D5C"/>
-            <circle cx="150" cy="150" r="122" fill="#2E5F8A"/>
-            <ellipse cx="150" cy="205" rx="58" ry="54" fill="#c8a060"/>
-            <circle cx="150" cy="112" r="40" fill="#c8a060"/>
-            <ellipse cx="150" cy="196" rx="27" ry="31" fill="#F7FAFC"/>
-            <circle cx="150" cy="128" r="26" fill="#F7FAFC"/>
-          </svg>
+          <IconeDadUp taille={64} />
         </div>
 
         <p style={{ color: '#2E5F8A', fontSize: '12px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase', margin: '0 0 16px' }}>Erreur 404</p>

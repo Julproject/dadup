@@ -108,8 +108,8 @@ export async function POST(req: NextRequest) {
 
     <!-- HEADER -->
     <div style="text-align:center;padding:32px 0 24px;">
-      <div style="display:inline-block;background:#1e2535;border-radius:16px;padding:12px 24px;">
-        <span style="color:#c8a060;font-size:22px;font-weight:800;letter-spacing:1px;">DadUp</span>
+      <div style="display:inline-block;background:#14263A;border-radius:16px;padding:14px 22px;">
+        <img src="https://www.dadup.fr/logo-email.png" width="180" height="51" alt="DadUp" style="display:block;border:0;width:180px;height:auto;color:#FAF6F1;font-size:22px;font-weight:800;">
       </div>
     </div>
 

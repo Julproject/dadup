@@ -2,6 +2,7 @@
 
 import { useState, Suspense } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
+import { Logo } from '../components/Logo';
 
 const C = {
   dark: '#15263A', blue: '#1A3D5C', gold: '#B4593A',
@@ -129,15 +130,7 @@ export default function ResetPasswordPage() {
       <div style={{maxWidth:'400px',width:'100%'}}>
         <div style={{display:'flex',justifyContent:'center',marginBottom:'32px'}}>
           <a href="/" style={{display:'flex',alignItems:'center',gap:'10px',textDecoration:'none'}}>
-            <svg viewBox="0 0 300 300" width="48" height="48">
-              <circle cx="150" cy="150" r="145" fill="#1A3D5C"/>
-              <circle cx="150" cy="150" r="122" fill="#2E5F8A"/>
-              <ellipse cx="150" cy="205" rx="58" ry="54" fill="#c8a060"/>
-              <circle cx="150" cy="112" r="40" fill="#c8a060"/>
-              <ellipse cx="150" cy="196" rx="27" ry="31" fill="#F7FAFC"/>
-              <circle cx="150" cy="128" r="26" fill="#F7FAFC"/>
-            </svg>
-            <span style={{fontSize:'24px',fontWeight:900,color:'#1e2535'}}>DadUp</span>
+            <Logo fond="creme" hauteur={40} />
           </a>
         </div>
         <Suspense fallback={<div/>}>

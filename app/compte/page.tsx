@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import { Logo } from '../components/Logo';
 
 const C = {
   dark: '#15263A', gold: '#B4593A', cream: '#F6F1E9', white: '#ffffff',
@@ -158,8 +159,7 @@ export default function ComptePage() {
       {/* NAV */}
       <nav style={{ background: C.white, borderBottom: `1px solid ${C.border}`, padding: '0 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '60px', position: 'sticky', top: 0, zIndex: 50 }}>
         <a href="/dashboard" style={{ display: 'flex', alignItems: 'center', gap: '8px', textDecoration: 'none' }}>
-          <svg viewBox="0 0 300 300" width="30" height="30"><circle cx="150" cy="150" r="145" fill="#1A3D5C"/><circle cx="150" cy="150" r="122" fill="#2E5F8A"/><ellipse cx="150" cy="205" rx="58" ry="54" fill="#c8a060"/><circle cx="150" cy="112" r="40" fill="#c8a060"/><ellipse cx="150" cy="196" rx="27" ry="31" fill="#F7FAFC"/><circle cx="150" cy="128" r="26" fill="#F7FAFC"/></svg>
-          <span style={{ fontWeight: 800, color: C.dark, fontSize: '18px' }}>DadUp</span>
+          <Logo fond="creme" hauteur={30} />
         </a>
         <a href="/dashboard" style={{ color: C.textLight, fontSize: '14px', fontWeight: 700, textDecoration: 'none', minHeight: '44px', display: 'flex', alignItems: 'center' }}>← Retour à l'accueil</a>
       </nav>

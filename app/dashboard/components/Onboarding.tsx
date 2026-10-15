@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import { IconeDadUp } from '../../components/Logo';
 
 const C = {
   dark:'#1e2535', blue:'#2E5F8A', gold:'#C9D8C4',
@@ -21,14 +22,7 @@ export default function Onboarding({onSave}:{onSave:(d:string,p:string)=>void}) 
     <main style={{minHeight:'100vh',background:'#F6F1E9',display:'flex',alignItems:'center',justifyContent:'center',padding:'20px',fontFamily:'inherit'}}>
       <div style={{maxWidth:'420px',width:'100%'}}>
         <div style={{display:'flex',justifyContent:'center',marginBottom:'28px'}}>
-          <svg viewBox="0 0 300 300" width="64" height="64">
-            <circle cx="150" cy="150" r="145" fill="#1A3D5C"/>
-            <circle cx="150" cy="150" r="122" fill="#2E5F8A"/>
-            <ellipse cx="150" cy="205" rx="58" ry="54" fill="#c8a060"/>
-            <circle cx="150" cy="112" r="40" fill="#c8a060"/>
-            <ellipse cx="150" cy="196" rx="27" ry="31" fill="#F7FAFC"/>
-            <circle cx="150" cy="128" r="26" fill="#F7FAFC"/>
-          </svg>
+          <IconeDadUp taille={64} />
         </div>
         <div style={{background:C.white,borderRadius:'24px',padding:'28px',border:`1px solid ${C.border}`}}>
           <h1 style={{fontSize:'22px',fontWeight:800,color:C.dark,margin:'0 0 8px',textAlign:'center'}}>Bienvenue sur DadUp</h1>
