@@ -23,7 +23,9 @@ export function Logo({ fond = 'creme', hauteur = 32, slogan = false, style }: Lo
       alt={slogan ? 'DadUp, à deux dès le premier jour' : 'DadUp'}
       width={Math.round(hauteur * ratio)}
       height={hauteur}
-      style={{ display: 'block', height: `${hauteur}px`, width: 'auto', flexShrink: 0, ...style }}
+      // Centrage optique : le jambage du « p » agrandit la boîte vers le bas,
+      // on redescend légèrement le logo pour que les lettres soient centrées.
+      style={{ display: 'block', height: `${hauteur}px`, width: 'auto', flexShrink: 0, transform: slogan ? undefined : `translateY(${(hauteur * 0.07).toFixed(1)}px)`, ...style }}
     />
   );
 }
