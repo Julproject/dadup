@@ -160,7 +160,7 @@ export default function PourquoiPage() {
             <h2 style={{color:C.white, fontSize:'48px', fontWeight:800, margin:'0 0 8px', lineHeight:1.1}}>
               Ton bébé arrive<br/><span style={{color:'#C9D8C4'}}>Commence maintenant</span>
             </h2>
-            <p style={{color:'rgba(255,255,255,0.78)', fontSize:'16px', margin:'0 0 12px'}}>À tes côtés, dès le début</p>
+            <p style={{color:'rgba(255,255,255,0.78)', fontSize:'16px', margin:'0 0 12px'}}>À deux, dès le premier jour</p>
             <p style={{color:'#C9D8C4', fontSize:'48px', fontWeight:900, margin:'0 0 32px'}}>49,99€</p>
             <button onClick={() => setShowModal(true)} style={{background:'#B4593A', color:'#ffffff', border:'none', padding:'18px 48px', borderRadius:'32px', fontSize:'17px', fontWeight:800, cursor:'pointer', boxShadow:'0 8px 32px rgba(157,176,154,0.5)'}}>
               Accéder maintenant
@@ -175,7 +175,7 @@ export default function PourquoiPage() {
         <div style={{maxWidth:'1200px', margin:'0 auto', display:'flex', alignItems:'center', justifyContent:'space-between', flexWrap:'wrap' as const, gap:'20px'}}>
           <div style={{display:'flex', alignItems:'center', gap:'8px'}}>
             <Logo fond="marine" hauteur={26} />
-            <span style={{color:'rgba(255,255,255,0.78)', fontSize:'13px', marginLeft:'12px', fontStyle:'italic' as const}}>À tes côtés, dès le début</span>
+            <span style={{color:'rgba(255,255,255,0.78)', fontSize:'13px', marginLeft:'12px', fontStyle:'italic' as const}}>À deux, dès le premier jour</span>
           </div>
           <div style={{display:'flex', gap:'20px', flexWrap:'wrap' as const}}>
             {[['Pourquoi DadUp','/pourquoi'],['Ce qui est inclus','/inclus'],['Tarifs','/tarifs'],['Professionnels','/professionnels'],['Sources','/sources'],['Contact','/contact']].map(([l,h]) => (
