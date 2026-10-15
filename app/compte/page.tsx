@@ -159,7 +159,7 @@ export default function ComptePage() {
       {/* NAV */}
       <nav style={{ background: C.white, borderBottom: `1px solid ${C.border}`, padding: '0 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '60px', position: 'sticky', top: 0, zIndex: 50 }}>
         <a href="/dashboard" style={{ display: 'flex', alignItems: 'center', gap: '8px', textDecoration: 'none' }}>
-          <Logo fond="creme" hauteur={30} />
+          <Logo fond="creme" hauteur={22} />
         </a>
         <a href="/dashboard" style={{ color: C.textLight, fontSize: '14px', fontWeight: 700, textDecoration: 'none', minHeight: '44px', display: 'flex', alignItems: 'center' }}>← Retour à l'accueil</a>
       </nav>

@@ -39,7 +39,7 @@ export default function PourquoiPage() {
       <nav style={{background:C.cream, borderBottom:'none', padding:'0 40px', display:'flex', alignItems:'center', justifyContent:'space-between', height:'68px', position:'sticky', top:0, zIndex:50}}>
         <div style={{display:'flex', alignItems:'center', gap:'48px'}}>
           <a href="/" style={{display:'flex', alignItems:'center', gap:'10px', textDecoration:'none'}}>
-            <Logo fond="creme" hauteur={30} />
+            <Logo fond="creme" hauteur={24} />
           </a>
           <div className="nl" style={{gap:'4px'}}>
             <a href="/pourquoi" style={{color:C.dark, fontSize:'14px', fontWeight:700, padding:'8px 14px', borderRadius:'8px', textDecoration:'none', borderBottom:`2px solid #B4593A`}}>Pourquoi DadUp</a>
@@ -174,7 +174,7 @@ export default function PourquoiPage() {
       <footer style={{background:'#1A3D5C', padding:'40px'}}>
         <div style={{maxWidth:'1200px', margin:'0 auto', display:'flex', alignItems:'center', justifyContent:'space-between', flexWrap:'wrap' as const, gap:'20px'}}>
           <div style={{display:'flex', alignItems:'center', gap:'8px'}}>
-            <Logo fond="marine" hauteur={26} />
+            <Logo fond="marine" hauteur={22} />
             <span style={{color:'rgba(255,255,255,0.78)', fontSize:'13px', marginLeft:'12px', fontStyle:'italic' as const}}>À deux, dès le premier jour</span>
           </div>
           <div style={{display:'flex', gap:'20px', flexWrap:'wrap' as const}}>

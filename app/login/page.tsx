@@ -110,7 +110,7 @@ export default function LoginPage() {
 
         <div style={{display:'flex',justifyContent:'center',marginBottom:'32px'}}>
           <a href="/" style={{display:'flex',alignItems:'center',gap:'10px',textDecoration:'none'}}>
-            <Logo fond="creme" hauteur={40} />
+            <Logo fond="creme" hauteur={30} />
           </a>
         </div>
 

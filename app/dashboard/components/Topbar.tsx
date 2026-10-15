@@ -78,7 +78,7 @@ export default function Topbar({ prenom, dpa, saReelle, tri, prog, isPost, moisB
         {/* Ligne 1 : logo + profil */}
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '12px 20px', maxWidth: '1180px', margin: '0 auto' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-            <Logo fond="creme" hauteur={30} />
+            <Logo fond="creme" hauteur={22} />
           </div>
 
         </div>
