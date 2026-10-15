@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import CheckoutModal from '@/app/components/CheckoutModal';
 import { Logo } from '../components/Logo';
+import TelephoneRealiste from '../components/TelephoneRealiste';
 
 const C = {
   dark: '#15263A', gold: '#B4593A', cream: '#F6F1E9', white: '#ffffff',
@@ -39,7 +40,6 @@ export default function InclusPage() {
           h1{font-size:36px!important;}
           section{padding:48px 16px!important;}
           .echo-row{flex-direction:column!important;align-items:center!important;gap:24px!important;}
-          .echo-phone{width:200px!important;height:420px!important;margin-top:-20px!important;}
           h1{white-space:normal!important;}
           .echo-cta{text-align:center!important;width:100%!important;}
           .echo-cta button{width:100%!important;max-width:280px!important;margin:0 auto 12px!important;}
@@ -115,19 +115,15 @@ export default function InclusPage() {
           <div style={{position:'absolute', top:'-60px', right:'100px', width:'320px', height:'320px', borderRadius:'50%', background:'radial-gradient(circle,rgba(157,176,154,0.22) 0%,transparent 65%)', pointerEvents:'none'}}></div>
           <div className="echo-row" style={{maxWidth:'960px', margin:'0 auto', display:'flex', alignItems:'center', gap:'56px', position:'relative', zIndex:1}}>
 
-            {/* iPhone 17 mockup */}
-            <div style={{flexShrink:0, marginTop:'-40px', position:'relative', zIndex:2, animation:'float 4s ease-in-out infinite', transform:'rotate(-2deg)'}}>
-              <style>{`@keyframes float{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-8px) rotate(-2deg)}}`}</style>
-              <div className="echo-phone" style={{width:'220px', height:'460px', background:'linear-gradient(160deg,#2c2c2e 0%,#1c1c1e 50%,#232323 100%)', borderRadius:'36px', padding:'6px', boxShadow:'0 40px 80px rgba(0,0,0,0.65),0 0 0 0.5px rgba(255,255,255,0.08),inset 0 0.5px 0 rgba(255,255,255,0.18)', position:'relative'}}>
-                <div style={{position:'absolute', top:0, left:'20%', right:'20%', height:'0.5px', background:'linear-gradient(90deg,transparent,rgba(255,255,255,0.4),transparent)', borderRadius:'999px', zIndex:5}}></div>
-                <div style={{position:'absolute', right:'-2px', top:'100px', width:'2.5px', height:'50px', background:'#2a2a2e', borderRadius:'0 2px 2px 0'}}></div>
-                <div style={{position:'absolute', left:'-2px', top:'80px', width:'2.5px', height:'24px', background:'#2a2a2e', borderRadius:'2px 0 0 2px'}}></div>
-                <div style={{position:'absolute', left:'-2px', top:'115px', width:'2.5px', height:'36px', background:'#2a2a2e', borderRadius:'2px 0 0 2px'}}></div>
-                <div style={{position:'absolute', left:'-2px', top:'60px', width:'2.5px', height:'14px', background:'#2a2a2e', borderRadius:'2px 0 0 2px'}}></div>
-                <div style={{background:'#F6F1E9', borderRadius:'31px', height:'100%', overflow:'hidden', position:'relative'}}>
-                  <img src="/app-apercu.webp" alt="Aperçu de l'accueil DadUp : compte à rebours, semaine de grossesse et bébé cette semaine" width={585} height={1266} loading="lazy" style={{width:'100%', height:'100%', objectFit:'cover', objectPosition:'top', display:'block'}} />
-                </div>
-              </div>
+            {/* Téléphone réaliste, comme sur l'accueil */}
+            <div className="echo-tel-wrap" style={{flexShrink:0, marginTop:'-40px', position:'relative', zIndex:2}}>
+              <style>{`
+                @keyframes float{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-8px) rotate(-3deg)}}
+                .echo-tel{width:250px;animation:float 5s ease-in-out infinite;transform:rotate(-3deg);filter:drop-shadow(0 30px 50px rgba(0,0,0,.45));}
+                @media(prefers-reduced-motion:reduce){.echo-tel{animation:none;}}
+                @media(max-width:768px){.echo-tel{width:210px;}.echo-tel-wrap{margin-top:-24px!important;}}
+              `}</style>
+              <TelephoneRealiste className="echo-tel" src="/apercu-preparer.webp" alt="Écran Préparer de DadUp : les rendez-vous de grossesse et ce que tu peux y faire" />
             </div>
 
             {/* CTA */}
