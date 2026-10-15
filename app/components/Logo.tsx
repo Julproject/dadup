@@ -1,6 +1,6 @@
 // ── Logo DadUp ──
 // Fichiers dans public/ : logo-sur-creme.svg, logo-sur-marine.svg (sans slogan),
-// logo-complet-sur-*.svg (avec « À tes côtés, dès le début »), icone.svg (icône d'application).
+// logo-complet-sur-*.svg (avec « À deux, dès le premier jour »), icone.svg (icône d'application).
 
 type LogoProps = {
   /** Couleur du fond sur lequel le logo est posé */
@@ -13,14 +13,14 @@ type LogoProps = {
 };
 
 const RATIO = 865 / 247;
-const RATIO_SLOGAN = 865 / 288;
+const RATIO_SLOGAN = 865 / 303;
 
 export function Logo({ fond = 'creme', hauteur = 32, slogan = false, style }: LogoProps) {
   const ratio = slogan ? RATIO_SLOGAN : RATIO;
   return (
     <img
       src={`/logo${slogan ? '-complet' : ''}-sur-${fond}.svg`}
-      alt={slogan ? 'DadUp, à tes côtés dès le début' : 'DadUp'}
+      alt={slogan ? 'DadUp, à deux dès le premier jour' : 'DadUp'}
       width={Math.round(hauteur * ratio)}
       height={hauteur}
       style={{ display: 'block', height: `${hauteur}px`, width: 'auto', flexShrink: 0, ...style }}

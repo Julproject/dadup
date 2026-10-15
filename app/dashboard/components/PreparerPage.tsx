@@ -213,7 +213,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#1
   </div>
   <div class="footer">
     <div class="footer-text">dadup.fr · Préparé avec amour</div>
-    <div class="footer-slogan">À tes côtés, dès le début</div>
+    <div class="footer-slogan">À deux, dès le premier jour</div>
   </div>
 </body></html>`;
 
