@@ -2,7 +2,7 @@
 // - Les pages et les données ne sont jamais mises en cache : chaque ouverture montre la dernière version.
 // - Sans réseau, une page « Pas de connexion » remplace l'écran d'erreur du navigateur.
 // Changer CACHE_NAME à chaque modification de ce fichier ou des fichiers listés.
-const CACHE_NAME = 'dadup-v5';
+const CACHE_NAME = 'dadup-v6';
 const HORS_LIGNE = '/hors-ligne.html';
 const STATIC_ASSETS = [
   HORS_LIGNE,
