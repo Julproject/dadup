@@ -170,3 +170,11 @@ def test_icones_png_dessinent_bien_le_logo():
         marine = sum(1 for r, g, b in px if r < 40 and 25 < g < 55 and 45 < b < 75)
         creme = sum(1 for r, g, b in px if r > 235 and g > 230 and b > 220)
         assert marine > 300 and creme > 100, f"{nom} : marine={marine} crème={creme}"
+
+
+def test_image_de_partage():
+    # Image affichée quand le lien est partagé (iMessage, WhatsApp, suggestions Safari, Google)
+    html = requests.get(APP + "/").text
+    assert 'property="og:image" content="https://www.dadup.fr/og-image.png"' in html
+    r = requests.get(APP + "/og-image.png")
+    assert r.status_code == 200 and r.headers["content-type"] == "image/png"
