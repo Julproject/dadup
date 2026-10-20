@@ -1,12 +1,12 @@
-// ── Téléphone réaliste (style iPhone récent) pour présenter de vraies captures de l'app ──
+// ── Téléphone réaliste (style iPhone récent, gris sidéral) pour présenter de vraies captures de l'app ──
 // La taille se règle par la largeur du conteneur (className) ; tout le reste est proportionnel (unités cqw).
 // Les captures doivent faire 393 × 798 (écran sans la barre d'état).
 
-type Props = { src: string; alt: string; className?: string; heure?: string; prioritaire?: boolean };
+type Props = { src: string; alt: string; className?: string; heure?: string; prioritaire?: boolean; finition?: 'rose' | 'noir' };
 
-export default function TelephoneRealiste({ src, alt, className = '', heure = '9:41', prioritaire = false }: Props) {
+export default function TelephoneRealiste({ src, alt, className = '', heure = '9:41', prioritaire = false, finition = 'rose' }: Props) {
   return (
-    <div className={`tel ${className}`}>
+    <div className={`tel${finition === 'noir' ? ' tel-noir' : ''} ${className}`}>
       <style>{CSS}</style>
       <span className="tel-btn tel-action" aria-hidden="true" />
       <span className="tel-btn tel-vol1" aria-hidden="true" />
@@ -26,7 +26,6 @@ export default function TelephoneRealiste({ src, alt, className = '', heure = '9
             <span className="tel-ilot" aria-hidden="true" />
             <img src={src} alt={alt} width={393} height={798} loading={prioritaire ? 'eager' : 'lazy'} decoding="async" {...(prioritaire ? { fetchPriority: 'high' as const } : {})} />
             <span className="tel-reflet" aria-hidden="true" />
-            <span className="tel-indicateur" aria-hidden="true" />
           </div>
         </div>
       </div>
@@ -37,8 +36,8 @@ export default function TelephoneRealiste({ src, alt, className = '', heure = '9
 const CSS = `
 .tel{position:relative;container-type:inline-size;}
 .tel-cadre{position:relative;border-radius:16.5cqw;padding:1.3cqw;
-  background:linear-gradient(145deg,#e9cfc5 0%,#c79a8d 22%,#f3dfd7 45%,#b98a7d 70%,#dcb7aa 100%);
-  box-shadow:0 0 0 0.35cqw rgba(90,50,40,.35) inset, 0 3cqw 8cqw rgba(0,0,0,.38), 0 1cqw 2cqw rgba(0,0,0,.25);}
+  background:linear-gradient(145deg,#9a9da3 0%,#5e6168 22%,#b9bcc1 45%,#50535a 70%,#878a90 100%);
+  box-shadow:0 0 0 0.35cqw rgba(20,22,26,.45) inset, 0 3cqw 8cqw rgba(0,0,0,.38), 0 1cqw 2cqw rgba(0,0,0,.25);}
 .tel-bord{border-radius:15.3cqw;padding:3.1cqw;background:#0b0b0d;box-shadow:0 0 0 0.25cqw rgba(255,255,255,.08) inset;}
 .tel-ecran{position:relative;overflow:hidden;border-radius:12.4cqw;background:#F6F1E9;container-type:inline-size;}
 .tel-ecran img{display:block;width:100%;height:auto;}
@@ -52,10 +51,14 @@ const CSS = `
 .tel-ilot::after{content:'';position:absolute;right:3.2cqw;top:50%;transform:translateY(-50%);width:2.6cqw;height:2.6cqw;border-radius:50%;
   background:radial-gradient(circle at 35% 35%,#2b3a55,#0a0d14 60%);}
 .tel-reflet{position:absolute;inset:0;pointer-events:none;background:linear-gradient(120deg,rgba(255,255,255,.16) 0%,rgba(255,255,255,0) 32%);}
-.tel-indicateur{position:absolute;left:50%;bottom:2.2cqw;transform:translateX(-50%);width:35cqw;height:1.35cqw;border-radius:99px;background:rgba(17,17,17,.82);}
-.tel-btn{position:absolute;width:1.1cqw;border-radius:1cqw;background:linear-gradient(90deg,#a87c70,#e2c3b8);}
+.tel-btn{position:absolute;width:1.1cqw;border-radius:1cqw;background:linear-gradient(90deg,#55585e,#a9acb1);}
 .tel-action{left:-0.7cqw;top:21cqw;height:7.5cqw;}
 .tel-vol1{left:-0.7cqw;top:33cqw;height:13cqw;}
 .tel-vol2{left:-0.7cqw;top:49cqw;height:13cqw;}
-.tel-power{right:-0.7cqw;top:38cqw;height:20cqw;background:linear-gradient(270deg,#a87c70,#e2c3b8);}
+.tel-power{right:-0.7cqw;top:38cqw;height:20cqw;background:linear-gradient(270deg,#55585e,#a9acb1);}
+/* Finition noire */
+.tel-noir .tel-cadre{background:linear-gradient(145deg,#3a3a3e 0%,#1c1c1f 25%,#4a4a4f 48%,#18181b 72%,#2e2e32 100%);
+  box-shadow:0 0 0 0.35cqw rgba(0,0,0,.6) inset, 0 3cqw 8cqw rgba(0,0,0,.45), 0 1cqw 2cqw rgba(0,0,0,.3);}
+.tel-noir .tel-btn{background:linear-gradient(90deg,#1c1c1f,#4a4a4f);}
+.tel-noir .tel-power{background:linear-gradient(270deg,#1c1c1f,#4a4a4f);}
 `;
