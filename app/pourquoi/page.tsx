@@ -50,7 +50,7 @@ export default function PourquoiPage() {
         </div>
         <div className="nc" style={{alignItems:'center', gap:'16px'}}>
           <a href="/login" style={{color:C.dark, fontSize:'14px', fontWeight:600, textDecoration:'none'}}>Se connecter</a>
-          <button onClick={() => setShowModal(true)} style={{background:'#1e2535', color:'#ffffff', border:'none', padding:'11px 22px', borderRadius:'32px', fontSize:'13px', fontWeight:700, cursor:'pointer'}}>Commencer</button>
+          <button onClick={() => setShowModal(true)} style={{background:'#1e2535', color:'#ffffff', border:'none', padding:'11px 22px', borderRadius:'32px', fontSize:'13px', fontWeight:700, cursor:'pointer'}}>Obtenir mon accès</button>
         </div>
         <button className="hamburger" aria-label={menuOpen ? "Fermer le menu" : "Ouvrir le menu"} aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)} style={{display:'none', minWidth:'44px', minHeight:'44px', background:'none', border:`1px solid ${C.border}`, padding:'8px 12px', borderRadius:'8px', cursor:'pointer'}}>
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -79,7 +79,7 @@ export default function PourquoiPage() {
           <h1 style={{color:C.white, fontSize:'44px', fontWeight:800, margin:'0 0 20px', lineHeight:1.1}}>
             Être père,<br/><span style={{color:'#C9D8C4'}}>ça se prépare</span>
           </h1>
-          <p style={{color:'rgba(255,255,255,0.75)', fontSize:'18px', lineHeight:1.7, margin:'0 0 0px'}}>DadUp est le premier guide conçu exclusivement pour le papa.</p>
+          <p style={{color:'rgba(255,255,255,0.75)', fontSize:'18px', lineHeight:1.7, margin:'0 0 0px'}}>DadUp est un guide conçu pour les futurs pères.</p>
         </div>
       </section>
 
@@ -93,10 +93,10 @@ export default function PourquoiPage() {
         </div>
         <div style={{display:'flex', flexDirection:'column' as const, gap:'10px'}}>
           {[
-            {sans:"Tu subis la grossesse sans vraiment comprendre ce qui se passe", avec:"Chaque semaine, tu sais ce que bébé développe et ce qu'elle vit"},
+            {sans:"Tu veux t'impliquer, mais tu ne sais pas toujours par où commencer", avec:"Chaque semaine, tu sais ce que bébé développe et ce qu'elle vit"},
             {sans:"Tu ne sais pas quand partir à la maternité", avec:"Tu sais exactement quand et comment réagir"},
             {sans:"Le post-partum te prend par surprise", avec:"Tu comprends ce qu'elle vit et tu l'accompagnes"},
-            {sans:"Tu achètes au hasard et tu dépenses trop", avec:"Tu achètes ce qui est vraiment utile"},
+            {sans:"Tu achètes au hasard et tu dépenses trop", avec:"Tu distingues l'essentiel de ce qui peut attendre"},
             {sans:"Tu te sens spectateur plutôt qu'acteur", avec:"Tu es présent, confiant et pleinement impliqué"},
           ].map((item,i) => (
             <div key={i} style={{background:'#fff', borderRadius:'16px', padding:'20px 24px', display:'grid', gridTemplateColumns:'1fr 1fr', gap:'16px', alignItems:'center', boxShadow:'0 6px 24px rgba(0,0,0,0.07)'}}>
@@ -163,9 +163,9 @@ export default function PourquoiPage() {
             <p style={{color:'rgba(255,255,255,0.78)', fontSize:'16px', margin:'0 0 12px'}}>À deux, dès le premier jour</p>
             <p style={{color:'#C9D8C4', fontSize:'48px', fontWeight:900, margin:'0 0 32px'}}>49,99€</p>
             <button onClick={() => setShowModal(true)} style={{background:'#B4593A', color:'#ffffff', border:'none', padding:'18px 48px', borderRadius:'32px', fontSize:'17px', fontWeight:800, cursor:'pointer', boxShadow:'0 8px 32px rgba(157,176,154,0.5)'}}>
-              Accéder maintenant
+              Obtenir mon accès pour 49,99 €
             </button>
-            <p style={{color:'rgba(255,255,255,0.78)', fontSize:'13px', margin:'12px 0 0'}}>Paiement unique · Satisfait ou remboursé sous 14 jours</p>
+            <p style={{color:'rgba(255,255,255,0.78)', fontSize:'13px', margin:'12px 0 0'}}>Paiement unique, satisfait ou remboursé sous 14 jours</p>
           </div>
         </div>
       </section>

@@ -96,7 +96,7 @@ export default function CheckoutModal({ onClose }: { onClose: () => void }) {
           <div>
             <p id="co-titre" style={{ color: C.textLight, fontSize: '12px', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase', margin: '0 0 6px', lineHeight: 1.4 }}>Accès jusqu&apos;au 1er anniversaire de bébé</p>
             <p id="co-prix" style={{ color: C.dark, fontSize: '36px', fontWeight: 800, margin: 0, lineHeight: 1 }}>49,99€</p>
-            <p style={{ color: C.textLight, fontSize: '13px', margin: '4px 0 0' }}>paiement unique · sans renouvellement</p>
+            <p style={{ color: C.textLight, fontSize: '13px', margin: '4px 0 0' }}>paiement unique, sans renouvellement</p>
           </div>
           <button
             ref={fermer}
@@ -162,6 +162,9 @@ export default function CheckoutModal({ onClose }: { onClose: () => void }) {
           <p role="alert" style={{ color: C.alerte, fontSize: '13px', fontWeight: 700, textAlign: 'center', margin: '0 0 10px', lineHeight: 1.5 }}>{erreur}</p>
         )}
 
+        <p style={{ color: C.text, fontSize: '13px', textAlign: 'center', margin: '0 0 10px', lineHeight: 1.5 }}>
+          Après le paiement, tu reçois un email pour créer ton mot de passe et accéder à ton espace.
+        </p>
         <p style={{ color: C.textLight, fontSize: '12px', textAlign: 'center', margin: 0 }}>
           Paiement sécurisé par Stripe
         </p>

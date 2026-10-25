@@ -174,7 +174,7 @@ export async function POST(req: NextRequest) {
         Une question ? Réponds directement à cet email.
       </p>
       <p style="color:#c8c0b8;font-size:11px;margin:0;">
-        DadUp · hello@dadup.fr · Il ne remplace pas l'avis d'un médecin.
+        DadUp, hello@dadup.fr. Il ne remplace pas l'avis d'un médecin.
       </p>
     </div>
 

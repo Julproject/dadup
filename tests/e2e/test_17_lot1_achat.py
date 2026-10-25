@@ -17,7 +17,7 @@ def ouvrir_fenetre(pw, w, h):
     page = c.new_page()
     page.goto(APP + "/")
     page.wait_for_load_state("networkidle")
-    page.get_by_role("button", name="Accéder à DadUp").first.click()
+    page.get_by_role("button", name="Obtenir mon accès pour 49,99 €").first.click()
     dialog = page.get_by_role("dialog")
     dialog.wait_for()
     return c, page, dialog
@@ -50,7 +50,7 @@ def test_clavier_echap_tab_et_retour(pw):
         assert page.evaluate("!!document.activeElement.closest('[role=dialog]')"), "Tab doit rester dans la fenêtre"
     page.keyboard.press("Escape")
     dialog.wait_for(state="detached")
-    assert page.evaluate("document.activeElement.textContent").strip().startswith("Accéder à DadUp")
+    assert page.evaluate("document.activeElement.textContent").strip().startswith("Obtenir mon accès pour 49,99 €")
     assert page.evaluate("document.body.style.overflow") != "hidden"
     c.close()
 
@@ -74,7 +74,7 @@ def test_duree_harmonisee(pw):
     texte = page.inner_text("body")
     assert "annuel" not in texte.lower()
     assert "Email et DPA uniquement" not in texte
-    q = page.get_by_role("button", name="L'accès dure combien de temps ?")
+    q = page.get_by_role("button", name="L'accès dure combien de temps ?")
     assert q.get_attribute("aria-expanded") == "false"
     q.click()
     assert q.get_attribute("aria-expanded") == "true"

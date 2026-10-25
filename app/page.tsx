@@ -1,6 +1,7 @@
 'use client';
 import CheckoutModal from '@/app/components/CheckoutModal';
 import { useState } from 'react';
+import FaqCourte from './components/FaqCourte';
 import TelephoneRealiste from '@/app/components/TelephoneRealiste';
 import { Logo } from './components/Logo';
 
@@ -71,7 +72,7 @@ export default function Home() {
         </div>
         <div className="nav-cta-group">
           <a href="/login" style={{color:C.dark, fontSize:'14px', fontWeight:600, textDecoration:'none'}}>Se connecter</a>
-          <button onClick={goToStripe} style={{background:'#1e2535', color:'#ffffff', border:'none', padding:'11px 22px', borderRadius:'32px', fontSize:'13px', fontWeight:700, cursor:'pointer'}}>Commencer</button>
+          <button onClick={goToStripe} style={{background:'#1e2535', color:'#ffffff', border:'none', padding:'11px 22px', borderRadius:'32px', fontSize:'13px', fontWeight:700, cursor:'pointer'}}>Obtenir mon accès</button>
         </div>
         <button className="hamburger" aria-label={menuOpen ? "Fermer le menu" : "Ouvrir le menu"} aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)} style={{display:'none', minWidth:'44px', minHeight:'44px', background:'none', border:`1px solid ${C.border}`, padding:'8px 12px', borderRadius:'8px', cursor:'pointer'}}>
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -97,6 +98,7 @@ export default function Home() {
         <style>{`
           .hero-a{position:relative;overflow:hidden;border-radius:24px;background:linear-gradient(160deg,#0C1D2E 0%,#1A3D5C 62%,#24507A 100%);padding:72px 24px 0;text-align:center;max-width:1392px;margin:0 auto;}
           .hero-a h1{color:#fff;font-size:clamp(32px,5vw,58px);font-weight:800;line-height:1.06;letter-spacing:-1.2px;margin:0 auto 18px;max-width:900px;}
+          .hero-a h1 .h1-suite{display:block;margin-top:14px;font-size:.5em;font-weight:700;line-height:1.25;letter-spacing:-0.3px;color:#fff;}
           .hero-chips{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:26px auto 0;max-width:860px;}
           .hero-chip{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.16);border-radius:99px;padding:8px 14px;color:#fff;font-size:13px;font-weight:700;}
           .hero-phones{position:relative;width:min(880px,100%);height:420px;margin:48px auto 0;}
@@ -159,23 +161,22 @@ export default function Home() {
             <span style={{color:'#C9D8C4', fontSize:'12px', fontWeight:700, letterSpacing:'1px'}}>Conçu pour les futurs pères</span>
           </div>
 
-          <h1>Être père, ça commence <span style={{color:'#C9D8C4'}}>bien avant la naissance</span></h1>
+          <h1>Être père commence <span style={{color:'#C9D8C4'}}>avant la naissance.</span> <span className="h1-suite">DadUp t&apos;aide à savoir comment.</span></h1>
 
-          <p style={{color:'#ffffff', fontSize:'18px', fontWeight:700, lineHeight:1.5, margin:'0 0 6px'}}>Prends ta place de père</p>
-          <p style={{color:'rgba(255,255,255,0.82)', fontSize:'17px', lineHeight:1.6, margin:'0 auto 30px', maxWidth:'600px'}}>
-            DadUp t&apos;accompagne semaine après semaine, de la grossesse au premier anniversaire de bébé.
+          <p style={{color:'rgba(255,255,255,0.82)', fontSize:'17px', lineHeight:1.6, margin:'0 auto 30px', maxWidth:'620px'}}>
+            Le développement de bébé, les rendez-vous à préparer et des actions concrètes pour toi, ta partenaire et votre bébé. Pendant la grossesse, puis jusqu&apos;à son premier anniversaire.
           </p>
 
           <div style={{display:'flex', flexWrap:'wrap' as const, alignItems:'center', justifyContent:'center', gap:'14px 22px'}}>
             <button onClick={goToStripe} style={{background:'#B4593A', color:'#ffffff', border:'none', minHeight:'54px', padding:'16px 36px', borderRadius:'14px', fontSize:'17px', fontWeight:800, cursor:'pointer'}}>
-              Accéder à DadUp
+              Obtenir mon accès pour 49,99 €
             </button>
             <a href="/inclus" style={{color:'#ffffff', fontSize:'15px', fontWeight:700, textDecoration:'none', borderBottom:'2px solid rgba(255,255,255,0.35)', paddingBottom:'2px'}}>Voir ce qui est inclus →</a>
           </div>
-          <p style={{color:'rgba(255,255,255,0.78)', fontSize:'13px', margin:'16px 0 0'}}>49,99 € · paiement unique · satisfait ou remboursé sous 14 jours</p>
+          <p style={{color:'rgba(255,255,255,0.78)', fontSize:'13px', margin:'16px 0 0'}}>Paiement unique, sans renouvellement. Remboursé sur simple demande sous 14 jours.</p>
 
           <ul className="hero-chips" style={{listStyle:'none', padding:0}}>
-            {['41 semaines de contenu','Après la naissance inclus',"Jusqu'au 1er anniversaire de bébé",'Contenu médical sourcé','Disponible sur web + mobile (PWA)'].map((label) => (
+            {["De la grossesse au 1er anniversaire",'Basé sur des sources officielles','Sur ton téléphone et ton ordinateur'].map((label) => (
               <li key={label} className="hero-chip">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C9D8C4" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>
                 {label}
@@ -278,6 +279,7 @@ export default function Home() {
             </a>
           </div>
 
+          <FaqCourte />
         </div>
 
         {/* CTA final : photo en fond */}
@@ -295,9 +297,9 @@ export default function Home() {
               À deux, dès le premier jour
             </p>
             <button onClick={goToStripe} style={{background:'#B4593A', color:'#ffffff', border:'none', padding:'20px 56px', borderRadius:'32px', fontSize:'18px', fontWeight:800, cursor:'pointer', display:'block', margin:'0 auto 14px', boxShadow:'0 8px 32px rgba(157,176,154,0.5), 0 2px 8px rgba(0,0,0,0.2)'}}>
-              Commencer
+              Obtenir mon accès pour 49,99 €
             </button>
-            <p style={{color:'rgba(255,255,255,0.78)', fontSize:'13px', margin:0}}>Paiement unique · Satisfait ou remboursé sous 14 jours</p>
+            <p style={{color:'rgba(255,255,255,0.78)', fontSize:'13px', margin:0}}>Paiement unique, satisfait ou remboursé sous 14 jours</p>
           </div>
         </div>
       </section>
