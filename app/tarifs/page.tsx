@@ -11,7 +11,7 @@ const C = {
 
 const FEATURES = [
   "Suivi bébé semaine par semaine, de la SA 3 à la SA 41",
-  "Calendrier des rendez-vous personnalisé à ta DPA",
+  "Calendrier des rendez-vous calé sur ta date prévue d'accouchement",
   "Guide accouchement",
   "Valise maternité",
   "Mode post-partum",
@@ -85,7 +85,7 @@ export default function TarifsPage() {
         </div>
         <div className="nc" style={{alignItems:'center', gap:'16px'}}>
           <a href="/login" style={{color:C.dark, fontSize:'14px', fontWeight:600, textDecoration:'none'}}>Se connecter</a>
-          <button onClick={goToStripe} style={{background:'#1e2535', color:'#ffffff', border:'none', padding:'11px 22px', borderRadius:'32px', fontSize:'13px', fontWeight:700, cursor:'pointer'}}>Commencer</button>
+          <button onClick={goToStripe} style={{background:'#1e2535', color:'#ffffff', border:'none', padding:'11px 22px', borderRadius:'32px', fontSize:'13px', fontWeight:700, cursor:'pointer'}}>Obtenir mon accès</button>
         </div>
         <button className="hamburger" aria-label={menuOpen ? "Fermer le menu" : "Ouvrir le menu"} aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)} style={{display:'none', minWidth:'44px', minHeight:'44px', background:'none', border:`1px solid ${C.border}`, padding:'8px 12px', borderRadius:'8px', cursor:'pointer'}}>
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -126,7 +126,7 @@ export default function TarifsPage() {
             <div style={{ marginBottom: '6px', position: 'relative', zIndex: 1 }}>
               <span style={{ color: C.white, fontSize: '68px', fontWeight: 800, lineHeight: 1 }}>49,99€</span>
             </div>
-            <p style={{ color: 'rgba(255,255,255,0.78)', fontSize: '14px', margin: '0 0 36px', position: 'relative', zIndex: 1 }}>accès complet · paiement unique · accès immédiat</p>
+            <p style={{ color: 'rgba(255,255,255,0.78)', fontSize: '14px', margin: '0 0 36px', position: 'relative', zIndex: 1 }}>paiement unique, accès immédiat</p>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '36px', flex: 1 }}>
               {FEATURES.map(f => (
@@ -138,7 +138,7 @@ export default function TarifsPage() {
             </div>
 
             <button onClick={goToStripe} style={{ background: '#B4593A', color: '#ffffff', border: 'none', padding: '16px', borderRadius: '32px', fontSize: '15px', fontWeight: 800, cursor: 'pointer', width: '100%', marginBottom: '10px' }}>
-              Commencer
+              Obtenir mon accès pour 49,99 €
             </button>
             <p style={{ color: 'rgba(255,255,255,0.78)', fontSize: '12px', textAlign: 'center', margin: 0 }}>Paiement sécurisé par Stripe</p>
             <p style={{ color: 'rgba(255,255,255,0.78)', fontSize: '12px', margin: '6px 0 0', textAlign: 'center' }}>Satisfait ou remboursé sous 14 jours</p>
@@ -184,36 +184,40 @@ export default function TarifsPage() {
         <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
           {[
             {
-              q: "L'accès dure combien de temps ?",
-              r: "Jusqu'au 1er anniversaire de bébé. Quand vous déclarez la naissance dans l'app, la fin de l'accès est calée sur la vraie date de naissance. Si la naissance n'est pas déclarée, l'accès court jusqu'à 15 mois après la date prévue d'accouchement. Vous avez accès à tout le contenu pendant cette période, sans restriction"
+              q: "L'accès dure combien de temps ?",
+              r: "Jusqu'au 1er anniversaire de bébé. Quand tu déclares la naissance dans l'app, la fin de l'accès est calée sur la vraie date de naissance. Si la naissance n'est pas déclarée, l'accès court jusqu'à 15 mois après la date prévue d'accouchement. Tu as accès à tout le contenu pendant cette période, sans restriction."
             },
             {
-              q: "Que se passe-t-il au 1er anniversaire de bébé ?",
-              r: "L'accès s'arrête simplement Aucun prélèvement automatique, aucune reconduction tacite. Vous ne devez rien faire"
+              q: "Que se passe-t-il au 1er anniversaire de bébé ?",
+              r: "L'accès s'arrête, tout simplement. Aucun prélèvement automatique, aucune reconduction tacite. Tu n'as rien à faire."
             },
             {
-              q: "Le paiement est-il sécurisé ?",
-              r: "Oui. Le paiement est géré par Stripe, référence mondiale de la sécurité des paiements en ligne. Nous ne stockons aucune donnée bancaire"
+              q: "Le paiement est-il sécurisé ?",
+              r: "Oui. Le paiement est géré par Stripe, une référence du paiement en ligne. Nous ne stockons aucune donnée bancaire."
             },
             {
-              q: "Y a-t-il un renouvellement automatique ?",
-              r: "Non. DadUp est un paiement unique. Vous payez une fois, vous accédez jusqu'au 1er anniversaire de bébé. Pas de surprise"
+              q: "Y a-t-il un renouvellement automatique ?",
+              r: "Non. DadUp est un paiement unique : tu paies une fois et tu as accès jusqu'au 1er anniversaire de bébé. Pas de surprise."
             },
             {
-              q: "À quel moment puis-je accéder à DadUp après le paiement ?",
-              r: "Immédiatement. Vous recevez un email avec un lien pour créer votre mot de passe. L'accès est ouvert dès que votre mot de passe est créé"
+              q: "Je suis déjà bien avancé dans la grossesse, c'est encore utile ?",
+              r: "Oui. DadUp se cale sur ta date prévue d'accouchement : tu arrives directement sur ta semaine en cours, avec la valise, le Jour J et l'après-naissance."
             },
             {
-              q: "Que se passe-t-il si bébé naît avant la DPA que j'ai renseignée ?",
-              r: "Le contenu s'adapte à votre situation réelle. Vous pouvez déclarer la naissance à tout moment depuis votre compte"
+              q: "Que se passe-t-il juste après le paiement ?",
+              r: "Tu reçois un email pour créer ton mot de passe. Ton espace s'ouvre dès que c'est fait. Si l'email n'arrive pas, regarde dans tes spams ou écris-nous à hello@dadup.fr."
             },
             {
-              q: "Comment fonctionne la garantie 14 jours ?",
-              r: "Si DadUp ne vous convient pas, écrivez-nous à hello@dadup.fr dans les 14 jours suivant votre achat. Nous vous remboursons intégralement, sans condition et sans question"
+              q: "Que se passe-t-il si bébé naît avant la date prévue d'accouchement ?",
+              r: "Le contenu s'adapte à ta situation réelle. Tu peux déclarer la naissance à tout moment depuis ton espace."
             },
             {
-              q: "Ma partenaire peut-elle accéder à mon compte ?",
-              r: "DadUp est conçu pour le père. Le compte est personnel. Un accès partagé n'est pas prévu à ce stade"
+              q: "Comment fonctionne la garantie 14 jours ?",
+              r: "Si DadUp ne te convient pas, écris-nous à hello@dadup.fr dans les 14 jours suivant ton achat. On te rembourse intégralement, sans condition et sans question."
+            },
+            {
+              q: "Ma partenaire peut-elle accéder à mon compte ?",
+              r: "DadUp est conçu pour le père et le compte est personnel. Un accès partagé n'est pas prévu pour l'instant."
             },
           ].map((item, i) => (
             <FaqItem key={i} question={item.q} reponse={item.r} />
@@ -227,10 +231,10 @@ export default function TarifsPage() {
           <div style={{ position: 'absolute', top: '-60px', right: '100px', width: '320px', height: '320px', borderRadius: '50%', background: 'radial-gradient(circle,rgba(157,176,154,0.22) 0%,transparent 65%)', pointerEvents: 'none' }}></div>
           <div style={{ position: 'relative', zIndex: 1 }}>
         <h2 style={{ color: C.white, fontSize: '40px', fontWeight: 800, margin: '0 0 8px' }}>Tout est là. Il ne manque plus que toi</h2>
-        <p style={{ color: 'rgba(255,255,255,0.78)', fontSize: '15px', margin: '0 0 32px' }}>Paiement unique · accès immédiat</p>
+        <p style={{ color: 'rgba(255,255,255,0.78)', fontSize: '15px', margin: '0 0 32px' }}>Paiement unique, accès immédiat</p>
         <p style={{ color: '#C9D8C4', fontSize: '56px', fontWeight: 800, margin: '0 0 24px', lineHeight: 1 }}>49,99€</p>
           <button onClick={goToStripe} style={{ background: '#B4593A', color: '#ffffff', border: 'none', padding: '20px 56px', borderRadius: '32px', fontSize: '20px', fontWeight: 800, cursor: 'pointer', boxShadow: '0 8px 32px rgba(157,176,154,0.5)' }}>
-            Accéder
+            Obtenir mon accès pour 49,99 €
           </button>
           </div>
         </div>

@@ -216,7 +216,7 @@ export default function LoginPage() {
 
         <p style={{textAlign:'center',marginTop:'20px',fontSize:'13px',color:C.textLight}}>
           Pas encore de compte ?{' '}
-          <a href="/tarifs" style={{color:C.blue,fontWeight:700,textDecoration:'none'}}>Commencer</a>
+          <a href="/tarifs" style={{color:C.blue,fontWeight:700,textDecoration:'none'}}>Découvrir l&apos;offre</a>
         </p>
       </div>
     </main>

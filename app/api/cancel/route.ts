@@ -83,7 +83,7 @@ export async function POST(req: NextRequest) {
 <div style="font-family:sans-serif;max-width:520px;margin:0 auto;padding:32px;background:#f7f5f0;">
   <h2 style="color:#1e2535;">Résiliation confirmée</h2>
   ${corpsEmail}
-  <p style="color:#9aa0a8;font-size:12px;margin-top:24px;">DadUp · hello@dadup.fr<br/>Si tu as des questions, réponds directement à cet email.</p>
+  <p style="color:#9aa0a8;font-size:12px;margin-top:24px;">DadUp, hello@dadup.fr<br/>Si tu as des questions, réponds directement à cet email.</p>
 </div>`,
       }),
     });

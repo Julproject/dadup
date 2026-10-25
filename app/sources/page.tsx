@@ -87,7 +87,7 @@ export default function MethodologiePage() {
         </div>
         <div className="nc" style={{ alignItems: 'center', gap: '16px' }}>
           <a href="/login" style={{ color: C.dark, fontSize: '14px', fontWeight: 600, textDecoration: 'none' }}>Se connecter</a>
-          <a href="/tarifs" style={{ background: C.dark, color: C.white, padding: '11px 22px', borderRadius: '32px', fontSize: '13px', fontWeight: 700, textDecoration: 'none' }}>Commencer</a>
+          <a href="/tarifs" style={{ background: C.dark, color: C.white, padding: '11px 22px', borderRadius: '32px', fontSize: '13px', fontWeight: 700, textDecoration: 'none' }}>Voir l'offre</a>
         </div>
       </nav>
 
@@ -142,9 +142,9 @@ export default function MethodologiePage() {
       <section style={{ background: C.dark, padding: '72px 40px', textAlign: 'center' as const }}>
         <p style={{ color: '#C9D8C4', fontSize: '12px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase' as const, margin: '0 0 16px' }}>Accéder à DadUp</p>
         
-        <p style={{ color: 'rgba(255,255,255,0.78)', fontSize: '16px', margin: '0 0 36px' }}>49,99€ accès complet · Paiement unique · Accès immédiat</p>
+        <p style={{ color: 'rgba(255,255,255,0.78)', fontSize: '16px', margin: '0 0 36px' }}>49,99 € en paiement unique, accès immédiat</p>
         <a href="/tarifs" style={{ background: C.gold, color: '#ffffff', padding: '18px 48px', borderRadius: '32px', fontSize: '16px', fontWeight: 800, textDecoration: 'none', display: 'inline-block' }}>
-          Commencer
+          Voir l&apos;offre
         </a>
       </section>
 

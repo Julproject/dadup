@@ -69,7 +69,7 @@ export default function ContactPage() {
         </div>
         <div className="nc" style={{alignItems:'center', gap:'16px'}}>
           <a href="/login" style={{color:C.dark, fontSize:'14px', fontWeight:600, textDecoration:'none'}}>Se connecter</a>
-          <a href="/tarifs" style={{background:'#1e2535', color:'#fff', border:'none', padding:'11px 22px', borderRadius:'32px', fontSize:'13px', fontWeight:700, cursor:'pointer', textDecoration:'none'}}>Commencer</a>
+          <a href="/tarifs" style={{background:'#1e2535', color:'#fff', border:'none', padding:'11px 22px', borderRadius:'32px', fontSize:'13px', fontWeight:700, cursor:'pointer', textDecoration:'none'}}>Voir l'offre</a>
         </div>
         <button className="hamburger" aria-label={menuOpen ? "Fermer le menu" : "Ouvrir le menu"} aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)} style={{display:'none', minWidth:'44px', minHeight:'44px', background:'none', border:`1px solid ${C.border}`, padding:'8px 12px', borderRadius:'8px', cursor:'pointer'}}>
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none">

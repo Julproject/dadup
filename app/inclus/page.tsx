@@ -63,7 +63,7 @@ export default function InclusPage() {
         </div>
         <div className="nc" style={{alignItems:'center', gap:'16px'}}>
           <a href="/login" style={{color:C.dark, fontSize:'14px', fontWeight:600, textDecoration:'none'}}>Se connecter</a>
-          <button onClick={() => setShowModal(true)} style={{background:'#1e2535', color:'#ffffff', border:'none', padding:'11px 22px', borderRadius:'32px', fontSize:'13px', fontWeight:700, cursor:'pointer'}}>Commencer</button>
+          <button onClick={() => setShowModal(true)} style={{background:'#1e2535', color:'#ffffff', border:'none', padding:'11px 22px', borderRadius:'32px', fontSize:'13px', fontWeight:700, cursor:'pointer'}}>Obtenir mon accès</button>
         </div>
         <button className="hamburger" aria-label={menuOpen ? "Fermer le menu" : "Ouvrir le menu"} aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)} style={{display:'none', minWidth:'44px', minHeight:'44px', background:'none', border:`1px solid ${C.border}`, padding:'8px 12px', borderRadius:'8px', cursor:'pointer'}}>
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -131,7 +131,7 @@ export default function InclusPage() {
               <h2 style={{color:'#fff', fontSize:'32px', fontWeight:800, margin:'0 0 4px', lineHeight:1.2}}>Maintenant tu sais.</h2>
               <h2 style={{color:'#C9D8C4', fontSize:'32px', fontWeight:800, margin:'0 0 28px', lineHeight:1.2}}>À toi de jouer</h2>
               <button onClick={() => setShowModal(true)} style={{background:'#B4593A', color:'#ffffff', border:'none', padding:'18px 48px', borderRadius:'32px', fontSize:'18px', fontWeight:800, cursor:'pointer', boxShadow:'0 8px 32px rgba(157,176,154,0.5)', display:'block', marginBottom:'12px'}}>
-                Commencer
+                Obtenir mon accès pour 49,99 €
               </button>
               <p style={{color:'rgba(255,255,255,0.78)', fontSize:'13px', margin:0}}>Satisfait ou remboursé sous 14 jours</p>
             </div>

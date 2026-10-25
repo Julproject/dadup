@@ -76,7 +76,7 @@ export async function POST(req: NextRequest) {
         <h2 style="color:#15263A;">Message reçu</h2>
         <p>Bonjour,</p>
         <p>On a bien reçu ton message et on te répond au plus vite.</p>
-        <p style="color:#56616B;font-size:12px;">DadUp · hello@dadup.fr</p>
+        <p style="color:#56616B;font-size:12px;">DadUp, hello@dadup.fr</p>
       </div>`,
     );
 
