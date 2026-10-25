@@ -63,7 +63,7 @@ export default function ConfidentialitePage() {
         <p style={{ fontSize: '14px', lineHeight: 1.85, margin: '0 0 14px' }}>Gestion du compte et fourniture du Service, exécution du contrat (art. 6.1.b RGPD). Communications transactionnelles, exécution du contrat. Obligations comptables, obligation légale (art. 6.1.c RGPD). Sécurité, intérêt légitime (art. 6.1.f RGPD). DadUp n&apos;utilise pas vos données à des fins publicitaires ou de vente à des tiers.</p>
 
         <h2 style={{ color: '#1A3D5C', fontSize: '15px', fontWeight: 700, margin: '36px 0 8px' }}>4. Durées de conservation</h2>
-        <p style={{ fontSize: '14px', lineHeight: 1.85, margin: '0 0 14px' }}>Données du compte : durée de l&apos;abonnement actif + 3 ans après expiration. Données comptables : 10 ans (article L.123-22 du Code de commerce). Échanges support : 3 ans à compter du dernier contact.</p>
+        <p style={{ fontSize: '14px', lineHeight: 1.85, margin: '0 0 14px' }}>Données du compte : durée de l&apos;accès actif + 3 ans après expiration. Données comptables : 10 ans (article L.123-22 du Code de commerce). Échanges support : 3 ans à compter du dernier contact.</p>
 
         <h2 style={{ color: '#1A3D5C', fontSize: '15px', fontWeight: 700, margin: '36px 0 8px' }}>5. Sous-traitants et transferts hors UE</h2>
         <p style={{ fontSize: '14px', lineHeight: 1.85, margin: '0 0 14px' }}>Vercel Inc. (hébergement), États-Unis, encadré par les Clauses Contractuelles Types (CCT). Supabase Inc. (base de données), États-Unis, stockage en région européenne, CCT. Stripe Inc. (paiement), États-Unis, certifié EU-US Data Privacy Framework (DPF, décision du 10/07/2023). Brevo SAS (emails), France, données hébergées en Europe.</p>

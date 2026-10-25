@@ -21,17 +21,20 @@ const FEATURES = [
 
 function FaqItem({ question, reponse }: { question: string; reponse: string }) {
   const [open, setOpen] = React.useState(false);
+  const id = React.useId();
   return (
     <div style={{ background: '#ffffff', borderRadius: '16px', boxShadow: '0 4px 16px rgba(0,0,0,0.06)', overflow: 'hidden' }}>
       <button
         onClick={() => setOpen(!open)}
+        aria-expanded={open}
+        aria-controls={`faq-${id}`}
         style={{ width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '20px 24px', background: 'none', border: 'none', cursor: 'pointer', textAlign: 'left' as const }}
       >
         <span style={{ color: '#1e2535', fontSize: '15px', fontWeight: 600, lineHeight: 1.5 }}>{question}</span>
         <span aria-hidden="true" style={{ color: '#9C4A2E', fontSize: '22px', flexShrink: 0, marginLeft: '16px', fontWeight: 400 }}>{open ? '−' : '+'}</span>
       </button>
       {open && (
-        <div style={{ padding: '0 24px 20px' }}>
+        <div id={`faq-${id}`} role="region" aria-label={question} style={{ padding: '0 24px 20px' }}>
           <p style={{ color: '#4a5568', fontSize: '14px', lineHeight: 1.75, margin: 0 }}>{reponse}</p>
         </div>
       )}
@@ -119,7 +122,7 @@ export default function TarifsPage() {
           <div style={{ background: 'linear-gradient(135deg,#0a1f32 0%,#1A3D5C 50%,#1d4d72 100%)', borderRadius: '24px', padding: '40px', display: 'flex', flexDirection: 'column', height: '100%', position: 'relative', overflow: 'hidden' }}>
             <div style={{ position: 'absolute', top: '-40px', right: '-40px', width: '200px', height: '200px', borderRadius: '50%', background: 'radial-gradient(circle,rgba(157,176,154,0.25) 0%,transparent 65%)', pointerEvents: 'none' }}></div>
             <div style={{ position: 'absolute', bottom: '-40px', left: '-20px', width: '180px', height: '180px', borderRadius: '50%', background: 'radial-gradient(circle,rgba(100,200,160,0.12) 0%,transparent 70%)', pointerEvents: 'none' }}></div>
-            <p style={{ color: '#C9D8C4', fontSize: '12px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase', margin: '0 0 20px', position: 'relative', zIndex: 1 }}>Accès annuel complet</p>
+            <p style={{ color: '#C9D8C4', fontSize: '12px', fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase', margin: '0 0 20px', position: 'relative', zIndex: 1 }}>Accès jusqu&apos;au 1er anniversaire de bébé</p>
             <div style={{ marginBottom: '6px', position: 'relative', zIndex: 1 }}>
               <span style={{ color: C.white, fontSize: '68px', fontWeight: 800, lineHeight: 1 }}>49,99€</span>
             </div>
@@ -157,8 +160,8 @@ export default function TarifsPage() {
               <div style={{ display: 'flex', flexDirection: 'column' }}>
                 {[
                   { label: "Accès", val: "Disponible sur web + mobile (PWA)" },
-                  { label: "Durée", val: "Accès jusqu'au 1er anniversaire de bébé à compter du paiement" },
-                  { label: "Données", val: "Email et DPA uniquement. Aucune revente" },
+                  { label: "Durée", val: "Du paiement jusqu'au 1er anniversaire de bébé" },
+                  { label: "Données", val: "Email, prénom (facultatif) et date prévue d'accouchement. Aucune revente, aucune publicité" },
                   { label: "Support", val: "hello@dadup.fr" },
                 ].map(({ label, val }, i, arr) => (
                   <div key={label} style={{ display: 'flex', gap: '16px', padding: '13px 0', borderBottom: i < arr.length - 1 ? '1px solid rgba(46,95,138,0.12)' : 'none' }}>
@@ -182,7 +185,7 @@ export default function TarifsPage() {
           {[
             {
               q: "L'accès dure combien de temps ?",
-              r: "Jusqu'au 1er anniversaire de bébé, à compter de la DPA. Vous avez accès à tout le contenu pendant cette période, sans restriction"
+              r: "Jusqu'au 1er anniversaire de bébé. Quand vous déclarez la naissance dans l'app, la fin de l'accès est calée sur la vraie date de naissance. Si la naissance n'est pas déclarée, l'accès court jusqu'à 15 mois après la date prévue d'accouchement. Vous avez accès à tout le contenu pendant cette période, sans restriction"
             },
             {
               q: "Que se passe-t-il au 1er anniversaire de bébé ?",

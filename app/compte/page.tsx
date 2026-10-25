@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { Logo } from '../components/Logo';
+import { dateFinLisible } from '../../lib/acces';
 
 const C = {
   dark: '#15263A', gold: '#B4593A', cream: '#F6F1E9', white: '#ffffff',
@@ -31,6 +32,7 @@ export default function ComptePage() {
   const [email, setEmail]     = useState('');
   const [dpa, setDpa]         = useState('');
   const [dpaOriginale, setDpaOriginale] = useState('');
+  const [accessUntil, setAccessUntil] = useState('');
   const [saReelle, setSaReelle]   = useState<number | null>(null);
   const [joursRestants, setJoursRestants] = useState<number | null>(null);
   const [isPost, setIsPost]   = useState(() => typeof window !== 'undefined' ? localStorage.getItem('dadup_is_post') === '1' : false);
@@ -56,6 +58,7 @@ export default function ComptePage() {
       setEmail(user.email || '');
       setDpa(user.dpa || '');
       setDpaOriginale(user.dpa_originale || '');
+      setAccessUntil(user.access_until || '');
       // Naissance déclarée = dpa_originale renseignée en base
       setIsPost(!!user.dpa_originale);
 
@@ -174,6 +177,11 @@ export default function ComptePage() {
           <div>
             <p style={{ fontSize: '18px', fontWeight: 800, color: C.dark, margin: '0 0 2px' }}>{prenom || 'Mon compte'}</p>
             <p style={{ fontSize: '13px', color: C.textLight, margin: 0 }}>{email}</p>
+            {dateFinLisible({ access_until: accessUntil, dpa, dpa_originale: dpaOriginale }) && (
+              <p className="acces-fin" style={{ fontSize: '13px', color: C.dark, fontWeight: 700, margin: '6px 0 0' }}>
+                Ton accès est prévu jusqu&apos;au {dateFinLisible({ access_until: accessUntil, dpa, dpa_originale: dpaOriginale })}
+              </p>
+            )}
           </div>
         </div>
 

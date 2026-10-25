@@ -31,5 +31,7 @@ export function accesTermine(u: InfosAcces, maintenant = new Date()): boolean {
 
 export function dateFinLisible(u: InfosAcces): string {
   const fin = finAcces(u);
-  return fin ? fin.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'Europe/Paris' }) : '';
+  // La date de fin est construite en UTC (dernier jour inclus) : on l'affiche telle quelle,
+  // sinon le passage à l'heure de Paris la décale au lendemain.
+  return fin ? fin.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }) : '';
 }
