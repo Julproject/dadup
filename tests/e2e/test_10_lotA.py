@@ -79,3 +79,18 @@ def test_A7_parcours_normal_intact():
     assert s.post(APP + "/api/auth/save", json={"valise_checked": {"v1": True}}).status_code == 200
     assert user_by_email("ok@test.fr")["valise_checked"] == {"v1": True}
     assert s.get(APP + "/api/auth/me").status_code == 200
+
+
+def test_paiement_annule_passe_par_les_cgv(pw):
+    # « Réessayer le paiement » ouvre la fenêtre avec la case CGV, sans appeler Stripe directement
+    c = pw.new_context(viewport={"width": 390, "height": 844})
+    page = c.new_page()
+    appels = []
+    page.on("request", lambda r: appels.append(r.url) if "/api/checkout" in r.url else None)
+    page.goto(APP + "/paiement-annule")
+    page.wait_for_load_state("networkidle")
+    page.get_by_role("button", name="Réessayer le paiement").click()
+    page.get_by_text("J'ai lu et j'accepte les").wait_for()
+    assert page.get_by_role("button", name="Payer 49,99€").is_disabled()
+    assert appels == []
+    c.close()

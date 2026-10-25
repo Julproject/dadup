@@ -1,5 +1,7 @@
 'use client';
+import { useState } from 'react';
 import { IconeDadUp } from '../components/Logo';
+import CheckoutModal from '../components/CheckoutModal';
 
 const C = {
   dark: '#15263A', gold: '#B4593A', cream: '#F6F1E9', white: '#ffffff',
@@ -10,19 +12,8 @@ const C = {
 
 export default function PaiementAnnulePage() {
 
-  const goToStripe = async () => {
-    try {
-      const res  = await fetch('/api/checkout', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({}),
-      });
-      const data = await res.json();
-      if (data.url) window.location.href = data.url;
-    } catch {
-      window.location.href = '/tarifs';
-    }
-  };
+  // Réessayer passe par la même fenêtre que partout ailleurs (acceptation des CGV obligatoire)
+  const [showModal, setShowModal] = useState(false);
 
   return (
     <main style={{
@@ -76,7 +67,7 @@ export default function PaiementAnnulePage() {
 
           {/* CTA principal */}
           <button
-            onClick={goToStripe}
+            onClick={() => setShowModal(true)}
             style={{ display: 'block', width: '100%', background: C.dark, color: C.white, border: 'none', padding: '15px', borderRadius:'14px', fontSize: '15px', fontWeight: 700, cursor: 'pointer', marginBottom: '12px' }}
           >
             Réessayer le paiement
@@ -97,6 +88,7 @@ export default function PaiementAnnulePage() {
         </p>
 
       </div>
+      {showModal && <CheckoutModal onClose={() => setShowModal(false)} />}
     </main>
   );
 }
