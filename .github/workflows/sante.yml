@@ -1,0 +1,22 @@
+# Contrôle de santé quotidien de dadup.fr
+# - Garde la base Supabase active (le plan gratuit met en pause un projet inactif 7 jours).
+# - Si le site ou la base ne répond pas, la tâche échoue et GitHub envoie un email.
+name: Santé du site
+
+on:
+  schedule:
+    - cron: '0 5 * * *'   # tous les jours à 5 h UTC (6 h ou 7 h à Paris)
+  workflow_dispatch:      # lancement manuel possible depuis l'onglet Actions
+
+permissions: {}
+
+jobs:
+  sante:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Appeler dadup.fr/api/sante
+        run: |
+          reponse=$(curl -fsS --retry 3 --retry-delay 30 --retry-all-errors --max-time 30 https://www.dadup.fr/api/sante)
+          echo "Réponse : $reponse"
+          echo "$reponse" | grep -q '"ok":true' || { echo "::error::DadUp ou sa base ne répond pas correctement"; exit 1; }

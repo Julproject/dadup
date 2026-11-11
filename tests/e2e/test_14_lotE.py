@@ -1,6 +1,6 @@
 """Lot E : protections (formulaire de contact, en-têtes, taille des données, mot de passe oublié)."""
 import requests
-from qa_lib import APP, seed_user, emails, session_cookie
+from qa_lib import APP, DB, seed_user, emails, session_cookie
 
 MDP = "MotDePasse123"
 
@@ -56,3 +56,16 @@ def test_E6_page_contact_affiche_l_erreur(ctx):
     page.locator("form").evaluate("f => f.noValidate = true")
     page.get_by_role("button", name="Envoyer").click(); page.wait_for_timeout(800)
     assert page.get_by_role("alert").filter(has_text="invalide").count() == 1
+
+
+def test_controle_de_sante():
+    # Page appelée chaque jour par GitHub pour garder la base active et détecter une panne
+    r = requests.get(APP + "/api/sante")
+    assert r.status_code == 200 and r.json() == {"ok": True}
+    assert "no-store" in r.headers.get("cache-control", "")
+    requests.post(DB + "/__down")
+    try:
+        r = requests.get(APP + "/api/sante", timeout=30)
+        assert r.status_code == 503 and r.json() == {"ok": False}
+    finally:
+        requests.post(DB + "/__up")

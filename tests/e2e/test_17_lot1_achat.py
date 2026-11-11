@@ -90,7 +90,8 @@ def test_date_de_fin_dans_mon_compte(pw):
     dpa = datetime.date.today() + datetime.timedelta(days=140)
     seed_user("a@test.fr", MDP, prenom="A", dpa=dpa.isoformat())
     m = dpa.month - 1 + 15
-    fin = datetime.date(dpa.year + m // 12, m % 12 + 1, dpa.day)
+    # Comme l'app (Date.UTC) : un jour qui n'existe pas dans le mois d'arrivée déborde sur le mois suivant
+    fin = datetime.date(dpa.year + m // 12, m % 12 + 1, 1) + datetime.timedelta(days=dpa.day - 1)
     attendu = f"{fin.day} {MOIS[fin.month - 1]} {fin.year}"
     c = pw.new_context(viewport={"width": 390, "height": 844}, locale="fr-FR", timezone_id="Europe/Paris")
     c.add_cookies([{"name": "dadup_session", "value": session_cookie("a@test.fr"), "url": APP}])
